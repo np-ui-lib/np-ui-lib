@@ -1,0 +1,130 @@
+.np-tp-component {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.np-tp-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.np-tp-icon-lg {
+    height: 24px;
+    width: 24px;
+}
+
+.np-tp-icon-button, .np-tp-input-append {
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.np-tp-icon-button:hover {
+    background-color: lightblue;
+}
+
+.np-tp-input {
+    width: 100%;
+    border: none;
+    padding: 0px 5px;
+    height: 20px;
+}
+
+.np-tp-input-group {
+    display: flex;
+}
+
+.np-tp-overlay {
+    border: 1px solid black;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: aliceblue;
+    position: absolute;
+    padding: 5px;
+}
+
+.np-tp-button-group {
+    padding-top: 5px;
+    text-align: end;
+}
+
+.np-tp-button-group .np-tp-button {
+    margin-left: 5px;
+    display: inline-flex;
+}
+
+.np-tp-button {
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    display: block;
+    border: 1px solid black;
+}
+
+.np-tp-button:hover {
+    background-color: lightblue;
+}
+
+.np-tp-overlay-open {
+    position: relative;
+    z-index: auto;
+    border: none;
+}
+
+.ng-invalid.ng-touched .np-tp-component {
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+
+.ng-invalid.ng-touched .np-tp-input-append {
+    color: red;
+}
+
+.np-tp-select {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.np-tp-select option {
+    width: 100%;
+    height: 20px;
+    margin: 0;
+    padding: 5px 10px;
+    text-align: left;
+    list-style: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+.np-tp-select option:checked {
+    background: lightblue linear-gradient(0deg, lightblue 0%, lightblue 100%);
+    color: black;
+}
+
+.np-tp-header {
+    font-style: italic;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.np-tp-default-open {
+    max-width: 224px;
+}
+
+.np-tp-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.np-tp-overlay table {
+    border-spacing: 0px;
+}

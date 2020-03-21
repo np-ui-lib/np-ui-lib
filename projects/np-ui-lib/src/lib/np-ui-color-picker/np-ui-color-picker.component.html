@@ -1,0 +1,51 @@
+<div class="np-cp-component" [ngClass]="{'np-cp-default-open': defaultOpen, 'np-cp-hide-input': hideColorInput}"
+    [class]="styleClass">
+    <div class="np-cp-input-group" *ngIf="!defaultOpen">
+        <input type="text" class="np-cp-input" #colorpickerinput [value]="value" [disabled]="_isDisabled"
+            (click)="_open()" (input)="_onInputChange($event)" [placeholder]="placeholder">
+        <div class="np-cp-input-selected" (click)="_toggleColorPicker()" [ngStyle]="{'background-color': _innerValue}">
+        </div>
+        <a class="np-cp-input-append" (click)="_clear()" title="Clear">
+            <svg class="np-cp-icon" viewBox="0 0 24 24">
+                <path fill="currentcolor"
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
+        </a>
+        <a class="np-cp-input-append" (click)="_toggleColorPicker()">
+            <svg class="np-cp-icon" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path fill="currentcolor"
+                    d="M20.71 5.63l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-3.12 3.12-1.93-1.91-1.41 1.41 1.42 1.42L3 16.25V21h4.75l8.92-8.92 1.42 1.42 1.41-1.41-1.92-1.92 3.12-3.12c.4-.4.4-1.03.01-1.42zM6.92 19L5 17.08l8.06-8.06 1.92 1.92L6.92 19z" />
+            </svg>
+        </a>
+    </div>
+    <div class="np-cp-overlay" *ngIf="_isOpen || defaultOpen"
+        [ngClass]="{'np-cp-overlay-open' : defaultOpen,'np-cp-disabled': _isDisabled && defaultOpen}">
+        <div class="np-cp-selected-block">
+            <div class="np-cp-selected-div" [ngStyle]="{'background-color': _innerValue}"></div>
+            <div class="np-cp-selected-text">
+                <div><span>HEX:</span> {{_innerValue}}</div>
+                <div><span>RGB:</span> {{_currentHexToRGB()}}</div>
+            </div>
+        </div>
+        <div class="np-cp-canvas">
+            <canvas class="np-cp-canvas-block" width="170" height="170" (click)="_clickBlockColor($event)"
+                (mousemove)="_onMouseOverBlock($event)" (mouseleave)="_onMouseLeaveBlock($event)"></canvas>
+            <canvas class="np-cp-canvas-strip" width="25" height="170" (click)="_clickStripeColor($event)"
+                (mousemove)="_onMouseOverStrip($event)" (mouseleave)="_onMouseLeaveStrip($event)"></canvas>
+        </div>
+        <div class="np-cp-color-list">
+            <div class="np-cp-color-block" *ngFor="let color of _colors" [style.background-color]="color"
+                (click)="_onClickColorBlock(color)">
+            </div>
+        </div>
+        <div class="np-cp-button-group">
+            <a class="np-cp-button" title="Clear" (click)="_clear()">Clear</a>
+            <a *ngIf="!defaultOpen" class="np-cp-button" title="Ok" (click)="_close()">Ok</a>
+        </div>
+    </div>
+</div>
+<div class="np-cp-current-color" *ngIf="_isShowCursorDiv"
+    [ngStyle]="{'background-color': _currentCursorColor, 'position': 'absolute', 'left': _x , 'top': _y}">
+</div>

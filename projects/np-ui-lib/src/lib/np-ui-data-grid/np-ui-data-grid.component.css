@@ -1,0 +1,370 @@
+.np-dg-component {
+    border: 1px solid black;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.np-dg-title {
+    height: 26px;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3px 5px;
+}
+
+.np-dg-toolbar {
+    height: 39px;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3px 5px;
+}
+
+.np-dg-toolbar-item {
+    margin: 2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.np-dg-icon-btn-lg {
+    box-sizing: border-box;
+    border: 1px solid black;
+    height: 28px;
+    width: 28px;
+    padding: 1px;
+    cursor: pointer;
+    user-select: none;
+    display: block;
+}
+
+.np-dg-icon-btn {
+    box-sizing: border-box;
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+    padding: 1px;
+    cursor: pointer;
+    user-select: none;
+    display: block;
+}
+
+.np-dg-icon-lg {
+    height: 24px;
+    width: 24px;
+}
+
+.np-dg-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.np-dg-col-chooser {
+    max-height: 300px;
+    width: 250px;
+    display: none;
+    border: 1px solid black;
+    box-sizing: border-box;
+    position: absolute;
+    padding: 5px;
+    z-index: 2;
+    overflow: auto;
+}
+
+.np-dg-col-chooser-open {
+    display: block;
+}
+
+.np-dg-col-chooser-actions {
+    width: 100%;
+    height: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.np-dg-col-chooser-actions .np-dg-icon-btn {
+    margin: 2px;
+}
+
+.np-dg-container .np-dg-icon-btn:hover {
+    background-color: transparent !important;
+}
+
+.np-dg-columns-item.cdk-drag-disabled .np-dg-col-drag-handle {
+    display: none;
+}
+
+.np-dg-state-manager-item {
+    margin: 0px 2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.np-dg-columns {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    box-sizing: border-box;
+    border-bottom: none;
+}
+
+.np-dg-columns-item {
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+    height: 25px;
+    padding: 2px;
+}
+
+.np-dg-col-drag-placeholder {
+    background-color: lightgoldenrodyellow;
+    height: 25px;
+}
+
+.np-dg-col-drag-handle {
+    float: right;
+    padding: 2px;
+    cursor: move;
+}
+
+.np-dg-columns-item.cdk-drag-preview {
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.np-dg-cursor-pointer {
+    cursor: pointer;
+}
+
+.np-dg-container {
+    overflow-x: auto;
+}
+
+.np-dg-table-header table, .np-dg-table-body table {
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0px;
+    width: 100%;
+}
+
+.np-dg-table-header th {
+    text-align: left;
+    vertical-align: middle;
+    padding: 0px 0px 0px 5px;
+    margin: 0px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+.np-dg-table-body th {
+    text-align: left;
+    vertical-align: middle;
+    padding: 3px 5px;
+    margin: 0px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+
+.np-dg-filter-operator {
+    margin-bottom: 3px;
+}
+
+.np-dg-table-body td {
+    padding: 0px 5px;
+    margin: 0px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+    line-height: 24px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.np-dg-table-header th:last-child, .np-dg-table-body th:last-child, .np-dg-table-body td:last-child {
+    border-right: none;
+}
+
+.np-dg-table-body tr:last-child td {
+    border-bottom: none;
+}
+
+.np-dg-table-header .np-dg-icon-btn, .np-dg-table-body .np-dg-icon-btn {
+    border: none;
+}
+
+.np-dg-pagination {
+    height: 39px;
+    border-top: 1px solid black;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3px 5px;
+}
+
+.np-dg-pagination-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 2px;
+}
+
+.np-dg-control {
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 2px;
+    height: 28px;
+}
+
+.np-dg-state-manager .np-dg-control {
+    max-width: 150px;
+}
+
+.np-dg-pagination .np-dg-control {
+    width: 100px;
+}
+
+.np-dg-table-body thead .np-dg-control {
+    width: 100%;
+}
+
+.np-dg-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.np-dg-col-resize-handle {
+    width: 7px;
+    height: 25px;
+    cursor: col-resize;
+}
+
+.np-dg-col-resize-handle:hover {
+    background-color: lightgoldenrodyellow;
+}
+
+.np-dg-col-resize-handle.cdk-drag-dragging {
+    background-color: lightgoldenrodyellow;
+}
+
+.np-dg-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-color: #00000066;
+    z-index: 3;
+}
+
+.np-dg-loader {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    border: 8px solid #ffffff;
+    border-radius: 50%;
+    border-top: 8px solid lightblue;
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    z-index: 4;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.np-dg-sticky-header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.np-dg-sticky-left {
+    position: sticky;
+    left: 0px;
+}
+
+.np-dg-sticky-right {
+    position: sticky;
+    right: 0px;
+    border-left: 1px solid black;
+    box-sizing: border-box;
+}
+
+.np-dg-table-summary {
+    border-top: 1px solid black;
+    box-sizing: border-box;
+    padding: 3px 5px;
+}
+
+.np-dg-table-footer {
+    position: sticky;
+    left: 0px;
+    bottom: 0px;
+}
+
+.np-dg-child-row td {
+    padding: 5px 10px;
+}
+
+.np-dg-no-data-message {
+    padding: 0px 5px;
+    text-align: center;
+}
+
+.np-dg-checkbox {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    vertical-align: middle;
+}
+
+.np-dg-sort-enable {
+    display: none;
+}
+
+.np-dg-table-header th:hover .np-dg-sort-enable {
+    display: block;
+}
+
+.np-dg-background, .np-dg-header-row th, .np-dg-body-row:hover td, .np-dg-control, .np-dg-columns-item {
+    background-color: aliceblue;
+}
+
+.np-dg-row-selected td, .np-dg-row-selected:hover td {
+    background-color: lightblue;
+}
+
+.np-dg-child-row td {
+    background-color: lightgoldenrodyellow;
+}
+
+.np-dg-icon-btn-lg:hover, .np-dg-icon-btn:hover {
+    background-color: lightblue;
+}
+
+.np-dg-search-columns {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.float-right {
+    float: right;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.txt-right {
+    text-align: right;
+}

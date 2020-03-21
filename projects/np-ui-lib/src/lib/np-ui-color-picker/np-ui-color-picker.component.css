@@ -1,0 +1,152 @@
+.np-cp-component {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.np-cp-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.np-cp-icon-lg {
+    height: 24px;
+    width: 24px;
+}
+
+.np-cp-input-group {
+    display: flex;
+}
+
+.np-cp-input {
+    width: 100%;
+    border: none;
+    padding: 0px 5px;
+    height: 20px;
+}
+
+.np-cp-overlay {
+    border: 1px solid black;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: aliceblue;
+    position: absolute;
+    padding: 5px;
+}
+
+.np-cp-icon-button, .np-cp-input-append {
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.np-cp-button-group {
+    padding-top: 5px;
+    text-align: end;
+}
+
+.np-cp-button-group .np-cp-button {
+    margin-left: 5px;
+    display: inline-flex;
+}
+
+.np-cp-button {
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    display: block;
+    border: 1px solid black;
+}
+
+.np-cp-button:hover {
+    background-color: lightblue;
+}
+
+.np-cp-overlay-open {
+    position: relative;
+    z-index: auto;
+    border: none;
+}
+
+.ng-invalid.ng-touched .np-cp-component {
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+
+.ng-invalid.ng-touched .np-cp-input-append {
+    color: red;
+}
+
+.np-cp-input-selected {
+    width: 20px;
+    cursor: pointer;
+}
+
+.np-cp-canvas-strip:hover, .np-cp-canvas-block:hover {
+    cursor: crosshair;
+}
+
+.np-cp-color-block {
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.np-cp-color-list {
+    width: 200px;
+}
+
+.np-cp-current-color {
+    height: 25px;
+    width: 25px;
+    z-index: 2;
+}
+
+.np-cp-canvas-block {
+    margin-right: 5px;
+}
+
+.np-cp-hide-input {
+    width: 62px;
+}
+
+.np-cp-hide-input .np-cp-input {
+    display: none;
+}
+
+.np-cp-selected-block {
+    display: flex;
+}
+
+.np-cp-selected-text {
+    padding-bottom: 5px;
+}
+
+.np-cp-selected-text span {
+    font-style: italic;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.np-cp-selected-div {
+    height: 35px;
+    width: 35px;
+    margin-right: 5px;
+}
+
+.np-cp-default-open {
+    max-width: 212px;
+}
+
+.np-cp-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

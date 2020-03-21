@@ -1,0 +1,171 @@
+.np-dp-component {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.np-dp-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.np-dp-icon-lg {
+    height: 24px;
+    width: 24px;
+}
+
+.np-dp-icon-button, .np-dp-input-append {
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.np-dp-icon-button:hover {
+    background-color: lightblue;
+}
+
+.np-dp-button-group {
+    padding-top: 5px;
+    text-align: end;
+}
+
+.np-dp-button-group .np-dp-button {
+    margin-left: 5px;
+    display: inline-flex;
+}
+
+.np-dp-button {
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    display: block;
+    border: 1px solid black;
+}
+
+.np-dp-button:hover {
+    background-color: lightblue;
+}
+
+.np-dp-input {
+    width: 100%;
+    border: none;
+    padding: 0px 5px;
+    height: 20px;
+}
+
+.np-dp-input-group {
+    display: flex;
+}
+
+.ng-invalid.ng-touched .np-dp-component {
+    border: 1px solid red !important;
+    box-sizing: border-box;
+}
+
+.ng-invalid.ng-touched .np-dp-input-append {
+    color: red;
+}
+
+.np-dp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.np-dp-tooltip-overlay {
+    display: none;
+}
+
+.np-dp-tooltip-target {
+    text-decoration: underline;
+}
+
+.np-dp-dates-items:hover .np-dp-tooltip-overlay {
+    display: block;
+    position: absolute;
+    padding: 5px;
+    border: 1px solid black;
+    z-index: 2;
+    background-color: white;
+}
+
+.np-dp-weekdays {
+    width: 210px;
+}
+
+.np-dp-weekdays-items {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    line-height: 30px;
+    user-select: none;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.np-dp-dates {
+    width: 210px;
+}
+
+.np-dp-dates-items {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    line-height: 30px;
+    user-select: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.np-dp-dates-items:hover {
+    background-color: lightblue;
+}
+
+.np-dp-today {
+    background-color: lightgoldenrodyellow;
+}
+
+.np-dp-selected {
+    background-color: lightblue;
+}
+
+.np-dp-overlay {
+    border: 1px solid black;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: aliceblue;
+    position: absolute;
+    padding: 5px;
+}
+
+.np-dp-top-overlay {
+    bottom: 20px;
+}
+
+.np-dp-overlay-open {
+    position: relative !important;
+    z-index: auto;
+    border: none;
+}
+
+.np-dp-select {
+    width: 100%;
+}
+
+.np-dp-default-open {
+    max-width: 222px;
+}
+
+.np-dp-disabled, .np-dp-date-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

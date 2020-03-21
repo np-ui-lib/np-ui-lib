@@ -1,0 +1,120 @@
+<div class="np-tp-component" [ngClass]="{'np-tp-default-open': defaultOpen}" [class]="styleClass">
+    <div class="np-tp-input-group" *ngIf="!defaultOpen">
+        <input #timepickerinput type="text" class="np-tp-input" [placeholder]="placeholder" [disabled]="_isDisabled"
+            [value]="value" (click)="_open()" [readonly]="true">
+        <a class="np-tp-input-append" (click)="_clear()" title="Clear">
+            <svg class="np-tp-icon" viewBox="0 0 24 24">
+                <path fill="currentcolor"
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
+        </a>
+        <a class="np-tp-input-append" (click)="_toggleTimePicker()">
+            <svg class="np-tp-icon" viewBox="0 0 24 24">
+                <path fill="currentcolor"
+                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path fill="currentcolor" d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+            </svg>
+        </a>
+    </div>
+    <div class="np-tp-overlay" *ngIf="_isOpen || defaultOpen"
+        [ngClass]="{'np-tp-overlay-open' : defaultOpen,'np-tp-disabled': _isDisabled && defaultOpen}">
+        <table>
+            <tbody>
+                <tr>
+                    <td><span class="np-tp-header">Hour</span></td>
+                    <td><span class="np-tp-header">Minute</span></td>
+                    <td *ngIf="hideSeconds == false"><span class="np-tp-header">Second</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="np-tp-icon-button" (click)="_minusHour()">
+                            <svg class="np-tp-icon-lg" viewBox="0 0 24 24">
+                                <path fill="currentcolor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                            </svg>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="np-tp-icon-button" (click)="_minusMinute()">
+                            <svg class="np-tp-icon-lg" viewBox="0 0 24 24">
+                                <path fill="currentcolor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                            </svg>
+                        </a>
+                    </td>
+                    <td *ngIf="hideSeconds == false">
+                        <a class="np-tp-icon-button" (click)="_minusSecond()">
+                            <svg class="np-tp-icon-lg" viewBox="0 0 24 24">
+                                <path fill="currentcolor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select class="np-tp-select" title="Hour" (change)="_changeTime($event, 'hour')" size="4">
+                            <option *ngFor="let hour of _hours" [value]="hour" [selected]="hour == _selectedHour">
+                                {{hour}}
+                            </option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="np-tp-select" title="Minute" (change)="_changeTime($event, 'minute')" size="4">
+                            <option *ngFor="let minute of _minutes" [value]="minute"
+                                [selected]="minute == _selectedMinute">{{minute}}
+                            </option>
+                        </select>
+                    </td>
+                    <td *ngIf="hideSeconds == false">
+                        <select class="np-tp-select" title="Second" (change)="_changeTime($event, 'second')" size="4">
+                            <option *ngFor="let second of _seconds" [value]="second"
+                                [selected]="second == _selectedSecond">{{second}}
+                            </option>
+                        </select>
+                    </td>
+                    <td *ngIf="is24Hours == false">
+                        <select class="np-tp-select" (change)="_changeTime($event, 'AMPM')" size="2">
+                            <option value="AM" [selected]="'AM' == _selectedAMPM">AM</option>
+                            <option value="PM" [selected]="'PM' == _selectedAMPM">PM</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="np-tp-icon-button" (click)="_addHour()">
+                            <svg class="np-tp-icon-lg" viewBox="0 0 24 24">
+                                <path fill="currentcolor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+                                <path fill="none" d="M0 0h24v24H0V0z" />
+                            </svg>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="np-tp-icon-button" (click)="_addMinute()">
+                            <svg class="np-tp-icon-lg" viewBox="0 0 24 24">
+                                <path fill="currentcolor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+                                <path fill="none" d="M0 0h24v24H0V0z" />
+                            </svg>
+                        </a>
+                    </td>
+                    <td *ngIf="hideSeconds == false">
+                        <a class="np-tp-icon-button" (click)="_addSecond()">
+                            <svg class="np-tp-icon-lg" viewBox="0 0 24 24">
+                                <path fill="currentcolor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+                                <path fill="none" d="M0 0h24v24H0V0z" />
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="np-tp-button-group">
+            <a *ngIf="showNowButton" class="np-tp-button" title="Now" (click)="_selectNowTime()">Now</a>
+            <a class="np-tp-button" title="Clear" (click)="_clear()">Clear</a>
+            <a *ngIf="!defaultOpen" class="np-tp-button" title="Ok" (click)="_close()">Ok</a>
+        </div>
+    </div>
+</div>
