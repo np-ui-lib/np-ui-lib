@@ -7,6 +7,11 @@ body{
     margin: 0px;
     padding: 10px 5px;
     background-color: #f1f1f1;
+    text-align: center;
+}
+
+.nav{
+    margin: 5px;
 }
 
 .nav ul {
@@ -42,13 +47,13 @@ body{
 .content{
     height: 100%;
     width: 100%;
-    padding: 5px 10px;
+    margin: 5px 5px 5px 0px;
 }
 
 .sub-header h2{
-    margin: 0px;
+    margin: 0px 0px 5px 0px;
     padding: 5px;
-    background-color: gray;
+    background-color: gainsboro;
 }
 
 .color-red{
