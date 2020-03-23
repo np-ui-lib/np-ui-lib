@@ -6,11 +6,39 @@
 </header>
 <div class="main-container">
   <div class="nav">
-    <ul>
+    <ul class="nav-menu">
       <li><a routerLink="/np-ui-date-picker-demo" routerLinkActive="active">Date Picker</a></li>
       <li><a routerLink="/np-ui-time-picker-demo" routerLinkActive="active">Time Picker</a></li>
       <li><a routerLink="/np-ui-color-picker-demo" routerLinkActive="active">Color Picker</a></li>
-      <li><a routerLink="/np-ui-data-grid-demo" routerLinkActive="active">Data Grid</a></li>
+      <li><a (click)="showSubMenu = !showSubMenu">Data
+          Grid</a>
+        <ul class="nav-sub-menu" *ngIf="showSubMenu">
+          <li><a routerLink="/np-ui-data-grid-demo/client-grid" routerLinkActive="active">1. Client Side</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/server-grid" routerLinkActive="active">2. Server Side</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/sorting-grid" routerLinkActive="active">3. Sorting</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/filter-grid" routerLinkActive="active">4. Filters</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/celltemplate-grid" routerLinkActive="active">5. Cell Templates</a>
+          </li>
+          <li><a routerLink="/np-ui-data-grid-demo/toolbar-grid" routerLinkActive="active">6. Toolbar, Column Chooser,
+              Export</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/columns-grid" routerLinkActive="active">7. Column Reorder/Resize and
+              Other</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/row-select-grid" routerLinkActive="active">8. Row Selection</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/master-detail-grid" routerLinkActive="active">9. Master-Detail</a>
+          </li>
+          <li><a routerLink="/np-ui-data-grid-demo/summary-grid" routerLinkActive="active">10. Summary</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/state-management-grid" routerLinkActive="active">11. State
+              Management</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/other-grid" routerLinkActive="active">12. Other</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/odata-grid" routerLinkActive="active">13. OData Server Side</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/layout-grid" routerLinkActive="active">14. Layout Design</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/inside-tab-grid" routerLinkActive="active">15. Inside tab</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/client-grid-all" routerLinkActive="active">16. Client Side Grid
+              Full</a></li>
+          <li><a routerLink="/np-ui-data-grid-demo/server-grid-all" routerLinkActive="active">17. Server Side Grid
+              Full</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
   <div class="content">

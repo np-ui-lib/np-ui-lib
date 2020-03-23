@@ -1,0 +1,44 @@
+<h2>
+    <a class="github-link" title="Go to github repository" target="_blank"
+        href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/server-grid-all">
+        Server side grid full example
+    </a>
+</h2>
+
+<np-ui-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiRowSelectEnable]="true"
+    [title]="'Server side data grid'" [showColumnChooser]="true" [showToolBar]="true" [allowExportToCSV]="true"
+    [enableStateStoring]="true" [showFilters]="showFilters" [showSummary]="true" [summaryTemplate]="summaryTemplate"
+    (onInit)="onInit()" (onAfterInit)="onAfterInit()" [allowColumnReorder]="true" [allowColumnResize]="true"
+    [isServerOperations]="true" [pageSize]=20 (onLoadData)="onLoadData($event)">
+</np-ui-data-grid>
+
+<!-- Template for sction buttons column -->
+<ng-template #actionButtonsTemplate let-row="row">
+    <button (click)="onActionClick(row,'Edit', $event)">Edit</button>
+    <button (click)="onActionClick(row,'Delete', $event)">Delete</button>
+</ng-template>
+
+<!-- Template for birthdate column -->
+<ng-template #birthDateColumnTemplate let-row="row">
+    {{row.BirthDate | date:'dd/MM/yyyy'}}
+</ng-template>
+
+<!-- Template for summary column -->
+<ng-template #summaryTemplate let-summary="summary">
+    <span>Total:{{summary ? summary.totalCount : 0}}</span>
+</ng-template>
+
+<br>
+
+<div class="btn-group">
+    <button type="button" (click)="getSelectedRowKeys()">Get Selected Row Keys</button>
+    <button type="button" (click)="toggleFirstColumn()">Toggle 1st column</button>
+    <button type="button" (click)="changeColumns()">Change Column list</button>
+    <button type="button" (click)="showFilters = !showFilters">Toggle Filters</button>
+    <button type="button" (click)="goToPage(2)">Go to Page 2</button>
+    <button type="button" (click)="clearFilters()">Clear All Filters</button>
+    <button type="button" (click)="clearSortings()">Clear All Sorting</button>
+    <button type="button" (click)="reset()">Reset</button>
+    <button type="button" (click)="refresh()">Refresh</button>
+    <button type="button" (click)="updateFirstName()">Update FirstName For Selected Records</button>
+</div>

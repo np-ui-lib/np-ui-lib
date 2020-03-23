@@ -1,0 +1,44 @@
+<h2>
+    <a class="github-link" title="Go to github repository" target="_blank"
+        href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/celltemplate-grid">
+        Cell Template Example
+    </a>
+</h2>
+<p>To add cell template in data grid add <b>&lt;ng-template&gt;</b> in html file and get that template as
+    <b>TemplateRef&lt;any&gt; in component.</b></p>
+<p>Now set that template reference in <b>cellTemplate</b> property in column definations.</p>
+
+<p>In HTML file:</p>
+<p>
+    <code>
+        &lt;!-- Template for active column --&gt;<br>
+        &lt;ng-template #activeColumnTemplate let-row="row"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="checkbox" [checked]="row.Active" disabled&gt;<br>
+        &lt;/ng-template&gt;<br>
+    </code>
+</p>
+
+<p>In Component file:</p>
+<p>
+    <code>
+        @ViewChild("activeColumnTemplate", {{'{'}} static: true {{'}'}}) activeColumnTemplate: TemplateRef&lt;any&gt;;
+    </code>
+</p>
+<np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource">
+</np-ui-data-grid>
+
+<!-- Template for action buttons column -->
+<ng-template #actionButtonsTemplate let-row="row">
+    <button (click)="onActionClick(row,'Edit', $event)">Edit</button>
+    <button (click)="onActionClick(row,'Delete', $event)">Delete</button>
+</ng-template>
+
+<!-- Template for birthdate column -->
+<ng-template #birthDateColumnTemplate let-row="row">
+    {{row.BirthDate | date:'dd/MM/yyyy'}}
+</ng-template>
+
+<!-- Template for active column -->
+<ng-template #activeColumnTemplate let-row="row">
+    <input type="checkbox" [checked]="row.Active">
+</ng-template>

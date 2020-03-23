@@ -1,0 +1,41 @@
+<h2>
+    <a class="github-link" title="Go to github repository" target="_blank"
+        href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/other-grid">
+        Others
+    </a>
+</h2>
+
+<h4>key</h4>
+<p>To set key column in data grid, set <b>key</b> property with column's dataField value in grid defination.</p>
+<p>Example: <code>[key]="'Id'"</code></p>
+
+<h4>height</h4>
+<p>To set height of data grid, set <b>height</b> property in grid defination.</p>
+<p>Example: <code>[height]="500"</code>. No need to pass "px" as this value will be considered in pixels only.</p>
+
+<h4>width</h4>
+<p>To set width of data grid, set <b>width</b> property in grid defination.</p>
+<p>Example: <code>[width]="1000"</code>. No need to pass "px" as this value will be considered in pixels only.</p>
+
+<h4>stickyHeader</h4>
+<p>To set sticky headers in data grid set <b>stickyHeader</b> to true.</p>
+
+<h4>tableId</h4>
+<p>To set html id attribute to table, set <b>tableId</b> in grid defination.</p>
+<p>Example <code>[tableId]="'tblEmployees'"</code></p>
+
+<h4>title</h4>
+<p>To show title message on grid, set <b>title</b> property in grid defination.</p>
+<p>Example <code>[title]="'All Employees in company.'"</code></p>
+<p>Default message is "No Data Found."</p>
+
+<h4>noDataMessage</h4>
+<p>To show message when no records found, set <b>noDataMessage</b> property in grid defination.</p>
+<p>Example <code>[noDataMessage]="'No Employee found.'"</code></p>
+
+<h4>pageSize</h4>
+<p>To set default pagesize for data grid, set <b>pageSize</b> property.</p>
+
+<np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [key]="'Id'" [height]="500" [width]="1000"
+    [stickyHeader]="true" [tableId]="'tblEmployees'" [pageSize]=5>
+</np-ui-data-grid>

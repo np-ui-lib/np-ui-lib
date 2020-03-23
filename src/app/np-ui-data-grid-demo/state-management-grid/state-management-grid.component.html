@@ -1,0 +1,28 @@
+<h2>
+    <a class="github-link" title="Go to github repository" target="_blank"
+        href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/state-management-grid">
+        State management Example
+    </a>
+</h2>
+<p>To set state management enable in data grid, set <b>showToolBar</b> to "true" and <b>enableStateStoring</b> to
+    "true".</p>
+
+<h4>APIs for state management</h4>
+<p>To get all state use <b>getAllState()</b>. Which will return array of <b>State</b> object.</p>
+<p>To set state list use <b>setAllState(states: State[])</b>. pass array of <b>State</b> object to set them in dropdown.
+</p>
+<p><b>State</b> class contains below properties:</p>
+<ul>
+    <li><b>name</b>: string</li>
+    <li><b>columns</b>: Column[]</li>
+</ul>
+
+<h4>Methods for state managemenet</h4>
+<p><b>onStatesUpdate()</b> is called on Add/Save/Delete of state for data grid.</p>
+<p>This function will be used to save states in <b>local storage</b> or <b>session storage</b> for data grid, and on
+    load time fetch states from storage and assign back to data grid using <b>setAllState</b></p>
+
+<np-ui-data-grid #stateManagementGrid [columns]="gridColumns" [dataSource]="gridDataSource" [showToolBar]="true"
+    [enableStateStoring]="true" [showToolBar]="true" [showColumnChooser]="true" (onInit)="onInitDataGrid()"
+    (onStatesUpdate)="onStatesUpdate()">
+</np-ui-data-grid>

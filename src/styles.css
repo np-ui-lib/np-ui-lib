@@ -12,13 +12,16 @@ body{
 
 .nav{
     margin: 5px;
+    width: 250px;
+    overflow-x: hidden;
+
 }
 
-.nav ul {
+.nav .nav-menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 240px;
     background-color: #f1f1f1;
     height: 100%;
 }
@@ -38,6 +41,19 @@ body{
 .nav li a:hover:not(.active) {
     background-color: #555;
     color: white;
+}
+
+.nav-sub-menu{
+    margin: 0px 0px 0px 20px;
+    list-style-type: none;
+    padding: 0px;
+    width: 250px;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+.nav-sub-menu li a{
+    width: 174px;
 }
 
 .main-container {

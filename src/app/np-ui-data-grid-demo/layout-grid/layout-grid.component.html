@@ -1,0 +1,39 @@
+<h2 style="margin: 5px 0px;">Layout Design
+    <a class="github-link" title="Go to github repository" target="_blank"
+        href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/layout-grid">
+        <img height="30px" width="30px" src="../assets/images/github.svg">
+    </a>
+</h2>
+
+<np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [multiColumnSortEnable]=true
+    [masterDetailTemplate]="masterChildTemplate" [height]="600" [width]="1000" [stickyHeader]="true"
+    [enableStateStoring]="true" [multiRowSelectEnable]="true" [tableId]="'tblClientSide'" [showColumnChooser]="true"
+    [showToolBar]="true" [allowExportToCSV]="true" [title]="'Client side data grid'"
+    [noDataMessage]="'No data available.'" [showSummary]="true" [summaryTemplate]="summaryTemplate"
+    [allowColumnReorder]="true" [allowColumnResize]="true">
+</np-ui-data-grid>
+
+<!-- Template for action buttons column -->
+<ng-template #actionButtonsTemplate let-row="row">
+    <button (click)="onActionClick(row,'Edit', $event)">Edit</button>
+    <button (click)="onActionClick(row,'Delete', $event)">Delete</button>
+</ng-template>
+
+<!-- Template for birthdate column -->
+<ng-template #birthDateColumnTemplate let-row="row">
+    {{row.BirthDate | date:'dd/MM/yyyy'}}
+</ng-template>
+
+<!-- Template for child section -->
+<ng-template #masterChildTemplate let-row="row">
+    <span><b>Name:</b>{{row.FirstName}} {{row.LastName}}</span>
+    <br>
+    <span><b>Age:</b>{{row.Age}} years</span>
+    <br>
+    <span><b>Birth Date:</b>{{row.BirthDate | date:'dd/MM/yyyy'}}</span>
+</ng-template>
+
+<!-- Template for summary section -->
+<ng-template #summaryTemplate let-summary="summary">
+    <span>Total:{{summary ? summary.totalCount : 0}}</span>
+</ng-template>

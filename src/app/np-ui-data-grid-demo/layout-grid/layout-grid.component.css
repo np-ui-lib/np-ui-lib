@@ -1,0 +1,25 @@
+/* To change data grid layout */
+
+.color-red {
+    color: #ff0000;
+}
+
+.np-dg-background, .np-dg-header-row th, .np-dg-control, .np-dg-columns-item {
+    background-color: #80cbc4 !important;
+}
+
+.np-dg-icon-btn-lg:hover, .np-dg-icon-btn:hover {
+    background-color: #80cbc4 !important;
+}
+
+.np-dg-body-row:hover td {
+    background-color: #e0f2f1 !important;
+}
+
+.np-dg-row-selected td, .np-dg-row-selected:hover td {
+    background-color: #b2dfdb !important;
+}
+
+.np-dg-child-row td {
+    background-color: #f0fffe !important;
+}

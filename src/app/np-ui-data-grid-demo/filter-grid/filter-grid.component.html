@@ -1,0 +1,33 @@
+<h2>
+    <a class="github-link" title="Go to github repository" target="_blank"
+        href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/filter-grid">
+        Filters Example
+    </a>
+</h2>
+<p>To add filters in data grid set <b>filterEnable</b> to "true" in column definations.</p>
+<p>To toggle filters, set <b>showFilters</b> to "true" or "false" in grid defination.
+    <input type="checkbox" (change)="showFilters = $event.target.checked" checked="checked">Show filters
+</p>
+<p>Default value for <b>showFilters</b> is "true".</p>
+
+<h4>Reset filters</h4>
+<p>To reset filters, "Reset" option is given in filter operator's dropdown. It will be enabled when any filter operator
+    is selected.</p>
+<p>On selecting "Reset" filter will be removed from that column.</p>
+
+<h2>Client Side Filering:</h2>
+<p>In Client side data grid all filter oprations will be done on client side.</p>
+<np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [showFilters]="showFilters">
+</np-ui-data-grid>
+
+<h2>Server Side Filering:</h2>
+<p> In Server side data grid <b>filterColumns</b> will be passed to <b>onLoadData(options:LoadOptions)</b>.
+    Which will contains array of all filter columns as <q>{{ '{' }} column : string,
+        filterOperator: string, filterValue: string, dataType: string {{'}'}}</q>
+</p>
+<p>Possible values for <b>filterOperator</b> are startswith, endswith, contains, gt, lt, ge, le, eq, ne.</p>
+<p>Possible values for <b>dataType</b> are number, string, date, boolean.</p>
+<p>options:<code>{{currentLoadOptions | json}}</code></p>
+<np-ui-data-grid [columns]="gridColumns" [dataSource]="serverGridDataSource" [isServerOperations]="true"
+    (onLoadData)="onLoadDataServerGrid($event)" [showFilters]="showFilters">
+</np-ui-data-grid>
