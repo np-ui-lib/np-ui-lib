@@ -75,3 +75,7 @@ body{
 .color-red{
     color: red;
 }
+
+.myClass {
+    border: 1px solid blue !important;
+}

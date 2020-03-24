@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-ui-data-grid-demo/np-ui-data-grid-demo.module').then(m => m.NpUiDataGridDemoModule)
   },
   {
+    path: 'np-ui-switch-demo',
+    loadChildren: () => import('./np-ui-switch-demo/np-ui-switch-demo.module').then(m => m.NpUiSwitchDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'np-ui-date-picker-demo',
     pathMatch: 'full'

@@ -1,0 +1,31 @@
+.np-sw-component{
+    width: 100px;
+    display: flex;
+    user-select: none;
+    border: 1px solid black;
+}
+
+.np-sw-left-item,.np-sw-right-item{
+    cursor: pointer;
+    width: 50%;
+    text-align: center;
+    user-select: none;
+    background-color: aliceblue;
+}
+
+.np-sw-left-item.np-sw-active{
+    background-color: lightcoral;
+}
+
+.np-sw-right-item.np-sw-active{
+    background-color: lightgreen;
+}
+
+.np-sw-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.ng-invalid .np-sw-component{
+    border: 1px solid red;
+}

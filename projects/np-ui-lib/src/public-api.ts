@@ -18,3 +18,7 @@ export * from './lib/np-ui-date-picker/np-ui-date-picker.module';
 /**Time Picker */
 export * from './lib/np-ui-time-picker/np-ui-time-picker.component';
 export * from './lib/np-ui-time-picker/np-ui-time-picker.module';
+
+/**Switch */
+export * from './lib/np-ui-switch/np-ui-switch.component';
+export * from './lib/np-ui-switch/np-ui-switch.module';
