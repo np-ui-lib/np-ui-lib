@@ -5,3 +5,4 @@
 - Date Picker
 - Time Picker
 - Color Picker
+- Switch
