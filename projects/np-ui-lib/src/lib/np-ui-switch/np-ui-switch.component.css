@@ -3,6 +3,8 @@
     display: flex;
     user-select: none;
     border: 1px solid black;
+    box-sizing: border-box;
+    height: 28px;
 }
 
 .np-sw-left-item,.np-sw-right-item{
@@ -11,6 +13,11 @@
     text-align: center;
     user-select: none;
     background-color: aliceblue;
+    line-height: 26px;
+}
+
+.np-sw-left-item:hover,.np-sw-right-item:hover{
+    background-color: lightblue;
 }
 
 .np-sw-left-item.np-sw-active{

@@ -33,11 +33,17 @@
 
 <div>
     <fieldset>
-        <legend>4. Set display text value</legend>
+        <legend>4.1 Set display text value</legend>
         <np-ui-switch [(ngModel)]="switch41" [falseLabelText]="'No'" [trueLabelText]="'Yes'"></np-ui-switch>
         <div>Selected Value : {{switch41}}</div>
+    </fieldset>
+</div>
 
-        <np-ui-switch [(ngModel)]="switch42" [falseLabelText]="'Wrong'" [trueLabelText]="'Right'"></np-ui-switch>
+<div>
+    <fieldset>
+        <legend>4.2 Set display text as HTML</legend>
+        <np-ui-switch [(ngModel)]="switch42" [falseLabelText]="'<a>Wrong</a>'" [trueLabelText]="'<a>Right</a>'">
+        </np-ui-switch>
         <div>Selected Value : {{switch42}}</div>
     </fieldset>
 </div>

@@ -1,9 +1,9 @@
 .np-tp-component {
     position: relative;
     width: 100%;
-    height: 100%;
     border: 1px solid black;
     box-sizing: border-box;
+    height: 28px;
 }
 
 .np-tp-icon {
@@ -33,11 +33,11 @@
     width: 100%;
     border: none;
     padding: 0px 5px;
-    height: 20px;
 }
 
 .np-tp-input-group {
     display: flex;
+    height: 100%;
 }
 
 .np-tp-overlay {
@@ -47,6 +47,7 @@
     background-color: aliceblue;
     position: absolute;
     padding: 5px;
+    margin-top: 1px;
 }
 
 .np-tp-button-group {
@@ -118,6 +119,7 @@
 
 .np-tp-default-open {
     max-width: 224px;
+    height: 100%;
 }
 
 .np-tp-disabled {
