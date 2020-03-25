@@ -79,3 +79,16 @@ body{
 .myClass {
     border: 1px solid blue !important;
 }
+
+.grid-container{
+    height: 400px;
+    width: 800px;
+    overflow: auto;
+    border: 1px solid red;
+}
+
+.demo-icon{
+    height: 16px;
+    width: 16px;
+    fill: currentColor;
+}

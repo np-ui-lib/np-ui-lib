@@ -1,5 +1,4 @@
 .np-cp-component {
-    position: relative;
     width: 100%;    
     border: 1px solid black;
     box-sizing: border-box;
@@ -9,11 +8,13 @@
 .np-cp-icon {
     height: 16px;
     width: 16px;
+    fill: currentColor;
 }
 
 .np-cp-icon-lg {
     height: 24px;
     width: 24px;
+    fill: currentColor;
 }
 
 .np-cp-input-group {

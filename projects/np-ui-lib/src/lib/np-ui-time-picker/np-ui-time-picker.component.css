@@ -1,5 +1,4 @@
 .np-tp-component {
-    position: relative;
     width: 100%;
     border: 1px solid black;
     box-sizing: border-box;
@@ -9,11 +8,13 @@
 .np-tp-icon {
     height: 16px;
     width: 16px;
+    fill: currentColor;
 }
 
 .np-tp-icon-lg {
     height: 24px;
     width: 24px;
+    fill: currentColor;
 }
 
 .np-tp-icon-button, .np-tp-input-append {

@@ -51,11 +51,13 @@
 .np-dg-icon-lg {
     height: 24px;
     width: 24px;
+    fill: currentColor;
 }
 
 .np-dg-icon {
     height: 16px;
     width: 16px;
+    fill: currentColor;
 }
 
 .np-dg-col-chooser {
@@ -367,4 +369,12 @@
 
 .txt-right {
     text-align: right;
+}
+
+.np-dg-component .np-dp-input{
+    background-color: aliceblue;
+}
+
+.np-dg-component .np-dp-button-group{
+    display: none;
 }
