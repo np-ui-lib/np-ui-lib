@@ -32,7 +32,7 @@
     border: 1px solid black;
     box-sizing: border-box;
     z-index: 1;
-    background-color: aliceblue;
+    background-color: #f0f8ff;
     position: absolute;
     padding: 5px;
     margin-top: 1px;
@@ -67,7 +67,7 @@
 }
 
 .np-cp-button:hover {
-    background-color: lightblue;
+    background-color: #add8e6;
 }
 
 .np-cp-overlay-open {
@@ -77,12 +77,12 @@
 }
 
 .ng-invalid.ng-touched .np-cp-component {
-    border: 1px solid red;
+    border: 1px solid #ff0000;
     box-sizing: border-box;
 }
 
 .ng-invalid.ng-touched .np-cp-input-append {
-    color: red;
+    color: #ff0000;
 }
 
 .np-cp-input-selected {

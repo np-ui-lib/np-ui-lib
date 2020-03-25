@@ -1,6 +1,6 @@
 .np-dp-component {
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
 }
@@ -27,7 +27,7 @@
 }
 
 .np-dp-icon-button:hover {
-    background-color: lightblue;
+    background-color: #add8e6;
 }
 
 .np-dp-button-group {
@@ -46,11 +46,11 @@
     cursor: pointer;
     user-select: none;
     display: block;
-    border: 1px solid black;
+    border: 1px solid #000000;
 }
 
 .np-dp-button:hover {
-    background-color: lightblue;
+    background-color: #add8e6;
 }
 
 .np-dp-input {
@@ -65,12 +65,12 @@
 }
 
 .ng-invalid.ng-touched .np-dp-component {
-    border: 1px solid red !important;
+    border: 1px solid #ff0000 !important;
     box-sizing: border-box;
 }
 
 .ng-invalid.ng-touched .np-dp-input-append {
-    color: red;
+    color: #ff0000;
 }
 
 .np-dp-header {
@@ -92,9 +92,9 @@
     display: block;
     position: absolute;
     padding: 5px;
-    border: 1px solid black;
+    border: 1px solid #000000;
     z-index: 2;
-    background-color: white;
+    background-color: #ffffff;
 }
 
 .np-dp-weekdays {
@@ -128,22 +128,22 @@
 }
 
 .np-dp-dates-items:hover {
-    background-color: lightblue;
+    background-color: #add8e6;
 }
 
 .np-dp-today {
-    background-color: lightgoldenrodyellow;
+    background-color: #fafad2;
 }
 
 .np-dp-selected {
-    background-color: lightblue;
+    background-color: #add8e6;
 }
 
 .np-dp-overlay {
-    border: 1px solid black;
+    border: 1px solid #000000;
     box-sizing: border-box;
     z-index: 1;
-    background-color: aliceblue;
+    background-color: #f0f8ff;
     position: absolute;
     padding: 5px;
     margin-top: 1px;

@@ -1,6 +1,6 @@
 .np-tp-component {
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
 }
@@ -27,7 +27,7 @@
 }
 
 .np-tp-icon-button:hover {
-    background-color: lightblue;
+    background-color: #add8e6;
 }
 
 .np-tp-input {
@@ -42,10 +42,10 @@
 }
 
 .np-tp-overlay {
-    border: 1px solid black;
+    border: 1px solid #000000;
     box-sizing: border-box;
     z-index: 1;
-    background-color: aliceblue;
+    background-color: #f0f8ff;
     position: absolute;
     padding: 5px;
     margin-top: 1px;
@@ -67,11 +67,11 @@
     cursor: pointer;
     user-select: none;
     display: block;
-    border: 1px solid black;
+    border: 1px solid #000000;
 }
 
 .np-tp-button:hover {
-    background-color: lightblue;
+    background-color: #add8e6;
 }
 
 .np-tp-overlay-open {
@@ -81,12 +81,12 @@
 }
 
 .ng-invalid.ng-touched .np-tp-component {
-    border: 1px solid red;
+    border: 1px solid #ff0000;
     box-sizing: border-box;
 }
 
 .ng-invalid.ng-touched .np-tp-input-append {
-    color: red;
+    color: #ff0000;
 }
 
 .np-tp-select {
@@ -106,8 +106,8 @@
 }
 
 .np-tp-select option:checked {
-    background: lightblue linear-gradient(0deg, lightblue 0%, lightblue 100%);
-    color: black;
+    background: #add8e6 linear-gradient(0deg, #add8e6 0%, #add8e6 100%);
+    color: #000000;
 }
 
 .np-tp-header {

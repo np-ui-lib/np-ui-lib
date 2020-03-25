@@ -6,6 +6,7 @@
 - Time Picker
 - Color Picker
 - Switch  
+- Notification
   
 ## [Check all demo here](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)  
   

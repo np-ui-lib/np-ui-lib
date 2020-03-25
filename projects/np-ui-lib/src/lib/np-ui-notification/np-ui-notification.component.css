@@ -1,0 +1,51 @@
+.np-nt-component{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 350px;
+}
+
+.np-nt-icon{
+    fill: currentColor;
+    height: 16px;
+    width: 16px;
+}
+
+.np-nt-success{
+    background-color: #90ee90;
+    border: 1px solid #1adf1a;
+}
+
+.np-nt-error{
+    background-color: #f08080;
+    border: 1px solid #f52f2f;
+}
+
+.np-nt-warning{
+    background-color: #d2b48c;
+    border: 1px solid #f59e2c;
+}
+
+.np-nt-info{
+    background-color: #add8e6;
+    border: 1px solid #1b9cc7;
+}
+
+.np-nt-notification{
+    color: #000000;
+    padding: 10px;
+    margin: 5px;
+    position: relative;
+}
+
+.np-nt-close{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.np-nt-header{
+    font-weight: bold;
+}

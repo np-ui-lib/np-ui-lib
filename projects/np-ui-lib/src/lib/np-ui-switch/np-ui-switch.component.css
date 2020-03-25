@@ -2,7 +2,7 @@
     width: 100px;
     display: flex;
     user-select: none;
-    border: 1px solid black;
+    border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
 }
@@ -12,20 +12,20 @@
     width: 50%;
     text-align: center;
     user-select: none;
-    background-color: aliceblue;
+    background-color: #f0f8ff;
     line-height: 26px;
 }
 
 .np-sw-left-item:hover,.np-sw-right-item:hover{
-    background-color: lightblue;
+    background-color: #add8e6;
 }
 
 .np-sw-left-item.np-sw-active{
-    background-color: lightcoral;
+    background-color: #f08080;
 }
 
 .np-sw-right-item.np-sw-active{
-    background-color: lightgreen;
+    background-color: #90ee90;
 }
 
 .np-sw-disabled {
@@ -34,5 +34,5 @@
 }
 
 .ng-invalid .np-sw-component{
-    border: 1px solid red;
+    border: 1px solid #ff0000;
 }

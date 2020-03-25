@@ -22,3 +22,9 @@ export * from './lib/np-ui-time-picker/np-ui-time-picker.module';
 /**Switch */
 export * from './lib/np-ui-switch/np-ui-switch.component';
 export * from './lib/np-ui-switch/np-ui-switch.module';
+
+/**Notifications */
+export * from './lib/np-ui-notification/np-ui-notification.module';
+export * from './lib/np-ui-notification/np-ui-notification.component';
+export * from './lib/np-ui-notification/np-ui-notification.service';
+export * from './lib/np-ui-notification/np-ui-notification.model';

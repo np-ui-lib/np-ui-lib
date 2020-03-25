@@ -1,12 +1,12 @@
 .np-dg-component {
-    border: 1px solid black;
+    border: 1px solid #000000;
     box-sizing: border-box;
     position: relative;
 }
 
 .np-dg-title {
     height: 26px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000000;
     box-sizing: border-box;
     width: 100%;
     padding: 3px 5px;
@@ -14,7 +14,7 @@
 
 .np-dg-toolbar {
     height: 39px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000000;
     box-sizing: border-box;
     width: 100%;
     padding: 3px 5px;
@@ -28,7 +28,7 @@
 
 .np-dg-icon-btn-lg {
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid #000000;
     height: 28px;
     width: 28px;
     padding: 1px;
@@ -39,7 +39,7 @@
 
 .np-dg-icon-btn {
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid #000000;
     height: 20px;
     width: 20px;
     padding: 1px;
@@ -64,7 +64,7 @@
     max-height: 300px;
     width: 250px;
     display: none;
-    border: 1px solid black;
+    border: 1px solid #000000;
     box-sizing: border-box;
     position: absolute;
     padding: 5px;
@@ -102,22 +102,22 @@
 }
 
 .np-dg-columns {
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
     box-sizing: border-box;
     border-bottom: none;
 }
 
 .np-dg-columns-item {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000000;
     box-sizing: border-box;
     height: 25px;
     padding: 2px;
 }
 
 .np-dg-col-drag-placeholder {
-    background-color: lightgoldenrodyellow;
+    background-color: #fafad2;
     height: 25px;
 }
 
@@ -128,7 +128,7 @@
 }
 
 .np-dg-columns-item.cdk-drag-preview {
-    border: 1px solid black;
+    border: 1px solid #000000;
     box-sizing: border-box;
 }
 
@@ -152,8 +152,8 @@
     vertical-align: middle;
     padding: 0px 0px 0px 5px;
     margin: 0px;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
     box-sizing: border-box;
     line-height: 25px;
     font-weight: bold;
@@ -164,8 +164,8 @@
     vertical-align: middle;
     padding: 3px 5px;
     margin: 0px;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
     box-sizing: border-box;
 }
 
@@ -176,11 +176,11 @@
 .np-dg-table-body td {
     padding: 0px 5px;
     margin: 0px;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
     box-sizing: border-box;
     line-height: 24px;
-    background-color: white;
+    background-color: #ffffff;
     overflow: hidden;
 }
 
@@ -198,7 +198,7 @@
 
 .np-dg-pagination {
     height: 39px;
-    border-top: 1px solid black;
+    border-top: 1px solid #000000;
     box-sizing: border-box;
     width: 100%;
     padding: 3px 5px;
@@ -211,7 +211,7 @@
 }
 
 .np-dg-control {
-    border: 1px solid black;
+    border: 1px solid #000000;
     box-sizing: border-box;
     padding: 0px 5px;
     height: 28px;
@@ -241,11 +241,11 @@
 }
 
 .np-dg-col-resize-handle:hover {
-    background-color: lightgoldenrodyellow;
+    background-color: #fafad2;
 }
 
 .np-dg-col-resize-handle.cdk-drag-dragging {
-    background-color: lightgoldenrodyellow;
+    background-color: #fafad2;
 }
 
 .np-dg-loading {
@@ -265,7 +265,7 @@
     left: calc(50% - 25px);
     border: 8px solid #ffffff;
     border-radius: 50%;
-    border-top: 8px solid lightblue;
+    border-top: 8px solid #add8e6;
     box-sizing: border-box;
     width: 50px;
     height: 50px;
@@ -296,12 +296,12 @@
 .np-dg-sticky-right {
     position: sticky;
     right: 0px;
-    border-left: 1px solid black;
+    border-left: 1px solid #000000;
     box-sizing: border-box;
 }
 
 .np-dg-table-summary {
-    border-top: 1px solid black;
+    border-top: 1px solid #000000;
     box-sizing: border-box;
     padding: 3px 5px;
 }
@@ -337,11 +337,11 @@
 }
 
 .np-dg-background, .np-dg-header-row th, .np-dg-body-row:hover td, .np-dg-control, .np-dg-columns-item {
-    background-color: aliceblue;
+    background-color: #f0f8ff;
 }
 
 .np-dg-row-selected td, .np-dg-row-selected:hover td {
-    background-color: lightblue;
+    background-color: #add8e6;
 }
 
 .np-dg-child-row td {
@@ -349,7 +349,7 @@
 }
 
 .np-dg-icon-btn-lg:hover, .np-dg-icon-btn:hover {
-    background-color: lightblue;
+    background-color: #add8e6;
 }
 
 .np-dg-search-columns {
@@ -372,7 +372,7 @@
 }
 
 .np-dg-component .np-dp-input{
-    background-color: aliceblue;
+    background-color: #f0f8ff;
 }
 
 .np-dg-component .np-dp-button-group{

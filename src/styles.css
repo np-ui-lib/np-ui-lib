@@ -35,12 +35,12 @@ body{
 
 .nav li a.active {
     background-color: #4CAF50;
-    color: white;
+    color: #ffffff;
 }
 
 .nav li a:hover:not(.active) {
     background-color: #555;
-    color: white;
+    color: #ffffff;
 }
 
 .nav-sub-menu{
@@ -73,7 +73,7 @@ body{
 }
 
 .color-red{
-    color: red;
+    color: #ff0000;
 }
 
 .myClass {
@@ -84,7 +84,7 @@ body{
     height: 400px;
     width: 800px;
     overflow: auto;
-    border: 1px solid red;
+    border: 1px solid #ff0000;
 }
 
 .demo-icon{
