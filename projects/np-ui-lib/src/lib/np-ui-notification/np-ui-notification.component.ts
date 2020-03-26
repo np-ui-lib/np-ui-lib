@@ -24,4 +24,8 @@ export class NpUiNotificationComponent implements OnInit {
     this.npUiNotificationService.removeMessage(msg);
   }
 
+  closeAll() {
+    this.npUiNotificationService.removeAll();
+  }
+
 }

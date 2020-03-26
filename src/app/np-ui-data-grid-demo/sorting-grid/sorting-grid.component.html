@@ -5,8 +5,11 @@
     </a>
 </h2>
 <p>To add sorting in data grid set <b>sortEnable</b> to "true" in column definations.</p>
-<p>To set multicolumn sorting, set <b>multiColumnSortEnable</b> to "true" in grid defination.
-    <input type="checkbox" (change)="multiColumnSortEnable = $event.target.checked">Multi column sort</p>
+<p>To set multicolumn sorting, set <b>multiColumnSortEnable</b> to "true" in grid defination.</p>
+<span>
+    Multi column sort enable:<np-ui-switch [(ngModel)]="multiColumnSortEnable"></np-ui-switch>
+</span>
+
 <p>Default value for <b>multiColumnSortEnable</b> is "false".</p>
 
 <h2>Client side sorting:</h2>

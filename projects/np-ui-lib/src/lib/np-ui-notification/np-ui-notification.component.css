@@ -3,6 +3,7 @@
     bottom: 0px;
     right: 0px;
     width: 350px;
+    z-index: 1;
 }
 
 .np-nt-icon{
@@ -22,7 +23,7 @@
 }
 
 .np-nt-warning{
-    background-color: #d2b48c;
+    background-color: #f5d3a7;
     border: 1px solid #f59e2c;
 }
 
@@ -43,6 +44,13 @@
     right: 0px;
     top: 0px;
     padding: 2px;
+    cursor: pointer;
+}
+
+.np-nt-close-all{
+    position: absolute;
+    left: -16px;
+    bottom: 0px;
     cursor: pointer;
 }
 

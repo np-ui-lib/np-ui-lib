@@ -42,4 +42,9 @@ export class NpUiNotificationDemoComponent implements OnInit {
     this.notificationService.show(msg);
   }
 
+  errorWithHTML() {
+    var msg = new NpUiNotification({ message: "<b>This is</b> <i>error</i> message <b>HTML<b> text.", type: "Error", header: "<i>Error</i>" });
+    this.notificationService.show(msg);
+  }
+
 }

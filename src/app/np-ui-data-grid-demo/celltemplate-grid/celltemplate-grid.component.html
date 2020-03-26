@@ -40,5 +40,5 @@
 
 <!-- Template for active column -->
 <ng-template #activeColumnTemplate let-row="row">
-    <input type="checkbox" [checked]="row.Active">
+    <np-ui-switch [(ngModel)]="row.Active" trueLabelText="Yes" falseLabelText="No" disabled></np-ui-switch>
 </ng-template>
