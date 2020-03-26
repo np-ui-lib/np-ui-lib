@@ -378,3 +378,16 @@
 .np-dg-component .np-dp-button-group{
     display: none;
 }
+
+@media only screen and (max-width: 768px) {
+    .np-dg-pagination-item.float-right{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .np-dg-pagination-item.float-right,
+    .np-dg-toolbar-item.float-right{
+        display: none;
+    }
+}

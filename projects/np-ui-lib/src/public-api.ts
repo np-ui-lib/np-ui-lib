@@ -28,3 +28,7 @@ export * from './lib/np-ui-notification/np-ui-notification.module';
 export * from './lib/np-ui-notification/np-ui-notification.component';
 export * from './lib/np-ui-notification/np-ui-notification.service';
 export * from './lib/np-ui-notification/np-ui-notification.model';
+
+/**Auto complete */
+export * from './lib/np-ui-auto-complete/np-ui-auto-complete.component';
+export * from './lib/np-ui-auto-complete/np-ui-auto-complete.module';

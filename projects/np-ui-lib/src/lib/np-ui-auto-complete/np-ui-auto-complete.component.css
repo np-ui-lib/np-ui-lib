@@ -1,0 +1,75 @@
+.np-ac-component {
+    width: 100%;    
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 28px;
+}
+
+.np-ac-icon {
+    height: 16px;
+    width: 16px;
+    fill: currentColor;
+}
+
+.np-ac-icon-lg {
+    height: 24px;
+    width: 24px;
+    fill: currentColor;
+}
+
+.np-ac-input-group {
+    display: flex;
+    height: 100%;
+}
+
+.np-ac-input {
+    width: 100%;
+    border: none;
+    padding: 0px 5px;
+}
+
+.np-ac-input-append {
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.np-ac-overlay {
+    border: 1px solid black;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: #f0f8ff;
+    position: absolute;
+    margin-top: 1px;
+    min-width: 200px;
+}
+
+.np-ac-search-result-item{
+    padding: 5px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+.np-ac-search-result-item:last-child{
+    border-bottom: none;
+}
+
+.np-ac-no-result{
+    padding: 5px;
+}
+
+.np-ac-loader {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,30 @@
+<div class="np-ac-component">
+    <div class="np-ac-input-group">
+        <input type="text" #autocompleteinput class="np-ac-input" [(ngModel)]="_displayValue" [disabled]="_isDisabled"
+            (focus)="_open()" (input)="_onInput()" [placeholder]="placeholder">
+        <a class="np-ac-input-append np-ac-loader" *ngIf="_isLoading">
+            <svg class="np-ac-icon" viewBox="0 0 24 24">
+                <path
+                    d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z" />
+                <path d="M0 0h24v24H0z" fill="none" /></svg>
+        </a>
+        <a class="np-ac-input-append" title="Clear" (click)="_clear()">
+            <svg class="np-ac-icon" viewBox="0 0 24 24">
+                <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
+        </a>
+    </div>
+    <div class="np-ac-overlay" *ngIf="_isOpen && _searchResult">
+        <div class="np-ac-search-result">
+            <div *ngFor="let row of _searchResult; let i = index;" class="np-ac-search-result-item"
+                (click)="_selectValue(row)">
+                {{row}}
+            </div>
+        </div>
+        <div class="np-ac-no-result" *ngIf="_searchResult && _searchResult.length===0">
+            No Result Found.
+        </div>
+    </div>
+</div>

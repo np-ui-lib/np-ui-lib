@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-ui-notification-demo/np-ui-notification-demo.module').then(m => m.NpUiNotificationDemoModule)
   },
   {
+    path: 'np-ui-auto-complete-demo',
+    loadChildren: () => import('./np-ui-auto-complete-demo/np-ui-auto-complete-demo.module').then(m => m.NpUiAutoCompleteDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'np-ui-date-picker-demo',
     pathMatch: 'full'
