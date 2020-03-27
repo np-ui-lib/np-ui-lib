@@ -1,7 +1,8 @@
-<div class="np-tp-component" [ngClass]="{'np-tp-default-open': defaultOpen}" [class]="styleClass">
+<div class="np-tp-component" [ngClass]="{'np-tp-default-open': defaultOpen,'np-tp-disabled': _isDisabled}"
+    [class]="styleClass">
     <div class="np-tp-input-group" *ngIf="!defaultOpen">
-        <input type="text" class="np-tp-input" [placeholder]="placeholder" [disabled]="_isDisabled"
-            [value]="value" (click)="_open()" [readonly]="true">
+        <input type="text" class="np-tp-input" [placeholder]="placeholder" [disabled]="_isDisabled" [value]="value"
+            (focus)="_open()" [readonly]="true">
         <a class="np-tp-input-append" (click)="_clear()" title="Clear">
             <svg class="np-tp-icon" viewBox="0 0 24 24">
                 <path
@@ -18,8 +19,7 @@
             </svg>
         </a>
     </div>
-    <div class="np-tp-overlay" *ngIf="_isOpen || defaultOpen"
-        [ngClass]="{'np-tp-overlay-open' : defaultOpen,'np-tp-disabled': _isDisabled && defaultOpen}">
+    <div class="np-tp-overlay" *ngIf="_isOpen || defaultOpen" [ngClass]="{'np-tp-overlay-open' : defaultOpen}">
         <table>
             <tbody>
                 <tr>

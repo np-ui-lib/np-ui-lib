@@ -15,6 +15,9 @@
     background-color: #f0f8ff;
     line-height: 26px;
     display: inline-block;
+    border: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 .np-sw-left-item:hover,.np-sw-right-item:hover{
@@ -30,7 +33,7 @@
 }
 
 .np-sw-disabled {
-    opacity: 0.5;
+    opacity: 0.7;
     pointer-events: none;
 }
 

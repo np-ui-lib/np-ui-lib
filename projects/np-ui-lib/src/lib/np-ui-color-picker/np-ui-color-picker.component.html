@@ -1,8 +1,9 @@
-<div class="np-cp-component" [ngClass]="{'np-cp-default-open': defaultOpen, 'np-cp-hide-input': hideColorInput}"
+<div class="np-cp-component"
+    [ngClass]="{'np-cp-default-open': defaultOpen, 'np-cp-hide-input': hideColorInput,'np-cp-disabled':_isDisabled}"
     [class]="styleClass">
     <div class="np-cp-input-group" *ngIf="!defaultOpen">
-        <input type="text" class="np-cp-input" [value]="value" [disabled]="_isDisabled"
-            (click)="_open()" (input)="_onInputChange($event)" [placeholder]="placeholder">
+        <input type="text" class="np-cp-input" [value]="value" [disabled]="_isDisabled" (focus)="_open()"
+            (input)="_onInputChange($event)" [placeholder]="placeholder">
         <div class="np-cp-input-selected" (click)="_toggleColorPicker()" [ngStyle]="{'background-color': _innerValue}">
         </div>
         <a class="np-cp-input-append" (click)="_clear()" title="Clear">
@@ -20,8 +21,7 @@
             </svg>
         </a>
     </div>
-    <div class="np-cp-overlay" *ngIf="_isOpen || defaultOpen"
-        [ngClass]="{'np-cp-overlay-open' : defaultOpen,'np-cp-disabled': _isDisabled && defaultOpen}">
+    <div class="np-cp-overlay" *ngIf="_isOpen || defaultOpen" [ngClass]="{'np-cp-overlay-open' : defaultOpen}">
         <div class="np-cp-selected-block">
             <div class="np-cp-selected-div" [ngStyle]="{'background-color': _innerValue}"></div>
             <div class="np-cp-selected-text">

@@ -74,6 +74,7 @@
     position: relative;
     z-index: auto;
     border: none;
+    margin-top: 0px;
 }
 
 .ng-invalid.ng-touched .np-cp-component {
@@ -150,6 +151,6 @@
 }
 
 .np-cp-disabled {
-    opacity: 0.5;
+    opacity: 0.7;
     pointer-events: none;
 }

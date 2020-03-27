@@ -64,7 +64,7 @@
 }
 
 .np-ac-no-result{
-    opacity: 0.5;
+    opacity: 0.7;
     pointer-events: none;
 }
 
@@ -84,4 +84,9 @@
 
 .ng-invalid.ng-touched .np-ac-input-append {
     color: #ff0000;
+}
+
+.np-ac-disabled{
+    pointer-events: none;
+    opacity: 0.7;
 }

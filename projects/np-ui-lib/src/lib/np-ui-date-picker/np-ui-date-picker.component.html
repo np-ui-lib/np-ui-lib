@@ -1,7 +1,8 @@
-<div class="np-dp-component" [ngClass]="{'np-dp-default-open': defaultOpen}" [class]="styleClass">
+<div class="np-dp-component" [ngClass]="{'np-dp-default-open': defaultOpen,'np-dp-disabled': _isDisabled}"
+    [class]="styleClass">
     <div class="np-dp-input-group" *ngIf="!defaultOpen">
         <input class="np-dp-input" type="text" [value]="value | date: format" [readonly]="true"
-            [placeholder]="placeholder" (click)="_open()" [disabled]="_isDisabled">
+            [placeholder]="placeholder" (focus)="_open()" [disabled]="_isDisabled">
         <a class="np-dp-input-append" (click)="_clear()" title="Clear">
             <svg class="np-dp-icon" viewBox="0 0 24 24">
                 <path
@@ -17,8 +18,7 @@
             </svg>
         </a>
     </div>
-    <div *ngIf="_isOpen || defaultOpen" class="np-dp-overlay"
-        [ngClass]="{'np-dp-overlay-open': defaultOpen, 'np-dp-disabled': _isDisabled && defaultOpen}">
+    <div *ngIf="_isOpen || defaultOpen" class="np-dp-overlay" [ngClass]="{'np-dp-overlay-open': defaultOpen}">
         <div class="np-dp-header">
             <div class="np-dp-header-item">
                 <a (click)="_prevMonth()" class="np-dp-icon-button" title="Previous">

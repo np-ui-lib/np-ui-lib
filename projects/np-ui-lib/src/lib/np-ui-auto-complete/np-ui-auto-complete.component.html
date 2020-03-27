@@ -1,4 +1,4 @@
-<div class="np-ac-component" [class]="styleClass">
+<div class="np-ac-component" [class]="styleClass" [ngClass]="{'np-ac-disabled':_isDisabled}">
     <div class="np-ac-input-group">
         <input type="text" class="np-ac-input" [(ngModel)]="_displayValue" [disabled]="_isDisabled" (focus)="_onFocus()"
             (input)="_onInput()" [placeholder]="placeholder">
