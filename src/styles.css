@@ -1,12 +1,13 @@
 body{
     padding: 0px;
     margin: 0px;
+    background-color: #ffffff;
 }
 
 .header h1{
-    margin: 0px;
+    margin: 5px 5px 0px 5px;
     padding: 10px 5px;
-    background-color: #f1f1f1;
+    background-color: #dcdcdc;
     text-align: center;
 }
 
@@ -21,9 +22,12 @@ body{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 240px;
-    background-color: #f1f1f1;
+    background-color: #dcdcdc;
     height: 100%;
+}
+
+.nav li{
+    cursor: pointer;
 }
 
 .nav li a {
@@ -44,16 +48,10 @@ body{
 }
 
 .nav-sub-menu{
-    margin: 0px 0px 0px 20px;
     list-style-type: none;
     padding: 0px;
-    width: 250px;
     background-color: #f1f1f1;
     height: 100%;
-}
-
-.nav-sub-menu li a{
-    width: 174px;
 }
 
 .main-container {
@@ -69,7 +67,7 @@ body{
 .sub-header h2{
     margin: 0px 0px 5px 0px;
     padding: 5px;
-    background-color: gainsboro;
+    background-color: #dcdcdc;
 }
 
 .color-red{
@@ -91,4 +89,5 @@ body{
     height: 16px;
     width: 16px;
     fill: currentColor;
+    vertical-align: middle;
 }

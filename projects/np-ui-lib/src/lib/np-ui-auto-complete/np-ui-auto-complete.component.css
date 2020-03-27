@@ -45,6 +45,8 @@
     position: absolute;
     margin-top: 1px;
     min-width: 200px;
+    max-height: 350px;
+    overflow: auto;
 }
 
 .np-ac-search-result-item{

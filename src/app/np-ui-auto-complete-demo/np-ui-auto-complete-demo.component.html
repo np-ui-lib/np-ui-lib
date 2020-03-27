@@ -71,7 +71,7 @@
     </np-ui-auto-complete>
     <!-- Template for active column -->
     <ng-template #optionTemplateRef let-row="row">
-        <div>{{row.id}} - {{row.name}}</div>
+        <div>{{row.id}} - {{row.name}} ({{row.age}})</div>
     </ng-template>
     <div>Selected value : {{auto8 | json}}</div>
 </fieldset>
