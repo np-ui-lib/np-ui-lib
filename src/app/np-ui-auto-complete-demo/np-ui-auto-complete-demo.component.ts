@@ -64,4 +64,13 @@ export class NpUiAutoCompleteDemoComponent implements OnInit {
     }, 2000);
   }
 
+  auto6: string;
+  searchResult6: BehaviorSubject<string[]> = new BehaviorSubject(null);
+  onSearch6(keyword: string) {
+    setTimeout(() => {
+      var searchData = this.data.filter(function (element) { if (element.indexOf(keyword) > -1) { return element; } });
+      this.searchResult6.next(searchData);
+    }, 2000);
+  }
+
 }

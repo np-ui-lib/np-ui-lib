@@ -38,6 +38,8 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
 
   _isLoading: boolean = false;
 
+  @Input() allowCreateNew: boolean;
+
   constructor(private elRef: ElementRef) { }
 
   ngOnInit(): void {
@@ -141,5 +143,17 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   _onFocus() {
     this.onTouchedCallback();
     this._open();
+  }
+
+  _createNewTag() {
+    if (this._searchResult == undefined || this._searchResult == null) {
+      this._searchResult = [];
+    }
+    this._searchResult.push(this._displayValue);
+    this._selectValue(this._displayValue);
+  }
+
+  _notFoundInResult() {
+    return this._searchResult == undefined || this._searchResult == null || this._searchResult.indexOf(this._displayValue) === -1;
   }
 }

@@ -23,9 +23,13 @@
                 (click)="_selectValue(row)">
                 {{row}}
             </div>
-        </div>
-        <div class="np-ac-no-result" *ngIf="_searchResult && _searchResult.length===0">
-            No Result Found.
+            <div *ngIf="_searchResult && _searchResult.length===0" class="np-ac-search-result-item np-ac-no-result">
+                <b>No Result Found.</b>
+            </div>
+            <div *ngIf="allowCreateNew && _notFoundInResult()" class="np-ac-search-result-item np-ac-allow-create"
+                (click)="_createNewTag()">
+                <b>Create New</b>
+            </div>
         </div>
     </div>
 </div>

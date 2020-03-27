@@ -57,12 +57,13 @@
     border-bottom: none;
 }
 
-.np-ac-no-result{
-    padding: 5px;
-}
-
 .np-ac-loader {
     animation: spin 2s linear infinite;
+}
+
+.np-ac-no-result{
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 @keyframes spin {

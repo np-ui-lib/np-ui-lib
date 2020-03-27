@@ -36,12 +36,22 @@
 
 <fieldset>
     <legend>4. Bind change event</legend>
-    <np-ui-auto-complete [(ngModel)]="auto4" [searchResult]="searchResult4" (onSearch)="onSearch4($event)" (onChange)="onChnage4($event)">
+    <np-ui-auto-complete [(ngModel)]="auto4" [searchResult]="searchResult4" (onSearch)="onSearch4($event)"
+        (onChange)="onChnage4($event)">
     </np-ui-auto-complete>
 </fieldset>
 
 <fieldset>
     <legend>5. Style class</legend>
-    <np-ui-auto-complete [(ngModel)]="auto5" [searchResult]="searchResult5" [styleClass]="'myClass'" (onSearch)="onSearch5($event)">
+    <np-ui-auto-complete [(ngModel)]="auto5" [searchResult]="searchResult5" [styleClass]="'myClass'"
+        (onSearch)="onSearch5($event)">
     </np-ui-auto-complete>
+</fieldset>
+
+<fieldset>
+    <legend>6. Allow to create new tag</legend>
+    <np-ui-auto-complete [(ngModel)]="auto6" [searchResult]="searchResult6" [allowCreateNew]="true"
+        (onSearch)="onSearch6($event)">
+    </np-ui-auto-complete>
+    <div>Selected value : {{auto6}}</div>
 </fieldset>
