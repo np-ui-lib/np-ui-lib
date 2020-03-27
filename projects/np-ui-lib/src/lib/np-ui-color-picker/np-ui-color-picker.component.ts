@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, ViewChild, ElementRef, HostListener, Output, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, ElementRef, HostListener, Output, EventEmitter } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -196,11 +196,11 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
     return hex;
   };
 
-  _onMouseLeaveStrip(e: any) {
+  _onMouseLeaveStrip() {
     this._isShowCursorDiv = false;
   }
 
-  _onMouseLeaveBlock(e: any) {
+  _onMouseLeaveBlock() {
     this._isShowCursorDiv = false;
   }
 

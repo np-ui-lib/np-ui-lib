@@ -15,7 +15,7 @@ export class NpUiPanelComponent implements OnInit {
   @Input() allowZoom: boolean;
   _isZoom: boolean = false;
 
-  @Input() allowClose: boolean;
+  @Input() allowRemove: boolean;
   _isClose: boolean = false;
 
   @Input() styleClass: string;

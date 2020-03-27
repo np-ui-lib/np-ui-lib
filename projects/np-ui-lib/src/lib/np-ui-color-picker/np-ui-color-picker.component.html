@@ -31,9 +31,9 @@
         </div>
         <div class="np-cp-canvas">
             <canvas class="np-cp-canvas-block" width="170" height="170" (click)="_clickBlockColor($event)"
-                (mousemove)="_onMouseOverBlock($event)" (mouseleave)="_onMouseLeaveBlock($event)"></canvas>
+                (mousemove)="_onMouseOverBlock($event)" (mouseleave)="_onMouseLeaveBlock()"></canvas>
             <canvas class="np-cp-canvas-strip" width="25" height="170" (click)="_clickStripeColor($event)"
-                (mousemove)="_onMouseOverStrip($event)" (mouseleave)="_onMouseLeaveStrip($event)"></canvas>
+                (mousemove)="_onMouseOverStrip($event)" (mouseleave)="_onMouseLeaveStrip()"></canvas>
         </div>
         <div class="np-cp-color-list">
             <div class="np-cp-color-block" *ngFor="let color of _colors" [style.background-color]="color"
