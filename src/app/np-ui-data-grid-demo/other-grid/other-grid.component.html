@@ -36,6 +36,9 @@
 <h4>pageSize</h4>
 <p>To set default pagesize for data grid, set <b>pageSize</b> property.</p>
 
+<h4>styleClass</h4>
+<p>To set class on root element of component, set <b>styleClass</b> property.</p>
+
 <np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [key]="'Id'" [height]="500" [width]="1000"
-    [stickyHeader]="true" [tableId]="'tblEmployees'" [pageSize]=5>
+    [stickyHeader]="true" [tableId]="'tblEmployees'" [pageSize]=5 [styleClass]="'myClass'">
 </np-ui-data-grid>

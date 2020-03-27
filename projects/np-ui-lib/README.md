@@ -7,6 +7,8 @@
 - [Color Picker](https://github.com/NilavPatel/np-ui-package/wiki/np-ui-color-picker)
 - [Switch](https://github.com/NilavPatel/np-ui-package/wiki/np-ui-switch)
 - [Notification](https://github.com/NilavPatel/np-ui-package/wiki/np-ui-notification)
+- [Auto Complete](https://github.com/NilavPatel/np-ui-package/wiki/np-ui-auto-complete)
+- [Panel](https://github.com/NilavPatel/np-ui-package/wiki/np-ui-panel)
   
 ### [Check all demo here](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)  
   

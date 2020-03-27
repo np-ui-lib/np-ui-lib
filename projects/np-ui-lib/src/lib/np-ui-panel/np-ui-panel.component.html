@@ -1,0 +1,42 @@
+<div class="np-pn-component" [ngClass]="{'np-pn-zoom-out':_isZoom}" *ngIf="!_isClose" [class]="styleClass">
+    <div class="np-pn-header">
+        <div [innerHTML]="title"></div>
+        <div class="np-pn-button-group">
+            <a *ngIf="allowMinimize" class="np-pn-icon-button" (click)="_toggleMinimize()"
+                title="{{_isMinimize ? 'Open':'Close'}}">
+                <svg class="np-pn-icon-lg" viewBox="0 0 24 24" *ngIf="_isMinimize">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+                <svg class="np-pn-icon-lg" viewBox="0 0 24 24" *ngIf="!_isMinimize">
+                    <path d="M19 13H5v-2h14v2z" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+            </a>
+            <a *ngIf="allowZoom" class="np-pn-icon-button" (click)="_toggleZoom()"
+                title="{{_isZoom ? 'Zoom Out':'Zoom In'}}">
+                <svg class="np-pn-icon-lg" viewBox="0 0 24 24" *ngIf="_isZoom">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path
+                        d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z" />
+                </svg>
+                <svg class="np-pn-icon-lg" viewBox="0 0 24 24" *ngIf="!_isZoom">
+                    <path
+                        d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z" />
+                </svg>
+            </a>
+            <a *ngIf="allowClose" class="np-pn-icon-button" (click)="_close()" title="Remove">
+                <svg class="np-pn-icon-lg" viewBox="0 0 24 24">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+            </a>
+        </div>
+    </div>
+    <div class="np-pn-body" [style.max-height.px]="bodyHeight" [ngClass]="{'np-pn-hidden':_isMinimize}">
+        <ng-content></ng-content>
+    </div>
+</div>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { NpUiDataGridDemoRoutingModule } from './np-ui-data-grid-demo-routing.module';
 import { NpUiDataGridDemoComponent } from './np-ui-data-grid-demo.component';
-import { NpUiDataGridModule, NpUiSwitchModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiDataGridModule, NpUiSwitchModule, NpUiPanelModule } from 'projects/np-ui-lib/src/public-api';
 
 import { ClientGridComponent } from './client-grid/client-grid.component';
 import { ServerGridComponent } from './server-grid/server-grid.component';
@@ -50,7 +50,8 @@ import { CommonModule } from '@angular/common';
     NpUiDataGridModule,
     CommonModule,
     FormsModule,
-    NpUiSwitchModule
+    NpUiSwitchModule,
+    NpUiPanelModule
   ],
   bootstrap: [NpUiDataGridDemoComponent]
 })

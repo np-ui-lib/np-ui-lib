@@ -4,7 +4,8 @@
         Responsive data grid example.
     </a>
 </h2>
-<div class="grid-container">
+
+<np-ui-panel title="Emplyee List" [bodyHeight]="400" [allowMinimize]="true" [allowZoom]="true" [allowClose]="true">
     <np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [pageSize]="20">
     </np-ui-data-grid>
-</div>
+</np-ui-panel>

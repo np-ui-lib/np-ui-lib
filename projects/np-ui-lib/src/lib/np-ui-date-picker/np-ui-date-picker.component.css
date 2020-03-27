@@ -57,6 +57,7 @@
     width: 100%;
     border: none;
     padding: 0px 5px;
+    outline: none;
 }
 
 .np-dp-input-group {

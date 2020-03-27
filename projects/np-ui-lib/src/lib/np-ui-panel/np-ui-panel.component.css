@@ -1,0 +1,57 @@
+.np-pn-component{
+    width: 100%;
+    position: relative;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.np-pn-header{
+    background-color: #f0f8ff;
+    padding: 5px;
+}
+
+.np-pn-body{
+    padding: 5px;
+    border-top: 1px solid #000000;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    overflow: auto;
+}
+
+.np-pn-icon-lg {
+    height: 24px;
+    width: 24px;
+    fill: currentColor;
+}
+
+.np-pn-icon-button {
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.np-pn-icon-button:hover{
+    background-color: #add8e6;
+}
+
+.np-pn-button-group{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+}
+
+.np-pn-hidden{
+    display: none;
+}
+
+.np-pn-zoom-out{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
+}

@@ -78,16 +78,13 @@ body{
     border: 1px solid blue !important;
 }
 
-.grid-container{
-    height: 400px;
-    width: 800px;
-    overflow: auto;
-    border: 1px solid #ff0000;
-}
-
 .demo-icon{
     height: 16px;
     width: 16px;
     fill: currentColor;
     vertical-align: middle;
+}
+
+.green-panel .np-pn-header{
+    background-color: lightgreen !important;
 }
