@@ -113,7 +113,6 @@ export class NpUiDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() showToolBar: boolean = false;
 
   @Input() pageSize: number = 10;
-  @Input() styleClass: string;
 
   _searchColumnsKeyword: string;
 
