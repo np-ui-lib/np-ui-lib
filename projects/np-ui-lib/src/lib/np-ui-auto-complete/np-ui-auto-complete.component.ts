@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, ViewChild, HostListener, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, HostListener, ElementRef, EventEmitter, Output, TemplateRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
@@ -24,9 +24,9 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   private onTouchedCallback: () => void;
 
   _isOpen: boolean = false;
-  @Input() searchResult: BehaviorSubject<string[]>;
+  @Input() searchResult: BehaviorSubject<any[]>;
   _subscription: Subscription;
-  _searchResult: string[];
+  _searchResult: any[];
   _displayValue: string;
   _searchTimeout: any;
 
@@ -40,11 +40,21 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
 
   @Input() allowCreateNew: boolean;
 
+  @Input() displayKey: string;
+
+  @Input() optionTemplate: TemplateRef<any>;
+
+  @Input() maxResultLimit: number;
+
   constructor(private elRef: ElementRef) { }
 
   ngOnInit(): void {
     this._subscription = this.searchResult.subscribe((data) => {
-      this._searchResult = data;
+      if (this.maxResultLimit && this.maxResultLimit > 0 && data && data.length > this.maxResultLimit) {
+        this._searchResult = data.splice(0, this.maxResultLimit);
+      } else {
+        this._searchResult = data;
+      }
       this._isLoading = false;
     });
   }
@@ -69,7 +79,7 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   set value(v: any) {
     if (v !== this._innerValue) {
       this._innerValue = v;
-      this._displayValue = v;
+      this._displayValue = this.displayKey && v ? v[this.displayKey] : v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
       if (this.onChange) {
@@ -81,7 +91,7 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   writeValue(v: any): void {
     if (v !== this._innerValue) {
       this._innerValue = v;
-      this._displayValue = v;
+      this._displayValue = this.displayKey && v ? v[this.displayKey] : v;
     }
   }
 
@@ -107,7 +117,7 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
 
   _close() {
     if (this.value) {
-      this._displayValue = this.value;
+      this._displayValue = this.displayKey && this.value ? this.value[this.displayKey] : this.value;
     } else {
       this._displayValue = null;
     }
@@ -135,7 +145,7 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
     }, 1000);
   }
 
-  _selectValue(val: string) {
+  _selectValue(val: any) {
     this.value = val;
     this._close();
   }
@@ -149,11 +159,14 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
     if (this._searchResult == undefined || this._searchResult == null) {
       this._searchResult = [];
     }
-    this._searchResult.push(this._displayValue);
-    this._selectValue(this._displayValue);
-  }
-
-  _notFoundInResult() {
-    return this._searchResult == undefined || this._searchResult == null || this._searchResult.indexOf(this._displayValue) === -1;
+    if (this.displayKey) {
+      var newObj = {};
+      newObj[this.displayKey] = this._displayValue;
+      this._searchResult.push(newObj);
+      this._selectValue(newObj);
+    } else {
+      this._searchResult.push(this._displayValue);
+      this._selectValue(this._displayValue);
+    }
   }
 }

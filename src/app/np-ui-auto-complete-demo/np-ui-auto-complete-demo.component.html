@@ -55,3 +55,30 @@
     </np-ui-auto-complete>
     <div>Selected value : {{auto6}}</div>
 </fieldset>
+
+<fieldset>
+    <legend>7. Display key for any[]</legend>
+    <np-ui-auto-complete [(ngModel)]="auto7" [searchResult]="searchResult7" [allowCreateNew]="true"
+        (onSearch)="onSearch7($event)" [displayKey]="'name'">
+    </np-ui-auto-complete>
+    <div>Selected value : {{auto7 | json}}</div>
+</fieldset>
+
+<fieldset>
+    <legend>8. Option template</legend>
+    <np-ui-auto-complete [(ngModel)]="auto8" [searchResult]="searchResult8" [allowCreateNew]="true"
+        (onSearch)="onSearch8($event)" [displayKey]="'name'" [optionTemplate]="optionTemplateRef">
+    </np-ui-auto-complete>
+    <!-- Template for active column -->
+    <ng-template #optionTemplateRef let-row="row">
+        <div>{{row.id}} - {{row.name}}</div>
+    </ng-template>
+    <div>Selected value : {{auto8 | json}}</div>
+</fieldset>
+
+<fieldset>
+    <legend>9. Max search result limit</legend>
+    <np-ui-auto-complete [(ngModel)]="auto9" [searchResult]="searchResult9" (onSearch)="onSearch9($event)"
+        [displayKey]="'name'" [maxResultLimit]="2">
+    </np-ui-auto-complete>
+</fieldset>
