@@ -40,8 +40,6 @@ export class NpUiTimePickerComponent implements ControlValueAccessor {
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('timepickerinput') _inputControl: ElementRef;
-
   constructor(private elRef: ElementRef) {
     this._pattern = new RegExp("^(([0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}) ([AaPp][Mm]))$");
     for (var i = 0; i < 12; i++) {
@@ -228,7 +226,6 @@ export class NpUiTimePickerComponent implements ControlValueAccessor {
     if (this.defaultOpen == true || this._isDisabled) {
       return;
     }
-    this._inputControl.nativeElement.focus();
     this._isOpen = true;
     this.onTouchedCallback();
   }

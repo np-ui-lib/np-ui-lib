@@ -1,6 +1,6 @@
 .np-ac-component {
     width: 100%;    
-    border: 1px solid black;
+    border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
 }
@@ -38,7 +38,7 @@
 }
 
 .np-ac-overlay {
-    border: 1px solid black;
+    border: 1px solid #000000;
     box-sizing: border-box;
     z-index: 1;
     background-color: #f0f8ff;
@@ -49,7 +49,7 @@
 
 .np-ac-search-result-item{
     padding: 5px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000000;
     cursor: pointer;
 }
 
@@ -72,4 +72,13 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+.ng-invalid.ng-touched .np-ac-component {
+    border: 1px solid #ff0000;
+    box-sizing: border-box;
+}
+
+.ng-invalid.ng-touched .np-ac-input-append {
+    color: #ff0000;
 }

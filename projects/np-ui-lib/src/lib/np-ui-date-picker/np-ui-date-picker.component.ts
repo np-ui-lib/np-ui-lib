@@ -60,7 +60,6 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
   @Input() styleClass: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('datepickerinput') _inputControl: ElementRef;
   @HostListener('document:click', ['$event'])
   clickOutSide(event: any) {
     if (!this.elRef.nativeElement.contains(event.target)) {
@@ -306,7 +305,6 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
     if (this.defaultOpen == true || this._isDisabled) {
       return;
     }
-    this._inputControl.nativeElement.focus();
     this._isOpen = true;
     this._resetVariables();
     this._calculateDays();

@@ -33,6 +33,8 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
 
   @Input() placeholder: string = "";
+  @Input() styleClass: string;
+  @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   _isLoading: boolean = false;
 
@@ -51,8 +53,6 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
     }
   }
 
-  @ViewChild('autocompleteinput') _inputControl: ElementRef;
-
   @HostListener('document:click', ['$event'])
   clickOutSide(event: any) {
     if (!this.elRef.nativeElement.contains(event.target)) {
@@ -70,6 +70,9 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
       this._displayValue = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
+      if (this.onChange) {
+        this.onChange.emit(v);
+      }
     }
   }
 
@@ -93,6 +96,9 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   }
 
   _open() {
+    if (this._isDisabled) {
+      return;
+    }
     this._searchResult = null;
     this._isOpen = true;
   }
@@ -107,11 +113,17 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   }
 
   _clear() {
+    if (this._isDisabled) {
+      return;
+    }
     this.value = null;
     this._searchResult = null;
   }
 
   _onInput() {
+    if (this._isDisabled) {
+      return;
+    }
     this._isLoading = true;
     if (this._searchTimeout) {
       clearTimeout(this._searchTimeout);
@@ -124,5 +136,10 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   _selectValue(val: string) {
     this.value = val;
     this._close();
+  }
+
+  _onFocus() {
+    this.onTouchedCallback();
+    this._open();
   }
 }

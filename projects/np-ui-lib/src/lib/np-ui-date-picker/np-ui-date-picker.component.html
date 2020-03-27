@@ -1,6 +1,6 @@
 <div class="np-dp-component" [ngClass]="{'np-dp-default-open': defaultOpen}" [class]="styleClass">
     <div class="np-dp-input-group" *ngIf="!defaultOpen">
-        <input class="np-dp-input" #datepickerinput type="text" [value]="value | date: format" [readonly]="true"
+        <input class="np-dp-input" type="text" [value]="value | date: format" [readonly]="true"
             [placeholder]="placeholder" (click)="_open()" [disabled]="_isDisabled">
         <a class="np-dp-input-append" (click)="_clear()" title="Clear">
             <svg class="np-dp-icon" viewBox="0 0 24 24">

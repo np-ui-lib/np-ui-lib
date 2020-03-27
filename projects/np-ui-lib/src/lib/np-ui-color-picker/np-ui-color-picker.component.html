@@ -1,7 +1,7 @@
 <div class="np-cp-component" [ngClass]="{'np-cp-default-open': defaultOpen, 'np-cp-hide-input': hideColorInput}"
     [class]="styleClass">
     <div class="np-cp-input-group" *ngIf="!defaultOpen">
-        <input type="text" class="np-cp-input" #colorpickerinput [value]="value" [disabled]="_isDisabled"
+        <input type="text" class="np-cp-input" [value]="value" [disabled]="_isDisabled"
             (click)="_open()" (input)="_onInputChange($event)" [placeholder]="placeholder">
         <div class="np-cp-input-selected" (click)="_toggleColorPicker()" [ngStyle]="{'background-color': _innerValue}">
         </div>

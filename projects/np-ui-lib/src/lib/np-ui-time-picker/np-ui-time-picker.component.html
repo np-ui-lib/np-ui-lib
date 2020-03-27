@@ -1,6 +1,6 @@
 <div class="np-tp-component" [ngClass]="{'np-tp-default-open': defaultOpen}" [class]="styleClass">
     <div class="np-tp-input-group" *ngIf="!defaultOpen">
-        <input #timepickerinput type="text" class="np-tp-input" [placeholder]="placeholder" [disabled]="_isDisabled"
+        <input type="text" class="np-tp-input" [placeholder]="placeholder" [disabled]="_isDisabled"
             [value]="value" (click)="_open()" [readonly]="true">
         <a class="np-tp-input-append" (click)="_clear()" title="Clear">
             <svg class="np-tp-icon" viewBox="0 0 24 24">

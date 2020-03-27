@@ -36,8 +36,6 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
   @Input() styleClass: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('colorpickerinput') _inputControl: ElementRef;
-
   @HostListener('document:click', ['$event'])
   clickOutSide(event: any) {
     if (!this.elRef.nativeElement.contains(event.target)) {
@@ -114,7 +112,6 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
     if (this.defaultOpen == true || this._isDisabled) {
       return;
     }
-    this._inputControl.nativeElement.focus();
     this._isOpen = true;
     this._stripColor = this.value;
     setTimeout(() => {
