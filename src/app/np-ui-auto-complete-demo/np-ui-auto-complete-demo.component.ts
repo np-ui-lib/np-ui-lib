@@ -111,4 +111,22 @@ export class NpUiAutoCompleteDemoComponent implements OnInit {
       this.searchResult9.next(searchData);
     }, 1000);
   }
+
+  auto10: any;
+  searchResult10: BehaviorSubject<any[]> = new BehaviorSubject(null);
+  onSearch10(keyword: string) {
+    setTimeout(() => {
+      var searchData = this.dataFull.filter(function (element) { if (element["name"].indexOf(keyword) > -1) { return element; } });
+      this.searchResult10.next(searchData);
+    }, 1000);
+  }
+
+  auto11: any;
+  searchResult11: BehaviorSubject<any[]> = new BehaviorSubject(null);
+  onSearch11(keyword: string) {
+    setTimeout(() => {
+      var searchData = this.dataFull.filter(function (element) { if (element["name"].indexOf(keyword) > -1) { return element; } });
+      this.searchResult11.next(searchData);
+    }, 1000);
+  }
 }

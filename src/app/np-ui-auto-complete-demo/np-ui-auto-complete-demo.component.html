@@ -82,3 +82,17 @@
         [displayKey]="'name'" [maxResultLimit]="2">
     </np-ui-auto-complete>
 </fieldset>
+
+<fieldset>
+    <legend>10. Placeholder</legend>
+    <np-ui-auto-complete [(ngModel)]="auto10" [searchResult]="searchResult10" (onSearch)="onSearch10($event)"
+        [displayKey]="'name'" placeholder="Search and Select name...">
+    </np-ui-auto-complete>
+</fieldset>
+
+<fieldset>
+    <legend>11. Minimum search characters limit to search (After 3 characters)</legend>
+    <np-ui-auto-complete [(ngModel)]="auto11" [searchResult]="searchResult11" (onSearch)="onSearch11($event)"
+        [displayKey]="'name'" [minSearchCharLimit]="3">
+    </np-ui-auto-complete>
+</fieldset>

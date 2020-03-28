@@ -1,6 +1,6 @@
 {
   "name": "np-ui-lib",
-  "version": "9.2.2",
+  "version": "9.2.3",
   "author": {
     "name": "nilav patel",
     "email": "nilavpatel1992@gmail.com",
@@ -22,13 +22,15 @@
   "keywords": [
     "Angular",
     "Angular9",
-    "Ui",
     "Components",
-    "Customcomponents",
+    "Typescript",
     "Datagrid",
     "Datepicker",
     "Timepicker",
     "Colorpicker",
-    "Typescript"
+    "Switch",
+    "Autocomplete",
+    "Panel",
+    "Notification"
   ]
 }

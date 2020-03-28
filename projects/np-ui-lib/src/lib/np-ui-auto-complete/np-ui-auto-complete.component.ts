@@ -45,6 +45,7 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   @Input() optionTemplate: TemplateRef<any>;
 
   @Input() maxResultLimit: number;
+  @Input() minSearchCharLimit: number;
 
   constructor(private elRef: ElementRef) { }
 
@@ -135,6 +136,11 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   _onInput() {
     if (this._isDisabled) {
       return;
+    }    
+    if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
+      if (this._displayValue == undefined || this._displayValue == null || this._displayValue.length < this.minSearchCharLimit) {
+        return;
+      }
     }
     this._isLoading = true;
     if (this._searchTimeout) {

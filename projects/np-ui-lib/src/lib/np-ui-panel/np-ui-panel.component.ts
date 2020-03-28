@@ -28,11 +28,14 @@ export class NpUiPanelComponent implements OnInit {
   }
 
   _toggleMinimize() {
-    this._isMinimize = !this._isMinimize
+    this._isMinimize = !this._isMinimize;
   }
 
   _toggleZoom() {
-    this._isZoom = !this._isZoom
+    this._isZoom = !this._isZoom;
+    if (this._isZoom == true) {
+      this._isMinimize = false;
+    }
   }
 
   _close() {
