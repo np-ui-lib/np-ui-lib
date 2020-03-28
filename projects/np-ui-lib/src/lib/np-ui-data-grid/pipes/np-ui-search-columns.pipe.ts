@@ -1,5 +1,6 @@
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
 import { Column } from '../models/column.model';
+
 @Pipe({
     name: 'searchColumnsPipe'
 })

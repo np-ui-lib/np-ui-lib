@@ -36,6 +36,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-ui-panel-demo/np-ui-panel-demo.module').then(m => m.NpUiPanelDemoModule)
   },
   {
+    path: 'np-ui-utility-demo',
+    loadChildren: () => import('./np-ui-utility-demo/np-ui-utility-demo.module').then(m => m.NpUiUtilityDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'np-ui-date-picker-demo',
     pathMatch: 'full'

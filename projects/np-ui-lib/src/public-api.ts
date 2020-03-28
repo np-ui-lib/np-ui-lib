@@ -36,3 +36,7 @@ export * from './lib/np-ui-auto-complete/np-ui-auto-complete.component';
 /**Panel */
 export * from './lib/np-ui-panel/np-ui-panel.module';
 export * from './lib/np-ui-panel/np-ui-panel.component';
+
+/**Utility */
+export * from './lib/np-ui-utility/np-ui-utility.module';
+export * from './lib/np-ui-utility/np-ui-highlight.pipe';

@@ -19,13 +19,13 @@
     </div>
     <div class="np-ac-overlay" *ngIf="_isOpen && _searchResult">
         <div class="np-ac-search-result">
-            <div *ngFor="let row of _searchResult; let i = index;" class="np-ac-search-result-item"
-                (click)="_selectValue(row)">
+            <div *ngFor="let item of _searchResult; let i = index;" class="np-ac-search-result-item"
+                (click)="_selectValue(item)">
                 <ng-container *ngIf="!optionTemplate; else customTemplate">
-                    {{ displayKey ? row[displayKey] : row}}
+                    <span [innerHtml]="displayKey ? item[displayKey] : item | npUiHighLight : _displayValue"></span>
                 </ng-container>
                 <ng-template #customTemplate [ngTemplateOutlet]="optionTemplate"
-                    [ngTemplateOutletContext]="{ row: row }">
+                    [ngTemplateOutletContext]="{item: item, keyword: _displayValue}">
                 </ng-template>
             </div>
             <div *ngIf="_searchResult && _searchResult.length===0" class="np-ac-search-result-item np-ac-no-result">
