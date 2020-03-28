@@ -14,6 +14,7 @@ npm i np-ui-lib
 * [Auto Complete](https://github.com/NilavPatel/np-ui-package/wiki/Auto-Complete)
 * [Panel](https://github.com/NilavPatel/np-ui-package/wiki/Panel)
 ### [Check all demos here](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)
+**Note:** In Demo all modules are imported from 'projects/np-ui-lib/src/public-api', which needs to be imported from 'np-ui-lib' package in real application.
 ## License
 This project is licensed under the MIT License.
 ## Contributors
