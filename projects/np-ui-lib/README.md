@@ -7,7 +7,7 @@ npm i np-ui-lib
 ### List of components:
 * [Data Grid](https://github.com/NilavPatel/np-ui-package/wiki/Data-Grid)
 * [Date Picker](https://github.com/NilavPatel/np-ui-package/wiki/Date-Picker)
-* [Time Picker](https://github.com/NilavPatel/np-ui-package/wiki/np-ui-time-picker)
+* [Time Picker](https://github.com/NilavPatel/np-ui-package/wiki/Time-Picker)
 * [Color Picker](https://github.com/NilavPatel/np-ui-package/wiki/Color-Picker)
 * [Switch](https://github.com/NilavPatel/np-ui-package/wiki/Switch)
 * [Notification](https://github.com/NilavPatel/np-ui-package/wiki/Notification)
