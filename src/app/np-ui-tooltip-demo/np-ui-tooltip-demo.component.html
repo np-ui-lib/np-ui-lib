@@ -1,0 +1,39 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" title="Go to github repository" target="_blank"
+            href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-tooltip-demo">
+            np-ui-tooltip
+        </a>
+    </h2>
+</div>
+
+<div>
+    <span np-ui-tooltip [tooltipText]="'This is left tooltip.'" [placement]="'left'">
+        Hover me for left tooltip
+    </span>
+</div>
+
+<div>
+    <span np-ui-tooltip [tooltipText]="'This is right tooltip.'" [placement]="'right'">
+        Hover me for right tooltip
+    </span>
+</div>
+
+<div>
+    <span np-ui-tooltip [tooltipTemplate]="tooltipTop" [placement]="'top'">
+        Hover me for top tooltip
+        <ng-template #tooltipTop>
+            <b>This is top tooltip.</b>
+        </ng-template>
+    </span>
+</div>
+
+<div>
+    <span np-ui-tooltip [tooltipTemplate]="tooltipBottom" [placement]="'bottom'">
+        Hover me for bottom
+        tooltip
+        <ng-template #tooltipBottom>
+            <i>This is bottom tooltip.</i>
+        </ng-template>
+    </span>
+</div>

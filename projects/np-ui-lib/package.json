@@ -1,6 +1,6 @@
 {
   "name": "np-ui-lib",
-  "version": "9.3.0",
+  "version": "9.4.0",
   "author": {
     "name": "nilav patel",
     "email": "nilavpatel1992@gmail.com",
@@ -31,6 +31,7 @@
     "Switch",
     "Autocomplete",
     "Panel",
-    "Notification"
+    "Notification",
+    "Tooltip"
   ]
 }

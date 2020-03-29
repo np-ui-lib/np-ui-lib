@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 const routes: Routes = [
   {
     path: 'np-ui-date-picker-demo',
@@ -38,6 +37,10 @@ const routes: Routes = [
   {
     path: 'np-ui-utility-demo',
     loadChildren: () => import('./np-ui-utility-demo/np-ui-utility-demo.module').then(m => m.NpUiUtilityDemoModule)
+  },
+  {
+    path: 'np-ui-tooltip-demo',
+    loadChildren: () => import('./np-ui-tooltip-demo/np-ui-tooltip-demo.module').then(m => m.NpUiTooltipDemoModule)
   },
   {
     path: '',

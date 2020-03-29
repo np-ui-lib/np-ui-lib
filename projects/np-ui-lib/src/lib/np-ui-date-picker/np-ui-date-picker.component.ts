@@ -356,7 +356,7 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
     return true;
   }
 
-  _getToolTip(year: number, month: number, day: number) {
+  _getTooltip(year: number, month: number, day: number) {
     if (day && this.dateLabels && this.dateLabels.length > 0) {
       var currentDate = new Date(year, month, day);
       var dateLabel: any = this.dateLabels.find(function (item) { return item.date.toDateString() == currentDate.toDateString(); });

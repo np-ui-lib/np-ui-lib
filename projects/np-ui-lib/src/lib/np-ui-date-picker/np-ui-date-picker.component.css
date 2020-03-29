@@ -81,21 +81,8 @@
     user-select: none;
 }
 
-.np-dp-tooltip-overlay {
-    display: none;
-}
-
-.np-dp-tooltip-target {
+.np-dp-component .np-tp-target {
     text-decoration: underline;
-}
-
-.np-dp-dates-items:hover .np-dp-tooltip-overlay {
-    display: block;
-    position: absolute;
-    padding: 5px;
-    border: 1px solid #000000;
-    z-index: 2;
-    background-color: #ffffff;
 }
 
 .np-dp-weekdays {

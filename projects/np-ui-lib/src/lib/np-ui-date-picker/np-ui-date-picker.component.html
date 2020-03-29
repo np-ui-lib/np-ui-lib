@@ -59,10 +59,9 @@
             <ng-container *ngFor="let day of _days; let i = index;">
                 <div class="np-dp-dates-items" (click)="_selectDate(day)"
                     [ngClass]="{'np-dp-selected': _checkIsSelected(day), 'np-dp-today': _checkIsToday(day), 'np-dp-date-disabled' : _checkDateDisabled(_currentYear,_currentMonth,day)}">
-                    <div *ngIf="_getToolTip(_currentYear,_currentMonth,day); let label; else dayTemplate"
-                        class="np-dp-tooltip-target">
-                        {{day}}
-                        <div class="np-dp-tooltip-overlay">{{label}}</div>
+                    <div *ngIf="_getTooltip(_currentYear,_currentMonth,day); let label; else dayTemplate" np-ui-tooltip
+                        [placement]="'bottom'" [tooltipText]="label">
+                        {{day}}                        
                     </div>
                     <ng-template #dayTemplate>
                         {{day}}

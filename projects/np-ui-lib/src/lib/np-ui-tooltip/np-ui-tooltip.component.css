@@ -1,0 +1,11 @@
+@import '@angular/cdk/overlay-prebuilt.css';
+
+.np-tp-component{
+    border: 1px solid #000000;
+    background-color: #f0f8ff;
+    padding: 5px;
+}
+
+.np-tp-target{
+    cursor: pointer;
+}

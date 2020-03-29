@@ -40,3 +40,8 @@ export * from './lib/np-ui-panel/np-ui-panel.component';
 /**Utility */
 export * from './lib/np-ui-utility/np-ui-utility.module';
 export * from './lib/np-ui-utility/np-ui-highlight.pipe';
+
+/**Tooltip */
+export * from './lib/np-ui-tooltip/np-ui-tooltip.module';
+export * from './lib/np-ui-tooltip/np-ui-tooltip.component';
+export * from './lib/np-ui-tooltip/np-ui-tooltip.directive';
