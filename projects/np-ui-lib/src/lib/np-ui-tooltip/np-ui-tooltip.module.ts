@@ -12,6 +12,7 @@ import { NpUiTooltipDirective } from './np-ui-tooltip.directive';
   ],
   exports: [
     NpUiTooltipComponent, NpUiTooltipDirective
-  ]
+  ],
+  entryComponents: [NpUiTooltipComponent]
 })
 export class NpUiTooltipModule { }
