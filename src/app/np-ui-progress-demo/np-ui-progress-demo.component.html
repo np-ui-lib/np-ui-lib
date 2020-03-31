@@ -1,0 +1,33 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" title="Go to github repository" target="_blank"
+            href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-progress-demo">
+            np-ui-progress
+        </a>
+    </h2>
+</div>
+
+<fieldset>
+    <legend>0%</legend>
+    <np-ui-progress [value]="0"></np-ui-progress>
+</fieldset>
+
+<fieldset>
+    <legend>10%</legend>
+    <np-ui-progress [value]="10" [styleClass]="'np-pg-success'"></np-ui-progress>
+</fieldset>
+
+<fieldset>
+    <legend>50%</legend>
+    <np-ui-progress [value]="50" [styleClass]="'np-pg-error'"></np-ui-progress>
+</fieldset>
+
+<fieldset>
+    <legend>100%</legend>
+    <np-ui-progress [value]="100"></np-ui-progress>
+</fieldset>
+
+<fieldset>
+    <legend>Indeterminate</legend>
+    <np-ui-progress [indeterminate]="true"></np-ui-progress>
+</fieldset>

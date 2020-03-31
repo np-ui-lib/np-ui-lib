@@ -13,27 +13,30 @@
 }
 
 .np-nt-success{
-    background-color: #90ee90;
-    border: 1px solid #1adf1a;
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #155724;
 }
 
 .np-nt-error{
-    background-color: #f08080;
-    border: 1px solid #f52f2f;
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #721c24;
 }
 
 .np-nt-warning{
-    background-color: #f5d3a7;
-    border: 1px solid #f59e2c;
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #856404;
 }
 
 .np-nt-info{
-    background-color: #add8e6;
-    border: 1px solid #1b9cc7;
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border: 1px solid #0c5460;
 }
 
 .np-nt-notification{
-    color: #000000;
     padding: 10px;
     margin: 5px;
     position: relative;

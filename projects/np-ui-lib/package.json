@@ -32,6 +32,7 @@
     "Autocomplete",
     "Panel",
     "Notification",
-    "Tooltip"
+    "Tooltip",
+    "Progress"
   ]
 }

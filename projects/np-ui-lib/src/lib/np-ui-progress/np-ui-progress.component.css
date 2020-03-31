@@ -1,0 +1,42 @@
+.np-pg-component{
+    width: 100%;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    height: 15px;
+    overflow: hidden;
+    display: flex;
+    background-color: #f0f8ff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.np-pg-progress-bar{
+    background-color: #add8e6;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-size: 28px 28px;
+}
+
+.np-pg-indeterminate {
+    width: 100%;
+    animation: np-progress-bar-stripes 1s linear reverse infinite;
+}
+
+@-webkit-keyframes np-progress-bar-stripes {
+    from  { background-position: 28px 0; }
+    to    { background-position: 0 0; }
+  }
+  
+@keyframes np-progress-bar-stripes {
+    from  { background-position: 28px 0; }
+    to    { background-position: 0 0; }
+  }
+
+.np-pg-success .np-pg-progress-bar{
+    background-color: #28a745 !important;
+}
+
+.np-pg-error .np-pg-progress-bar{
+    background-color: #dc3545 !important;
+}

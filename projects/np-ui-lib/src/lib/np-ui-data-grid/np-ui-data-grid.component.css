@@ -35,6 +35,7 @@
     cursor: pointer;
     user-select: none;
     display: block;
+    background-color: #ffffff;
 }
 
 .np-dg-icon-btn {
@@ -46,6 +47,7 @@
     cursor: pointer;
     user-select: none;
     display: block;
+    background-color: #ffffff;
 }
 
 .np-dg-icon-lg {
@@ -87,7 +89,7 @@
     margin: 2px;
 }
 
-.np-dg-container .np-dg-icon-btn:hover {
+.np-dg-container .np-dg-icon-btn {
     background-color: transparent !important;
 }
 
@@ -114,6 +116,7 @@
     box-sizing: border-box;
     height: 25px;
     padding: 2px;
+    background-color: #ffffff;
 }
 
 .np-dg-col-drag-placeholder {
@@ -337,7 +340,7 @@
     display: block;
 }
 
-.np-dg-background, .np-dg-header-row th, .np-dg-body-row:hover td, .np-dg-control, .np-dg-columns-item {
+.np-dg-background, .np-dg-header-row th, .np-dg-body-row:hover td{
     background-color: #f0f8ff;
 }
 
@@ -347,10 +350,6 @@
 
 .np-dg-child-row td {
     background-color: lightgoldenrodyellow;
-}
-
-.np-dg-icon-btn-lg:hover, .np-dg-icon-btn:hover {
-    background-color: #add8e6;
 }
 
 .np-dg-search-columns {
@@ -372,12 +371,12 @@
     text-align: right;
 }
 
-.np-dg-component .np-dp-input{
-    background-color: #f0f8ff;
-}
-
 .np-dg-component .np-dp-button-group{
     display: none;
+}
+
+.np-dg-component .np-dp-input-append{
+    background-color: #ffffff;
 }
 
 @media only screen and (max-width: 768px) {

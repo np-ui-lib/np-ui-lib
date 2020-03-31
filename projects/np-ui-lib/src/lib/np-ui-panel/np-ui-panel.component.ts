@@ -1,9 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'np-ui-panel',
   templateUrl: './np-ui-panel.component.html',
-  styleUrls: ['./np-ui-panel.component.css']
+  styleUrls: ['./np-ui-panel.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpUiPanelComponent implements OnInit {
 

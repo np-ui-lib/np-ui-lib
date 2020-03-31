@@ -45,3 +45,7 @@ export * from './lib/np-ui-utility/np-ui-highlight.pipe';
 export * from './lib/np-ui-tooltip/np-ui-tooltip.module';
 export * from './lib/np-ui-tooltip/np-ui-tooltip.component';
 export * from './lib/np-ui-tooltip/np-ui-tooltip.directive';
+
+/**Progress */
+export * from './lib/np-ui-progress/np-ui-progress.module';
+export * from './lib/np-ui-progress/np-ui-progress.component';
