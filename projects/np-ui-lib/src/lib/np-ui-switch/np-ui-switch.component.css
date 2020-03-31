@@ -5,6 +5,7 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
+    position: relative;
 }
 
 .np-sw-left-item,.np-sw-right-item{

@@ -3,6 +3,7 @@
     border: 1px solid black;
     box-sizing: border-box;
     height: 28px;
+    position: relative;
 }
 
 .np-cp-icon {
@@ -34,9 +35,9 @@
     box-sizing: border-box;
     z-index: 1;
     background-color: #f0f8ff;
-    position: absolute;
     padding: 5px;
-    margin-top: 1px;
+    position: absolute;
+    top: 28px;
 }
 
 .np-cp-icon-button, .np-cp-input-append {
@@ -75,7 +76,7 @@
     position: relative;
     z-index: auto;
     border: none;
-    margin-top: 0px;
+    top: 0px;
 }
 
 .ng-invalid.ng-touched .np-cp-component {

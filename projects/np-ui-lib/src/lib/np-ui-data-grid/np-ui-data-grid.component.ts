@@ -114,6 +114,8 @@ export class NpUiDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() pageSize: number = 10;
 
+  @Input() styleClass: string;
+
   _searchColumnsKeyword: string;
 
   constructor(private pagerService: NpPagerService,

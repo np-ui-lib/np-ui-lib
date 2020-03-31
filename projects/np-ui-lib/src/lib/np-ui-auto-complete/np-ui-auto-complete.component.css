@@ -3,6 +3,7 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
+    position: relative;
 }
 
 .np-ac-icon {
@@ -44,7 +45,7 @@
     z-index: 1;
     background-color: #f0f8ff;
     position: absolute;
-    margin-top: 1px;
+    top: 28px;
     min-width: 200px;
     max-height: 350px;
     overflow: auto;

@@ -6,6 +6,7 @@
     border: 1px solid #000000;
     background-color: #f0f8ff;
     padding: 5px;
+    position: relative;
 }
 
 .np-tt-target{

@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
   selector: 'app-layout-grid',
   templateUrl: './layout-grid.component.html',
   styleUrls: ['layout-grid.component.css'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.None
 })
 export class LayoutGridComponent implements OnInit {
 
@@ -41,7 +41,7 @@ export class LayoutGridComponent implements OnInit {
   }
 
   cellClicked(event: any, column: any, row: any) {
-    alert("column " + column.dataField + " clicked. Value is " + row[column.dataField]);
+    //alert("column " + column.dataField + " clicked. Value is " + row[column.dataField]);
   }
 
   onActionClick(rowData: any, event: any, $event) {

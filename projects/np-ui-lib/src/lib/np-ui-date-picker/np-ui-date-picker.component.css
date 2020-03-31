@@ -3,6 +3,7 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
+    position: relative;
 }
 
 .np-dp-icon {
@@ -81,7 +82,8 @@
     user-select: none;
 }
 
-.np-dp-component .np-tp-target {
+.np-dp-component .np-tt-target {
+    width: 100%;
     text-decoration: underline;
 }
 
@@ -132,20 +134,16 @@
     box-sizing: border-box;
     z-index: 1;
     background-color: #f0f8ff;
-    position: absolute;
     padding: 5px;
-    margin-top: 1px;
-}
-
-.np-dp-top-overlay {
-    bottom: 20px;
+    position: absolute;
+    top: 28px;
 }
 
 .np-dp-overlay-open {
     position: relative !important;
     z-index: auto;
     border: none;
-    margin-top: 0px;
+    top: 0px;
 }
 
 .np-dp-select {
