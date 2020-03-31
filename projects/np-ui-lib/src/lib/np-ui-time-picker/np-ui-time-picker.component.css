@@ -1,4 +1,4 @@
-.np-tt-component {
+.np-tp-component {
     width: 100%;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -82,7 +82,7 @@
     margin-top: 0px;
 }
 
-.ng-invalid.ng-touched .np-tt-component {
+.ng-invalid.ng-touched .np-tp-component {
     border: 1px solid #ff0000;
     box-sizing: border-box;
 }
