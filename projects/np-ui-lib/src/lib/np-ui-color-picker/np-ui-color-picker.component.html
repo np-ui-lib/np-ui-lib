@@ -21,7 +21,7 @@
             </svg>
         </a>
     </div>
-    <div class="np-cp-overlay" *ngIf="_isOpen || defaultOpen" [ngClass]="{'np-cp-overlay-open' : defaultOpen}">
+    <div class="np-cp-overlay" *ngIf="_isOpen || defaultOpen" [style.top.px]="_y"  [style.left.px]="_x" [ngClass]="{'np-cp-overlay-open' : defaultOpen}">
         <div class="np-cp-selected-block">
             <div class="np-cp-selected-div" [ngStyle]="{'background-color': _innerValue}"></div>
             <div class="np-cp-selected-text">
@@ -47,5 +47,5 @@
     </div>
 </div>
 <div class="np-cp-current-color" *ngIf="_isShowCursorDiv"
-    [ngStyle]="{'background-color': _currentCursorColor, 'position': 'absolute', 'left': _x , 'top': _y}">
+    [ngStyle]="{'background-color': _currentCursorColor, 'position': 'absolute', 'left': _xColorCursor , 'top': _yColorCursor}">
 </div>

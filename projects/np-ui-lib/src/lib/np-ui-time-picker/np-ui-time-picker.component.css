@@ -49,8 +49,7 @@
     z-index: 1;
     background-color: #f0f8ff;
     padding: 5px;
-    position: absolute;
-    top: 28px;
+    position: fixed;
 }
 
 .np-tp-button-group {
@@ -80,7 +79,6 @@
     position: relative;
     z-index: auto;
     border: none;
-    top: 0px;
 }
 
 .ng-invalid.ng-touched .np-tp-component {

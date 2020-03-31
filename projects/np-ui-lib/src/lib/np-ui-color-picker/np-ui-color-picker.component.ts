@@ -21,8 +21,10 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
   _stripColor: string;
   _colors: string[];
   _currentCursorColor: string;
-  _x: string;
-  _y: string;
+  _xColorCursor: string;
+  _yColorCursor: string;
+  _x: number;
+  _y: number;
   _isShowCursorDiv: boolean = false;
   _innerValue: any;
   _isDisabled: boolean = false;
@@ -112,6 +114,9 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
     if (this.defaultOpen == true || this._isDisabled) {
       return;
     }
+    var position = this.elRef.nativeElement.getBoundingClientRect();
+    this._x = position.left;
+    this._y = position.top + position.height;
     this._isOpen = true;
     this._stripColor = this.value;
     setTimeout(() => {
@@ -206,15 +211,15 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
 
   _onMouseOverStrip(e: any) {
     this._isShowCursorDiv = true;
-    this._x = (e.pageX + 5) + 'px';
-    this._y = (e.pageY + 5) + 'px';
+    this._xColorCursor = (e.pageX + 5) + 'px';
+    this._yColorCursor = (e.pageY + 5) + 'px';
     this._currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-strip');
   }
 
   _onMouseOverBlock(e: any) {
     this._isShowCursorDiv = true;
-    this._x = (e.pageX + 5) + 'px';
-    this._y = (e.pageY + 5) + 'px';
+    this._xColorCursor = (e.pageX + 5) + 'px';
+    this._yColorCursor = (e.pageY + 5) + 'px';
     this._currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-block');
   }
 

@@ -44,8 +44,7 @@
     box-sizing: border-box;
     z-index: 1;
     background-color: #f0f8ff;
-    position: absolute;
-    top: 28px;
+    position: fixed;
     min-width: 200px;
     max-height: 350px;
     overflow: auto;

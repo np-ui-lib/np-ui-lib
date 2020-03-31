@@ -26,6 +26,8 @@ export class NpUiTimePickerComponent implements ControlValueAccessor {
   _selectedSecond: number;
   _selectedAMPM = 'AM';
   _pattern: any;
+  _x:number;
+  _y:number;
   _innerValue: any;
   _isDisabled: boolean = false;
   private onChangeCallback: (_: any) => void;
@@ -226,6 +228,9 @@ export class NpUiTimePickerComponent implements ControlValueAccessor {
     if (this.defaultOpen == true || this._isDisabled) {
       return;
     }
+    var position = this.elRef.nativeElement.getBoundingClientRect();
+    this._x = position.left;
+    this._y = position.top + position.height;
     this._isOpen = true;
     this.onTouchedCallback();
   }

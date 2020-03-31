@@ -18,7 +18,7 @@
             </svg>
         </a>
     </div>
-    <div *ngIf="_isOpen || defaultOpen" class="np-dp-overlay" [ngClass]="{'np-dp-overlay-open': defaultOpen}">
+    <div *ngIf="_isOpen || defaultOpen" class="np-dp-overlay" [style.top.px]="_y"  [style.left.px]="_x" [ngClass]="{'np-dp-overlay-open': defaultOpen}">
         <div class="np-dp-header">
             <div class="np-dp-header-item">
                 <a (click)="_prevMonth()" class="np-dp-icon-button" title="Previous">

@@ -135,15 +135,13 @@
     z-index: 1;
     background-color: #f0f8ff;
     padding: 5px;
-    position: absolute;
-    top: 28px;
+    position: fixed;
 }
 
 .np-dp-overlay-open {
     position: relative !important;
     z-index: auto;
     border: none;
-    top: 0px;
 }
 
 .np-dp-select {
