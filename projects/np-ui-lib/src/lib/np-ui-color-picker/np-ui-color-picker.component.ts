@@ -1,5 +1,9 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, ElementRef, HostListener, Output, EventEmitter } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import {
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit
+} from "@angular/core";
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
+import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
+import { TemplatePortal } from "@angular/cdk/portal";
 
 @Component({
   selector: 'np-ui-color-picker',
@@ -15,7 +19,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
     }
   ]
 })
-export class NpUiColorPickerComponent implements ControlValueAccessor {
+export class NpUiColorPickerComponent implements ControlValueAccessor, AfterViewInit {
 
   _isOpen: boolean = false;
   _stripColor: string;
@@ -36,14 +40,14 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
   @Input() styleClass: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  @HostListener('document:click', ['$event'])
-  clickOutSide(event: any) {
-    if (!this.elRef.nativeElement.contains(event.target)) {
-      this._close();
-    }
-  }
+  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  private templatePortal: TemplatePortal<any>;
+  private overlayRef: OverlayRef;
 
-  constructor(private elRef: ElementRef) {
+  constructor(public overlay: Overlay,
+    private _viewContainerRef: ViewContainerRef,
+    private overlayPositionBuilder: OverlayPositionBuilder,
+    private elementRef: ElementRef) {
     this._colors = ['#FF0000', '#FF7F00', '#FFFF00', '#7FFF00', '#00FF00', '#00FF7F', '#00FFFF', '#007FFF', '#0000FF',
       '#7F00FF', '#FF00FF', '#FF007F', '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4',
       '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548',
@@ -51,6 +55,34 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
   }
 
   ngAfterViewInit() {
+    var position: ConnectedPosition[] = [
+      {
+        originX: "start",
+        originY: "bottom",
+        overlayX: "start",
+        overlayY: "top"
+      },
+      {
+        originX: "start",
+        originY: "top",
+        overlayX: "start",
+        overlayY: "bottom"
+      }
+    ];
+    const positionStrategy = this.overlayPositionBuilder
+      .flexibleConnectedTo(this.elementRef)
+      .withPositions(position);
+    this.overlayRef = this.overlay.create({
+      positionStrategy,
+      hasBackdrop: true,
+      backdropClass: "np-dp-backdrop"
+    });
+    this.templatePortal = new TemplatePortal(
+      this.templatePortalContent,
+      this._viewContainerRef
+    );
+    this.overlayRef.backdropClick().subscribe(() => this._close());
+
     if (this.defaultOpen) {
       setTimeout(() => {
         this._updateStripCanvas();
@@ -114,11 +146,12 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
     }
     this._isOpen = true;
     this._stripColor = this.value;
+    this.onTouchedCallback();
+    this.overlayRef.attach(this.templatePortal);
     setTimeout(() => {
       this._updateStripCanvas();
       this._updateCanvas();
     }, 10);
-    this.onTouchedCallback();
   }
 
   _close() {
@@ -127,10 +160,16 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
     }
     this._isShowCursorDiv = false;
     this._isOpen = false;
+    this.overlayRef.detach();
   }
 
   _updateStripCanvas() {
-    var strip = <HTMLCanvasElement>this.elRef.nativeElement.querySelector('.np-cp-canvas-strip');
+    var strip;
+    if (this.defaultOpen) {
+      strip = <HTMLCanvasElement>this.elementRef.nativeElement.querySelector('.np-cp-canvas-strip');
+    } else {
+      strip = <HTMLCanvasElement>this.overlayRef.overlayElement.querySelector('.np-cp-canvas-strip');
+    }
     var ctx2 = strip.getContext('2d');
     ctx2.rect(0, 0, 25, 170);
     var grd1 = ctx2.createLinearGradient(0, 0, 0, 170);
@@ -151,8 +190,18 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
   }
 
   _updateCanvas() {
-    var block = <HTMLCanvasElement>this.elRef.nativeElement.querySelector('.np-cp-canvas-block');
-    var strip = <HTMLCanvasElement>this.elRef.nativeElement.querySelector('.np-cp-canvas-strip');
+    var strip;
+    if (this.defaultOpen) {
+      strip = <HTMLCanvasElement>this.elementRef.nativeElement.querySelector('.np-cp-canvas-strip');
+    } else {
+      strip = <HTMLCanvasElement>this.overlayRef.overlayElement.querySelector('.np-cp-canvas-strip');
+    }
+    var block;
+    if (this.defaultOpen) {
+      block = <HTMLCanvasElement>this.elementRef.nativeElement.querySelector('.np-cp-canvas-block');
+    } else {
+      block = <HTMLCanvasElement>this.overlayRef.overlayElement.querySelector('.np-cp-canvas-block');
+    }
     var ctx1 = block.getContext('2d');
     var ctx2 = strip.getContext('2d');
 
@@ -263,7 +312,12 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
   }
 
   _getColorFromClickevent(e: any, clickedElement: string) {
-    var strip = <HTMLCanvasElement>this.elRef.nativeElement.querySelector(clickedElement);
+    var strip;
+    if (this.defaultOpen) {
+      strip = <HTMLCanvasElement>this.elementRef.nativeElement.querySelector(clickedElement);
+    } else {
+      strip = <HTMLCanvasElement>this.overlayRef.overlayElement.querySelector(clickedElement);
+    }
     var ctx2 = strip.getContext('2d');
     var x = e.offsetX;
     var y = e.offsetY;

@@ -1,5 +1,6 @@
+@import "~@angular/cdk/overlay-prebuilt.css";
 .np-cp-component {
-    width: 100%;    
+    width: 100%;
     border: 1px solid black;
     box-sizing: border-box;
     height: 28px;
@@ -32,14 +33,13 @@
 .np-cp-overlay {
     border: 1px solid black;
     box-sizing: border-box;
-    z-index: 1;
     background-color: #f0f8ff;
     padding: 5px;
-    position: absolute;
     margin-top: 1px;
 }
 
-.np-cp-icon-button, .np-cp-input-append {
+.np-cp-icon-button,
+.np-cp-input-append {
     padding: 2px;
     display: flex;
     align-items: center;
@@ -72,8 +72,6 @@
 }
 
 .np-cp-overlay-open {
-    position: relative;
-    z-index: auto;
     border: none;
 }
 
@@ -91,7 +89,8 @@
     cursor: pointer;
 }
 
-.np-cp-canvas-strip:hover, .np-cp-canvas-block:hover {
+.np-cp-canvas-strip:hover,
+.np-cp-canvas-block:hover {
     cursor: crosshair;
 }
 
@@ -110,7 +109,7 @@
 .np-cp-current-color {
     height: 25px;
     width: 25px;
-    z-index: 2;
+    z-index: 1001;
 }
 
 .np-cp-canvas-block {
