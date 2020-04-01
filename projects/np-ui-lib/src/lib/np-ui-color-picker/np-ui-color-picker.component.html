@@ -21,7 +21,7 @@
             </svg>
         </a>
     </div>
-    <div class="np-cp-overlay" *ngIf="_isOpen || defaultOpen" [style.top.px]="_y"  [style.left.px]="_x" [ngClass]="{'np-cp-overlay-open' : defaultOpen}">
+    <div class="np-cp-overlay" *ngIf="_isOpen || defaultOpen" [ngClass]="{'np-cp-overlay-open' : defaultOpen}">
         <div class="np-cp-selected-block">
             <div class="np-cp-selected-div" [ngStyle]="{'background-color': _innerValue}"></div>
             <div class="np-cp-selected-text">

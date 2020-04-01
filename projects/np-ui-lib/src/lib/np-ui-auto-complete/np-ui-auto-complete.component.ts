@@ -20,8 +20,6 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
 
   _innerValue: string;
   _isDisabled: boolean = false;
-  _x:number;
-  _y:number;
   private onChangeCallback: (_: any) => void;
   private onTouchedCallback: () => void;
 
@@ -114,9 +112,6 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
     if (this._isDisabled) {
       return;
     }
-    var position = this.elRef.nativeElement.getBoundingClientRect();
-    this._x = position.left;
-    this._y = position.top + position.height;
     this._searchResult = null;
     this._isOpen = true;
   }

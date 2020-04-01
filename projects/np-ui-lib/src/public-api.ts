@@ -43,7 +43,6 @@ export * from './lib/np-ui-utility/np-ui-highlight.pipe';
 
 /**Tooltip */
 export * from './lib/np-ui-tooltip/np-ui-tooltip.module';
-export * from './lib/np-ui-tooltip/np-ui-tooltip.component';
 export * from './lib/np-ui-tooltip/np-ui-tooltip.directive';
 
 /**Progress */

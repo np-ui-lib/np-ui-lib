@@ -17,7 +17,7 @@
             </svg>
         </a>
     </div>
-    <div class="np-ac-overlay" [style.top.px]="_y"  [style.left.px]="_x"  *ngIf="_isOpen && _searchResult">
+    <div class="np-ac-overlay" *ngIf="_isOpen && _searchResult">
         <div class="np-ac-search-result">
             <div *ngFor="let item of _searchResult; let i = index;" class="np-ac-search-result-item"
                 (click)="_selectValue(item)">

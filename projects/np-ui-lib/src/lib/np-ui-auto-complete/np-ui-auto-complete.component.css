@@ -3,7 +3,6 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
-    position: relative;
 }
 
 .np-ac-icon {
@@ -44,10 +43,11 @@
     box-sizing: border-box;
     z-index: 1;
     background-color: #f0f8ff;
-    position: fixed;
+    position: absolute;
     min-width: 200px;
     max-height: 350px;
     overflow: auto;
+    margin-top: 1px;
 }
 
 .np-ac-search-result-item{

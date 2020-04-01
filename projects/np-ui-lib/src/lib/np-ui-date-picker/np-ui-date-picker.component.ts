@@ -43,9 +43,7 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
   _isOpen = false;
   _innerValue: Date;
   _isDisabled: boolean = false;
-  _x:number;
-  _y:number;
-
+  
   private onChangeCallback: (_: any) => void;
   private onTouchedCallback: () => void;
 
@@ -307,9 +305,6 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
     if (this.defaultOpen == true || this._isDisabled) {
       return;
     }
-    var position = this.elRef.nativeElement.getBoundingClientRect();
-    this._x = position.left;
-    this._y = position.top + position.height;
     this._isOpen = true;
     this._resetVariables();
     this._calculateDays();

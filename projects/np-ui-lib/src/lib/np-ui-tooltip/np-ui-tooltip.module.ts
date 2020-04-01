@@ -11,7 +11,7 @@ import { NpUiTooltipDirective } from './np-ui-tooltip.directive';
     OverlayModule
   ],
   exports: [
-    NpUiTooltipComponent, NpUiTooltipDirective
+    NpUiTooltipDirective
   ],
   entryComponents: [NpUiTooltipComponent]
 })

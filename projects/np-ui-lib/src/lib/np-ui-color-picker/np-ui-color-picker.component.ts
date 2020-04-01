@@ -23,8 +23,6 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
   _currentCursorColor: string;
   _xColorCursor: string;
   _yColorCursor: string;
-  _x: number;
-  _y: number;
   _isShowCursorDiv: boolean = false;
   _innerValue: any;
   _isDisabled: boolean = false;
@@ -114,9 +112,6 @@ export class NpUiColorPickerComponent implements ControlValueAccessor {
     if (this.defaultOpen == true || this._isDisabled) {
       return;
     }
-    var position = this.elRef.nativeElement.getBoundingClientRect();
-    this._x = position.left;
-    this._y = position.top + position.height;
     this._isOpen = true;
     this._stripColor = this.value;
     setTimeout(() => {

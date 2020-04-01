@@ -3,7 +3,6 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
-    position: relative;
 }
 
 .np-tp-icon {
@@ -49,7 +48,8 @@
     z-index: 1;
     background-color: #f0f8ff;
     padding: 5px;
-    position: fixed;
+    position: absolute;
+    margin-top: 1px;
 }
 
 .np-tp-button-group {

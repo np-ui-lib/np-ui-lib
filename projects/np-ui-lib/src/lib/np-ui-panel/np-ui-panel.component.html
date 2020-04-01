@@ -1,7 +1,7 @@
 <div class="np-pn-component" [ngClass]="{'np-pn-zoom-out':_isZoom}" *ngIf="!_isClose" [class]="styleClass">
     <div class="np-pn-header">
-        <div [innerHTML]="title"></div>
-        <div class="np-pn-button-group">
+        <div class="np-pn-title" [innerHTML]="title"></div>
+        <div class="np-pn-header-actions">
             <a *ngIf="allowMinimize && !_isZoom" class="np-pn-icon-button" (click)="_toggleMinimize()"
                 title="{{_isMinimize ? 'Maximize':'Minimize'}}">
                 <svg class="np-pn-icon-lg" viewBox="0 0 24 24" *ngIf="_isMinimize">
