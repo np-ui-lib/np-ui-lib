@@ -1,8 +1,6 @@
-<div class="np-dp-component" [ngClass]="{'np-dp-default-open': defaultOpen,'np-dp-disabled': _isDisabled}"
-    [class]="styleClass">
+<div class="np-dp-component" [ngClass]="{'np-dp-default-open': defaultOpen,'np-dp-disabled': _isDisabled}" [class]="styleClass">
     <div class="np-dp-input-group" *ngIf="!defaultOpen">
-        <input class="np-dp-input" type="text" [value]="value | date: format" [readonly]="true"
-            [placeholder]="placeholder" (focus)="_open()" [disabled]="_isDisabled">
+        <input class="np-dp-input" type="text" [value]="value | date: format" [readonly]="true" [placeholder]="placeholder" (focus)="_open()" [disabled]="_isDisabled">
         <a class="np-dp-input-append" (click)="_clear()" title="Clear">
             <svg class="np-dp-icon" viewBox="0 0 24 24">
                 <path
@@ -18,7 +16,14 @@
             </svg>
         </a>
     </div>
-    <div *ngIf="_isOpen || defaultOpen" class="np-dp-overlay" [ngClass]="{'np-dp-overlay-open': defaultOpen}">
+    <div *ngIf="defaultOpen">
+        <ng-container *ngTemplateOutlet="templatePortalContent">
+        </ng-container>
+    </div>
+</div>
+
+<ng-template #templatePortalContent>
+    <div class="np-dp-overlay" [ngClass]="{'np-dp-overlay-open': defaultOpen}">
         <div class="np-dp-header">
             <div class="np-dp-header-item">
                 <a (click)="_prevMonth()" class="np-dp-icon-button" title="Previous">
@@ -57,11 +62,9 @@
         </div>
         <div class="np-dp-dates">
             <ng-container *ngFor="let day of _days; let i = index;">
-                <div class="np-dp-dates-items" (click)="_selectDate(day)"
-                    [ngClass]="{'np-dp-selected': _checkIsSelected(day), 'np-dp-today': _checkIsToday(day), 'np-dp-date-disabled' : _checkDateDisabled(_currentYear,_currentMonth,day)}">
-                    <div *ngIf="_getTooltip(_currentYear,_currentMonth,day); let label; else dayTemplate" np-ui-tooltip
-                        [placement]="'bottom'" [tooltipText]="label">
-                        {{day}}                        
+                <div class="np-dp-dates-items" (click)="_selectDate(day)" [ngClass]="{'np-dp-selected': _checkIsSelected(day), 'np-dp-today': _checkIsToday(day), 'np-dp-date-disabled' : _checkDateDisabled(_currentYear,_currentMonth,day)}">
+                    <div *ngIf="_getTooltip(_currentYear,_currentMonth,day); let label; else dayTemplate" np-ui-tooltip [placement]="'bottom'" [tooltipText]="label">
+                        {{day}}
                     </div>
                     <ng-template #dayTemplate>
                         {{day}}
@@ -75,4 +78,4 @@
             <a *ngIf="!defaultOpen" class="np-dp-button" title="Ok" (click)="_close()">Ok</a>
         </div>
     </div>
-</div>
+</ng-template>

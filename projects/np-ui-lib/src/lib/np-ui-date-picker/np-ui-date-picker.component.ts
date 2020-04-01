@@ -1,10 +1,14 @@
-import { Component, Input, Output, EventEmitter, HostListener, ElementRef, ChangeDetectionStrategy, ViewEncapsulation, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import {
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit
+} from "@angular/core";
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
+import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
+import { TemplatePortal } from "@angular/cdk/portal";
 
 @Component({
-  selector: 'np-ui-date-picker',
-  templateUrl: './np-ui-date-picker.component.html',
-  styleUrls: ['./np-ui-date-picker.component.css'],
+  selector: "np-ui-date-picker",
+  templateUrl: "./np-ui-date-picker.component.html",
+  styleUrls: ["./np-ui-date-picker.component.css"],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
@@ -15,8 +19,8 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
     }
   ]
 })
-export class NpUiDatePickerComponent implements ControlValueAccessor {
-
+export class NpUiDatePickerComponent
+  implements ControlValueAccessor, AfterViewInit {
   _weekDays: string[];
   _monthsList: any[];
   _months: any[];
@@ -43,9 +47,13 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
   _isOpen = false;
   _innerValue: Date;
   _isDisabled: boolean = false;
-  
+
   private onChangeCallback: (_: any) => void;
   private onTouchedCallback: () => void;
+
+  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  private templatePortal: TemplatePortal<any>;
+  private overlayRef: OverlayRef;
 
   @Input() minDate: Date;
   @Input() maxDate: Date;
@@ -60,14 +68,12 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
   @Input() styleClass: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  @HostListener('document:click', ['$event'])
-  clickOutSide(event: any) {
-    if (!this.elRef.nativeElement.contains(event.target)) {
-      this._close();
-    }
-  }
-
-  constructor(private elRef: ElementRef) {
+  constructor(
+    public overlay: Overlay,
+    private _viewContainerRef: ViewContainerRef,
+    private overlayPositionBuilder: OverlayPositionBuilder,
+    private elementRef: ElementRef
+  ) {
     this._monthsList = [
       { key: 0, value: "January" },
       { key: 1, value: "February" },
@@ -97,9 +103,39 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
     this._setMonths();
   }
 
+  ngAfterViewInit(): void {
+    var position: ConnectedPosition[] = [
+      {
+        originX: "start",
+        originY: "bottom",
+        overlayX: "start",
+        overlayY: "top"
+      },
+      {
+        originX: "start",
+        originY: "top",
+        overlayX: "start",
+        overlayY: "bottom"
+      }
+    ];
+    const positionStrategy = this.overlayPositionBuilder
+      .flexibleConnectedTo(this.elementRef)
+      .withPositions(position);
+    this.overlayRef = this.overlay.create({
+      positionStrategy,
+      hasBackdrop: true,
+      backdropClass: "np-dp-backdrop"
+    });
+    this.templatePortal = new TemplatePortal(
+      this.templatePortalContent,
+      this._viewContainerRef
+    );
+    this.overlayRef.backdropClick().subscribe(() => this._close());
+  }
+
   get value(): Date {
     return this._innerValue ? this._innerValue : null;
-  };
+  }
 
   set value(v: Date) {
     if (v !== this._innerValue) {
@@ -143,8 +179,7 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
         this._minMonth = this.minDate.getMonth();
         this._minYear = this.minDate.getFullYear();
         this._minDate = this.minDate;
-      }
-      else {
+      } else {
         this._minDay = null;
         this._minMonth = null;
         this._minYear = null;
@@ -207,7 +242,11 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
   _calculateDays() {
     this._days = [];
     var _daysInMonth = this._daysInCurrentMonth();
-    var _firstWeekDayOfMonth = new Date(this._currentYear, this._currentMonth, 1).getDay();
+    var _firstWeekDayOfMonth = new Date(
+      this._currentYear,
+      this._currentMonth,
+      1
+    ).getDay();
     // push extra values upto week days match to start date if month
     for (let index = 0; index < _firstWeekDayOfMonth; index++) {
       this._days.push(null);
@@ -274,7 +313,11 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
   }
 
   _selectDate(day: number) {
-    if (day == null || this._checkDateDisabled(this._currentYear, this._currentMonth, day) || this._isDisabled) {
+    if (
+      day == null ||
+      this._checkDateDisabled(this._currentYear, this._currentMonth, day) ||
+      this._isDisabled
+    ) {
       return;
     }
     var date = new Date(this._currentYear, this._currentMonth, day);
@@ -309,6 +352,8 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
     this._resetVariables();
     this._calculateDays();
     this.onTouchedCallback();
+
+    this.overlayRef.attach(this.templatePortal);
   }
 
   _close() {
@@ -316,6 +361,7 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
       return;
     }
     this._isOpen = false;
+    this.overlayRef.detach();
   }
 
   _setYears() {
@@ -359,7 +405,9 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
   _getTooltip(year: number, month: number, day: number) {
     if (day && this.dateLabels && this.dateLabels.length > 0) {
       var currentDate = new Date(year, month, day);
-      var dateLabel: any = this.dateLabels.find(function (item) { return item.date.toDateString() == currentDate.toDateString(); });
+      var dateLabel: any = this.dateLabels.find(function (item) {
+        return item.date.toDateString() == currentDate.toDateString();
+      });
       return dateLabel ? dateLabel.label : null;
     }
     return null;
@@ -383,15 +431,27 @@ export class NpUiDatePickerComponent implements ControlValueAccessor {
     if (this._checkIsDayDisabled(date.getDay())) {
       return true;
     }
-    return this.disableDates.findIndex(function (item) { return item.toDateString() == date.toDateString() }) > -1;
+    return (
+      this.disableDates.findIndex(function (item) {
+        return item.toDateString() == date.toDateString();
+      }) > -1
+    );
   }
 
   _checkIsToday(day: number) {
-    return day == this._todayDate && this._currentMonth == this._todayMonth && this._currentYear == this._todayYear;
+    return (
+      day == this._todayDate &&
+      this._currentMonth == this._todayMonth &&
+      this._currentYear == this._todayYear
+    );
   }
 
   _checkIsSelected(day: number) {
-    return day == this._selectedDay && this._currentMonth == this._selectedMonth && this._currentYear == this._selectedYear;
+    return (
+      day == this._selectedDay &&
+      this._currentMonth == this._selectedMonth &&
+      this._currentYear == this._selectedYear
+    );
   }
 
   _setSelectedDate(date: Date) {

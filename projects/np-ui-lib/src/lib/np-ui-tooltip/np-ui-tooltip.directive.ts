@@ -14,7 +14,7 @@ export class NpUiTooltipDirective implements OnInit {
 
     constructor(private overlay: Overlay,
         private overlayPositionBuilder: OverlayPositionBuilder,
-        private elementRef: ElementRef, ) {
+        private elementRef: ElementRef ) {
     }
 
     ngOnInit(): void {

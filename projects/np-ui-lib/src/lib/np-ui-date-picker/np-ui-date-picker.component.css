@@ -1,3 +1,4 @@
+@import "~@angular/cdk/overlay-prebuilt.css";
 .np-dp-component {
     width: 100%;
     border: 1px solid #000000;
@@ -17,7 +18,8 @@
     fill: currentColor;
 }
 
-.np-dp-icon-button, .np-dp-input-append {
+.np-dp-icon-button,
+.np-dp-input-append {
     padding: 2px;
     display: flex;
     align-items: center;
@@ -32,7 +34,7 @@
 
 .np-dp-button-group {
     padding-top: 5px;
-    text-align: end;    
+    text-align: end;
 }
 
 .np-dp-button-group .np-dp-button {
@@ -131,17 +133,14 @@
 .np-dp-overlay {
     border: 1px solid #000000;
     box-sizing: border-box;
-    z-index: 1;
     background-color: #f0f8ff;
     padding: 5px;
-    position: absolute;
     margin-top: 1px;
 }
 
 .np-dp-overlay-open {
-    position: relative;
-    z-index: auto;
     border: none;
+    margin: 0px;
 }
 
 .np-dp-select {
@@ -153,7 +152,8 @@
     height: 100%;
 }
 
-.np-dp-disabled, .np-dp-date-disabled {
+.np-dp-disabled,
+.np-dp-date-disabled {
     opacity: 0.7;
     pointer-events: none;
 }
