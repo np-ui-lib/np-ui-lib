@@ -1,7 +1,6 @@
 <div class="np-ac-component" [class]="styleClass" [ngClass]="{'np-ac-disabled':_isDisabled}">
     <div class="np-ac-input-group">
-        <input type="text" class="np-ac-input" [(ngModel)]="_displayValue" [disabled]="_isDisabled" (focus)="_onFocus()"
-            (input)="_onInput()" [placeholder]="placeholder">
+        <input type="text" class="np-ac-input" [(ngModel)]="_displayValue" [disabled]="_isDisabled" (focus)="_onFocus()" (input)="_onInput()" [placeholder]="placeholder">
         <a class="np-ac-input-append np-ac-loader" *ngIf="_isLoading">
             <svg class="np-ac-icon" viewBox="0 0 24 24">
                 <path
@@ -17,23 +16,24 @@
             </svg>
         </a>
     </div>
-    <div class="np-ac-overlay" *ngIf="_isOpen && _searchResult">
+</div>
+
+<ng-template #templatePortalContent>
+    <div class="np-ac-overlay">
         <div class="np-ac-search-result">
-            <div *ngFor="let item of _searchResult; let i = index;" class="np-ac-search-result-item"
-                (click)="_selectValue(item)">
+            <div *ngFor="let item of _searchResult; let i = index;" class="np-ac-search-result-item" (click)="_selectValue(item)">
                 <ng-container *ngIf="!optionTemplate; else customTemplate">
                     <span [innerHtml]="displayKey ? item[displayKey] : item | npUiHighLight : _displayValue"></span>
                 </ng-container>
-                <ng-template #customTemplate [ngTemplateOutlet]="optionTemplate"
-                    [ngTemplateOutletContext]="{item: item, keyword: _displayValue}">
+                <ng-template #customTemplate [ngTemplateOutlet]="optionTemplate" [ngTemplateOutletContext]="{item: item, keyword: _displayValue}">
                 </ng-template>
             </div>
-            <div *ngIf="_searchResult && _searchResult.length===0" class="np-ac-search-result-item np-ac-no-result">
-                <b>No Result Found.</b>
-            </div>
-            <div *ngIf="allowCreateNew" class="np-ac-search-result-item np-ac-allow-create" (click)="_createNewTag()">
-                <b>Create New</b>
-            </div>
+        </div>
+        <div *ngIf="_searchResult && _searchResult.length===0" class="np-ac-no-result">
+            <b>No Result Found.</b>
+        </div>
+        <div *ngIf="allowCreateNew && _displayValue" class="np-ac-allow-create" (click)="_createNewTag()">
+            <b>Create New</b>
         </div>
     </div>
-</div>
+</ng-template>

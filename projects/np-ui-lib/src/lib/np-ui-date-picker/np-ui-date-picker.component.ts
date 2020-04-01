@@ -124,7 +124,8 @@ export class NpUiDatePickerComponent
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: "np-dp-backdrop"
+      backdropClass: "np-dp-backdrop",
+      scrollStrategy: this.overlay.scrollStrategies.reposition()
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,

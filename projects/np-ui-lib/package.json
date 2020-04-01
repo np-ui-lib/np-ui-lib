@@ -1,38 +1,38 @@
 {
-  "name": "np-ui-lib",
-  "version": "9.5.1",
-  "author": {
-    "name": "nilav patel",
-    "email": "nilavpatel1992@gmail.com",
-    "url": "http://nilavpatel.github.io"
-  },
-  "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
-    "@angular/cdk": "^9.0.0",
-    "@angular/forms": "^9.0.0",
-    "tslib": "^1.10.0"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NilavPatel/np-ui-package.git"
-  },
-  "private": false,
-  "keywords": [
-    "Angular",
-    "Angular9",
-    "Components",
-    "Typescript",
-    "Datagrid",
-    "Datepicker",
-    "Timepicker",
-    "Colorpicker",
-    "Switch",
-    "Autocomplete",
-    "Panel",
-    "Notification",
-    "Tooltip",
-    "Progress"
-  ]
+    "name": "np-ui-lib",
+    "version": "9.6.0",
+    "author": {
+        "name": "nilav patel",
+        "email": "nilavpatel1992@gmail.com",
+        "url": "http://nilavpatel.github.io"
+    },
+    "peerDependencies": {
+        "@angular/common": "^9.0.0",
+        "@angular/core": "^9.0.0",
+        "@angular/cdk": "^9.0.0",
+        "@angular/forms": "^9.0.0",
+        "tslib": "^1.10.0"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NilavPatel/np-ui-package.git"
+    },
+    "private": false,
+    "keywords": [
+        "Angular",
+        "Angular9",
+        "Components",
+        "Typescript",
+        "Datagrid",
+        "Datepicker",
+        "Timepicker",
+        "Colorpicker",
+        "Switch",
+        "Autocomplete",
+        "Panel",
+        "Notification",
+        "Tooltip",
+        "Progress"
+    ]
 }

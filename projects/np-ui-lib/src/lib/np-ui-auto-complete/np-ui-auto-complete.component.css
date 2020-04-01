@@ -1,5 +1,6 @@
+@import "~@angular/cdk/overlay-prebuilt.css";
 .np-ac-component {
-    width: 100%;    
+    width: 100%;
     border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
@@ -39,32 +40,33 @@
 }
 
 .np-ac-overlay {
-    border: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
     box-sizing: border-box;
-    z-index: 1;
     background-color: #f0f8ff;
-    position: absolute;
-    min-width: 200px;
-    max-height: 350px;
-    overflow: auto;
     margin-top: 1px;
+    min-width: 200px;
 }
 
-.np-ac-search-result-item{
+.np-ac-search-result-item {
     padding: 5px;
     border-bottom: 1px solid #000000;
     cursor: pointer;
 }
 
-.np-ac-search-result-item:last-child{
-    border-bottom: none;
+.np-ac-no-result,
+.np-ac-allow-create {
+    padding: 5px;
+    border-bottom: 1px solid #000000;
+    cursor: pointer;
 }
 
 .np-ac-loader {
     animation: spin 2s linear infinite;
 }
 
-.np-ac-no-result{
+.np-ac-no-result {
     opacity: 0.7;
     pointer-events: none;
 }
@@ -87,11 +89,11 @@
     color: #ff0000;
 }
 
-.np-ac-disabled{
+.np-ac-disabled {
     pointer-events: none;
     opacity: 0.7;
 }
 
-.np-ui-highlight{
+.np-ui-highlight {
     background-color: #fafad2;
 }

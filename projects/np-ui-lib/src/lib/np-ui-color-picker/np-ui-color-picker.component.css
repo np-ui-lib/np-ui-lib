@@ -73,6 +73,7 @@
 
 .np-cp-overlay-open {
     border: none;
+    margin: 0px;
 }
 
 .ng-invalid.ng-touched .np-cp-component {

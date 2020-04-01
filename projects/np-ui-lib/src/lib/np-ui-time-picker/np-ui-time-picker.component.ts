@@ -1,5 +1,9 @@
-import { Component, Input, Output, EventEmitter, HostListener, ElementRef, ViewEncapsulation, ChangeDetectionStrategy, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit
+} from "@angular/core";
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
+import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
+import { TemplatePortal } from "@angular/cdk/portal";
 
 @Component({
   selector: 'np-ui-time-picker',
@@ -15,7 +19,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ]
 })
-export class NpUiTimePickerComponent implements ControlValueAccessor {
+export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewInit {
 
   _hours: number[] = [];
   _minutes: number[] = [];
@@ -40,7 +44,16 @@ export class NpUiTimePickerComponent implements ControlValueAccessor {
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  constructor(private elRef: ElementRef) {
+  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  private templatePortal: TemplatePortal<any>;
+  private overlayRef: OverlayRef;
+
+  constructor(
+    public overlay: Overlay,
+    private _viewContainerRef: ViewContainerRef,
+    private overlayPositionBuilder: OverlayPositionBuilder,
+    private elementRef: ElementRef
+  ) {
     this._pattern = new RegExp("^(([0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}) ([AaPp][Mm]))$");
     for (var i = 0; i < 12; i++) {
       this._hours.push(i);
@@ -51,12 +64,37 @@ export class NpUiTimePickerComponent implements ControlValueAccessor {
     }
   }
 
-  @HostListener('document:click', ['$event'])
-  clickOutSide(event: any) {
-    if (!this.elRef.nativeElement.contains(event.target)) {
-      this._close();
-    }
+  ngAfterViewInit(): void {
+    var position: ConnectedPosition[] = [
+      {
+        originX: "start",
+        originY: "bottom",
+        overlayX: "start",
+        overlayY: "top"
+      },
+      {
+        originX: "start",
+        originY: "top",
+        overlayX: "start",
+        overlayY: "bottom"
+      }
+    ];
+    const positionStrategy = this.overlayPositionBuilder
+      .flexibleConnectedTo(this.elementRef)
+      .withPositions(position);
+    this.overlayRef = this.overlay.create({
+      positionStrategy,
+      hasBackdrop: true,
+      backdropClass: "np-tp-backdrop",
+      scrollStrategy: this.overlay.scrollStrategies.reposition()
+    });
+    this.templatePortal = new TemplatePortal(
+      this.templatePortalContent,
+      this._viewContainerRef
+    );
+    this.overlayRef.backdropClick().subscribe(() => this._close());
   }
+
 
   get value(): any {
     return this._innerValue ? this._innerValue : null;
@@ -228,6 +266,7 @@ export class NpUiTimePickerComponent implements ControlValueAccessor {
     }
     this._isOpen = true;
     this.onTouchedCallback();
+    this.overlayRef.attach(this.templatePortal);
   }
 
   _close() {
@@ -235,6 +274,7 @@ export class NpUiTimePickerComponent implements ControlValueAccessor {
       return;
     }
     this._isOpen = false;
+    this.overlayRef.detach();
   }
 
   _extractValues() {
@@ -283,7 +323,7 @@ export class NpUiTimePickerComponent implements ControlValueAccessor {
     }
     this.value = nowTime;
     this._extractValues();
-    this._isOpen = false;
+    this._close();
   }
 
   get24hrsTimeFormat() {

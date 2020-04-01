@@ -75,7 +75,8 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: "np-dp-backdrop"
+      backdropClass: "np-cp-backdrop",
+      scrollStrategy: this.overlay.scrollStrategies.reposition()
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,

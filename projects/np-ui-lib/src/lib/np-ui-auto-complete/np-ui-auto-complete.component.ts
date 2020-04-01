@@ -1,5 +1,9 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, HostListener, ElementRef, EventEmitter, Output, TemplateRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import {
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit
+} from "@angular/core";
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
+import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
+import { TemplatePortal } from "@angular/cdk/portal";
 import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
@@ -16,14 +20,13 @@ import { BehaviorSubject, Subscription } from 'rxjs';
     }
   ]
 })
-export class NpUiAutoCompleteComponent implements ControlValueAccessor {
+export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterViewInit {
 
   _innerValue: string;
   _isDisabled: boolean = false;
   private onChangeCallback: (_: any) => void;
   private onTouchedCallback: () => void;
 
-  _isOpen: boolean = false;
   @Input() searchResult: BehaviorSubject<any[]>;
   _subscription: Subscription;
   _searchResult: any[];
@@ -47,29 +50,66 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
 
-  constructor(private elRef: ElementRef) { }
+  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  private templatePortal: TemplatePortal<any>;
+  private overlayRef: OverlayRef;
 
-  ngOnInit(): void {
+  constructor(
+    public overlay: Overlay,
+    private _viewContainerRef: ViewContainerRef,
+    private overlayPositionBuilder: OverlayPositionBuilder,
+    private elementRef: ElementRef
+  ) { }
+
+  ngAfterViewInit(): void {
     this._subscription = this.searchResult.subscribe((data) => {
+      if (data) {
+        this.overlayRef.detach();
+      }
       if (this.maxResultLimit && this.maxResultLimit > 0 && data && data.length > this.maxResultLimit) {
         this._searchResult = data.splice(0, this.maxResultLimit);
       } else {
         this._searchResult = data;
       }
       this._isLoading = false;
+      if (data) {
+        this.overlayRef.attach(this.templatePortal);
+      }
     });
+
+    var position: ConnectedPosition[] = [
+      {
+        originX: "start",
+        originY: "bottom",
+        overlayX: "start",
+        overlayY: "top"
+      },
+      {
+        originX: "start",
+        originY: "top",
+        overlayX: "start",
+        overlayY: "bottom"
+      }
+    ];
+    const positionStrategy = this.overlayPositionBuilder
+      .flexibleConnectedTo(this.elementRef)
+      .withPositions(position);
+    this.overlayRef = this.overlay.create({
+      positionStrategy,
+      hasBackdrop: true,
+      backdropClass: "np-ac-backdrop",
+      scrollStrategy: this.overlay.scrollStrategies.reposition()
+    });
+    this.templatePortal = new TemplatePortal(
+      this.templatePortalContent,
+      this._viewContainerRef
+    );
+    this.overlayRef.backdropClick().subscribe(() => this._close());
   }
 
   ngOnDestroy(): void {
     if (this._subscription) {
       this._subscription.unsubscribe();
-    }
-  }
-
-  @HostListener('document:click', ['$event'])
-  clickOutSide(event: any) {
-    if (!this.elRef.nativeElement.contains(event.target)) {
-      this._close();
     }
   }
 
@@ -108,21 +148,13 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
     this._isDisabled = isDisabled;
   }
 
-  _open() {
-    if (this._isDisabled) {
-      return;
-    }
-    this._searchResult = null;
-    this._isOpen = true;
-  }
-
   _close() {
     if (this.value) {
       this._displayValue = this.displayKey && this.value ? this.value[this.displayKey] : this.value;
     } else {
       this._displayValue = null;
     }
-    this._isOpen = false;
+    this.overlayRef.detach();
   }
 
   _clear() {
@@ -136,7 +168,7 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
   _onInput() {
     if (this._isDisabled) {
       return;
-    }    
+    }
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
       if (this._displayValue == undefined || this._displayValue == null || this._displayValue.length < this.minSearchCharLimit) {
         return;
@@ -158,7 +190,6 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor {
 
   _onFocus() {
     this.onTouchedCallback();
-    this._open();
   }
 
   _createNewTag() {
