@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewEncapsulation, ViewChild, ViewContainerRef, ElementRef } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Column } from './models/column.model';
 import { Constants, DataTypes, FilterTypes, SortDirections } from './models/constants';
@@ -12,6 +12,8 @@ import { NpFilterService } from './services/np-ui-filter.service';
 import { NpODataService } from './services/np-ui-odata.service';
 import { NpPagerService } from './services/np-ui-pager.service';
 import { NpUtilityService } from './services/np-ui-utility.service';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { OverlayRef, ConnectedPosition, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'np-ui-data-grid',
@@ -118,11 +120,19 @@ export class NpUiDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   _searchColumnsKeyword: string;
 
+  @ViewChild("columnChooserTemplate") columnChooserTemplate: TemplateRef<any>;
+  private columnChooserTemplatePortal: TemplatePortal<any>;
+  private columnChooserOverlayRef: OverlayRef;
+
   constructor(private pagerService: NpPagerService,
     private filterService: NpFilterService,
     private utilityService: NpUtilityService,
     private oDataService: NpODataService,
-    private fileService: NpFileService) {
+    private fileService: NpFileService,
+    public overlay: Overlay,
+    private _viewContainerRef: ViewContainerRef,
+    private overlayPositionBuilder: OverlayPositionBuilder,
+    private elementRef: ElementRef) {
     this._sortColumnList = [];
     this._filtersList = Constants.filters();
     this._filterColumnList = [];
@@ -143,6 +153,35 @@ export class NpUiDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.onAfterInit != undefined) {
       this.onAfterInit.emit();
     }
+
+    var position: ConnectedPosition[] = [
+      {
+        originX: "start",
+        originY: "bottom",
+        overlayX: "start",
+        overlayY: "top"
+      },
+      {
+        originX: "start",
+        originY: "top",
+        overlayX: "start",
+        overlayY: "bottom"
+      }
+    ];
+    const positionStrategy = this.overlayPositionBuilder
+      .flexibleConnectedTo(this.elementRef.nativeElement.querySelector("#btn-column-chooser"))
+      .withPositions(position);
+    this.columnChooserOverlayRef = this.overlay.create({
+      positionStrategy,
+      hasBackdrop: true,
+      backdropClass: "np-dg-backdrop",
+      scrollStrategy: this.overlay.scrollStrategies.reposition()
+    });
+    this.columnChooserTemplatePortal = new TemplatePortal(
+      this.columnChooserTemplate,
+      this._viewContainerRef
+    );
+    this.columnChooserOverlayRef.backdropClick().subscribe(() => this._closeColumnChooser());
   }
 
   ngOnChanges(changes: any) {
@@ -514,8 +553,14 @@ export class NpUiDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     this._setVisibleColumns();
   }
 
-  _toggleColumnChooser() {
-    this._isOpenColumnChooser = !this._isOpenColumnChooser;
+  _openColumnChooser() {
+    if (!this.columnChooserOverlayRef.hasAttached()) {
+      this.columnChooserOverlayRef.attach(this.columnChooserTemplatePortal);
+    }
+  }
+
+  _closeColumnChooser() {
+    this.columnChooserOverlayRef.detach();
   }
 
   _dropColumn(event: CdkDragDrop<string[]>) {

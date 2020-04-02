@@ -1,24 +1,25 @@
-.np-pn-component{
+.np-pn-component {
     border: 1px solid #000000;
     box-sizing: border-box;
     overflow: hidden;
     margin-bottom: 5px;
 }
 
-.np-pn-header{
-    background-color:#f0f8ff;
+.np-pn-header {
+    background-color: #f0f8ff;
     height: 28px;
 }
 
-.np-pn-title,.np-pn-header-actions{
+.np-pn-title,
+.np-pn-header-actions {
     display: inline-block;
 }
 
-.np-pn-title{
+.np-pn-title {
     padding: 5px;
 }
 
-.np-pn-header-actions{
+.np-pn-header-actions {
     float: right;
 }
 
@@ -39,28 +40,28 @@
     user-select: none;
 }
 
-.np-pn-body{
+.np-pn-body {
     border-top: 1px solid #000000;
     padding: 5px;
     overflow: auto;
     background-color: #ffffff;
 }
 
-.np-pn-hidden{
+.np-pn-hidden {
     display: none;
 }
 
-.np-pn-zoom-out{
+.np-pn-zoom-out {
     position: fixed;
     top: 0px;
     left: 0px;
-    z-index: 1;
+    z-index: 1001;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.np-pn-zoom-out .np-pn-body{
+.np-pn-zoom-out .np-pn-body {
     max-height: unset !important;
     height: 100%;
     left: 0px;

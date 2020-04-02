@@ -73,7 +73,9 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterVie
       }
       this._isLoading = false;
       if (data) {
-        this.overlayRef.attach(this.templatePortal);
+        if (!this.overlayRef.hasAttached()) {
+          this.overlayRef.attach(this.templatePortal);
+        }
       }
     });
 

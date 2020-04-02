@@ -11,6 +11,8 @@ import { NpPagerService } from './services/np-ui-pager.service';
 import { NpUtilityService } from './services/np-ui-utility.service';
 import { CommonModule } from '@angular/common';
 import { NpUiDatePickerModule } from '../np-ui-date-picker/np-ui-date-picker.module';
+import { OverlayModule } from "@angular/cdk/overlay";
+import { PortalModule } from "@angular/cdk/portal";
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { NpUiDatePickerModule } from '../np-ui-date-picker/np-ui-date-picker.mod
     CommonModule,
     FormsModule,
     DragDropModule,
+    OverlayModule,
+    PortalModule,
     NpUiDatePickerModule
   ],
   exports: [

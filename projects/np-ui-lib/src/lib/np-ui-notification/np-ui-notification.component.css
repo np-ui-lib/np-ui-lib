@@ -1,48 +1,48 @@
-.np-nt-component{
+.np-nt-component {
     position: fixed;
     bottom: 0px;
     right: 0px;
     width: 350px;
-    z-index: 1;
+    z-index: 1001;
 }
 
-.np-nt-icon{
+.np-nt-icon {
     fill: currentColor;
     height: 16px;
     width: 16px;
 }
 
-.np-nt-success{
+.np-nt-success {
     color: #155724;
     background-color: #d4edda;
     border: 1px solid #155724;
 }
 
-.np-nt-error{
+.np-nt-error {
     color: #721c24;
     background-color: #f8d7da;
     border: 1px solid #721c24;
 }
 
-.np-nt-warning{
+.np-nt-warning {
     color: #856404;
     background-color: #fff3cd;
     border: 1px solid #856404;
 }
 
-.np-nt-info{
+.np-nt-info {
     color: #0c5460;
     background-color: #d1ecf1;
     border: 1px solid #0c5460;
 }
 
-.np-nt-notification{
+.np-nt-notification {
     padding: 10px;
     margin: 5px;
     position: relative;
 }
 
-.np-nt-close{
+.np-nt-close {
     position: absolute;
     right: 0px;
     top: 0px;
@@ -50,13 +50,13 @@
     cursor: pointer;
 }
 
-.np-nt-close-all{
+.np-nt-close-all {
     position: absolute;
     left: -16px;
     bottom: 0px;
     cursor: pointer;
 }
 
-.np-nt-header{
+.np-nt-header {
     font-weight: bold;
 }

@@ -354,7 +354,9 @@ export class NpUiDatePickerComponent
     this._calculateDays();
     this.onTouchedCallback();
 
-    this.overlayRef.attach(this.templatePortal);
+    if (!this.overlayRef.hasAttached()) {
+      this.overlayRef.attach(this.templatePortal);
+    }
   }
 
   _close() {

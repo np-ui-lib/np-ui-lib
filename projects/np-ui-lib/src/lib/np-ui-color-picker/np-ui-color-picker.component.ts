@@ -148,7 +148,9 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
     this._isOpen = true;
     this._stripColor = this.value;
     this.onTouchedCallback();
-    this.overlayRef.attach(this.templatePortal);
+    if (!this.overlayRef.hasAttached()) {
+      this.overlayRef.attach(this.templatePortal);
+    }
     setTimeout(() => {
       this._updateStripCanvas();
       this._updateCanvas();

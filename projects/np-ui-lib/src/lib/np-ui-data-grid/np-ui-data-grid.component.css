@@ -1,3 +1,4 @@
+@import "~@angular/cdk/overlay-prebuilt.css";
 .np-dg-component {
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -64,17 +65,10 @@
 .np-dg-col-chooser {
     max-height: 300px;
     width: 250px;
-    display: none;
     border: 1px solid #000000;
     box-sizing: border-box;
-    position: absolute;
     padding: 5px;
-    z-index: 4;
     overflow: auto;
-}
-
-.np-dg-col-chooser-open {
-    display: block;
 }
 
 .np-dg-col-chooser-actions {
@@ -142,7 +136,8 @@
     overflow-x: auto;
 }
 
-.np-dg-table-header table, .np-dg-table-body table {
+.np-dg-table-header table,
+.np-dg-table-body table {
     table-layout: fixed;
     border-collapse: separate;
     border-spacing: 0px;
@@ -186,7 +181,9 @@
     overflow: hidden;
 }
 
-.np-dg-table-header th:last-child, .np-dg-table-body th:last-child, .np-dg-table-body td:last-child {
+.np-dg-table-header th:last-child,
+.np-dg-table-body th:last-child,
+.np-dg-table-body td:last-child {
     border-right: none;
 }
 
@@ -194,7 +191,8 @@
     border-bottom: none;
 }
 
-.np-dg-table-header .np-dg-icon-btn, .np-dg-table-body .np-dg-icon-btn {
+.np-dg-table-header .np-dg-icon-btn,
+.np-dg-table-body .np-dg-icon-btn {
     border: none;
 }
 
@@ -337,11 +335,14 @@
     display: block;
 }
 
-.np-dg-background, .np-dg-header-row th, .np-dg-body-row:hover td{
+.np-dg-background,
+.np-dg-header-row th,
+.np-dg-body-row:hover td {
     background-color: #f0f8ff;
 }
 
-.np-dg-row-selected td, .np-dg-row-selected:hover td {
+.np-dg-row-selected td,
+.np-dg-row-selected:hover td {
     background-color: #add8e6;
 }
 
@@ -368,27 +369,23 @@
     text-align: right;
 }
 
-.np-dg-component .np-dp-button-group{
+.np-dg-component .np-dp-button-group {
     display: none;
 }
 
-.np-dg-component .np-dp-input-append{
+.np-dg-component .np-dp-input-append {
     background-color: #ffffff;
 }
 
-.np-dg-component .np-dp-overlay{
-    z-index: 4;
-}
-
 @media only screen and (max-width: 768px) {
-    .np-dg-pagination-item.float-right{
+    .np-dg-pagination-item.float-right {
         display: none;
     }
 }
 
 @media only screen and (max-width: 600px) {
     .np-dg-pagination-item.float-right,
-    .np-dg-toolbar-item.float-right{
+    .np-dg-toolbar-item.float-right {
         display: none;
     }
 }

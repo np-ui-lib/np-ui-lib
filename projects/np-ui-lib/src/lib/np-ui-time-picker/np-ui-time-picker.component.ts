@@ -266,7 +266,9 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
     }
     this._isOpen = true;
     this.onTouchedCallback();
-    this.overlayRef.attach(this.templatePortal);
+    if (!this.overlayRef.hasAttached()) {
+      this.overlayRef.attach(this.templatePortal);
+    }
   }
 
   _close() {
