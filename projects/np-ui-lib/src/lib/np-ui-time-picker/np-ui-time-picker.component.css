@@ -1,4 +1,3 @@
-@import "~@angular/cdk/overlay-prebuilt.css";
 .np-tp-component {
     width: 100%;
     border: 1px solid #000000;
@@ -6,19 +5,6 @@
     height: 28px;
 }
 
-.np-tp-icon {
-    height: 16px;
-    width: 16px;
-    fill: currentColor;
-}
-
-.np-tp-icon-lg {
-    height: 24px;
-    width: 24px;
-    fill: currentColor;
-}
-
-.np-tp-icon-button,
 .np-tp-input-append {
     padding: 2px;
     display: flex;
@@ -26,10 +12,6 @@
     justify-content: center;
     cursor: pointer;
     user-select: none;
-}
-
-.np-tp-icon-button:hover {
-    background-color: #add8e6;
 }
 
 .np-tp-input {
@@ -50,29 +32,6 @@
     background-color: #f0f8ff;
     padding: 5px;
     margin-top: 1px;
-}
-
-.np-tp-button-group {
-    padding-top: 5px;
-    text-align: end;
-}
-
-.np-tp-button-group .np-tp-button {
-    margin-left: 5px;
-    display: inline-flex;
-}
-
-.np-tp-button {
-    padding: 5px;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    display: block;
-    border: 1px solid #000000;
-}
-
-.np-tp-button:hover {
-    background-color: #add8e6;
 }
 
 .np-tp-overlay-open {
@@ -130,4 +89,6 @@
 
 .np-tp-overlay table {
     border-spacing: 0px;
+    text-align: center;
+    user-select: none;
 }

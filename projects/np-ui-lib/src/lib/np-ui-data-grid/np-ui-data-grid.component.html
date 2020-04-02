@@ -9,8 +9,8 @@
         <div class="np-dg-toolbar np-dg-background">
             <ng-container *ngIf="showColumnChooser">
                 <div class="np-dg-toolbar-item">
-                    <a title="Column chooser" class="np-dg-icon-btn-lg" id="btn-column-chooser" (click)="_openColumnChooser()">
-                        <svg class="np-dg-icon-lg" viewBox="0 0 24 24">
+                    <a title="Column chooser" class="np-icon-button-lg" id="btn-column-chooser" (click)="_openColumnChooser()">
+                        <svg class="np-icon-lg" viewBox="0 0 24 24">
                             <path d="M4 5v13h17V5H4zm10 2v9h-3V7h3zM6 7h3v9H6V7zm13 9h-3V7h3v9z" />
                         </svg>
                     </a>
@@ -18,12 +18,12 @@
             </ng-container>
             <ng-container *ngIf="_isFilterAvailable">
                 <div class="np-dg-toolbar-item">
-                    <a class="np-dg-icon-btn-lg" title="Toggle filters" (click)="showFilters = !showFilters">
-                        <svg *ngIf="!showFilters" class="np-dg-icon-lg" viewBox="0 0 24 24">
+                    <a class="np-icon-button-lg" title="Toggle filters" (click)="showFilters = !showFilters">
+                        <svg *ngIf="!showFilters" class="np-icon-lg" viewBox="0 0 24 24">
                             <path
                                 d="M15,19.88C15.04,20.18 14.94,20.5 14.71,20.71C14.32,21.1 13.69,21.1 13.3,20.71L9.29,16.7C9.06,16.47 8.96,16.16 9,15.87V10.75L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L15,10.75V19.88M7.04,5L11,10.06V15.58L13,17.58V10.05L16.96,5H7.04Z" />
                         </svg>
-                        <svg *ngIf="showFilters" class="np-dg-icon-lg" viewBox="0 0 24 24">
+                        <svg *ngIf="showFilters" class="np-icon-lg" viewBox="0 0 24 24">
                             <path
                                 d="M14.73,20.83L17.58,18L14.73,15.17L16.15,13.76L19,16.57L21.8,13.76L23.22,15.17L20.41,18L23.22,20.83L21.8,22.24L19,19.4L16.15,22.24L14.73,20.83M13,19.88C13.04,20.18 12.94,20.5 12.71,20.71C12.32,21.1 11.69,21.1 11.3,20.71L7.29,16.7C7.06,16.47 6.96,16.16 7,15.87V10.75L2.21,4.62C1.87,4.19 1.95,3.56 2.38,3.22C2.57,3.08 2.78,3 3,3V3H17V3C17.22,3 17.43,3.08 17.62,3.22C18.05,3.56 18.13,4.19 17.79,4.62L13,10.75V19.88M5.04,5L9,10.06V15.58L11,17.58V10.05L14.96,5H5.04Z" />
                         </svg>
@@ -32,8 +32,8 @@
             </ng-container>
             <ng-container *ngIf="allowExportToCSV">
                 <div class="np-dg-toolbar-item">
-                    <a title="Export to CSV" class="np-dg-icon-btn-lg" (click)="_exportAsCSV()">
-                        <svg viewBox="0 0 24 24" class="np-dg-icon-lg">
+                    <a title="Export to CSV" class="np-icon-button-lg" (click)="_exportAsCSV()">
+                        <svg viewBox="0 0 24 24" class="np-icon-lg">
                             <path
                                 d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
                         </svg>
@@ -47,20 +47,20 @@
                             <option value="">Select...</option>
                             <option *ngFor="let state of _stateList" [ngValue]="state.name">{{state.name}}</option>
                         </select>
-                        <a *ngIf="_currentStateName.length > 0" class="np-dg-icon-btn-lg np-dg-state-manager-item" title="Save state" (click)="_saveState()">
-                            <svg class="np-dg-icon-lg" viewBox="0 0 24 24">
+                        <a *ngIf="_currentStateName.length > 0" class="np-icon-button-lg np-dg-state-manager-item" title="Save state" (click)="_saveState()">
+                            <svg class="np-icon-lg" viewBox="0 0 24 24">
                                 <path
                                     d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6z" />
                             </svg>
                         </a>
-                        <a *ngIf="_currentStateName.length > 0" class="np-dg-icon-btn-lg np-dg-state-manager-item" title="Delete state" (click)="_deleteState()">
-                            <svg class="np-dg-icon-lg" viewBox="0 0 24 24">
+                        <a *ngIf="_currentStateName.length > 0" class="np-icon-button-lg np-dg-state-manager-item" title="Delete state" (click)="_deleteState()">
+                            <svg class="np-icon-lg" viewBox="0 0 24 24">
                                 <path
                                     d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z" />
                             </svg>
                         </a>
-                        <a class="np-dg-icon-btn-lg np-dg-state-manager-item" title="Add state" (click)="_addState()">
-                            <svg class="np-dg-icon-lg" viewBox="0 0 24 24">
+                        <a class="np-icon-button-lg np-dg-state-manager-item" title="Add state" (click)="_addState()">
+                            <svg class="np-icon-lg" viewBox="0 0 24 24">
                                 <path
                                     d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-8-2h2v-4h4v-2h-4V7h-2v4H7v2h4z" />
                             </svg>
@@ -87,13 +87,13 @@
                         <th *ngFor="let column of _visibleColumns; let k = index" [ngClass]="{'hidden': column.visible === false,'np-dg-sticky-left':column.stickyColumnLeft,'np-dg-sticky-right':column.stickyColumnRight}">
                             <span [innerHTML]="column.caption" (click)="_onSort(column)" [ngClass]="{'np-dg-cursor-pointer': column.sortEnable}"></span>
                             <div *ngIf="allowColumnResize" class="np-dg-col-resize-handle float-right" cdkDrag cdkDragLockAxis="x" (cdkDragEnded)="_resizeColumn($event, column)"></div>
-                            <a *ngIf="column.sortEnable != null" class="np-dg-icon-btn float-right" (click)="_onSort(column)">
-                                <svg *ngIf="column.sortDirection === _sortDirections.Ascending" class="np-dg-icon" viewBox="0 0 24 24">
+                            <a *ngIf="column.sortEnable != null" class="np-icon-button float-right" (click)="_onSort(column)">
+                                <svg *ngIf="column.sortDirection === _sortDirections.Ascending" class="np-icon" viewBox="0 0 24 24">
                                     <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" /></svg>
-                                <svg *ngIf="column.sortDirection === _sortDirections.Descending" class="np-dg-icon" viewBox="0 0 24 24">
+                                <svg *ngIf="column.sortDirection === _sortDirections.Descending" class="np-icon" viewBox="0 0 24 24">
                                     <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" />
                                 </svg>
-                                <svg *ngIf="!column.sortDirection" class="np-dg-icon np-dg-sort-enable" viewBox="0 0 24 24">
+                                <svg *ngIf="!column.sortDirection" class="np-icon np-dg-sort-enable" viewBox="0 0 24 24">
                                     <path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z" />
                                     <path d="M0 0h24v24H0z" fill="none" />
                                 </svg>
@@ -148,11 +148,11 @@
                         <tr id="row_{{i}}" (click)="_rowClick($event,data)" class="np-dg-body-row" [ngClass]="{'np-dg-row-selected': _isSelected(data[_key])}">
                             <ng-container *ngIf="_enableMasterChild">
                                 <td>
-                                    <a class="np-dg-icon-btn" (click)="_onClickToggleMasterChild(data[_key])">
-                                        <svg *ngIf="!_isOpenChild(data[_key])" class="np-dg-icon" viewBox="0 0 24 24">
+                                    <a class="np-icon-button" (click)="_onClickToggleMasterChild(data[_key])">
+                                        <svg *ngIf="!_isOpenChild(data[_key])" class="np-icon" viewBox="0 0 24 24">
                                             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                             <path d="M0 0h24v24H0z" fill="none" /></svg>
-                                        <svg *ngIf="_isOpenChild(data[_key])" class="np-dg-icon" viewBox="0 0 24 24">
+                                        <svg *ngIf="_isOpenChild(data[_key])" class="np-icon" viewBox="0 0 24 24">
                                             <path d="M19 13H5v-2h14v2z" />
                                             <path d="M0 0h24v24H0z" fill="none" /></svg>
                                     </a>
@@ -200,15 +200,15 @@
     <ng-container *ngIf="_pager && _pager.pages && _pager.pages.length > 0">
         <div class="np-dg-pagination np-dg-background">
             <div class="np-dg-pagination-item">
-                <a class="np-dg-icon-btn-lg" title="First page" [ngClass]="{'np-dg-disabled':_pager.currentPage === 1}" (click)="_getCurrentViewData(1)">
-                    <svg class="np-dg-icon-lg" viewBox="0 0 24 24">
+                <a class="np-icon-button-lg" title="First page" [ngClass]="{'np-dg-disabled':_pager.currentPage === 1}" (click)="_getCurrentViewData(1)">
+                    <svg class="np-icon-lg" viewBox="0 0 24 24">
                         <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"></path>
                     </svg>
                 </a>
             </div>
             <div class="np-dg-pagination-item">
-                <a class="np-dg-icon-btn-lg" title="Prev page" [ngClass]="{'np-dg-disabled':_pager.currentPage === 1}" (click)="_getCurrentViewData(_pager.currentPage - 1)">
-                    <svg class="np-dg-icon-lg" viewBox="0 0 24 24">
+                <a class="np-icon-button-lg" title="Prev page" [ngClass]="{'np-dg-disabled':_pager.currentPage === 1}" (click)="_getCurrentViewData(_pager.currentPage - 1)">
+                    <svg class="np-icon-lg" viewBox="0 0 24 24">
                         <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                     </svg>
                 </a>
@@ -217,22 +217,22 @@
                 <input type="number" class="np-dg-control " [(ngModel)]="_pager.currentPage" (change)="_getCurrentViewData(_pager.currentPage)"> / {{_pager.totalPages}}
             </div>
             <div class="np-dg-pagination-item">
-                <a title="Next page" class="np-dg-icon-btn-lg" [ngClass]="{'np-dg-disabled':_pager.currentPage === _pager.totalPages}" (click)="_getCurrentViewData(_pager.currentPage + 1)">
-                    <svg class="np-dg-icon-lg" viewBox="0 0 24 24">
+                <a title="Next page" class="np-icon-button-lg" [ngClass]="{'np-dg-disabled':_pager.currentPage === _pager.totalPages}" (click)="_getCurrentViewData(_pager.currentPage + 1)">
+                    <svg class="np-icon-lg" viewBox="0 0 24 24">
                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
                     </svg>
                 </a>
             </div>
             <div class="np-dg-pagination-item">
-                <a title="Last page" class="np-dg-icon-btn-lg" [ngClass]="{'np-dg-disabled':_pager.currentPage === _pager.totalPages}" (click)="_getCurrentViewData(_pager.totalPages)">
-                    <svg class="np-dg-icon-lg" viewBox="0 0 24 24">
+                <a title="Last page" class="np-icon-button-lg" [ngClass]="{'np-dg-disabled':_pager.currentPage === _pager.totalPages}" (click)="_getCurrentViewData(_pager.totalPages)">
+                    <svg class="np-icon-lg" viewBox="0 0 24 24">
                         <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"></path>
                     </svg>
                 </a>
             </div>
             <div *ngIf="isServerOperations" class="np-dg-pagination-item float-right">
-                <a class="np-dg-icon-btn-lg" title="Refresh" (click)="_onRefresh()">
-                    <svg class="np-dg-icon-lg" viewBox="0 0 24 24">
+                <a class="np-icon-button-lg" title="Refresh" (click)="_onRefresh()">
+                    <svg class="np-icon-lg" viewBox="0 0 24 24">
                         <path
                             d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
                         <path d="M0 0h24v24H0z" fill="none" />
@@ -249,22 +249,22 @@
 <ng-template #columnChooserTemplate>
     <div class="np-dg-col-chooser np-dg-background">
         <div class="np-dg-col-chooser-actions">
-            <a class="np-dg-icon-btn" title="Show all columns" (click)="_showAllColumns()">
-                <svg class="np-dg-icon" viewBox="0 0 24 24">
+            <a class="np-icon-button" title="Show all columns" (click)="_showAllColumns()">
+                <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0z" fill="none" />
                     <path
                         d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
                 </svg>
             </a>
-            <a class="np-dg-icon-btn" title="Reset all" (click)="_onResetColumns()">
-                <svg class="np-dg-icon" viewBox="0 0 24 24">
+            <a class="np-icon-button" title="Reset all" (click)="_onResetColumns()">
+                <svg class="np-icon" viewBox="0 0 24 24">
                     <path
                         d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" />
                     <path d="M0 0h24v24H0z" fill="none" />
                 </svg>
             </a>
-            <a class="np-dg-icon-btn" title="Close" (click)="_closeColumnChooser()">
-                <svg class="np-dg-icon" viewBox="0 0 24 24">
+            <a class="np-icon-button" title="Close" (click)="_closeColumnChooser()">
+                <svg class="np-icon" viewBox="0 0 24 24">
                     <path
                         d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                     <path d="M0 0h24v24H0z" fill="none" />
@@ -273,8 +273,8 @@
         </div>
         <div class="np-dg-search-columns">
             <input type="text" placeholder="Search columns..." class="np-dg-control" [(ngModel)]="_searchColumnsKeyword">
-            <a class="np-dg-icon-btn" title="Clear" (click)="_clearColumnSearch()">
-                <svg class="np-dg-icon" viewBox="0 0 24 24">
+            <a class="np-icon-button" title="Clear" (click)="_clearColumnSearch()">
+                <svg class="np-icon" viewBox="0 0 24 24">
                     <path
                         d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                     <path d="M0 0h24v24H0z" fill="none" />
@@ -289,7 +289,7 @@
                 </label>
                 <div class="np-dg-col-drag-placeholder" *cdkDragPlaceholder></div>
                 <div *ngIf="allowColumnReorder" class="np-dg-col-drag-handle" cdkDragHandle>
-                    <svg class="np-dg-icon" viewBox="0 0 24 24">
+                    <svg class="np-icon" viewBox="0 0 24 24">
                         <path
                             d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z" />
                     </svg>

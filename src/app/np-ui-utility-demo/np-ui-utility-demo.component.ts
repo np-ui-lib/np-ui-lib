@@ -3,8 +3,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-np-ui-utility-demo',
   templateUrl: './np-ui-utility-demo.component.html',
-  styleUrls: ['./np-ui-utility-demo.component.css'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  styleUrls: ['./np-ui-utility-demo.component.css']
 })
 export class NpUiUtilityDemoComponent implements OnInit {
 

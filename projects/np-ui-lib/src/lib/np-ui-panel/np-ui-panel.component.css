@@ -10,34 +10,15 @@
     height: 28px;
 }
 
-.np-pn-title,
-.np-pn-header-actions {
-    display: inline-block;
-}
-
 .np-pn-title {
-    padding: 5px;
+    font-weight: bold;
+    line-height: 28px;
+    padding-left: 5px;
 }
 
 .np-pn-header-actions {
     float: right;
-}
-
-.np-pn-icon-lg {
-    height: 24px;
-    width: 24px;
-    fill: currentColor;
-}
-
-.np-pn-icon-button {
-    height: 24px;
-    width: 24px;
-    padding: 2px;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
+    height: 28px;
 }
 
 .np-pn-body {

@@ -1,21 +1,8 @@
-@import "~@angular/cdk/overlay-prebuilt.css";
 .np-ac-component {
     width: 100%;
     border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
-}
-
-.np-ac-icon {
-    height: 16px;
-    width: 16px;
-    fill: currentColor;
-}
-
-.np-ac-icon-lg {
-    height: 24px;
-    width: 24px;
-    fill: currentColor;
 }
 
 .np-ac-input-group {
@@ -92,8 +79,4 @@
 .np-ac-disabled {
     pointer-events: none;
     opacity: 0.7;
-}
-
-.np-ui-highlight {
-    background-color: #fafad2;
 }

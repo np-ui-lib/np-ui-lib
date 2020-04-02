@@ -1,7 +1,6 @@
 <div class="sub-header">
     <h2>
-        <a class="github-link" title="Go to github repository" target="_blank"
-            href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-utility-demo">
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-utility-demo">
             np-ui-utility
         </a>
     </h2>
@@ -12,3 +11,34 @@
 <p [innerHTML]="text | npUiHighLight: 'paragraph'"></p>
 
 <p [innerHTML]="text | npUiHighLight: 'paragraph' : 'np-ui-highlight-green'"></p>
+
+<fieldset>
+    <legend>Button group</legend>
+    <div class="np-button-group">
+        <button class="np-button">Normal</button>
+        <button class="np-button np-button-success">Success</button>
+        <button class="np-button np-button-error">Error</button>
+        <button class="np-button np-button-warning">Warning</button>
+        <button class="np-button np-button-info">Info</button>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Alerts</legend>
+    <div class="np-nt-notification np-nt-success">
+        <div class="np-nt-header">Success</div>
+        <div>This is success alert.</div>
+    </div>
+    <div class="np-nt-notification np-nt-error">
+        <div class="np-nt-header">Error</div>
+        <div>This is error alert.</div>
+    </div>
+    <div class="np-nt-notification np-nt-warning">
+        <div class="np-nt-header">Warning</div>
+        <div>This is warning alert.</div>
+    </div>
+    <div class="np-nt-notification np-nt-info">
+        <div class="np-nt-header">Info</div>
+        <div>This is info alert.</div>
+    </div>
+</fieldset>

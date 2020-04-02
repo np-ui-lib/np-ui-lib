@@ -1,0 +1,108 @@
+@import "~@angular/cdk/overlay-prebuilt.css";
+.np-icon {
+    height: 16px;
+    width: 16px;
+    color: currentColor;
+}
+
+.np-icon-lg {
+    height: 24px;
+    width: 24px;
+    color: currentColor;
+}
+
+.np-icon-button {
+    height: 20px;
+    width: 20px;
+    padding: 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.np-icon-button-lg {
+    height: 28px;
+    width: 28px;
+    padding: 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.np-button-group {
+    padding: 2px;
+    text-align: end;
+}
+
+.np-button-group .np-button {
+    margin-left: 5px;
+}
+
+.np-button {
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.np-button-success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #155724;
+}
+
+.np-button-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #721c24;
+}
+
+.np-button-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #856404;
+}
+
+.np-button-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border: 1px solid #0c5460;
+}
+
+.np-nt-success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #155724;
+}
+
+.np-nt-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #721c24;
+}
+
+.np-nt-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #856404;
+}
+
+.np-nt-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border: 1px solid #0c5460;
+}
+
+.np-nt-notification {
+    padding: 10px;
+    margin: 5px;
+    position: relative;
+}
+
+.np-ui-highlight {
+    background-color: #fafad2;
+}
+
+.np-ui-highlight-green {
+    background-color: #90ee90;
+}

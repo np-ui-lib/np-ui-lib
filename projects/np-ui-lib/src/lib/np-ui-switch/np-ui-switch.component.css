@@ -1,13 +1,13 @@
-.np-sw-component{
-    width: 100px;    
-    display: inline-block;
+.np-sw-component {
+    width: 100px;
     user-select: none;
     border: 1px solid #000000;
     box-sizing: border-box;
     height: 28px;
 }
 
-.np-sw-left-item,.np-sw-right-item{
+.np-sw-left-item,
+.np-sw-right-item {
     cursor: pointer;
     width: 50%;
     text-align: center;
@@ -20,15 +20,16 @@
     padding: 0px;
 }
 
-.np-sw-left-item:hover,.np-sw-right-item:hover{
+.np-sw-left-item:hover,
+.np-sw-right-item:hover {
     background-color: #add8e6;
 }
 
-.np-sw-left-item.np-sw-active{
+.np-sw-left-item.np-sw-active {
     background-color: #f08080;
 }
 
-.np-sw-right-item.np-sw-active{
+.np-sw-right-item.np-sw-active {
     background-color: #90ee90;
 }
 
@@ -37,6 +38,6 @@
     pointer-events: none;
 }
 
-.ng-invalid .np-sw-component{
+.ng-invalid .np-sw-component {
     border: 1px solid #ff0000;
 }

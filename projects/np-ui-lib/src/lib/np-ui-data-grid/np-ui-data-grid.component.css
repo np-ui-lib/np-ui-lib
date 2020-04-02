@@ -1,65 +1,28 @@
-@import "~@angular/cdk/overlay-prebuilt.css";
 .np-dg-component {
     border: 1px solid #000000;
     box-sizing: border-box;
 }
 
 .np-dg-title {
-    height: 26px;
+    line-height: 24px;
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
     width: 100%;
-    padding: 3px 5px;
+    padding: 0px 5px;
 }
 
 .np-dg-toolbar {
-    height: 39px;
+    height: 40px;
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
     width: 100%;
-    padding: 3px 5px;
+    padding: 5px;
 }
 
 .np-dg-toolbar-item {
-    margin: 2px;
     display: inline-block;
     vertical-align: middle;
-}
-
-.np-dg-icon-btn-lg {
-    box-sizing: border-box;
-    border: 1px solid #000000;
-    height: 28px;
-    width: 28px;
-    padding: 1px;
-    cursor: pointer;
-    user-select: none;
-    display: block;
-    background-color: #ffffff;
-}
-
-.np-dg-icon-btn {
-    box-sizing: border-box;
-    border: 1px solid #000000;
-    height: 20px;
-    width: 20px;
-    padding: 1px;
-    cursor: pointer;
-    user-select: none;
-    display: block;
-    background-color: #ffffff;
-}
-
-.np-dg-icon-lg {
-    height: 24px;
-    width: 24px;
-    fill: currentColor;
-}
-
-.np-dg-icon {
-    height: 16px;
-    width: 16px;
-    fill: currentColor;
+    margin: 0px 2px;
 }
 
 .np-dg-col-chooser {
@@ -69,21 +32,6 @@
     box-sizing: border-box;
     padding: 5px;
     overflow: auto;
-}
-
-.np-dg-col-chooser-actions {
-    width: 100%;
-    height: 24px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.np-dg-col-chooser-actions .np-dg-icon-btn {
-    margin: 2px;
-}
-
-.np-dg-container .np-dg-icon-btn {
-    background-color: transparent !important;
 }
 
 .np-dg-columns-item.cdk-drag-disabled .np-dg-col-drag-handle {
@@ -191,23 +139,18 @@
     border-bottom: none;
 }
 
-.np-dg-table-header .np-dg-icon-btn,
-.np-dg-table-body .np-dg-icon-btn {
-    border: none;
-}
-
 .np-dg-pagination {
-    height: 39px;
+    height: 40px;
     border-top: 1px solid #000000;
     box-sizing: border-box;
     width: 100%;
-    padding: 3px 5px;
+    padding: 5px;
 }
 
 .np-dg-pagination-item {
     display: inline-block;
     vertical-align: middle;
-    margin: 2px;
+    margin: 0px 2px;
 }
 
 .np-dg-control {
@@ -230,7 +173,7 @@
 }
 
 .np-dg-disabled {
-    opacity: 0.7;
+    opacity: 0.5;
     pointer-events: none;
 }
 
@@ -369,10 +312,6 @@
     text-align: right;
 }
 
-.np-dg-component .np-dp-button-group {
-    display: none;
-}
-
 .np-dg-component .np-dp-input-append {
     background-color: #ffffff;
 }
@@ -388,4 +327,20 @@
     .np-dg-toolbar-item.float-right {
         display: none;
     }
+}
+
+.np-dg-toolbar .np-icon-button-lg,
+.np-dg-pagination .np-icon-button-lg,
+.np-dg-col-chooser .np-icon-button {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    padding: 1px;
+}
+
+.np-dg-col-chooser-actions {
+    text-align: end;
+}
+
+.np-dg-col-chooser-actions .np-icon-button {
+    margin-left: 2px;
 }

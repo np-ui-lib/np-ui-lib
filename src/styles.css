@@ -1,21 +1,21 @@
-body{
+@import "../projects/np-ui-lib/style.css";
+body {
     padding: 0px;
     margin: 0px;
     background-color: #ffffff;
 }
 
-.header h1{
+.header h1 {
     margin: 5px 5px 0px 5px;
     padding: 10px 5px;
     background-color: #dcdcdc;
     text-align: center;
 }
 
-.nav{
+.nav {
     margin: 5px;
     width: 250px;
     overflow-x: hidden;
-
 }
 
 .nav .nav-menu {
@@ -26,7 +26,7 @@ body{
     height: 100%;
 }
 
-.nav li{
+.nav li {
     cursor: pointer;
 }
 
@@ -47,7 +47,7 @@ body{
     color: #ffffff;
 }
 
-.nav-sub-menu{
+.nav-sub-menu {
     list-style-type: none;
     padding: 0px;
     background-color: #f1f1f1;
@@ -58,19 +58,19 @@ body{
     display: flex;
 }
 
-.content{
+.content {
     height: 100%;
     width: 100%;
     margin: 5px 5px 5px 0px;
 }
 
-.sub-header h2{
+.sub-header h2 {
     margin: 0px 0px 5px 0px;
     padding: 5px;
     background-color: #dcdcdc;
 }
 
-.color-red{
+.color-red {
     color: #ff0000;
 }
 
@@ -78,13 +78,13 @@ body{
     border: 1px solid blue !important;
 }
 
-.demo-icon{
+.demo-icon {
     height: 16px;
     width: 16px;
     fill: currentColor;
     vertical-align: middle;
 }
 
-.green-panel .np-pn-header{
+.green-panel .np-pn-header {
     background-color: lightgreen !important;
 }
