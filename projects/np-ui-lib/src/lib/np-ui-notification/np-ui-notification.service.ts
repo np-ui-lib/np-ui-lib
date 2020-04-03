@@ -15,7 +15,7 @@ export class NpUiNotificationService {
 
     private autoRemoveMessage(msg: NpUiNotification, timeout: number = 10000) {
         setTimeout(() => {
-            this.removeMessage(msg);
+            //this.removeMessage(msg);
         }, timeout);
     }
 

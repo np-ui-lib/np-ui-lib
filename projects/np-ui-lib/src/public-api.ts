@@ -48,3 +48,8 @@ export * from './lib/np-ui-tooltip/np-ui-tooltip.directive';
 /**Progress */
 export * from './lib/np-ui-progress/np-ui-progress.module';
 export * from './lib/np-ui-progress/np-ui-progress.component';
+
+/**Carousel */
+export * from './lib/np-ui-carousel/np-ui-carousel.module';
+export * from './lib/np-ui-carousel/np-ui-carousel.component';
+export * from './lib/np-ui-carousel/np-ui-carousel.model';

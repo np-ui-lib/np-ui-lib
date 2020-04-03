@@ -15,6 +15,7 @@ npm i np-ui-lib
 * [Panel](https://github.com/NilavPatel/np-ui-package/wiki/Panel)
 * [Tooltip](https://github.com/NilavPatel/np-ui-package/wiki/Tooltip)
 * [Progress](https://github.com/NilavPatel/np-ui-package/wiki/Progress)
+* [Carousel](https://github.com/NilavPatel/np-ui-package/wiki/Carousel)
 
 ### Import css to your application:
 ````css

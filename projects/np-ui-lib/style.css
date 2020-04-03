@@ -94,7 +94,7 @@
 .np-nt-notification {
     position: relative;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 1px solid transparent;
     animation: fadeEffect 0.5s;
 }

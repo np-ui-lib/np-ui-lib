@@ -1,7 +1,7 @@
 .np-nt-component {
     position: fixed;
-    bottom: 0px;
-    right: 0px;
+    bottom: 5px;
+    right: 5px;
     width: 350px;
     z-index: 1001;
 }
@@ -15,7 +15,7 @@
 .np-nt-close-all {
     position: absolute;
     left: -25px;
-    bottom: 10px;
+    bottom: 5px;
 }
 
 .np-nt-header {

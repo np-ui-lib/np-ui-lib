@@ -43,7 +43,7 @@
             <div class="np-cp-color-block" *ngFor="let color of _colors" [style.background-color]="color" (click)="_onClickColorBlock(color)">
             </div>
         </div>
-        <div class="np-button-group np-no-padding">
+        <div class="np-button-group">
             <button type="button" class="np-button" (click)="_clear()">Clear</button>
             <button type="button" *ngIf="!defaultOpen" class="np-button" (click)="_close()">Ok</button>
         </div>

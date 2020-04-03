@@ -33,6 +33,7 @@
         "Panel",
         "Notification",
         "Tooltip",
-        "Progress"
+        "Progress",
+        "Carousel"
     ]
 }

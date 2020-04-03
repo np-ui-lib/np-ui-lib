@@ -1,0 +1,28 @@
+<div class="np-cs-component">
+    <div class="np-cs-container">
+        <ng-container *ngFor="let img of items; let i = index">
+            <div class="np-cs-slide np-cs-fade" [ngClass]="{'np-cs-slide-active':_currentSlideIndex == i}">
+                <div class="np-cs-numbertext">{{i}} / {{items.length}}</div>
+                <img class="np-cs-img" [src]="img.imageUrl">
+                <div *ngIf="img.caption" class="np-cs-text" [innerText]="img.caption"></div>
+            </div>
+        </ng-container>
+        <a class="np-cs-prev" (click)="minusSlides()">
+            <svg class="np-icon" viewBox="0 0 24 24">
+                <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                <path fill="none" d="M0 0h24v24H0V0z" />
+            </svg>
+        </a>
+        <a class="np-cs-next" (click)="plusSlides()">
+            <svg class="np-icon" viewBox="0 0 24 24">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                <path fill="none" d="M0 0h24v24H0V0z" />
+            </svg>
+        </a>
+    </div>
+    <div class="np-cs-dot-list">
+        <ng-container *ngFor="let img of items; let i = index">
+            <span class="np-cs-dot" [ngClass]="{'np-cs-active':_currentSlideIndex == i}" (click)="currentSlide(i)"></span>
+        </ng-container>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 <div *ngIf="messageService" class="np-nt-component">
-    <div *ngFor="let msg of messageService.messages.reverse()">
+    <ng-container *ngFor="let msg of messageService.messages.reverse()">
         <div class="np-nt-notification" [ngClass]="{'np-nt-success': msg.type==='Success',
                 'np-nt-error': msg.type==='Error',
                 'np-nt-warning': msg.type==='Warning',
@@ -14,7 +14,7 @@
                 </svg>
             </button>
         </div>
-    </div>
+    </ng-container>
     <div *ngIf="messageService.messages && messageService.messages.length > 1">
         <button type="button" class="np-nt-close-all np-icon-button np-no-border" title="Close All" (click)="closeAll()">
             <svg class="np-icon" viewBox="0 0 24 24">
