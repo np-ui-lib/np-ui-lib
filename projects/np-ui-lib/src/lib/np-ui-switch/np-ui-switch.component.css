@@ -3,7 +3,7 @@
     user-select: none;
     border: 1px solid #000000;
     box-sizing: border-box;
-    height: 28px;
+    height: 26px;
 }
 
 .np-sw-left-item,
@@ -12,30 +12,23 @@
     width: 50%;
     text-align: center;
     user-select: none;
-    background-color: #f0f8ff;
-    line-height: 26px;
+    line-height: 24px;
     display: inline-block;
     border: none;
     margin: 0px;
     padding: 0px;
-}
-
-.np-sw-left-item:hover,
-.np-sw-right-item:hover {
-    background-color: #add8e6;
+    background-color: transparent;
+    outline: none;
 }
 
 .np-sw-left-item.np-sw-active {
-    background-color: #f08080;
+    color: #ffffff;
+    background-color: #721c24;
 }
 
 .np-sw-right-item.np-sw-active {
-    background-color: #90ee90;
-}
-
-.np-sw-disabled {
-    opacity: 0.7;
-    pointer-events: none;
+    color: #ffffff;
+    background-color: #155724;
 }
 
 .ng-invalid .np-sw-component {

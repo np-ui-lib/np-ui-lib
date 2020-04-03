@@ -1,6 +1,5 @@
 <h2>
-    <a class="github-link" title="Go to github repository" target="_blank"
-        href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/celltemplate-grid">
+    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/celltemplate-grid">
         Cell Template Example
     </a>
 </h2>
@@ -29,8 +28,8 @@
 
 <!-- Template for action buttons column -->
 <ng-template #actionButtonsTemplate let-row="row">
-    <button (click)="onActionClick(row,'Edit', $event)">Edit</button>
-    <button (click)="onActionClick(row,'Delete', $event)">Delete</button>
+    <button class="np-button" (click)="onActionClick(row,'Edit', $event)">Edit</button>
+    <button class="np-button" (click)="onActionClick(row,'Delete', $event)">Delete</button>
 </ng-template>
 
 <!-- Template for birthdate column -->

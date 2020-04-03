@@ -1,8 +1,8 @@
-<div class="np-sw-component" [ngClass]="{'np-sw-disabled': _isDisabled}" [class]="styleClass">
-    <button class="np-sw-left-item" [ngClass]="{'np-sw-active' : value == false}" (click)="onClickSwitch(false)">
+<div class="np-sw-component" [ngClass]="{'np-disabled': _isDisabled}" [class]="styleClass">
+    <button type="button" class="np-sw-left-item" [ngClass]="{'np-sw-active' : value == false}" (click)="onClickSwitch(false)">
         <span [innerHtml]="falseLabelText ? falseLabelText:'False'"></span>
     </button>
-    <button class="np-sw-right-item" [ngClass]="{'np-sw-active' : value == true}" (click)="onClickSwitch(true)">
+    <button type="button" class="np-sw-right-item" [ngClass]="{'np-sw-active' : value == true}" (click)="onClickSwitch(true)">
         <span [innerHtml]="trueLabelText ? trueLabelText:'True'"></span>
     </button>
 </div>

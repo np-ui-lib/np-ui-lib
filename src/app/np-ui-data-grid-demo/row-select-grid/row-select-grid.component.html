@@ -1,6 +1,5 @@
 <h2>
-    <a class="github-link" title="Go to github repository" target="_blank"
-        href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/row-select-grid">
+    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/row-select-grid">
         Row Selction Example
     </a>
 </h2>
@@ -11,8 +10,8 @@
 
 <h4>onSelect and onDeselect events:</h4>
 <p>In both single/multi select, <b>onSelect($event)</b>, <b>onDeselect($event)</b> methods can be bound.</p>
-<p>This methods will be run when any row will be selected or de-selected. In $event.data, affected row keys will be
-    passed.</p>
+<p>This methods will be run when any row will be selected or de-selected. In $event.data, affected row keys will be passed.
+</p>
 
 <h4>getSelectedRowKeys API:</h4>
 <p>Here <b>getSelectedRowKeys()</b> API is also available, which will return array of all selected rows keys.</p>
@@ -24,12 +23,11 @@
 <h4>Single Row Selection</h4>
 <np-ui-data-grid #singleSelectGrid [columns]="gridColumns" [dataSource]="gridDataSource" [singleRowSelectEnable]="true">
 </np-ui-data-grid>
-<button (click)="getSelectedRows()">Get Selected Row</button>
+<button class="np-button" (click)="getSelectedRows()">Get Selected Row</button>
 
 <h4>Multi Row Selection</h4>
-<np-ui-data-grid #multiSelectGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiRowSelectEnable]="true"
-    (onSelect)="onSelectRow($event)" (onDeselect)="onDeselectRow($event)" [selectRowOnClick]="true">
+<np-ui-data-grid #multiSelectGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiRowSelectEnable]="true" (onSelect)="onSelectRow($event)" (onDeselect)="onDeselectRow($event)" [selectRowOnClick]="true">
 </np-ui-data-grid>
-<button (click)="getMultiSelectedRows()">Get Selected Row</button>
-<button (click)="selectAll()">Select all Rows</button>
-<button (click)="deSelectAll()">De select all Rows</button>
+<button class="np-button" (click)="getMultiSelectedRows()">Get Selected Row</button>
+<button class="np-button" (click)="selectAll()">Select all Rows</button>
+<button class="np-button" (click)="deSelectAll()">De select all Rows</button>

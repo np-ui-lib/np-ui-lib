@@ -4,11 +4,10 @@ import { Injectable, Pipe, PipeTransform } from '@angular/core';
 })
 @Injectable()
 export class NpUiHightLightPipe implements PipeTransform {
-    transform(text: string, subtext: string, className?: string): any {
+    transform(text: string, subtext: string): any {
         if (subtext) {
             const re = new RegExp(subtext, 'gi');
-            const cssClass = className ? className : 'np-ui-highlight';
-            text = text.replace(re, "<span class='" + cssClass + "'>" + subtext + "</span>");
+            text = text.replace(re, "<b>" + subtext + "</b>");
         }
         return text;
     }

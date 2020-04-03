@@ -84,7 +84,3 @@ body {
     fill: currentColor;
     vertical-align: middle;
 }
-
-.green-panel .np-pn-header {
-    background-color: lightgreen !important;
-}

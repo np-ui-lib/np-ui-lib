@@ -9,6 +9,7 @@
     box-sizing: border-box;
     width: 100%;
     padding: 0px 5px;
+    background-color: #f7f7f7;
 }
 
 .np-dg-toolbar {
@@ -17,12 +18,7 @@
     box-sizing: border-box;
     width: 100%;
     padding: 5px;
-}
-
-.np-dg-toolbar-item {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0px 2px;
+    background-color: #f7f7f7;
 }
 
 .np-dg-col-chooser {
@@ -32,16 +28,11 @@
     box-sizing: border-box;
     padding: 5px;
     overflow: auto;
+    background-color: #ffffff;
 }
 
 .np-dg-columns-item.cdk-drag-disabled .np-dg-col-drag-handle {
     display: none;
-}
-
-.np-dg-state-manager-item {
-    margin: 0px 2px;
-    display: inline-block;
-    vertical-align: middle;
 }
 
 .np-dg-columns {
@@ -55,20 +46,19 @@
 .np-dg-columns-item {
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
-    height: 25px;
-    padding: 2px;
+    height: 26px;
     background-color: #ffffff;
 }
 
 .np-dg-col-drag-placeholder {
-    background-color: #fafad2;
-    height: 25px;
+    background-color: #fff3cd;
+    height: 26px;
 }
 
 .np-dg-col-drag-handle {
     float: right;
-    padding: 2px;
     cursor: move;
+    height: 24px;
 }
 
 .np-dg-columns-item.cdk-drag-preview {
@@ -94,14 +84,13 @@
 
 .np-dg-table-header th {
     text-align: left;
-    vertical-align: middle;
-    padding: 0px 0px 0px 5px;
-    margin: 0px;
+    padding-left: 5px;
     border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
     line-height: 25px;
     font-weight: bold;
+    background-color: #f7f7f7;
 }
 
 .np-dg-table-body th {
@@ -112,6 +101,7 @@
     border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
+    background-color: #f7f7f7;
 }
 
 .np-dg-filter-operator {
@@ -145,6 +135,7 @@
     box-sizing: border-box;
     width: 100%;
     padding: 5px;
+    background-color: #f7f7f7;
 }
 
 .np-dg-pagination-item {
@@ -153,42 +144,31 @@
     margin: 0px 2px;
 }
 
-.np-dg-control {
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    padding: 0px 5px;
-    height: 28px;
+.np-dg-state-manager {
+    display: flex;
 }
 
-.np-dg-state-manager .np-dg-control {
-    max-width: 150px;
+.np-dg-state-manager .np-control-select {
+    width: 150px;
+    margin-right: 5px;
 }
 
-.np-dg-pagination .np-dg-control {
+.np-dg-pagination .np-control-input {
     width: 100px;
-}
-
-.np-dg-table-body thead .np-dg-control {
-    width: 100%;
-}
-
-.np-dg-disabled {
-    opacity: 0.5;
-    pointer-events: none;
 }
 
 .np-dg-col-resize-handle {
     width: 7px;
-    height: 25px;
+    height: 28px;
     cursor: col-resize;
 }
 
 .np-dg-col-resize-handle:hover {
-    background-color: #fafad2;
+    background-color: #fff3cd;
 }
 
 .np-dg-col-resize-handle.cdk-drag-dragging {
-    background-color: #fafad2;
+    background-color: #fff3cd;
 }
 
 .np-dg-loading {
@@ -245,6 +225,7 @@
     border-top: 1px solid #000000;
     box-sizing: border-box;
     padding: 3px 5px;
+    background-color: #f7f7f7;
 }
 
 .np-dg-table-footer {
@@ -278,19 +259,8 @@
     display: block;
 }
 
-.np-dg-background,
-.np-dg-header-row th,
-.np-dg-body-row:hover td {
-    background-color: #f0f8ff;
-}
-
-.np-dg-row-selected td,
-.np-dg-row-selected:hover td {
-    background-color: #add8e6;
-}
-
 .np-dg-child-row td {
-    background-color: lightgoldenrodyellow;
+    background-color: #fff3cd;
 }
 
 .np-dg-search-columns {
@@ -298,10 +268,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-}
-
-.float-right {
-    float: right;
 }
 
 .txt-center {
@@ -312,35 +278,14 @@
     text-align: right;
 }
 
-.np-dg-component .np-dp-input-append {
+.np-dg-component .np-input-append {
     background-color: #ffffff;
 }
 
-@media only screen and (max-width: 768px) {
-    .np-dg-pagination-item.float-right {
-        display: none;
-    }
+.np-dg-table-body tr:hover td {
+    background-color: #d1ecf1;
 }
 
-@media only screen and (max-width: 600px) {
-    .np-dg-pagination-item.float-right,
-    .np-dg-toolbar-item.float-right {
-        display: none;
-    }
-}
-
-.np-dg-toolbar .np-icon-button-lg,
-.np-dg-pagination .np-icon-button-lg,
-.np-dg-col-chooser .np-icon-button {
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    padding: 1px;
-}
-
-.np-dg-col-chooser-actions {
-    text-align: end;
-}
-
-.np-dg-col-chooser-actions .np-icon-button {
-    margin-left: 2px;
+.np-dg-row-selected td {
+    background-color: #d1ecf1;
 }

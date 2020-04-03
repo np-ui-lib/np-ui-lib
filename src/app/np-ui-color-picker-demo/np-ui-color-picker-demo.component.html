@@ -1,7 +1,6 @@
 <div class="sub-header">
     <h2>
-        <a class="github-link" title="Go to github repository" target="_blank"
-            href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-color-picker-demo">
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-color-picker-demo">
             np-ui-color-picker
         </a>
     </h2>
@@ -12,7 +11,7 @@
         <legend>1. Default color picker</legend>
         <np-ui-color-picker [(ngModel)]="color1"></np-ui-color-picker>
         <div>Selected color code: {{color1}}</div>
-        <button (click)="color1 = '#ed5a0f'">Set color #ed5a0f</button>
+        <button type="button" class="np-button" (click)="color1 = '#ed5a0f'">Set color #ed5a0f</button>
     </fieldset>
 </div>
 
@@ -41,14 +40,13 @@
 <div>
     <fieldset>
         <legend>4. Default open color picker</legend>
-        <np-ui-color-picker [(ngModel)]="color4" [defaultOpen]="true" #validations4="ngModel"
-            [disabled]="color4Disabled" [required]="color4Required">
+        <np-ui-color-picker [(ngModel)]="color4" [defaultOpen]="true" #validations4="ngModel" [disabled]="color4Disabled" [required]="color4Required">
         </np-ui-color-picker>
         <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="color-red">
             Color is required.
         </div>
-        <button (click)="color4Disabled = !color4Disabled">Toggle Disable</button>
-        <button (click)="color4Required = !color4Required">Toggle Required</button>
+        <button type="button" class="np-button" (click)="color4Disabled = !color4Disabled">Toggle Disable</button>
+        <button type="button" class="np-button" (click)="color4Required = !color4Required">Toggle Required</button>
     </fieldset>
 </div>
 

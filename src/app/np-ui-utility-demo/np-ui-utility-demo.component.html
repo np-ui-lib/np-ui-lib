@@ -10,16 +10,22 @@
 
 <p [innerHTML]="text | npUiHighLight: 'paragraph'"></p>
 
-<p [innerHTML]="text | npUiHighLight: 'paragraph' : 'np-ui-highlight-green'"></p>
-
 <fieldset>
     <legend>Button group</legend>
-    <div class="np-button-group">
+    <div class="np-button-group np-float-right np-clearfix">
         <button class="np-button">Normal</button>
         <button class="np-button np-button-success">Success</button>
         <button class="np-button np-button-error">Error</button>
         <button class="np-button np-button-warning">Warning</button>
         <button class="np-button np-button-info">Info</button>
+    </div>
+
+    <div class="np-button-group  np-clearfix">
+        <button class="np-button np-button-sm">Normal</button>
+        <button class="np-button np-button-success np-button-sm">Success</button>
+        <button class="np-button np-button-error np-button-sm">Error</button>
+        <button class="np-button np-button-warning np-button-sm">Warning</button>
+        <button class="np-button np-button-info np-button-sm">Info</button>
     </div>
 </fieldset>
 

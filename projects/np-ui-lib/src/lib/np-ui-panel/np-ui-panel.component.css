@@ -1,13 +1,16 @@
 .np-pn-component {
-    border: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
     box-sizing: border-box;
     overflow: hidden;
     margin-bottom: 5px;
 }
 
 .np-pn-header {
-    background-color: #f0f8ff;
     height: 28px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #000000;
 }
 
 .np-pn-title {
@@ -16,16 +19,12 @@
     padding-left: 5px;
 }
 
-.np-pn-header-actions {
-    float: right;
-    height: 28px;
-}
-
 .np-pn-body {
-    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
     padding: 5px;
     overflow: auto;
     background-color: #ffffff;
+    animation: fadeEffect 0.5s;
 }
 
 .np-pn-hidden {

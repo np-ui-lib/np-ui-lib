@@ -1,11 +1,12 @@
 @import '~@angular/cdk/overlay-prebuilt.css';
-
-.np-tt-component{
-    border: 1px solid #000000;
-    background-color: #f0f8ff;
+.np-tt-component {
     padding: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+    animation: fadeEffect 0.5s;
 }
 
-.np-tt-target{
+.np-tt-target {
     cursor: pointer;
 }

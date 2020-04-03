@@ -1,7 +1,6 @@
 <div class="sub-header">
     <h2>
-        <a class="github-link" title="Go to github repository" target="_blank"
-            href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-time-picker-demo">
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-time-picker-demo">
             np-ui-time-picker
         </a>
     </h2>
@@ -12,7 +11,7 @@
         <legend>1. Default Time picker</legend>
         <np-ui-time-picker [(ngModel)]="timePicker1"></np-ui-time-picker>
         <div>Selected time is : {{timePicker1}}</div>
-        <button type="button" (click)="timePicker1 = '6:30:30 PM'">Set 6:30:30 PM</button>
+        <button class="np-button" type="button" (click)="timePicker1 = '6:30:30 PM'">Set 6:30:30 PM</button>
     </fieldset>
 </div>
 
@@ -21,7 +20,7 @@
         <legend>2. 24 hours format time picker</legend>
         <np-ui-time-picker [(ngModel)]="timePicker2" [is24Hours]=true></np-ui-time-picker>
         <div>Selected time is : {{timePicker2}}</div>
-        <button type="button" (click)="timePicker2 = '23:15:00'">Set 23:15:00 PM</button>
+        <button class="np-button" type="button" (click)="timePicker2 = '23:15:00'">Set 23:15:00 PM</button>
     </fieldset>
 </div>
 
@@ -49,13 +48,12 @@
 <div>
     <fieldset>
         <legend>5. Default open time picker</legend>
-        <np-ui-time-picker [(ngModel)]="timePicker5" [defaultOpen]="true" #validations5="ngModel"
-            [disabled]="timePicker5Disable" [required]="timePicker5Required"></np-ui-time-picker>
+        <np-ui-time-picker [(ngModel)]="timePicker5" [defaultOpen]="true" #validations5="ngModel" [disabled]="timePicker5Disable" [required]="timePicker5Required"></np-ui-time-picker>
         <div *ngIf="validations5.control.touched && validations5.control.errors?.required" class="color-red">
             Time is required.
         </div>
-        <button (click)="timePicker5Disable = !timePicker5Disable">Toggle Disable</button>
-        <button (click)="timePicker5Required = !timePicker5Required">Toggle Required</button>
+        <button class="np-button" (click)="timePicker5Disable = !timePicker5Disable">Toggle Disable</button>
+        <button class="np-button" (click)="timePicker5Required = !timePicker5Required">Toggle Required</button>
     </fieldset>
 </div>
 
@@ -69,8 +67,10 @@
 <div>
     <fieldset>
         <legend>7. Show Now button</legend>
-        12 hrs:<np-ui-time-picker [(ngModel)]="timePicker71" [showNowButton]="true"></np-ui-time-picker>
-        24 hrs:<np-ui-time-picker [(ngModel)]="timePicker72" [showNowButton]="true" [is24Hours]=true>
+        12 hrs:
+        <np-ui-time-picker [(ngModel)]="timePicker71" [showNowButton]="true"></np-ui-time-picker>
+        24 hrs:
+        <np-ui-time-picker [(ngModel)]="timePicker72" [showNowButton]="true" [is24Hours]=true>
         </np-ui-time-picker>
     </fieldset>
 </div>

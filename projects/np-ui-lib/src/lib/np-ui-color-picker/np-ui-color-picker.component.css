@@ -2,7 +2,7 @@
     width: 100%;
     border: 1px solid black;
     box-sizing: border-box;
-    height: 28px;
+    height: 26px;
 }
 
 .np-cp-input-group {
@@ -20,18 +20,9 @@
 .np-cp-overlay {
     border: 1px solid black;
     box-sizing: border-box;
-    background-color: #f0f8ff;
-    padding: 5px;
+    padding: 10px;
     margin-top: 1px;
-}
-
-.np-cp-input-append {
-    padding: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
+    background-color: #ffffff;
 }
 
 .np-cp-overlay-open {
@@ -42,10 +33,6 @@
 .ng-invalid.ng-touched .np-cp-component {
     border: 1px solid #ff0000;
     box-sizing: border-box;
-}
-
-.ng-invalid.ng-touched .np-cp-input-append {
-    color: #ff0000;
 }
 
 .np-cp-input-selected {
@@ -68,6 +55,7 @@
 
 .np-cp-color-list {
     width: 200px;
+    padding-bottom: 5px;
 }
 
 .np-cp-current-color {
@@ -109,11 +97,10 @@
 }
 
 .np-cp-default-open {
-    max-width: 212px;
+    max-width: 222px;
     height: 100%;
 }
 
-.np-cp-disabled {
-    opacity: 0.7;
-    pointer-events: none;
+.np-cp-canvas {
+    padding-bottom: 5px;
 }

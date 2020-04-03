@@ -2,7 +2,7 @@
     width: 100%;
     border: 1px solid #000000;
     box-sizing: border-box;
-    height: 28px;
+    height: 26px;
 }
 
 .np-ac-input-group {
@@ -17,23 +17,12 @@
     outline: none;
 }
 
-.np-ac-input-append {
-    padding: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
-}
-
 .np-ac-overlay {
-    border-top: 1px solid #000000;
-    border-left: 1px solid #000000;
-    border-right: 1px solid #000000;
     box-sizing: border-box;
-    background-color: #f0f8ff;
     margin-top: 1px;
     min-width: 200px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
 }
 
 .np-ac-search-result-item {
@@ -42,11 +31,13 @@
     cursor: pointer;
 }
 
-.np-ac-no-result,
-.np-ac-allow-create {
-    padding: 5px;
-    border-bottom: 1px solid #000000;
-    cursor: pointer;
+.np-ac-search-result-item:last-child {
+    border: none;
+}
+
+.np-ac-search-result-item:hover {
+    color: #fff;
+    background-color: #007bff;
 }
 
 .np-ac-loader {
@@ -70,13 +61,4 @@
 .ng-invalid.ng-touched .np-ac-component {
     border: 1px solid #ff0000;
     box-sizing: border-box;
-}
-
-.ng-invalid.ng-touched .np-ac-input-append {
-    color: #ff0000;
-}
-
-.np-ac-disabled {
-    pointer-events: none;
-    opacity: 0.7;
 }

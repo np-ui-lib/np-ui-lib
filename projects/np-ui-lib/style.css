@@ -1,108 +1,216 @@
 @import "~@angular/cdk/overlay-prebuilt.css";
 .np-icon {
-    height: 16px;
-    width: 16px;
-    color: currentColor;
+    fill: #000000;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    user-select: none;
 }
 
-.np-icon-lg {
-    height: 24px;
-    width: 24px;
-    color: currentColor;
+.ng-invalid.ng-touched .np-input-append .np-icon {
+    fill: #ff0000;
 }
 
 .np-icon-button {
-    height: 20px;
-    width: 20px;
-    padding: 2px;
-    display: inline-block;
+    border: 1px solid #000000;
     cursor: pointer;
+    display: inline-flex;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+    background-color: transparent;
 }
 
-.np-icon-button-lg {
-    height: 28px;
-    width: 28px;
-    padding: 2px;
+.np-no-border {
+    border-color: transparent !important;
+}
+
+.np-button {
     display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    height: 36px;
+    padding: 0px 10px;
+    margin: 0px 5px;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    min-width: 50px;
     cursor: pointer;
 }
 
 .np-button-group {
-    padding: 2px;
-    text-align: end;
+    display: inline-flex;
+    position: relative;
 }
 
 .np-button-group .np-button {
-    margin-left: 5px;
+    margin-left: 0px;
 }
 
-.np-button {
-    padding: 5px;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    border: 1px solid black;
-    display: inline-block;
+.np-button-group .np-button:last-child {
+    margin-right: 0px;
+}
+
+.np-button-group .np-icon-button {
+    margin: 0px 5px 0px 0px;
+}
+
+.np-button-group .np-icon-button:last-child {
+    margin-right: 0px;
+}
+
+.np-button-sm {
+    height: 30px;
 }
 
 .np-button-success {
-    color: #155724;
-    background-color: #d4edda;
-    border: 1px solid #155724;
+    color: #fff;
+    background-color: #1e7e34;
+    border-color: #1c7430;
 }
 
 .np-button-error {
-    color: #721c24;
-    background-color: #f8d7da;
-    border: 1px solid #721c24;
+    color: #fff;
+    background-color: #bd2130;
+    border-color: #b21f2d;
 }
 
 .np-button-warning {
-    color: #856404;
-    background-color: #fff3cd;
-    border: 1px solid #856404;
+    color: #212529;
+    background-color: #d39e00;
+    border-color: #c69500;
 }
 
 .np-button-info {
-    color: #0c5460;
-    background-color: #d1ecf1;
-    border: 1px solid #0c5460;
+    color: #fff;
+    background-color: #117a8b;
+    border-color: #10707f;
+}
+
+.np-nt-notification {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    animation: fadeEffect 0.5s;
 }
 
 .np-nt-success {
     color: #155724;
     background-color: #d4edda;
-    border: 1px solid #155724;
+    border-color: #c3e6cb;
 }
 
 .np-nt-error {
     color: #721c24;
     background-color: #f8d7da;
-    border: 1px solid #721c24;
+    border-color: #f5c6cb;
 }
 
 .np-nt-warning {
     color: #856404;
     background-color: #fff3cd;
-    border: 1px solid #856404;
+    border-color: #ffeeba;
 }
 
 .np-nt-info {
     color: #0c5460;
     background-color: #d1ecf1;
-    border: 1px solid #0c5460;
-}
-
-.np-nt-notification {
-    padding: 10px;
-    margin: 5px;
-    position: relative;
-}
-
-.np-ui-highlight {
-    background-color: #fafad2;
+    border-color: #bee5eb;
 }
 
 .np-ui-highlight-green {
     background-color: #90ee90;
+}
+
+.np-input-append {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.np-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.np-pn-success .np-pn-header {
+    background-color: #d4edda;
+}
+
+.np-pn-error .np-pn-header {
+    background-color: #f8d7da;
+}
+
+.np-pn-warning .np-pn-header {
+    background-color: #fff3cd;
+}
+
+.np-pn-info .np-pn-header {
+    background-color: #d1ecf1;
+}
+
+.np-clearfix {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.np-float-right {
+    float: right;
+}
+
+.np-float-left {
+    float: left;
+}
+
+.np-no-padding {
+    padding: 0px !important;
+}
+
+.np-control-select {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    height: 26px;
+    width: 100%;
+}
+
+.np-control-input {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    height: 26px;
+    padding: 0px 5px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .np-sm-hidden {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .np-xs-hidden {
+        display: none !important;
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
