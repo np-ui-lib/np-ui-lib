@@ -13,6 +13,7 @@
 
 .np-icon-button {
     border: 1px solid #000000;
+    box-sizing: border-box;
     cursor: pointer;
     display: inline-flex;
     outline: 0;
