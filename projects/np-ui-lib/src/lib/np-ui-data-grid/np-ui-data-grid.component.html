@@ -7,7 +7,7 @@
     </ng-container>
     <ng-container *ngIf="showToolBar">
         <div class="np-dg-toolbar">
-            <div class="np-button-group">
+            <div class="np-btn-group">
                 <ng-container *ngIf="showColumnChooser">
                     <button type="button" title="Column chooser" class="np-icon-button" id="btn-column-chooser" (click)="_openColumnChooser()">
                         <svg class="np-icon" viewBox="0 0 24 24">
@@ -42,7 +42,7 @@
                         <option value="">Select...</option>
                         <option *ngFor="let state of _stateList" [ngValue]="state.name">{{state.name}}</option>
                     </select>
-                    <div class="np-button-group">
+                    <div class="np-btn-group">
                         <button type="button" *ngIf="_currentStateName.length > 0" class="np-icon-button" title="Save state" (click)="_saveState()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path
@@ -247,7 +247,7 @@
 
 <ng-template #columnChooserTemplate>
     <div class="np-dg-col-chooser">
-        <div class="np-button-group np-float-right np-clearfix">
+        <div class="np-btn-group np-float-right np-clearfix">
             <button type="button" class="np-icon-button" title="Show all columns" (click)="_showAllColumns()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0z" fill="none" />

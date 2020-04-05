@@ -11,7 +11,7 @@
         <legend>1. Default color picker</legend>
         <np-ui-color-picker [(ngModel)]="color1"></np-ui-color-picker>
         <div>Selected color code: {{color1}}</div>
-        <button type="button" class="np-button" (click)="color1 = '#ed5a0f'">Set color #ed5a0f</button>
+        <button type="button" class="np-btn" (click)="color1 = '#ed5a0f'">Set color #ed5a0f</button>
     </fieldset>
 </div>
 
@@ -45,8 +45,8 @@
         <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="color-red">
             Color is required.
         </div>
-        <button type="button" class="np-button" (click)="color4Disabled = !color4Disabled">Toggle Disable</button>
-        <button type="button" class="np-button" (click)="color4Required = !color4Required">Toggle Required</button>
+        <button type="button" class="np-btn" (click)="color4Disabled = !color4Disabled">Toggle Disable</button>
+        <button type="button" class="np-btn" (click)="color4Required = !color4Required">Toggle Required</button>
     </fieldset>
 </div>
 

@@ -229,7 +229,7 @@ textarea {
     line-height: 1.5;
     display: flex;
     background-color: transparent;
-    border: 1px solid transparent;
+    border: 1px solid #000000;
 }
 
 .np-btn-sm {
@@ -376,6 +376,18 @@ textarea {
 
 .np-alert-header {
     font-weight: bold;
+}
+
+.np-float-left {
+    float: left!important
+}
+
+.np-float-right {
+    float: right!important
+}
+
+.np-float-none {
+    float: none!important
 }
 
 @keyframes spin {

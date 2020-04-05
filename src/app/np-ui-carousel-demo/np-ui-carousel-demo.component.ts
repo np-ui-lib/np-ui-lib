@@ -14,9 +14,9 @@ export class NpUiCarouselDemoComponent implements OnInit {
   }
 
   items: CarouselItem[] = [
-    { imageUrl: "../../assets/images/test1.jpg", caption: "Test 1" },
-    { imageUrl: "../../assets/images/test2.jpg", caption: "Test 2" },
-    { imageUrl: "../../assets/images/test3.jpg", caption: "Test 3" }
+    { imageUrl: "../../assets/images/test1.jpg", caption: "<h1>Test 1</h1>" },
+    { imageUrl: "../../assets/images/test2.jpg", caption: "<h1>Test 2</h1>" },
+    { imageUrl: "../../assets/images/test3.jpg", caption: "<h1>Test 3</h1>" }
   ];
 
 }

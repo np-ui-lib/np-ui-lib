@@ -23,11 +23,11 @@
 <h4>Single Row Selection</h4>
 <np-ui-data-grid #singleSelectGrid [columns]="gridColumns" [dataSource]="gridDataSource" [singleRowSelectEnable]="true">
 </np-ui-data-grid>
-<button class="np-button" (click)="getSelectedRows()">Get Selected Row</button>
+<button class="np-btn" (click)="getSelectedRows()">Get Selected Row</button>
 
 <h4>Multi Row Selection</h4>
 <np-ui-data-grid #multiSelectGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiRowSelectEnable]="true" (onSelect)="onSelectRow($event)" (onDeselect)="onDeselectRow($event)" [selectRowOnClick]="true">
 </np-ui-data-grid>
-<button class="np-button" (click)="getMultiSelectedRows()">Get Selected Row</button>
-<button class="np-button" (click)="selectAll()">Select all Rows</button>
-<button class="np-button" (click)="deSelectAll()">De select all Rows</button>
+<button class="np-btn" (click)="getMultiSelectedRows()">Get Selected Row</button>
+<button class="np-btn" (click)="selectAll()">Select all Rows</button>
+<button class="np-btn" (click)="deSelectAll()">De select all Rows</button>

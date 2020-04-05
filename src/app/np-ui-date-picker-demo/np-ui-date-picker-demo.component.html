@@ -12,8 +12,8 @@
         <np-ui-date-picker [(ngModel)]="date1">
         </np-ui-date-picker>
         <div>Selected Date : {{date1}}</div>
-        <button class="np-button" (click)="setDate1()">Set Date 28/10/1992</button>
-        <button class="np-button" (click)="setDate1AsNull()">Set null</button>
+        <button class="np-btn" (click)="setDate1()">Set Date 28/10/1992</button>
+        <button class="np-btn" (click)="setDate1AsNull()">Set null</button>
     </fieldset>
 </div>
 
@@ -47,8 +47,8 @@
         <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="color-red">
             Date is required.
         </div>
-        <button class="np-button" (click)="date4Disable = !date4Disable">Toggle Disable</button>
-        <button class="np-button" (click)="date4Required = !date4Required">Toggle Required</button>
+        <button class="np-btn" (click)="date4Disable = !date4Disable">Toggle Disable</button>
+        <button class="np-btn" (click)="date4Required = !date4Required">Toggle Required</button>
     </fieldset>
 </div>
 
@@ -74,7 +74,7 @@
         <np-ui-date-picker [(ngModel)]="date7" [disableDates]="disableDates7">
         </np-ui-date-picker>
         <div>Selected Date : {{date7}}</div>
-        <button class="np-button" (click)="setDate7()">Set Today(Which is disable)</button>
+        <button class="np-btn" (click)="setDate7()">Set Today(Which is disable)</button>
     </fieldset>
 </div>
 

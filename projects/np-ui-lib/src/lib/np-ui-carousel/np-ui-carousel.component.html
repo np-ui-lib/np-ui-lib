@@ -2,9 +2,9 @@
     <div class="np-cs-container">
         <ng-container *ngFor="let img of items; let i = index">
             <div class="np-cs-slide np-cs-fade" [ngClass]="{'np-cs-slide-active':_currentSlideIndex == i}">
-                <div class="np-cs-numbertext">{{i}} / {{items.length}}</div>
+                <div class="np-cs-numbertext">{{i + 1}} / {{items.length}}</div>
                 <img class="np-cs-img" [src]="img.imageUrl">
-                <div *ngIf="img.caption" class="np-cs-text" [innerText]="img.caption"></div>
+                <div *ngIf="img.caption" class="np-cs-text" [innerHtml]="img.caption"></div>
             </div>
         </ng-container>
         <a class="np-cs-prev" (click)="minusSlides()">

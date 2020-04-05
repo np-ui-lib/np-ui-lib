@@ -36,7 +36,7 @@
             <div class="np-col np-col-12">
                 <div class="np-row justify-content-around np-no-gutters np-tp-controls">
                     <div class="np-col np-col-3">
-                        <button type="button" class="np-btn np-btn-block" (click)="_minusHour()">
+                        <button type="button" class="np-btn np-btn-block np-border-0" (click)="_minusHour()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
                                 <path d="M0 0h24v24H0z" fill="none" />
@@ -44,7 +44,7 @@
                         </button>
                     </div>
                     <div class="np-col np-col-3">
-                        <button type="button" class="np-btn np-btn-block" (click)="_minusMinute()">
+                        <button type="button" class="np-btn np-btn-block np-border-0" (click)="_minusMinute()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
                                 <path d="M0 0h24v24H0z" fill="none" />
@@ -52,7 +52,7 @@
                         </button>
                     </div>
                     <div class="np-col np-col-3" *ngIf="hideSeconds == false">
-                        <button type="button" class="np-btn np-btn-block" (click)="_minusSecond()">
+                        <button type="button" class="np-btn np-btn-block np-border-0" (click)="_minusSecond()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
                                 <path d="M0 0h24v24H0z" fill="none" />
@@ -60,7 +60,7 @@
                         </button>
                     </div>
                     <div class="np-col np-col-3" *ngIf="is24Hours == false">
-                        <button type="button" class="np-btn np-btn-block" (click)="_changeAMPM()">
+                        <button type="button" class="np-btn np-btn-block np-border-0" (click)="_changeAMPM()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
                                 <path d="M0 0h24v24H0z" fill="none" />
@@ -105,7 +105,7 @@
             <div class="np-col np-col-12">
                 <div class="np-row justify-content-around np-no-gutters np-tp-controls">
                     <div class="np-col np-col-3">
-                        <button type="button" class="np-btn np-btn-block" (click)="_addHour()">
+                        <button type="button" class="np-btn np-btn-block np-border-0" (click)="_addHour()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
                                 <path fill="none" d="M0 0h24v24H0V0z" />
@@ -113,7 +113,7 @@
                         </button>
                     </div>
                     <div class="np-col np-col-3">
-                        <button type="button" class="np-btn np-btn-block" (click)="_addMinute()">
+                        <button type="button" class="np-btn np-btn-block np-border-0" (click)="_addMinute()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
                                 <path fill="none" d="M0 0h24v24H0V0z" />
@@ -121,7 +121,7 @@
                         </button>
                     </div>
                     <div class="np-col np-col-3" *ngIf="hideSeconds == false">
-                        <button type="button" class="np-btn np-btn-block" (click)="_addSecond()">
+                        <button type="button" class="np-btn np-btn-block np-border-0" (click)="_addSecond()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
                                 <path fill="none" d="M0 0h24v24H0V0z" />
@@ -129,7 +129,7 @@
                         </button>
                     </div>
                     <div class="np-col np-col-3" *ngIf="is24Hours == false">
-                        <button type="button" class="np-btn np-btn-block" (click)="_changeAMPM()">
+                        <button type="button" class="np-btn np-btn-block np-border-0" (click)="_changeAMPM()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
                                 <path fill="none" d="M0 0h24v24H0V0z" />
