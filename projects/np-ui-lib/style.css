@@ -233,7 +233,7 @@ textarea {
 }
 
 .np-btn-sm {
-    padding: 2px;
+    padding: 2px 5px;
     line-height: 1.25;
 }
 
@@ -270,6 +270,19 @@ textarea {
     color: #fff;
     background-color: #117a8b;
     border-color: #10707f;
+}
+
+.np-btn-group {
+    padding: 5px 0px;
+}
+
+.np-btn-group .np-btn {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.np-btn-group .np-btn:last-child {
+    margin-right: 0px;
 }
 
 .np-border-0 {
@@ -359,6 +372,10 @@ textarea {
     position: relative;
     padding: 10px;
     margin-bottom: 5px;
+}
+
+.np-alert-header {
+    font-weight: bold;
 }
 
 @keyframes spin {

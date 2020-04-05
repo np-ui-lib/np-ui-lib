@@ -4,7 +4,7 @@
                 'np-alert-danger': msg.type==='Error',
                 'np-alert-warning': msg.type==='Warning',
                 'np-alert-info': msg.type==='Info'}">
-            <div class="np-col np-col-12 np-nt-header" [innerHtml]="msg.header"></div>
+            <div class="np-col np-col-12 np-alert-header" [innerHtml]="msg.header"></div>
             <div class="np-col np-col-12" [innerHtml]="msg.message"></div>
             <button type="button" class="np-btn np-border-0 np-nt-close" title="Close" (click)="close(msg)">
                 <svg class="np-icon" viewBox="0 0 24 24">

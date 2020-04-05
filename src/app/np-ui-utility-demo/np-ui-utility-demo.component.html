@@ -6,45 +6,46 @@
     </h2>
 </div>
 
-<h4>Highlight Text</h4>
-
-<p [innerHTML]="text | npUiHighLight: 'paragraph'"></p>
-
 <fieldset>
     <legend>Button group</legend>
-    <div class="np-button-group np-float-right np-clearfix">
-        <button class="np-button">Normal</button>
-        <button class="np-button np-button-success">Success</button>
-        <button class="np-button np-button-error">Error</button>
-        <button class="np-button np-button-warning">Warning</button>
-        <button class="np-button np-button-info">Info</button>
+    <div class="np-btn-group">
+        <button class="np-btn np-border">Normal</button>
+        <button class="np-btn np-btn-success">Success</button>
+        <button class="np-btn np-btn-danger">Error</button>
+        <button class="np-btn np-btn-warning">Warning</button>
+        <button class="np-btn np-btn-info">Info</button>
     </div>
 
-    <div class="np-button-group  np-clearfix">
-        <button class="np-button np-button-sm">Normal</button>
-        <button class="np-button np-button-success np-button-sm">Success</button>
-        <button class="np-button np-button-error np-button-sm">Error</button>
-        <button class="np-button np-button-warning np-button-sm">Warning</button>
-        <button class="np-button np-button-info np-button-sm">Info</button>
+    <div class="np-btn-group">
+        <button class="np-btn np-btn-sm np-border">Normal</button>
+        <button class="np-btn np-btn-success np-btn-sm">Success</button>
+        <button class="np-btn np-btn-danger np-btn-sm">Error</button>
+        <button class="np-btn np-btn-warning np-btn-sm">Warning</button>
+        <button class="np-btn np-btn-info np-btn-sm">Info</button>
     </div>
 </fieldset>
 
 <fieldset>
     <legend>Alerts</legend>
-    <div class="np-nt-notification np-nt-success">
-        <div class="np-nt-header">Success</div>
+    <div class="np-alert np-alert-success">
+        <div class="np-alert-header">Success</div>
         <div>This is success alert.</div>
     </div>
-    <div class="np-nt-notification np-nt-error">
-        <div class="np-nt-header">Error</div>
+    <div class="np-alert np-alert-danger">
+        <div class="np-alert-header">Error</div>
         <div>This is error alert.</div>
     </div>
-    <div class="np-nt-notification np-nt-warning">
-        <div class="np-nt-header">Warning</div>
+    <div class="np-alert np-alert-warning">
+        <div class="np-alert-header">Warning</div>
         <div>This is warning alert.</div>
     </div>
-    <div class="np-nt-notification np-nt-info">
-        <div class="np-nt-header">Info</div>
+    <div class="np-alert np-alert-info">
+        <div class="np-alert-header">Info</div>
         <div>This is info alert.</div>
     </div>
+</fieldset>
+
+<fieldset>
+    <legend>Highlight Text</legend>
+    <p [innerHTML]="text | npUiHighLight: 'paragraph'"></p>
 </fieldset>
