@@ -220,7 +220,6 @@ textarea {
 }
 
 .np-btn {
-    line-height: 1.25;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
@@ -231,6 +230,11 @@ textarea {
     display: flex;
     background-color: transparent;
     border: 1px solid transparent;
+}
+
+.np-btn-sm {
+    padding: 2px;
+    line-height: 1.25;
 }
 
 .np-btn-block {

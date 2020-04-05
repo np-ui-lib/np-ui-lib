@@ -3,32 +3,6 @@
     user-select: none;
     border: 1px solid #000000;
     box-sizing: border-box;
-    height: 26px;
-}
-
-.np-sw-left-item,
-.np-sw-right-item {
-    cursor: pointer;
-    width: 50%;
-    text-align: center;
-    user-select: none;
-    line-height: 24px;
-    display: inline-block;
-    border: none;
-    margin: 0px;
-    padding: 0px;
-    background-color: transparent;
-    outline: none;
-}
-
-.np-sw-left-item.np-sw-active {
-    color: #ffffff;
-    background-color: #721c24;
-}
-
-.np-sw-right-item.np-sw-active {
-    color: #ffffff;
-    background-color: #155724;
 }
 
 .ng-invalid .np-sw-component {
