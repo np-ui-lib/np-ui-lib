@@ -330,3 +330,33 @@ textarea {
 .np-text-bold {
     font-weight: bold;
 }
+
+.np-alert-success {
+    background-color: #dff0d8;
+    border-color: #d0e9c6;
+    color: #3c763d
+}
+
+.np-alert-info {
+    background-color: #d9edf7;
+    border-color: #bcdff1;
+    color: #31708f
+}
+
+.np-alert-warning {
+    background-color: #fcf8e3;
+    border-color: #faf2cc;
+    color: #8a6d3b
+}
+
+.np-alert-danger {
+    background-color: #f2dede;
+    border-color: #ebcccc;
+    color: #a94442
+}
+
+.np-alert {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 5px;
+}
