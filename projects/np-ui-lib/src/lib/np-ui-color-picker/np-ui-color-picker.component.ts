@@ -258,15 +258,15 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
 
   _onMouseOverStrip(e: any) {
     this._isShowCursorDiv = true;
-    this._xColorCursor = (e.pageX + 5) + 'px';
-    this._yColorCursor = (e.pageY + 5) + 'px';
+    this._xColorCursor = e.pageX + 'px';
+    this._yColorCursor = e.pageY + 'px';
     this._currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-strip');
   }
 
   _onMouseOverBlock(e: any) {
     this._isShowCursorDiv = true;
-    this._xColorCursor = (e.pageX + 5) + 'px';
-    this._yColorCursor = (e.pageY + 5) + 'px';
+    this._xColorCursor = e.pageX + 'px';
+    this._yColorCursor = e.pageY + 'px';
     this._currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-block');
   }
 

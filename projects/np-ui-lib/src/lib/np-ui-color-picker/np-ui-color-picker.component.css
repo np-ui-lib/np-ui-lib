@@ -1,106 +1,63 @@
-.np-cp-component {
-    width: 100%;
-    border: 1px solid black;
-    box-sizing: border-box;
-    height: 26px;
-}
-
-.np-cp-input-group {
-    display: flex;
+.np-cp-input-selected {
     height: 100%;
-}
-
-.np-cp-input {
-    width: 100%;
-    border: none;
-    padding: 0px 5px;
-    outline: none;
+    width: 30px;
 }
 
 .np-cp-overlay {
-    border: 1px solid black;
-    box-sizing: border-box;
-    padding: 10px;
-    margin-top: 1px;
     background-color: #ffffff;
+    width: 230px;
 }
 
-.np-cp-overlay-open {
-    border: none;
-    margin: 0px;
+.np-cp-block-selected {
+    height: 50px;
+    width: 50px;
 }
 
-.ng-invalid.ng-touched .np-cp-component {
-    border: 1px solid #ff0000;
-    box-sizing: border-box;
-}
-
-.np-cp-input-selected {
+.np-cp-color-block {
+    height: 20px;
     width: 20px;
+    margin: 2px;
+    display: inline-block;
     cursor: pointer;
+}
+
+.np-cp-current-color {
+    height: 30px;
+    width: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    z-index: 1002;
 }
 
 .np-cp-canvas-strip:hover,
 .np-cp-canvas-block:hover {
-    cursor: crosshair;
+    cursor: crosshair !important;
 }
 
-.np-cp-color-block {
-    height: 16px;
-    width: 16px;
-    display: inline-block;
-    margin-right: 5px;
-    cursor: pointer;
+.np-cp-header,
+.np-cp-footer {
+    padding: 5px;
+    background-color: #f8f9fa;
 }
 
-.np-cp-color-list {
-    width: 200px;
-    padding-bottom: 5px;
+.np-cp-canvases,
+.np-cp-color-blocks {
+    padding: 5px;
 }
 
-.np-cp-current-color {
-    height: 25px;
-    width: 25px;
-    z-index: 1001;
+.ng-touched.ng-invalid .np-input-group,
+.ng-touched.ng-invalid .np-cp-default-open {
+    border-color: #ff0000 !important;
 }
 
-.np-cp-canvas-block {
-    margin-right: 5px;
+.ng-touched.ng-invalid .np-input-group .np-icon {
+    fill: #ff0000;
 }
 
 .np-cp-hide-input {
-    width: 62px;
+    width: 90px;
 }
 
-.np-cp-hide-input .np-cp-input {
+.np-cp-hide-input .np-form-control {
     display: none;
-}
-
-.np-cp-selected-block {
-    display: flex;
-}
-
-.np-cp-selected-text {
-    padding-bottom: 5px;
-}
-
-.np-cp-selected-text span {
-    font-style: italic;
-    font-weight: bold;
-    padding-right: 5px;
-}
-
-.np-cp-selected-div {
-    height: 35px;
-    width: 35px;
-    margin-right: 5px;
-}
-
-.np-cp-default-open {
-    max-width: 222px;
-    height: 100%;
-}
-
-.np-cp-canvas {
-    padding-bottom: 5px;
 }
