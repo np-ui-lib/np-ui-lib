@@ -1,6 +1,12 @@
 <div class="np-pg-component" [ngClass]="styleClass">
-    <div *ngIf="!indeterminate" class="np-pg-progress-bar" [style.width.%]="value" np-ui-tooltip [tooltipText]="getTooltipText()">
-    </div>
-    <div *ngIf="indeterminate" class="np-pg-progress-bar np-pg-indeterminate">
+    <div class="np-row np-no-gutters">
+        <div class="np-col np-col-12">
+            <div class="np-pg-container">
+                <div *ngIf="!indeterminate" class="np-pg-progress-bar" [style.width.%]="value" np-ui-tooltip [tooltipText]="getTooltipText()">
+                </div>
+                <div *ngIf="indeterminate" class="np-pg-progress-bar np-pg-indeterminate">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
