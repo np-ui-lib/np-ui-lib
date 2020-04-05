@@ -1,217 +1,328 @@
 @import "~@angular/cdk/overlay-prebuilt.css";
-.np-icon {
-    fill: #000000;
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    user-select: none;
-}
-
-.ng-invalid.ng-touched .np-input-append .np-icon {
-    fill: #ff0000;
-}
-
-.np-icon-button {
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: inline-flex;
-    outline: 0;
-    padding: 0;
+button,
+input,
+optgroup,
+select,
+textarea {
+    line-height: 1.15;
     margin: 0;
-    user-select: none;
-    background-color: transparent;
 }
 
-.np-no-border {
-    border-color: transparent !important;
-}
-
-.np-button {
+.np-icon {
     display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.np-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px
+}
+
+.np-col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.np-col-auto {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+.np-col-1 {
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+
+.np-col-2 {
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
+
+.np-col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.np-col-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+
+.np-col-5 {
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+
+.np-col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.np-col-7 {
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+
+.np-col-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+
+.np-col-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.np-col-10 {
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
+
+.np-col-11 {
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+}
+
+.np-col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.np-no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.np-no-gutters>.np-col {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.justify-content-start {
+    justify-content: flex-start!important
+}
+
+.justify-content-end {
+    justify-content: flex-end!important
+}
+
+.justify-content-center {
+    justify-content: center!important
+}
+
+.justify-content-between {
+    justify-content: space-between!important
+}
+
+.justify-content-around {
+    justify-content: space-around!important
+}
+
+.align-items-start {
+    align-items: flex-start!important
+}
+
+.align-items-end {
+    align-items: flex-end!important
+}
+
+.align-items-center {
+    align-items: center!important
+}
+
+.align-items-baseline {
+    align-items: baseline!important
+}
+
+.align-items-stretch {
+    align-items: stretch!important
+}
+
+.align-content-start {
+    align-content: flex-start!important
+}
+
+.align-content-end {
+    align-content: flex-end!important
+}
+
+.align-content-center {
+    align-content: center!important
+}
+
+.align-content-between {
+    align-content: space-between!important
+}
+
+.align-content-around {
+    align-content: space-around!important
+}
+
+.align-content-stretch {
+    align-content: stretch!important
+}
+
+.align-self-auto {
+    align-self: auto!important
+}
+
+.align-self-start {
+    align-self: flex-start!important
+}
+
+.align-self-end {
+    align-self: flex-end!important
+}
+
+.align-self-center {
+    align-self: center!important
+}
+
+.align-self-baseline {
+    align-self: baseline!important
+}
+
+.align-self-stretch {
+    align-self: stretch!important
+}
+
+.np-form-control {
+    display: block;
+    padding: 5px;
+    color: #495057;
+    background-color: #fff;
+}
+
+.np-input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.input-group-prepend,
+.input-group-append {
+    display: flex;
+}
+
+.np-input-group>.np-form-control {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+}
+
+.np-btn {
+    line-height: 1.25;
     text-align: center;
+    white-space: nowrap;
     vertical-align: middle;
     user-select: none;
+    padding: 5px;
+    transition: all .2s ease-in-out;
+    line-height: 1.5;
+    display: flex;
+    background-color: transparent;
     border: 1px solid transparent;
-    height: 36px;
-    padding: 0px 10px;
-    margin: 0px 5px;
+}
+
+.np-btn-block {
+    display: block;
+    width: 100%
+}
+
+.np-btn-primary {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
-    min-width: 50px;
-    cursor: pointer;
 }
 
-.np-button-group {
-    display: inline-flex;
-    position: relative;
-}
-
-.np-button-group .np-button {
-    margin-left: 0px;
-}
-
-.np-button-group .np-button:last-child {
-    margin-right: 0px;
-}
-
-.np-button-group .np-icon-button {
-    margin: 0px 5px 0px 0px;
-}
-
-.np-button-group .np-icon-button:last-child {
-    margin-right: 0px;
-}
-
-.np-button-sm {
-    height: 30px;
-}
-
-.np-button-success {
+.np-btn-success {
     color: #fff;
     background-color: #1e7e34;
     border-color: #1c7430;
 }
 
-.np-button-error {
+.np-btn-danger {
     color: #fff;
     background-color: #bd2130;
     border-color: #b21f2d;
 }
 
-.np-button-warning {
+.np-btn-warning {
     color: #212529;
     background-color: #d39e00;
     border-color: #c69500;
 }
 
-.np-button-info {
+.np-btn-info {
     color: #fff;
     background-color: #117a8b;
     border-color: #10707f;
 }
 
-.np-nt-notification {
-    position: relative;
-    padding: 10px;
-    margin-bottom: 5px;
-    border: 1px solid transparent;
-    animation: fadeEffect 0.5s;
+.np-border-0 {
+    border: 0!important
 }
 
-.np-nt-success {
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
+.np-border-top-0 {
+    border-top: 0!important
 }
 
-.np-nt-error {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+.np-border-right-0 {
+    border-right: 0!important
 }
 
-.np-nt-warning {
-    color: #856404;
-    background-color: #fff3cd;
-    border-color: #ffeeba;
+.np-border-bottom-0 {
+    border-bottom: 0!important
 }
 
-.np-nt-info {
-    color: #0c5460;
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
+.np-border-left-0 {
+    border-left: 0!important
 }
 
-.np-ui-highlight-green {
-    background-color: #90ee90;
+.np-border {
+    border: 1px solid black;
 }
 
-.np-input-append {
-    padding: 0px;
-    margin: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
-    background-color: transparent;
-    border: none;
-    outline: none;
+.np-border-top {
+    border: 1px solid black;
+}
+
+.np-border-bottom {
+    border-bottom: 1px solid black;
+}
+
+.np-border-right {
+    border-right: 1px solid black;
+}
+
+.np-border-left {
+    border-left: 1px solid black;
+}
+
+.np-clearfix::after {
+    display: block;
+    content: "";
+    clear: both
 }
 
 .np-disabled {
-    pointer-events: none;
     opacity: 0.5;
+    pointer-events: none;
 }
 
-.np-pn-success .np-pn-header {
-    background-color: #d4edda;
+.np-pad-b-5 {
+    padding-bottom: 5px;
 }
 
-.np-pn-error .np-pn-header {
-    background-color: #f8d7da;
-}
-
-.np-pn-warning .np-pn-header {
-    background-color: #fff3cd;
-}
-
-.np-pn-info .np-pn-header {
-    background-color: #d1ecf1;
-}
-
-.np-clearfix {
-    display: block;
-    content: "";
-    clear: both;
-}
-
-.np-float-right {
-    float: right;
-}
-
-.np-float-left {
-    float: left;
-}
-
-.np-no-padding {
-    padding: 0px !important;
-}
-
-.np-control-select {
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    height: 26px;
-    width: 100%;
-}
-
-.np-control-input {
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    height: 26px;
-    padding: 0px 5px;
-    width: 100%;
-}
-
-@media only screen and (max-width: 768px) {
-    .np-sm-hidden {
-        display: none !important;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .np-xs-hidden {
-        display: none !important;
-    }
-}
-
-@keyframes fadeEffect {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.np-text-bold {
+    font-weight: bold;
 }

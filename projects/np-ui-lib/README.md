@@ -19,7 +19,7 @@ npm i np-ui-lib
 
 ### Import css to your application:
 ````css
-@import "../node_modules/np-ui-lib/style.css";
+@import "np-ui-lib/style.css";
 ````
 
 ### [Working demo](https://stackblitz.com/edit/np-ui-lib-demo)

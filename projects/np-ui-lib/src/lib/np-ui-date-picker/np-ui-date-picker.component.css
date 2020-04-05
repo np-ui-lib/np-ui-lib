@@ -1,103 +1,54 @@
-.np-dp-component {
-    width: 100%;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    height: 26px;
+.np-dp-overlay {
+    background-color: #ffffff;
+    width: 255px;
 }
 
-.np-dp-input {
-    width: 100%;
-    border: none;
-    padding: 0px 5px;
-    outline: none;
-}
-
-.np-dp-input-group {
-    display: flex;
-    height: 100%;
-}
-
-.ng-invalid.ng-touched .np-dp-component {
-    border: 1px solid #ff0000 !important;
-    box-sizing: border-box;
-}
-
-.np-dp-header {
-    display: flex;
-    justify-content: space-between;
-    user-select: none;
-    padding: 10px 10px 0px 10px;
-    background-color: #f7f7f7;
-}
-
-.np-dp-overlay .np-tt-target {
-    width: 100%;
-    text-decoration: underline;
-}
-
-.np-dp-weekdays {
-    width: 210px;
-    padding: 10px 10px 0px 10px;
-    background-color: #f7f7f7;
-}
-
-.np-dp-weekdays-items {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    line-height: 30px;
-    user-select: none;
-    font-style: italic;
+.np-dp-weekday {
     font-weight: bold;
-}
-
-.np-dp-dates {
-    width: 210px;
-    padding: 10px 10px 0px 10px;
-}
-
-.np-dp-dates-items {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    line-height: 30px;
-    user-select: none;
+    padding: 5px;
+    line-height: 25px;
+    width: 25px;
+    display: inline-block;
     text-align: center;
-    cursor: pointer;
+    vertical-align: middle;
 }
 
-.np-dp-dates-items:hover {
-    background-color: #d1ecf1;
+.np-dp-day {
+    padding: 5px;
+    line-height: 25px;
+    width: 25px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .np-dp-today {
-    background-color: #fff3cd;
+    background-color: #d39e00;
 }
 
-.np-dp-selected {
+.np-dp-selected,
+.np-dp-day:hover {
+    color: #fff;
     background-color: #007bff;
-    color: #ffffff;
+    cursor: pointer;
 }
 
-.np-dp-overlay {
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    margin-top: 1px;
-    background-color: #ffffff;
+.np-dp-day .np-tt-target {
+    text-decoration: underline;
 }
 
-.np-dp-overlay-open {
-    border: none;
-    margin: 0px;
-}
-
-.np-dp-default-open {
-    max-width: 232px;
-    height: 100%;
-}
-
+.np-dp-header,
+.np-dp-weekdays,
 .np-dp-actions {
-    padding: 10px;
+    padding: 5px;
+    background-color: #f8f9fa;
+}
+
+.np-dp-days {
+    padding: 5px;
+}
+
+.ng-touched.ng-invalid .np-input-group,
+.ng-touched.ng-invalid .np-dp-default-open {
+    border-color: #ff0000 !important;
 }
