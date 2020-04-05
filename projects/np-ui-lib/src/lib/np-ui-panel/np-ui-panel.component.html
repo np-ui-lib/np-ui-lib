@@ -1,40 +1,56 @@
-<div class="np-pn-component" [ngClass]="{'np-pn-zoom-out':_isZoom}" *ngIf="!_isClose" [class]="styleClass">
+<div class="np-pn-component np-border" [class]="styleClass" *ngIf="!_isClose" [ngClass]="{'np-pn-zoom':_isZoom}">
     <div class="np-pn-header">
-        <div class="np-button-group np-float-right">
-            <button type="button" *ngIf="allowMinimize && !_isZoom" class="np-icon-button np-no-border" (click)="_toggleMinimize()" title="{{_isMinimize ? 'Maximize':'Minimize'}}">
-                <svg class="np-icon" viewBox="0 0 24 24" *ngIf="_isMinimize">
-                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                    <path d="M0 0h24v24H0z" fill="none" />
-                </svg>
-                <svg class="np-icon" viewBox="0 0 24 24" *ngIf="!_isMinimize">
-                    <path d="M19 13H5v-2h14v2z" />
-                    <path d="M0 0h24v24H0z" fill="none" />
-                </svg>
-            </button>
-            <button type="button" *ngIf="allowZoom" class="np-icon-button np-no-border" (click)="_toggleZoom()" title="{{_isZoom ? 'Zoom Out':'Zoom In'}}">
-                <svg class="np-icon" viewBox="0 0 24 24" *ngIf="_isZoom">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z" />
-                </svg>
-                <svg class="np-icon" viewBox="0 0 24 24" *ngIf="!_isZoom">
-                    <path
-                        d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z" />
-                </svg>
-            </button>
-            <button type="button" *ngIf="allowRemove && !_isZoom" class="np-icon-button np-no-border" (click)="_close()" title="Remove">
-                <svg class="np-icon" viewBox="0 0 24 24">
-                    <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                    <path d="M0 0h24v24H0z" fill="none" />
-                </svg>
-            </button>
+        <div class="np-row justify-content-between np-no-gutters">
+            <div class="np-col np-col-auto" [innerHTML]="title">
+            </div>
+            <div class="np-col np-col-auto">
+                <div class="np-row np-no-gutters">
+                    <div class="np-col np-col-auto" *ngIf="allowMinimize && !_isZoom">
+                        <button type="button" class="np-btn" (click)="_toggleMinimize()" title="{{_isMinimize ? 'Maximize':'Minimize'}}">
+                            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="_isMinimize">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                            </svg>
+                            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="!_isMinimize">
+                                <path d="M19 13H5v-2h14v2z" />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="np-col np-col-auto" *ngIf="allowZoom">
+                        <button type="button" class="np-btn" (click)="_toggleZoom()" title="{{_isZoom ? 'Zoom Out':'Zoom In'}}">
+                            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="_isZoom">
+                                <path d="M0 0h24v24H0V0z" fill="none" />
+                                <path
+                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z" />
+                            </svg>
+                            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="!_isZoom">
+                                <path
+                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                                <path d="M0 0h24v24H0V0z" fill="none" />
+                                <path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="np-col np-col-auto" *ngIf="allowRemove && !_isZoom">
+                        <button type="button" class="np-btn" (click)="_close()" title="Remove">
+                            <svg class="np-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="np-pn-title" [innerHTML]="title"></div>
     </div>
-    <div class="np-pn-body" [style.max-height.px]="bodyHeight" [ngClass]="{'np-pn-hidden':_isMinimize}">
-        <ng-content></ng-content>
+
+    <div class="np-pn-body np-border-top" [style.max-height.px]="bodyHeight" [ngClass]="{'np-pn-minimize':_isMinimize}">
+        <div class="np-row np-no-gutters">
+            <div class="np-col np-col-12">
+                <ng-content></ng-content>
+            </div>
+        </div>
     </div>
 </div>

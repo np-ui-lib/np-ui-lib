@@ -1,48 +1,52 @@
 .np-pn-component {
-    border-top: 1px solid #000000;
-    border-left: 1px solid #000000;
-    border-right: 1px solid #000000;
-    box-sizing: border-box;
-    overflow: hidden;
     margin-bottom: 5px;
-}
-
-.np-pn-header {
-    height: 28px;
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #000000;
-}
-
-.np-pn-title {
-    font-weight: bold;
-    line-height: 28px;
-    padding-left: 5px;
-}
-
-.np-pn-body {
-    border-bottom: 1px solid #000000;
-    padding: 5px;
-    overflow: auto;
-    background-color: #ffffff;
-    animation: fadeEffect 0.5s;
-}
-
-.np-pn-hidden {
-    display: none;
-}
-
-.np-pn-zoom-out {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 1001;
-    height: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
-.np-pn-zoom-out .np-pn-body {
-    max-height: unset !important;
-    height: 100%;
+.np-pn-header {
+    line-height: 30px;
+    padding-left: 5px;
+    background-color: #f8f9fa;
+}
+
+.np-pn-body {
+    padding: 5px;
+    overflow: auto;
+    background-color: #ffffff;
+    flex: 1;
+}
+
+.np-pn-minimize {
+    display: none;
+}
+
+.np-pn-zoom {
+    position: fixed;
+    top: 0px;
     left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1005;
+}
+
+.np-pn-zoom .np-pn-body {
+    max-height: unset !important;
+}
+
+.np-pn-success .np-pn-header {
+    background-color: #dff0d8;
+}
+
+.np-pn-danger .np-pn-header {
+    background-color: #f2dede;
+}
+
+.np-pn-warning .np-pn-header {
+    background-color: #fcf8e3;
+}
+
+.np-pn-info .np-pn-header {
+    background-color: #d9edf7;
 }
