@@ -1,71 +1,42 @@
-.np-tp-component {
-    width: 100%;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    height: 26px;
-}
-
-.np-tp-input {
-    width: 100%;
-    border: none;
-    padding: 0px 5px;
-    outline: none;
-}
-
-.np-tp-input-group {
-    display: flex;
-    height: 100%;
-}
-
 .np-tp-overlay {
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    padding: 10px;
-    margin-top: 1px;
     background-color: #ffffff;
-}
-
-.np-tp-overlay-open {
-    border: none;
-    margin: 0px;
-}
-
-.ng-invalid.ng-touched .np-tp-component {
-    border: 1px solid #ff0000;
-    box-sizing: border-box;
-}
-
-.np-tp-select {
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.np-tp-select option {
-    width: 100%;
-    height: 20px;
-    margin: 0;
-    padding: 5px 10px;
-    text-align: left;
-    list-style: none;
-    cursor: pointer;
-    margin: 0;
+    width: 230px;
 }
 
 .np-tp-header {
-    font-style: italic;
+    padding: 5px;
+    background-color: #f8f9fa;
     font-weight: bold;
-    display: flex;
-    padding-bottom: 5px;
-}
-
-.np-tp-default-open {
-    max-width: 234px;
-    height: 100%;
-}
-
-.np-tp-table {
-    border-spacing: 0px;
     text-align: center;
-    user-select: none;
-    padding-bottom: 5px;
+}
+
+.np-tp-footer {
+    padding: 5px;
+    background-color: #f8f9fa;
+}
+
+.np-tp-controls {
+    padding: 5px;
+}
+
+.np-tp-select {
+    width: 45px;
+    margin: 0px 5px;
+}
+
+.np-tp-select option {
+    padding: 5px;
+}
+
+.ng-touched.ng-invalid .np-input-group,
+.ng-touched.ng-invalid .np-tp-default-open {
+    border-color: #ff0000 !important;
+}
+
+.ng-touched.ng-invalid .np-input-group .np-icon {
+    fill: #ff0000;
+}
+
+.np-tp-overflow-hidden {
+    overflow: hidden;
 }

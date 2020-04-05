@@ -39,7 +39,7 @@
 
 .np-dp-header,
 .np-dp-weekdays,
-.np-dp-actions {
+.np-dp-footer {
     padding: 5px;
     background-color: #f8f9fa;
 }
@@ -51,4 +51,8 @@
 .ng-touched.ng-invalid .np-input-group,
 .ng-touched.ng-invalid .np-dp-default-open {
     border-color: #ff0000 !important;
+}
+
+.ng-touched.ng-invalid .np-input-group .np-icon {
+    fill: #ff0000;
 }

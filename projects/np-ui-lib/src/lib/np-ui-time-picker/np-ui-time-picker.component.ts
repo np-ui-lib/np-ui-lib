@@ -148,24 +148,24 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
   }
 
   _minusHour() {
-    this._selectedHour = this._selectedHour == 0 ? (this.is24Hours ? 23 : 11) : this._selectedHour - 1;
+    this._selectedHour = this._selectedHour == null || this._selectedHour == 0 ? (this.is24Hours ? 23 : 11) : this._selectedHour - 1;
     this._setValue();
   }
 
   _minusMinute() {
-    this._selectedMinute = this._selectedMinute == 0 ? 59 : this._selectedMinute - 1;
+    this._selectedMinute = this._selectedMinute == null || this._selectedMinute == 0 ? 59 : this._selectedMinute - 1;
     if (this._selectedMinute == 59) {
-      this._selectedHour = this._selectedHour == 0 ? (this.is24Hours ? 23 : 11) : this._selectedHour - 1;
+      this._selectedHour = this._selectedHour == null || this._selectedHour == 0 ? (this.is24Hours ? 23 : 11) : this._selectedHour - 1;
     }
     this._setValue();
   }
 
   _minusSecond() {
-    this._selectedSecond = this._selectedSecond == 0 ? 59 : this._selectedSecond - 1;
+    this._selectedSecond = this._selectedSecond == null || this._selectedSecond == 0 ? 59 : this._selectedSecond - 1;
     if (this._selectedSecond == 59) {
-      this._selectedMinute = this._selectedMinute == 0 ? 59 : this._selectedMinute - 1;
+      this._selectedMinute = this._selectedMinute == null || this._selectedMinute == 0 ? 59 : this._selectedMinute - 1;
       if (this._selectedMinute == 59) {
-        this._selectedHour = this._selectedHour == 0 ? (this.is24Hours ? 23 : 11) : this._selectedHour - 1;
+        this._selectedHour = this._selectedHour == null || this._selectedHour == 0 ? (this.is24Hours ? 23 : 11) : this._selectedHour - 1;
       }
     }
     this._setValue();
@@ -175,7 +175,7 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
     if (this._selectedHour > (this.is24Hours ? 23 : 11)) {
       this._selectedHour = (this.is24Hours ? 23 : 11);
     }
-    this._selectedHour = this._selectedHour == (this.is24Hours ? 23 : 11) ? 0 : this._selectedHour + 1;
+    this._selectedHour = this._selectedHour == null || this._selectedHour == (this.is24Hours ? 23 : 11) ? 0 : this._selectedHour + 1;
     this._setValue();
   }
 
@@ -183,9 +183,9 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
     if (this._selectedMinute > 59) {
       this._selectedMinute = 59;
     }
-    this._selectedMinute = this._selectedMinute == 59 ? 0 : this._selectedMinute + 1;
+    this._selectedMinute = this._selectedMinute == null || this._selectedMinute == 59 ? 0 : this._selectedMinute + 1;
     if (this._selectedMinute == 0) {
-      this._selectedHour = this._selectedHour == (this.is24Hours ? 23 : 11) ? 0 : this._selectedHour + 1;
+      this._selectedHour = this._selectedHour == null || this._selectedHour == (this.is24Hours ? 23 : 11) ? 0 : this._selectedHour + 1;
     }
     this._setValue();
   }
@@ -194,11 +194,11 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
     if (this._selectedSecond > 59) {
       this._selectedSecond = 59;
     }
-    this._selectedSecond = this._selectedSecond == 59 ? 0 : this._selectedSecond + 1;
+    this._selectedSecond = this._selectedSecond == null || this._selectedSecond == 59 ? 0 : this._selectedSecond + 1;
     if (this._selectedSecond == 0) {
-      this._selectedMinute = this._selectedMinute == 59 ? 0 : this._selectedMinute + 1;
+      this._selectedMinute = this._selectedMinute == null || this._selectedMinute == 59 ? 0 : this._selectedMinute + 1;
       if (this._selectedMinute == 0) {
-        this._selectedHour = this._selectedHour == (this.is24Hours ? 23 : 11) ? 0 : this._selectedHour + 1;
+        this._selectedHour = this._selectedHour == null || this._selectedHour == (this.is24Hours ? 23 : 11) ? 0 : this._selectedHour + 1;
       }
     }
     this._setValue();
@@ -355,5 +355,10 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
     this._selectedHour = null;
     this._selectedMinute = null;
     this._selectedSecond = null;
+  }
+
+  _changeAMPM() {
+    this._selectedAMPM = this._selectedAMPM == "AM" ? "PM" : "AM";
+    this._setValue();
   }
 }
