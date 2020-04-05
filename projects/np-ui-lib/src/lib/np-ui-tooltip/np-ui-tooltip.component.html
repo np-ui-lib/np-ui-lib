@@ -1,5 +1,9 @@
 <div class="np-tt-component">
-    <div *ngIf="tooltipText; else tooltipTemplate">
-        {{tooltipText}}
+    <div class="np-row np-no-gutters">
+        <div class="np-col np-col-12">
+            <ng-container *ngIf="tooltipText; else tooltipTemplate">
+                <div>{{tooltipText}}</div>
+            </ng-container>
+        </div>
     </div>
 </div>

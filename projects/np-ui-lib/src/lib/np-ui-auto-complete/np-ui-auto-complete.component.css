@@ -1,64 +1,27 @@
-.np-ac-component {
-    width: 100%;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    height: 26px;
-}
-
-.np-ac-input-group {
-    display: flex;
-    height: 100%;
-}
-
-.np-ac-input {
-    width: 100%;
-    border: none;
-    padding: 0px 5px;
-    outline: none;
-}
-
-.np-ac-overlay {
-    box-sizing: border-box;
-    margin-top: 1px;
-    min-width: 200px;
-    background-color: #ffffff;
-    border: 1px solid #000000;
-}
-
-.np-ac-search-result-item {
-    padding: 5px;
-    border-bottom: 1px solid #000000;
-    cursor: pointer;
-}
-
-.np-ac-search-result-item:last-child {
-    border: none;
-}
-
-.np-ac-search-result-item:hover {
-    color: #fff;
-    background-color: #007bff;
-}
-
 .np-ac-loader {
     animation: spin 2s linear infinite;
 }
 
-.np-ac-no-result {
-    opacity: 0.7;
-    pointer-events: none;
+.np-ac-overlay {
+    background-color: #ffffff;
+    border-bottom: none;
+    min-width: 250px;
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.np-ac-search-item {
+    padding: 5px;
+    border-bottom: 1px solid black;
 }
 
-.ng-invalid.ng-touched .np-ac-component {
-    border: 1px solid #ff0000;
-    box-sizing: border-box;
+.np-ac-search-item:hover {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.ng-touched.ng-invalid .np-input-group {
+    border-color: #ff0000 !important;
+}
+
+.ng-touched.ng-invalid .np-input-group .np-icon {
+    fill: #ff0000;
 }
