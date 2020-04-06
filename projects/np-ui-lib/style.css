@@ -9,8 +9,8 @@ textarea {
 
 .np-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
 }
 
 .np-row {
@@ -229,6 +229,8 @@ textarea {
 
 .np-input-group .np-btn {
     height: 30px;
+    min-width: 30px;
+    padding: 2px;
 }
 
 .np-btn {
@@ -249,6 +251,7 @@ textarea {
 
 .np-btn-icon {
     margin: 0px;
+    padding: 3px;
     border-color: transparent;
     background-color: transparent;
     min-width: 32px

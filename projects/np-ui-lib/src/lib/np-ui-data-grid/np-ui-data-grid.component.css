@@ -92,6 +92,7 @@
 }
 
 .np-dg-table-header th {
+    position: relative;
     padding: 0px 5px;
     border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
@@ -142,6 +143,7 @@
     position: absolute;
     right: 0px;
     top: 0px;
+    z-index: 999;
 }
 
 .np-dg-col-resize-handle:hover {
@@ -183,19 +185,19 @@
 }
 
 .np-dg-sticky-header {
-    position: sticky;
+    position: sticky !important;
     top: 0px;
     z-index: 3;
 }
 
 .np-dg-sticky-left {
-    position: sticky;
+    position: sticky !important;
     left: 0px;
     z-index: 2;
 }
 
 .np-dg-sticky-right {
-    position: sticky;
+    position: sticky !important;
     right: 0px;
     border-left: 1px solid #000000;
     box-sizing: border-box;
@@ -273,14 +275,6 @@
     box-sizing: border-box;
 }
 
-.np-dg-master-child-col .np-btn {
-    text-align: center;
-    padding: 0px;
-    width: 100%;
-    min-width: 20px;
-    margin: 0px;
-}
-
-.np-dg-select-col {
-    text-align: center;
+.np-dg-master-child-col {
+    padding: 1px !important;
 }
