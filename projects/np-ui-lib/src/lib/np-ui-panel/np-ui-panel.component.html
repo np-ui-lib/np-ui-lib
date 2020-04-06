@@ -6,7 +6,7 @@
             <div class="np-col np-col-auto">
                 <div class="np-row np-no-gutters">
                     <div class="np-col np-col-auto" *ngIf="allowMinimize && !_isZoom">
-                        <button type="button" class="np-btn np-border-0" (click)="_toggleMinimize()" title="{{_isMinimize ? 'Maximize':'Minimize'}}">
+                        <button type="button" class="np-btn np-btn-icon" (click)="_toggleMinimize()" title="{{_isMinimize ? 'Maximize':'Minimize'}}">
                             <svg class="np-icon" viewBox="0 0 24 24" *ngIf="_isMinimize">
                                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                 <path d="M0 0h24v24H0z" fill="none" />
@@ -18,7 +18,7 @@
                         </button>
                     </div>
                     <div class="np-col np-col-auto" *ngIf="allowZoom">
-                        <button type="button" class="np-btn np-border-0" (click)="_toggleZoom()" title="{{_isZoom ? 'Zoom Out':'Zoom In'}}">
+                        <button type="button" class="np-btn np-btn-icon" (click)="_toggleZoom()" title="{{_isZoom ? 'Zoom Out':'Zoom In'}}">
                             <svg class="np-icon" viewBox="0 0 24 24" *ngIf="_isZoom">
                                 <path d="M0 0h24v24H0V0z" fill="none" />
                                 <path
@@ -33,7 +33,7 @@
                         </button>
                     </div>
                     <div class="np-col np-col-auto" *ngIf="allowRemove && !_isZoom">
-                        <button type="button" class="np-btn np-border-0" (click)="_close()" title="Remove">
+                        <button type="button" class="np-btn np-btn-icon" (click)="_close()" title="Remove">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path
                                     d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />

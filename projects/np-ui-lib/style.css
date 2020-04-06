@@ -4,7 +4,6 @@ input,
 optgroup,
 select,
 textarea {
-    line-height: 1.15;
     margin: 0;
 }
 
@@ -196,7 +195,9 @@ textarea {
     display: block;
     padding: 5px;
     color: #495057;
-    background-color: #fff;
+    background-color: #ffffff;
+    height: 32px;
+    border: 1px solid #000000;
 }
 
 .np-input-group {
@@ -217,6 +218,8 @@ textarea {
     flex: 1 1 auto;
     width: 1%;
     margin-bottom: 0;
+    border-color: transparent;
+    height: 18px;
 }
 
 .np-btn {
@@ -226,15 +229,24 @@ textarea {
     user-select: none;
     padding: 5px;
     transition: all .2s ease-in-out;
-    line-height: 1.5;
     display: flex;
-    background-color: transparent;
+    background-color: #dfdfdf;
     border: 1px solid #000000;
+    margin: 5px 0px;
+    min-width: 50px;
+    height: 30px;
+}
+
+.np-btn-icon {
+    margin: 0px;
+    border-color: transparent;
+    background-color: transparent;
+    min-width: 32px
 }
 
 .np-btn-sm {
     padding: 2px 5px;
-    line-height: 1.25;
+    height: 20px;
 }
 
 .np-btn-block {
@@ -273,12 +285,12 @@ textarea {
 }
 
 .np-btn-group {
-    padding: 5px 0px;
+    margin: 5px 0px;
 }
 
 .np-btn-group .np-btn {
     display: inline-block;
-    margin-right: 5px;
+    margin: 0px 5px 0px 0px;
 }
 
 .np-btn-group .np-btn:last-child {

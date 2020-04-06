@@ -2,9 +2,15 @@
     width: 100px;
     user-select: none;
     border: 1px solid #000000;
-    box-sizing: border-box;
 }
 
 .ng-invalid .np-sw-component {
     border: 1px solid #ff0000;
+}
+
+.np-sw-component .np-btn {
+    margin: 0px;
+    border-color: transparent;
+    width: 50px;
+    display: block;
 }

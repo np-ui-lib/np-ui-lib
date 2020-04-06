@@ -8,7 +8,7 @@ body {
 .header h1 {
     margin: 5px 5px 0px 5px;
     padding: 10px 5px;
-    background-color: #dcdcdc;
+    background-color: #dfdfdf;
     text-align: center;
 }
 
@@ -22,7 +22,7 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #dcdcdc;
+    background-color: #dfdfdf;
     height: 100%;
 }
 
@@ -67,7 +67,7 @@ body {
 .sub-header h2 {
     margin: 0px 0px 5px 0px;
     padding: 5px;
-    background-color: #dcdcdc;
+    background-color: #dfdfdf;
 }
 
 .color-red {

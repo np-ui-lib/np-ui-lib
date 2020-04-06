@@ -4,6 +4,7 @@
     background-color: #000000;
     color: #ffffff;
     border: 1px solid #000000;
+    min-height: 20px;
     animation: fadeEffect 0.5s;
 }
 
