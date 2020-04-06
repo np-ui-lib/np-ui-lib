@@ -427,6 +427,16 @@ textarea {
     padding-right: 5px !important;
 }
 
+.np-badge {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 2px 3px;
+    border-radius: 5px;
+    position: relative;
+    margin: 0px 5px;
+    color: #000000;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);

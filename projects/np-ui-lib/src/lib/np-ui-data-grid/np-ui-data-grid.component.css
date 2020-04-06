@@ -165,14 +165,16 @@
     position: absolute;
     top: calc(50% - 25px);
     left: calc(50% - 25px);
-    border: 8px solid #ffffff;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    vertical-align: text-bottom;
+    border: 5px solid currentColor;
+    border-right-color: transparent;
     border-radius: 50%;
-    border-top: 8px solid #add8e6;
-    box-sizing: border-box;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
-    z-index: 4;
+    color: #007bff!important;
+    animation: spin 1s linear infinite;
+    z-index: 6;
 }
 
 @keyframes spin {
