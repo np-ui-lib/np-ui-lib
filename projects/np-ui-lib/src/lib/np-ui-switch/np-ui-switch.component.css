@@ -2,6 +2,7 @@
     width: 100px;
     user-select: none;
     border: 1px solid #000000;
+    box-sizing: border-box;
 }
 
 .ng-invalid .np-sw-component {
@@ -11,6 +12,8 @@
 .np-sw-component .np-btn {
     margin: 0px;
     border-color: transparent;
-    width: 50px;
+    width: 49px;
+    min-width: 49px;
     display: block;
+    height: 30px;
 }

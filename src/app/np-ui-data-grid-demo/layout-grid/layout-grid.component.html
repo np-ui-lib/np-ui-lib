@@ -11,8 +11,10 @@
 
 <!-- Template for action buttons column -->
 <ng-template #actionButtonsTemplate let-row="row">
-    <button class="np-btn" (click)="onActionClick(row,'Edit', $event)">Edit</button>
-    <button class="np-btn" (click)="onActionClick(row,'Delete', $event)">Delete</button>
+    <div class="np-btn-group">
+        <button class="np-btn" (click)="onActionClick(row,'Edit', $event)">Edit</button>
+        <button class="np-btn" (click)="onActionClick(row,'Delete', $event)">Delete</button>
+    </div>
 </ng-template>
 
 <!-- Template for birthdate column -->

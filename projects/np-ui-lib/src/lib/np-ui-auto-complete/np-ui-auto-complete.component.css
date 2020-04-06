@@ -11,6 +11,8 @@
 .np-ac-search-item {
     padding: 5px;
     border-bottom: 1px solid black;
+    box-sizing: border-box;
+    min-height: 32px;
 }
 
 .np-ac-search-item:hover {

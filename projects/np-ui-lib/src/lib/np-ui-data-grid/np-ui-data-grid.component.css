@@ -1,30 +1,33 @@
 .np-dg-component {
-    border: 1px solid #000000;
     box-sizing: border-box;
+    border: 1px solid #000000;
 }
 
 .np-dg-title {
-    line-height: 24px;
-    border-bottom: 1px solid #000000;
+    height: 33px;
     box-sizing: border-box;
+    border-bottom: 1px solid #000000;
     width: 100%;
-    padding: 0px 5px;
-    background-color: #f7f7f7;
+    padding: 5px;
+    background-color: #dfdfdf;
 }
 
 .np-dg-toolbar {
-    height: 40px;
-    border-bottom: 1px solid #000000;
     box-sizing: border-box;
-    width: 100%;
+    border-bottom: 1px solid #000000;
     padding: 5px;
-    background-color: #f7f7f7;
+    height: 43px;
+    background-color: #dfdfdf;
+}
+
+.np-dg-col-chooser .np-btn-group,
+.np-dg-toolbar .np-btn-group {
+    margin: 0px;
 }
 
 .np-dg-col-chooser {
     max-height: 300px;
     width: 250px;
-    border: 1px solid #000000;
     box-sizing: border-box;
     padding: 5px;
     overflow: auto;
@@ -41,17 +44,23 @@
     border-right: 1px solid #000000;
     box-sizing: border-box;
     border-bottom: none;
+    margin: 5px 0px;
 }
 
 .np-dg-columns-item {
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
-    height: 26px;
     background-color: #ffffff;
+    padding: 0px 5px;
+    height: 26px;
+}
+
+.np-dg-columns-item .np-icon {
+    height: 24px;
 }
 
 .np-dg-col-drag-placeholder {
-    background-color: #fff3cd;
+    background-color: #fcf8e3;
     height: 26px;
 }
 
@@ -83,38 +92,35 @@
 }
 
 .np-dg-table-header th {
-    text-align: left;
-    padding-left: 5px;
+    padding: 0px 5px;
     border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
-    line-height: 25px;
     font-weight: bold;
-    background-color: #f7f7f7;
+    background-color: #dfdfdf;
+    line-height: 32px;
 }
 
 .np-dg-table-body th {
-    text-align: left;
-    vertical-align: middle;
-    padding: 3px 5px;
+    padding: 5px;
     margin: 0px;
     border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
-    background-color: #f7f7f7;
+    background-color: #dfdfdf;
 }
 
-.np-dg-filter-operator {
-    margin-bottom: 3px;
+.np-dg-filters {
+    margin-bottom: 5px;
 }
 
 .np-dg-table-body td {
-    padding: 1px 5px;
+    padding: 5px;
     margin: 0px;
     border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
-    line-height: 24px;
+    min-height: 31px;
     background-color: #ffffff;
     overflow: hidden;
 }
@@ -129,46 +135,21 @@
     border-bottom: none;
 }
 
-.np-dg-pagination {
-    height: 40px;
-    border-top: 1px solid #000000;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 5px;
-    background-color: #f7f7f7;
-}
-
-.np-dg-pagination-item {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0px 2px;
-}
-
-.np-dg-state-manager {
-    display: flex;
-}
-
-.np-dg-state-manager .np-control-select {
-    width: 150px;
-    margin-right: 5px;
-}
-
-.np-dg-pagination .np-control-input {
-    width: 100px;
-}
-
 .np-dg-col-resize-handle {
-    width: 7px;
-    height: 28px;
+    width: 5px;
+    height: 32px;
     cursor: col-resize;
+    position: absolute;
+    right: 0px;
+    top: 0px;
 }
 
 .np-dg-col-resize-handle:hover {
-    background-color: #fff3cd;
+    background-color: #fcf8e3;
 }
 
 .np-dg-col-resize-handle.cdk-drag-dragging {
-    background-color: #fff3cd;
+    background-color: #fcf8e3;
 }
 
 .np-dg-loading {
@@ -224,8 +205,9 @@
 .np-dg-table-summary {
     border-top: 1px solid #000000;
     box-sizing: border-box;
-    padding: 3px 5px;
-    background-color: #f7f7f7;
+    padding: 5px;
+    background-color: #dfdfdf;
+    min-height: 32px;
 }
 
 .np-dg-table-footer {
@@ -242,6 +224,7 @@
 .np-dg-no-data-message {
     padding: 0px 5px;
     text-align: center;
+    line-height: 32px;
 }
 
 .np-dg-checkbox {
@@ -249,6 +232,7 @@
     height: 15px;
     width: 15px;
     vertical-align: middle;
+    margin: 5px;
 }
 
 .np-dg-sort-enable {
@@ -260,7 +244,7 @@
 }
 
 .np-dg-child-row td {
-    background-color: #fff3cd;
+    background-color: #fcf8e3;
 }
 
 .np-dg-search-columns {
@@ -270,22 +254,33 @@
     justify-content: space-around;
 }
 
-.txt-center {
-    text-align: center;
-}
-
-.txt-right {
-    text-align: right;
-}
-
-.np-dg-component .np-input-append {
+.np-dg-component .input-group-append {
     background-color: #ffffff;
 }
 
 .np-dg-table-body tr:hover td {
-    background-color: #d1ecf1;
+    background-color: #d9edf7;
 }
 
 .np-dg-row-selected td {
-    background-color: #d1ecf1;
+    background-color: #d9edf7;
+}
+
+.np-dg-pagination {
+    padding: 5px;
+    background-color: #dfdfdf;
+    border-top: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.np-dg-master-child-col .np-btn {
+    text-align: center;
+    padding: 0px;
+    width: 100%;
+    min-width: 20px;
+    margin: 0px;
+}
+
+.np-dg-select-col {
+    text-align: center;
 }

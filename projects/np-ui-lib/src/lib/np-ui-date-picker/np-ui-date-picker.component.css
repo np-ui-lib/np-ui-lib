@@ -5,18 +5,16 @@
 
 .np-dp-weekday {
     font-weight: bold;
-    padding: 5px;
-    line-height: 25px;
-    width: 25px;
+    line-height: 32px;
+    width: 32px;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
 }
 
 .np-dp-day {
-    padding: 5px;
-    line-height: 25px;
-    width: 25px;
+    line-height: 32px;
+    width: 32px;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
