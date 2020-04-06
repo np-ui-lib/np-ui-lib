@@ -1,11 +1,11 @@
 <div class="np-pn-component np-border" [class]="styleClass" *ngIf="!_isClose" [ngClass]="{'np-pn-zoom':_isZoom}">
     <div class="np-pn-header">
         <div class="np-row justify-content-between np-no-gutters">
-            <div class="np-col np-col-auto" [innerHTML]="title">
+            <div class="np-col-auto" [innerHTML]="title">
             </div>
-            <div class="np-col np-col-auto">
+            <div class="np-col-auto">
                 <div class="np-row np-no-gutters">
-                    <div class="np-col np-col-auto" *ngIf="allowMinimize && !_isZoom">
+                    <div class="np-col-auto" *ngIf="allowMinimize && !_isZoom">
                         <button type="button" class="np-btn np-btn-icon" (click)="_toggleMinimize()" title="{{_isMinimize ? 'Maximize':'Minimize'}}">
                             <svg class="np-icon" viewBox="0 0 24 24" *ngIf="_isMinimize">
                                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
@@ -17,7 +17,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="np-col np-col-auto" *ngIf="allowZoom">
+                    <div class="np-col-auto" *ngIf="allowZoom">
                         <button type="button" class="np-btn np-btn-icon" (click)="_toggleZoom()" title="{{_isZoom ? 'Zoom Out':'Zoom In'}}">
                             <svg class="np-icon" viewBox="0 0 24 24" *ngIf="_isZoom">
                                 <path d="M0 0h24v24H0V0z" fill="none" />
@@ -32,7 +32,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="np-col np-col-auto" *ngIf="allowRemove && !_isZoom">
+                    <div class="np-col-auto" *ngIf="allowRemove && !_isZoom">
                         <button type="button" class="np-btn np-btn-icon" (click)="_close()" title="Remove">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path
@@ -48,7 +48,7 @@
 
     <div class="np-pn-body np-border-top" [style.max-height.px]="bodyHeight" [ngClass]="{'np-pn-minimize':_isMinimize}">
         <div class="np-row np-no-gutters">
-            <div class="np-col np-col-12">
+            <div class="np-col-12">
                 <ng-content></ng-content>
             </div>
         </div>

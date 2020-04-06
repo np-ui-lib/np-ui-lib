@@ -20,10 +20,10 @@
     background-color: #007bff;
 }
 
-.ng-touched.ng-invalid .np-input-group {
-    border-color: #ff0000 !important;
+.ng-touched.ng-invalid:not(form) .np-input-group {
+    border-color: #d9534f !important;
 }
 
-.ng-touched.ng-invalid .np-input-group .np-icon {
-    fill: #ff0000;
+.ng-touched.ng-invalid:not(form) .np-input-group .np-icon {
+    fill: #d9534f;
 }

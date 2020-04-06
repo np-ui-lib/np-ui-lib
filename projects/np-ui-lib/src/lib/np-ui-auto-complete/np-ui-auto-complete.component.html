@@ -22,7 +22,7 @@
 <ng-template #templatePortalContent>
     <div class="np-ac-overlay np-border">
         <div class="np-row np-no-gutters">
-            <div class="np-col np-col-12" *ngFor="let item of _searchResult; let i = index;">
+            <div class="np-col-12" *ngFor="let item of _searchResult; let i = index;">
                 <div class="np-ac-search-item" (click)="_selectValue(item)">
                     <ng-container *ngIf="!optionTemplate; else customTemplate">
                         <span [innerHtml]="displayKey ? item[displayKey] : item | npUiHighLight : _displayValue"></span>
@@ -31,12 +31,12 @@
                     </ng-template>
                 </div>
             </div>
-            <div class="np-col np-col-12" *ngIf="_searchResult && _searchResult.length===0">
+            <div class="np-col-12" *ngIf="_searchResult && _searchResult.length===0">
                 <div class="np-ac-search-item np-disabled">
                     <b>No Result Found.</b>
                 </div>
             </div>
-            <div class="np-col np-col-12" *ngIf="allowCreateNew && _displayValue">
+            <div class="np-col-12" *ngIf="allowCreateNew && _displayValue">
                 <div class="np-ac-search-item" (click)="_createNewTag()">
                     <b>Create New</b>
                 </div>

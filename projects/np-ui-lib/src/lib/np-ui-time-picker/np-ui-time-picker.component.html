@@ -24,18 +24,18 @@
 <ng-template #templatePortalContent>
     <div class="np-tp-overlay np-border" [ngClass]="{'np-tp-default-open': defaultOpen, 'np-disabled' : _isDisabled}">
         <div class="np-row np-no-gutters">
-            <div class="np-col np-col-12">
+            <div class="np-col-12">
                 <div class="np-row justify-content-around np-no-gutters np-tp-header">
-                    <div class="np-col np-col-3">{{ is24Hours ? 'HH' : 'hh' }}</div>
-                    <div class="np-col np-col-3">mm</div>
-                    <div class="np-col np-col-3" *ngIf="hideSeconds == false">ss</div>
-                    <div class="np-col np-col-3" *ngIf="is24Hours == false">tt</div>
+                    <div class="np-col-3">{{ is24Hours ? 'HH' : 'hh' }}</div>
+                    <div class="np-col-3">mm</div>
+                    <div class="np-col-3" *ngIf="hideSeconds == false">ss</div>
+                    <div class="np-col-3" *ngIf="is24Hours == false">tt</div>
                 </div>
             </div>
 
-            <div class="np-col np-col-12">
+            <div class="np-col-12">
                 <div class="np-row justify-content-around np-no-gutters np-tp-controls">
-                    <div class="np-col np-col-3">
+                    <div class="np-col-3">
                         <button type="button" class="np-btn np-btn-icon np-btn-block" (click)="_minusHour()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
@@ -43,7 +43,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="np-col np-col-3">
+                    <div class="np-col-3">
                         <button type="button" class="np-btn np-btn-icon np-btn-block" (click)="_minusMinute()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
@@ -51,7 +51,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="np-col np-col-3" *ngIf="hideSeconds == false">
+                    <div class="np-col-3" *ngIf="hideSeconds == false">
                         <button type="button" class="np-btn np-btn-icon np-btn-block" (click)="_minusSecond()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
@@ -59,7 +59,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="np-col np-col-3" *ngIf="is24Hours == false">
+                    <div class="np-col-3" *ngIf="is24Hours == false">
                         <button type="button" class="np-btn np-btn-icon np-btn-block" (click)="_changeAMPM()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
@@ -70,30 +70,30 @@
                 </div>
             </div>
 
-            <div class="np-col np-col-12">
+            <div class="np-col-12">
                 <div class="np-row justify-content-around np-no-gutters np-tp-controls">
-                    <div class="np-col np-col-3">
+                    <div class="np-col-3">
                         <select class="np-tp-select np-border" title="Hour" (change)="_changeTime($event, 'hour')" size="4">
                             <option *ngFor="let hour of _hours" [value]="hour" [selected]="hour == _selectedHour">
                                 {{hour}}
                             </option>
                         </select>
                     </div>
-                    <div class="np-col np-col-3">
+                    <div class="np-col-3">
                         <select class="np-tp-select np-border" title="Minute" (change)="_changeTime($event, 'minute')" size="4">
                             <option *ngFor="let minute of _minutes" [value]="minute"
                                 [selected]="minute == _selectedMinute">{{minute}}
                             </option>
                         </select>
                     </div>
-                    <div class="np-col np-col-3" *ngIf="hideSeconds == false">
+                    <div class="np-col-3" *ngIf="hideSeconds == false">
                         <select class="np-tp-select np-border" title="Second" (change)="_changeTime($event, 'second')" size="4">
                             <option *ngFor="let second of _seconds" [value]="second"
                                 [selected]="second == _selectedSecond">{{second}}
                             </option>
                         </select>
                     </div>
-                    <div class="np-col np-col-3 align-self-center" *ngIf="is24Hours == false">
+                    <div class="np-col-3 align-self-center" *ngIf="is24Hours == false">
                         <select class="np-tp-select np-border np-tp-overflow-hidden" (change)="_changeTime($event, 'AMPM')" size="2">
                             <option value="AM" [selected]="'AM' == _selectedAMPM">AM</option>
                             <option value="PM" [selected]="'PM' == _selectedAMPM">PM</option>
@@ -102,9 +102,9 @@
                 </div>
             </div>
 
-            <div class="np-col np-col-12">
+            <div class="np-col-12">
                 <div class="np-row justify-content-around np-no-gutters np-tp-controls">
-                    <div class="np-col np-col-3">
+                    <div class="np-col-3">
                         <button type="button" class="np-btn np-btn-icon np-btn-block" (click)="_addHour()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
@@ -112,7 +112,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="np-col np-col-3">
+                    <div class="np-col-3">
                         <button type="button" class="np-btn np-btn-icon np-btn-block" (click)="_addMinute()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
@@ -120,7 +120,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="np-col np-col-3" *ngIf="hideSeconds == false">
+                    <div class="np-col-3" *ngIf="hideSeconds == false">
                         <button type="button" class="np-btn np-btn-icon np-btn-block" (click)="_addSecond()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
@@ -128,7 +128,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="np-col np-col-3" *ngIf="is24Hours == false">
+                    <div class="np-col-3" *ngIf="is24Hours == false">
                         <button type="button" class="np-btn np-btn-icon np-btn-block" (click)="_changeAMPM()">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
@@ -139,7 +139,7 @@
                 </div>
             </div>
 
-            <div class="np-col np-col-12">
+            <div class="np-col-12">
                 <div class="np-row justify-content-around np-no-gutters np-tp-footer">
                     <div class="np-col-3" *ngIf="showNowButton">
                         <button type="button" class="np-btn np-btn-primary np-btn-block" (click)="_selectNowTime()">Now</button>

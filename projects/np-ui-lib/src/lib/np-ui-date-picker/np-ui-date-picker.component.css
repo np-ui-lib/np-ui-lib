@@ -46,11 +46,11 @@
     padding: 5px;
 }
 
-.ng-touched.ng-invalid .np-input-group,
-.ng-touched.ng-invalid .np-dp-default-open {
-    border-color: #ff0000 !important;
+.ng-touched.ng-invalid:not(form) .np-input-group,
+.ng-touched.ng-invalid:not(form) .np-dp-default-open {
+    border-color: #d9534f !important;
 }
 
-.ng-touched.ng-invalid .np-input-group .np-icon {
-    fill: #ff0000;
+.ng-touched.ng-invalid:not(form) .np-input-group .np-icon {
+    fill: #d9534f;
 }

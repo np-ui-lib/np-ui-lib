@@ -25,36 +25,36 @@
 <ng-template #templatePortalContent>
     <div class="np-cp-overlay np-border" [ngClass]="{'np-cp-default-open': defaultOpen, 'np-disabled' : _isDisabled}">
         <div class="np-row np-no-gutters">
-            <div class="np-col cp-col-12">
+            <div class="np-col-12">
                 <div class="np-row np-no-gutters align-items-center np-cp-header">
-                    <div class="np-col np-col-4">
+                    <div class="np-col-4">
                         <div class="np-cp-block-selected" [ngStyle]="{'background-color': _innerValue}"></div>
                     </div>
-                    <div class="np-col np-col-8">
+                    <div class="np-col-8">
                         <div><b>HEX:</b> {{_innerValue}}</div>
                         <div><b>RGB:</b> {{_currentHexToRGB()}}</div>
                     </div>
                 </div>
             </div>
-            <div class="np-col np-col-12">
+            <div class="np-col-12">
                 <div class="np-row justify-content-around np-no-gutters np-cp-canvases">
-                    <div class="np-col np-col-auto">
+                    <div class="np-col-auto">
                         <canvas class="np-cp-canvas-block" width="170" height="170" (click)="_clickBlockColor($event)" (mousemove)="_onMouseOverBlock($event)" (mouseleave)="_onMouseLeaveBlock()"></canvas>
                     </div>
-                    <div class="np-col np-col-auto">
+                    <div class="np-col-auto">
                         <canvas class="np-cp-canvas-strip" width="25" height="170" (click)="_clickStripeColor($event)" (mousemove)="_onMouseOverStrip($event)" (mouseleave)="_onMouseLeaveStrip()"></canvas>
                     </div>
                 </div>
             </div>
-            <div class="np-col np-col-12">
+            <div class="np-col-12">
                 <div class="np-row np-no-gutters np-cp-color-blocks">
-                    <div class="np-col np-col-12">
+                    <div class="np-col-12">
                         <div class="np-cp-color-block" *ngFor="let color of _colors" [style.background-color]="color" (click)="_onClickColorBlock(color)">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="np-col np-col-12">
+            <div class="np-col-12">
                 <div class="np-row justify-content-around np-no-gutters np-cp-footer">
                     <div class="np-col-4" *ngIf="!defaultOpen">
                         <button class="np-btn np-btn-primary np-btn-block" type="button" (click)="_close()">Ok</button>

@@ -27,7 +27,7 @@ export class LayoutGridComponent implements OnInit {
       new Column({ dataField: "FirstName", visible: true, width: 200, caption: "First Name", dataType: DataTypes.String, sortEnable: true, filterEnable: true }),
       new Column({ dataField: "LastName", visible: true, width: 200, caption: "Last Name", dataType: DataTypes.String }),
       new Column({ dataField: "BirthDate", visible: true, width: 200, caption: "Birth Date", dataType: DataTypes.Date, filterEnable: true, cellTemplate: this.birthDateColumnTemplate }),
-      new Column({ dataField: "Age", visible: true, width: 200, dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: "color-red", rightAlignText: true }),
+      new Column({ dataField: "Age", visible: true, width: 200, dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: "np-text-danger", rightAlignText: true }),
       new Column({ dataField: "Active", visible: true, width: 200, caption: "Is Active?", dataType: DataTypes.Boolean, filterEnable: true }),
       new Column({ visible: true, width: 200, cellTemplate: this.actionButtonsTemplate , stickyColumnRight:true})];
 

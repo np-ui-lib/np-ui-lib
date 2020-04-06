@@ -37,7 +37,7 @@
             <legend>4. Required validation</legend>
             <np-ui-time-picker [(ngModel)]="timePicker4" #validations="ngModel" required name="startTime">
             </np-ui-time-picker>
-            <div *ngIf="validations.control.touched && validations.control.errors?.required" class="color-red">
+            <div *ngIf="validations.control.touched && validations.control.errors?.required" class="np-text-danger">
                 Start time is required.
             </div>
             <p>Form valid: {{ form.valid }}</p>
@@ -49,7 +49,7 @@
     <fieldset>
         <legend>5. Default open time picker</legend>
         <np-ui-time-picker [(ngModel)]="timePicker5" [defaultOpen]="true" #validations5="ngModel" [disabled]="timePicker5Disable" [required]="timePicker5Required"></np-ui-time-picker>
-        <div *ngIf="validations5.control.touched && validations5.control.errors?.required" class="color-red">
+        <div *ngIf="validations5.control.touched && validations5.control.errors?.required" class="np-text-danger">
             Time is required.
         </div>
         <button class="np-btn" (click)="timePicker5Disable = !timePicker5Disable">Toggle Disable</button>

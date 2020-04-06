@@ -7,6 +7,10 @@ textarea {
     margin: 0;
 }
 
+textarea {
+    resize: vertical
+}
+
 .np-icon {
     display: inline-block;
     width: 24px;
@@ -17,15 +21,33 @@ textarea {
     display: flex;
     flex-wrap: wrap;
     margin-right: -15px;
-    margin-left: -15px
+    margin-left: -15px;
+    box-sizing: border-box;
 }
 
-.np-col {
+.np-col,
+.np-col-1,
+.np-col-10,
+.np-col-11,
+.np-col-12,
+.np-col-2,
+.np-col-3,
+.np-col-4,
+.np-col-5,
+.np-col-6,
+.np-col-7,
+.np-col-8,
+.np-col-9,
+.np-col-10,
+.np-col-11,
+.np-col-12 {
+    position: relative;
     flex-basis: 0;
     flex-grow: 1;
     max-width: 100%;
     padding-right: 15px;
-    padding-left: 15px
+    padding-left: 15px;
+    box-sizing: border-box;
 }
 
 .np-col-auto {
@@ -98,7 +120,8 @@ textarea {
     margin-left: 0;
 }
 
-.np-no-gutters>.np-col {
+.np-no-gutters>.np-col,
+.np-no-gutters>[class*=np-col-] {
     padding-right: 0;
     padding-left: 0;
 }
@@ -197,10 +220,14 @@ textarea {
     margin: 0px;
     color: #495057;
     background-color: #ffffff;
-    height: 32px;
     border: 1px solid #000000;
     box-sizing: border-box;
     width: 100%;
+    min-height: 32px;
+}
+
+.np-form-control.ng-touched.ng-invalid {
+    border-color: #d9534f !important;
 }
 
 .np-input-group {
@@ -224,7 +251,7 @@ textarea {
     width: 1%;
     margin-bottom: 0;
     border-color: transparent;
-    height: 30px;
+    min-height: 30px;
 }
 
 .np-input-group .np-btn {
@@ -430,11 +457,53 @@ textarea {
 .np-badge {
     background-color: #ffffff;
     text-align: center;
-    padding: 2px 3px;
+    padding: 2px 5px;
     border-radius: 5px;
     position: relative;
     margin: 0px 5px;
     color: #000000;
+}
+
+.np-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+}
+
+.np-form-group {
+    margin-bottom: 15px;
+}
+
+.np-form-label {
+    margin-bottom: 5px;
+}
+
+.np-form-text {
+    margin-top: 5px;
+}
+
+.np-text-success {
+    color: #5cb85c;
+}
+
+.np-text-danger {
+    color: #d9534f;
+}
+
+.np-text-warning {
+    color: #f0ad4e;
+}
+
+.np-text-info {
+    color: #31708f;
+}
+
+.np-required:after {
+    content: " *";
+    color: #d9534f;
 }
 
 @keyframes spin {

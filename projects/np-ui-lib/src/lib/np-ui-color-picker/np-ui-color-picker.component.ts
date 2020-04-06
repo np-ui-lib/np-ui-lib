@@ -208,7 +208,7 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
     var ctx1 = block.getContext('2d');
     var ctx2 = strip.getContext('2d');
 
-    ctx1.fillStyle = this._stripColor ? this._stripColor : (this.value ? this.value : "#ff0000");
+    ctx1.fillStyle = this._stripColor ? this._stripColor : (this.value ? this.value : "#FF0000");
     ctx1.fillRect(0, 0, 170, 170);
 
     var grdWhite = ctx2.createLinearGradient(0, 0, 170, 0);

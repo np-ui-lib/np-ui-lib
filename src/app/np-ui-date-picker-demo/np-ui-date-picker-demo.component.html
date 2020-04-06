@@ -31,7 +31,7 @@
             <legend>3. Required validation</legend>
             <np-ui-date-picker [(ngModel)]="date3" required #validations="ngModel" name="startDate">
             </np-ui-date-picker>
-            <div *ngIf="validations.control.touched && validations.control.errors?.required" class="color-red">
+            <div *ngIf="validations.control.touched && validations.control.errors?.required" class="np-text-danger">
                 Date is required.
             </div>
             <p>Form valid: {{ form.valid }}</p>
@@ -44,7 +44,7 @@
         <legend>4. Default open</legend>
         <np-ui-date-picker [(ngModel)]="date4" [defaultOpen]="true" [disabled]="date4Disable" [required]="date4Required" #validations4="ngModel">
         </np-ui-date-picker>
-        <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="color-red">
+        <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="np-text-danger">
             Date is required.
         </div>
         <button class="np-btn" (click)="date4Disable = !date4Disable">Toggle Disable</button>

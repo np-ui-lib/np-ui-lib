@@ -28,7 +28,7 @@
             <legend>3. Required Validation in color picker</legend>
             <np-ui-color-picker [(ngModel)]="color3" required #validations="ngModel" name="colorPicker3">
             </np-ui-color-picker>
-            <div *ngIf="validations.control.touched && validations.control.errors?.required" class="color-red">
+            <div *ngIf="validations.control.touched && validations.control.errors?.required" class="np-text-danger">
                 Color is required.
             </div>
             <div>Form valid: {{ form.valid }}</div>
@@ -42,7 +42,7 @@
         <legend>4. Default open color picker</legend>
         <np-ui-color-picker [(ngModel)]="color4" [defaultOpen]="true" #validations4="ngModel" [disabled]="color4Disabled" [required]="color4Required">
         </np-ui-color-picker>
-        <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="color-red">
+        <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="np-text-danger">
             Color is required.
         </div>
         <button type="button" class="np-btn" (click)="color4Disabled = !color4Disabled">Toggle Disable</button>

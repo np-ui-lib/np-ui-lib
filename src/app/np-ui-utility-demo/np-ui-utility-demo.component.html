@@ -38,6 +38,61 @@
 </fieldset>
 
 <fieldset>
+    <legend>Form group</legend>
+    <form>
+        <div class="np-container">
+            <div class="np-row">
+                <div class="np-col-6">
+                    <div class="np-form-group">
+                        <div class="np-form-label np-required">First name:</div>
+                        <input type="text" class="np-form-control" [(ngModel)]="firstName" required name="txtFirstName" #txtFirstName="ngModel">
+                        <div class="np-form-text np-text-danger" *ngIf="txtFirstName.control.touched && txtFirstName.control.errors?.required">First name is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="np-col-6">
+                    <div class="np-form-group">
+                        <div class="np-form-label np-required">Last name:</div>
+                        <input type="text" class="np-form-control" [(ngModel)]="lastName" required name="txtLastName" #txtLastName="ngModel">
+                        <div class="np-form-text np-text-danger" *ngIf="txtLastName.control.touched && txtLastName.control.errors?.required">Last name is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="np-row">
+                <div class="np-col-6">
+                    <div class="np-form-group">
+                        <div class="np-form-label np-required">Birth date:</div>
+                        <np-ui-date-picker [(ngModel)]="birthDate" name="txtBirthDate" required #txtBirthDate="ngModel">
+                        </np-ui-date-picker>
+                        <div class="np-form-text np-text-danger" *ngIf="txtBirthDate.control.touched && txtBirthDate.control.errors?.required">Date is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="np-col-6">
+                    <div class="np-form-group">
+                        <div class="np-form-label">Birth time:</div>
+                        <np-ui-time-picker [(ngModel)]="birthTime" name="birthTime"></np-ui-time-picker>
+                    </div>
+                </div>
+            </div>
+            <div class="np-row">
+                <div class="np-col-12">
+                    <div class="np-form-group">
+                        <div class="np-form-label">Description:</div>
+                        <textarea class="np-form-control" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="np-btn-group">
+                <button type="submit" class="np-btn np-btn-primary">Save</button>
+                <button type="button" class="np-btn">Cancel</button>
+            </div>
+        </div>
+    </form>
+</fieldset>
+
+<fieldset>
     <legend>Alerts</legend>
     <div class="np-alert np-alert-success">
         <div class="np-alert-header">Success</div>

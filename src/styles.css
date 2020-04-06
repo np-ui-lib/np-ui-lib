@@ -70,10 +70,6 @@ body {
     background-color: #dfdfdf;
 }
 
-.color-red {
-    color: #ff0000;
-}
-
 .myClass {
     border: 1px solid blue !important;
 }

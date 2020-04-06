@@ -28,7 +28,7 @@ export class OdataGridComponent implements OnInit {
       new Column({ dataField: "FirstName", visible: true, caption: "First Name", dataType: DataTypes.String, sortEnable: true, filterEnable: true }),
       new Column({ dataField: "LastName", visible: true, caption: "Last Name", dataType: DataTypes.String }),
       new Column({ dataField: "BirthDate", visible: true, caption: "Birth Date", dataType: DataTypes.Date, filterEnable: true, cellTemplate: this.birthDateColumnTemplate }),
-      new Column({ dataField: "Age", visible: true, dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: "color-red", rightAlignText: true }),
+      new Column({ dataField: "Age", visible: true, dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: "np-text-danger", rightAlignText: true }),
       new Column({ dataField: "Active", visible: true, caption: "Is Active?", dataType: DataTypes.Boolean, filterEnable: true, })];
     this.gridDataSource = new BehaviorSubject(null);
 
@@ -49,7 +49,7 @@ export class OdataGridComponent implements OnInit {
       new Column({ dataField: "FirstName", visible: true, width: 150, caption: "First Name", dataType: DataTypes.String, sortEnable: true, filterEnable: true, sortDirection: SortDirections.Ascending }),
       new Column({ dataField: "LastName", visible: true, width: 150, caption: "Last Name", dataType: DataTypes.String }),
       new Column({ dataField: "BirthDate", visible: true, width: 150, caption: "Birth Date", dataType: DataTypes.Date, filterEnable: true, cellTemplate: this.birthDateColumnTemplate }),
-      new Column({ dataField: "Age", visible: true, width: 100, dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: "color-red", filterValue: "50", filterOperator: FilterTypes.GreaterThan }),
+      new Column({ dataField: "Age", visible: true, width: 100, dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: "np-text-danger", filterValue: "50", filterOperator: FilterTypes.GreaterThan }),
       new Column({ dataField: "Active", visible: true, width: 150, caption: "Is Active?", dataType: DataTypes.Boolean, filterEnable: true, })];
     var state = new State("Age more than 50", columns);
     this.serverSideGrid.setAllState([state]);
