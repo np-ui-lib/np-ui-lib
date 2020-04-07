@@ -1,10 +1,10 @@
-import { Directive, HostListener, Input, OnInit, ComponentRef, ElementRef, TemplateRef } from '@angular/core';
+import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, TemplateRef } from '@angular/core';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpUiTooltipComponent } from './np-ui-tooltip.component';
 
 @Directive({ selector: '[np-ui-tooltip]' })
-export class NpUiTooltipDirective implements OnInit {
+export class NpUiTooltipDirective implements AfterViewInit {
 
     @Input() tooltipText: string;
     @Input() tooltipTemplate: TemplateRef<any>;
@@ -14,10 +14,10 @@ export class NpUiTooltipDirective implements OnInit {
 
     constructor(private overlay: Overlay,
         private overlayPositionBuilder: OverlayPositionBuilder,
-        private elementRef: ElementRef ) {
+        private elementRef: ElementRef) {
     }
 
-    ngOnInit(): void {
+    ngAfterViewInit(): void {
         this.elementRef.nativeElement.className = (this.elementRef.nativeElement.className + ' np-tt-target').trim();
         var position: ConnectedPosition[] = this._getPosition();
         const positionStrategy = this.overlayPositionBuilder

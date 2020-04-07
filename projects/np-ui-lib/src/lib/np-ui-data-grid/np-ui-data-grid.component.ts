@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewEncapsulation, ViewChild, ViewContainerRef, ElementRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewEncapsulation, ViewChild, ViewContainerRef, ElementRef, AfterContentInit, AfterViewInit } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Column } from './models/column.model';
 import { Constants, DataTypes, FilterTypes, SortDirections } from './models/constants';
@@ -22,7 +22,7 @@ import { OverlayRef, ConnectedPosition, Overlay, OverlayPositionBuilder } from '
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpUiDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
+export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
 
   @Input() columns: Column[];
   _columns: Column[];
@@ -149,11 +149,30 @@ export class NpUiDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  ngAfterViewInit(): void {
+  ngAfterContentInit() {
+    if (this.masterDetailTemplate) {
+      this._enableMasterChild = true;
+    }
+    if (this.tableId) {
+      this._tableId = this.tableId;
+    }
+    this._setColumns();
+    if (this.key) {
+      this._key = this.key;
+    } else {
+      this._key = this._columns[0].dataField;
+    }
+    this.subscribeDataSource();
+    if (this.isServerOperations) {
+      this._getCurrentViewData(1);
+    }
+
     if (this.onAfterInit != undefined) {
       this.onAfterInit.emit();
     }
+  }
 
+  ngAfterViewInit() {
     var position: ConnectedPosition[] = [
       {
         originX: "start",
@@ -182,30 +201,6 @@ export class NpUiDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
       this._viewContainerRef
     );
     this.columnChooserOverlayRef.backdropClick().subscribe(() => this._closeColumnChooser());
-  }
-
-  ngOnChanges(changes: any) {
-    if (changes.tableId) {
-      this._tableId = this.tableId;
-    }
-    if (changes.columns) {
-      this._setColumns();
-      if (this._key === undefined) {
-        this._key = this._columns[0].dataField;
-      }
-    }
-    if (changes.dataSource) {
-      this.subscribeDataSource();
-    }
-    if (changes.masterDetailTemplate) {
-      this._enableMasterChild = true;
-    }
-    if (changes.key) {
-      this._key = this.key;
-    }
-    if (changes.isServerOperations) {
-      this._getCurrentViewData(1);
-    }
   }
 
   private subscribeDataSource() {

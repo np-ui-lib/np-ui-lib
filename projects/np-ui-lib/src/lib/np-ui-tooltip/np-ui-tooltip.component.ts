@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef } from '@angular/core';
 
 @Component({
   templateUrl: './np-ui-tooltip.component.html',
@@ -6,14 +6,9 @@ import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy, T
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class NpUiTooltipComponent implements OnInit {
+export class NpUiTooltipComponent {
 
   @Input() tooltipText: string;
   @Input() tooltipTemplate: TemplateRef<any>;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

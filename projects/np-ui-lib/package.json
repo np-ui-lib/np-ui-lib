@@ -1,6 +1,6 @@
 {
     "name": "np-ui-lib",
-    "version": "9.8.0",
+    "version": "9.9.0",
     "author": {
         "name": "nilav patel",
         "email": "nilavpatel1992@gmail.com",
@@ -34,6 +34,7 @@
         "Notification",
         "Tooltip",
         "Progress",
-        "Carousel"
+        "Carousel",
+        "Tabs"
     ]
 }

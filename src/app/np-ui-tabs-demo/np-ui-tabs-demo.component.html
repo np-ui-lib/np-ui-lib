@@ -1,0 +1,31 @@
+<np-ui-tabs #tabs>
+    <np-ui-tab [title]="'Tab1'">
+        <p>Hi, this is tab1.</p>
+    </np-ui-tab>
+    <np-ui-tab [title]="tab2Title">
+        <p>Hi, this is tab2.</p>
+    </np-ui-tab>
+    <np-ui-tab [title]="'Tab3'" [disabled]="true">
+        <p>Hi, this is tab3.</p>
+    </np-ui-tab>
+    <np-ui-tab [title]="'Tab4'" [height]="200">
+        <p>Hi, this is tab4.</p>
+        <p>Hi, this is tab4.</p>
+        <p>Hi, this is tab4.</p>
+        <p>Hi, this is tab4.</p>
+        <p>Hi, this is tab4.</p>
+        <p>Hi, this is tab4.</p>
+        <p>Hi, this is tab4.</p>
+    </np-ui-tab>
+</np-ui-tabs>
+
+<button type="button" class="np-btn np-btn-primary" (click)="loadTab4()">Open Tab4</button>
+
+<np-ui-tabs (onTabChange)="onTabChange($event)">
+    <np-ui-tab [title]="'Tab1'">
+        <p>Hi, this is tab1.</p>
+    </np-ui-tab>
+    <np-ui-tab [title]="'Tab2'" [active]="true">
+        <p>Hi, this is tab2. Default active at load time.</p>
+    </np-ui-tab>
+</np-ui-tabs>

@@ -46,10 +46,10 @@
                     </div>
                 </div>
             </div>
-            <div class="np-col-12">
+            <div class="np-col-12" *ngIf="colors && colors.length > 0">
                 <div class="np-row np-no-gutters np-cp-color-blocks">
                     <div class="np-col-12">
-                        <div class="np-cp-color-block" *ngFor="let color of _colors" [style.background-color]="color" (click)="_onClickColorBlock(color)">
+                        <div class="np-cp-color-block" *ngFor="let color of colors" [style.background-color]="color" (click)="_onClickColorBlock(color)">
                         </div>
                     </div>
                 </div>

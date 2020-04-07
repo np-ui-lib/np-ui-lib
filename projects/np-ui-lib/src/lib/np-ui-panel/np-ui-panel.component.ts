@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'np-ui-panel',
@@ -7,7 +7,7 @@ import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy } 
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpUiPanelComponent implements OnInit {
+export class NpUiPanelComponent {
 
   @Input() title: string;
 
@@ -22,12 +22,7 @@ export class NpUiPanelComponent implements OnInit {
 
   @Input() styleClass: string;
 
-  @Input() bodyHeight: number;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Input() height: number;
 
   _toggleMinimize() {
     this._isMinimize = !this._isMinimize;

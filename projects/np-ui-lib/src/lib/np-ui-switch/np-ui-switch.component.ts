@@ -27,8 +27,6 @@ export class NpUiSwitchComponent implements ControlValueAccessor {
   @Input() styleClass: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
-
   get value(): boolean {
     return this._innerValue;
   };

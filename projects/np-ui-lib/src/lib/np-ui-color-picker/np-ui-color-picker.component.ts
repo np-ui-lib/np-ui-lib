@@ -1,5 +1,5 @@
 import {
-  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
@@ -19,11 +19,10 @@ import { TemplatePortal } from "@angular/cdk/portal";
     }
   ]
 })
-export class NpUiColorPickerComponent implements ControlValueAccessor, AfterViewInit {
+export class NpUiColorPickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
 
   _isOpen: boolean = false;
   _stripColor: string;
-  _colors: string[];
   _currentCursorColor: string;
   _xColorCursor: string;
   _yColorCursor: string;
@@ -48,12 +47,16 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
     private _viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef) {
-    this._colors = ['#FF0000', '#FF7F00', '#FFFF00', '#7FFF00', '#00FF00', '#00FF7F', '#00FFFF', '#007FFF', '#0000FF',
-      '#7F00FF', '#FF00FF', '#FF007F', '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4',
-      '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548',
-      '#9e9e9e', '#607d8b', '#ffffff', '#000000']
   }
 
+  ngAfterContentInit() {
+    if (!this.colors) {
+      this.colors = ['#FF0000', '#FF7F00', '#FFFF00', '#7FFF00', '#00FF00', '#00FF7F', '#00FFFF', '#007FFF', '#0000FF',
+        '#7F00FF', '#FF00FF', '#FF007F', '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4',
+        '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548',
+        '#9e9e9e', '#607d8b', '#ffffff', '#000000'];
+    }
+  }
   ngAfterViewInit() {
     var position: ConnectedPosition[] = [
       {
@@ -89,12 +92,6 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
         this._updateStripCanvas();
         this._updateCanvas();
       }, 10);
-    }
-  }
-
-  ngOnChanges(changes: any) {
-    if (changes.colors) {
-      this._colors = this.colors;
     }
   }
 

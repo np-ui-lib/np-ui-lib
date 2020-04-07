@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'np-ui-progress',
@@ -7,18 +7,13 @@ import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy } 
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpUiProgressComponent implements OnInit {
+export class NpUiProgressComponent {
 
   @Input() value: number;
 
   @Input() styleClass: string;
 
   @Input() indeterminate: boolean;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   getTooltipText() {
     return this.value + " %";

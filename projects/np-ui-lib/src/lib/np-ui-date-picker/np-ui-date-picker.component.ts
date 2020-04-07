@@ -1,5 +1,5 @@
 import {
-  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
@@ -19,8 +19,7 @@ import { TemplatePortal } from "@angular/cdk/portal";
     }
   ]
 })
-export class NpUiDatePickerComponent
-  implements ControlValueAccessor, AfterViewInit {
+export class NpUiDatePickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
   _weekDays: string[];
   _monthsList: any[];
   _months: any[];
@@ -32,14 +31,6 @@ export class NpUiDatePickerComponent
   _currentDay: number;
   _currentMonth: number;
   _currentYear: number;
-  _minDate: Date;
-  _maxDate: Date;
-  _minYear: number;
-  _minMonth: number;
-  _minDay: number;
-  _maxYear: number;
-  _maxMonth: number;
-  _maxDay: number;
   _today: Date;
   _todayDate: number;
   _todayMonth: number;
@@ -172,48 +163,19 @@ export class NpUiDatePickerComponent
     this._isDisabled = isDisabled;
   }
 
-  ngOnChanges(changes) {
-    if (changes.minDate) {
-      if (this.minDate) {
-        this.minDate.setHours(0, 0, 0, 0);
-        this._minDay = this.minDate.getDate();
-        this._minMonth = this.minDate.getMonth();
-        this._minYear = this.minDate.getFullYear();
-        this._minDate = this.minDate;
-      } else {
-        this._minDay = null;
-        this._minMonth = null;
-        this._minYear = null;
-        this._minDate = null;
-      }
-    }
-
-    if (changes.maxDate) {
-      if (this.maxDate) {
-        this.maxDate.setHours(0, 0, 0, 0);
-        this._maxDay = this.maxDate.getDate();
-        this._maxMonth = this.maxDate.getMonth();
-        this._maxYear = this.maxDate.getFullYear();
-        this._maxDate = this.maxDate;
-      } else {
-        this._maxDay = null;
-        this._maxMonth = null;
-        this._maxYear = null;
-        this._maxDate = null;
-      }
-    }
-
-    if (changes.isStartMonthWithMonday) {
+  ngAfterContentInit() {
+    if (this.isStartMonthWithMonday) {
       this._weekDays = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
     }
   }
 
+
   _resetVariables() {
     if (this.value) {
-      if (this._minDate && this._minDate > this.value) {
+      if (this.minDate && this.minDate > this.value) {
         this.value = null;
       }
-      if (this._maxDate && this._maxDate < this.value) {
+      if (this.maxDate && this.maxDate < this.value) {
         this.value = null;
       }
     }
@@ -229,11 +191,11 @@ export class NpUiDatePickerComponent
     }
 
     var currentDate = this.value ? this.value : this._today;
-    if (this._minDate && currentDate < this._minDate) {
-      currentDate = this._minDate;
+    if (this.minDate && currentDate < this.minDate) {
+      currentDate = this.minDate;
     }
-    if (this._maxDate && currentDate > this._maxDate) {
-      currentDate = this._maxDate;
+    if (this.maxDate && currentDate > this.maxDate) {
+      currentDate = this.maxDate;
     }
     this._currentDay = currentDate.getDate();
     this._currentMonth = currentDate.getMonth();

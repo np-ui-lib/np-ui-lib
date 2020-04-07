@@ -1,5 +1,5 @@
 import {
-  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
@@ -19,7 +19,7 @@ import { TemplatePortal } from "@angular/cdk/portal";
     }
   ]
 })
-export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewInit {
+export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
 
   _hours: number[] = [];
   _minutes: number[] = [];
@@ -54,14 +54,6 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef
   ) {
-    this._pattern = new RegExp("^(([0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}) ([AaPp][Mm]))$");
-    for (var i = 0; i < 12; i++) {
-      this._hours.push(i);
-    }
-    for (var i = 0; i < 60; i++) {
-      this._minutes.push(i);
-      this._seconds.push(i);
-    }
   }
 
   ngAfterViewInit(): void {
@@ -94,7 +86,6 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
     );
     this.overlayRef.backdropClick().subscribe(() => this._close());
   }
-
 
   get value(): any {
     return this._innerValue ? this._innerValue : null;
@@ -130,20 +121,23 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
     this._isDisabled = isDisabled;
   }
 
-  ngOnChanges(changes: any) {
-    if (changes.is24Hours) {
-      this._hours = [];
-      if (changes.is24Hours.currentValue == true) {
-        this._pattern = new RegExp("^([0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2})$");
-        for (var i = 0; i < 24; i++) {
-          this._hours.push(i);
-        }
-      } else {
-        this._pattern = new RegExp("^(([0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}) ([AaPp][Mm]))$");
-        for (var i = 0; i < 12; i++) {
-          this._hours.push(i);
-        }
+  ngAfterContentInit() {
+    this._hours = [];
+    if (this.is24Hours) {
+      this._pattern = new RegExp("^([0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2})$");
+      for (var i = 0; i < 24; i++) {
+        this._hours.push(i);
       }
+    }
+    else {
+      this._pattern = new RegExp("^(([0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}) ([AaPp][Mm]))$");
+      for (var i = 0; i < 12; i++) {
+        this._hours.push(i);
+      }
+    }
+    for (var i = 0; i < 60; i++) {
+      this._minutes.push(i);
+      this._seconds.push(i);
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, AfterContentInit } from '@angular/core';
 import { CarouselItem } from './np-ui-carousel.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { CarouselItem } from './np-ui-carousel.model';
   templateUrl: './np-ui-carousel.component.html',
   styleUrls: ['./np-ui-carousel.component.css']
 })
-export class NpUiCarouselComponent implements OnInit, OnDestroy {
+export class NpUiCarouselComponent implements AfterContentInit, OnDestroy {
 
   @Input() items: CarouselItem[] = [];
 
@@ -18,15 +18,13 @@ export class NpUiCarouselComponent implements OnInit, OnDestroy {
 
   _interval: any;
 
-  constructor() { }
-
   ngOnDestroy(): void {
     if (this.automaticSlideChange) {
       clearInterval(this._interval);
     }
   }
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
     this._currentSlideIndex = 0;
     if (this.automaticSlideChange) {
       this.setAutoSlideChange();

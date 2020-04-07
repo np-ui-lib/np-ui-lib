@@ -1,5 +1,5 @@
 import {
-  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
@@ -20,7 +20,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
     }
   ]
 })
-export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterViewInit {
+export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
 
   _innerValue: string;
   _isDisabled: boolean = false;
@@ -61,7 +61,7 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterVie
     private elementRef: ElementRef
   ) { }
 
-  ngAfterViewInit(): void {
+  ngAfterContentInit(): void {
     this._subscription = this.searchResult.subscribe((data) => {
       if (data) {
         this.overlayRef.detach();
@@ -78,7 +78,9 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterVie
         }
       }
     });
+  }
 
+  ngAfterViewInit(): void {
     var position: ConnectedPosition[] = [
       {
         originX: "start",
