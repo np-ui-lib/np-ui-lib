@@ -7,7 +7,7 @@ export class NpUiHightLightPipe implements PipeTransform {
     transform(text: string, subtext: string): any {
         if (subtext) {
             const re = new RegExp(subtext, 'gi');
-            text = text.replace(re, "<b>" + subtext + "</b>");
+            text = text.replace(re, "<span class='np-hightlight'>" + subtext + "</span>");
         }
         return text;
     }

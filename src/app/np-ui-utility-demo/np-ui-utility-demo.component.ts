@@ -18,4 +18,5 @@ export class NpUiUtilityDemoComponent implements OnInit {
   lastName: string;
   birthDate: Date;
   birthTime: string;
+  isActive: boolean = true;
 }

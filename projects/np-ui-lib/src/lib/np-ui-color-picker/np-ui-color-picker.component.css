@@ -5,7 +5,7 @@
 
 .np-cp-overlay {
     background-color: #ffffff;
-    width: 230px;
+    width: 226px;
 }
 
 .np-cp-block-selected {
@@ -26,7 +26,7 @@
     width: 30px;
     margin-top: 10px;
     margin-left: 10px;
-    z-index: 1002;
+    z-index: 1001;
 }
 
 .np-cp-canvas-strip:hover,
@@ -50,12 +50,12 @@
     border-color: #d9534f !important;
 }
 
-.ng-touched.ng-invalid:not(form) .np-input-group .np-icon {
+.ng-touched.ng-invalid:not(form) .np-input-group .np-icon-sm {
     fill: #d9534f;
 }
 
 .np-cp-hide-input {
-    width: 90px;
+    width: 92px;
 }
 
 .np-cp-hide-input .np-form-control {

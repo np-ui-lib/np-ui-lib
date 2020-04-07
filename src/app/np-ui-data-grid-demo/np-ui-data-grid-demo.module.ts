@@ -19,7 +19,6 @@ import { OtherGridComponent } from './other-grid/other-grid.component';
 import { ClientGridAllComponent } from './client-grid-all/client-grid-all.component';
 import { ServerGridAllComponent } from './server-grid-all/server-grid-all.component';
 import { OdataGridComponent } from './odata-grid/odata-grid.component';
-import { LayoutGridComponent } from './layout-grid/layout-grid.component';
 import { InsideTabGridComponent } from './inside-tab-grid/inside-tab-grid.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -43,7 +42,6 @@ import { CommonModule } from '@angular/common';
     ClientGridAllComponent,
     ServerGridAllComponent,
     OdataGridComponent,
-    LayoutGridComponent,
     InsideTabGridComponent],
   imports: [
     NpUiDataGridDemoRoutingModule,

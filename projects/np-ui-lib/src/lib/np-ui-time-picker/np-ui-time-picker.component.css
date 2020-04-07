@@ -1,6 +1,6 @@
 .np-tp-overlay {
     background-color: #ffffff;
-    width: 230px;
+    width: 210px;
 }
 
 .np-tp-header {
@@ -21,7 +21,7 @@
 
 .np-tp-select {
     width: 45px;
-    margin: 0px 5px;
+    margin: 0px 2px;
 }
 
 .np-tp-select option {
@@ -33,7 +33,7 @@
     border-color: #d9534f !important;
 }
 
-.ng-touched.ng-invalid:not(form) .np-input-group .np-icon {
+.ng-touched.ng-invalid:not(form) .np-input-group .np-icon-sm {
     fill: #d9534f;
 }
 

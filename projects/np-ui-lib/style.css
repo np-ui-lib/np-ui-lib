@@ -17,6 +17,13 @@ textarea {
     height: 24px;
 }
 
+.np-icon-sm {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    padding: 3px;
+}
+
 .np-row {
     display: flex;
     flex-wrap: wrap;
@@ -212,7 +219,7 @@ textarea {
 
 .np-form-control {
     display: block;
-    padding: 0px 5px;
+    padding: 5px;
     margin: 0px;
     color: #495057;
     background-color: #ffffff;
@@ -500,6 +507,10 @@ textarea {
 .np-required:after {
     content: " *";
     color: #d9534f;
+}
+
+.np-hightlight {
+    font-weight: bold;
 }
 
 @keyframes spin {

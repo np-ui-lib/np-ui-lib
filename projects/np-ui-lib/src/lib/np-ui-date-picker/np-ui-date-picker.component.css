@@ -1,6 +1,6 @@
 .np-dp-overlay {
     background-color: #ffffff;
-    width: 255px;
+    width: 234px;
 }
 
 .np-dp-weekday {
@@ -35,7 +35,11 @@
     text-decoration: underline;
 }
 
-.np-dp-header,
+.np-dp-header {
+    padding: 5px 0px;
+    background-color: #dfdfdf;
+}
+
 .np-dp-weekdays,
 .np-dp-footer {
     padding: 5px;
@@ -51,6 +55,6 @@
     border-color: #d9534f !important;
 }
 
-.ng-touched.ng-invalid:not(form) .np-input-group .np-icon {
+.ng-touched.ng-invalid:not(form) .np-input-group .np-icon-sm {
     fill: #d9534f;
 }

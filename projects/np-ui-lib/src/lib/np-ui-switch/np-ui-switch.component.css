@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-.ng-invalid .np-sw-component {
+.ng-invalid:not(form) .np-sw-component {
     border: 1px solid #a94442;
 }
 

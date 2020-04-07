@@ -31,7 +31,7 @@
     box-sizing: border-box;
     padding: 5px;
     overflow: auto;
-    background-color: #ffffff;
+    background-color: #dfdfdf;
 }
 
 .np-dg-columns-item.cdk-drag-disabled .np-dg-col-drag-handle {
@@ -143,7 +143,6 @@
     position: absolute;
     right: 0px;
     top: 0px;
-    z-index: 999;
 }
 
 .np-dg-col-resize-handle:hover {
@@ -275,6 +274,10 @@
     background-color: #dfdfdf;
     border-top: 1px solid #000000;
     box-sizing: border-box;
+}
+
+.np-dg-pagination .np-form-control {
+    width: 100px;
 }
 
 .np-dg-master-child-col {
