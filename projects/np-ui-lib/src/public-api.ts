@@ -58,3 +58,7 @@ export * from './lib/np-ui-carousel/np-ui-carousel.model';
 export * from './lib/np-ui-tabs/np-ui-tabs.module';
 export * from './lib/np-ui-tabs/np-ui-tabs.component';
 export * from './lib/np-ui-tabs/np-ui-tab.component';
+
+/**Accordion */
+export * from './lib/np-ui-accordion/np-ui-accordion.module';
+export * from './lib/np-ui-accordion/np-ui-accordion.component';

@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef, OnInit } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'np-ui-panel',
@@ -25,6 +25,8 @@ export class NpUiPanelComponent implements OnInit {
 
   @Input() height: number;
 
+  @Output() _onOpen: EventEmitter<any> = new EventEmitter();
+
   ngOnInit(): void {
     if (this.title instanceof TemplateRef) {
       this._isTitleTemplate = true;
@@ -33,6 +35,9 @@ export class NpUiPanelComponent implements OnInit {
 
   _toggleMinimize() {
     this._isMinimize = !this._isMinimize;
+    if (this._onOpen && !this._isMinimize) {
+      this._onOpen.emit(this);
+    }
   }
 
   _toggleZoom() {
