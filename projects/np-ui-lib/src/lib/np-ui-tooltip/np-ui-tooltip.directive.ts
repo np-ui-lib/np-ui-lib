@@ -34,7 +34,6 @@ export class NpUiTooltipDirective implements AfterViewInit {
     show() {
         const tooltipPortal = new ComponentPortal(NpUiTooltipComponent);
         const tooltipRef: ComponentRef<NpUiTooltipComponent> = this.overlayRef.attach(tooltipPortal);
-        tooltipRef.instance.tooltipTemplate = this.tooltipTemplate;
         tooltipRef.instance.tooltipText = this.tooltipText;
     }
 

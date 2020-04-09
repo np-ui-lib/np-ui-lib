@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef, OnInit } from '@angular/core';
 
 @Component({
   templateUrl: './np-ui-tooltip.component.html',
@@ -6,9 +6,12 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class NpUiTooltipComponent {
-
-  @Input() tooltipText: string;
-  @Input() tooltipTemplate: TemplateRef<any>;
-
+export class NpUiTooltipComponent implements OnInit {
+  _isTemplate: boolean;
+  @Input() tooltipText: string | TemplateRef<any>;
+  ngOnInit(): void {
+    if (this.tooltipText instanceof TemplateRef) {
+      this._isTemplate = true;
+    }
+  }
 }

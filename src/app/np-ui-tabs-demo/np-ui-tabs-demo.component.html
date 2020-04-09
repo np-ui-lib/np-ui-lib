@@ -3,6 +3,9 @@
         <p>Hi, this is tab1.</p>
     </np-ui-tab>
     <np-ui-tab [title]="tab2Title">
+        <ng-template #tab2Title>
+            Tab2<span class='np-badge'>{{count}}</span>
+        </ng-template>
         <p>Hi, this is tab2.</p>
     </np-ui-tab>
     <np-ui-tab [title]="'Tab3'" [disabled]="true">
@@ -20,6 +23,7 @@
 </np-ui-tabs>
 
 <button type="button" class="np-btn np-btn-primary" (click)="loadTab4()">Open Tab4</button>
+<button type="button" class="np-btn np-btn-primary" (click)="changeCount()">Change Title of tab2</button>
 
 <np-ui-tabs (onTabChange)="onTabChange($event)">
     <np-ui-tab [title]="'Tab1'">

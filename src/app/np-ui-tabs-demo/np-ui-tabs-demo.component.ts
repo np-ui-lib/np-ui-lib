@@ -9,8 +9,7 @@ import { NpUiTabsComponent } from 'projects/np-ui-lib/src/public-api';
 export class NpUiTabsDemoComponent implements OnInit {
 
   @ViewChild("tabs", { static: true }) tabs: NpUiTabsComponent;
-
-  tab2Title = "Tab2<span class='np-badge'>5</span>";
+  count: number = 5;
 
   constructor() { }
 
@@ -22,7 +21,11 @@ export class NpUiTabsDemoComponent implements OnInit {
   }
 
   onTabChange(tab) {
-    alert("tab changed to "+ tab.title);
+    alert("tab changed to " + tab.title);
+  }
+
+  changeCount() {
+    this.count++;
   }
 
 }

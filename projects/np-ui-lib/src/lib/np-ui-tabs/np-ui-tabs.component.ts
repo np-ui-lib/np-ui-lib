@@ -1,4 +1,4 @@
-import { Component, ContentChildren, QueryList, AfterContentInit, ChangeDetectionStrategy, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Component, ContentChildren, QueryList, AfterContentInit, ChangeDetectionStrategy, ViewEncapsulation, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { NpUiTabComponent } from './np-ui-tab.component';
 
 @Component({

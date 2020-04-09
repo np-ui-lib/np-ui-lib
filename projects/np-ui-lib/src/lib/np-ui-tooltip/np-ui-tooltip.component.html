@@ -1,9 +1,11 @@
 <div class="np-tt-component">
     <div class="np-row np-no-gutters">
         <div class="np-col-12">
-            <ng-container *ngIf="tooltipText; else tooltipTemplate">
-                <div>{{tooltipText}}</div>
+            <ng-container *ngIf="!_isTemplate">
+                <div [innerHtml]="tooltipText"></div>
             </ng-container>
+            <ng-template *ngIf="_isTemplate" [ngTemplateOutlet]="tooltipText">
+            </ng-template>
         </div>
     </div>
 </div>

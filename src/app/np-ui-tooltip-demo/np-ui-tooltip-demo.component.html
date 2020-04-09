@@ -1,7 +1,6 @@
 <div class="sub-header">
     <h2>
-        <a class="github-link" title="Go to github repository" target="_blank"
-            href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-tooltip-demo">
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-tooltip-demo">
             np-ui-tooltip
         </a>
     </h2>
@@ -20,7 +19,7 @@
 </div>
 
 <div>
-    <span np-ui-tooltip [tooltipTemplate]="tooltipTop" [placement]="'top'">
+    <span np-ui-tooltip [tooltipText]="tooltipTop" [placement]="'top'">
         Hover me for top tooltip
         <ng-template #tooltipTop>
             <b>This is top tooltip.</b>
@@ -29,7 +28,7 @@
 </div>
 
 <div>
-    <span np-ui-tooltip [tooltipTemplate]="tooltipBottom" [placement]="'bottom'">
+    <span np-ui-tooltip [tooltipText]="tooltipBottom" [placement]="'bottom'">
         Hover me for bottom
         tooltip
         <ng-template #tooltipBottom>

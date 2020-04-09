@@ -34,16 +34,16 @@
                     </div>
                     <div class="np-col-auto">
                         <select class="np-form-control" (change)="_selectYear($event)">
-                            <option *ngFor="let year of _years" value="{{year}}" [selected]="year == _currentYear">
-                                {{year}}
+                            <option *ngFor="let year of _years" [value]="year" [text]="year"
+                                [selected]="year == _currentYear">
+
                             </option>
                         </select>
                     </div>
                     <div class="np-col-auto">
                         <select class="np-form-control" (change)="_selectMonth($event)">
-                            <option *ngFor="let month of _months" value="{{month.key}}"
+                            <option *ngFor="let month of _months" [value]="month.key" [text]="month.value"
                                 [selected]="month.key == _currentMonth">
-                                {{month.value}}
                             </option>
                         </select>
                     </div>
@@ -60,14 +60,14 @@
             <div class="np-col-12">
                 <div class="np-dp-weekdays">
                     <ng-container *ngFor="let weekDay of _weekDays;let i = index;">
-                        <div class="np-dp-weekday">{{weekDay}}</div>
+                        <div class="np-dp-weekday" [innerHtml]="weekDay"></div>
                     </ng-container>
                 </div>
             </div>
             <div class="np-col-12">
                 <div class="np-dp-days">
                     <ng-container *ngFor="let day of _days; let i = index;">
-                        <div class="np-dp-day" (click)="_selectDate(day)" [ngClass]="{'np-dp-today': _checkIsToday(day), 'np-disabled' : _checkDateDisabled(_currentYear,_currentMonth,day), 'np-dp-selected': _checkIsSelected(day)}">
+                        <div class="np-dp-day" (click)="_selectDate(day)" [ngClass]="{'np-dp-today': _checkIsToday(day), 'np-disabled' : _checkIsDateDisabled(_currentYear,_currentMonth,day), 'np-dp-selected': _checkIsSelected(day)}">
                             <div *ngIf="_getTooltip(_currentYear,_currentMonth,day); let label; else dayTemplate" np-ui-tooltip [placement]="'bottom'" [tooltipText]="label">
                                 {{day}}
                             </div>

@@ -37,7 +37,8 @@
                         <div class="np-col-auto np-pr-5">
                             <select class="np-form-control" [(ngModel)]="_currentStateName" (change)="_loadState()">
                                 <option value="">Select...</option>
-                                <option *ngFor="let state of _stateList" [ngValue]="state.name">{{state.name}}</option>
+                                <option *ngFor="let state of _stateList" [text]="state.name" [value]="state.name">
+                                </option>
                             </select>
                         </div>
                         <div class="np-col-auto np-pr-5" *ngIf="_currentStateName.length > 0">
@@ -141,7 +142,7 @@
                                                                 </option>
                                                                 <option
                                                                     *ngFor="let fOperator of _filtersList | filterTypesPipe: column.dataType"
-                                                                    [value]="fOperator.name">{{fOperator.text}}
+                                                                    [text]="fOperator.text" [value]="fOperator.name">
                                                                 </option>
                                                                 <option value="Reset"
                                                                     [disabled]="column.filterOperator === undefined">
@@ -216,7 +217,7 @@
                 </div>
                 <div class="np-dg-table-footer">
                     <div class="np-dg-no-data-message" *ngIf="_currentViewData && _currentViewData.length === 0 && !_showLoader">
-                        {{noDataMessage}}
+                        <div [innerHtml]="noDataMessage"></div>
                     </div>
                     <div class="np-dg-table-summary" *ngIf="showSummary">
                         <ng-container *ngTemplateOutlet="summaryTemplate;context:{ summary: _summaryData }">

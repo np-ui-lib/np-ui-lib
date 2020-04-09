@@ -1,7 +1,11 @@
 <div class="np-tabs-component">
     <div class="np-tab-header">
         <div class="np-tab-title" *ngFor="let tab of _tabs" (click)="_selectTab(tab)" [ngClass]="{'np-active-tab':tab.active,'np-disabled': tab.disabled}">
-            <div [innerHtml]="tab.title"></div>
+            <ng-container *ngIf="!tab._titleIsTemplate">
+                <div [innerHtml]="tab.title"></div>
+            </ng-container>
+            <ng-template *ngIf="tab._titleIsTemplate" [ngTemplateOutlet]="tab.title">
+            </ng-template>
         </div>
     </div>
     <ng-content></ng-content>

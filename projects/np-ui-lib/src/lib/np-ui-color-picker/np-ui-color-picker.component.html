@@ -1,5 +1,5 @@
 <div class="np-input-group" [ngClass]="{'np-disabled' : _isDisabled,'np-cp-hide-input': hideColorInput}" [class]="styleClass" *ngIf="!defaultOpen; else templatePortalContent">
-    <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (focus)="_open()" (input)="_onInputChange($event)" [disabled]="_isDisabled">
+    <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (focus)="_open()" (change)="_onInputChange($event)" [disabled]="_isDisabled">
     <div class="input-group-append">
         <div class="np-cp-input-selected" (click)="_toggleColorPicker()" [ngStyle]="{'background-color': _innerValue}">
         </div>
@@ -31,8 +31,8 @@
                         <div class="np-cp-block-selected" [ngStyle]="{'background-color': _innerValue}"></div>
                     </div>
                     <div class="np-col-8">
-                        <div><b>HEX:</b> {{_innerValue}}</div>
-                        <div><b>RGB:</b> {{_currentHexToRGB()}}</div>
+                        <div><b>HEX:</b> </div>
+                        <div><b>RGB:</b> <span [innerText]="_currentHexToRGB()"></span></div>
                     </div>
                 </div>
             </div>

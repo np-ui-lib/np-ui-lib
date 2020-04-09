@@ -74,22 +74,22 @@
                 <div class="np-row justify-content-around np-no-gutters np-tp-controls">
                     <div class="np-col-3">
                         <select class="np-tp-select np-border" title="Hour" (change)="_changeTime($event, 'hour')" size="4">
-                            <option *ngFor="let hour of _hours" [value]="hour" [selected]="hour == _selectedHour">
-                                {{hour}}
+                            <option *ngFor="let hour of _hours" [value]="hour" [text]="hour"
+                                [selected]="hour == _selectedHour">
                             </option>
                         </select>
                     </div>
                     <div class="np-col-3">
                         <select class="np-tp-select np-border" title="Minute" (change)="_changeTime($event, 'minute')" size="4">
-                            <option *ngFor="let minute of _minutes" [value]="minute"
-                                [selected]="minute == _selectedMinute">{{minute}}
+                            <option *ngFor="let minute of _minutes" [value]="minute" [text]="minute"
+                                [selected]="minute == _selectedMinute">
                             </option>
                         </select>
                     </div>
                     <div class="np-col-3" *ngIf="hideSeconds == false">
                         <select class="np-tp-select np-border" title="Second" (change)="_changeTime($event, 'second')" size="4">
-                            <option *ngFor="let second of _seconds" [value]="second"
-                                [selected]="second == _selectedSecond">{{second}}
+                            <option *ngFor="let second of _seconds" [value]="second" [text]="second"
+                                [selected]="second == _selectedSecond">
                             </option>
                         </select>
                     </div>

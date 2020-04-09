@@ -1,6 +1,4 @@
-import {
-  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit
-} from "@angular/core";
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
 import { TemplatePortal } from "@angular/cdk/portal";
@@ -143,7 +141,7 @@ export class NpUiDatePickerComponent implements ControlValueAccessor, AfterViewI
   writeValue(v: Date): void {
     if (v !== this._innerValue) {
       this._innerValue = v;
-      if (this._checkDateIsDisabled(v)) {
+      if (this._checkIsFullDateDisabled(v)) {
         this.value = null;
       }
       this._resetVariables();
@@ -168,7 +166,6 @@ export class NpUiDatePickerComponent implements ControlValueAccessor, AfterViewI
       this._weekDays = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
     }
   }
-
 
   _resetVariables() {
     if (this.value) {
@@ -278,7 +275,7 @@ export class NpUiDatePickerComponent implements ControlValueAccessor, AfterViewI
   _selectDate(day: number) {
     if (
       day == null ||
-      this._checkDateDisabled(this._currentYear, this._currentMonth, day) ||
+      this._checkIsDateDisabled(this._currentYear, this._currentMonth, day) ||
       this._isDisabled
     ) {
       return;
@@ -343,7 +340,7 @@ export class NpUiDatePickerComponent implements ControlValueAccessor, AfterViewI
   }
 
   _setToday() {
-    if (this._checkDateIsDisabled(this._today)) {
+    if (this._checkIsFullDateDisabled(this._today)) {
       return;
     }
     this._setSelectedDate(this._today);
@@ -360,9 +357,9 @@ export class NpUiDatePickerComponent implements ControlValueAccessor, AfterViewI
     this._close();
   }
 
-  _checkDateDisabled(year: number, month: number, day: number) {
+  _checkIsDateDisabled(year: number, month: number, day: number) {
     if (day) {
-      return this._checkDateIsDisabled(new Date(year, month, day));
+      return this._checkIsFullDateDisabled(new Date(year, month, day));
     }
     return true;
   }
@@ -378,12 +375,12 @@ export class NpUiDatePickerComponent implements ControlValueAccessor, AfterViewI
     return null;
   }
 
-  _checkIsDayDisabled(index: number) {
+  _checkIsWeekDayDisabled(index: number) {
     var day = this._weekDays[index];
     return this.disableWeekDays.includes(day);
   }
 
-  _checkDateIsDisabled(date: Date) {
+  _checkIsFullDateDisabled(date: Date) {
     if (date == undefined || date == null) {
       return false;
     }
@@ -393,7 +390,7 @@ export class NpUiDatePickerComponent implements ControlValueAccessor, AfterViewI
     if (this.maxDate && date > this.maxDate) {
       return true;
     }
-    if (this._checkIsDayDisabled(date.getDay())) {
+    if (this._checkIsWeekDayDisabled(date.getDay())) {
       return true;
     }
     return (
@@ -423,7 +420,7 @@ export class NpUiDatePickerComponent implements ControlValueAccessor, AfterViewI
     if (date) {
       date.setHours(0, 0, 0, 0);
     }
-    if (this._checkDateIsDisabled(date)) {
+    if (this._checkIsFullDateDisabled(date)) {
       return;
     }
     this.value = date;
