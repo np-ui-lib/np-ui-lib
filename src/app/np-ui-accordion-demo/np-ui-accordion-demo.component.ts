@@ -15,7 +15,11 @@ export class NpUiAccordionDemoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openPara3() {
-    this.accordionDemo.openByIndex(2);
+  openPara2ById() {
+    this.accordionDemo.expandById("pnl2");
+  }
+
+  openPara3ByIndex() {
+    this.accordionDemo.expandByIndex(2);
   }
 }

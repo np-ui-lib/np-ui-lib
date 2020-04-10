@@ -1,5 +1,7 @@
-<div class="np-dg-component" [ngClass]="{'np-dg-loading':_showLoader}" [style.max-height.px]="height" [style.max-width.px]="width" [id]="_tableId" [ngClass]="styleClass">
-    <div *ngIf="_showLoader" class="np-dg-loader"></div>
+<div class="np-dg-component" [ngClass]="{'np-loader-target':_showLoader}" [style.max-height.px]="height" [style.max-width.px]="width" [id]="_tableId" [ngClass]="styleClass">
+    <div *ngIf="_showLoader" class="np-loader-background">
+    </div>
+    <div *ngIf="_showLoader" class="np-loader"></div>
     <div class="np-row np-no-gutters">
         <div class="np-col-12" *ngIf="title">
             <div class="np-dg-title" [innerHTML]="title">

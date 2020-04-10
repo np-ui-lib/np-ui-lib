@@ -10,7 +10,7 @@
 
 .np-ac-search-item {
     padding: 5px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000000;
     box-sizing: border-box;
     min-height: 32px;
 }

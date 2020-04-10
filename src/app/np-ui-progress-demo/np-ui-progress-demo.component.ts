@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpUiProgressDemoComponent implements OnInit {
 
+  progressCount: number = 2;
+
   constructor() { }
 
   ngOnInit(): void {
+    var interval = setInterval(() => {
+      var progress = this.progressCount * 2;
+      if (progress > 100) {
+        this.progressCount = 100;
+        clearInterval(interval);
+      } else {
+        this.progressCount = progress;
+      }
+    }, 500);
   }
 
 }

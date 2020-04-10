@@ -27,21 +27,26 @@ export class NpUiAccordionComponent implements AfterContentInit {
       });
     });
     if (this.defaultOpenIndex != undefined && this.defaultOpenIndex != null && this.defaultOpenIndex >= 0) {
-      this.openByIndex(this.defaultOpenIndex);
+      this.expandByIndex(this.defaultOpenIndex);
     }
   }
 
   _onOpenPanel(panel: NpUiPanelComponent) {
     panel._isMinimize = false;
     this._panels.toArray().forEach(_p => {
-      if (_p.title != panel.title) {
+      if (_p.id != panel.id) {
         _p._isMinimize = true;
       }
     });
   }
 
-  openByIndex(idx: number) {
+  expandByIndex(idx: number) {
     var panel = this._panels.toArray()[idx];
+    this._onOpenPanel(panel);
+  }
+
+  expandById(id: string) {
+    var panel = this._panels.find(function (item) { if (item.id === id) { return true; } });
     this._onOpenPanel(panel);
   }
 

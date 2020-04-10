@@ -9,6 +9,8 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
 })
 export class NpUiPanelComponent implements OnInit {
 
+  @Input() id: string;
+
   @Input() title: string | TemplateRef<any>;
   _isTitleTemplate: boolean;
 

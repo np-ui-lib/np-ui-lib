@@ -1,5 +1,6 @@
 import { Component, ContentChildren, QueryList, AfterContentInit, ChangeDetectionStrategy, ViewEncapsulation, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { NpUiTabComponent } from './np-ui-tab.component';
+import { element } from 'protractor';
 
 @Component({
   selector: 'np-ui-tabs',
@@ -9,6 +10,8 @@ import { NpUiTabComponent } from './np-ui-tab.component';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpUiTabsComponent implements AfterContentInit {
+
+  _isShowLoader: boolean = false;
 
   @ContentChildren(NpUiTabComponent) _tabs: QueryList<NpUiTabComponent>;
 
@@ -31,10 +34,17 @@ export class NpUiTabsComponent implements AfterContentInit {
     if (tab.disabled == true) {
       return;
     }
-    this._tabs.toArray().forEach(tab => tab.active = false);
+    this._tabs.toArray().forEach(_t => { if (_t.id != tab.id) { _t.active = false } });
     tab.active = true;
     if (this.onTabChange) {
       this.onTabChange.emit(tab);
+    }
+  }
+
+  selectTabById(id: string) {
+    var tab = this._tabs.find(function (item) { if (item.id === id) { return true; } });
+    if (tab && tab.disabled != true) {
+      this._selectTab(tab);
     }
   }
 
@@ -43,6 +53,14 @@ export class NpUiTabsComponent implements AfterContentInit {
     if (tab && tab.disabled != true) {
       this._selectTab(tab);
     }
+  }
+
+  showLoader() {
+    this._isShowLoader = true;
+  }
+
+  hideLoader() {
+    this._isShowLoader = false;
   }
 
 }

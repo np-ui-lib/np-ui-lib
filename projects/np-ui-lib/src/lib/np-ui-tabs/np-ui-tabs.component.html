@@ -1,4 +1,4 @@
-<div class="np-tabs-component">
+<div class="np-tabs-component" [ngClass]="{'np-loader-target': _isShowLoader}">
     <div class="np-tab-header">
         <div class="np-tab-title" *ngFor="let tab of _tabs" (click)="_selectTab(tab)" [ngClass]="{'np-active-tab':tab.active,'np-disabled': tab.disabled}">
             <ng-container *ngIf="!tab._titleIsTemplate">
@@ -9,4 +9,7 @@
         </div>
     </div>
     <ng-content></ng-content>
+    <div *ngIf="_isShowLoader" class="np-loader-background">
+    </div>
+    <div *ngIf="_isShowLoader" class="np-loader"></div>
 </div>

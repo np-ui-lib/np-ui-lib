@@ -5,18 +5,19 @@
 npm i np-ui-lib
 ````
 ### List of components:
-* [Data Grid](https://github.com/NilavPatel/np-ui-package/wiki/Data-Grid)
-* [Date Picker](https://github.com/NilavPatel/np-ui-package/wiki/Date-Picker)
-* [Time Picker](https://github.com/NilavPatel/np-ui-package/wiki/Time-Picker)
-* [Color Picker](https://github.com/NilavPatel/np-ui-package/wiki/Color-Picker)
-* [Switch](https://github.com/NilavPatel/np-ui-package/wiki/Switch)
-* [Notification](https://github.com/NilavPatel/np-ui-package/wiki/Notification)
-* [Auto Complete](https://github.com/NilavPatel/np-ui-package/wiki/Auto-Complete)
-* [Panel](https://github.com/NilavPatel/np-ui-package/wiki/Panel)
-* [Tooltip](https://github.com/NilavPatel/np-ui-package/wiki/Tooltip)
-* [Progress](https://github.com/NilavPatel/np-ui-package/wiki/Progress)
-* [Carousel](https://github.com/NilavPatel/np-ui-package/wiki/Carousel)
-* [Tabs](https://github.com/NilavPatel/np-ui-package/wiki/Tabs)
+1. [Data Grid](https://github.com/NilavPatel/np-ui-package/wiki/Data-Grid)
+1. [Date Picker](https://github.com/NilavPatel/np-ui-package/wiki/Date-Picker)
+1. [Time Picker](https://github.com/NilavPatel/np-ui-package/wiki/Time-Picker)
+1. [Color Picker](https://github.com/NilavPatel/np-ui-package/wiki/Color-Picker)
+1. [Switch](https://github.com/NilavPatel/np-ui-package/wiki/Switch)
+1. [Notification](https://github.com/NilavPatel/np-ui-package/wiki/Notification)
+1. [Auto Complete](https://github.com/NilavPatel/np-ui-package/wiki/Auto-Complete)
+1. [Panel](https://github.com/NilavPatel/np-ui-package/wiki/Panel)
+1. [Tooltip](https://github.com/NilavPatel/np-ui-package/wiki/Tooltip)
+1. [Progress](https://github.com/NilavPatel/np-ui-package/wiki/Progress)
+1. [Carousel](https://github.com/NilavPatel/np-ui-package/wiki/Carousel)
+1. [Tabs](https://github.com/NilavPatel/np-ui-package/wiki/Tabs)
+1. [Accordion](https://github.com/NilavPatel/np-ui-package/wiki/Accordion)
 
 ### Import css to your application:
 ````css

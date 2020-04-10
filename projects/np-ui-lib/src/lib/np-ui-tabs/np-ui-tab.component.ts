@@ -8,6 +8,7 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
 })
 export class NpUiTabComponent implements OnInit {
 
+    @Input() id: string;
     @Input() title: string | TemplateRef<any>;
     @Input() active: boolean;
     @Input() disabled: boolean;

@@ -27,8 +27,8 @@ textarea {
 .np-row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: -12px;
+    margin-left: -12px;
 }
 
 .np-col,
@@ -48,8 +48,8 @@ textarea {
     flex-basis: 0;
     flex-grow: 1;
     max-width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 12px;
+    padding-left: 12px;
     box-sizing: border-box;
 }
 
@@ -300,31 +300,26 @@ textarea {
 .np-btn-primary {
     color: #fff;
     background-color: #007bff;
-    border-color: #007bff;
 }
 
 .np-btn-success {
     color: #fff;
     background-color: #1e7e34;
-    border-color: #1c7430;
 }
 
 .np-btn-danger {
     color: #fff;
     background-color: #bd2130;
-    border-color: #b21f2d;
 }
 
 .np-btn-warning {
     color: #212529;
     background-color: #d39e00;
-    border-color: #c69500;
 }
 
 .np-btn-info {
     color: #fff;
     background-color: #117a8b;
-    border-color: #10707f;
 }
 
 .np-btn-group {
@@ -361,23 +356,23 @@ textarea {
 }
 
 .np-border {
-    border: 1px solid black;
+    border: 1px solid #000000;
 }
 
 .np-border-top {
-    border-top: 1px solid black;
+    border-top: 1px solid #000000;
 }
 
 .np-border-bottom {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000000;
 }
 
 .np-border-right {
-    border-right: 1px solid black;
+    border-right: 1px solid #000000;
 }
 
 .np-border-left {
-    border-left: 1px solid black;
+    border-left: 1px solid #000000;
 }
 
 .np-clearfix::after {
@@ -427,6 +422,7 @@ textarea {
     position: relative;
     padding: 10px;
     margin-bottom: 5px;
+    border: 1px solid;
 }
 
 .np-alert-header {
@@ -469,15 +465,15 @@ textarea {
 
 .np-container {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 12px;
+    padding-left: 12px;
     margin-right: auto;
     margin-left: auto;
     box-sizing: border-box;
 }
 
 .np-form-group {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .np-form-label {
@@ -511,6 +507,48 @@ textarea {
 
 .np-hightlight {
     font-weight: bold;
+}
+
+.np-loader-target {
+    position: relative;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.np-loader-background {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.3;
+    position: absolute;
+    top: 0px;
+    z-index: 1007;
+}
+
+.np-loader {
+    position: absolute;
+    top: calc(50% - 12px);
+    left: calc(50% - 12px);
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: text-bottom;
+    border: 5px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    color: #007bff!important;
+    animation: spin 1s linear infinite;
+    z-index: 1008;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes spin {
