@@ -36,6 +36,7 @@
         "Progress",
         "Carousel",
         "Tabs",
-        "Accordion"
+        "Accordion",
+        "Alert"
     ]
 }

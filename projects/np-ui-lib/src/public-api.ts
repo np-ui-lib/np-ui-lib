@@ -62,3 +62,7 @@ export * from './lib/np-ui-tabs/np-ui-tab.component';
 /**Accordion */
 export * from './lib/np-ui-accordion/np-ui-accordion.module';
 export * from './lib/np-ui-accordion/np-ui-accordion.component';
+
+/**Alert */
+export * from './lib/np-ui-alert/np-ui-alert.module';
+export * from './lib/np-ui-alert/np-ui-alert.component';

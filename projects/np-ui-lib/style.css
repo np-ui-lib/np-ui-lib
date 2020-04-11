@@ -394,6 +394,14 @@ textarea {
     font-weight: bold;
 }
 
+.np-alert {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
 .np-alert-success {
     background-color: #dff0d8;
     border-color: #d0e9c6;
@@ -416,13 +424,6 @@ textarea {
     background-color: #f2dede;
     border-color: #ebcccc;
     color: #a94442
-}
-
-.np-alert {
-    position: relative;
-    padding: 10px;
-    margin-bottom: 5px;
-    border: 1px solid;
 }
 
 .np-alert-header {

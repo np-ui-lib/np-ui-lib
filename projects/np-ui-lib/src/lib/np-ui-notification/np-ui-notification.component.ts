@@ -19,12 +19,12 @@ export class NpUiNotificationComponent {
     return this.npUiNotificationService;
   }
 
-  close(msg: NpUiNotification) {
-    this.npUiNotificationService.removeMessage(msg);
+  _close(msg: NpUiNotification) {
+    this.npUiNotificationService.close(msg);
   }
 
-  closeAll() {
-    this.npUiNotificationService.removeAll();
+  _closeAll() {
+    this.npUiNotificationService.closeAll();
   }
 
 }

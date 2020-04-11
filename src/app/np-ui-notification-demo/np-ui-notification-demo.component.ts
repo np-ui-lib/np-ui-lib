@@ -29,12 +29,12 @@ export class NpUiNotificationDemoComponent implements OnInit {
   }
 
   info() {
-    var msg = new NpUiNotification({ message: "This is info", type: "Info" });
+    var msg = new NpUiNotification({ message: "This is info", type: "Info", autoCloseTimeout: 5000 });
     this.notificationService.show(msg);
   }
 
   removeAll() {
-    this.notificationService.removeAll();
+    this.notificationService.closeAll();
   }
 
   successWithHeader() {

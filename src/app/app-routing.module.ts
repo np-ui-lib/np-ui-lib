@@ -59,6 +59,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-ui-accordion-demo/np-ui-accordion-demo.module').then(m => m.NpUiAccordionDemoModule)
   },
   {
+    path: 'np-ui-alert-demo',
+    loadChildren: () => import('./np-ui-alert-demo/np-ui-alert-demo.module').then(m => m.NpUiAlertDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'np-ui-date-picker-demo',
     pathMatch: 'full'
