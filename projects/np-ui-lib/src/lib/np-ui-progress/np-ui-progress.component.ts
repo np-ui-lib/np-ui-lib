@@ -15,8 +15,12 @@ export class NpUiProgressComponent {
 
   @Input() indeterminate: boolean;
 
+  @Input() striped: boolean;
+
+  @Input() animated: boolean;
+
   getTooltipText() {
-    return this.value + " %";
+    return this.value + "%";
   }
 
 }

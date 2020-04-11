@@ -9,14 +9,27 @@
 .np-pg-progress-bar {
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-    background-size: 15px 15px;
     color: #fff;
     background-color: #007bff;
+    line-height: 15px;
+    text-align: center;
+}
+
+.np-pg-striped {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-size: 15px 15px;
+}
+
+.np-pg-animated {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-size: 15px 15px;
+    animation: np-progress-bar-stripes 1s linear reverse infinite;
 }
 
 .np-pg-indeterminate {
     width: 100%;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-size: 15px 15px;
     animation: np-progress-bar-stripes 1s linear reverse infinite;
 }
 

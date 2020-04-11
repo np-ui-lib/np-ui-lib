@@ -12,13 +12,13 @@
 </fieldset>
 
 <fieldset>
-    <legend>Success</legend>
-    <np-ui-progress [value]="progressCount" [styleClass]="'np-pg-success'"></np-ui-progress>
+    <legend>Success + striped</legend>
+    <np-ui-progress [value]="progressCount" [styleClass]="'np-pg-success'" [striped]="true"></np-ui-progress>
 </fieldset>
 
 <fieldset>
-    <legend>Error</legend>
-    <np-ui-progress [value]="50" [styleClass]="'np-pg-danger'"></np-ui-progress>
+    <legend>Error + animated</legend>
+    <np-ui-progress [value]="50" [styleClass]="'np-pg-danger'" [animated]="true"></np-ui-progress>
 </fieldset>
 
 <fieldset>
@@ -27,6 +27,6 @@
 </fieldset>
 
 <fieldset>
-    <legend>Info and Indeterminate</legend>
+    <legend>Info + indeterminate</legend>
     <np-ui-progress [indeterminate]="true" [styleClass]="'np-pg-info'"></np-ui-progress>
 </fieldset>

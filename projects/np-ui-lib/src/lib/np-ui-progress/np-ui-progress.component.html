@@ -2,7 +2,8 @@
     <div class="np-row np-no-gutters">
         <div class="np-col-12">
             <div class="np-pg-container">
-                <div *ngIf="!indeterminate" class="np-pg-progress-bar" [style.width.%]="value" np-ui-tooltip [tooltipText]="getTooltipText()">
+                <div *ngIf="!indeterminate" class="np-pg-progress-bar" [style.width.%]="value" [ngClass]="{'np-pg-striped': striped, 'np-pg-animated': animated}">
+                    <span>{{getTooltipText()}}</span>
                 </div>
                 <div *ngIf="indeterminate" class="np-pg-progress-bar np-pg-indeterminate">
                 </div>
