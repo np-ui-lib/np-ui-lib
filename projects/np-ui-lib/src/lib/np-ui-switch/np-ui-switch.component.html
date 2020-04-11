@@ -1,4 +1,4 @@
-<div class="np-sw-component" [ngClass]="{'np-disabled': _isDisabled}" [class]="styleClass">
+<div [ngClass]="{'np-sw-component': true, 'np-disabled': _isDisabled}" [class]="styleClass">
     <div class="np-row np-no-gutters">
         <div class="np-col-6">
             <button type="button" class="np-btn" [ngClass]="{'np-btn-danger' : value == false}" (click)="onClickSwitch(false)">

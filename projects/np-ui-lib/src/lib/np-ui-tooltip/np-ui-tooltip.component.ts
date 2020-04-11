@@ -9,6 +9,7 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
 export class NpUiTooltipComponent implements OnInit {
   _isTemplate: boolean;
   @Input() tooltipText: string | TemplateRef<any>;
+  @Input() styleClass: string;
   ngOnInit(): void {
     if (this.tooltipText instanceof TemplateRef) {
       this._isTemplate = true;

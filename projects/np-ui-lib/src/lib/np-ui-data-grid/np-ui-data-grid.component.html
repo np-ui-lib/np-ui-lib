@@ -1,4 +1,4 @@
-<div class="np-dg-component" [ngClass]="{'np-loader-target':_showLoader}" [style.max-height.px]="height" [style.max-width.px]="width" [id]="_tableId" [ngClass]="styleClass">
+<div [ngClass]="{'np-dg-component': true, 'np-loader-target':_showLoader}" [style.max-height.px]="height" [style.max-width.px]="width" [id]="_tableId" [class]="styleClass">
     <div *ngIf="_showLoader" class="np-loader-background">
     </div>
     <div *ngIf="_showLoader" class="np-loader"></div>
@@ -195,7 +195,7 @@
                                                     <input type="checkbox" class="np-dg-checkbox" [checked]="_isSelected(data[_key])" (change)="_onClickSelectRow(data[_key],$event)">
                                                 </td>
                                             </ng-container>
-                                            <td *ngFor="let column of _visibleColumns; let j = index" (click)="_onCellClick($event, column, data)" [class]="column.styleClass" [ngClass]="{'hidden': column.visible === false, 'np-text-right' : column.rightAlignText,'np-dg-sticky-left': column.stickyColumnLeft,'np-dg-sticky-right':column.stickyColumnRight}">
+                                            <td *ngFor="let column of _visibleColumns; let j = index" (click)="_onCellClick($event, column, data)" [ngClass]="column.styleClass" [ngClass]="{'hidden': column.visible === false, 'np-text-right' : column.rightAlignText,'np-dg-sticky-left': column.stickyColumnLeft,'np-dg-sticky-right':column.stickyColumnRight}">
                                                 <ng-container *ngIf="!column.cellTemplate; else customTemplate">
                                                     {{data[column.dataField]}}
                                                 </ng-container>

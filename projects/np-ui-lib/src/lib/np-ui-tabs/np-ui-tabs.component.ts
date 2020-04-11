@@ -1,6 +1,5 @@
-import { Component, ContentChildren, QueryList, AfterContentInit, ChangeDetectionStrategy, ViewEncapsulation, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { Component, ContentChildren, QueryList, AfterContentInit, ChangeDetectionStrategy, ViewEncapsulation, Output, EventEmitter, TemplateRef, Input } from '@angular/core';
 import { NpUiTabComponent } from './np-ui-tab.component';
-import { element } from 'protractor';
 
 @Component({
   selector: 'np-ui-tabs',
@@ -16,6 +15,8 @@ export class NpUiTabsComponent implements AfterContentInit {
   @ContentChildren(NpUiTabComponent) _tabs: QueryList<NpUiTabComponent>;
 
   @Output() onTabChange: EventEmitter<any> = new EventEmitter();
+
+  @Input() styleClass: string;
 
   ngAfterContentInit() {
     // if default active and not disabled tab is present then select it.

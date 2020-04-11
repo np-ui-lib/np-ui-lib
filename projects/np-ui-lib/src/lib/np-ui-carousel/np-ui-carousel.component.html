@@ -1,4 +1,4 @@
-<div class="np-cs-component">
+<div [ngClass]="'np-cs-component'" [class]="styleClass">
     <div class="np-cs-container">
         <ng-container *ngFor="let img of items; let i = index">
             <div class="np-cs-slide np-cs-fade" [ngClass]="{'np-cs-slide-active':_currentSlideIndex == i}">

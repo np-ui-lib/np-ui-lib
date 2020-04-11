@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
 import { NpUiNotificationService } from './np-ui-notification.service';
 import { NpUiNotification } from './np-ui-notification.model';
 
@@ -12,6 +12,8 @@ import { NpUiNotification } from './np-ui-notification.model';
 export class NpUiNotificationComponent {
 
   constructor(private npUiNotificationService: NpUiNotificationService) { }
+
+  @Input() styleClass: string;
 
   get messageService(): NpUiNotificationService {
     return this.npUiNotificationService;

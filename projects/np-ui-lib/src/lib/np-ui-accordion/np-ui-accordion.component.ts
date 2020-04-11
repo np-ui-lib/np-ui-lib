@@ -13,6 +13,7 @@ export class NpUiAccordionComponent implements AfterContentInit {
   @ContentChildren(NpUiPanelComponent) _panels: QueryList<NpUiPanelComponent>;
 
   @Input() defaultOpenIndex: number;
+  @Input() styleClass: string;
 
   constructor() { }
 

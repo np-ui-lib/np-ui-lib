@@ -1,4 +1,4 @@
-<div class="np-input-group" [ngClass]="{'np-disabled' : _isDisabled,'np-cp-hide-input': hideColorInput}" [class]="styleClass" *ngIf="!defaultOpen; else templatePortalContent">
+<div *ngIf="!defaultOpen; else templatePortalContent" [ngClass]="{'np-input-group': true, 'np-disabled' : _isDisabled, 'np-cp-hide-input': hideColorInput}" [class]="styleClass">
     <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (focus)="_open()" (change)="_onInputChange($event)" [disabled]="_isDisabled">
     <div class="input-group-append">
         <div class="np-cp-input-selected" (click)="_toggleColorPicker()" [ngStyle]="{'background-color': _innerValue}">

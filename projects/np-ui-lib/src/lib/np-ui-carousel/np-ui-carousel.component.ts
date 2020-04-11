@@ -14,6 +14,8 @@ export class NpUiCarouselComponent implements AfterContentInit, OnDestroy {
 
   @Input() slideChangeTime: number;
 
+  @Input() styleClass: string;
+
   _currentSlideIndex: number;
 
   _interval: any;
