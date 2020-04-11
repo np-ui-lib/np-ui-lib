@@ -20,9 +20,9 @@ export class NpUiAccordionComponent implements AfterContentInit {
   ngAfterContentInit(): void {
     this._panels.toArray().forEach(panel => {
       panel._isMinimize = true;
-      panel.allowMinimize = true;
-      panel.allowRemove = false;
-      panel.allowZoom = false;
+      panel.allowToMinimize = true;
+      panel.allowToClose = false;
+      panel.allowToZoom = false;
       panel._onOpen.subscribe((_p: NpUiPanelComponent) => {
         this._onOpenPanel(_p);
       });

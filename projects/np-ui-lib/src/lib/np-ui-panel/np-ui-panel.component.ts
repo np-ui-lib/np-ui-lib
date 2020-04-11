@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef, OnInit, Output, EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'np-ui-panel',
@@ -14,20 +14,22 @@ export class NpUiPanelComponent implements OnInit {
   @Input() title: string | TemplateRef<any>;
   _isTitleTemplate: boolean;
 
-  @Input() allowMinimize: boolean;
+  @Input() allowToMinimize: boolean;
   _isMinimize: boolean = false;
 
-  @Input() allowZoom: boolean;
+  @Input() allowToZoom: boolean;
   _isZoom: boolean = false;
 
-  @Input() allowRemove: boolean;
-  _isClose: boolean = false;
+  @Input() allowToClose: boolean;
 
   @Input() styleClass: string;
 
   @Input() height: number;
 
   @Output() _onOpen: EventEmitter<any> = new EventEmitter();
+
+  constructor(private el: ElementRef) {
+  }
 
   ngOnInit(): void {
     if (this.title instanceof TemplateRef) {
@@ -50,6 +52,6 @@ export class NpUiPanelComponent implements OnInit {
   }
 
   _close() {
-    this._isClose = true;
+    this.el.nativeElement.remove();
   }
 }
