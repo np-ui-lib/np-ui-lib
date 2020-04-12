@@ -5,7 +5,7 @@
 </h2>
 
 <np-ui-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiRowSelectEnable]="true" [title]="'Server side data grid'" [showColumnChooser]="true" [showToolBar]="true" [allowExportToCSV]="true" [enableStateStoring]="true"
-    [showFilters]="showFilters" [showSummary]="true" [summaryTemplate]="summaryTemplate" (onInit)="onInit()" (onAfterInit)="onAfterInit()" [allowColumnReorder]="true" [allowColumnResize]="true" [isServerOperations]="true" [pageSize]=20 (onLoadData)="onLoadData($event)">
+    [showFilters]="showFilters" [showSummary]="true" [summaryTemplate]="summaryTemplate" (onInit)="onInit()" (onAfterInit)="onAfterInit()" [allowColumnReorder]="true" [allowColumnResize]="true" [isServerOperations]="true" [pageSize]="5" (onLoadData)="onLoadData($event)">
 </np-ui-data-grid>
 
 <!-- Template for sction buttons column -->

@@ -512,7 +512,6 @@ textarea {
 
 .np-loader-target {
     position: relative;
-    opacity: 0.7;
     pointer-events: none;
     z-index: 5;
 }

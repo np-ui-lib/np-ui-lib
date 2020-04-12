@@ -19,6 +19,7 @@ npm i np-ui-lib
 1. [Tabs](https://github.com/NilavPatel/np-ui-package/wiki/Tabs)
 1. [Progress](https://github.com/NilavPatel/np-ui-package/wiki/Progress)
 1. [Carousel](https://github.com/NilavPatel/np-ui-package/wiki/Carousel)
+1. [Modal](https://github.com/NilavPatel/np-ui-package/wiki/Modal)
 
 ### Import css to your application:
 ````css

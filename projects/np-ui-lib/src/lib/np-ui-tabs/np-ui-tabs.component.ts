@@ -14,9 +14,8 @@ export class NpUiTabsComponent implements AfterContentInit {
 
   @ContentChildren(NpUiTabComponent) _tabs: QueryList<NpUiTabComponent>;
 
-  @Output() onTabChange: EventEmitter<any> = new EventEmitter();
-
   @Input() styleClass: string;
+  @Output() onTabChange: EventEmitter<any> = new EventEmitter();
 
   ngAfterContentInit() {
     // if default active and not disabled tab is present then select it.

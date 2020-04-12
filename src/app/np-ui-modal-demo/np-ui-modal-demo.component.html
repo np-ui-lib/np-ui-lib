@@ -1,0 +1,109 @@
+<div class="np-btn-group">
+    <button class="np-btn np-btn-primary" (click)="openModal()">Open Modal</button>
+    <button class="np-btn np-btn-danger" (click)="closeModal()">Close Modal</button>
+</div>
+
+<div class="np-btn-group">
+    <button class="np-btn np-btn-primary" (click)="openModal2()">Open Modal 2</button>
+    <button class="np-btn np-btn-danger" (click)="closeModal2()">Close Modal 2</button>
+</div>
+<div>FirstName: {{firstName}}</div>
+<div>BirthDate: {{birthDate}}</div>
+
+<np-ui-modal #modalDemo [height]="200" [width]="500">
+    <np-ui-modal-header>
+        header
+    </np-ui-modal-header>
+    <np-ui-modal-content>
+        <p>Modal content</p>
+        <p>Modal content</p>
+        <p>Modal content</p>
+        <p>Modal content</p>
+        <p>Modal content</p>
+        <p>Modal content</p>
+        <p>Modal content</p>
+        <p>Modal content</p>
+        <p>Modal content</p>
+        <p>Modal content</p>
+        <p>Modal content</p>
+        <p>Modal content</p>
+    </np-ui-modal-content>
+    <np-ui-modal-footer>
+        <div class="np-btn-group">
+            <button class="np-btn np-btn-primary" (click)="openModal2()">Open another modal with form</button>
+            <button class="np-btn np-btn-danger" (click)="closeModal()">Close Modal</button>
+        </div>
+    </np-ui-modal-footer>
+</np-ui-modal>
+
+<np-ui-modal #modalDemo2 (onOpen)="onOpenModal2()" (onClose)="onCloseModal2()">
+    <np-ui-modal-header>
+        Fill the details
+    </np-ui-modal-header>
+    <np-ui-modal-content>
+        <form>
+            <div class="np-container">
+                <div class="np-row">
+                    <div class="np-col-6">
+                        <div class="np-form-group">
+                            <div class="np-form-label np-required">First name:</div>
+                            <input type="text" class="np-form-control" [(ngModel)]="firstName" required name="txtFirstName" #txtFirstName="ngModel">
+                            <div class="np-form-text np-text-danger" *ngIf="txtFirstName.control.touched && txtFirstName.control.errors?.required">First name is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="np-col-6">
+                        <div class="np-form-group">
+                            <div class="np-form-label np-required">Last name:</div>
+                            <input type="text" class="np-form-control" [(ngModel)]="lastName" required name="txtLastName" #txtLastName="ngModel">
+                            <div class="np-form-text np-text-danger" *ngIf="txtLastName.control.touched && txtLastName.control.errors?.required">Last name is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="np-row">
+                    <div class="np-col-6">
+                        <div class="np-form-group">
+                            <div class="np-form-label np-required">Birth date:</div>
+                            <np-ui-date-picker [(ngModel)]="birthDate" name="txtBirthDate" required #txtBirthDate="ngModel">
+                            </np-ui-date-picker>
+                            <div class="np-form-text np-text-danger" *ngIf="txtBirthDate.control.touched && txtBirthDate.control.errors?.required">Date is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="np-col-6">
+                        <div class="np-form-group">
+                            <div class="np-form-label">Birth time:</div>
+                            <np-ui-time-picker [(ngModel)]="birthTime" name="birthTime"></np-ui-time-picker>
+                        </div>
+                    </div>
+                </div>
+                <div class="np-row">
+                    <div class="np-col-12">
+                        <div class="np-form-group">
+                            <div class="np-form-label">Is Active:</div>
+                            <np-ui-switch [(ngModel)]="isActive" name="swIsActive"></np-ui-switch>
+                        </div>
+                    </div>
+                </div>
+                <div class="np-row">
+                    <div class="np-col-12">
+                        <div class="np-form-group">
+                            <div class="np-form-label">Description:</div>
+                            <textarea class="np-form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="np-btn-group">
+                    <button type="submit" class="np-btn np-btn-primary">Save</button>
+                    <button type="button" class="np-btn">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </np-ui-modal-content>
+    <np-ui-modal-footer>
+        <div class="np-btn-group">
+            <button class="np-btn np-btn-danger" (click)="closeModal2()">Close Modal 2</button>
+        </div>
+    </np-ui-modal-footer>
+</np-ui-modal>

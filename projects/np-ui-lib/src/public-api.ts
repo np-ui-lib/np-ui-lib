@@ -66,3 +66,11 @@ export * from './lib/np-ui-accordion/np-ui-accordion.component';
 /**Alert */
 export * from './lib/np-ui-alert/np-ui-alert.module';
 export * from './lib/np-ui-alert/np-ui-alert.component';
+
+/**Modal */
+export * from './lib/np-ui-modal/np-ui-modal.module';
+export * from './lib/np-ui-modal/np-ui-modal.component';
+export * from './lib/np-ui-modal/np-ui-modal-header.component';
+export * from './lib/np-ui-modal/np-ui-modal-content.component';
+export * from './lib/np-ui-modal/np-ui-modal-footer.component';
+
