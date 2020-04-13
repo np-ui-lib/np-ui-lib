@@ -1,4 +1,4 @@
-<div [id]="id" [class]="styleClass" [ngClass]="{'np-pn-component': true, 'np-pn-zoom':_isZoom}">
+<div [id]="id" [class]="styleClass" [ngClass]="{'np-pn-component': true, 'np-pn-zoom':_isZoom}" [style.max-height.px]="height">
     <div class="np-pn-header">
         <div class="np-row justify-content-between np-no-gutters">
             <div class="np-col-auto">
@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <div class="np-pn-body np-border-top" [style.max-height.px]="height - 45" [ngClass]="{'np-pn-minimize':_isMinimize}">
+    <div class="np-pn-body np-border-top" [ngClass]="{'np-pn-minimize':_isMinimize}">
         <div class="np-row np-no-gutters">
             <div class="np-col-12">
                 <ng-content></ng-content>

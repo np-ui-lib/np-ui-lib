@@ -939,10 +939,6 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
     this._getCurrentViewData(1);
   }
 
-  _getHeight() {
-    return this.height - (this.title && this.title.length > 0 ? 33 : 0) - (this.showToolBar ? 43 : 0) - 45;
-  }
-
   _showAllColumns() {
     this._columns.forEach(function (element) {
       element.visible = true;

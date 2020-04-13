@@ -17,6 +17,8 @@ export class NpUiTabsComponent implements AfterContentInit {
   @Input() styleClass: string;
   @Output() onTabChange: EventEmitter<any> = new EventEmitter();
 
+  _height: number;
+
   ngAfterContentInit() {
     // if default active and not disabled tab is present then select it.
     let activeTabs = this._tabs.filter((tab) => tab.active && tab.disabled != true);
@@ -26,7 +28,10 @@ export class NpUiTabsComponent implements AfterContentInit {
       if (tabs) {
         this._tabs.toArray().forEach(tab => tab.active = false);
         tabs[0].active = true;
+        this._height = tabs[0].height;
       }
+    } else {
+      this._height = activeTabs[0].height;
     }
   }
 
@@ -36,6 +41,7 @@ export class NpUiTabsComponent implements AfterContentInit {
     }
     this._tabs.toArray().forEach(_t => { if (_t.id != tab.id) { _t.active = false } });
     tab.active = true;
+    this._height = tab.height;
     if (this.onTabChange) {
       this.onTabChange.emit(tab);
     }

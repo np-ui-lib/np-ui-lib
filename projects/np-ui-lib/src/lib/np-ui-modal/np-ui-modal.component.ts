@@ -47,7 +47,8 @@ export class NpUiModalComponent {
         backdropClass: "np-mod-backdrop",
         height: this.height,
         width: this.width,
-        scrollStrategy: this.overlay.scrollStrategies.block()
+        scrollStrategy: this.overlay.scrollStrategies.block(),
+        panelClass: "np-mod-overlay"
       });
       this.templatePortal = new TemplatePortal(
         this.templatePortalContent,

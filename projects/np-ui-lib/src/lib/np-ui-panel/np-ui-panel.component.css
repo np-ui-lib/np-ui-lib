@@ -31,9 +31,6 @@
     width: 100%;
     height: 100%;
     z-index: 1000;
-}
-
-.np-pn-zoom .np-pn-body {
     max-height: unset !important;
 }
 

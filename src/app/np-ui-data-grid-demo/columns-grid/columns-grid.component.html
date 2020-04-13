@@ -1,13 +1,11 @@
 <h2>
-    <a class="github-link" title="Go to github repository" target="_blank"
-        href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/columns-grid">
+    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/columns-grid">
         Columns Reorder/Resize and other column properties
     </a>
 </h2>
 <h4>Column Resize</h4>
 <p>To add column resize set <b>allowColumnResize</b> to "true" in grid defination.</p>
-<p>To resize column, drag at the right end of column in left or right direction.(On hover of right end of column cursor
-    will be turned to "col-resize").</p>
+<p>To resize column, drag at the right end of column in left or right direction.(On hover of right end of column cursor will be turned to "col-resize").</p>
 <h4>Column Reorder</h4>
 <p>To add column reorder set <b>allowColumnReorder</b> to "true" in grid defination.</p>
 <p>To set column reorder columns, <b>showToolBar</b> and <b>showColumnChooser</b> must be set to "true"</p>
@@ -19,16 +17,14 @@
 <h4>Toggle column</h4>
 <p>To show/hide column set <b>visible</b> in column defination.</p>
 <h4>width</h4>
-<p>To set width of column, set <b>width</b> of column defination. Pass only width in numbers. No need to pass "px" as
-    this will be consider in pixel only.</p>
+<p>To set width of column, set <b>width</b> of column defination. Pass only width in numbers. No need to pass "px" as this will be consider in pixel only.</p>
 <h4>onCellClick API</h4>
 <p>Bind onCellClick with any function, which will be callback when any column is clicked.</p>
 <p>in onCellClick function, event, column and rowData is passed as parameters.</p>
 <h4>Sticky Columns</h4>
 <p>To set left hand column as sticky, set <b>stickyColumnLeft</b> to "true" in column defination.</p>
 <p>To set right hand column as sticky, set <b>stickyColumnRight</b> to "true" in column defination.</p>
-<p>Only one column allowed to be sticky at lest and right.</p>
+<p>Only first and last columns allowed to be sticky at left and right.</p>
 
-<np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [showToolBar]="true" [showColumnChooser]="true"
-    [allowColumnResize]="true" [allowColumnReorder]="true">
+<np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [showToolBar]="true" [showColumnChooser]="true" [allowColumnResize]="true" [allowColumnReorder]="true">
 </np-ui-data-grid>

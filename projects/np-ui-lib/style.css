@@ -277,6 +277,7 @@ textarea {
     margin: 5px 0px;
     min-width: 50px;
     height: 32px;
+    cursor: pointer;
 }
 
 .np-btn-icon {
@@ -508,6 +509,10 @@ textarea {
 
 .np-hightlight {
     font-weight: bold;
+}
+
+.np-overflow-auto {
+    overflow: auto;
 }
 
 .np-loader-target {

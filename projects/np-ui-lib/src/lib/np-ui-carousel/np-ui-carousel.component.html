@@ -3,7 +3,7 @@
         <ng-container *ngFor="let img of items; let i = index">
             <div class="np-cs-slide np-cs-fade" [ngClass]="{'np-cs-slide-active':_currentSlideIndex == i}">
                 <div class="np-cs-numbertext">{{i + 1}} / {{items.length}}</div>
-                <img class="np-cs-img" [src]="img.imageUrl">
+                <img class="np-cs-img" [src]="img.imageUrl" [style.max-height.px]="height">
                 <div *ngIf="img.caption" class="np-cs-text" [innerHtml]="img.caption"></div>
             </div>
         </ng-container>

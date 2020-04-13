@@ -1,10 +1,11 @@
 .np-dg-component {
     box-sizing: border-box;
     border: 1px solid #000000;
+    display: flex;
+    flex-direction: column;
 }
 
 .np-dg-title {
-    height: 33px;
     box-sizing: border-box;
     border-bottom: 1px solid #000000;
     width: 100%;
@@ -16,7 +17,6 @@
     box-sizing: border-box;
     border-bottom: 1px solid #000000;
     padding: 5px;
-    height: 43px;
     background-color: #dfdfdf;
 }
 
@@ -26,8 +26,8 @@
 }
 
 .np-dg-col-chooser {
-    max-height: 300px;
-    width: 250px;
+    max-height: 350px;
+    width: 350px;
     box-sizing: border-box;
     padding: 5px;
     overflow: auto;
@@ -51,23 +51,19 @@
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
     background-color: #ffffff;
+    min-height: 31px;
     padding: 0px 5px;
-    height: 26px;
-}
-
-.np-dg-columns-item .np-icon {
-    height: 24px;
 }
 
 .np-dg-col-drag-placeholder {
     background-color: #fcf8e3;
-    height: 26px;
+    border-bottom: 1px solid transparent;
+    box-sizing: border-box;
+    min-height: 31px;
 }
 
 .np-dg-col-drag-handle {
-    float: right;
     cursor: move;
-    height: 24px;
 }
 
 .np-dg-columns-item.cdk-drag-preview {
@@ -81,6 +77,7 @@
 
 .np-dg-container {
     overflow-x: auto;
+    flex: 1;
 }
 
 .np-dg-table-header table,
@@ -121,7 +118,6 @@
     border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
-    min-height: 31px;
     background-color: #ffffff;
     overflow: hidden;
 }
@@ -138,12 +134,12 @@
 
 .np-dg-col-resize-handle {
     width: 5px;
-    height: 32px;
+    height: 100%;
     cursor: col-resize;
     position: absolute;
     right: 0px;
     top: 0px;
-    z-index: 6;
+    z-index: 1;
 }
 
 .np-dg-col-resize-handle:hover {
@@ -179,7 +175,6 @@
     box-sizing: border-box;
     padding: 5px;
     background-color: #dfdfdf;
-    min-height: 32px;
 }
 
 .np-dg-table-footer {
@@ -196,7 +191,6 @@
 .np-dg-no-data-message {
     padding: 0px 5px;
     text-align: center;
-    line-height: 32px;
 }
 
 .np-dg-checkbox {
