@@ -270,7 +270,6 @@ textarea {
     user-select: none;
     padding: 0px 5px;
     transition: all .2s ease-in-out;
-    display: flex;
     background-color: #dfdfdf;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -280,12 +279,16 @@ textarea {
     cursor: pointer;
 }
 
+.np-btn:disabled {
+    opacity: 0.5;
+}
+
 .np-btn-icon {
     margin: 0px;
     padding: 3px;
     border-color: transparent;
     background-color: transparent;
-    min-width: 32px
+    min-width: 32px;
 }
 
 .np-btn-sm {
@@ -400,7 +403,9 @@ textarea {
     padding: 10px;
     margin-bottom: 5px;
     border: 1px solid #000000;
+    border-left: 5px solid;
     background-color: #ffffff;
+    padding-right: 32px;
 }
 
 .np-alert-success {
@@ -545,6 +550,10 @@ textarea {
     color: #007bff!important;
     animation: spin 1s linear infinite;
     z-index: 1008;
+}
+
+.np-cursor-pointer {
+    cursor: pointer;
 }
 
 @keyframes spin {

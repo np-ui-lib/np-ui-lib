@@ -6,7 +6,12 @@
     </h2>
 </div>
 
-<np-ui-accordion [defaultOpenIndex]="0" #accordionDemo>
+<p>
+    Single Open :
+    <np-ui-switch [(ngModel)]="_singleOpenAtOnce"></np-ui-switch>
+</p>
+
+<np-ui-accordion [defaultOpenIndex]="0" [singleOpenAtOnce]="_singleOpenAtOnce" #accordionDemo>
     <np-ui-panel id="pnl1" [title]="'Paragraph 1'">
         <p>
             A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add

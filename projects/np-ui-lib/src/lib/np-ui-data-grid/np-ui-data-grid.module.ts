@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { NpUiDatePickerModule } from '../np-ui-date-picker/np-ui-date-picker.module';
 import { OverlayModule } from "@angular/cdk/overlay";
 import { PortalModule } from "@angular/cdk/portal";
+import { NpUiModalModule } from '../np-ui-modal/np-ui-modal.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PortalModule } from "@angular/cdk/portal";
     DragDropModule,
     OverlayModule,
     PortalModule,
-    NpUiDatePickerModule
+    NpUiDatePickerModule,
+    NpUiModalModule
   ],
   exports: [
     NpUiDataGridComponent

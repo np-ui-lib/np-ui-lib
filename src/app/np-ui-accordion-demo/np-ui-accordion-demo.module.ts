@@ -3,16 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { NpUiAccordionDemoRoutingModule } from './np-ui-accordion-demo-routing.module';
 import { NpUiAccordionDemoComponent } from './np-ui-accordion-demo.component';
-import { NpUiAccordionModule, NpUiPanelModule } from 'projects/np-ui-lib/src/public-api';
-
+import { NpUiAccordionModule, NpUiPanelModule, NpUiSwitchModule } from 'projects/np-ui-lib/src/public-api';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [NpUiAccordionDemoComponent],
   imports: [
     CommonModule,
+    FormsModule,
     NpUiAccordionDemoRoutingModule,
     NpUiAccordionModule,
-    NpUiPanelModule
+    NpUiPanelModule,
+    NpUiSwitchModule
   ]
 })
 export class NpUiAccordionDemoModule { }

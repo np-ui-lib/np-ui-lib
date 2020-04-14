@@ -36,7 +36,7 @@ export class NpUiTabsComponent implements AfterContentInit {
   }
 
   _selectTab(tab: NpUiTabComponent) {
-    if (tab.disabled == true) {
+    if (tab.disabled == true || tab.active == true) {
       return;
     }
     this._tabs.toArray().forEach(_t => { if (_t.id != tab.id) { _t.active = false } });

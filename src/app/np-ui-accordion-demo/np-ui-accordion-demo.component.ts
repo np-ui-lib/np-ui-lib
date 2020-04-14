@@ -9,6 +9,7 @@ import { NpUiAccordionComponent } from 'projects/np-ui-lib/src/public-api';
 export class NpUiAccordionDemoComponent implements OnInit {
 
   @ViewChild("accordionDemo", { static: true }) accordionDemo: NpUiAccordionComponent;
+  _singleOpenAtOnce: boolean = false;
 
   constructor() { }
 

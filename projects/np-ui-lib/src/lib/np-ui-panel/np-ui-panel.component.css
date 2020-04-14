@@ -8,13 +8,16 @@
 }
 
 .np-pn-header {
-    line-height: 32px;
-    padding-left: 5px;
+    padding-left: 10px;
     background-color: #dfdfdf;
 }
 
+.np-pn-header .np-row {
+    min-height: 32px;
+}
+
 .np-pn-body {
-    padding: 5px;
+    padding: 10px;
     overflow: auto;
     background-color: #ffffff;
     flex: 1;

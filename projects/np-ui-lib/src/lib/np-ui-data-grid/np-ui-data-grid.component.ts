@@ -14,6 +14,7 @@ import { NpPagerService } from './services/np-ui-pager.service';
 import { NpUtilityService } from './services/np-ui-utility.service';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { OverlayRef, ConnectedPosition, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
+import { NpUiModalComponent } from '../np-ui-modal/np-ui-modal.component';
 
 @Component({
   selector: 'np-ui-data-grid',
@@ -123,6 +124,12 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
   @ViewChild("columnChooserTemplate") columnChooserTemplate: TemplateRef<any>;
   private columnChooserTemplatePortal: TemplatePortal<any>;
   private columnChooserOverlayRef: OverlayRef;
+
+  @ViewChild("saveNewStateModal") saveNewStateModal: NpUiModalComponent;
+  @ViewChild("editStateModal") editStateModal: NpUiModalComponent;
+  @ViewChild("deleteStateModal") deleteStateModal: NpUiModalComponent;
+  _stateName: string;
+  _nameAlreadyExistError: boolean = false;
 
   constructor(private pagerService: NpPagerService,
     private filterService: NpFilterService,
@@ -790,7 +797,7 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
     for (let element of this._stateList) {
       if (element.name === currentStateName) {
         element.columns = columns;
-        alert("Saved successfully.");
+        this.editStateModal.open();
       }
     }
     if (this.onStatesUpdate) {
@@ -798,20 +805,27 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
     }
   }
 
+  _openModalToAddNewState() {
+    this._stateName = "";
+    this._nameAlreadyExistError = false;
+    this.saveNewStateModal.open();
+  }
+
+  _closeModalToAddNewState() {
+    this.saveNewStateModal.close();
+  }
+
   _addState() {
-    var name = prompt("Please enter name", "");
-    if (name === undefined || name === null) {
+    if (this._stateName && this._stateName.trim().length === 0) {
       return;
     }
-    if (name.trim().length === 0) {
-      alert("Name is required.");
-      return;
-    }
-    name = name.trim();
+    var name = this._stateName.trim();
     var state = this._stateList.filter(function (element: State) { if (element.name === name) { return element } });
     if (state && state.length > 0) {
-      alert("Name already exist.");
+      this._nameAlreadyExistError = true;
       return;
+    } else {
+      this._nameAlreadyExistError = false;
     }
     var columns = this._getColumnsArray();
     this._stateList.push(new State(name, columns));
@@ -819,6 +833,15 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
     if (this.onStatesUpdate) {
       this.onStatesUpdate.emit();
     }
+    this.saveNewStateModal.close();
+  }
+
+  _closeModalEditState() {
+    this.editStateModal.close();
+  }
+
+  _closeModalDeleteState() {
+    this.deleteStateModal.close();
   }
 
   _deleteState() {
@@ -841,6 +864,7 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
     if (this.onStatesUpdate) {
       this.onStatesUpdate.emit();
     }
+    this.deleteStateModal.open();
   }
 
   _loadState() {

@@ -16,19 +16,13 @@
     background-color: #dfdfdf;
     border-bottom: 1px solid #000000;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 10px;
     position: relative;
     min-height: 32px;
 }
 
-.np-mod-close {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-}
-
 .np-mod-content {
-    padding: 5px;
+    padding: 10px;
     background-color: #ffffff;
     flex: 1;
     overflow: auto;
@@ -38,7 +32,7 @@
     background-color: #dfdfdf;
     border-top: 1px solid #000000;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 10px;
     min-height: 32px;
 }
 

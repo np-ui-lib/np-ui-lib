@@ -13,9 +13,8 @@ export class NpUiAccordionComponent implements AfterContentInit {
   @ContentChildren(NpUiPanelComponent) _panels: QueryList<NpUiPanelComponent>;
 
   @Input() defaultOpenIndex: number;
+  @Input() singleOpenAtOnce: boolean;
   @Input() styleClass: string;
-
-  constructor() { }
 
   ngAfterContentInit(): void {
     this._panels.toArray().forEach(panel => {
@@ -34,11 +33,13 @@ export class NpUiAccordionComponent implements AfterContentInit {
 
   _onOpenPanel(panel: NpUiPanelComponent) {
     panel._isMinimize = false;
-    this._panels.toArray().forEach(_p => {
-      if (_p.id != panel.id) {
-        _p._isMinimize = true;
-      }
-    });
+    if (this.singleOpenAtOnce) {
+      this._panels.toArray().forEach(_p => {
+        if (_p.id != panel.id) {
+          _p._isMinimize = true;
+        }
+      });
+    }
   }
 
   expandByIndex(idx: number) {

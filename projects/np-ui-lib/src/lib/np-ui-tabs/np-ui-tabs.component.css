@@ -6,7 +6,7 @@
 .np-tab-body {
     border: 1px solid #000000;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 10px;
     flex: 1;
     overflow: auto;
 }

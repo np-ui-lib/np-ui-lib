@@ -38,6 +38,9 @@ export class NpUiPanelComponent implements OnInit {
   }
 
   _toggleMinimize() {
+    if (!this.allowToMinimize) {
+      return;
+    }
     this._isMinimize = !this._isMinimize;
     if (this._onOpen && !this._isMinimize) {
       this._onOpen.emit(this);
