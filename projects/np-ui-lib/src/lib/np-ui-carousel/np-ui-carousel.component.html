@@ -1,28 +1,33 @@
 <div [ngClass]="'np-cs-component'" [class]="styleClass">
-    <div class="np-cs-container">
-        <ng-container *ngFor="let img of items; let i = index">
-            <div class="np-cs-slide np-cs-fade" [ngClass]="{'np-cs-slide-active':_currentSlideIndex == i}">
-                <div class="np-cs-numbertext">{{i + 1}} / {{items.length}}</div>
-                <img class="np-cs-img" [src]="img.imageUrl" [style.max-height.px]="height">
-                <div *ngIf="img.caption" class="np-cs-text" [innerHtml]="img.caption"></div>
+    <div class="np-row np-no-gutters align-items-center">
+        <div class="np-col-auto">
+            <button type="button" class="np-btn np-btn-icon np-border" (click)="_minusSlides()">
+                <svg class="np-icon" viewBox="0 0 24 24">
+                    <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    <path fill="none" d="M0 0h24v24H0V0z" />
+                </svg>
+            </button>
+        </div>
+        <div class="np-col-auto np-cs-items">
+            <div class="np-row np-no-gutters justify-content-around align-items-center">
+                <div class="np-col-auto np-cs-item" *ngFor="let item of items;let i = index" [ngClass]="{'np-cs-item-active': _isActive(i)}">
+                    <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}">
+                    </ng-template>
+                </div>
             </div>
-        </ng-container>
-        <a class="np-cs-prev" (click)="minusSlides()">
-            <svg class="np-icon" viewBox="0 0 24 24">
-                <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
-                <path fill="none" d="M0 0h24v24H0V0z" />
-            </svg>
-        </a>
-        <a class="np-cs-next" (click)="plusSlides()">
-            <svg class="np-icon" viewBox="0 0 24 24">
-                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                <path fill="none" d="M0 0h24v24H0V0z" />
-            </svg>
-        </a>
-    </div>
-    <div class="np-cs-dot-list">
-        <ng-container *ngFor="let img of items; let i = index">
-            <span class="np-cs-dot" [ngClass]="{'np-cs-active':_currentSlideIndex == i}" (click)="currentSlide(i)"></span>
-        </ng-container>
+        </div>
+        <div class="np-col-auto">
+            <button type="button" class="np-btn np-btn-icon np-border" (click)="_plusSlides()">
+                <svg class="np-icon" viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                    <path fill="none" d="M0 0h24v24H0V0z" />
+                </svg>
+            </button>
+        </div>
+        <div class="np-cs-dot-list">
+            <ng-container *ngFor="let img of _getEmptyArray(_totalPages); let i = index">
+                <span class="np-cs-dot" [ngClass]="{'np-cs-active': currentPage == i}" (click)="_goToPage(i)"></span>
+            </ng-container>
+        </div>
     </div>
 </div>

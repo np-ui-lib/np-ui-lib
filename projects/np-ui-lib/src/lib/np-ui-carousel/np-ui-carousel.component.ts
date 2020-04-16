@@ -1,58 +1,79 @@
-import { Component, Input, OnDestroy, AfterContentInit } from '@angular/core';
-import { CarouselItem } from './np-ui-carousel.model';
+import { Component, Input, OnDestroy, AfterContentInit, TemplateRef, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'np-ui-carousel',
   templateUrl: './np-ui-carousel.component.html',
   styleUrls: ['./np-ui-carousel.component.css']
 })
-export class NpUiCarouselComponent implements AfterContentInit, OnDestroy {
+export class NpUiCarouselComponent implements AfterContentInit, OnDestroy, OnChanges {
 
-  @Input() items: CarouselItem[] = [];
-
-  @Input() automaticSlideChange: boolean;
-
-  @Input() slideChangeTime: number;
-
+  @Input() items: any[] = [];
+  @Input() autoPlay: boolean;
+  @Input() autoPlayInterval: number = 5000;
   @Input() styleClass: string;
-
-  @Input() height: number;
-
-  _currentSlideIndex: number;
-
+  @Input() itemTemplate: TemplateRef<any>;
+  @Input() visibleNum: number = 1;
+  @Input() currentPage: number = 0;
+  _totalPages: number;
   _interval: any;
+  _start: number;
+  _end: number;
 
   ngOnDestroy(): void {
-    if (this.automaticSlideChange) {
+    if (this.autoPlay) {
       clearInterval(this._interval);
     }
   }
 
   ngAfterContentInit(): void {
-    this._currentSlideIndex = 0;
-    if (this.automaticSlideChange) {
-      this.setAutoSlideChange();
+    this.currentPage = 0;
+    this._getSlidesFromPage();
+    if (this.autoPlay) {
+      this._setAutoSlideChange();
     }
   }
 
-  plusSlides() {
-    var idx = this._currentSlideIndex + 1;
-    this._currentSlideIndex = idx >= this.items.length ? 0 : idx;
+  ngOnChanges(): void {
+    this._totalPages = Math.round(this.items.length / this.visibleNum);
   }
 
-  minusSlides() {
-    var idx = this._currentSlideIndex - 1;
-    this._currentSlideIndex = idx < 0 ? (this.items.length - 1) : idx;
+  _getSlidesFromPage() {
+    this._start = (this.currentPage * this.visibleNum);
+    this._end = this._start + this.visibleNum - 1;
   }
 
-  currentSlide(n: number) {
-    this._currentSlideIndex = n;
+  _plusSlides() {
+    var idx = this.currentPage + 1;
+    this.currentPage = idx >= this._totalPages ? 0 : idx;
+    this._getSlidesFromPage();
   }
 
-  setAutoSlideChange() {
+  _minusSlides() {
+    var idx = this.currentPage - 1;
+    this.currentPage = idx < 0 ? (this._totalPages - 1) : idx;
+    this._getSlidesFromPage();
+  }
+
+  _setAutoSlideChange() {
     this._interval = setInterval(() => {
-      this.plusSlides();
-    }, this.slideChangeTime ? this.slideChangeTime : 5000);
+      this._plusSlides();
+    }, this.autoPlayInterval);
+  }
+
+  _goToPage(page: number) {
+    this.currentPage = page;
+    this._getSlidesFromPage();
+  }
+
+  _getEmptyArray(i: number) {
+    return new Array(i);
+  }
+
+  _isActive(idx: number) {
+    if (idx >= this._start && idx <= this._end) {
+      return true;
+    }
+    return false;
   }
 
 }

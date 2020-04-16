@@ -7,9 +7,20 @@
 </div>
 
 <fieldset>
-    <np-ui-carousel [items]="items"></np-ui-carousel>
+    <np-ui-carousel [items]="items" [itemTemplate]="itemTemplate" [autoPlay]="true">
+    </np-ui-carousel>
 </fieldset>
 
 <fieldset>
-    <np-ui-carousel [items]="items" [automaticSlideChange]="true" [height]="200"></np-ui-carousel>
+    <np-ui-carousel [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="3"></np-ui-carousel>
 </fieldset>
+
+<ng-template #itemTemplate let-item="item">
+    <img [src]="item.imageUrl">
+</ng-template>
+
+<ng-template #itemTemplate2 let-item="item">
+    <h1 style="text-align: center;">{{item}}</h1>
+    <h3 style="text-align: center;">{{item}}</h3>
+    <h5 style="text-align: center;">{{item}}</h5>
+</ng-template>

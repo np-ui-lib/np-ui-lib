@@ -1,74 +1,23 @@
 .np-cs-component {
     height: 100%;
-    position: relative;
 }
 
-.np-cs-slide {
+.np-cs-items {
+    flex: 1;
+}
+
+.np-cs-item {
     display: none;
-    height: 100%;
 }
 
-.np-cs-slide-active {
+.np-cs-item-active {
     display: block;
-}
-
-.np-cs-img {
-    vertical-align: middle;
-    width: 100%;
-}
-
-.np-cs-container {
-    position: relative;
-    margin: auto;
-    height: 100%;
-}
-
-.np-cs-prev,
-.np-cs-next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    transition: 0.6s ease;
-    user-select: none;
-}
-
-.np-cs-next {
-    right: 0;
-}
-
-.np-cs-prev:hover,
-.np-cs-next:hover {
-    background-color: #dfdfdf;
-}
-
-.np-cs-text {
-    color: #f2f2f2;
-    padding: 8px 0px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-}
-
-.np-cs-numbertext {
-    color: #f2f2f2;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
 }
 
 .np-cs-dot-list {
     padding: 5px;
     text-align: center;
-    position: absolute;
-    bottom: 0px;
     width: 100%;
-    z-index: 2;
 }
 
 .np-cs-dot {
@@ -84,29 +33,4 @@
 .np-cs-active,
 .np-cs-dot:hover {
     background-color: #717171;
-}
-
-.np-cs-fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-    from {
-        opacity: .4
-    }
-    to {
-        opacity: 1
-    }
-}
-
-@keyframes fade {
-    from {
-        opacity: .4
-    }
-    to {
-        opacity: 1
-    }
 }

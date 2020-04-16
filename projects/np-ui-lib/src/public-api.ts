@@ -52,7 +52,6 @@ export * from './lib/np-ui-progress/np-ui-progress.component';
 /**Carousel */
 export * from './lib/np-ui-carousel/np-ui-carousel.module';
 export * from './lib/np-ui-carousel/np-ui-carousel.component';
-export * from './lib/np-ui-carousel/np-ui-carousel.model';
 
 /**Tabs */
 export * from './lib/np-ui-tabs/np-ui-tabs.module';
