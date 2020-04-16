@@ -11,14 +11,10 @@
 }
 
 .np-ac-search-item {
-    padding: 5px;
-    border-bottom: 1px solid #000000;
+    padding: 5px 10px;
     box-sizing: border-box;
     min-height: 32px;
-}
-
-.np-col-12:last-child .np-ac-search-item {
-    border-bottom: none;
+    cursor: pointer;
 }
 
 .np-ac-search-item:hover {

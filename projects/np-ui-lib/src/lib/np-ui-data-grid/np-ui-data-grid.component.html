@@ -1,4 +1,4 @@
-<div [ngClass]="{'np-dg-component': true, 'np-loader-target':_showLoader}" [style.max-height.px]="height" [style.max-width.px]="width" [id]="_tableId" [class]="styleClass">
+<div [ngClass]="{'np-dg-component': true, 'np-loader-target':_showLoader}" [style.max-height.px]="height" [style.max-width.px]="width" [class]="styleClass">
     <div *ngIf="_showLoader" class="np-loader-background">
     </div>
     <div *ngIf="_showLoader" class="np-loader"></div>
@@ -212,7 +212,7 @@
     <div class="np-dg-pagination" *ngIf="_pager && _pager.pages && _pager.pages.length > 0">
         <div class="np-row np-no-gutters justify-content-between np-overflow-auto">
             <div class="np-col-auto">
-                <div class="np-row np-no-gutters justify-content-between align-items-center">
+                <div class="np-row np-no-gutters justify-content-between align-items-center np-pad-5">
                     <div class="np-col-auto np-pr-5">
                         <button type="button" class="np-btn np-btn-icon np-border" title="First page" [ngClass]="{'np-disabled':_pager.currentPage === 1}" (click)="_getCurrentViewData(1)">
                             <svg class="np-icon" viewBox="0 0 24 24">
@@ -250,7 +250,7 @@
                 </div>
             </div>
             <div class="np-col-auto">
-                <div class="np-row np-no-gutters align-items-center">
+                <div class="np-row np-no-gutters justify-content-between align-items-center np-pad-5">
                     <div class="np-col-auto np-pr-5">
                         <input type="number" class="np-form-control" [(ngModel)]="pageSize" (change)="_onPageSizeChange()">
                     </div>

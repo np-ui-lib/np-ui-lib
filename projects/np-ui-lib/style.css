@@ -557,6 +557,10 @@ textarea {
     cursor: pointer;
 }
 
+.np-pad-5 {
+    padding: 5px;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);

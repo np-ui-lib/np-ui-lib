@@ -77,9 +77,6 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
   _dataTypes = DataTypes;
   _sortDirections = SortDirections;
 
-  @Input() tableId: string;
-  _tableId: string;
-
   @Input() showColumnChooser: boolean;
   _isOpenColumnChooser: boolean = false;
 
@@ -147,7 +144,6 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
     this._currentStateName = "";
     this._isFilterAvailable = false;
     this.showFilters = true;
-    this._tableId = "tbl-" + Math.floor(Math.random() * 6 + 1);
   }
 
   ngOnInit() {
@@ -159,9 +155,6 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
   ngAfterContentInit() {
     if (this.masterDetailTemplate) {
       this._enableMasterChild = true;
-    }
-    if (this.tableId) {
-      this._tableId = this.tableId;
     }
     this._setColumns();
     if (this.key) {
