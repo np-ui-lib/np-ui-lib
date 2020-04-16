@@ -74,3 +74,6 @@ export * from './lib/np-ui-modal/np-ui-modal-header.component';
 export * from './lib/np-ui-modal/np-ui-modal-content.component';
 export * from './lib/np-ui-modal/np-ui-modal-footer.component';
 
+/**Tags */
+export * from './lib/np-ui-tags/np-ui-tags.module';
+export * from './lib/np-ui-tags/np-ui-tags.component';

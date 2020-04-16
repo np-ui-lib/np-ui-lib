@@ -38,6 +38,7 @@
         "Tabs",
         "Accordion",
         "Alert",
-        "Modal"
+        "Modal",
+        "Tags"
     ]
 }

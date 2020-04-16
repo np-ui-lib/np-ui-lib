@@ -1,54 +1,47 @@
-import {
-  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit
-} from "@angular/core";
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
 import { TemplatePortal } from "@angular/cdk/portal";
 import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'np-ui-auto-complete',
-  templateUrl: './np-ui-auto-complete.component.html',
-  styleUrls: ['./np-ui-auto-complete.component.css'],
+  selector: 'np-ui-tags',
+  templateUrl: './np-ui-tags.component.html',
+  styleUrls: ['./np-ui-tags.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => NpUiAutoCompleteComponent),
+      useExisting: forwardRef(() => NpUiTagsComponent),
       multi: true
     }
   ]
 })
-export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
+export class NpUiTagsComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
 
-  _innerValue: any;
+  _innerValue: any[];
   _isDisabled: boolean = false;
   private onChangeCallback: (_: any) => void;
   private onTouchedCallback: () => void;
 
-  @Input() searchResult: BehaviorSubject<any[]>;
   _subscription: Subscription;
   _searchResult: any[];
   _displayValue: string;
   _searchTimeout: any;
+  _isLoading: boolean = false;
 
-  @Output() onSearch: EventEmitter<any> = new EventEmitter();
-
+  @Input() searchResult: BehaviorSubject<any[]>;
   @Input() placeholder: string = "";
   @Input() styleClass: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
-
-  _isLoading: boolean = false;
-
+  @Input() isServerSide: boolean;
   @Input() allowCreateNew: boolean;
-
   @Input() displayKey: string;
-
   @Input() optionTemplate: TemplateRef<any>;
-
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
+  @Output() onSearch: EventEmitter<any> = new EventEmitter();
 
   @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
   private templatePortal: TemplatePortal<any>;
@@ -63,18 +56,17 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterVie
 
   ngAfterContentInit(): void {
     this._subscription = this.searchResult.subscribe((data) => {
-      if (data) {
-        this.overlayRef.detach();
-      }
       if (this.maxResultLimit && this.maxResultLimit > 0 && data && data.length > this.maxResultLimit) {
         this._searchResult = data.splice(0, this.maxResultLimit);
       } else {
         this._searchResult = data;
       }
-      this._isLoading = false;
-      if (data) {
-        if (!this.overlayRef.hasAttached()) {
-          this.overlayRef.attach(this.templatePortal);
+      if (this.isServerSide) {
+        this._isLoading = false;
+        if (data) {
+          if (!this.overlayRef.hasAttached()) {
+            this.overlayRef.attach(this.templatePortal);
+          }
         }
       }
     });
@@ -117,14 +109,13 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterVie
     }
   }
 
-  get value(): any {
+  get value(): any[] {
     return this._innerValue ? this._innerValue : null;
   };
 
-  set value(v: any) {
+  set value(v: any[]) {
     if (v !== this._innerValue) {
       this._innerValue = v;
-      this._displayValue = this.displayKey && v ? v[this.displayKey] : v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
       if (this.onChange) {
@@ -136,7 +127,6 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterVie
   writeValue(v: any): void {
     if (v !== this._innerValue) {
       this._innerValue = v;
-      this._displayValue = this.displayKey && v ? v[this.displayKey] : v;
     }
   }
 
@@ -153,11 +143,7 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterVie
   }
 
   _close() {
-    if (this.value) {
-      this._displayValue = this.displayKey && this.value ? this.value[this.displayKey] : this.value;
-    } else {
-      this._displayValue = null;
-    }
+    this._displayValue = null;
     this.overlayRef.detach();
   }
 
@@ -166,11 +152,13 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterVie
       return;
     }
     this.value = null;
-    this._searchResult = null;
+    if (this.isServerSide) {
+      this._searchResult = null;
+    }
   }
 
   _onInput() {
-    if (this._isDisabled) {
+    if (this._isDisabled || !this.isServerSide) {
       return;
     }
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
@@ -188,15 +176,30 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterVie
   }
 
   _selectValue(val: any) {
-    this.value = val;
-    this._close();
+    if (this._isSelected(val)) {
+      this._removeTag(val);
+      return;
+    }
+    if (!this.value) {
+      this.value = [val];
+    } else {
+      this.value.push(val);
+    }
   }
 
   _onFocus() {
     this.onTouchedCallback();
+    if (!this.isServerSide) {
+      if (!this.overlayRef.hasAttached()) {
+        this.overlayRef.attach(this.templatePortal);
+      }
+    }
   }
 
   _createNewTag() {
+    if (this._isAlreadyCreated()) {
+      return;
+    }
     if (this._searchResult == undefined || this._searchResult == null) {
       this._searchResult = [];
     }
@@ -209,5 +212,74 @@ export class NpUiAutoCompleteComponent implements ControlValueAccessor, AfterVie
       this._searchResult.push(this._displayValue);
       this._selectValue(this._displayValue);
     }
+    this._displayValue = null;
+  }
+
+  _isAlreadyCreated() {
+    if (!this._innerValue) {
+      return false;
+    }
+    if (this.displayKey) {
+      var tag = {};
+      tag[this.displayKey] = this._displayValue;
+      var idx = this._innerValue.findIndex(function (element) {
+        if (JSON.stringify(element) == JSON.stringify(tag)) {
+          return tag;
+        }
+      });
+      if (idx > -1) {
+        return true;
+      }
+    } else {
+      var idx = this._innerValue.indexOf(this._displayValue);
+      if (idx > -1) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  _getDisplayValue(val: any) {
+    return this.displayKey ? val[this.displayKey] : val;
+  }
+
+  _removeTag(tag: any) {
+    if (this.displayKey) {
+      var idx = this._innerValue.findIndex(function (element) {
+        if (JSON.stringify(element) == JSON.stringify(tag)) {
+          return tag;
+        }
+      });
+      if (idx > -1) {
+        this._innerValue.splice(idx, 1);
+      }
+      return;
+    }
+    var idx = this._innerValue.indexOf(tag);
+    if (idx > -1) {
+      this._innerValue.splice(idx, 1);
+    }
+  }
+
+  _isSelected(tag: any) {
+    if (!this._innerValue || this._innerValue.length == 0) {
+      return false;
+    }
+    if (this.displayKey) {
+      var idx = this._innerValue.findIndex(function (element) {
+        if (JSON.stringify(element) == JSON.stringify(tag)) {
+          return tag;
+        }
+      });
+      if (idx > -1) {
+        return true;
+      }
+    } else {
+      var idx = this._innerValue.indexOf(tag);
+      if (idx > -1) {
+        return true;
+      }
+    }
+    return false;
   }
 }

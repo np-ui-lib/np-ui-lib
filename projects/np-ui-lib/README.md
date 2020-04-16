@@ -10,6 +10,7 @@ npm i np-ui-lib
 1. [Color Picker](https://github.com/NilavPatel/np-ui-package/wiki/Color-Picker)
 1. [Switch](https://github.com/NilavPatel/np-ui-package/wiki/Switch)
 1. [Auto Complete](https://github.com/NilavPatel/np-ui-package/wiki/Auto-Complete)
+1. [Tags](https://github.com/NilavPatel/np-ui-package/wiki/Tags)
 1. [Data Grid](https://github.com/NilavPatel/np-ui-package/wiki/Data-Grid)
 1. [Alert](https://github.com/NilavPatel/np-ui-package/wiki/Alert)
 1. [Notification](https://github.com/NilavPatel/np-ui-package/wiki/Notification)

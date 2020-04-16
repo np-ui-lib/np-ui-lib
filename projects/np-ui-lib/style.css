@@ -255,6 +255,7 @@ textarea {
     margin-bottom: 0;
     border-color: transparent;
     min-height: 30px;
+    outline: none;
 }
 
 .np-input-group .np-btn {
@@ -268,6 +269,7 @@ textarea {
     white-space: nowrap;
     vertical-align: middle;
     user-select: none;
+    outline: none;
     padding: 0px 5px;
     transition: all .2s ease-in-out;
     background-color: #dfdfdf;
@@ -523,7 +525,6 @@ textarea {
 .np-loader-target {
     position: relative;
     pointer-events: none;
-    z-index: 5;
 }
 
 .np-loader-background {
@@ -533,7 +534,7 @@ textarea {
     opacity: 0.3;
     position: absolute;
     top: 0px;
-    z-index: 1007;
+    z-index: 2000;
 }
 
 .np-loader {
@@ -549,7 +550,7 @@ textarea {
     border-radius: 50%;
     color: #007bff!important;
     animation: spin 1s linear infinite;
-    z-index: 1008;
+    z-index: 2001;
 }
 
 .np-cursor-pointer {
