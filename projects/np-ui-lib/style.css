@@ -11,6 +11,10 @@ textarea {
     resize: vertical
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .np-icon {
     display: inline-block;
     width: 24px;
@@ -19,8 +23,8 @@ textarea {
 
 .np-icon-sm {
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     padding: 3px;
 }
 
@@ -50,7 +54,6 @@ textarea {
     max-width: 100%;
     padding-right: 12px;
     padding-left: 12px;
-    box-sizing: border-box;
 }
 
 .np-col-auto {
@@ -224,7 +227,6 @@ textarea {
     color: #495057;
     background-color: #ffffff;
     border: 1px solid #000000;
-    box-sizing: border-box;
     width: 100%;
     min-height: 32px;
 }
@@ -240,7 +242,6 @@ textarea {
     align-items: stretch;
     width: 100%;
     border: 1px solid #000000;
-    box-sizing: border-box;
 }
 
 .input-group-prepend,
@@ -274,7 +275,6 @@ textarea {
     transition: all .2s ease-in-out;
     background-color: #dfdfdf;
     border: 1px solid #000000;
-    box-sizing: border-box;
     margin: 5px 0px;
     min-width: 50px;
     height: 32px;
@@ -478,7 +478,6 @@ textarea {
     padding-left: 12px;
     margin-right: auto;
     margin-left: auto;
-    box-sizing: border-box;
 }
 
 .np-form-group {

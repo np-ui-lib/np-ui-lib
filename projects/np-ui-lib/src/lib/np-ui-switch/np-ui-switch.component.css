@@ -2,7 +2,6 @@
     width: 100px;
     user-select: none;
     border: 1px solid #000000;
-    box-sizing: border-box;
 }
 
 .ng-invalid:not(form) .np-sw-component {

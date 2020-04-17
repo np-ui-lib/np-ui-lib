@@ -5,7 +5,6 @@
 
 .np-tab-body {
     border: 1px solid #000000;
-    box-sizing: border-box;
     padding: 10px;
     flex: 1;
     overflow: auto;
@@ -18,7 +17,6 @@
     border-top: 1px solid #000000;
     border-right: 1px solid #000000;
     border-left: 1px solid #000000;
-    box-sizing: border-box;
     display: inline-block;
     min-width: 75px;
     cursor: pointer;
