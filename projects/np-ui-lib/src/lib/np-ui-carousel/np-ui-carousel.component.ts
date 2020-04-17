@@ -26,7 +26,6 @@ export class NpUiCarouselComponent implements AfterContentInit, OnDestroy, OnCha
   }
 
   ngAfterContentInit(): void {
-    this.currentPage = 0;
     this._getSlidesFromPage();
     if (this.autoPlay) {
       this._setAutoSlideChange();
