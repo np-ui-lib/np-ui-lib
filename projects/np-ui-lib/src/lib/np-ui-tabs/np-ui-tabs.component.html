@@ -1,13 +1,13 @@
 <div [class]="styleClass" [ngClass]="{'np-tabs-component': true, 'np-loader-target': _isShowLoader}" [style.max-height.px]="_height">
-    <div class="np-tab-header">
-        <div class="np-tab-title" *ngFor="let tab of _tabs" (click)="_selectTab(tab)" [ngClass]="{'np-active-tab':tab.active,'np-disabled': tab.disabled}">
+    <ul class="np-tab-header">
+        <li class="np-tab-title" *ngFor="let tab of _tabs" (click)="_selectTab(tab)" [ngClass]="{'np-active-tab':tab.active,'np-disabled': tab.disabled}">
             <ng-container *ngIf="!tab._titleIsTemplate">
                 <div [innerHtml]="tab.title"></div>
             </ng-container>
             <ng-template *ngIf="tab._titleIsTemplate" [ngTemplateOutlet]="tab.title">
             </ng-template>
-        </div>
-    </div>
+        </li>
+    </ul>
     <div class="np-tab-body">
         <ng-content></ng-content>
     </div>
