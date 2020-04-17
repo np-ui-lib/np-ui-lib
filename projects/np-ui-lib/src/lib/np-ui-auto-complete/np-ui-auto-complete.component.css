@@ -28,3 +28,7 @@
 .ng-touched.ng-invalid:not(form) .np-input-group .np-icon-sm {
     fill: #d9534f;
 }
+
+.np-ac-bg-gray {
+    background-color: #dfdfdf;
+}

@@ -50,12 +50,12 @@
                 </div>
             </div>
             <div class="np-col-12" *ngIf="_searchResult && _searchResult.length===0">
-                <div class="np-tg-search-item np-disabled">
+                <div class="np-tg-search-item np-disabled np-ac-tg-gray">
                     <b>No Result Found.</b>
                 </div>
             </div>
             <div class="np-col-12" *ngIf="allowCreateNew && _displayValue">
-                <div class="np-tg-search-item" (click)="_createNewTag()">
+                <div class="np-tg-search-item np-ac-tg-gray" (click)="_createNewTag()">
                     <b>Create New</b>
                 </div>
             </div>

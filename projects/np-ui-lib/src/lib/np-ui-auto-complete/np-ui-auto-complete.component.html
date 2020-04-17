@@ -32,12 +32,12 @@
                 </div>
             </div>
             <div class="np-col-12" *ngIf="_searchResult && _searchResult.length===0">
-                <div class="np-ac-search-item np-disabled">
+                <div class="np-ac-search-item np-disabled np-ac-bg-gray">
                     <b>No Result Found.</b>
                 </div>
             </div>
             <div class="np-col-12" *ngIf="allowCreateNew && _displayValue">
-                <div class="np-ac-search-item" (click)="_createNewTag()">
+                <div class="np-ac-search-item np-ac-bg-gray" (click)="_createNewTag()">
                     <b>Create New</b>
                 </div>
             </div>
