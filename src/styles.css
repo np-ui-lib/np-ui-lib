@@ -14,7 +14,7 @@ body {
 
 .nav {
     margin: 5px;
-    width: 250px;
+    min-width: 200px;
     overflow-x: hidden;
 }
 
@@ -26,32 +26,46 @@ body {
     height: 100%;
 }
 
-.nav li {
+.nav-inline {
+    overflow-x: hidden;
+}
+
+.nav-inline-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #dfdfdf;
+    height: 100%;
+}
+
+.nav-inline-menu li {
+    display: inline-block;
+    min-width: 250px;
+}
+
+.nav li,
+.nav-inline li {
     cursor: pointer;
 }
 
-.nav li a {
+.nav li a,
+.nav-inline li a {
     display: block;
     color: #000;
     padding: 8px;
     text-decoration: none;
 }
 
-.nav li a.active {
+.nav li a.active,
+.nav-inline li a.active {
     background-color: #4CAF50;
     color: #ffffff;
 }
 
-.nav li a:hover:not(.active) {
+.nav li a:hover:not(.active),
+.nav-inline li a:hover:not(.active) {
     background-color: #555;
     color: #ffffff;
-}
-
-.nav-sub-menu {
-    list-style-type: none;
-    padding: 0px;
-    background-color: #f1f1f1;
-    height: 100%;
 }
 
 .main-container {

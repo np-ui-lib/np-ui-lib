@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { NpUiDataGridDemoRoutingModule } from './np-ui-data-grid-demo-routing.module';
 import { NpUiDataGridDemoComponent } from './np-ui-data-grid-demo.component';
@@ -20,8 +22,6 @@ import { ClientGridAllComponent } from './client-grid-all/client-grid-all.compon
 import { ServerGridAllComponent } from './server-grid-all/server-grid-all.component';
 import { OdataGridComponent } from './odata-grid/odata-grid.component';
 import { InsideTabGridComponent } from './inside-tab-grid/inside-tab-grid.component';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,6 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     NpUiSwitchModule,
     NpUiPanelModule
-  ],
-  bootstrap: [NpUiDataGridDemoComponent]
+  ]
 })
 export class NpUiDataGridDemoModule { }
