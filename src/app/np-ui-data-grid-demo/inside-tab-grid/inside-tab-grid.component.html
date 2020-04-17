@@ -4,7 +4,9 @@
     </a>
 </h2>
 
-<np-ui-panel title="Emplyee List" [height]="400" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true">
-    <np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [pageSize]="20">
-    </np-ui-data-grid>
-</np-ui-panel>
+<np-ui-tabs title="Emplyee List">
+    <np-ui-tab [title]="'Employees'" [id]="'tabEmployees'" [height]="500">
+        <np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [pageSize]="20" [height]="400">
+        </np-ui-data-grid>
+    </np-ui-tab>
+</np-ui-tabs>

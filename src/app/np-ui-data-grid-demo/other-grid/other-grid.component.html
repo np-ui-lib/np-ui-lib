@@ -16,9 +16,6 @@
 <p>To set width of data grid, set <b>width</b> property in grid defination.</p>
 <p>Example: <code>[width]="1000"</code>. No need to pass "px" as this value will be considered in pixels only.</p>
 
-<h4>stickyHeader</h4>
-<p>To set sticky headers in data grid set <b>stickyHeader</b> to true.</p>
-
 <h4>title</h4>
 <p>To show title message on grid, set <b>title</b> property in grid defination.</p>
 <p>Example <code>[title]="'All Employees in company.'"</code></p>
@@ -31,5 +28,5 @@
 <h4>pageSize</h4>
 <p>To set default pagesize for data grid, set <b>pageSize</b> property.</p>
 
-<np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [key]="'Id'" [height]="500" [width]="1000" [stickyHeader]="true" [pageSize]=5>
+<np-ui-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [key]="'Id'" [height]="500" [width]="1000" [pageSize]=5>
 </np-ui-data-grid>

@@ -57,8 +57,6 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
   @Input() expandRowOnClick: boolean = false;
   _openRowKeys: any[] = [];
 
-  @Input() stickyHeader: boolean = false;
-
   _showLoader: boolean = false;
 
   @Input() singleRowSelectEnable: boolean = false;

@@ -188,6 +188,7 @@
 .np-dg-no-data-message {
     padding: 0px 5px;
     text-align: center;
+    line-height: 32px;
 }
 
 .np-dg-checkbox {
