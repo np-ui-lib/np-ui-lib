@@ -1,6 +1,5 @@
 <h2>
-    <a class="github-link" title="Go to github repository" target="_blank"
-        href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/odata-grid">
+    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-data-grid-demo/odata-grid">
         OData Example
     </a>
 </h2>
@@ -12,11 +11,8 @@
 
 <p>OData Query: {{odataQuery}}</p>
 
-<np-ui-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [singleRowSelectEnable]="true"
-    [multiColumnSortEnable]="true" [title]="'Server side data grid'" [showColumnChooser]="true" [showToolBar]="true"
-    [allowExportToCSV]="true" [enableStateStoring]="true" [showSummary]="true" [summaryTemplate]="summaryTemplate"
-    [allowColumnReorder]="true" [allowColumnResize]="true" [isServerOperations]="true" [isODataOperations]="true"
-    (onLoadData)="onLoadData($event)">
+<np-ui-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [singleRowSelectEnable]="true" [multiColumnSortEnable]="true" [title]="'Server side data grid'" [showColumnChooser]="true" [showToolBar]="true" [allowExport]="true"
+    [enableStateStoring]="true" [showSummary]="true" [summaryTemplate]="summaryTemplate" [allowColumnReorder]="true" [allowColumnResize]="true" [isServerOperations]="true" [isODataOperations]="true" (onLoadData)="onLoadData($event)">
 </np-ui-data-grid>
 
 <!-- Template for birthdate column -->

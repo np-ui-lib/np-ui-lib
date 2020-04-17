@@ -1,6 +1,8 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewEncapsulation, ViewChild, ViewContainerRef, ElementRef, AfterContentInit, AfterViewInit } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { OverlayRef, ConnectedPosition, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { Column } from './models/column.model';
 import { Constants, DataTypes, FilterTypes, SortDirections } from './models/constants';
 import { DataSource } from './models/data-source.model';
@@ -12,8 +14,6 @@ import { NpFilterService } from './services/np-ui-filter.service';
 import { NpODataService } from './services/np-ui-odata.service';
 import { NpPagerService } from './services/np-ui-pager.service';
 import { NpUtilityService } from './services/np-ui-utility.service';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { OverlayRef, ConnectedPosition, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { NpUiModalComponent } from '../np-ui-modal/np-ui-modal.component';
 
 @Component({
@@ -108,7 +108,9 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
 
   @Input() isODataOperations: boolean = false;
 
-  @Input() allowExportToCSV: boolean = false;
+  @Input() allowExport: boolean = false;
+  @Input() isServerExport: boolean = false;
+  @Output() onServerExport: EventEmitter<LoadOptions> = new EventEmitter();
 
   @Input() showToolBar: boolean = false;
 
@@ -919,7 +921,22 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
     $event.source.reset();
   }
 
-  _exportAsCSV() {
+  _exportToFile() {
+    if (this.isServerExport) {
+      var loadOpt = new LoadOptions();
+      if (this.isODataOperations) {
+        loadOpt.odataQuery = this.oDataService.buildQuery(0, 0, this._sortColumnList, this._filterColumnList, "allpages");
+        loadOpt.isAllPages = true;
+      } else {
+        loadOpt.pageNumber = 1;
+        loadOpt.pageSize = this._pager.totalItems;
+        loadOpt.sortColumns = this._sortColumnList;
+        loadOpt.filterColumns = this._filterColumnList;
+        loadOpt.isAllPages = true;
+      }
+      this.onServerExport.emit(loadOpt);
+      return;
+    }
     this.showLoader();
     if (this.isServerOperations) {
       var loadOpt = new LoadOptions();
