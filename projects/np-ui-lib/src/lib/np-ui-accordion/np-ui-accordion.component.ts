@@ -18,7 +18,7 @@ export class NpUiAccordionComponent implements AfterContentInit {
 
   ngAfterContentInit(): void {
     this._panels.toArray().forEach(panel => {
-      panel._isMinimize = true;
+      panel.isOpen = false;
       panel.allowToMinimize = true;
       panel.allowToClose = false;
       panel.allowToZoom = false;
@@ -26,17 +26,20 @@ export class NpUiAccordionComponent implements AfterContentInit {
         this._onOpenPanel(_p);
       });
     });
-    if (this.defaultOpenIndex != undefined && this.defaultOpenIndex != null && this.defaultOpenIndex >= 0) {
+    if (this.defaultOpenIndex >= 0) {
       this.expandByIndex(this.defaultOpenIndex);
     }
   }
 
   _onOpenPanel(panel: NpUiPanelComponent) {
-    panel._isMinimize = false;
+    if (panel.disabled) {
+      return;
+    }
+    panel.isOpen = true;
     if (this.singleOpenAtOnce) {
       this._panels.toArray().forEach(_p => {
         if (_p.id != panel.id) {
-          _p._isMinimize = true;
+          _p.isOpen = false;
         }
       });
     }

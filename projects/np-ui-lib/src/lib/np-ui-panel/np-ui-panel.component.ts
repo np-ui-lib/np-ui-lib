@@ -15,7 +15,7 @@ export class NpUiPanelComponent implements OnInit {
   _isTitleTemplate: boolean;
 
   @Input() allowToMinimize: boolean;
-  _isMinimize: boolean = false;
+  @Input() isOpen: boolean = true;
 
   @Input() allowToZoom: boolean;
   _isZoom: boolean = false;
@@ -28,6 +28,8 @@ export class NpUiPanelComponent implements OnInit {
 
   @Output() _onOpen: EventEmitter<any> = new EventEmitter();
 
+  @Input() disabled: boolean;
+
   constructor(private el: ElementRef) {
   }
 
@@ -38,23 +40,29 @@ export class NpUiPanelComponent implements OnInit {
   }
 
   _toggleMinimize() {
-    if (!this.allowToMinimize) {
+    if (!this.allowToMinimize || this.disabled) {
       return;
     }
-    this._isMinimize = !this._isMinimize;
-    if (this._onOpen && !this._isMinimize) {
+    this.isOpen = !this.isOpen;
+    if (this._onOpen && this.isOpen) {
       this._onOpen.emit(this);
     }
   }
 
   _toggleZoom() {
+    if (this.disabled) {
+      return;
+    }
     this._isZoom = !this._isZoom;
     if (this._isZoom == true) {
-      this._isMinimize = false;
+      this.isOpen = true;
     }
   }
 
   _close() {
+    if (this.disabled) {
+      return;
+    }
     this.el.nativeElement.remove();
   }
 }
