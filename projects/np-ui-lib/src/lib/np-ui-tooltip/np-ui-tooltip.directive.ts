@@ -8,6 +8,7 @@ export class NpUiTooltipDirective implements AfterViewInit {
 
     @Input() text: string | TemplateRef<any>;
     @Input() placement: string;
+    @Input() styleClass: string;
 
     private overlayRef: OverlayRef;
 
@@ -36,6 +37,7 @@ export class NpUiTooltipDirective implements AfterViewInit {
         const tooltipPortal = new ComponentPortal(NpUiTooltipComponent);
         const tooltipRef: ComponentRef<NpUiTooltipComponent> = this.overlayRef.attach(tooltipPortal);
         tooltipRef.instance.tooltip = this.text;
+        tooltipRef.instance.styleClass = this.styleClass;
     }
 
     @HostListener('mouseout')

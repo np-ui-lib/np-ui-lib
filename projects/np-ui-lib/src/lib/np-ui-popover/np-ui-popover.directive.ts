@@ -14,6 +14,7 @@ export class NpUiPopoverDirective implements AfterViewInit {
     @Input() body: string | TemplateRef<any>;
     @Input() showOnClick: boolean;
     @Input() width: number;
+    @Input() styleClass: string;
 
     private overlayRef: OverlayRef;
 
@@ -68,6 +69,7 @@ export class NpUiPopoverDirective implements AfterViewInit {
         popoverRef.instance.header = this.header;
         popoverRef.instance.body = this.body;
         popoverRef.instance.width = this.width;
+        popoverRef.instance.styleClass = this.styleClass;
     }
 
     @HostListener('mouseout')

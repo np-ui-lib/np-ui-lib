@@ -34,3 +34,8 @@
 .np-cs-dot:hover {
     background-color: #717171;
 }
+
+.np-cs-btn,
+.np-cs-dot-list {
+    z-index: 1;
+}

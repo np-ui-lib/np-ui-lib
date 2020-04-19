@@ -14,6 +14,7 @@ export class NpUiPopoverComponent implements OnInit {
   _isHeaderTemplate: boolean;
   _isBodyTemplate: boolean;
   @Input() width: number;
+  @Input() styleClass: string;
 
   constructor() { }
 
