@@ -45,14 +45,16 @@
 .np-dg-columns-item {
     border-bottom: 1px solid #000000;
     background-color: #ffffff;
-    min-height: 31px;
-    padding: 0px 5px;
+    height: 32px;
+}
+
+.np-dg-columns-item .np-row {
+    height: 100%;
 }
 
 .np-dg-col-drag-placeholder {
     background-color: #fcf8e3;
-    border-bottom: 1px solid transparent;
-    min-height: 31px;
+    height: 32px;
 }
 
 .np-dg-col-drag-handle {
