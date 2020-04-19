@@ -1,13 +1,19 @@
 import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, TemplateRef } from '@angular/core';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { NpUiTooltipComponent } from './np-ui-tooltip.component';
+import { NpUiPopoverComponent } from './np-ui-popover.component';
 
-@Directive({ selector: '[np-ui-tooltip]' })
-export class NpUiTooltipDirective implements AfterViewInit {
+@Directive({
+    selector: '[np-ui-popover]',
+    exportAs: "NpUiPopoverDirective"
+})
+export class NpUiPopoverDirective implements AfterViewInit {
 
-    @Input() text: string | TemplateRef<any>;
     @Input() placement: string;
+    @Input() header: string | TemplateRef<any>;
+    @Input() body: string | TemplateRef<any>;
+    @Input() showOnClick: boolean;
+    @Input() width: number;
 
     private overlayRef: OverlayRef;
 
@@ -17,12 +23,17 @@ export class NpUiTooltipDirective implements AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.elementRef.nativeElement.className = (this.elementRef.nativeElement.className + ' np-tt-target').trim();
+        this.elementRef.nativeElement.className = (this.elementRef.nativeElement.className + ' np-pop-target').trim();
         var position: ConnectedPosition[] = this._getPosition();
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)
             .withPositions(position);
-        this.overlayRef = this.overlay.create({ positionStrategy });
+        if (this.showOnClick) {
+            this.overlayRef = this.overlay.create({ positionStrategy, hasBackdrop: true, backdropClass: "np-pop-backdrop" });
+            this.overlayRef.backdropClick().subscribe(() => this._hide());
+        } else {
+            this.overlayRef = this.overlay.create({ positionStrategy });
+        }
     }
 
     ngOnDestroy() {
@@ -32,14 +43,42 @@ export class NpUiTooltipDirective implements AfterViewInit {
     }
 
     @HostListener('mouseenter')
-    show() {
-        const tooltipPortal = new ComponentPortal(NpUiTooltipComponent);
-        const tooltipRef: ComponentRef<NpUiTooltipComponent> = this.overlayRef.attach(tooltipPortal);
-        tooltipRef.instance.tooltip = this.text;
+    _showOnMouseEnter() {
+        if (this.showOnClick) {
+            return;
+        }
+        this._show();
+    }
+
+    @HostListener('click')
+    _showOnClick() {
+        if (!this.showOnClick) {
+            return;
+        }
+        if (this.overlayRef.hasAttached()) {
+            this.overlayRef.detach();
+        } else {
+            this._show();
+        }
+    }
+
+    _show() {
+        const popoverPortal = new ComponentPortal(NpUiPopoverComponent);
+        const popoverRef: ComponentRef<NpUiPopoverComponent> = this.overlayRef.attach(popoverPortal);
+        popoverRef.instance.header = this.header;
+        popoverRef.instance.body = this.body;
+        popoverRef.instance.width = this.width;
     }
 
     @HostListener('mouseout')
-    hide() {
+    _hideOnMouseLeave() {
+        if (this.showOnClick) {
+            return;
+        }
+        this._hide();
+    }
+
+    _hide() {
         if (this.overlayRef.hasAttached()) {
             this.overlayRef.detach();
         }
@@ -95,5 +134,13 @@ export class NpUiTooltipDirective implements AfterViewInit {
                 }
         }
         return result;
+    }
+
+    show() {
+        this._show();
+    }
+
+    close() {
+        this._hide();
     }
 }

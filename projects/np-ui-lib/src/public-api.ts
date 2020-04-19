@@ -76,3 +76,8 @@ export * from './lib/np-ui-modal/np-ui-modal-footer.component';
 /**Tags */
 export * from './lib/np-ui-tags/np-ui-tags.module';
 export * from './lib/np-ui-tags/np-ui-tags.component';
+
+/**Popover */
+export * from './lib/np-ui-popover/np-ui-popover.module';
+export * from './lib/np-ui-popover/np-ui-popover.component';
+export * from './lib/np-ui-popover/np-ui-popover.directive';

@@ -1,0 +1,18 @@
+.np-pop-component {
+    border: 1px solid #000000;
+}
+
+.np-pop-target {
+    cursor: pointer;
+}
+
+.np-pop-header {
+    padding: 10px;
+    background-color: #dfdfdf;
+    border-bottom: 1px solid #000000;
+}
+
+.np-pop-body {
+    padding: 10px;
+    background-color: #ffffff;
+}

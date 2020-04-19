@@ -15,6 +15,7 @@ npm i np-ui-lib
 1. [Alert](https://github.com/NilavPatel/np-ui-package/wiki/Alert)
 1. [Notification](https://github.com/NilavPatel/np-ui-package/wiki/Notification)
 1. [Tooltip](https://github.com/NilavPatel/np-ui-package/wiki/Tooltip)
+1. [Popover](https://github.com/NilavPatel/np-ui-package/wiki/Popover)
 1. [Panel](https://github.com/NilavPatel/np-ui-package/wiki/Panel)
 1. [Accordion](https://github.com/NilavPatel/np-ui-package/wiki/Accordion)
 1. [Tabs](https://github.com/NilavPatel/np-ui-package/wiki/Tabs)

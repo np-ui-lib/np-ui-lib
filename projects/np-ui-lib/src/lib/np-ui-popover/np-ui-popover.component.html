@@ -1,0 +1,16 @@
+<div class="np-pop-component" [style.width.px]="width">
+    <div class="np-pop-header">
+        <ng-container *ngIf="!_isHeaderTemplate">
+            <div [innerHtml]="header"></div>
+        </ng-container>
+        <ng-template *ngIf="_isHeaderTemplate" [ngTemplateOutlet]="header">
+        </ng-template>
+    </div>
+    <div class="np-pop-body">
+        <ng-container *ngIf="!_isBodyTemplate">
+            <div [innerHtml]="body"></div>
+        </ng-container>
+        <ng-template *ngIf="_isBodyTemplate" [ngTemplateOutlet]="body">
+        </ng-template>
+    </div>
+</div>

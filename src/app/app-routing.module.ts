@@ -71,6 +71,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-ui-tags-demo/np-ui-tags-demo.module').then(m => m.NpUiTagsDemoModule)
   },
   {
+    path: 'np-ui-popover-demo',
+    loadChildren: () => import('./np-ui-popover-demo/np-ui-popover-demo.module').then(m => m.NpUiPopoverDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'np-ui-date-picker-demo',
     pathMatch: 'full'
