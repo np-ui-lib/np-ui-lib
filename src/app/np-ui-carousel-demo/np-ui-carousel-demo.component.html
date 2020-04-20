@@ -7,20 +7,25 @@
 </div>
 
 <fieldset>
-    <np-ui-carousel [items]="items" [itemTemplate]="itemTemplate" [autoPlay]="true">
+    <np-ui-carousel [items]="items" [itemTemplate]="itemTemplate" [autoPlay]="true" [pauseOnHover]="true">
     </np-ui-carousel>
 </fieldset>
 
 <fieldset>
-    <np-ui-carousel [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="3"></np-ui-carousel>
+    <np-ui-carousel #slider [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="3" [currentPage]="1">
+    </np-ui-carousel>
+    <button class="np-btn" (click)="selectPage2()">Go to page 2</button>
+    <button class="np-btn" (click)="addNewItem2()">Add new item</button>
 </fieldset>
 
 <ng-template #itemTemplate let-item="item">
-    <img [src]="item.imageUrl">
+    <img [src]="item.imageUrl" class="img">
 </ng-template>
 
 <ng-template #itemTemplate2 let-item="item">
-    <h1 style="text-align: center;">{{item}}</h1>
-    <h3 style="text-align: center;">{{item}}</h3>
-    <h5 style="text-align: center;">{{item}}</h5>
+    <div style="background-color: #dfdfdf; padding: 10px; height: 100%; width: 100%;">
+        <h1 style="text-align: center;">{{item}}</h1>
+        <h3 style="text-align: center;">{{item}}</h3>
+        <h5 style="text-align: center;">{{item}}</h5>
+    </div>
 </ng-template>

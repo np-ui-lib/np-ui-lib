@@ -12,6 +12,8 @@ export class NpUiPopoverDemoComponent implements OnInit {
   @ViewChild("myPopoverE") myPopoverE: NpUiPopoverDirective;
   @ViewChild("myPopoverF") myPopoverF: NpUiPopoverDirective;
 
+  showNext: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,6 +22,9 @@ export class NpUiPopoverDemoComponent implements OnInit {
   showE() {
     this.myPopoverD.close();
     this.myPopoverE.show();
+    setTimeout(() => {
+      this.showNext = true;
+    }, 2000);
   }
 
   showF() {

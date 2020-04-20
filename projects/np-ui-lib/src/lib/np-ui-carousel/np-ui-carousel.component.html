@@ -1,6 +1,6 @@
 <div [ngClass]="'np-cs-component'" [class]="styleClass">
     <div class="np-row np-no-gutters align-items-center">
-        <div class="np-col-auto">
+        <div class="np-col-auto" *ngIf="showNavigationArrows">
             <button type="button" class="np-btn np-btn-icon np-border np-cs-btn" (click)="_minusSlides()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="np-col-auto">
+        <div class="np-col-auto" *ngIf="showNavigationArrows">
             <button type="button" class="np-btn np-btn-icon np-border np-cs-btn" (click)="_plusSlides()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
@@ -24,7 +24,7 @@
                 </svg>
             </button>
         </div>
-        <div class="np-cs-dot-list">
+        <div class="np-cs-dot-list" *ngIf="showNavigationIndicators">
             <ng-container *ngFor="let img of _getEmptyArray(_totalPages); let i = index">
                 <span class="np-cs-dot" [ngClass]="{'np-cs-active': currentPage == i}" (click)="_goToPage(i)"></span>
             </ng-container>

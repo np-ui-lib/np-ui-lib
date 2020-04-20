@@ -27,7 +27,7 @@
     <a np-ui-popover #myPopoverE="NpUiPopoverDirective" [header]="'This is link E'" [body]="myPopoverEBody" [showOnClick]="true">Link E</a>
     <ng-template #myPopoverEBody>
         Description of Link E.
-        <button type="button" class="np-btn" (click)="showF()">Next</button>
+        <button *ngIf="showNext" type="button" class="np-btn" (click)="showF()">Next</button>
     </ng-template>
     <br>
     <a np-ui-popover #myPopoverF="NpUiPopoverDirective" [header]="'This is link F'" [body]="myPopoverFBody" [showOnClick]="true">Link F</a>

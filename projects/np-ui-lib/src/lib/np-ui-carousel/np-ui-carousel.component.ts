@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, AfterContentInit, TemplateRef, OnChanges } from '@angular/core';
+import { Component, Input, OnDestroy, TemplateRef, OnChanges, HostListener, AfterContentInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'np-ui-carousel',
@@ -14,6 +14,10 @@ export class NpUiCarouselComponent implements AfterContentInit, OnDestroy, OnCha
   @Input() itemTemplate: TemplateRef<any>;
   @Input() visibleNum: number = 1;
   @Input() currentPage: number = 0;
+  @Input() pauseOnHover: boolean;
+  @Input() showNavigationArrows: boolean = true;
+  @Input() showNavigationIndicators: boolean = true;
+
   _totalPages: number;
   _interval: any;
   _start: number;
@@ -32,8 +36,10 @@ export class NpUiCarouselComponent implements AfterContentInit, OnDestroy, OnCha
     }
   }
 
-  ngOnChanges(): void {
-    this._totalPages = Math.round(this.items.length / this.visibleNum);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.items && changes.items.currentValue) {
+      this._totalPages = Math.round(this.items.length / this.visibleNum);
+    }
   }
 
   _getSlidesFromPage() {
@@ -75,4 +81,33 @@ export class NpUiCarouselComponent implements AfterContentInit, OnDestroy, OnCha
     return false;
   }
 
+  @HostListener('mouseenter')
+  _onMouseEnter() {
+    if (this.pauseOnHover) {
+      this.pause();
+    }
+  }
+
+  @HostListener('mouseleave')
+  _onMouseLeave() {
+    if (this.pauseOnHover) {
+      this.start();
+    }
+  }
+
+  pause() {
+    if (this.autoPlay) {
+      clearInterval(this._interval);
+    }
+  }
+
+  start() {
+    if (this.autoPlay) {
+      this._setAutoSlideChange();
+    }
+  }
+
+  select(page: number) {
+    this._goToPage(page);
+  }
 }
