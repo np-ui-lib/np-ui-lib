@@ -2,7 +2,7 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
 
 @Component({
     selector: 'np-ui-tab',
-    templateUrl: './np-ui-tab.component.html',
+    template: '<ng-content *ngIf="active"></ng-content>',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.Default
 })
