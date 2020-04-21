@@ -4,6 +4,8 @@
 
 .np-cs-items {
     flex: 1;
+    overflow: hidden;
+    margin: 0px 5px;
 }
 
 .np-cs-item {
@@ -12,10 +14,10 @@
 
 .np-cs-item-active {
     display: block;
+    margin: 5px;
 }
 
 .np-cs-dot-list {
-    padding: 5px;
     text-align: center;
     width: 100%;
 }
@@ -33,9 +35,4 @@
 .np-cs-active,
 .np-cs-dot:hover {
     background-color: #717171;
-}
-
-.np-cs-btn,
-.np-cs-dot-list {
-    z-index: 1;
 }

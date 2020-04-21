@@ -569,6 +569,11 @@ svg {
     color: #d9534f;
 }
 
+.ng-responsive-img {
+    width: 100%;
+    height: auto;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);

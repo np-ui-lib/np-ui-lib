@@ -1,9 +1,11 @@
-import { Component, Input, OnDestroy, TemplateRef, HostListener, AfterContentInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnDestroy, TemplateRef, HostListener, AfterContentInit, SimpleChanges, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'np-ui-carousel',
   templateUrl: './np-ui-carousel.component.html',
-  styleUrls: ['./np-ui-carousel.component.css']
+  styleUrls: ['./np-ui-carousel.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpUiCarouselComponent implements AfterContentInit, OnDestroy {
 
