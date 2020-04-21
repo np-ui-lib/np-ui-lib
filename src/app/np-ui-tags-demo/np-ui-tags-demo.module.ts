@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpUiTagsDemoRoutingModule } from './np-ui-tags-demo-routing.module';
 import { NpUiTagsDemoComponent } from './np-ui-tags-demo.component';
-import { NpUiTagsModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiTagsModule } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
 

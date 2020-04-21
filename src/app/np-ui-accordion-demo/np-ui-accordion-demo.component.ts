@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpUiAccordionComponent } from 'projects/np-ui-lib/src/public-api';
+import { NpUiAccordionComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-ui-accordion-demo',

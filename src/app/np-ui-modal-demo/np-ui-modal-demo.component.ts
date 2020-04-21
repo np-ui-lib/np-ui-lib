@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpUiModalComponent } from 'projects/np-ui-lib/src/public-api';
+import { NpUiModalComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-ui-modal-demo',

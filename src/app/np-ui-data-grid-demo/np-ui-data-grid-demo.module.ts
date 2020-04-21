@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpUiDataGridDemoRoutingModule } from './np-ui-data-grid-demo-routing.module';
 import { NpUiDataGridDemoComponent } from './np-ui-data-grid-demo.component';
-import { NpUiDataGridModule, NpUiSwitchModule, NpUiTabsModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiDataGridModule, NpUiSwitchModule, NpUiTabsModule } from 'np-ui-lib';
 
 import { ClientGridComponent } from './client-grid/client-grid.component';
 import { ServerGridComponent } from './server-grid/server-grid.component';

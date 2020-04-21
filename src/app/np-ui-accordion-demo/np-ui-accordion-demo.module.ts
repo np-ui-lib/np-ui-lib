@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpUiAccordionDemoRoutingModule } from './np-ui-accordion-demo-routing.module';
 import { NpUiAccordionDemoComponent } from './np-ui-accordion-demo.component';
-import { NpUiAccordionModule, NpUiPanelModule, NpUiSwitchModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiAccordionModule, NpUiPanelModule, NpUiSwitchModule } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({

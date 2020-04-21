@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataSource, DataTypes, LoadOptions, Column } from 'projects/np-ui-lib/src/public-api';
+import { DataSource, DataTypes, LoadOptions, Column } from 'np-ui-lib';
 import { DataService } from '../data.service';
 import { BehaviorSubject } from 'rxjs';
 

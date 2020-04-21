@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpUiPopoverDemoRoutingModule } from './np-ui-popover-demo-routing.module';
 import { NpUiPopoverDemoComponent } from './np-ui-popover-demo.component';
-import { NpUiPopoverModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiPopoverModule } from 'np-ui-lib';
 
 @NgModule({
   declarations: [NpUiPopoverDemoComponent],

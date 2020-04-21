@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpUiPopoverDirective } from 'projects/np-ui-lib/src/public-api';
+import { NpUiPopoverDirective } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-ui-popover-demo',

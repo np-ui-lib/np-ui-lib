@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { DataSource, DataTypes, LoadOptions, Column, NpUiDataGridComponent, State, SortDirections, FilterTypes } from 'projects/np-ui-lib/src/public-api';
+import { DataSource, DataTypes, LoadOptions, Column, NpUiDataGridComponent, State, SortDirections, FilterTypes } from 'np-ui-lib';
 import { DataService } from '../data.service';
 import { BehaviorSubject } from 'rxjs';
 

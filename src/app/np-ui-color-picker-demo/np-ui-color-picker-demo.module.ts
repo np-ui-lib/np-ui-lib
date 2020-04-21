@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { NpUiColorPickerDemoRoutingModule } from './np-ui-color-picker-demo-routing.module';
 import { NpUiColorPickerDemoComponent } from './np-ui-color-picker-demo.component';
-import { NpUiColorPickerModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiColorPickerModule } from 'np-ui-lib';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 

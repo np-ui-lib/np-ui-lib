@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpUiPanelDemoRoutingModule } from './np-ui-panel-demo-routing.module';
 import { NpUiPanelDemoComponent } from './np-ui-panel-demo.component';
-import { NpUiPanelModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiPanelModule } from 'np-ui-lib';
 
 
 @NgModule({

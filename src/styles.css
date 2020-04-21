@@ -1,4 +1,4 @@
-@import "../projects/np-ui-lib/style.css";
+@import "./../dist/np-ui-lib/style.css";
 body {
     padding: 0px;
     margin: 0px;

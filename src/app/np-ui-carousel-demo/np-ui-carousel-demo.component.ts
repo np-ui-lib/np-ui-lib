@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpUiCarouselComponent } from 'projects/np-ui-lib/src/public-api';
+import { NpUiCarouselComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-ui-carousel-demo',

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpUiTabsDemoRoutingModule } from './np-ui-tabs-demo-routing.module';
 import { NpUiTabsDemoComponent } from './np-ui-tabs-demo.component';
-import { NpUiTabsModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiTabsModule } from 'np-ui-lib';
 
 
 @NgModule({

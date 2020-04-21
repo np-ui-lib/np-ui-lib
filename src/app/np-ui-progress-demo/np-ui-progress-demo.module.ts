@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpUiProgressDemoRoutingModule } from './np-ui-progress-demo-routing.module';
 import { NpUiProgressDemoComponent } from './np-ui-progress-demo.component';
-import { NpUiProgressModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiProgressModule } from 'np-ui-lib';
 
 @NgModule({
   declarations: [NpUiProgressDemoComponent],

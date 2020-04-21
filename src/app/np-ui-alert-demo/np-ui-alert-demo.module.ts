@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpUiAlertDemoRoutingModule } from './np-ui-alert-demo-routing.module';
 import { NpUiAlertDemoComponent } from './np-ui-alert-demo.component';
-import { NpUiAlertModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiAlertModule } from 'np-ui-lib';
 
 @NgModule({
   declarations: [NpUiAlertDemoComponent],

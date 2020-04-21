@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpUiCarouselDemoRoutingModule } from './np-ui-carousel-demo-routing.module';
 import { NpUiCarouselDemoComponent } from './np-ui-carousel-demo.component';
-import { NpUiCarouselModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiCarouselModule } from 'np-ui-lib';
 
 
 @NgModule({

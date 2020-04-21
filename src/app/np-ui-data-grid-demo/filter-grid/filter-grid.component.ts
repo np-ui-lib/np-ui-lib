@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { DataTypes, DataSource, LoadOptions, Column } from 'projects/np-ui-lib/src/public-api';
+import { DataTypes, DataSource, LoadOptions, Column } from 'np-ui-lib';
 import { DataService } from '../data.service';
 
 @Component({

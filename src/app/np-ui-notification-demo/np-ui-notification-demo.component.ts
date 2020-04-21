@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NpUiNotificationService, NpUiNotification } from 'projects/np-ui-lib/src/public-api';
+import { NpUiNotificationService, NpUiNotification } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-ui-notification-demo',

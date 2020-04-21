@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpUiTabsComponent } from 'projects/np-ui-lib/src/public-api';
+import { NpUiTabsComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-ui-tabs-demo',

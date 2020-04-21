@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpUiUtilityDemoRoutingModule } from './np-ui-utility-demo-routing.module';
 import { NpUiUtilityDemoComponent } from './np-ui-utility-demo.component';
-import { NpUiUtility, NpUiHightLightPipe, NpUiDatePickerModule, NpUiTimePickerModule, NpUiSwitchModule } from 'projects/np-ui-lib/src/public-api';
+import { NpUiUtility, NpUiHightLightPipe, NpUiDatePickerModule, NpUiTimePickerModule, NpUiSwitchModule } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
