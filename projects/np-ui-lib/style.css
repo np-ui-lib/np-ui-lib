@@ -263,12 +263,6 @@ svg {
     outline: none;
 }
 
-.np-input-group .np-btn {
-    height: 30px;
-    min-width: 30px;
-    padding: 2px;
-}
-
 .np-btn {
     text-align: center;
     white-space: nowrap;
@@ -344,6 +338,12 @@ svg {
 
 .np-btn-group .np-btn:last-child {
     margin-right: 0px;
+}
+
+.np-input-group .np-btn {
+    height: 30px;
+    min-width: 30px;
+    padding: 2px;
 }
 
 .np-border-0 {

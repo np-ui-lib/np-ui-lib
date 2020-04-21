@@ -13,8 +13,12 @@
 
 .np-dg-toolbar {
     border-bottom: 1px solid #000000;
-    padding: 5px;
+    padding: 3px;
     background-color: #dfdfdf;
+}
+
+.np-dg-toolbar-item {
+    padding: 2px;
 }
 
 .np-dg-col-chooser .np-btn-group,
@@ -222,6 +226,11 @@
 .np-dg-pagination {
     background-color: #dfdfdf;
     border-top: 1px solid #000000;
+    padding: 3px;
+}
+
+.np-dg-pagination-item {
+    padding: 2px;
 }
 
 .np-dg-pagination .np-form-control {
