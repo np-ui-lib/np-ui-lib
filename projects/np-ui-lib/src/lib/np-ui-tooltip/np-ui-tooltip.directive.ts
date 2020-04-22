@@ -18,7 +18,7 @@ export class NpUiTooltipDirective implements AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.elementRef.nativeElement.className = (this.elementRef.nativeElement.className + ' np-tt-target').trim();
+        this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-tt-target`).trim();
         var position: ConnectedPosition[] = this._getPosition();
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)

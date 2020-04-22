@@ -234,13 +234,13 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
     var red = this._rgbToHex(r);
     var green = this._rgbToHex(g);
     var blue = this._rgbToHex(b);
-    return "#" + red + green + blue;
+    return `#${red}${green}${blue}`;
   };
 
   _rgbToHex(rgb: number) {
     var hex = Number(rgb).toString(16);
     if (hex.length < 2) {
-      hex = "0" + hex;
+      hex = `0${hex}`;
     }
     return hex;
   };
@@ -255,15 +255,15 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
 
   _onMouseOverStrip(e: any) {
     this._isShowCursorDiv = true;
-    this._xColorCursor = e.pageX + 'px';
-    this._yColorCursor = e.pageY + 'px';
+    this._xColorCursor = `${e.pageX}px`;
+    this._yColorCursor = `${e.pageY}px`;
     this._currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-strip');
   }
 
   _onMouseOverBlock(e: any) {
     this._isShowCursorDiv = true;
-    this._xColorCursor = e.pageX + 'px';
-    this._yColorCursor = e.pageY + 'px';
+    this._xColorCursor = `${e.pageX}px`;
+    this._yColorCursor = `${e.pageY}px`;
     this._currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-block');
   }
 
@@ -288,7 +288,7 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
       g: parseInt(result[2], 16),
       b: parseInt(result[3], 16)
     } : null;
-    return rgb ? rgb.r + ", " + rgb.g + ", " + rgb.b : "";
+    return rgb ? `${rgb.r}, ${rgb.g}, ${rgb.b}` : "";
   }
 
   getSelectedRGB() {
@@ -305,7 +305,7 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
 
   _onInputChange(event) {
     if (this.value && !this.value.includes('#')) {
-      this.value = "#" + event.target.value;
+      this.value = `#${event.target.value}`;
     } else {
       this.value = event.target.value;
     }

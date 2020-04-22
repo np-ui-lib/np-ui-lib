@@ -10,17 +10,14 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@a
 export class NpUiProgressComponent {
 
   @Input() value: number;
-
   @Input() styleClass: string;
-
   @Input() indeterminate: boolean;
-
   @Input() striped: boolean;
-
   @Input() animated: boolean;
+  @Input() showLable: boolean = true;
 
   getTooltipText() {
-    return this.value + "%";
+    return `${this.value}%`;
   }
 
 }

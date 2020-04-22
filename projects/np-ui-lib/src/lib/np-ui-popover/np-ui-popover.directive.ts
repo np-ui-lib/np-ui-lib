@@ -24,7 +24,7 @@ export class NpUiPopoverDirective implements AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.elementRef.nativeElement.className = (this.elementRef.nativeElement.className + ' np-pop-target').trim();
+        this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-pop-target`).trim();
         var position: ConnectedPosition[] = this._getPosition();
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)

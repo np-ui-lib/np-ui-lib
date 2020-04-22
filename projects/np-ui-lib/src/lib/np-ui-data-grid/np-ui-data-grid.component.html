@@ -254,7 +254,7 @@
                     <div class="np-col-auto np-pr-5">
                         <input type="number" class="np-form-control" [(ngModel)]="pageSize" (change)="_onPageSizeChange()">
                     </div>
-                    <div class="np-col-auto np-pr-5">per page / {{_pager.startIndex >= 0 ? _pager.startIndex + 1 : 0}} - {{_pager.endIndex + 1}} of {{_pager.totalItems}}
+                    <div class="np-col-auto np-pr-5">{{_getCurrentPageStatistics()}}
                     </div>
                     <div class="np-col-auto">
                         <button type="button" class="np-btn np-btn-icon np-border" title="Refresh" (click)="_onRefresh()">

@@ -981,4 +981,8 @@ export class NpUiDataGridComponent implements OnInit, AfterContentInit, AfterVie
   _clearColumnSearch() {
     this._searchColumnsKeyword = null;
   }
+
+  _getCurrentPageStatistics() {
+    return `per page / ${this._pager.startIndex >= 0 ? this._pager.startIndex + 1 : 0} - ${this._pager.endIndex + 1} of ${this._pager.totalItems}`;
+  }
 }

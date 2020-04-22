@@ -25,7 +25,7 @@
 
 <fieldset>
     <legend>3. Create new tag server side</legend>
-    <np-ui-tags [(ngModel)]="tags3" [searchResult]="searchResult3" [isServerSide]="true" [allowCreateNew]="true" (onSearch)="onSearch3($event)">
+    <np-ui-tags [(ngModel)]="tags3" [searchResult]="searchResult3" [isServerSide]="true" [allowCreateNew]="true" required="true" (onSearch)="onSearch3($event)">
     </np-ui-tags>
     <div>Selected value : {{tags3 | json}}</div>
 </fieldset>

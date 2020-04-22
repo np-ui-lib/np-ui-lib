@@ -216,9 +216,9 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
 
   _setValue() {
     if (this.is24Hours) {
-      this.value = (this._selectedHour ? this._selectedHour : 0) + ":" + (this._selectedMinute ? this._selectedMinute : 0) + ":" + (this.hideSeconds ? 0 : (this._selectedSecond ? this._selectedSecond : 0));
+      this.value = `${(this._selectedHour ? this._selectedHour : 0)}:${(this._selectedMinute ? this._selectedMinute : 0)}:${(this.hideSeconds ? 0 : (this._selectedSecond ? this._selectedSecond : 0))}`;
     } else {
-      this.value = (this._selectedHour ? this._selectedHour : 0) + ":" + (this._selectedMinute ? this._selectedMinute : 0) + ":" + (this.hideSeconds ? 0 : (this._selectedSecond ? this._selectedSecond : 0)) + " " + this._selectedAMPM;
+      this.value = `${(this._selectedHour ? this._selectedHour : 0)}:${(this._selectedMinute ? this._selectedMinute : 0)}:${(this.hideSeconds ? 0 : (this._selectedSecond ? this._selectedSecond : 0))} ${this._selectedAMPM}`;
     }
   }
 
@@ -235,7 +235,7 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
       hour = timeArray[0];
       sec = timeArray[2].replace('AM', '');
     }
-    return hour + ':' + min + ':' + sec;
+    return `${hour}:${min}:${sec}`;
   }
 
   private timeConvert24to12(time: string) {
@@ -243,7 +243,7 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
     var hour24 = parseInt(values[0]);
     var hour12 = hour24 % 12 || 12;
     var ampm = (hour24 < 12 || hour24 === 24) ? "AM" : "PM";
-    return hour12 + ":" + values[1] + ":" + values[2] + " " + ampm;
+    return `${hour12}:${values[1]}:${values[2]} ${ampm}`;
   }
 
   _toggleTimePicker() {
@@ -313,7 +313,7 @@ export class NpUiTimePickerComponent implements ControlValueAccessor, AfterViewI
 
   _selectNowTime() {
     var today = new Date();
-    var nowTime = today.getHours() + ":" + today.getMinutes() + ":" + (this.hideSeconds ? 0 : today.getSeconds());
+    var nowTime = `${today.getHours()}:${today.getMinutes()}:${(this.hideSeconds ? 0 : today.getSeconds())}`;
     if (!this.is24Hours) {
       nowTime = this.timeConvert24to12(nowTime);
     }
