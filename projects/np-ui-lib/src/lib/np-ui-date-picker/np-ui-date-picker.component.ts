@@ -232,15 +232,15 @@ export class NpUiDatePickerComponent implements ControlValueAccessor, AfterViewI
       case 2: // Mar
       case 4: // May
       case 6: // Jul
-      case 8: // Sept
-      case 10: // Nov
+      case 7: // Aug
+      case 9: // Oct
+      case 11: // Dec
         days = 31;
         break;
       case 3: // Apr
       case 5: // Jun
-      case 7: // Aug
-      case 9: // Oct
-      case 11: // Dec
+      case 8: // Sept
+      case 10: // Nov
         days = 30;
         break;
       case 1: // Feb
