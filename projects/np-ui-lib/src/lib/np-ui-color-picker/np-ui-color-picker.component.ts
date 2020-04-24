@@ -54,7 +54,7 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
       this.colors = ['#FF0000', '#FF7F00', '#FFFF00', '#7FFF00', '#00FF00', '#00FF7F', '#00FFFF', '#007FFF', '#0000FF',
         '#7F00FF', '#FF00FF', '#FF007F', '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4',
         '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548',
-        '#9e9e9e', '#607d8b', '#ffffff', '#000000'];
+        '#9e9e9e', '#607d8b', '#000000'];
     }
   }
   ngAfterViewInit() {
@@ -90,7 +90,7 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
     if (this.defaultOpen) {
       setTimeout(() => {
         this._updateStripCanvas();
-        this._updateCanvas();
+        this._updateBlockCanvas();
       }, 10);
     }
   }
@@ -150,7 +150,7 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
     }
     setTimeout(() => {
       this._updateStripCanvas();
-      this._updateCanvas();
+      this._updateBlockCanvas();
     }, 10);
   }
 
@@ -189,13 +189,7 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
     ctx2.fill();
   }
 
-  _updateCanvas() {
-    var strip;
-    if (this.defaultOpen) {
-      strip = <HTMLCanvasElement>this.elementRef.nativeElement.querySelector('.np-cp-canvas-strip');
-    } else {
-      strip = <HTMLCanvasElement>this.overlayRef.overlayElement.querySelector('.np-cp-canvas-strip');
-    }
+  _updateBlockCanvas() {
     var block;
     if (this.defaultOpen) {
       block = <HTMLCanvasElement>this.elementRef.nativeElement.querySelector('.np-cp-canvas-block');
@@ -203,18 +197,17 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
       block = <HTMLCanvasElement>this.overlayRef.overlayElement.querySelector('.np-cp-canvas-block');
     }
     var ctx1 = block.getContext('2d');
-    var ctx2 = strip.getContext('2d');
 
     ctx1.fillStyle = this._stripColor ? this._stripColor : (this.value ? this.value : "#FF0000");
     ctx1.fillRect(0, 0, 170, 170);
 
-    var grdWhite = ctx2.createLinearGradient(0, 0, 170, 0);
+    var grdWhite = ctx1.createLinearGradient(0, 0, 170, 0);
     grdWhite.addColorStop(0, 'rgba(255,255,255,1)');
     grdWhite.addColorStop(1, 'rgba(255,255,255,0)');
     ctx1.fillStyle = grdWhite;
     ctx1.fillRect(0, 0, 170, 170);
 
-    var grdBlack = ctx2.createLinearGradient(0, 0, 0, 170);
+    var grdBlack = ctx1.createLinearGradient(0, 0, 0, 170);
     grdBlack.addColorStop(0, 'rgba(0,0,0,0)');
     grdBlack.addColorStop(1, 'rgba(0,0,0,1)');
     ctx1.fillStyle = grdBlack;
@@ -223,7 +216,7 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
 
   _clickStripeColor(e: any) {
     this._stripColor = this._getColorFromClickevent(e, '.np-cp-canvas-strip');
-    this._updateCanvas();
+    this._updateBlockCanvas();
   }
 
   _clickBlockColor(e: any) {
@@ -274,7 +267,7 @@ export class NpUiColorPickerComponent implements ControlValueAccessor, AfterView
     }
     this.value = color;
     this._stripColor = color;
-    this._updateCanvas();
+    this._updateBlockCanvas();
   }
 
   _currentHexToRGB() {

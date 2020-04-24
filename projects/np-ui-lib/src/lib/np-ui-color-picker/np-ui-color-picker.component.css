@@ -5,7 +5,7 @@
 
 .np-cp-overlay {
     background-color: #ffffff;
-    width: 228px;
+    width: 212px;
 }
 
 .np-cp-block-selected {
@@ -16,7 +16,7 @@
 .np-cp-color-block {
     height: 20px;
     width: 20px;
-    margin: 2px;
+    margin-right: 5px;
     display: inline-block;
     cursor: pointer;
 }
@@ -40,9 +40,13 @@
     background-color: #dfdfdf;
 }
 
-.np-cp-canvases,
-.np-cp-color-blocks {
+.np-cp-canvases {
+    height: 180px;
     padding: 5px;
+}
+
+.np-cp-color-blocks {
+    padding-left: 5px;
 }
 
 .ng-touched.ng-invalid:not(form) .np-input-group,
