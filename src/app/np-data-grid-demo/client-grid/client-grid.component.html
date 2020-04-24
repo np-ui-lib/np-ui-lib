@@ -1,0 +1,18 @@
+<h2>
+    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-package/tree/master/src/app/np-data-grid-demo/client-grid">
+        Client side simple data grid example.
+    </a>
+</h2>
+<p>To set client side operations in datagrid, add <b>columns</b> and <b>dataSource</b> in grid defination.</p>
+<p><b>dataSource</b> is typeof <b>BehaviorSubject&lt;DataSource&gt;</b>.</p>
+<p>Retrive all data and pass those data to dataSource with "next()" method.</p>
+<p><b>DataSource</b> class has below properties:</p>
+<ul>
+    <li><b>data</b> (Array of all data, total will be calculated from length of data for client side)</li>
+    <li><b>total</b> (Only required in server side operations, for client side pass 0)</li>
+    <li><b>summary</b> (Pass summary data object if showSummary is set to true)</li>
+    <li><b>isAllPages</b> (This will be used for server side export to CSV functionality, default value is false)</li>
+</ul>
+
+<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource">
+</np-data-grid>

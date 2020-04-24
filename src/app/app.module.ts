@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { fakeBackendProvider } from './np-ui-data-grid-demo/FakeBackendInterceptor';
+import { fakeBackendProvider } from './np-data-grid-demo/FakeBackendInterceptor';
 
 @NgModule({
   declarations: [

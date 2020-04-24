@@ -1,0 +1,34 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-package/wiki/Carousel">
+            np-carousel
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-package/tree/master/src/app/np-carousel-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<fieldset>
+    <np-carousel [items]="items" [itemTemplate]="itemTemplate" [autoPlay]="true" [pauseOnHover]="true">
+    </np-carousel>
+</fieldset>
+
+<fieldset>
+    <np-carousel #slider [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="3" [currentPage]="1" [scrollNum]="1">
+    </np-carousel>
+    <button class="np-btn" (click)="selectPage2()">Go to page 2</button>
+    <button class="np-btn" (click)="addNewItem2()">Add new item</button>
+</fieldset>
+
+<ng-template #itemTemplate let-item="item">
+    <img [src]="item.imageUrl" class="ng-responsive-img">
+</ng-template>
+
+<ng-template #itemTemplate2 let-item="item">
+    <div style="background-color: #dfdfdf; padding: 10px; height: 100%; width: 100%;">
+        <h1 style="text-align: center;">{{item}}</h1>
+        <h3 style="text-align: center;">{{item}}</h3>
+        <h5 style="text-align: center;">{{item}}</h5>
+    </div>
+</ng-template>

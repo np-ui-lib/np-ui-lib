@@ -1,0 +1,17 @@
+<h2>
+    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-package/tree/master/src/app/np-data-grid-demo/summary-grid">
+        Summary Example
+    </a>
+</h2>
+
+<p>To add summary at footer of data grid, set <b>showSummary</b> to "true" in grid defination.</p>
+<p>And set <b>summaryTemplate</b> with template refrence of summary.</p>
+<p>In <b>dataSource</b>, <b>summary</b> object will be passed with data which will be accessed in template.</p>
+
+<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [showSummary]="true" [summaryTemplate]="summaryTemplate">
+</np-data-grid>
+
+<!-- Template for summary section -->
+<ng-template #summaryTemplate let-summary="summary">
+    <span>Total:{{summary ? summary.totalCount : 0}}</span>
+</ng-template>

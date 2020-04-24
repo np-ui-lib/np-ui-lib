@@ -1,0 +1,12 @@
+<h2>
+    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-package/tree/master/src/app/np-data-grid-demo/inside-tab-grid">
+        Responsive data grid example.
+    </a>
+</h2>
+
+<np-tabs title="Emplyee List">
+    <np-tab [title]="'Employees'" [id]="'tabEmployees'" [height]="500">
+        <np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [pageSize]="20" [height]="400">
+        </np-data-grid>
+    </np-tab>
+</np-tabs>

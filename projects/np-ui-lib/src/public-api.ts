@@ -1,87 +1,87 @@
 /**Color Picker */
-export * from './lib/np-ui-color-picker/np-ui-color-picker.module';
-export * from './lib/np-ui-color-picker/np-ui-color-picker.component';
+export * from './lib/np-color-picker/np-color-picker.module';
+export * from './lib/np-color-picker/np-color-picker.component';
 
 /**Data Grid */
-export * from './lib/np-ui-data-grid/np-ui-data-grid.module';
-export * from './lib/np-ui-data-grid/models/column.model';
-export * from './lib/np-ui-data-grid/models/constants';
-export * from './lib/np-ui-data-grid/models/data-source.model';
-export * from './lib/np-ui-data-grid/models/load-options.model';
-export * from './lib/np-ui-data-grid/models/state.model';
-export * from './lib/np-ui-data-grid/np-ui-data-grid.component';
+export * from './lib/np-data-grid/np-data-grid.module';
+export * from './lib/np-data-grid/models/column.model';
+export * from './lib/np-data-grid/models/constants';
+export * from './lib/np-data-grid/models/data-source.model';
+export * from './lib/np-data-grid/models/load-options.model';
+export * from './lib/np-data-grid/models/state.model';
+export * from './lib/np-data-grid/np-data-grid.component';
 
 /**Date Picker */
-export * from './lib/np-ui-date-picker/np-ui-date-picker.module';
-export * from './lib/np-ui-date-picker/np-ui-date-picker.component';
+export * from './lib/np-date-picker/np-date-picker.module';
+export * from './lib/np-date-picker/np-date-picker.component';
 
 /**Time Picker */
-export * from './lib/np-ui-time-picker/np-ui-time-picker.module';
-export * from './lib/np-ui-time-picker/np-ui-time-picker.component';
+export * from './lib/np-time-picker/np-time-picker.module';
+export * from './lib/np-time-picker/np-time-picker.component';
 
 /**Switch */
-export * from './lib/np-ui-switch/np-ui-switch.module';
-export * from './lib/np-ui-switch/np-ui-switch.component';
+export * from './lib/np-switch/np-switch.module';
+export * from './lib/np-switch/np-switch.component';
 
 /**Notifications */
-export * from './lib/np-ui-notification/np-ui-notification.module';
-export * from './lib/np-ui-notification/np-ui-notification.component';
-export * from './lib/np-ui-notification/np-ui-notification.service';
-export * from './lib/np-ui-notification/np-ui-notification.model';
+export * from './lib/np-notification/np-notification.module';
+export * from './lib/np-notification/np-notification.component';
+export * from './lib/np-notification/np-notification.service';
+export * from './lib/np-notification/np-notification.model';
 
 /**Auto complete */
-export * from './lib/np-ui-auto-complete/np-ui-auto-complete.module';
-export * from './lib/np-ui-auto-complete/np-ui-auto-complete.component';
+export * from './lib/np-auto-complete/np-auto-complete.module';
+export * from './lib/np-auto-complete/np-auto-complete.component';
 
 /**Panel */
-export * from './lib/np-ui-panel/np-ui-panel.module';
-export * from './lib/np-ui-panel/np-ui-panel.component';
+export * from './lib/np-panel/np-panel.module';
+export * from './lib/np-panel/np-panel.component';
 
 /**Utility */
-export * from './lib/np-ui-utility/np-ui-utility.module';
-export * from './lib/np-ui-utility/np-ui-highlight.pipe';
+export * from './lib/np-utility/np-utility.module';
+export * from './lib/np-utility/np-highlight.pipe';
 
 /**Tooltip */
-export * from './lib/np-ui-tooltip/np-ui-tooltip.module';
-export * from './lib/np-ui-tooltip/np-ui-tooltip.directive';
+export * from './lib/np-tooltip/np-tooltip.module';
+export * from './lib/np-tooltip/np-tooltip.directive';
 
 /**Progress */
-export * from './lib/np-ui-progress/np-ui-progress.module';
-export * from './lib/np-ui-progress/np-ui-progress.component';
+export * from './lib/np-progress/np-progress.module';
+export * from './lib/np-progress/np-progress.component';
 
 /**Carousel */
-export * from './lib/np-ui-carousel/np-ui-carousel.module';
-export * from './lib/np-ui-carousel/np-ui-carousel.component';
+export * from './lib/np-carousel/np-carousel.module';
+export * from './lib/np-carousel/np-carousel.component';
 
 /**Tabs */
-export * from './lib/np-ui-tabs/np-ui-tabs.module';
-export * from './lib/np-ui-tabs/np-ui-tabs.component';
-export * from './lib/np-ui-tabs/np-ui-tab.component';
+export * from './lib/np-tabs/np-tabs.module';
+export * from './lib/np-tabs/np-tabs.component';
+export * from './lib/np-tabs/np-tab.component';
 
 /**Accordion */
-export * from './lib/np-ui-accordion/np-ui-accordion.module';
-export * from './lib/np-ui-accordion/np-ui-accordion.component';
+export * from './lib/np-accordion/np-accordion.module';
+export * from './lib/np-accordion/np-accordion.component';
 
 /**Alert */
-export * from './lib/np-ui-alert/np-ui-alert.module';
-export * from './lib/np-ui-alert/np-ui-alert.component';
+export * from './lib/np-alert/np-alert.module';
+export * from './lib/np-alert/np-alert.component';
 
 /**Modal */
-export * from './lib/np-ui-modal/np-ui-modal.module';
-export * from './lib/np-ui-modal/np-ui-modal.component';
-export * from './lib/np-ui-modal/np-ui-modal-header.component';
-export * from './lib/np-ui-modal/np-ui-modal-content.component';
-export * from './lib/np-ui-modal/np-ui-modal-footer.component';
+export * from './lib/np-modal/np-modal.module';
+export * from './lib/np-modal/np-modal.component';
+export * from './lib/np-modal/np-modal-header.component';
+export * from './lib/np-modal/np-modal-content.component';
+export * from './lib/np-modal/np-modal-footer.component';
 
 /**Tags */
-export * from './lib/np-ui-tags/np-ui-tags.module';
-export * from './lib/np-ui-tags/np-ui-tags.component';
+export * from './lib/np-tags/np-tags.module';
+export * from './lib/np-tags/np-tags.component';
 
 /**Popover */
-export * from './lib/np-ui-popover/np-ui-popover.module';
-export * from './lib/np-ui-popover/np-ui-popover.component';
-export * from './lib/np-ui-popover/np-ui-popover.directive';
+export * from './lib/np-popover/np-popover.module';
+export * from './lib/np-popover/np-popover.component';
+export * from './lib/np-popover/np-popover.directive';
 
 /**Dropdown */
-export * from './lib/np-ui-dropdown/np-ui-dropdown.module';
-export * from './lib/np-ui-dropdown/np-ui-dropdown.component';
+export * from './lib/np-dropdown/np-dropdown.module';
+export * from './lib/np-dropdown/np-dropdown.component';

@@ -3,84 +3,84 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'np-ui-date-picker-demo',
-    loadChildren: () => import('./np-ui-date-picker-demo/np-ui-date-picker-demo.module').then(m => m.NpUiDatePickerDemoModule)
+    path: 'np-date-picker-demo',
+    loadChildren: () => import('./np-date-picker-demo/np-date-picker-demo.module').then(m => m.NpDatePickerDemoModule)
   },
   {
-    path: 'np-ui-time-picker-demo',
-    loadChildren: () => import('./np-ui-time-picker-demo/np-ui-time-picker-demo.module').then(m => m.NpUiTimePickerDemoModule)
+    path: 'np-time-picker-demo',
+    loadChildren: () => import('./np-time-picker-demo/np-time-picker-demo.module').then(m => m.NpTimePickerDemoModule)
   },
   {
-    path: 'np-ui-color-picker-demo',
-    loadChildren: () => import('./np-ui-color-picker-demo/np-ui-color-picker-demo.module').then(m => m.NpUiColorPickerDemoModule)
+    path: 'np-color-picker-demo',
+    loadChildren: () => import('./np-color-picker-demo/np-color-picker-demo.module').then(m => m.NpColorPickerDemoModule)
   },
   {
-    path: 'np-ui-data-grid-demo',
-    loadChildren: () => import('./np-ui-data-grid-demo/np-ui-data-grid-demo.module').then(m => m.NpUiDataGridDemoModule)
+    path: 'np-data-grid-demo',
+    loadChildren: () => import('./np-data-grid-demo/np-data-grid-demo.module').then(m => m.NpDataGridDemoModule)
   },
   {
-    path: 'np-ui-switch-demo',
-    loadChildren: () => import('./np-ui-switch-demo/np-ui-switch-demo.module').then(m => m.NpUiSwitchDemoModule)
+    path: 'np-switch-demo',
+    loadChildren: () => import('./np-switch-demo/np-switch-demo.module').then(m => m.NpSwitchDemoModule)
   },
   {
-    path: 'np-ui-notification-demo',
-    loadChildren: () => import('./np-ui-notification-demo/np-ui-notification-demo.module').then(m => m.NpUiNotificationDemoModule)
+    path: 'np-notification-demo',
+    loadChildren: () => import('./np-notification-demo/np-notification-demo.module').then(m => m.NpNotificationDemoModule)
   },
   {
-    path: 'np-ui-auto-complete-demo',
-    loadChildren: () => import('./np-ui-auto-complete-demo/np-ui-auto-complete-demo.module').then(m => m.NpUiAutoCompleteDemoModule)
+    path: 'np-auto-complete-demo',
+    loadChildren: () => import('./np-auto-complete-demo/np-auto-complete-demo.module').then(m => m.NpAutoCompleteDemoModule)
   },
   {
-    path: 'np-ui-panel-demo',
-    loadChildren: () => import('./np-ui-panel-demo/np-ui-panel-demo.module').then(m => m.NpUiPanelDemoModule)
+    path: 'np-panel-demo',
+    loadChildren: () => import('./np-panel-demo/np-panel-demo.module').then(m => m.NpPanelDemoModule)
   },
   {
-    path: 'np-ui-utility-demo',
-    loadChildren: () => import('./np-ui-utility-demo/np-ui-utility-demo.module').then(m => m.NpUiUtilityDemoModule)
+    path: 'np-utility-demo',
+    loadChildren: () => import('./np-utility-demo/np-utility-demo.module').then(m => m.NpUtilityDemoModule)
   },
   {
-    path: 'np-ui-tooltip-demo',
-    loadChildren: () => import('./np-ui-tooltip-demo/np-ui-tooltip-demo.module').then(m => m.NpUiTooltipDemoModule)
+    path: 'np-tooltip-demo',
+    loadChildren: () => import('./np-tooltip-demo/np-tooltip-demo.module').then(m => m.NpTooltipDemoModule)
   },
   {
-    path: 'np-ui-progress-demo',
-    loadChildren: () => import('./np-ui-progress-demo/np-ui-progress-demo.module').then(m => m.NpUiProgressDemoModule)
+    path: 'np-progress-demo',
+    loadChildren: () => import('./np-progress-demo/np-progress-demo.module').then(m => m.NpProgressDemoModule)
   },
   {
-    path: 'np-ui-carousel-demo',
-    loadChildren: () => import('./np-ui-carousel-demo/np-ui-carousel-demo.module').then(m => m.NpUiCarouselDemoModule)
+    path: 'np-carousel-demo',
+    loadChildren: () => import('./np-carousel-demo/np-carousel-demo.module').then(m => m.NpCarouselDemoModule)
   },
   {
-    path: 'np-ui-tabs-demo',
-    loadChildren: () => import('./np-ui-tabs-demo/np-ui-tabs-demo.module').then(m => m.NpUiTabsDemoModule)
+    path: 'np-tabs-demo',
+    loadChildren: () => import('./np-tabs-demo/np-tabs-demo.module').then(m => m.NpTabsDemoModule)
   },
   {
-    path: 'np-ui-accordion-demo',
-    loadChildren: () => import('./np-ui-accordion-demo/np-ui-accordion-demo.module').then(m => m.NpUiAccordionDemoModule)
+    path: 'np-accordion-demo',
+    loadChildren: () => import('./np-accordion-demo/np-accordion-demo.module').then(m => m.NpAccordionDemoModule)
   },
   {
-    path: 'np-ui-alert-demo',
-    loadChildren: () => import('./np-ui-alert-demo/np-ui-alert-demo.module').then(m => m.NpUiAlertDemoModule)
+    path: 'np-alert-demo',
+    loadChildren: () => import('./np-alert-demo/np-alert-demo.module').then(m => m.NpAlertDemoModule)
   },
   {
-    path: 'np-ui-modal-demo',
-    loadChildren: () => import('./np-ui-modal-demo/np-ui-modal-demo.module').then(m => m.NpUiModalDemoModule)
+    path: 'np-modal-demo',
+    loadChildren: () => import('./np-modal-demo/np-modal-demo.module').then(m => m.NpModalDemoModule)
   },
   {
-    path: 'np-ui-tags-demo',
-    loadChildren: () => import('./np-ui-tags-demo/np-ui-tags-demo.module').then(m => m.NpUiTagsDemoModule)
+    path: 'np-tags-demo',
+    loadChildren: () => import('./np-tags-demo/np-tags-demo.module').then(m => m.NpTagsDemoModule)
   },
   {
-    path: 'np-ui-popover-demo',
-    loadChildren: () => import('./np-ui-popover-demo/np-ui-popover-demo.module').then(m => m.NpUiPopoverDemoModule)
+    path: 'np-popover-demo',
+    loadChildren: () => import('./np-popover-demo/np-popover-demo.module').then(m => m.NpPopoverDemoModule)
   },
   {
-    path: 'np-ui-dropdown-demo',
-    loadChildren: () => import('./np-ui-dropdown-demo/np-ui-dropdown-demo.module').then(m => m.NpUiDropdownDemoModule)
+    path: 'np-dropdown-demo',
+    loadChildren: () => import('./np-dropdown-demo/np-dropdown-demo.module').then(m => m.NpDropdownDemoModule)
   },
   {
     path: '',
-    redirectTo: 'np-ui-date-picker-demo',
+    redirectTo: 'np-date-picker-demo',
     pathMatch: 'full'
   }
 ];

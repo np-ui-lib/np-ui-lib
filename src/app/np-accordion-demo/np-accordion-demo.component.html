@@ -1,0 +1,110 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-package/wiki/Accordion">
+            np-accordion
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-package/tree/master/src/app/np-accordion-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<np-accordion>
+    <np-panel id="pnlA" [title]="'Title A'">
+        <p>
+            Content A
+        </p>
+    </np-panel>
+
+    <np-panel id="pnlB" [title]="'Title B'">
+        <p>
+            Content B
+        </p>
+    </np-panel>
+
+    <np-panel id="pnlC" [title]="'Title C'">
+        <p>
+            Content C
+        </p>
+    </np-panel>
+</np-accordion>
+
+<br>
+
+<np-accordion [defaultOpenIndex]="0" [singleOpenAtOnce]="_singleOpenAtOnce" #accordionDemo>
+    <np-panel id="pnl1" [title]="'Paragraph 1'">
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+    </np-panel>
+
+    <np-panel id="pnl2" [title]="'Paragraph 2'" [disabled]="true">
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+    </np-panel>
+
+    <np-panel id="pnl3" [title]="'Paragraph 3'" [height]="200">
+        <p>
+            A first paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs
+            add one idea at a time to your broader argument.
+        </p>
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+        <p>
+            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+            one idea at a time to your broader argument.
+        </p>
+        <p>
+            A last paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs
+            add one idea at a time to your broader argument.
+        </p>
+    </np-panel>
+</np-accordion>
+
+<p>
+    Single Open :
+    <np-switch [(ngModel)]="_singleOpenAtOnce"></np-switch>
+</p>
+
+
+<div class="np-btn-group">
+    <button class="np-btn np-btn-primary" (click)="openPara2ById()">Open paragraph 2 by Id</button>
+    <button class="np-btn np-btn-primary" (click)="openPara3ByIndex()">Open paragraph 3 by index</button>
+</div>

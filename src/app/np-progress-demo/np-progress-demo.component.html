@@ -1,0 +1,35 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-package/wiki/Progress">
+            np-progress
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-package/tree/master/src/app/np-progress-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<fieldset>
+    <legend>Default</legend>
+    <np-progress [value]="55"></np-progress>
+</fieldset>
+
+<fieldset>
+    <legend>Success + striped</legend>
+    <np-progress [value]="progressCount" [styleClass]="'np-pg-success'" [striped]="true"></np-progress>
+</fieldset>
+
+<fieldset>
+    <legend>Error + animated</legend>
+    <np-progress [value]="50" [styleClass]="'np-pg-danger'" [animated]="true" [showLable]="false"></np-progress>
+</fieldset>
+
+<fieldset>
+    <legend>Warning</legend>
+    <np-progress [value]="100" [styleClass]="'np-pg-warning'"></np-progress>
+</fieldset>
+
+<fieldset>
+    <legend>Info + indeterminate</legend>
+    <np-progress [indeterminate]="true" [styleClass]="'np-pg-info'"></np-progress>
+</fieldset>

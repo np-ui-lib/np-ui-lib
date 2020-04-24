@@ -1,0 +1,138 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-package/wiki/Date%20Picker">
+            np-date-picker
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-package/tree/master/src/app/np-date-picker-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<div>
+    <fieldset>
+        <legend>1. Default Date picker control.</legend>
+        <np-date-picker [(ngModel)]="date1">
+        </np-date-picker>
+        <div>Selected Date : {{date1}}</div>
+        <button class="np-btn" (click)="setDate1()">Set Date 28/10/1992</button>
+        <button class="np-btn" (click)="setDate1AsNull()">Set null</button>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>2. Disabled</legend>
+        <np-date-picker [(ngModel)]="date2" disabled>
+        </np-date-picker>
+    </fieldset>
+</div>
+
+<div>
+    <form #form="ngForm">
+        <fieldset>
+            <legend>3. Required validation</legend>
+            <np-date-picker [(ngModel)]="date3" required #validations="ngModel" name="startDate">
+            </np-date-picker>
+            <div *ngIf="validations.control.touched && validations.control.errors?.required" class="np-text-danger">
+                Date is required.
+            </div>
+            <p>Form valid: {{ form.valid }}</p>
+        </fieldset>
+    </form>
+</div>
+
+<div>
+    <fieldset>
+        <legend>4. Default open</legend>
+        <np-date-picker [(ngModel)]="date4" [defaultOpen]="true" [disabled]="date4Disable" [required]="date4Required" #validations4="ngModel">
+        </np-date-picker>
+        <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="np-text-danger">
+            Date is required.
+        </div>
+        <button class="np-btn" (click)="date4Disable = !date4Disable">Toggle Disable</button>
+        <button class="np-btn" (click)="date4Required = !date4Required">Toggle Required</button>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>5. Set display format</legend>
+        <np-date-picker [(ngModel)]="date5" [format]="'dd-MMM-yy'">
+        </np-date-picker>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>6. Disable week days</legend>
+        <np-date-picker [(ngModel)]="date6" [disableWeekDays]="['Sa','Su']">
+        </np-date-picker>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>7. Disable dates</legend>
+        <np-date-picker [(ngModel)]="date7" [disableDates]="disableDates7">
+        </np-date-picker>
+        <div>Selected Date : {{date7}}</div>
+        <button class="np-btn" (click)="setDate7()">Set Today(Which is disable)</button>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>8. Min/Max dates</legend>
+        Min:
+        <np-date-picker [(ngModel)]="date81" [maxDate]="date82">
+        </np-date-picker>
+        Max:
+        <np-date-picker [(ngModel)]="date82" [minDate]="date81">
+        </np-date-picker>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>9. Placeholder</legend>
+        <np-date-picker [(ngModel)]="date9" [placeholder]="'Select start date'">
+        </np-date-picker>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>10. Show today button</legend>
+        <np-date-picker [(ngModel)]="date10" [showTodayButton]="true">
+        </np-date-picker>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>11. Start with monday</legend>
+        <np-date-picker [(ngModel)]="date11" [isStartMonthWithMonday]="true"></np-date-picker>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>12. Date labels</legend>
+        <np-date-picker [(ngModel)]="date12" [dateLabels]="dateLabels12"></np-date-picker>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>13. Change event</legend>
+        <np-date-picker [(ngModel)]="date13" (onChange)="onChangeDate13($event)"></np-date-picker>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>14. Style class</legend>
+        <np-date-picker [(ngModel)]="date14" [styleClass]="'myClass'"></np-date-picker>
+    </fieldset>
+</div>

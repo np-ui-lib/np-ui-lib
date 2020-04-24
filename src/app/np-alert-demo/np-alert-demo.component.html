@@ -1,0 +1,30 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-package/wiki/Alert">
+            np-alert
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-package/tree/master/src/app/np-alert-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<np-alert type="Success" showCloseButton="true">
+    Hi this is success alert message.
+</np-alert>
+
+<np-alert type="Error" showCloseButton="true">
+    Hi this is Danger alert message.
+</np-alert>
+
+<np-alert type="Warning" showCloseButton="true">
+    Hi this is Warning alert message.
+</np-alert>
+
+<np-alert type="Info" showCloseButton="true" autoClose="true">
+    Hi this is info alert message. Auto close after default timeout of 10000 ms.
+</np-alert>
+
+<np-alert showCloseButton="true" autoClose="true" autoCloseTimeout="5000">
+    Hi this is custom alert message. Auto close after timeout of 50000 ms.
+</np-alert>
