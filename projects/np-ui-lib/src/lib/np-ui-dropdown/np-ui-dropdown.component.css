@@ -1,0 +1,31 @@
+.np-dd-overlay {
+    background-color: #ffffff;
+    min-width: 250px;
+    max-width: 300px;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.np-dd-item {
+    padding: 5px 10px;
+    min-height: 32px;
+    cursor: pointer;
+}
+
+.np-dd-item:hover {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.ng-touched.ng-invalid:not(form) .np-input-group {
+    border-color: #d9534f !important;
+}
+
+.np-dd-bg-gray {
+    background-color: #dfdfdf;
+}
+
+.np-dd-selected {
+    color: #fff;
+    background-color: #007bff;
+}

@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class NpUiTagsDemoComponent implements OnInit {
 
-  data: string[] = ['Apple', 'Banana', 'Orange', 'Mango', 'Graps', 'Strawberry', 'Watermelon', 'Kiwi'];
+  data: string[] = ["Apple", "Banana", "Orange", "Mango", "Graps", "Strawberry", "Watermelon", "Kiwi", "Blackberries", "Blueberries", "Cherries", "Cranberries", "Guava", "Java-Plum", "Lychee", "Papaya",];
   dataFull: any[] = [
     { name: "Apple", id: 1 },
     { name: "Banana", id: 2 },

@@ -38,7 +38,7 @@ export class NpUiTagsComponent implements ControlValueAccessor, AfterViewInit, A
   @Input() isServerSide: boolean;
   @Input() allowCreateNew: boolean;
   @Input() displayKey: string;
-  @Input() optionTemplate: TemplateRef<any>;
+  @Input() itemTemplate: TemplateRef<any>;
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
   @Output() onSearch: EventEmitter<any> = new EventEmitter();

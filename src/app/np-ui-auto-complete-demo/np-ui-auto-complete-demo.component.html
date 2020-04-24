@@ -62,11 +62,11 @@
 </fieldset>
 
 <fieldset>
-    <legend>8. Option template</legend>
-    <np-ui-auto-complete [(ngModel)]="auto8" [searchResult]="searchResult8" [allowCreateNew]="true" (onSearch)="onSearch8($event)" [displayKey]="'name'" [optionTemplate]="optionTemplateRef">
+    <legend>8. Item template</legend>
+    <np-ui-auto-complete [(ngModel)]="auto8" [searchResult]="searchResult8" [allowCreateNew]="true" (onSearch)="onSearch8($event)" [displayKey]="'name'" [itemTemplate]="itemTemplateRef">
     </np-ui-auto-complete>
     <!-- Template for search item -->
-    <ng-template #optionTemplateRef let-item="item" let-keyword="keyword">
+    <ng-template #itemTemplateRef let-item="item" let-keyword="keyword">
         <span [innerHTML]="item.name | npUiHighLight : keyword"></span><span> ({{item.age}})</span>
     </ng-template>
     <div>Selected value : {{auto8 | json}}</div>

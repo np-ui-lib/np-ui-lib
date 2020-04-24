@@ -101,7 +101,7 @@ export class NpUiAutoCompleteDemoComponent implements OnInit {
       this.searchResult8.next(searchData);
     }, 1000);
   }
-  @ViewChild("optionTemplateRef", { static: true }) optionTemplateRef: TemplateRef<any>;
+  @ViewChild("itemTemplateRef", { static: true }) itemTemplateRef: TemplateRef<any>;
 
   auto9: any;
   searchResult9: BehaviorSubject<any[]> = new BehaviorSubject(null);

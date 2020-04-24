@@ -1,0 +1,54 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-ui-package/wiki/Dropdown">
+            np-ui-dropdown
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-ui-dropdown-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<fieldset>
+    <legend>Basic dropdown with string items</legend>
+    <np-ui-dropdown [(ngModel)]="dropdownVal1" [items]="data"></np-ui-dropdown>
+    <div>Selected value: {{dropdownVal1}}</div>
+    <button class="np-btn" (click)="changeValue()">Change value</button>
+</fieldset>
+
+<fieldset>
+    <legend>Basic dropdown with custom type items</legend>
+    <np-ui-dropdown [(ngModel)]="dropdownVal2" [items]="dataFull" [displayKey]="'name'"></np-ui-dropdown>
+    <div>Selected value: {{dropdownVal2 | json}}</div>
+</fieldset>
+
+<fieldset>
+    <legend>Required</legend>
+    <np-ui-dropdown [(ngModel)]="dropdownVal3" [items]="data" [required]="true" [placeholder]="'Select from dropdown'">
+    </np-ui-dropdown>
+</fieldset>
+
+<fieldset>
+    <legend>Disabled</legend>
+    <np-ui-dropdown [(ngModel)]="dropdownVal4" [items]="data" [disabled]="true"></np-ui-dropdown>
+</fieldset>
+
+<fieldset>
+    <legend>Item template</legend>
+    <np-ui-dropdown [(ngModel)]="dropdownVal5" [items]="dataFull" [displayKey]="'name'" [itemTemplate]="itemTemplate">
+    </np-ui-dropdown>
+    <ng-template #itemTemplate let-item="item">
+        <div>{{item.name}} ({{item.id}})</div>
+    </ng-template>
+    <div>Selected value: {{dropdownVal5 | json}}</div>
+</fieldset>
+
+<fieldset>
+    <legend>On Change event</legend>
+    <np-ui-dropdown [(ngModel)]="dropdownVal6" [items]="data" (onChange)="onChange($event)"></np-ui-dropdown>
+</fieldset>
+
+<fieldset>
+    <legend>Style class</legend>
+    <np-ui-dropdown [(ngModel)]="dropdownVal7" [items]="data" [styleClass]="'myClass'"></np-ui-dropdown>
+</fieldset>

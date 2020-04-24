@@ -1,6 +1,6 @@
 {
     "name": "np-ui-lib",
-    "version": "9.12.6",
+    "version": "9.12.7",
     "author": {
         "name": "nilav patel",
         "email": "nilavpatel1992@gmail.com",
@@ -40,6 +40,7 @@
         "Alert",
         "Modal",
         "Tags",
-        "Popover"
+        "Popover",
+        "Dropdown"
     ]
 }

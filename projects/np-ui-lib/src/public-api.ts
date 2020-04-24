@@ -81,3 +81,7 @@ export * from './lib/np-ui-tags/np-ui-tags.component';
 export * from './lib/np-ui-popover/np-ui-popover.module';
 export * from './lib/np-ui-popover/np-ui-popover.component';
 export * from './lib/np-ui-popover/np-ui-popover.directive';
+
+/**Dropdown */
+export * from './lib/np-ui-dropdown/np-ui-dropdown.module';
+export * from './lib/np-ui-dropdown/np-ui-dropdown.component';
