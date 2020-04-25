@@ -94,3 +94,19 @@ body {
     fill: currentColor;
     vertical-align: middle;
 }
+
+.overview-1 {
+    background-color: #F39611 !important;
+}
+
+.overview-2 {
+    background-color: #326DDF !important;
+}
+
+.overview-3 {
+    background-color: #E02364 !important;
+}
+
+.overview-4 {
+    background-color: #7DC931 !important;
+}

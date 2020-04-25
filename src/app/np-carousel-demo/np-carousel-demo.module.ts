@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpCarouselDemoRoutingModule } from './np-carousel-demo-routing.module';
 import { NpCarouselDemoComponent } from './np-carousel-demo.component';
-import { NpCarouselModule } from 'np-ui-lib';
+import { NpCarouselModule, NpCardModule } from 'np-ui-lib';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { NpCarouselModule } from 'np-ui-lib';
   imports: [
     CommonModule,
     NpCarouselDemoRoutingModule,
-    NpCarouselModule
+    NpCarouselModule,
+    NpCardModule
   ]
 })
 export class NpCarouselDemoModule { }

@@ -26,9 +26,11 @@
 </ng-template>
 
 <ng-template #itemTemplate2 let-item="item">
-    <div style="background-color: #dfdfdf; padding: 10px; height: 100%; width: 100%;">
-        <h1 style="text-align: center;">{{item}}</h1>
-        <h3 style="text-align: center;">{{item}}</h3>
-        <h5 style="text-align: center;">{{item}}</h5>
-    </div>
+    <np-card>
+        <np-card-body>
+            <h1 style="text-align: center;">{{item}}</h1>
+            <h3 style="text-align: center;">{{item}}</h3>
+            <h5 style="text-align: center;">{{item}}</h5>
+        </np-card-body>
+    </np-card>
 </ng-template>

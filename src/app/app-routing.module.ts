@@ -83,6 +83,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-menubar-demo/np-menubar-demo.module').then(m => m.NpMenubarDemoModule)
   },
   {
+    path: 'np-card-demo',
+    loadChildren: () => import('./np-card-demo/np-card-demo.module').then(m => m.NpCardDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'np-date-picker-demo',
     pathMatch: 'full'

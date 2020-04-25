@@ -90,3 +90,10 @@ export * from './lib/np-dropdown/np-dropdown.component';
 export * from './lib/np-menubar/np-menubar.module';
 export * from './lib/np-menubar/np-menubar.component';
 export * from './lib/np-menubar/np-menu.model';
+
+/**Card */
+export * from './lib/np-card/np-card.module';
+export * from './lib/np-card/np-card.component';
+export * from './lib/np-card/np-card-header.component';
+export * from './lib/np-card/np-card-body.component';
+export * from './lib/np-card/np-card-footer.component';
