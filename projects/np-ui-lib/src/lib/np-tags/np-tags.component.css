@@ -21,10 +21,6 @@
     background-color: #007bff;
 }
 
-.ng-touched.ng-invalid:not(form) .np-input-group {
-    border-color: #d9534f !important;
-}
-
 .np-tg-tag {
     margin: 2px 0px 0px 2px;
     padding: 1px 1px 1px 10px;

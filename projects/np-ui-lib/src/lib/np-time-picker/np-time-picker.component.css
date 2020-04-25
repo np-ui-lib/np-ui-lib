@@ -28,11 +28,6 @@
     padding: 5px;
 }
 
-.ng-touched.ng-invalid:not(form) .np-input-group,
-.ng-touched.ng-invalid:not(form) .np-tp-default-open {
-    border-color: #d9534f !important;
-}
-
 .np-tp-overflow-hidden {
     overflow: hidden;
 }

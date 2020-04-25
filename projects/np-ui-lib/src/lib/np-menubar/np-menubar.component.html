@@ -1,4 +1,4 @@
-<div class="np-mb-component">
+<div [ngClass]="{'np-mb-component': true}" [class]="styleClass">
     <div class="np-mb-menu" [ngClass]="{'np-mb-horizontal': orientation === 'horizontal'}">
         <ng-container *ngFor="let item of items">
             <ng-container *ngIf="item.items">

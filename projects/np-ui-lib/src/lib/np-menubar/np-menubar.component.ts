@@ -11,6 +11,7 @@ import { NpMenuItem } from './np-menu.model';
 export class NpMenubarComponent {
 
   @Input() items: NpMenuItem[];
+  @Input() styleClass: string;
   /**orientation of menu, valid values are horizontal and vertical. Default is vertical. */
   @Input() orientation: string = "vertical";
 

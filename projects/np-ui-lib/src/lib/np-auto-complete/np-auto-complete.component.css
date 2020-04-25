@@ -21,10 +21,6 @@
     background-color: #007bff;
 }
 
-.ng-touched.ng-invalid:not(form) .np-input-group {
-    border-color: #d9534f !important;
-}
-
 .np-ac-bg-gray {
     background-color: #dfdfdf;
 }

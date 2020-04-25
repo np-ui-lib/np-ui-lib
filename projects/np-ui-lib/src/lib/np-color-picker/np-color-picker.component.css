@@ -49,11 +49,6 @@
     padding-left: 5px;
 }
 
-.ng-touched.ng-invalid:not(form) .np-input-group,
-.ng-touched.ng-invalid:not(form) .np-cp-default-open {
-    border-color: #d9534f !important;
-}
-
 .np-cp-hide-input {
     width: 92px;
 }

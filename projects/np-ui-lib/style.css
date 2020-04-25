@@ -235,10 +235,6 @@ svg {
     min-height: 32px;
 }
 
-.np-form-control.ng-touched.ng-invalid {
-    border-color: #d9534f !important;
-}
-
 .np-input-group {
     position: relative;
     display: flex;
@@ -559,6 +555,15 @@ svg {
 
 .np-pad-5 {
     padding: 5px;
+}
+
+.np-form-control.ng-touched.ng-invalid,
+.ng-invalid:not(form) .np-sw-component,
+.ng-touched.ng-invalid:not(form) .np-tp-default-open,
+.ng-touched.ng-invalid:not(form) .np-dp-default-open,
+.ng-touched.ng-invalid:not(form) .np-cp-default-open,
+.ng-touched.ng-invalid:not(form) .np-input-group {
+    border-color: #d9534f !important;
 }
 
 .ng-touched.ng-invalid:not(form) .np-input-group .np-icon-sm {

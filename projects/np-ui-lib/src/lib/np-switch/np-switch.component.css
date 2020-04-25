@@ -4,10 +4,6 @@
     border: 1px solid #000000;
 }
 
-.ng-invalid:not(form) .np-sw-component {
-    border: 1px solid #a94442;
-}
-
 .np-sw-component .np-btn {
     margin: 0px;
     border-color: transparent;
