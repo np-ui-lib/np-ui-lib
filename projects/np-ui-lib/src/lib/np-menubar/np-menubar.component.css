@@ -1,0 +1,64 @@
+.np-mb-menu {
+    width: 200px;
+    position: relative;
+    background-color: #dfdfdf;
+    border: 1px solid black;
+}
+
+.np-mb-menu-item a {
+    padding: 10px;
+    color: #000000;
+    display: block;
+    text-decoration: none;
+}
+
+.np-mb-menu-item a:hover {
+    background-color: #555555;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.np-mb-active {
+    color: #ffffff !important;
+    background-color: #007bff !important;
+}
+
+.np-mb-menu-item {
+    position: relative;
+}
+
+.np-mb-menu-item .np-mb-submenu {
+    position: absolute;
+    z-index: 1001;
+}
+
+.np-mb-icon {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+}
+
+.np-mb-label {
+    padding-right: 44px !important;
+}
+
+.np-mb-horizontal {
+    width: 100%;
+}
+
+.np-mb-horizontal>.np-mb-menu-item {
+    display: inline-block;
+}
+
+.np-mb-submenu {
+    margin-top: -1px;
+}
+
+.np-mb-horizontal>.np-mb-menu-item>.np-mb-submenu {
+    margin-top: 0px;
+    margin-left: -1px;
+}
+
+.np-mb-horizontal>.np-mb-menu-item>a {
+    padding: 10px 20px;
+}

@@ -85,3 +85,8 @@ export * from './lib/np-popover/np-popover.directive';
 /**Dropdown */
 export * from './lib/np-dropdown/np-dropdown.module';
 export * from './lib/np-dropdown/np-dropdown.component';
+
+/**Menubar */
+export * from './lib/np-menubar/np-menubar.module';
+export * from './lib/np-menubar/np-menubar.component';
+export * from './lib/np-menubar/np-menu.model';

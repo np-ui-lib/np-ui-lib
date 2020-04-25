@@ -79,6 +79,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-dropdown-demo/np-dropdown-demo.module').then(m => m.NpDropdownDemoModule)
   },
   {
+    path: 'np-menubar-demo',
+    loadChildren: () => import('./np-menubar-demo/np-menubar-demo.module').then(m => m.NpMenubarDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'np-date-picker-demo',
     pathMatch: 'full'
