@@ -14,24 +14,28 @@
     margin: 0px;
     padding: 0px;
     list-style: none;
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    background-color: #dfdfdf;
 }
 
 .np-tab-title {
     height: 32px;
     padding: 0px 5px;
-    margin-right: 5px;
-    border-top: 1px solid #000000;
-    border-right: 1px solid #000000;
-    border-left: 1px solid #000000;
     display: inline-block;
     min-width: 75px;
     cursor: pointer;
-    background-color: #dfdfdf;
     text-align: center;
     line-height: 32px;
 }
 
-.np-active-tab {
+.np-tab-title:hover {
+    background-color: #eeeeee;
+}
+
+.np-active-tab,
+.np-active-tab:hover {
     color: #fff;
     background-color: #007bff;
 }

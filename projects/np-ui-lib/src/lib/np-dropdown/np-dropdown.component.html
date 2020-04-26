@@ -16,7 +16,7 @@
             <div class="np-col-12" *ngFor="let item of items; let i = index;">
                 <div class="np-dd-item" (click)="_selectValue(item)" [ngClass]="{'np-dd-selected': _isSelected(item)}">
                     <ng-container *ngIf="!itemTemplate; else customTemplate">
-                        <span [innerHtml]="displayKey ? item[displayKey] : item"></span>
+                        <span [innerHTML]="displayKey ? item[displayKey] : item"></span>
                     </ng-container>
                     <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}">
                     </ng-template>

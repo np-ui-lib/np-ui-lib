@@ -13,9 +13,11 @@ export class NpMenubarDemoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  homeIcon: string = '<svg class="np-icon"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/><path d="M0 0h24v24H0z" fill="none"/></svg>';
+
   items: NpMenuItem[] = [
     new NpMenuItem({
-      label: "Menu 1", icon: "icon1", url: "/menu1",
+      label: "Menu 1", icon: this.homeIcon, url: "/menu1",
       items: [
         new NpMenuItem({
           label: "Menu 1.1", icon: "icon1.1",
@@ -29,8 +31,8 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: "Menu 1.3", icon: "icon1.3", url: "/menu1.3" }),
       ]
     }),
-    new NpMenuItem({ label: "Menubar", icon: "icon2", routerLink: "/np-menubar-demo" }),
-    new NpMenuItem({ label: "Menu 3", icon: "icon3", onClick: this.onClickMenu3 }),
+    new NpMenuItem({ label: "Menubar router link", icon: "icon2", routerLink: "/np-menubar-demo" }),
+    new NpMenuItem({ label: "Menu 3 click", icon: "icon3", onClick: this.onClickMenu3 }),
     new NpMenuItem({
       label: "Menu 4", icon: "icon4",
       items: [
@@ -52,7 +54,7 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: "Menu 4.3", icon: "icon4.3", url: "/menu4.3" }),
       ]
     }),
-    new NpMenuItem({ label: "Menu 5", icon: "icon5", url: "/menu5" }),
+    new NpMenuItem({ label: "Data grid", icon: "icon5", routerLink: "/np-data-grid-demo/client-grid" }),
     new NpMenuItem({ label: "Menu 6", icon: "icon6", url: "/menu6" })
   ];
 
@@ -72,8 +74,8 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: "Menu 1.3", icon: "icon1.3", url: "/menu1.3" }),
       ]
     }),
-    new NpMenuItem({ label: "Menubar", icon: "icon2", routerLink: "/np-menubar-demo" }),
-    new NpMenuItem({ label: "Menu 3", icon: "icon3", onClick: this.onClickMenu3 }),
+    new NpMenuItem({ label: "Menubar router link", icon: "icon2", routerLink: "/np-menubar-demo" }),
+    new NpMenuItem({ label: "Menu 3 click", icon: "icon3", onClick: this.onClickMenu3 }),
     new NpMenuItem({
       label: "Menu 4", icon: "icon4",
       items: [
@@ -95,7 +97,7 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: "Menu 4.3", icon: "icon4.3", url: "/menu4.3" }),
       ]
     }),
-    new NpMenuItem({ label: "Menu 5", icon: "icon5", url: "/menu5" }),
+    new NpMenuItem({ label: "Data grid", icon: "icon5", routerLink: "/np-data-grid-demo/client-grid" }),
     new NpMenuItem({ label: "Menu 6", icon: "icon6", url: "/menu6" })
   ];
 

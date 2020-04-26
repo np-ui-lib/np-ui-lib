@@ -25,7 +25,7 @@
             <div class="np-col-12" *ngFor="let item of _searchResult; let i = index;">
                 <div class="np-ac-search-item" (click)="_selectValue(item)">
                     <ng-container *ngIf="!itemTemplate; else customTemplate">
-                        <span [innerHtml]="displayKey ? item[displayKey] : item | npHighLight : _displayValue"></span>
+                        <span [innerHTML]="displayKey ? item[displayKey] : item | npHighLight : _displayValue"></span>
                     </ng-container>
                     <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item, keyword: _displayValue}">
                     </ng-template>

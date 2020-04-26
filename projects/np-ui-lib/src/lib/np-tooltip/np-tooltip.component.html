@@ -2,7 +2,7 @@
     <div class="np-row np-no-gutters">
         <div class="np-col-12">
             <ng-container *ngIf="!_isTemplate">
-                <div [innerHtml]="tooltip"></div>
+                <div [innerHTML]="tooltip"></div>
             </ng-container>
             <ng-template *ngIf="_isTemplate" [ngTemplateOutlet]="tooltip">
             </ng-template>

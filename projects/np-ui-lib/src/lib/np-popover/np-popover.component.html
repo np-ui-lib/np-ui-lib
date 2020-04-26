@@ -1,14 +1,14 @@
 <div [style.width.px]="width" [class]="styleClass" [ngClass]="{'np-pop-component': true}">
     <div class="np-pop-header">
         <ng-container *ngIf="!_isHeaderTemplate">
-            <div [innerHtml]="header"></div>
+            <div [innerHTML]="header"></div>
         </ng-container>
         <ng-template *ngIf="_isHeaderTemplate" [ngTemplateOutlet]="header">
         </ng-template>
     </div>
     <div class="np-pop-body">
         <ng-container *ngIf="!_isBodyTemplate">
-            <div [innerHtml]="body"></div>
+            <div [innerHTML]="body"></div>
         </ng-container>
         <ng-template *ngIf="_isBodyTemplate" [ngTemplateOutlet]="body">
         </ng-template>

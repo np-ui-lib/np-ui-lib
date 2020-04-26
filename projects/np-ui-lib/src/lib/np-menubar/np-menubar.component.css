@@ -1,8 +1,12 @@
-.np-mb-menu {
-    width: 200px;
+.np-mb-component {
     position: relative;
     background-color: #dfdfdf;
     border: 1px solid black;
+    width: 200px;
+}
+
+.np-mb-menu-item {
+    position: relative;
 }
 
 .np-mb-menu-item a {
@@ -21,10 +25,6 @@
 .np-mb-active {
     color: #ffffff !important;
     background-color: #007bff !important;
-}
-
-.np-mb-menu-item {
-    position: relative;
 }
 
 .np-mb-menu-item .np-mb-submenu {
