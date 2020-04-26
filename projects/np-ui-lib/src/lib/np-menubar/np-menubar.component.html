@@ -3,7 +3,7 @@
         <ng-container *ngIf="item.items">
             <div class="np-mb-menu-item" (mouseenter)="onMouseEnter($event,item)" (mouseleave)="onMouseLeave(item)">
                 <a class="np-mb-label">
-                    <span *ngIf="item.icon" [innerHTML]="item.icon"></span> {{item.label}}
+                    {{item.label}}
                     <svg class="np-icon np-mb-icon" *ngIf="orientation === 'vertical'">
                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
                         <path d="M0 0h24v24H0z" fill="none" />
@@ -22,14 +22,14 @@
         </ng-container>
         <ng-container *ngIf="!item.items">
             <div class="np-mb-menu-item">
-                <a *ngIf="item.routerLink" [routerLink]="item.routerLink" routerLinkActive="np-mb-active">
-                    <span *ngIf="item.icon" [innerHTML]="item.icon"></span> {{item.label}}
+                <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [routerLinkActive]="_getActiveClass(item)">
+                    {{item.label}}
                 </a>
                 <a *ngIf="item.url" [href]="item.url">
-                    <span *ngIf="item.icon" [innerHTML]="item.icon"></span> {{item.label}}
+                    {{item.label}}
                 </a>
                 <a *ngIf="item.onClick" (click)="item.onClick($event)">
-                    <span *ngIf="item.icon" [innerHTML]="item.icon"></span> {{item.label}}
+                    {{item.label}}
                 </a>
             </div>
         </ng-container>

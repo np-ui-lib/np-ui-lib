@@ -33,4 +33,8 @@ export class NpMenubarComponent {
   onMouseLeave(item: NpMenuItem) {
     item._isItemsVisible = false;
   }
+
+  _getActiveClass(item: NpMenuItem) {
+    return item.activeClass ? item.activeClass : "np-mb-active";
+  }
 }
