@@ -8,13 +8,13 @@
     border-bottom: 1px solid #000000;
     width: 100%;
     padding: 5px;
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
 }
 
 .np-dg-toolbar {
     border-bottom: 1px solid #000000;
     padding: 3px;
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
 }
 
 .np-dg-toolbar-item {
@@ -31,7 +31,7 @@
     width: 350px;
     padding: 5px;
     overflow: auto;
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
 }
 
 .np-dg-columns-item.cdk-drag-disabled .np-dg-col-drag-handle {
@@ -88,7 +88,7 @@
     border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
     font-weight: bold;
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
     line-height: 32px;
 }
 
@@ -97,7 +97,7 @@
     margin: 0px;
     border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
     overflow: hidden;
 }
 
@@ -138,10 +138,6 @@
     background-color: #fcf8e3;
 }
 
-.np-dg-col-resize-handle.cdk-drag-dragging {
-    background-color: #fcf8e3;
-}
-
 .np-dg-sticky-header {
     position: sticky !important;
     top: 0px;
@@ -164,7 +160,7 @@
 .np-dg-table-summary {
     border-top: 1px solid #000000;
     padding: 5px;
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
 }
 
 .np-dg-table-footer {
@@ -224,7 +220,7 @@
 }
 
 .np-dg-pagination {
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
     border-top: 1px solid #000000;
     padding: 3px;
 }
@@ -239,4 +235,9 @@
 
 .np-dg-master-child-col {
     padding: 1px !important;
+}
+
+.np-dg-table-header .np-btn:hover,
+.np-dg-master-child-col .np-btn:hover {
+    background-color: transparent;
 }

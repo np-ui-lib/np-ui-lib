@@ -12,7 +12,7 @@
 }
 
 .np-mod-header {
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
     border-bottom: 1px solid #000000;
     padding: 10px;
     position: relative;
@@ -27,7 +27,7 @@
 }
 
 .np-mod-footer {
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
     border-top: 1px solid #000000;
     padding: 10px;
     min-height: 32px;

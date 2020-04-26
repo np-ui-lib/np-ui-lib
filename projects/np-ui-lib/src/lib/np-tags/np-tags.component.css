@@ -1,5 +1,8 @@
 .np-tg-loader {
     animation: spin 2s linear infinite;
+    height: 30px;
+    width: 30px;
+    padding: 2px;
 }
 
 .np-tg-overlay {
@@ -48,5 +51,5 @@
 }
 
 .np-ac-tg-gray {
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
 }

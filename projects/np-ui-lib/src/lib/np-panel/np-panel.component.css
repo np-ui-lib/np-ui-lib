@@ -8,7 +8,7 @@
 
 .np-pn-header {
     padding-left: 10px;
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
 }
 
 .np-pn-header .np-row {
@@ -50,4 +50,20 @@
 
 .np-pn-info .np-pn-header {
     background-color: #d9edf7;
+}
+
+.np-pn-success .np-pn-header .np-btn:hover {
+    background-color: #d0e9c6;
+}
+
+.np-pn-danger .np-pn-header .np-btn:hover {
+    background-color: #ebcccc;
+}
+
+.np-pn-warning .np-pn-header .np-btn:hover {
+    background-color: #faf2cc;
+}
+
+.np-pn-info .np-pn-header .np-btn:hover {
+    background-color: #bcdff1;
 }

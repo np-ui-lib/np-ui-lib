@@ -267,7 +267,7 @@ svg {
     outline: none;
     padding: 0px 5px;
     transition: all .2s ease-in-out;
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
     border: 1px solid #000000;
     margin: 5px 0px;
     min-width: 50px;
@@ -278,6 +278,10 @@ svg {
 .np-btn:disabled {
     opacity: 0.5;
     pointer-events: none;
+}
+
+.np-btn:hover {
+    background-color: #ddd;
 }
 
 .np-btn-icon {
@@ -310,17 +314,38 @@ svg {
 
 .np-btn-danger {
     color: #fff;
-    background-color: #bd2130;
+    background-color: #d9534f;
 }
 
 .np-btn-warning {
-    color: #212529;
+    color: #fff;
     background-color: #d39e00;
 }
 
 .np-btn-info {
     color: #fff;
     background-color: #117a8b;
+}
+
+.np-btn-primary:hover {
+    color: #fff;
+    background-color: #025aa5;
+}
+
+.np-btn-success:hover {
+    background-color: #449d44;
+}
+
+.np-btn-danger:hover {
+    background-color: #c9302c;
+}
+
+.np-btn-warning:hover {
+    background-color: #ec971f;
+}
+
+.np-btn-info:hover {
+    background-color: #31b0d5;
 }
 
 .np-btn-group {
@@ -433,6 +458,22 @@ svg {
     background-color: #f2dede;
     border-color: #ebcccc;
     color: #a94442
+}
+
+.np-alert-success .np-btn:hover {
+    background-color: #d0e9c6;
+}
+
+.np-alert-danger .np-btn:hover {
+    background-color: #ebcccc;
+}
+
+.np-alert-warning .np-btn:hover {
+    background-color: #faf2cc;
+}
+
+.np-alert-info .np-btn:hover {
+    background-color: #bcdff1;
 }
 
 .np-alert-header {

@@ -17,7 +17,7 @@
     border-top: 1px solid #000000;
     border-right: 1px solid #000000;
     border-left: 1px solid #000000;
-    background-color: #dfdfdf;
+    background-color: #f1f1f1;
 }
 
 .np-tab-title {
@@ -31,7 +31,7 @@
 }
 
 .np-tab-title:hover {
-    background-color: #eeeeee;
+    background-color: #ddd;
 }
 
 .np-active-tab,
