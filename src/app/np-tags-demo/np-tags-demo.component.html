@@ -36,3 +36,9 @@
     </np-tags>
     <div>Selected value : {{tags4 | json}}</div>
 </fieldset>
+
+<fieldset>
+    <legend>5. Required</legend>
+    <np-tags [(ngModel)]="tags5" [displayKey]="'name'" [searchResult]="searchResult5" [required]="true">
+    </np-tags>
+</fieldset>

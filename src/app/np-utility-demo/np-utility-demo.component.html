@@ -41,8 +41,8 @@
 </fieldset>
 
 <fieldset>
-    <legend>Form group</legend>
-    <form>
+    <legend>Template-Driven Form</legend>
+    <form #myForm="ngForm">
         <div class="np-container">
             <div class="np-row">
                 <div class="np-col-6">
@@ -74,16 +74,16 @@
                 </div>
                 <div class="np-col-6">
                     <div class="np-form-group">
-                        <div class="np-form-label">Birth time:</div>
-                        <np-time-picker [(ngModel)]="birthTime" name="birthTime"></np-time-picker>
+                        <div class="np-form-label np-required">Birth time:</div>
+                        <np-time-picker [(ngModel)]="birthTime" name="birthTime" [required]="true"></np-time-picker>
                     </div>
                 </div>
             </div>
             <div class="np-row">
                 <div class="np-col-12">
                     <div class="np-form-group">
-                        <div class="np-form-label">Is Active:</div>
-                        <np-switch [(ngModel)]="isActive" name="swIsActive"></np-switch>
+                        <div class="np-form-label np-required">Is Active:</div>
+                        <np-switch [(ngModel)]="isActive" name="swIsActive" [required]="true"></np-switch>
                     </div>
                 </div>
             </div>
@@ -91,13 +91,13 @@
                 <div class="np-col-12">
                     <div class="np-form-group">
                         <div class="np-form-label">Description:</div>
-                        <textarea class="np-form-control" rows="3"></textarea>
+                        <textarea class="np-form-control" rows="3" [(ngModel)]="description" name="txtDescription"></textarea>
                     </div>
                 </div>
             </div>
             <div class="np-btn-group">
-                <button type="submit" class="np-btn np-btn-primary">Save</button>
-                <button type="button" class="np-btn">Cancel</button>
+                <button type="submit" class="np-btn np-btn-primary" [disabled]="myForm.invalid">Save</button>
+                <button type="button" class="np-btn" (click)="myForm.resetForm({})">Cancel</button>
             </div>
         </div>
     </form>

@@ -118,9 +118,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       this._innerValue = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
-      if (this.onChange) {
-        this.onChange.emit(v);
-      }
+      this.onChange.emit(v);
     }
   }
 
@@ -145,6 +143,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   _close() {
     this._displayValue = null;
     this.overlayRef.detach();
+    this.onTouchedCallback();
   }
 
   _clear() {
@@ -188,7 +187,6 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _onFocus() {
-    this.onTouchedCallback();
     if (!this.isServerSide) {
       if (!this.overlayRef.hasAttached()) {
         this.overlayRef.attach(this.templatePortal);

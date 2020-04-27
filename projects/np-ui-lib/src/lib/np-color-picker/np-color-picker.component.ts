@@ -105,9 +105,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
       this._stripColor = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
-      if (this.onChange) {
-        this.onChange.emit(v);
-      }
+      this.onChange.emit(v);
     }
   }
 
@@ -144,7 +142,6 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     }
     this._isOpen = true;
     this._stripColor = this.value;
-    this.onTouchedCallback();
     if (!this.overlayRef.hasAttached()) {
       this.overlayRef.attach(this.templatePortal);
     }
@@ -161,6 +158,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     this._isShowCursorDiv = false;
     this._isOpen = false;
     this.overlayRef.detach();
+    this.onTouchedCallback();
   }
 
   _updateStripCanvas() {

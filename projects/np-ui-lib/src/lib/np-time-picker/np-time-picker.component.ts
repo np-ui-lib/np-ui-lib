@@ -96,9 +96,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
       this._innerValue = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
-      if (this.onChange) {
-        this.onChange.emit(v);
-      }
+      this.onChange.emit(v);
     }
   }
 
@@ -259,7 +257,6 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
       return;
     }
     this._isOpen = true;
-    this.onTouchedCallback();
     if (!this.overlayRef.hasAttached()) {
       this.overlayRef.attach(this.templatePortal);
     }
@@ -271,6 +268,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     }
     this._isOpen = false;
     this.overlayRef.detach();
+    this.onTouchedCallback();
   }
 
   _extractValues() {

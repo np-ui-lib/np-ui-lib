@@ -132,9 +132,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
       this._innerValue = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
-      if (this.onChange) {
-        this.onChange.emit(v);
-      }
+      this.onChange.emit(v);
     }
   }
 
@@ -311,7 +309,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this._isOpen = true;
     this._resetVariables();
     this._calculateDays();
-    this.onTouchedCallback();
 
     if (!this.overlayRef.hasAttached()) {
       this.overlayRef.attach(this.templatePortal);
@@ -324,6 +321,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     }
     this._isOpen = false;
     this.overlayRef.detach();
+    this.onTouchedCallback();
   }
 
   _setYears() {

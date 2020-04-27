@@ -603,11 +603,17 @@ svg {
 }
 
 .np-form-control.ng-touched.ng-invalid,
-.ng-invalid:not(form) .np-sw-component,
+.ng-touched.ng-invalid:not(form) .np-sw-component,
 .ng-touched.ng-invalid:not(form) .np-tp-default-open,
 .ng-touched.ng-invalid:not(form) .np-dp-default-open,
 .ng-touched.ng-invalid:not(form) .np-cp-default-open,
-.ng-touched.ng-invalid:not(form) .np-input-group {
+.ng-touched.ng-invalid:not(form) .np-input-group,
+.np-form-control.ng-dirty.ng-invalid,
+.ng-dirty.ng-invalid:not(form) .np-sw-component,
+.ng-dirty.ng-invalid:not(form) .np-tp-default-open,
+.ng-dirty.ng-invalid:not(form) .np-dp-default-open,
+.ng-dirty.ng-invalid:not(form) .np-cp-default-open,
+.ng-dirty.ng-invalid:not(form) .np-input-group {
     border-color: #d9534f !important;
 }
 

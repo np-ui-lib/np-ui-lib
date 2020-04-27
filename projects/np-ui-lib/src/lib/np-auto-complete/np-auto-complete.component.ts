@@ -127,9 +127,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       this._displayValue = this.displayKey && v ? v[this.displayKey] : v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
-      if (this.onChange) {
-        this.onChange.emit(v);
-      }
+      this.onChange.emit(v);
     }
   }
 
@@ -159,6 +157,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       this._displayValue = null;
     }
     this.overlayRef.detach();
+    this.onTouchedCallback();
   }
 
   _clear() {
@@ -190,10 +189,6 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   _selectValue(val: any) {
     this.value = val;
     this._close();
-  }
-
-  _onFocus() {
-    this.onTouchedCallback();
   }
 
   _createNewTag() {

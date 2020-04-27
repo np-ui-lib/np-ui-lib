@@ -36,6 +36,7 @@ export class NpSwitchComponent implements ControlValueAccessor {
       this._innerValue = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
+      this.onChange.emit(v);
     }
   }
 
@@ -62,8 +63,5 @@ export class NpSwitchComponent implements ControlValueAccessor {
       return;
     }
     this.value = value;
-    if (this.onChange) {
-      this.onChange.emit(this.value);
-    }
   }
 }

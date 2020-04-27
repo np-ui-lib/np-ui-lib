@@ -56,4 +56,7 @@ export class NpTagsDemoComponent implements OnInit {
 
   tags4: any[];
   searchResult4: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
+
+  tags5: any[];
+  searchResult5: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
 }
