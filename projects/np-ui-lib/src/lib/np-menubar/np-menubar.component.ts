@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { NpMenuItem } from './np-menu.model';
 
 @Component({
@@ -14,6 +14,7 @@ export class NpMenubarComponent {
   @Input() styleClass: string;
   /**orientation of menu, valid values are horizontal and vertical. Default is vertical. */
   @Input() orientation: string = "vertical";
+  @Output() _onCloseMenu: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }
@@ -36,5 +37,21 @@ export class NpMenubarComponent {
 
   _getActiveClass(item: NpMenuItem) {
     return item.activeClass ? item.activeClass : "np-mb-active";
+  }
+
+  _onClickMenu($event, item: NpMenuItem) {
+    item.onClick($event);
+    this._close();
+  }
+
+  _close() {
+    this._onCloseMenu.emit();
+  }
+
+  _closeParentMenu() {
+    this.items.forEach(element => {
+      element._isItemsVisible = false;
+    });
+    this._onCloseMenu.emit();
   }
 }

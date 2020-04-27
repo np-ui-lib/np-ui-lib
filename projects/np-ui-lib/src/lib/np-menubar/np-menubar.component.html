@@ -15,20 +15,21 @@
                 </a>
                 <ng-container *ngIf="item._isItemsVisible">
                     <div class="np-mb-submenu" [style.top.px]="item._y" [style.left.px]="item._x">
-                        <np-menubar [items]="item.items" [orientation]="'vertical'"></np-menubar>
+                        <np-menubar [items]="item.items" [orientation]="'vertical'" (_onCloseMenu)="_closeParentMenu()">
+                        </np-menubar>
                     </div>
                 </ng-container>
             </div>
         </ng-container>
         <ng-container *ngIf="!item.items">
             <div class="np-mb-menu-item">
-                <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [routerLinkActive]="_getActiveClass(item)">
+                <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [routerLinkActive]="_getActiveClass(item)" (click)="_close()">
                     {{item.label}}
                 </a>
-                <a *ngIf="item.url" [href]="item.url">
+                <a *ngIf="item.url" [href]="item.url" (click)="_close()">
                     {{item.label}}
                 </a>
-                <a *ngIf="item.onClick" (click)="item.onClick($event)">
+                <a *ngIf="item.onClick" (click)="_onClickMenu($event, item)">
                     {{item.label}}
                 </a>
             </div>
