@@ -228,9 +228,8 @@ svg {
     display: block;
     padding: 5px;
     margin: 0px;
-    color: #495057;
     background-color: #ffffff;
-    border: 1px solid #000000;
+    border: 1px solid #c8c8c8;
     width: 100%;
     min-height: 32px;
 }
@@ -241,7 +240,7 @@ svg {
     flex-wrap: wrap;
     align-items: stretch;
     width: 100%;
-    border: 1px solid #000000;
+    border: 1px solid #c8c8c8;
 }
 
 .input-group-prepend,
@@ -268,7 +267,7 @@ svg {
     padding: 0px 5px;
     transition: all .2s ease-in-out;
     background-color: #f1f1f1;
-    border: 1px solid #000000;
+    border: 1px solid #c8c8c8;
     margin: 5px 0px;
     min-width: 50px;
     height: 32px;
@@ -305,26 +304,31 @@ svg {
 .np-btn-primary {
     color: #fff;
     background-color: #007bff;
+    border-color: #0275d8
 }
 
 .np-btn-success {
     color: #fff;
     background-color: #1e7e34;
+    border-color: #5cb85c
 }
 
 .np-btn-danger {
     color: #fff;
     background-color: #d9534f;
+    border-color: #d9534f
 }
 
 .np-btn-warning {
     color: #fff;
     background-color: #d39e00;
+    border-color: #f0ad4e
 }
 
 .np-btn-info {
     color: #fff;
     background-color: #117a8b;
+    border-color: #5bc0de
 }
 
 .np-btn-primary:hover {
@@ -388,23 +392,23 @@ svg {
 }
 
 .np-border {
-    border: 1px solid #000000;
+    border: 1px solid #c8c8c8;
 }
 
 .np-border-top {
-    border-top: 1px solid #000000;
+    border-top: 1px solid #c8c8c8;
 }
 
 .np-border-bottom {
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #c8c8c8;
 }
 
 .np-border-right {
-    border-right: 1px solid #000000;
+    border-right: 1px solid #c8c8c8;
 }
 
 .np-border-left {
-    border-left: 1px solid #000000;
+    border-left: 1px solid #c8c8c8;
 }
 
 .np-clearfix::after {
@@ -430,7 +434,7 @@ svg {
     position: relative;
     padding: 10px;
     margin-bottom: 5px;
-    border: 1px solid #000000;
+    border: 1px solid #c8c8c8;
     border-left: 5px solid;
     background-color: #ffffff;
     padding-right: 32px;

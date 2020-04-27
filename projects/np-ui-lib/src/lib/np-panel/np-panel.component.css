@@ -3,7 +3,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    border: 1px solid #000000;
+    border: 1px solid #c8c8c8;
 }
 
 .np-pn-header {

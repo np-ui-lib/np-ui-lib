@@ -1,5 +1,6 @@
 .np-pop-component {
-    border: 1px solid #000000;
+    border: 1px solid #c8c8c8;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .np-pop-target {
@@ -9,7 +10,7 @@
 .np-pop-header {
     padding: 10px;
     background-color: #f1f1f1;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #c8c8c8;
 }
 
 .np-pop-body {

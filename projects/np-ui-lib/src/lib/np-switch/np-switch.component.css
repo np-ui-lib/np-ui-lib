@@ -1,7 +1,7 @@
 .np-sw-component {
     width: 100px;
     user-select: none;
-    border: 1px solid #000000;
+    border: 1px solid #c8c8c8;
 }
 
 .np-sw-component .np-btn {

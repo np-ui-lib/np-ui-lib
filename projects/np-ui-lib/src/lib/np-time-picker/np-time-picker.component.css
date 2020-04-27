@@ -1,6 +1,7 @@
 .np-tp-overlay {
     background-color: #ffffff;
     width: 210px;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .np-tp-header {
@@ -30,4 +31,8 @@
 
 .np-tp-overflow-hidden {
     overflow: hidden;
+}
+
+.np-tp-default-open {
+    box-shadow: none;
 }

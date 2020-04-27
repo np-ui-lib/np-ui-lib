@@ -4,7 +4,7 @@
 }
 
 .np-tab-body {
-    border: 1px solid #000000;
+    border: 1px solid #c8c8c8;
     padding: 10px;
     flex: 1;
     overflow: auto;
@@ -14,9 +14,9 @@
     margin: 0px;
     padding: 0px;
     list-style: none;
-    border-top: 1px solid #000000;
-    border-right: 1px solid #000000;
-    border-left: 1px solid #000000;
+    border-top: 1px solid #c8c8c8;
+    border-right: 1px solid #c8c8c8;
+    border-left: 1px solid #c8c8c8;
     background-color: #f1f1f1;
 }
 

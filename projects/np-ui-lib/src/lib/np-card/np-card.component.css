@@ -1,12 +1,9 @@
 .np-cd-component {
     background-color: #ffffff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     overflow: hidden;
     margin: 5px;
-}
-
-.np-cd-component:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid #c8c8c8;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .np-cd-body {

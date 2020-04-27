@@ -1,6 +1,7 @@
 .np-dp-overlay {
     background-color: #ffffff;
     width: 236px;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .np-dp-weekday {
@@ -48,4 +49,8 @@
 
 .np-dp-days {
     padding: 5px;
+}
+
+.np-dp-default-open {
+    box-shadow: none;
 }

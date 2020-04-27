@@ -11,6 +11,7 @@
     max-width: 300px;
     max-height: 300px;
     overflow: auto;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .np-ac-search-item {

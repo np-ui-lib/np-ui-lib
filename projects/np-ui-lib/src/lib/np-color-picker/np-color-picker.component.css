@@ -6,6 +6,7 @@
 .np-cp-overlay {
     background-color: #ffffff;
     width: 212px;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .np-cp-block-selected {
@@ -55,4 +56,8 @@
 
 .np-cp-hide-input .np-form-control {
     display: none;
+}
+
+.np-cp-default-open {
+    box-shadow: none;
 }

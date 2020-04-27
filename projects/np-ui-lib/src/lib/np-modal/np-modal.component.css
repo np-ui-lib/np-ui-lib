@@ -1,9 +1,10 @@
 .np-mod-overlay {
     margin: 5px;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .np-mod-component {
-    border: 1px solid #000000;
+    border: 1px solid #c8c8c8;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -13,7 +14,7 @@
 
 .np-mod-header {
     background-color: #f1f1f1;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #c8c8c8;
     padding: 10px;
     position: relative;
     min-height: 32px;
@@ -28,7 +29,7 @@
 
 .np-mod-footer {
     background-color: #f1f1f1;
-    border-top: 1px solid #000000;
+    border-top: 1px solid #c8c8c8;
     padding: 10px;
     min-height: 32px;
 }
