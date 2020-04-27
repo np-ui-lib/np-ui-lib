@@ -17,8 +17,10 @@
 <fieldset>
     <np-carousel #slider [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="3" [currentPage]="1" [scrollNum]="1">
     </np-carousel>
-    <button class="np-btn" (click)="selectPage2()">Go to page 2</button>
-    <button class="np-btn" (click)="addNewItem2()">Add new item</button>
+    <div class="np-btn-group">
+        <button class="np-btn" (click)="selectPage2()">Go to page 2</button>
+        <button class="np-btn" (click)="addNewItem2()">Add new item</button>
+    </div>
 </fieldset>
 
 <ng-template #itemTemplate let-item="item">

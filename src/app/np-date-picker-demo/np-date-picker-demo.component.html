@@ -15,8 +15,10 @@
         <np-date-picker [(ngModel)]="date1">
         </np-date-picker>
         <div>Selected Date : {{date1}}</div>
-        <button class="np-btn" (click)="setDate1()">Set Date 28/10/1992</button>
-        <button class="np-btn" (click)="setDate1AsNull()">Set null</button>
+        <div class="np-btn-group">
+            <button class="np-btn" (click)="setDate1()">Set Date 28/10/1992</button>
+            <button class="np-btn" (click)="setDate1AsNull()">Set null</button>
+        </div>
     </fieldset>
 </div>
 
@@ -50,8 +52,10 @@
         <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="np-text-danger">
             Date is required.
         </div>
-        <button class="np-btn" (click)="date4Disable = !date4Disable">Toggle Disable</button>
-        <button class="np-btn" (click)="date4Required = !date4Required">Toggle Required</button>
+        <div class="np-btn-group">
+            <button class="np-btn" (click)="date4Disable = !date4Disable">Toggle Disable</button>
+            <button class="np-btn" (click)="date4Required = !date4Required">Toggle Required</button>
+        </div>
     </fieldset>
 </div>
 

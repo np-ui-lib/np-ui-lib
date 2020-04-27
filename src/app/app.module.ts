@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { DragDropModule } from '@angular/cdk/drag-drop';
 import { fakeBackendProvider } from './np-data-grid-demo/FakeBackendInterceptor';
+import { NpMenubarModule } from 'np-ui-lib';
 
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import { fakeBackendProvider } from './np-data-grid-demo/FakeBackendInterceptor'
     HttpClientModule,
     CommonModule,
     FormsModule,
-    DragDropModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NpMenubarModule
   ],
   providers: [
     // provider used to create fake backend

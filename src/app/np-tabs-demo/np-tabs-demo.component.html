@@ -34,9 +34,9 @@
 </np-tabs>
 
 <div class="np-btn-group">
-    <button type="button" class="np-btn np-btn-primary" (click)="loadTabById()">Open Tab 2 with Id</button>
-    <button type="button" class="np-btn np-btn-primary" (click)="changeCount()">Change Title of tab2</button>
-    <button type="button" class="np-btn np-btn-primary" (click)="loadTab4()">Open 4th Tab by index</button>
+    <button type="button" class="np-btn" (click)="loadTabById()">Open Tab 2 with Id</button>
+    <button type="button" class="np-btn" (click)="changeCount()">Change Title of tab2</button>
+    <button type="button" class="np-btn" (click)="loadTab4()">Open 4th Tab by index</button>
 </div>
 
 <np-tabs (onTabChange)="onTabChange($event)" #tabs2>

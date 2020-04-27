@@ -48,8 +48,10 @@
         <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="np-text-danger">
             Color is required.
         </div>
-        <button type="button" class="np-btn" (click)="color4Disabled = !color4Disabled">Toggle Disable</button>
-        <button type="button" class="np-btn" (click)="color4Required = !color4Required">Toggle Required</button>
+        <div class="np-btn-group">
+            <button type="button" class="np-btn" (click)="color4Disabled = !color4Disabled">Toggle Disable</button>
+            <button type="button" class="np-btn" (click)="color4Required = !color4Required">Toggle Required</button>
+        </div>
     </fieldset>
 </div>
 

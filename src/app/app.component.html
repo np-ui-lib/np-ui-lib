@@ -7,29 +7,7 @@
 </header>
 <div class="main-container">
     <div class="nav">
-        <ul class="nav-menu">
-            <li><a routerLink="/np-date-picker-demo" routerLinkActive="active">Date Picker</a></li>
-            <li><a routerLink="/np-time-picker-demo" routerLinkActive="active">Time Picker</a></li>
-            <li><a routerLink="/np-color-picker-demo" routerLinkActive="active">Color Picker</a></li>
-            <li><a routerLink="/np-switch-demo" routerLinkActive="active">Switch</a></li>
-            <li><a routerLink="/np-dropdown-demo" routerLinkActive="active">Dropdown</a></li>
-            <li><a routerLink="/np-auto-complete-demo" routerLinkActive="active">Auto Complete</a></li>
-            <li><a routerLink="/np-tags-demo" routerLinkActive="active">Tags</a></li>
-            <li><a routerLink="/np-menubar-demo" routerLinkActive="active">Menubar</a></li>
-            <li><a routerLink="/np-data-grid-demo" routerLinkActive="active">Data Grid</a></li>
-            <li><a routerLink="/np-panel-demo" routerLinkActive="active">Panel</a></li>
-            <li><a routerLink="/np-accordion-demo" routerLinkActive="active">Accordion</a></li>
-            <li><a routerLink="/np-tabs-demo" routerLinkActive="active">Tabs</a></li>
-            <li><a routerLink="/np-card-demo" routerLinkActive="active">Card</a></li>
-            <li><a routerLink="/np-alert-demo" routerLinkActive="active">Alert</a></li>
-            <li><a routerLink="/np-notification-demo" routerLinkActive="active">Notifications</a></li>
-            <li><a routerLink="/np-tooltip-demo" routerLinkActive="active">Tooltip</a></li>
-            <li><a routerLink="/np-popover-demo" routerLinkActive="active">Popover</a></li>
-            <li><a routerLink="/np-progress-demo" routerLinkActive="active">Progress</a></li>
-            <li><a routerLink="/np-carousel-demo" routerLinkActive="active">Carousel</a></li>
-            <li><a routerLink="/np-modal-demo" routerLinkActive="active">Modal</a></li>
-            <li><a routerLink="/np-utility-demo" routerLinkActive="active">Other Utility</a></li>
-        </ul>
+        <np-menubar [items]="menuItems"></np-menubar>
     </div>
     <div class="content">
         <router-outlet></router-outlet>

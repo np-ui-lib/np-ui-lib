@@ -36,7 +36,7 @@ export class NpMenubarComponent {
   }
 
   _getActiveClass(item: NpMenuItem) {
-    return item.activeClass ? item.activeClass : "np-mb-active";
+    return item.routerLinkActive ? item.routerLinkActive : "np-mb-active";
   }
 
   _onClickMenu($event, item: NpMenuItem) {

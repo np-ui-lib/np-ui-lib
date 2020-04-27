@@ -55,8 +55,10 @@
         <div *ngIf="validations5.control.touched && validations5.control.errors?.required" class="np-text-danger">
             Time is required.
         </div>
-        <button class="np-btn" (click)="timePicker5Disable = !timePicker5Disable">Toggle Disable</button>
-        <button class="np-btn" (click)="timePicker5Required = !timePicker5Required">Toggle Required</button>
+        <div class="np-btn-group">
+            <button class="np-btn" (click)="timePicker5Disable = !timePicker5Disable">Toggle Disable</button>
+            <button class="np-btn" (click)="timePicker5Required = !timePicker5Required">Toggle Required</button>
+        </div>
     </fieldset>
 </div>
 
