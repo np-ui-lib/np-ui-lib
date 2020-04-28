@@ -57,7 +57,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   @Input() expandRowOnClick: boolean = false;
   _openRowKeys: any[] = [];
 
-  _showLoader: boolean = false;
+  _isShowLoader: boolean = false;
 
   @Input() singleRowSelectEnable: boolean = false;
   @Input() multiRowSelectEnable: boolean = false;
@@ -226,7 +226,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
           }
         }
         this._pager = this.pagerService.getPager(this._total, this._pager.currentPage, this.pageSize);
-        this._showLoader = false;
+        this._isShowLoader = false;
       }
       else {
         var dataSource = new DataSource(data.data, data.data.length, data.summary);
@@ -253,7 +253,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
     this._pager = this.pagerService.getPager(this._total, currentPageNumber, this.pageSize);
     if (this.isServerOperations) {
-      this._showLoader = true;
+      this._isShowLoader = true;
       var loadOpt = new LoadOptions();
       if (this.isODataOperations) {
         var top = this.pageSize;
@@ -612,14 +612,14 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * show loader
    */
   showLoader() {
-    this._showLoader = true;
+    this._isShowLoader = true;
   }
 
   /**
    * hide loader
    */
   hideLoader() {
-    this._showLoader = false;
+    this._isShowLoader = false;
   }
 
   /**

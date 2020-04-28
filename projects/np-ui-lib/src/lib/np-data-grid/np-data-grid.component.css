@@ -208,10 +208,6 @@
     justify-content: space-around;
 }
 
-.np-dg-component .input-group-append {
-    background-color: #ffffff;
-}
-
 .np-dg-table-body tr:hover td {
     background-color: #d9edf7;
 }

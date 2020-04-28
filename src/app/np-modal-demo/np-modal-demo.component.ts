@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NpModalComponent } from 'np-ui-lib';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-np-modal-demo',
@@ -13,6 +14,7 @@ export class NpModalDemoComponent implements OnInit {
   birthDate: Date;
   birthTime: string;
   isActive: boolean = true;
+  description: string;
 
   @ViewChild("modalDemo", { static: true }) modalDemo: NpModalComponent;
   @ViewChild("modalDemo2", { static: true }) modalDemo2: NpModalComponent;
@@ -21,6 +23,15 @@ export class NpModalDemoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  myForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    birthDate: new FormControl(null),
+    birthTime: new FormControl(''),
+    isActive: new FormControl(false),
+    description: new FormControl(''),
+  });
 
   openModal() {
     this.modalDemo.open();
@@ -48,6 +59,28 @@ export class NpModalDemoComponent implements OnInit {
 
   onCloseModal2() {
     alert("Modal 2 close");
+  }
+
+  onSubmit() {
+    if (this.myForm.invalid) {
+      this.markFormGroupTouched(this.myForm);
+    }
+    else {
+      this.closeModal2();
+    }
+  }
+
+  reset() {
+    this.myForm.reset();
+  }
+
+  private markFormGroupTouched(formGroup: FormGroup) {
+    (<any>Object).values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+      if (control.controls) {
+        this.markFormGroupTouched(control);
+      }
+    });
   }
 
 }

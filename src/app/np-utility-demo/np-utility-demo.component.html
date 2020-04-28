@@ -68,14 +68,16 @@
                         <div class="np-form-label np-required">Birth date:</div>
                         <np-date-picker [(ngModel)]="birthDate" name="txtBirthDate" required #txtBirthDate="ngModel">
                         </np-date-picker>
-                        <div class="np-form-text np-text-danger" *ngIf="txtBirthDate.control.touched && txtBirthDate.control.errors?.required">Date is required.
+                        <div class="np-form-text np-text-danger" *ngIf="txtBirthDate.control.touched && txtBirthDate.control.errors?.required">Birth date is required.
                         </div>
                     </div>
                 </div>
                 <div class="np-col-6">
                     <div class="np-form-group">
                         <div class="np-form-label np-required">Birth time:</div>
-                        <np-time-picker [(ngModel)]="birthTime" name="birthTime" [required]="true"></np-time-picker>
+                        <np-time-picker [(ngModel)]="birthTime" name="birthTime" [required]="true" #txtbirthTime="ngModel"></np-time-picker>
+                        <div class="np-form-text np-text-danger" *ngIf="txtbirthTime.control.touched && txtbirthTime.control.errors?.required">Birth time is required.
+                        </div>
                     </div>
                 </div>
             </div>

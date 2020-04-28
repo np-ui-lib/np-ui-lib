@@ -3,7 +3,6 @@ import { Component, OnInit, Input, ElementRef, ViewEncapsulation, ChangeDetectio
 @Component({
   selector: 'np-alert',
   templateUrl: './np-alert.component.html',
-  styleUrls: ['./np-alert.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

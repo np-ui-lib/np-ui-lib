@@ -19,6 +19,7 @@
     display: inline-block;
     text-align: center;
     vertical-align: middle;
+    position: relative;
 }
 
 .np-dp-today {
@@ -32,8 +33,20 @@
     cursor: pointer;
 }
 
-.np-dp-day .np-tt-target {
-    text-decoration: underline;
+.np-dp-day .np-tt-target:before {
+    content: '';
+    display: inline-block;
+    border: solid transparent;
+    border-width: 0 0 10px 10px;
+    border-bottom-color: #007bff;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+}
+
+.np-dp-selected .np-tt-target:before,
+.np-dp-day:hover .np-tt-target:before {
+    border-bottom-color: #fff;
 }
 
 .np-dp-header {

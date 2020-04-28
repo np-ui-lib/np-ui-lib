@@ -8,6 +8,7 @@
     padding: 10px;
     flex: 1;
     overflow: auto;
+    background-color: #ffffff;
 }
 
 .np-tab-header {
@@ -34,8 +35,7 @@
     background-color: #ddd;
 }
 
-.np-active-tab,
-.np-active-tab:hover {
-    color: #fff;
-    background-color: #007bff;
+.np-active-tab {
+    color: #007bff;
+    border-bottom: 3px solid #007bff;
 }

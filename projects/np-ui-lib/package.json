@@ -44,6 +44,7 @@
         "Popover",
         "Dropdown",
         "Menubar",
-        "Card"
+        "Card",
+        "Loader"
     ]
 }

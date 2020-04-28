@@ -241,6 +241,7 @@ svg {
     align-items: stretch;
     width: 100%;
     border: 1px solid #c8c8c8;
+    background-color: #ffffff;
 }
 
 .input-group-prepend,
@@ -435,7 +436,7 @@ svg {
     padding: 10px;
     margin-bottom: 5px;
     border: 1px solid #c8c8c8;
-    border-left: 5px solid;
+    border-left: 5px solid #c8c8c8;
     background-color: #ffffff;
     padding-right: 32px;
 }
@@ -482,6 +483,12 @@ svg {
 
 .np-alert-header {
     font-weight: bold;
+}
+
+.np-alert-close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
 }
 
 .np-float-left {
