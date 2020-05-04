@@ -9,7 +9,7 @@ import { NpAccordionComponent } from 'np-ui-lib';
 export class NpAccordionDemoComponent implements OnInit {
 
   @ViewChild("accordionDemo", { static: true }) accordionDemo: NpAccordionComponent;
-  _singleOpenAtOnce: boolean = false;
+  _allowMultipleOpen: boolean = false;
 
   constructor() { }
 
@@ -22,5 +22,9 @@ export class NpAccordionDemoComponent implements OnInit {
 
   openPara3ByIndex() {
     this.accordionDemo.expandByIndex(2);
+  }
+
+  onOpenPanel3($event) {
+    alert("Panel 3 open");
   }
 }

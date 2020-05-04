@@ -6,7 +6,6 @@ import { NpModalContentComponent } from './np-modal-content.component';
 import { NpModalFooterComponent } from './np-modal-footer.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
-import { NpLoaderModule } from '../np-loader/np-loader.module';
 
 @NgModule({
   declarations: [NpModalComponent,
@@ -16,8 +15,7 @@ import { NpLoaderModule } from '../np-loader/np-loader.module';
   imports: [
     CommonModule,
     OverlayModule,
-    PortalModule,
-    NpLoaderModule
+    PortalModule
   ],
   exports: [NpModalComponent,
     NpModalHeaderComponent,

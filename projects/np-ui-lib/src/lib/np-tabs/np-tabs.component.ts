@@ -10,8 +10,6 @@ import { NpTabComponent } from './np-tab.component';
 })
 export class NpTabsComponent implements AfterContentInit {
 
-  _isShowLoader: boolean = false;
-
   @ContentChildren(NpTabComponent) _tabs: QueryList<NpTabComponent>;
 
   @Input() styleClass: string;
@@ -29,9 +27,11 @@ export class NpTabsComponent implements AfterContentInit {
         this._tabs.toArray().forEach(tab => tab.active = false);
         tabs[0].active = true;
         this._height = tabs[0].height;
+        tabs[0].isLoadingFirstTime = false;
       }
     } else {
       this._height = activeTabs[0].height;
+      activeTabs[0].isLoadingFirstTime = false;
     }
   }
 
@@ -45,6 +45,7 @@ export class NpTabsComponent implements AfterContentInit {
     if (this.onTabChange) {
       this.onTabChange.emit(tab);
     }
+    tab.isLoadingFirstTime = false;
   }
 
   selectTabById(id: string) {
@@ -60,13 +61,4 @@ export class NpTabsComponent implements AfterContentInit {
       this._selectTab(tab);
     }
   }
-
-  showLoader() {
-    this._isShowLoader = true;
-  }
-
-  hideLoader() {
-    this._isShowLoader = false;
-  }
-
 }

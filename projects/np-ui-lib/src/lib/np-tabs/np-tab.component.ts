@@ -13,6 +13,7 @@ export class NpTabComponent implements OnInit {
     @Input() active: boolean;
     @Input() disabled: boolean;
     @Input() height: number;
+    isLoadingFirstTime: boolean = true;
 
     _titleIsTemplate: boolean;
 

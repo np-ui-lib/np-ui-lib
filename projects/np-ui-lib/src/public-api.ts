@@ -98,3 +98,7 @@ export * from './lib/np-card/np-card.component';
 export * from './lib/np-card/np-card-header.component';
 export * from './lib/np-card/np-card-body.component';
 export * from './lib/np-card/np-card-footer.component';
+
+/**Loader */
+export * from './lib/np-loader/np-loader.module';
+export * from './lib/np-loader/np-loader.directive';

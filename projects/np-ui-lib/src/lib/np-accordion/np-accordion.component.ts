@@ -13,7 +13,7 @@ export class NpAccordionComponent implements AfterContentInit {
   @ContentChildren(NpPanelComponent) _panels: QueryList<NpPanelComponent>;
 
   @Input() defaultOpenIndex: number;
-  @Input() singleOpenAtOnce: boolean;
+  @Input() allowMultipleOpen: boolean;
   @Input() styleClass: string;
 
   ngAfterContentInit(): void {
@@ -22,8 +22,8 @@ export class NpAccordionComponent implements AfterContentInit {
       panel.allowToMinimize = true;
       panel.allowToClose = false;
       panel.allowToZoom = false;
-      panel._onOpen.subscribe((_p: NpPanelComponent) => {
-        this._onOpenPanel(_p);
+      panel.onOpen.subscribe((_p: NpPanelComponent) => {
+        this._onPanelOpen(_p);
       });
     });
     if (this.defaultOpenIndex >= 0) {
@@ -31,12 +31,16 @@ export class NpAccordionComponent implements AfterContentInit {
     }
   }
 
-  _onOpenPanel(panel: NpPanelComponent) {
+  _openPanel(panel: NpPanelComponent) {
     if (panel.disabled) {
       return;
     }
     panel.isOpen = true;
-    if (this.singleOpenAtOnce) {
+    panel.onOpen.emit(panel);
+  }
+
+  _onPanelOpen(panel: NpPanelComponent) {
+    if (this.allowMultipleOpen) {
       this._panels.toArray().forEach(_p => {
         if (_p.id != panel.id) {
           _p.isOpen = false;
@@ -47,12 +51,12 @@ export class NpAccordionComponent implements AfterContentInit {
 
   expandByIndex(idx: number) {
     var panel = this._panels.toArray()[idx];
-    this._onOpenPanel(panel);
+    this._openPanel(panel);
   }
 
   expandById(id: string) {
     var panel = this._panels.find(function (item) { if (item.id === id) { return true; } });
-    this._onOpenPanel(panel);
+    this._openPanel(panel);
   }
 
 }

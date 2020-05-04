@@ -14,10 +14,9 @@ export class NpModalComponent {
   @Input() height: number;
   @Input() width: number;
   @Input() styleClass: string;
+  @Input() backDropClass: string = "np-mod-backdrop";
   @Output() onOpen: EventEmitter<void> = new EventEmitter();
   @Output() onClose: EventEmitter<void> = new EventEmitter();
-
-  _isShowLoader: boolean = false;
 
   @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
   private templatePortal: TemplatePortal<any>;
@@ -44,7 +43,7 @@ export class NpModalComponent {
       this.overlayRef = this.overlay.create({
         positionStrategy,
         hasBackdrop: true,
-        backdropClass: "np-mod-backdrop",
+        backdropClass: this.backDropClass,
         height: this.height,
         width: this.width,
         scrollStrategy: this.overlay.scrollStrategies.block(),
@@ -60,13 +59,4 @@ export class NpModalComponent {
       this.onOpen.emit();
     }
   }
-
-  showLoader() {
-    this._isShowLoader = true;
-  }
-
-  hideLoader() {
-    this._isShowLoader = false;
-  }
-
 }

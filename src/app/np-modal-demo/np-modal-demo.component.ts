@@ -50,11 +50,7 @@ export class NpModalDemoComponent implements OnInit {
   }
 
   onOpenModal2() {
-    this.modalDemo2.showLoader();
     alert("Modal 2 open");
-    setTimeout(() => {
-      this.modalDemo2.hideLoader();
-    }, 3000);
   }
 
   onCloseModal2() {

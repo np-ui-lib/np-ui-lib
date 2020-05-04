@@ -1,4 +1,4 @@
-<div [ngClass]="{'np-dg-component': true}" [np-loader]='_isShowLoader' [style.max-height.px]="height" [style.max-width.px]="width" [class]="styleClass">
+<div [ngClass]="{'np-dg-component': true}" [style.max-height.px]="height" [style.max-width.px]="width" [class]="styleClass">
     <div *ngIf="title" class="np-dg-title" [innerHTML]="title">
     </div>
     <div class="np-dg-toolbar" *ngIf="showToolBar">
@@ -197,7 +197,7 @@
             </table>
         </div>
         <div class="np-dg-table-footer">
-            <div class="np-dg-no-data-message" *ngIf="_currentViewData && _currentViewData.length === 0 && !_isShowLoader">
+            <div class="np-dg-no-data-message" *ngIf="_currentViewData && _currentViewData.length === 0">
                 <div [innerHTML]="noDataMessage"></div>
             </div>
             <div class="np-dg-table-summary" *ngIf="showSummary">

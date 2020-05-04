@@ -14,7 +14,6 @@ import { NpDatePickerModule } from '../np-date-picker/np-date-picker.module';
 import { OverlayModule } from "@angular/cdk/overlay";
 import { PortalModule } from "@angular/cdk/portal";
 import { NpModalModule } from '../np-modal/np-modal.module';
-import { NpLoaderModule } from '../np-loader/np-loader.module';
 
 @NgModule({
   declarations: [
@@ -29,8 +28,7 @@ import { NpLoaderModule } from '../np-loader/np-loader.module';
     OverlayModule,
     PortalModule,
     NpDatePickerModule,
-    NpModalModule,
-    NpLoaderModule
+    NpModalModule
   ],
   exports: [
     NpDataGridComponent

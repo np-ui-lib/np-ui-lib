@@ -28,13 +28,7 @@ export class NpTabsDemoComponent implements OnInit {
   }
 
   onTabChange(_tab) {
-    alert("tab changed to " + _tab.title);
-    if (_tab.id === "tab1") {
-      this.tabs2.showLoader();
-      setTimeout(() => {
-        this.tabs2.hideLoader();
-      }, 3000);
-    }
+    alert(`tab changed to ${_tab.title}, is loading first time : ${_tab.isLoadingFirstTime}`);
   }
 
   changeCount() {

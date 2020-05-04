@@ -57,8 +57,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   @Input() expandRowOnClick: boolean = false;
   _openRowKeys: any[] = [];
 
-  _isShowLoader: boolean = false;
-
   @Input() singleRowSelectEnable: boolean = false;
   @Input() multiRowSelectEnable: boolean = false;
   @Input() selectRowOnClick: boolean = false;
@@ -212,7 +210,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
         // to export to csv, this change has all data
         if (data.isAllPages) {
           this.fileService.downloadCSVFile(data.data, this._visibleColumns);
-          this.hideLoader();
           return;
         }
         this._currentViewData = data.data;
@@ -226,7 +223,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
           }
         }
         this._pager = this.pagerService.getPager(this._total, this._pager.currentPage, this.pageSize);
-        this._isShowLoader = false;
       }
       else {
         var dataSource = new DataSource(data.data, data.data.length, data.summary);
@@ -253,7 +249,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
     this._pager = this.pagerService.getPager(this._total, currentPageNumber, this.pageSize);
     if (this.isServerOperations) {
-      this._isShowLoader = true;
       var loadOpt = new LoadOptions();
       if (this.isODataOperations) {
         var top = this.pageSize;
@@ -559,10 +554,8 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _dropColumn(event: CdkDragDrop<string[]>) {
-    this.showLoader();
     moveItemInArray(this._columns, event.previousIndex, event.currentIndex);
     this._setVisibleColumns();
-    this.hideLoader();
   }
 
   /**
@@ -606,20 +599,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    */
   deSelectAll() {
     this._deSelectAll();
-  }
-
-  /**
-   * show loader
-   */
-  showLoader() {
-    this._isShowLoader = true;
-  }
-
-  /**
-   * hide loader
-   */
-  hideLoader() {
-    this._isShowLoader = false;
   }
 
   /**
@@ -935,7 +914,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       this.onServerExport.emit(loadOpt);
       return;
     }
-    this.showLoader();
     if (this.isServerOperations) {
       var loadOpt = new LoadOptions();
       if (this.isODataOperations) {
@@ -951,7 +929,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       this.onLoadData.emit(loadOpt);
     } else {
       this.fileService.downloadCSVFile(this._dataSource.data, this._visibleColumns);
-      this.hideLoader();
     }
   }
 
