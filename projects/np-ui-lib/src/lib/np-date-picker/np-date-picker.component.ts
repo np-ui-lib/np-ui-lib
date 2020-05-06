@@ -88,7 +88,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
 
     this._weekDays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
-    this._setYears();
     this._setMonths();
   }
 
@@ -322,15 +321,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this._isOpen = false;
     this.overlayRef.detach();
     this.onTouchedCallback();
-  }
-
-  _setYears() {
-    var currentYear = this._today.getFullYear();
-    var minYear = currentYear - 100;
-    var maxYear = currentYear + 100;
-    for (var i = minYear; i <= maxYear; i++) {
-      this._years.push(i);
-    }
   }
 
   _setMonths() {

@@ -33,12 +33,7 @@
                         </button>
                     </div>
                     <div class="np-col-auto">
-                        <select class="np-form-control" (change)="_selectYear($event)">
-                            <option *ngFor="let year of _years" [value]="year" [text]="year"
-                                [selected]="year == _currentYear">
-
-                            </option>
-                        </select>
+                        <input class="np-form-control" [style.width.px]="60" type="number" [value]="_currentYear" (change)="_selectYear($event)">
                     </div>
                     <div class="np-col-auto">
                         <select class="np-form-control" (change)="_selectMonth($event)">

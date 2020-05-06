@@ -19,7 +19,7 @@ export class NpMenubarComponent {
   constructor() {
   }
 
-  onMouseEnter($event, item: NpMenuItem) {
+  _onMouseEnter($event, item: NpMenuItem) {
     if (this.orientation === "vertical") {
       item._x = $event.target.offsetWidth;
       item._y = 0;
@@ -31,7 +31,7 @@ export class NpMenubarComponent {
     item._isItemsVisible = true;
   }
 
-  onMouseLeave(item: NpMenuItem) {
+  _onMouseLeave(item: NpMenuItem) {
     item._isItemsVisible = false;
   }
 
