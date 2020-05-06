@@ -102,3 +102,7 @@ export * from './lib/np-card/np-card-footer.component';
 /**Loader */
 export * from './lib/np-loader/np-loader.module';
 export * from './lib/np-loader/np-loader.directive';
+
+/**Sidepanel */
+export * from './lib/np-sidepanel/np-sidepanel.module';
+export * from './lib/np-sidepanel/np-sidepanel.component';

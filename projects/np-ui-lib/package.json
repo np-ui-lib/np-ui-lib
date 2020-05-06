@@ -45,6 +45,7 @@
         "Dropdown",
         "Menubar",
         "Card",
-        "Loader"
+        "Loader",
+        "Sidepanel"
     ]
 }

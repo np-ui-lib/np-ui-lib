@@ -91,6 +91,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-loader-demo/np-loader-demo.module').then(m => m.NpLoaderDemoModule)
   },
   {
+    path: 'np-sidepanel-demo',
+    loadChildren: () => import('./np-sidepanel-demo/np-sidepanel-demo.module').then(m => m.NpSidepanelDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'np-date-picker-demo',
     pathMatch: 'full'
