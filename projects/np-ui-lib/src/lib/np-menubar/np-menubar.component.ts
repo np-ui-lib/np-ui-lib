@@ -40,7 +40,9 @@ export class NpMenubarComponent {
   }
 
   _onClickMenu($event, item: NpMenuItem) {
-    item.onClick($event);
+    if (item.onClick) {
+      item.onClick($event);
+    }
     this._close();
   }
 

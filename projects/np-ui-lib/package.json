@@ -46,6 +46,7 @@
         "Menubar",
         "Card",
         "Loader",
-        "Sidepanel"
+        "Sidepanel",
+        "Breadcrumb"
     ]
 }

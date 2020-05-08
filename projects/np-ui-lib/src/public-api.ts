@@ -106,3 +106,8 @@ export * from './lib/np-loader/np-loader.directive';
 /**Sidepanel */
 export * from './lib/np-sidepanel/np-sidepanel.module';
 export * from './lib/np-sidepanel/np-sidepanel.component';
+
+/**Breadcrumb */
+export * from './lib/np-breadcrumb/np-breadcrumb.module';
+export * from './lib/np-breadcrumb/np-breadcrumb.component';
+export * from './lib/np-breadcrumb/np-breadcrumb.model';

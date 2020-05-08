@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'np-ui-package';
 
   dataGridItems = [
-    new NpMenuItem({ url: "https://github.com/NilavPatel/np-ui-package/wiki/Data%20Grid", label: "np-data-grid" , target: "_blank"}),
+    new NpMenuItem({ url: "https://github.com/NilavPatel/np-ui-package/wiki/Data%20Grid", label: "np-data-grid", target: "_blank" }),
     new NpMenuItem({ routerLink: "/np-data-grid-demo/client-grid", label: "Client Side" }),
     new NpMenuItem({ routerLink: "/np-data-grid-demo/server-grid", label: "Server Side" }),
     new NpMenuItem({ routerLink: "/np-data-grid-demo/sorting-grid", label: "Sorting" }),
@@ -38,6 +38,7 @@ export class AppComponent {
     new NpMenuItem({ routerLink: "/np-auto-complete-demo", label: "Auto Complete" }),
     new NpMenuItem({ routerLink: "/np-tags-demo", label: "Tags" }),
     new NpMenuItem({ routerLink: "/np-menubar-demo", label: "Menubar" }),
+    new NpMenuItem({ routerLink: "/np-breadcrumb-demo", label: "Breadcrumb" }),
     new NpMenuItem({ routerLink: "/np-data-grid-demo", label: "Data Grid", items: this.dataGridItems }),
     new NpMenuItem({ routerLink: "/np-panel-demo", label: "Panel" }),
     new NpMenuItem({ routerLink: "/np-accordion-demo", label: "Accordion" }),
