@@ -1,1 +1,12 @@
-<np-breadcrumb [items]="items"></np-breadcrumb>
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-ui-package/wiki/Breadcrumb">
+            np-breadcrumb
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-breadcrumb-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<np-breadcrumb [items]="items" (onClick)="onClick($event)"></np-breadcrumb>

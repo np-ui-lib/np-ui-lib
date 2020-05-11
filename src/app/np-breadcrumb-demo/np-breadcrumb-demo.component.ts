@@ -20,6 +20,10 @@ export class NpBreadcrumbDemoComponent implements OnInit {
     new NpBreadCrumbItem({ label: "India" }),
     new NpBreadCrumbItem({ label: "Gujarat" }),
     new NpBreadCrumbItem({ label: "Ahmedabad" })
-  ]
+  ];
+
+  onClick(item) {
+    alert(item.label);
+  }
 
 }
