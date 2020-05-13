@@ -19,10 +19,10 @@
         </ng-template>
         <p>Hi, this is tab2.</p>
     </np-tab>
-    <np-tab id="tab3" [title]="'Tab3'" [disabled]="true">
+    <np-tab id="tab3" [title]="'Tab3'" [disabled]="toggleTab3Disabled">
         <p>Hi, this is tab3.</p>
     </np-tab>
-    <np-tab id="tab4" [title]="'Tab4'" [height]="200">
+    <np-tab id="tab4" [title]="'Tab4'" [height]="200" *ngIf="isTab4Visible">
         <p>Hi, this is tab4.</p>
         <p>Hi, this is tab4.</p>
         <p>Hi, this is tab4.</p>
@@ -36,7 +36,9 @@
 <div class="np-btn-group">
     <button type="button" class="np-btn" (click)="loadTabById()">Open Tab 2 with Id</button>
     <button type="button" class="np-btn" (click)="changeCount()">Change Title of tab2</button>
+    <button type="button" class="np-btn" (click)="ToggleTab3Disabled()">Toggle tab 3 disabled</button>
     <button type="button" class="np-btn" (click)="loadTab4()">Open 4th Tab by index</button>
+    <button type="button" class="np-btn" (click)="toggleTab4()">Toggle tab 4</button>
 </div>
 
 <np-tabs (onTabChange)="onTabChange($event)" #tabs2>
