@@ -99,6 +99,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-breadcrumb-demo/np-breadcrumb-demo.module').then(m => m.NpBreadcrumbDemoModule)
   },
   {
+    path: 'np-number-box-demo',
+    loadChildren: () => import('./np-number-box-demo/np-number-box-demo.module').then(m => m.NpNumberBoxDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'np-date-picker-demo',
     pathMatch: 'full'

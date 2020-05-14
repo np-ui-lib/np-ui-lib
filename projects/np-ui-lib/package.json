@@ -47,6 +47,7 @@
         "Card",
         "Loader",
         "Sidepanel",
-        "Breadcrumb"
+        "Breadcrumb",
+        "Numberbox"
     ]
 }

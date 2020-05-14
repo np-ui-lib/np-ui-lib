@@ -265,7 +265,7 @@ svg {
     vertical-align: middle;
     user-select: none;
     outline: none;
-    padding: 0px 5px;
+    padding: 3px 5px;
     transition: all .2s ease-in-out;
     background-color: #f1f1f1;
     border: 1px solid #c8c8c8;

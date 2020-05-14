@@ -1,0 +1,37 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-ui-package/wiki/Number%20Box">
+            np-number-box
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-number-box-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<fieldset>
+    <legend>Number box</legend>
+    <np-number-box [(ngModel)]="number1"></np-number-box>
+    <button class="np-btn" (click)="setNumber1()">Set 100</button>
+</fieldset>
+
+<fieldset>
+    <legend>Number box with counts</legend>
+    <np-number-box [(ngModel)]="number2" [counts]="5"></np-number-box>
+</fieldset>
+
+<fieldset>
+    <legend>Number box with min as 0 & max as 100</legend>
+    <np-number-box [(ngModel)]="number3" [counts]="5" [min]="0" [max]="100"></np-number-box>
+    <button class="np-btn" (click)="setNumber3()">Set 101</button>
+</fieldset>
+
+<fieldset>
+    <legend>Required</legend>
+    <np-number-box [(ngModel)]="number4" required></np-number-box>
+</fieldset>
+
+<fieldset>
+    <legend>Disabled</legend>
+    <np-number-box [(ngModel)]="number4" disabled></np-number-box>
+</fieldset>

@@ -111,3 +111,7 @@ export * from './lib/np-sidepanel/np-sidepanel.component';
 export * from './lib/np-breadcrumb/np-breadcrumb.module';
 export * from './lib/np-breadcrumb/np-breadcrumb.component';
 export * from './lib/np-breadcrumb/np-breadcrumb.model';
+
+/**Number box */
+export * from './lib/np-number-box/np-number-box.module';
+export * from './lib/np-number-box/np-number-box.component';
