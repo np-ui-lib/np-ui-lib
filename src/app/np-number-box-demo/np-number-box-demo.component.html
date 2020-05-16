@@ -12,7 +12,7 @@
 <fieldset>
     <legend>Number box</legend>
     <np-number-box [(ngModel)]="number1"></np-number-box>
-    <button class="np-btn" (click)="setNumber1()">Set 100</button>
+    <button class="np-btn" (click)="setNumber1()">Set 100</button> value: {{number1}}
 </fieldset>
 
 <fieldset>
@@ -33,5 +33,17 @@
 
 <fieldset>
     <legend>Disabled</legend>
-    <np-number-box [(ngModel)]="number4" disabled></np-number-box>
+    <np-number-box [(ngModel)]="number5" disabled></np-number-box>
+</fieldset>
+
+<fieldset>
+    <legend>Pattern ###.##</legend>
+    <np-number-box [(ngModel)]="number6" [pattern]="'[0-9]{3}.[0-9]{2}'" [placeholder]="'###.##'"></np-number-box>
+    value: {{number6}}
+</fieldset>
+
+
+<fieldset>
+    <legend>onChange</legend>
+    <np-number-box [(ngModel)]="number7" (onChange)="onChangeNumber7($event)"></np-number-box>
 </fieldset>

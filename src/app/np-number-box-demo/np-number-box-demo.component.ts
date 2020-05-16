@@ -12,10 +12,13 @@ export class NpNumberBoxDemoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  number1: number;
-  number2: number;
+  number1: number = 50;
+  number2: number = 20;
   number3: number;
   number4: number;
+  number5: number;
+  number6: number;
+  number7: number;
 
   setNumber1() {
     this.number1 = 100;
@@ -23,5 +26,9 @@ export class NpNumberBoxDemoComponent implements OnInit {
 
   setNumber3() {
     this.number3 = 101;
+  }
+
+  onChangeNumber7($event) {
+    console.log(this.number7);
   }
 }

@@ -32,7 +32,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor {
   private onTouchedCallback: () => void;
 
   get value(): number {
-    return this._innerValue ? this._innerValue : 0;
+    return this._innerValue ? this._innerValue : null;
   }
 
   set value(v: number) {
@@ -88,7 +88,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor {
 
   _onBlur() {
     if (!this._isValid(this.value)) {
-      this.value = 0;
+      this.value = null;
     }
   }
 
@@ -114,4 +114,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor {
     clearInterval(this.intervalOnMouseUp);
   }
 
+  _onInputChange(event) {
+    this.value = event.target.value;
+  }
 }

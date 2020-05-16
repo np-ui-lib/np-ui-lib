@@ -1,5 +1,5 @@
 <div [ngClass]="{'np-input-group': true, 'np-disabled' : _isDisabled}" [class]="styleClass">
-    <input class="np-form-control" type="number" [(ngModel)]="value" [placeholder]="placeholder" [disabled]="_isDisabled" (blur)="_onBlur()">
+    <input class="np-form-control" type="number" [value]="value" [placeholder]="placeholder" [disabled]="_isDisabled" (blur)="_onBlur()" (change)="_onInputChange($event)">
     <div class="input-group-append">
         <button class="np-btn np-btn-icon" type="button" (mousedown)="_onMouseDownMinus()" (mouseup)="_onMouseUpMinus()">
             <svg class="np-icon" viewBox="0 0 24 24">
