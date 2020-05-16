@@ -28,6 +28,7 @@ npm i np-ui-lib
 1. [Loader](https://github.com/NilavPatel/np-ui-package/wiki/Loader)
 1. [Carousel](https://github.com/NilavPatel/np-ui-package/wiki/Carousel)
 1. [Modal](https://github.com/NilavPatel/np-ui-package/wiki/Modal)
+1. [Tree view](https://github.com/NilavPatel/np-ui-package/wiki/Tree-view)
 1. [Sidepanel](https://github.com/NilavPatel/np-ui-package/wiki/Sidepanel)
 
 ### Import css to your application:

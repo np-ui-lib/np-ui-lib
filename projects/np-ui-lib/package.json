@@ -1,6 +1,6 @@
 {
     "name": "np-ui-lib",
-    "version": "9.15.0",
+    "version": "9.16.0",
     "author": {
         "name": "nilav patel",
         "email": "nilavpatel1992@gmail.com",
@@ -48,6 +48,7 @@
         "Loader",
         "Sidepanel",
         "Breadcrumb",
-        "Numberbox"
+        "Numberbox",
+        "Treeview"
     ]
 }

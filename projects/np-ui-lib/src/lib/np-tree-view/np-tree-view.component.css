@@ -1,0 +1,18 @@
+.np-tv-component {
+    border: 1px solid #c8c8c8;
+}
+
+.np-tv-node {
+    padding-left: 35px;
+    position: relative;
+    line-height: 32px;
+}
+
+.np-tv-sub-node {
+    border: none;
+}
+
+.np-tv-node .np-btn {
+    position: absolute;
+    left: 0px;
+}

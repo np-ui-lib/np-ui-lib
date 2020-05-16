@@ -115,3 +115,8 @@ export * from './lib/np-breadcrumb/np-breadcrumb.model';
 /**Number box */
 export * from './lib/np-number-box/np-number-box.module';
 export * from './lib/np-number-box/np-number-box.component';
+
+/**Tree view */
+export * from './lib/np-tree-view/np-tree-view.module';
+export * from './lib/np-tree-view/np-tree-view.component';
+export * from './lib/np-tree-view/np-tree-view.model';

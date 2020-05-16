@@ -103,6 +103,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-number-box-demo/np-number-box-demo.module').then(m => m.NpNumberBoxDemoModule)
   },
   {
+    path: 'np-tree-view-demo',
+    loadChildren: () => import('./np-tree-view-demo/np-tree-view-demo.module').then(m => m.NpTreeViewDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'np-date-picker-demo',
     pathMatch: 'full'

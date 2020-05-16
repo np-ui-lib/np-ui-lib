@@ -1,0 +1,17 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-ui-package/wiki/Tree%20View">
+            np-tree-view
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-tree-view-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<np-tree-view [items]="items" #treeview (onClick)="onClick($event)"></np-tree-view>
+
+<div class="np-btn-group">
+    <button class="np-btn" (click)="setAllExpand()">Expand All</button>
+    <button class="np-btn" (click)="setAllCollapse()">Collapse All</button>
+</div>
