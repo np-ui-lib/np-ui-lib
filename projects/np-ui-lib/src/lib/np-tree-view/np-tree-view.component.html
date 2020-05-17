@@ -1,4 +1,4 @@
-<div class="np-tv-component" [class]="styleClass">
+<div [ngClass]="{'np-tv-component':true}" [class]="styleClass">
     <div *ngFor="let item of items" class="np-tv-node">
         <button type="button" class="np-btn np-btn-icon" *ngIf="item.items" (click)="_toggleNode(item)" title="{{item._isVisible ? 'Collapse' : 'Expand'}}">
             <svg class="np-icon" viewBox="0 0 24 24" *ngIf="!item._isVisible">

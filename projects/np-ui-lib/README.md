@@ -36,8 +36,8 @@ npm i np-ui-lib
 @import "np-ui-lib/style.css";
 ````
 
-### [Working demo](https://stackblitz.com/edit/np-ui-lib-demo)
-### [Check all demos here](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)
+### [Working examples](https://stackblitz.com/edit/np-ui-lib-demo)
+### [Code for all examples here](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)
 
 ## License
 This project is licensed under the MIT License.

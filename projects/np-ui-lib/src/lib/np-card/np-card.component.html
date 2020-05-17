@@ -1,4 +1,4 @@
-<div class="np-cd-component" [class]="styleClass" [style.width.px]="width">
+<div [ngClass]="{'np-cd-component': true}" [class]="styleClass" [style.width.px]="width">
     <ng-content select="np-card-header"></ng-content>
     <div class="np-cd-body">
         <ng-content></ng-content>
