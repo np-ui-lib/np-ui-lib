@@ -125,8 +125,15 @@ export class NpTreeViewComponent implements OnInit {
   isAllChildSelected(item: NpTreeViewItem) {
     var isSelected = true;
     item.items.forEach(element => {
-      if (!element.isSelected) {
-        isSelected = false;
+      if (element.items) {
+        var isChildSelected = this.isAllChildSelected(element);
+        if (isChildSelected == false) {
+          isSelected = false;
+        }
+      } else {
+        if (!element.isSelected) {
+          isSelected = false;
+        }
       }
     });
     return isSelected;
