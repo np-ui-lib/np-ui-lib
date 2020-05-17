@@ -1,7 +1,7 @@
 .np-bd-component {
     border: 1px solid #c8c8c8;
-    padding: 5px;
     background-color: #ffffff;
+    padding: 3px;
 }
 
 .np-bd-items {
@@ -17,4 +17,8 @@
 
 .np-bd-items li a {
     text-decoration: none;
+}
+
+.np-bd-items .np-icon {
+    vertical-align: middle;
 }

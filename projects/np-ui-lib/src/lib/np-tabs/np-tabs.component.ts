@@ -12,6 +12,7 @@ export class NpTabsComponent implements AfterContentInit {
 
   @ContentChildren(NpTabComponent) _tabs: QueryList<NpTabComponent>;
 
+  @Input() horizontalTabs: boolean;
   @Input() styleClass: string;
   @Output() onTabChange: EventEmitter<any> = new EventEmitter();
 

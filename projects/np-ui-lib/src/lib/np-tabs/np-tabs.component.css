@@ -39,3 +39,16 @@
     color: #007bff;
     border-bottom: 3px solid #007bff;
 }
+
+.np-tabs-horizontal .np-tab-title {
+    display: block;
+}
+
+.np-tabs-horizontal.np-tabs-component {
+    flex-direction: row !important;
+}
+
+.np-tabs-horizontal .np-tab-header {
+    border-right: none;
+    border-bottom: 1px solid #c8c8c8;
+}
