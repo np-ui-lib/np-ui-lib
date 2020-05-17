@@ -17,3 +17,11 @@
         <button class="np-btn" (click)="loader1 = false">Hide Loader</button>
     </div>
 </fieldset>
+
+<fieldset>
+    <legend>Loader on Button</legend>
+    <div class="np-btn-group">
+        <button class="np-btn" (click)="loader2 = true" [np-loader]="loader2">Show Loader</button>
+        <button class="np-btn" (click)="loader2 = false">Hide Loader</button>
+    </div>
+</fieldset>

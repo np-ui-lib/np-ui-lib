@@ -9,6 +9,7 @@ import { NpTabsComponent, NpModalComponent } from 'np-ui-lib';
 export class NpLoaderDemoComponent implements OnInit {
 
   loader1: boolean = false;
+  loader2: boolean = false;
 
   constructor() { }
 

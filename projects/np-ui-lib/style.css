@@ -23,6 +23,7 @@ svg {
     display: inline-block;
     width: 24px;
     height: 24px;
+    vertical-align: middle;
 }
 
 .np-icon-sm {
@@ -489,6 +490,10 @@ svg {
     position: absolute;
     right: 0px;
     top: 0px;
+}
+
+.np-alert-icons .np-icon {
+    margin-right: 5px;
 }
 
 .np-float-left {
