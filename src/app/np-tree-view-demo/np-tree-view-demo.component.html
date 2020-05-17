@@ -9,9 +9,22 @@
     </h2>
 </div>
 
-<np-tree-view [items]="items" #treeview (onClick)="onClick($event)"></np-tree-view>
+<fieldset>
+    <legend>Treview basic</legend>
+    <np-tree-view [items]="items" #treeview (onClick)="onClick($event)"></np-tree-view>
 
-<div class="np-btn-group">
-    <button class="np-btn" (click)="setAllExpand()">Expand All</button>
-    <button class="np-btn" (click)="setAllCollapse()">Collapse All</button>
-</div>
+    <div class="np-btn-group">
+        <button class="np-btn" (click)="setAllExpand()">Expand All</button>
+        <button class="np-btn" (click)="setAllCollapse()">Collapse All</button>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Treview Selection</legend>
+    <np-tree-view [items]="items2" [allowSelection]="true" #treeview2></np-tree-view>
+
+    <div class="np-btn-group">
+        <button class="np-btn" (click)="getAllSelected()">Get all selected</button>
+        <button class="np-btn" (click)="removeAllSelected()">Remove All selected</button>
+    </div>
+</fieldset>

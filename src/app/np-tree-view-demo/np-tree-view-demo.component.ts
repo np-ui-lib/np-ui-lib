@@ -10,6 +10,7 @@ import { NpTreeViewComponent } from 'np-ui-lib';
 export class NpTreeViewDemoComponent implements OnInit {
 
   @ViewChild("treeview", { static: true }) treeview: NpTreeViewComponent;
+  @ViewChild("treeview2", { static: true }) treeview2: NpTreeViewComponent;
 
   constructor() { }
 
@@ -17,6 +18,44 @@ export class NpTreeViewDemoComponent implements OnInit {
   }
 
   items: NpTreeViewItem[] = [
+    new NpTreeViewItem({
+      label: "Item 1",
+      items: [
+        new NpTreeViewItem({
+          label: "Item 1.1", items: [
+            new NpTreeViewItem({ label: "Item 1.1.1" }),
+            new NpTreeViewItem({ label: "Item 1.1.2" }),
+            new NpTreeViewItem({ label: "Item 1.1.3" }),
+            new NpTreeViewItem({ label: "Item 1.1.4" }),
+          ]
+        }),
+        new NpTreeViewItem({ label: "Item 1.2" }),
+        new NpTreeViewItem({ label: "Item 1.3" }),
+        new NpTreeViewItem({ label: "Item 1.4" }),
+      ]
+    }),
+    new NpTreeViewItem({
+      label: "Item 2",
+      items: [
+        new NpTreeViewItem({
+          label: "Item 2.1", items: [
+            new NpTreeViewItem({ label: "Item 2.1.1" }),
+            new NpTreeViewItem({ label: "Item 2.1.2" }),
+            new NpTreeViewItem({ label: "Item 2.1.3" }),
+            new NpTreeViewItem({ label: "Item 2.1.4" }),
+          ]
+        }),
+        new NpTreeViewItem({ label: "Item 2.2" }),
+        new NpTreeViewItem({ label: "Item 2.3" }),
+        new NpTreeViewItem({ label: "Item 2.4" }),
+      ]
+    }),
+    new NpTreeViewItem({ label: "Item 3" }),
+    new NpTreeViewItem({ label: "Item 4" }),
+    new NpTreeViewItem({ label: "Item 5" }),
+  ];
+
+  items2: NpTreeViewItem[] = [
     new NpTreeViewItem({
       label: "Item 1",
       items: [
@@ -64,6 +103,15 @@ export class NpTreeViewDemoComponent implements OnInit {
 
   onClick(item) {
     alert(item.label);
+  }
+
+  getAllSelected() {
+    var selected = this.treeview2.getSelectedItems();
+    alert(JSON.stringify(selected));
+  }
+
+  removeAllSelected() {
+    this.treeview2.removeAllSelected();
   }
 
 }

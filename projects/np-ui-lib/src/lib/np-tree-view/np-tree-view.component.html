@@ -1,19 +1,28 @@
 <div [ngClass]="{'np-tv-component':true}" [class]="styleClass">
+    <ng-container *ngTemplateOutlet="treeViewTemplate;context:{items:items}">
+    </ng-container>
+</div>
+
+<ng-template #treeViewTemplate let-items="items">
     <div *ngFor="let item of items" class="np-tv-node">
-        <button type="button" class="np-btn np-btn-icon" *ngIf="item.items" (click)="_toggleNode(item)" title="{{item._isVisible ? 'Collapse' : 'Expand'}}">
-            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="!item._isVisible">
+        <button type="button" class="np-btn np-btn-icon" *ngIf="item.items" (click)="_toggleNode(item)" title="{{item.isExpanded ? 'Collapse' : 'Expand'}}">
+            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="!item.isExpanded">
                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
                 <path d="M0 0h24v24H0z" fill="none" />
             </svg>
-            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="item._isVisible">
+            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="item.isExpanded">
                 <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
-                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M0 0h24v24H0z" fill="none" />`
             </svg>
         </button>
-        <span class="np-tv-node-label" (click)="_onClick(item)">{{item.label}}</span>
-        <ng-container *ngIf="item.items && item._isVisible">
-            <np-tree-view [items]="item.items" [styleClass]="'np-tv-sub-node'" (onClick)="_onClick($event)">
-            </np-tree-view>
+        <span class="np-tv-node-label">
+            <input type="checkbox" class="np-tv-checkbox" [checked]="_isSelected(item)" *ngIf="allowSelection"
+                (change)="_onSelect($event,item)">
+            <label (click)="_onClick(item)">{{item.label}}</label>
+        </span>
+        <ng-container *ngIf="item.items && item.isExpanded">
+            <ng-container *ngTemplateOutlet="treeViewTemplate;context:{items:item.items}">
+            </ng-container>
         </ng-container>
     </div>
-</div>
+</ng-template>

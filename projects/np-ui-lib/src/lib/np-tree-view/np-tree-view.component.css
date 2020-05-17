@@ -16,3 +16,11 @@
     position: absolute;
     left: 0px;
 }
+
+.np-tv-checkbox {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    vertical-align: middle;
+    margin: 5px;
+}

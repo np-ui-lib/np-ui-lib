@@ -3,10 +3,13 @@ export class NpTreeViewItem {
         this.label = item["label"];
         this.items = item["items"];
         this.data = item["data"];
+        this.isExpanded = item["isExpanded"];
+        this.isSelected = item["isSelected"];
     }
 
     label: string;
-    _isVisible: boolean;
+    isExpanded: boolean;
+    isSelected: boolean;
     items: NpTreeViewItem[];
     data: any;
 }
