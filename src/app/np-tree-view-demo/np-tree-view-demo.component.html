@@ -21,7 +21,7 @@
 
 <fieldset>
     <legend>Treeview Selection</legend>
-    <np-tree-view [items]="items2" [allowSelection]="true" #treeview2></np-tree-view>
+    <np-tree-view [items]="items2" [allowSelection]="true" #treeview2 (onSelect)="onSelect($event)" (onDeselect)="onDeselect($event)"></np-tree-view>
 
     <div class="np-btn-group">
         <button class="np-btn" (click)="getAllSelected()">Get all selected</button>

@@ -32,7 +32,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor {
   private onTouchedCallback: () => void;
 
   get value(): number {
-    return this._innerValue ? this._innerValue : null;
+    return this._innerValue != undefined ? this._innerValue : null;
   }
 
   set value(v: number) {

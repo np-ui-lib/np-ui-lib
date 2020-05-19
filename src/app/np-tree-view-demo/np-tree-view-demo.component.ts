@@ -114,4 +114,12 @@ export class NpTreeViewDemoComponent implements OnInit {
     this.treeview2.removeAllSelected();
   }
 
+  onSelect(event) {
+    alert(event.label + " is selected.");
+  }
+
+  onDeselect(event) {
+    alert(event.label + " is deselected.");
+  }
+
 }

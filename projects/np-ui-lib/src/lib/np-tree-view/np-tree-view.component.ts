@@ -13,6 +13,8 @@ export class NpTreeViewComponent implements OnInit {
   @Input() items: NpTreeViewItem[];
   @Input() styleClass: string;
   @Output() onClick: EventEmitter<any> = new EventEmitter();
+  @Output() onSelect: EventEmitter<any> = new EventEmitter();
+  @Output() onDeselect: EventEmitter<any> = new EventEmitter();
 
   @Input() allowSelection: boolean;
   _selectedItems: NpTreeViewItem[] = [];
@@ -63,8 +65,10 @@ export class NpTreeViewComponent implements OnInit {
   _onSelect(event, item: NpTreeViewItem) {
     if (event.target.checked) {
       this._selectItemAndChild(item);
+      this.onSelect.emit(item);
     } else {
       this._deSelectItemAndChild(item);
+      this.onDeselect.emit(item);
     }
   }
 
