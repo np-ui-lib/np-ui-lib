@@ -3,6 +3,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
 import { TemplatePortal } from "@angular/cdk/portal";
 import { BehaviorSubject, Subscription } from 'rxjs';
+import { NpTreeViewItem } from '../np-tree-view/np-tree-view.model';
 
 @Component({
   selector: 'np-tags',
@@ -42,6 +43,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
+
+  @Input() isTreeView: boolean;
 
   @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
   private templatePortal: TemplatePortal<any>;
@@ -146,16 +149,6 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     this.onTouchedCallback();
   }
 
-  _clear() {
-    if (this._isDisabled) {
-      return;
-    }
-    this.value = null;
-    if (this.isServerSide) {
-      this._searchResult = null;
-    }
-  }
-
   _onInput() {
     if (this._isDisabled || !this.isServerSide) {
       return;
@@ -202,8 +195,13 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       this._searchResult = [];
     }
     if (this.displayKey) {
-      var newObj = {};
-      newObj[this.displayKey] = this._displayValue;
+      var newObj;
+      if (this.isTreeView) {
+        newObj = new NpTreeViewItem({ label: this._displayValue });
+      } else {
+        newObj = {};
+        newObj[this.displayKey] = this._displayValue;
+      }
       this._searchResult.push(newObj);
       this._selectValue(newObj);
     } else {
@@ -242,6 +240,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _removeTag(tag: any) {
+    if (this.isTreeView) {
+      tag.isSelected = false;
+    }
     if (this.displayKey) {
       var idx = this._innerValue.findIndex(function (element) {
         if (JSON.stringify(element) == JSON.stringify(tag)) {
@@ -279,5 +280,57 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       }
     }
     return false;
+  }
+
+  _onSelectNode(item) {
+    if (item.items) {
+      item.items.forEach(element => {
+        this._onSelectNode(element);
+      });
+    } else {
+      if (this._isSelected(item)) {
+        return;
+      }
+      if (!this.value) {
+        this.value = [item];
+      } else {
+        this.value.push(item);
+      }
+    }
+  }
+
+  _onDeselectNode(item) {
+    if (item.items) {
+      item.items.forEach(element => {
+        this._onDeselectNode(element);
+      });
+    } else {
+      this._removeTag(item);
+    }
+  }
+
+  clear() {
+    if (this._isDisabled) {
+      return;
+    }
+    this.value = null;
+    if (this.isServerSide) {
+      this._searchResult = null;
+    }
+    if (this.isTreeView) {
+      this._searchResult.forEach(element => {
+        this._clearInTreeView(element);
+      });
+    }
+  }
+
+  _clearInTreeView(item) {
+    if (item.items) {
+      item.items.forEach(element => {
+        this._clearInTreeView(element);
+      });
+    } else {
+      item.isSelected = false;
+    }
   }
 }

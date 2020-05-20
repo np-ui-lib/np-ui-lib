@@ -16,9 +16,11 @@
             </svg>
         </button>
         <span class="np-tv-node-label">
-            <input type="checkbox" class="np-tv-checkbox" [checked]="_isSelected(item)" *ngIf="allowSelection"
+            <label (click)="_onClick(item)">
+                <input type="checkbox" class="np-tv-checkbox" [checked]="_isSelected(item)" *ngIf="allowSelection"
                 (change)="_onSelect($event,item)">
-            <label (click)="_onClick(item)">{{item.label}}</label>
+                {{item.label}}
+            </label>
         </span>
         <ng-container *ngIf="item.items && item.isExpanded">
             <ng-container *ngTemplateOutlet="treeViewTemplate;context:{items:item.items}">

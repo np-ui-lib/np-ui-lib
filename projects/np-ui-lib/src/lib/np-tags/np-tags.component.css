@@ -51,6 +51,14 @@
     background-color: #007bff;
 }
 
-.np-ac-tg-gray {
+.np-tg-gray {
     background-color: #f1f1f1;
+}
+
+.np-tg-overlay np-tree-view {
+    width: 100%;
+}
+
+.np-tg-overlay .np-tv-component {
+    border: none;
 }

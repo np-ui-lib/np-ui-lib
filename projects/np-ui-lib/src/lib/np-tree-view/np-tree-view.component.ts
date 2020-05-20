@@ -17,7 +17,6 @@ export class NpTreeViewComponent implements OnInit {
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
 
   @Input() allowSelection: boolean;
-  _selectedItems: NpTreeViewItem[] = [];
 
   constructor() { }
 

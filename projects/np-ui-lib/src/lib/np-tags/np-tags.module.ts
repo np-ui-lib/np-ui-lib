@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
 import { NpUtility } from '../np-utility/np-utility.module';
+import { NpTreeViewModule } from '../np-tree-view/np-tree-view.module';
 
 @NgModule({
   declarations: [NpTagsComponent],
@@ -14,7 +15,8 @@ import { NpUtility } from '../np-utility/np-utility.module';
     FormsModule,
     OverlayModule,
     PortalModule,
-    NpUtility
+    NpUtility,
+    NpTreeViewModule
   ],
   providers: [NpHightLightPipe],
   exports: [NpTagsComponent]

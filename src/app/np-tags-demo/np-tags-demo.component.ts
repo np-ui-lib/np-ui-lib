@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { NpTreeViewItem } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-tags-demo',
@@ -59,4 +60,44 @@ export class NpTagsDemoComponent implements OnInit {
 
   tags5: any[];
   searchResult5: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
+
+  tags6: any[];
+  treeViewItems: NpTreeViewItem[] = [
+    new NpTreeViewItem({
+      label: "Item 1",
+      items: [
+        new NpTreeViewItem({
+          label: "Item 1.1", items: [
+            new NpTreeViewItem({ label: "Item 1.1.1" }),
+            new NpTreeViewItem({ label: "Item 1.1.2" }),
+            new NpTreeViewItem({ label: "Item 1.1.3" }),
+            new NpTreeViewItem({ label: "Item 1.1.4" }),
+          ]
+        }),
+        new NpTreeViewItem({ label: "Item 1.2" }),
+        new NpTreeViewItem({ label: "Item 1.3" }),
+        new NpTreeViewItem({ label: "Item 1.4" }),
+      ]
+    }),
+    new NpTreeViewItem({
+      label: "Item 2",
+      items: [
+        new NpTreeViewItem({
+          label: "Item 2.1", items: [
+            new NpTreeViewItem({ label: "Item 2.1.1" }),
+            new NpTreeViewItem({ label: "Item 2.1.2" }),
+            new NpTreeViewItem({ label: "Item 2.1.3" }),
+            new NpTreeViewItem({ label: "Item 2.1.4" }),
+          ]
+        }),
+        new NpTreeViewItem({ label: "Item 2.2" }),
+        new NpTreeViewItem({ label: "Item 2.3" }),
+        new NpTreeViewItem({ label: "Item 2.4" }),
+      ]
+    }),
+    new NpTreeViewItem({ label: "Item 3" }),
+    new NpTreeViewItem({ label: "Item 4" }),
+    new NpTreeViewItem({ label: "Item 5" }),
+  ];
+  searchResult6: BehaviorSubject<NpTreeViewItem[]> = new BehaviorSubject(this.treeViewItems);
 }
