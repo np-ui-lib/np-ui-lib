@@ -120,3 +120,7 @@ export * from './lib/np-number-box/np-number-box.component';
 export * from './lib/np-tree-view/np-tree-view.module';
 export * from './lib/np-tree-view/np-tree-view.component';
 export * from './lib/np-tree-view/np-tree-view.model';
+
+/**File uploader */
+export * from './lib/np-file-upload/np-file-upload.module';
+export * from './lib/np-file-upload/np-file-upload.component';

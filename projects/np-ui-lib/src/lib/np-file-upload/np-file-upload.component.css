@@ -1,0 +1,22 @@
+.np-fu-files {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    background-color: #f1f1f1;
+}
+
+.np-fu-files li {
+    padding: 5px;
+}
+
+.np-fu-component .np-input-group {
+    border: none;
+}
+
+.np-fu-component {
+    border: 1px solid #c8c8c8;
+}
+
+.np-fu-component .np-form-control {
+    padding: 3px;
+}

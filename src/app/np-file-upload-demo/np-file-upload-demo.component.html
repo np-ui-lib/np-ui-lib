@@ -1,0 +1,55 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-ui-package/wiki/file%20upload">
+            np-dropdown
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-file-upload-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<fieldset>
+    <legend>Single file uploader</legend>
+    <np-file-upload [(ngModel)]="fileUpload1"></np-file-upload>
+</fieldset>
+
+<fieldset>
+    <legend>Multiple file uploader</legend>
+    <np-file-upload [(ngModel)]="fileUpload2" [multiple]="true"></np-file-upload>
+</fieldset>
+
+<fieldset>
+    <legend>Required</legend>
+    <np-file-upload [(ngModel)]="fileUpload3" required></np-file-upload>
+</fieldset>
+
+<fieldset>
+    <legend>Disabled</legend>
+    <np-file-upload [(ngModel)]="fileUpload4" disabled></np-file-upload>
+</fieldset>
+
+<fieldset>
+    <legend>File Extentions validation for svg, ico</legend>
+    <np-file-upload [(ngModel)]="fileUpload5" [extentions]="'svg,ico'" #fileUpload5Control="ngModel"></np-file-upload>
+    <div class="np-text-danger" *ngIf="fileUpload5Control.errors && fileUpload5Control.errors.extentions">
+        Invalid Extention.
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>File size for 1000 bytes</legend>
+    <np-file-upload [(ngModel)]="fileUpload6" [size]="1000" #fileUpload6Control="ngModel"></np-file-upload>
+    <div class="np-text-danger" *ngIf="fileUpload6Control.errors && fileUpload6Control.errors.size">
+        File size exceeds.
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Total file size 1000 bytes for multiple uploads</legend>
+    <np-file-upload [(ngModel)]="fileUpload7" [multiple]="true" [totalSize]="1000" #fileUpload7Control="ngModel">
+    </np-file-upload>
+    <div class="np-text-danger" *ngIf="fileUpload7Control.errors && fileUpload7Control.errors.totalSize">
+        Total File size exceeds.
+    </div>
+</fieldset>
