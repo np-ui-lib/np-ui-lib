@@ -22,7 +22,13 @@
 
 <fieldset>
     <legend>Number box with min as 0 & max as 100</legend>
-    <np-number-box [(ngModel)]="number3" [counts]="5" [min]="0" [max]="100"></np-number-box>
+    <np-number-box [(ngModel)]="number3" [counts]="5" [min]="0" [max]="100" #number3Control="ngModel"></np-number-box>
+    <div class="np-text-danger" *ngIf="number3Control.errors && number3Control.errors.min">
+        Less then min value.
+    </div>
+    <div class="np-text-danger" *ngIf="number3Control.errors && number3Control.errors.max">
+        More then max value.
+    </div>
     <button class="np-btn" (click)="setNumber3()">Set 101</button>
 </fieldset>
 
@@ -37,8 +43,12 @@
 </fieldset>
 
 <fieldset>
-    <legend>Pattern ###.##</legend>
-    <np-number-box [(ngModel)]="number6" [pattern]="'[0-9]{3}.[0-9]{2}'" [placeholder]="'###.##'"></np-number-box>
+    <legend>Format ###.##</legend>
+    <np-number-box [(ngModel)]="number6" [format]="'###.##'" [placeholder]="'###.##'" #number6Control="ngModel">
+    </np-number-box>
+    <div class="np-text-danger" *ngIf="number6Control.errors && number6Control.errors.format">
+        Invalid format.
+    </div>
     value: {{number6}}
 </fieldset>
 

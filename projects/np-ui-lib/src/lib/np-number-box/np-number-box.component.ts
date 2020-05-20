@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Validator, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'np-number-box',
@@ -12,10 +12,15 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NpNumberBoxComponent),
       multi: true
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => NpNumberBoxComponent),
+      multi: true,
     }
   ]
 })
-export class NpNumberBoxComponent implements ControlValueAccessor {
+export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
 
   _isDisabled: boolean = false;
   _innerValue: number;
@@ -25,6 +30,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor {
   @Input() counts: number = 1;
   @Input() min: number;
   @Input() max: number;
+  @Input() format: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   private intervalOnMouseUp: any;
@@ -45,7 +51,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor {
   }
 
   writeValue(v: number): void {
-    if (v !== this._innerValue && this._isValid(v)) {
+    if (v !== this._innerValue) {
       this._innerValue = v;
     }
   }
@@ -63,33 +69,12 @@ export class NpNumberBoxComponent implements ControlValueAccessor {
   }
 
   _add() {
-    var newVal = this.value + this.counts;
-    if (this._isValid(newVal)) {
-      this.value = newVal;
-    }
+    this.value = this.value + this.counts;
+
   }
 
   _minus() {
-    var newVal = this.value - this.counts;
-    if (this._isValid(newVal)) {
-      this.value = newVal;
-    }
-  }
-
-  _isValid(val: number) {
-    if (this.min != undefined && val < this.min) {
-      return false;
-    }
-    if (this.max != undefined && val > this.max) {
-      return false;
-    }
-    return true;
-  }
-
-  _onBlur() {
-    if (!this._isValid(this.value)) {
-      this.value = null;
-    }
+    this.value = this.value - this.counts;;
   }
 
   _onMouseDownAdd() {
@@ -115,6 +100,45 @@ export class NpNumberBoxComponent implements ControlValueAccessor {
   }
 
   _onInputChange(event) {
-    this.value = event.target.value;
+    if (isNaN(parseFloat(event.target.value))) {
+      this.value = null;
+    } else {
+      this.value = parseFloat(event.target.value);
+    }
+  }
+
+  validate(control: FormControl) {
+    if (this.min != undefined && this.value < this.min) {
+      return {
+        min: {
+          valid: false,
+        },
+      };
+    }
+    if (this.max != undefined && this.value > this.max) {
+      return {
+        max: {
+          valid: false,
+        },
+      };
+    }
+    if (this.format) {
+      var regex = this._createValidationRegEx();
+      if (this.value && !regex.test(this.value.toString())) {
+        return {
+          format: {
+            valid: false,
+          },
+        };
+      }
+    }
+  }
+
+  _createValidationRegEx() {
+    var format = this.format
+      .replace(/[^#\.\,]/g, '')
+      .replace(/#/g, '\\d')
+      .replace(/\./g, '\\.');
+    return new RegExp('^' + format + '$', 'g');
   }
 }
