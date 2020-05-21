@@ -67,3 +67,7 @@
 .np-dp-default-open {
     box-shadow: none;
 }
+
+.np-dp-overlay .np-nb-component {
+    width: 60px;
+}

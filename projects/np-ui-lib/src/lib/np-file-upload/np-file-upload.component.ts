@@ -125,10 +125,9 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     }
 
     if (this.multiple && this.totalSize) {
-      debugger;
       var totalSize = 0;
       value.forEach(element => {
-        totalSize += element.size;
+        totalSize = totalSize + element.size;
       });
       if (totalSize > this.totalSize) {
         return {
@@ -139,6 +138,10 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
       }
 
     }
+  }
+
+  clear() {
+    this._clear();
   }
 
 }

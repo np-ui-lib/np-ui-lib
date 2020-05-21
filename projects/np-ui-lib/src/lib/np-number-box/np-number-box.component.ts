@@ -27,10 +27,11 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
 
   @Input() placeholder: string = "";
   @Input() styleClass: string;
-  @Input() counts: number = 1;
+  @Input() steps: number = 1;
   @Input() min: number;
   @Input() max: number;
   @Input() format: string;
+  @Input() showControls: boolean = true;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   private intervalOnMouseUp: any;
@@ -69,12 +70,11 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   }
 
   _add() {
-    this.value = this.value + this.counts;
-
+    this.value = this.value + this.steps;
   }
 
   _minus() {
-    this.value = this.value - this.counts;;
+    this.value = this.value - this.steps;
   }
 
   _onMouseDownAdd() {

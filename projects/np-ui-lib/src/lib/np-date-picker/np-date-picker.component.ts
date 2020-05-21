@@ -288,7 +288,10 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _selectYear($event) {
-    this._currentYear = parseInt($event.target.value);
+    if (isNaN(parseInt($event))) {
+      return;
+    }
+    this._currentYear = parseInt($event);
     this._setMonths();
     this._calculateDays();
   }

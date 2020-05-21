@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpTreeViewItem } from 'projects/np-ui-lib/src/public-api';
-import { NpTreeViewComponent } from 'np-ui-lib';
+import { NpTreeViewComponent, NpTreeViewItem } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-tree-view-demo',

@@ -33,7 +33,8 @@
                         </button>
                     </div>
                     <div class="np-col-auto">
-                        <input class="np-form-control" [style.width.px]="60" type="number" [value]="_currentYear" (change)="_selectYear($event)">
+                        <np-number-box [(ngModel)]="_currentYear" [format]="'####'" [showControls]="false" required (onChange)="_selectYear($event)">
+                        </np-number-box>
                     </div>
                     <div class="np-col-auto">
                         <select class="np-form-control" (change)="_selectMonth($event)">

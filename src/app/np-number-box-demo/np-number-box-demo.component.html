@@ -16,13 +16,13 @@
 </fieldset>
 
 <fieldset>
-    <legend>Number box with counts</legend>
-    <np-number-box [(ngModel)]="number2" [counts]="5"></np-number-box>
+    <legend>Number box with steps</legend>
+    <np-number-box [(ngModel)]="number2" [steps]="5"></np-number-box>
 </fieldset>
 
 <fieldset>
     <legend>Number box with min as 0 & max as 100</legend>
-    <np-number-box [(ngModel)]="number3" [counts]="5" [min]="0" [max]="100" #number3Control="ngModel"></np-number-box>
+    <np-number-box [(ngModel)]="number3" [steps]="5" [min]="0" [max]="100" #number3Control="ngModel"></np-number-box>
     <div class="np-text-danger" *ngIf="number3Control.errors && number3Control.errors.min">
         Less then min value.
     </div>
@@ -52,8 +52,12 @@
     value: {{number6}}
 </fieldset>
 
-
 <fieldset>
     <legend>onChange</legend>
     <np-number-box [(ngModel)]="number7" (onChange)="onChangeNumber7($event)"></np-number-box>
+</fieldset>
+
+<fieldset>
+    <legend>Set showControls to false</legend>
+    <np-number-box [(ngModel)]="number8" [showControls]=false></np-number-box>
 </fieldset>

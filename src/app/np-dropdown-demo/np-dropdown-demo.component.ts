@@ -35,7 +35,7 @@ export class NpDropdownDemoComponent implements OnInit {
   dropdownVal1: string = "Mango";
   dropdownVal2: any;
   dropdownVal3: string;
-  dropdownVal4: string = "Mango";;
+  dropdownVal4: string = "Mango";
   dropdownVal5: any;
   dropdownVal6: string = "Mango";
   dropdownVal7: string = "Mango";
