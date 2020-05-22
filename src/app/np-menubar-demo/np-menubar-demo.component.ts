@@ -72,7 +72,7 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: "Menu 1.3", url: "/menu1.3" }),
       ]
     }),
-    new NpMenuItem({ label: "Menubar router link", routerLink: "/np-menubar-demo", routerLinkActive: "active-menu" }),
+    new NpMenuItem({ label: "Menubar router link", routerLink: "/np-menubar-demo" }),
     new NpMenuItem({ label: "Menu 3 click", onClick: this.onClickMenuClicked }),
     new NpMenuItem({
       label: "Menu 4",
@@ -115,7 +115,7 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: "Menu 1.3", url: "/menu1.3" }),
       ]
     }),
-    new NpMenuItem({ label: "Menubar router link", routerLink: "/np-menubar-demo", routerLinkActive: "active-menu" }),
+    new NpMenuItem({ label: "Menubar router link", routerLink: "/np-menubar-demo" }),
     new NpMenuItem({ label: "Menu 3 click", onClick: this.onClickMenuClicked }),
     new NpMenuItem({
       label: "Menu 4",

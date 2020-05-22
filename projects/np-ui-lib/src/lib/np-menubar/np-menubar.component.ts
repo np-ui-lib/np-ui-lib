@@ -1,5 +1,6 @@
 import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { NpMenuItem } from './np-menu.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'np-menubar',
@@ -16,7 +17,7 @@ export class NpMenubarComponent {
   @Input() orientation: string = "vertical";
   @Output() _onCloseMenu: EventEmitter<any> = new EventEmitter();
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   _onMouseEnter($event, item: NpMenuItem) {
@@ -35,10 +36,6 @@ export class NpMenubarComponent {
     item._isItemsVisible = false;
   }
 
-  _getActiveClass(item: NpMenuItem) {
-    return item.routerLinkActive ? item.routerLinkActive : "np-mb-active";
-  }
-
   _onClickMenu($event, item: NpMenuItem) {
     if (item.onClick) {
       item.onClick($event);
@@ -55,5 +52,9 @@ export class NpMenubarComponent {
       element._isItemsVisible = false;
     });
     this._onCloseMenu.emit();
+  }
+
+  _isActive(item: NpMenuItem) {
+    return this.router.isActive(item.routerLink, false);
   }
 }

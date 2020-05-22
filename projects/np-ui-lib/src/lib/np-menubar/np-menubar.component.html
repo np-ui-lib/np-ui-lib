@@ -2,7 +2,7 @@
     <ng-container *ngFor="let item of items">
         <ng-container *ngIf="item.items">
             <div class="np-mb-menu-item" (mouseenter)="_onMouseEnter($event,item)" (mouseleave)="_onMouseLeave(item)">
-                <a class="np-mb-label" *ngIf="item.routerLink" [routerLink]="[item.routerLink]" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="_getActiveClass(item)">
+                <a class="np-mb-label" *ngIf="item.routerLink" [ngClass]="{'np-mb-active':_isActive(item)}">
                     {{item.label}}
                     <svg class="np-icon np-mb-icon" *ngIf="orientation === 'vertical'">
                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
@@ -34,7 +34,7 @@
         </ng-container>
         <ng-container *ngIf="!item.items">
             <div class="np-mb-menu-item">
-                <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="_getActiveClass(item)" (click)="_close()">
+                <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="np-mb-active" (click)="_close()">
                     {{item.label}}
                 </a>
                 <a *ngIf="item.url" [href]="item.url" [target]="item.target" (click)="_close()">

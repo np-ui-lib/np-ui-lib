@@ -8,7 +8,6 @@ export class NpMenuItem {
         this.onClick = item["onClick"];
         this.target = item["target"] ? item["target"] : "_self";
         this.routerLink = item["routerLink"];
-        this.routerLinkActive = item["routerLinkActive"];
         this.queryParams = item["queryParams"];
         this.fragment = item["fragment"];
         this.queryParamsHandling = item["queryParamsHandling"];
@@ -19,7 +18,6 @@ export class NpMenuItem {
     public url: string;
     public onClick: any;
     public target: string;
-    public routerLinkActive: string;
     public routerLink: string;
     public queryParams: any;
     public fragment: string;
