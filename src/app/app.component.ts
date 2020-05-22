@@ -39,6 +39,7 @@ export class AppComponent {
     new NpMenuItem({ routerLink: "/np-tags-demo", label: "Tags" }),
     new NpMenuItem({ routerLink: "/np-number-box-demo", label: "Number box" }),
     new NpMenuItem({ routerLink: "/np-file-upload-demo", label: "File Upload" }),
+    new NpMenuItem({ routerLink: "/np-slider-demo", label: "Slider" }),
     new NpMenuItem({ routerLink: "/np-menubar-demo", label: "Menubar" }),
     new NpMenuItem({ routerLink: "/np-breadcrumb-demo", label: "Breadcrumb" }),
     new NpMenuItem({ routerLink: "/np-data-grid-demo", label: "Data Grid", items: this.dataGridItems }),

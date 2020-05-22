@@ -124,3 +124,7 @@ export * from './lib/np-tree-view/np-tree-view.model';
 /**File uploader */
 export * from './lib/np-file-upload/np-file-upload.module';
 export * from './lib/np-file-upload/np-file-upload.component';
+
+/**Slider */
+export * from './lib/np-slider/np-slider.module';
+export * from './lib/np-slider/np-slider.component';

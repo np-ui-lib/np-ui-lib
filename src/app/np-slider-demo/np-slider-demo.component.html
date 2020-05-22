@@ -1,0 +1,40 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-ui-package/wiki/Slider">
+            np-slider
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-slider-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<fieldset>
+    <legend>Basic slider</legend>
+    <np-slider [(ngModel)]="slider1"></np-slider>
+    Value: {{slider1}}
+</fieldset>
+
+<fieldset>
+    <legend>min and max</legend>
+    <np-slider [(ngModel)]="slider2" [min]="50" [max]="150"></np-slider>
+    Value: {{slider2}}
+</fieldset>
+
+<fieldset>
+    <legend>Step</legend>
+    <np-slider [(ngModel)]="slider3" [step]="5"></np-slider>
+    Value: {{slider3}}
+</fieldset>
+
+<fieldset>
+    <legend>Required</legend>
+    <np-slider [(ngModel)]="slider4" required></np-slider>
+    Value: {{slider4}}
+    <button class="np-btn" (click)="slider4 = null">Set null</button>
+</fieldset>
+
+<fieldset>
+    <legend>Disabled</legend>
+    <np-slider [(ngModel)]="slider5" disabled></np-slider>
+</fieldset>

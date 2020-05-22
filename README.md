@@ -14,6 +14,7 @@ npm i np-ui-lib
 1. [Tags](https://github.com/NilavPatel/np-ui-package/wiki/Tags)
 1. [Number box](https://github.com/NilavPatel/np-ui-package/wiki/Number-Box)
 1. [File Upload](https://github.com/NilavPatel/np-ui-package/wiki/File-Upload)
+1. [Slider](https://github.com/NilavPatel/np-ui-package/wiki/Slider)
 1. [Menubar](https://github.com/NilavPatel/np-ui-package/wiki/Menubar)
 1. [Breadcrumb](https://github.com/NilavPatel/np-ui-package/wiki/Breadcrumb)
 1. [Data Grid](https://github.com/NilavPatel/np-ui-package/wiki/Data-Grid)

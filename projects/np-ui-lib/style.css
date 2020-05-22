@@ -628,6 +628,7 @@ svg {
 .ng-dirty.ng-invalid:not(form) .np-dp-default-open,
 .ng-dirty.ng-invalid:not(form) .np-cp-default-open,
 .ng-dirty.ng-invalid:not(form) .np-fu-component,
+.ng-dirty.ng-invalid:not(form) .np-sl-input,
 .ng-dirty.ng-invalid:not(form) .np-input-group {
     border-color: #d9534f !important;
 }
