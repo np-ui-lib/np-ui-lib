@@ -19,5 +19,6 @@ export class NpFileUploadDemoComponent implements OnInit {
   fileUpload5: any;
   fileUpload6: any;
   fileUpload7: any;
-
+  fileUpload8: any;
+  fileUpload9: any;
 }

@@ -17,6 +17,13 @@
     border: 1px solid #c8c8c8;
 }
 
-.np-fu-component .np-form-control {
-    padding: 3px;
+.np-fu-component .np-fp-input {
+    display: none;
+}
+
+.np-fp-btn {
+    background-color: #f1f1f1;
+    border: 1px solid #c8c8c8;
+    padding: 0px 5px;
+    cursor: pointer;
 }

@@ -15,6 +15,7 @@ export class NpProgressComponent {
   @Input() striped: boolean;
   @Input() animated: boolean;
   @Input() showLabel: boolean = true;
+  @Input() height: number;
 
   getTooltipText() {
     return `${this.value}%`;

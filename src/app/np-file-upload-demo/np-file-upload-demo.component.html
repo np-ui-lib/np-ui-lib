@@ -1,7 +1,7 @@
 <div class="sub-header">
     <h2>
         <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-ui-package/wiki/file%20upload">
-            np-dropdown
+            np-file-upload
         </a> &nbsp;|&nbsp;
         <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-file-upload-demo">
             Demo
@@ -52,4 +52,19 @@
     <div class="np-text-danger" *ngIf="fileUpload7Control.errors && fileUpload7Control.errors.totalSize">
         Total File size exceeds.
     </div>
+</fieldset>
+
+<fieldset>
+    <legend>Max 2 files allowed to select</legend>
+    <np-file-upload [(ngModel)]="fileUpload8" [multiple]="true" [maxFiles]="2" #fileUpload8Control="ngModel">
+    </np-file-upload>
+    <div class="np-text-danger" *ngIf="fileUpload8Control.errors && fileUpload8Control.errors.maxFiles">
+        Upto 2 files allowed to select.
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Upload button label</legend>
+    <np-file-upload [(ngModel)]="fileUpload9" [uploadButtonLabel]="'Upload your photo'">
+    </np-file-upload>
 </fieldset>

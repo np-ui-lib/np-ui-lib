@@ -1,6 +1,9 @@
 <div [ngClass]="{'np-fu-component': true,'np-disabled' : _isDisabled}" [class]="styleClass">
     <div class="np-input-group">
-        <input class="np-form-control" #fileUploadInput type="file" [placeholder]="placeholder" [disabled]="_isDisabled" (change)="_onFileSelected($event)" [multiple]="multiple">
+        <input class="np-fp-input" id="{{_controlId}}" #fileUploadInput type="file" [placeholder]="placeholder" [disabled]="_isDisabled" (change)="_onFileSelected($event)" [multiple]="multiple">
+        <label for="{{_controlId}}" class="np-form-control">
+            <span class="np-fp-btn">{{ uploadButtonLabel ? uploadButtonLabel : (multiple ? "Choose Files" : "Choose File")}}</span>
+        </label>
         <div class="input-group-append">
             <button class="np-btn np-btn-icon" title="Clear" type="button" (click)="_clear()">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
@@ -11,7 +14,7 @@
             </button>
         </div>
     </div>
-    <div *ngIf="multiple && value && value.length > 1">
+    <div *ngIf="value">
         <ul class="np-fu-files">
             <li *ngFor="let file of value">
                 <label>
@@ -19,7 +22,7 @@
                         <path d="M0 0h24v24H0V0z" fill="none" />
                         <path
                             d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
-                        </svg>
+                    </svg>
                     {{file.name}}
                 </label>
             </li>

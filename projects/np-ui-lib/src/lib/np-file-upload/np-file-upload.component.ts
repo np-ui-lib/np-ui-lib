@@ -26,6 +26,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
 
   _innerValue: any;
   _isDisabled: boolean = false;
+  _controlId: string;
   private onChangeCallback: (_: any) => void;
   private onTouchedCallback: () => void;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
@@ -44,9 +45,20 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Input() size: number;
 
   /**
- * File size in bytes
+ * All File size in bytes
  */
   @Input() totalSize: number;
+
+  /**
+   * Files allowed to select
+   */
+  @Input() maxFiles: number;
+
+  @Input() uploadButtonLabel: string;
+
+  constructor() {
+    this._controlId = "np-file-upload_" + Math.floor((Math.random() * 10000) + 1);
+  }
 
   get value(): any {
     return this._innerValue ? this._innerValue : null;
@@ -136,7 +148,16 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
           },
         };
       }
+    }
 
+    if (this.maxFiles) {
+      if (value.length > this.maxFiles) {
+        return {
+          maxFiles: {
+            valid: false,
+          },
+        };
+      }
     }
   }
 
