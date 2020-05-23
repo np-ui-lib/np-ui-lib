@@ -22,8 +22,19 @@
 }
 
 .np-fp-btn {
-    background-color: #f1f1f1;
-    border: 1px solid #c8c8c8;
-    padding: 0px 5px;
     cursor: pointer;
+    padding: 5px;
+    display: inline-flex;
+    height: 26px;
+    background-color: #f1f1f1;
+    margin: 2px;
+}
+
+.np-fp-label {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+    border-color: transparent;
+    min-height: 30px;
 }
