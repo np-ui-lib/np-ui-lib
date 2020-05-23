@@ -9,96 +9,195 @@
     </h2>
 </div>
 
-<div>
-    <fieldset>
-        <legend>1. Default color picker</legend>
-        <np-color-picker [(ngModel)]="color1"></np-color-picker>
-        <div>Selected color code: {{color1}}</div>
-        <button type="button" class="np-btn" (click)="color1 = '#ed5a0f'">Set color #ed5a0f</button>
-    </fieldset>
-</div>
-
-<div>
-    <fieldset>
-        <legend>2. Disabled</legend>
-        <np-color-picker [(ngModel)]="color2" disabled></np-color-picker>
-    </fieldset>
-</div>
-
-<div>
-    <form #form="ngForm">
-        <fieldset>
-            <legend>3. Required Validation in color picker</legend>
-            <np-color-picker [(ngModel)]="color3" required #validations="ngModel" name="colorPicker3">
-            </np-color-picker>
-            <div *ngIf="validations.control.touched && validations.control.errors?.required" class="np-text-danger">
-                Color is required.
+<np-tabs>
+    <np-tab title="Documentation" id="tabDocumentation">
+        <np-card>
+            <b>Module to import</b>
+            <div>
+                {{importText}}
             </div>
-            <div>Form valid: {{ form.valid }}</div>
-            <div>Selected color code: {{ color3 }}</div>
-        </fieldset>
-    </form>
-</div>
+        </np-card>
+        <np-card>
+            <b>HTML</b>
+            <div>
+                {{htmlText}}
+            </div>
+        </np-card>
+        <np-card>
+            <table class="np-table">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+                <tr>
+                    <td>ngModel</td>
+                    <td>Value.</td>
+                    <td>Date</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>disabled</td>
+                    <td>Set disabled.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>required</td>
+                    <td>Set required.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>defaultOpen</td>
+                    <td>Set default open.</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>colors</td>
+                    <td>List of predefined colors.</td>
+                    <td>string[]</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>placeholder</td>
+                    <td>Set placeholder.</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>hideColorInput</td>
+                    <td>Hide input box from component.</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>styleClass</td>
+                    <td>Set extra class on colorpicker</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+            </table>
+        </np-card>
 
-<div>
-    <fieldset>
-        <legend>4. Default open color picker</legend>
-        <np-color-picker [(ngModel)]="color4" [defaultOpen]="true" #validations4="ngModel" [disabled]="color4Disabled" [required]="color4Required">
-        </np-color-picker>
-        <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="np-text-danger">
-            Color is required.
+        <np-card>
+            <table class="np-table">
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                    <th>Parameters</th>
+                </tr>
+                <tr>
+                    <td>
+                        onChange
+                    </td>
+                    <td>
+                        Handles the value change event.
+                    </td>
+                    <td>event</td>
+                </tr>
+            </table>
+        </np-card>
+    </np-tab>
+
+    <np-tab title="Example" id="tabExample">
+
+        <div>
+            <fieldset>
+                <legend>1. basic colorpicker</legend>
+                <np-color-picker [(ngModel)]="color1"></np-color-picker>
+                <div>Selected value is: {{color1}}</div>
+                <button type="button" class="np-btn" (click)="color1 = '#ed5a0f'">Set color #ed5a0f</button>
+            </fieldset>
         </div>
-        <div class="np-btn-group">
-            <button type="button" class="np-btn" (click)="color4Disabled = !color4Disabled">Toggle Disable</button>
-            <button type="button" class="np-btn" (click)="color4Required = !color4Required">Toggle Required</button>
+
+        <div>
+            <fieldset>
+                <legend>2. disabled</legend>
+                <np-color-picker [(ngModel)]="color2" disabled></np-color-picker>
+            </fieldset>
         </div>
-    </fieldset>
-</div>
 
-<div>
-    <fieldset>
-        <legend>5. Pre-defined color list in color picker</legend>
-        <np-color-picker [(ngModel)]="color5" [colors]="existingColors5">
-        </np-color-picker>
-    </fieldset>
-</div>
+        <div>
+            <form #form="ngForm">
+                <fieldset>
+                    <legend>3. required</legend>
+                    <np-color-picker [(ngModel)]="color3" required #validations="ngModel" name="colorPicker3">
+                    </np-color-picker>
+                    <div *ngIf="validations.control.touched && validations.control.errors?.required" class="np-text-danger">
+                        Color is required.
+                    </div>
+                    <div>Form valid: {{ form.valid }}</div>
+                    <div>Selected color code: {{ color3 }}</div>
+                </fieldset>
+            </form>
+        </div>
 
-<div>
-    <fieldset>
-        <legend>6. Add placeholder</legend>
-        <np-color-picker [(ngModel)]="color6" [placeholder]="'Select font color'">
-        </np-color-picker>
-    </fieldset>
-</div>
+        <div>
+            <fieldset>
+                <legend>4. defaultOpen</legend>
+                <np-color-picker [(ngModel)]="color4" [defaultOpen]="true" #validations4="ngModel" [disabled]="color4Disabled" [required]="color4Required">
+                </np-color-picker>
+                <div *ngIf="validations4.control.touched && validations4.control.errors?.required" class="np-text-danger">
+                    Color is required.
+                </div>
+                <div class="np-btn-group">
+                    <button type="button" class="np-btn" (click)="color4Disabled = !color4Disabled">Toggle
+                        Disable</button>
+                    <button type="button" class="np-btn" (click)="color4Required = !color4Required">Toggle
+                        Required</button>
+                </div>
+            </fieldset>
+        </div>
 
-<div>
-    <fieldset>
-        <legend>7. Hide color input control</legend>
-        <np-color-picker [(ngModel)]="color7" [hideColorInput]="true">
-        </np-color-picker>
-    </fieldset>
-</div>
+        <div>
+            <fieldset>
+                <legend>5. Pre-defined colors in picker</legend>
+                <np-color-picker [(ngModel)]="color5" [colors]="existingColors5">
+                </np-color-picker>
+            </fieldset>
+        </div>
 
-<div>
-    <fieldset>
-        <legend>8. Bind change event</legend>
-        <np-color-picker [(ngModel)]="color8" (onChange)="onChangeColor($event)">
-        </np-color-picker>
-    </fieldset>
-</div>
+        <div>
+            <fieldset>
+                <legend>6. placeholder</legend>
+                <np-color-picker [(ngModel)]="color6" [placeholder]="'Select font color'">
+                </np-color-picker>
+            </fieldset>
+        </div>
 
-<div>
-    <fieldset>
-        <legend>9. Style class</legend>
-        <np-color-picker [(ngModel)]="color9" [styleClass]="'myClass'">
-        </np-color-picker>
-    </fieldset>
-</div>
+        <div>
+            <fieldset>
+                <legend>7. hideColorInput</legend>
+                <np-color-picker [(ngModel)]="color7" [hideColorInput]="true">
+                </np-color-picker>
+            </fieldset>
+        </div>
 
-<div>
-    <fieldset>
-        <legend>10. Without custom color list</legend>
-        <np-color-picker [(ngModel)]="color10" [colors]="[]">
-        </np-color-picker>
-    </fieldset>
-</div>
+        <div>
+            <fieldset>
+                <legend>9. styleClass</legend>
+                <np-color-picker [(ngModel)]="color8" [styleClass]="'myClass'">
+                </np-color-picker>
+            </fieldset>
+        </div>
+
+        <div>
+            <fieldset>
+                <legend>9. No pre-defined colors</legend>
+                <np-color-picker [(ngModel)]="color9" [colors]="[]">
+                </np-color-picker>
+            </fieldset>
+        </div>
+
+        <div>
+            <fieldset>
+                <legend>10. onChange</legend>
+                <np-color-picker [(ngModel)]="color10" (onChange)="onChangeColor($event)">
+                </np-color-picker>
+            </fieldset>
+        </div>
+    </np-tab>
+</np-tabs>

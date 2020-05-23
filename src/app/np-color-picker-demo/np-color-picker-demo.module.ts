@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { NpColorPickerDemoRoutingModule } from './np-color-picker-demo-routing.module';
 import { NpColorPickerDemoComponent } from './np-color-picker-demo.component';
-import { NpColorPickerModule } from 'np-ui-lib';
+import { NpColorPickerModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms';
     NpColorPickerModule,
     NpColorPickerDemoRoutingModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    NpCardModule,
+    NpTabsModule
   ]
 })
 export class NpColorPickerDemoModule { }
