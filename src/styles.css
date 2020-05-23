@@ -65,3 +65,21 @@ body {
     background-color: #4CAF50;
     color: #ffffff;
 }
+
+.np-table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem
+}
+
+.np-table td,
+.np-table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dfdfdf;
+    text-align: left;
+}
+
+.np-table th {
+    background-color: #f1f1f1;
+}

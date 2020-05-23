@@ -16,7 +16,7 @@ export class NpDatePickerDemoComponent implements OnInit {
   date5: Date = new Date();
   date6: Date;
   date7: Date;
-  disableDates7: any[] = [];
+  disableDates7: Date[] = [];
   date81: Date;
   date82: Date;
   date9: Date;
@@ -26,6 +26,9 @@ export class NpDatePickerDemoComponent implements OnInit {
   dateLabels12: any[] = [];
   date13: Date;
   date14: Date;
+
+  importText = "import { NpDatePickerModule } from 'np-ui-lib';"
+  htmlText = '<np-date-picker [(ngModel)]="date1"></np-date-picker>';
 
   constructor() { }
 
@@ -49,8 +52,8 @@ export class NpDatePickerDemoComponent implements OnInit {
     this.date7 = new Date();
   }
 
-  onChangeDate13(e) {
-    alert("selected value is " + e);
+  onChangeDate14(e) {
+    alert(e);
   }
 
 }
