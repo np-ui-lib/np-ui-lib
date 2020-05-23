@@ -20,7 +20,10 @@ export class NpTimePickerDemoComponent implements OnInit {
   timePicker8: string;
   timePicker9: string;
   timePicker10: string;
-  
+
+  importText = "import { NpTimePickerModule } from 'np-ui-lib';"
+  htmlText = '<np-time-picker [(ngModel)]="time1"></np-time-picker>';
+
   constructor() { }
 
   ngOnInit(): void {
