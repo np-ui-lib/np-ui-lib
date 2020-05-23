@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { NpSwitchDemoRoutingModule } from './np-switch-demo-routing.module';
 import { NpSwitchDemoComponent } from './np-switch-demo.component';
-import { NpSwitchModule } from 'np-ui-lib';
+import { NpSwitchModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [NpSwitchDemoComponent],
@@ -13,7 +12,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     NpSwitchDemoRoutingModule,
-    NpSwitchModule
+    NpSwitchModule,
+    NpCardModule,
+    NpTabsModule
   ]
 })
 export class NpSwitchDemoModule { }
