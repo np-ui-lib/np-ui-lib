@@ -38,7 +38,7 @@ npm i np-ui-lib
 @import "np-ui-lib/style.css";
 ````
 
-### [Working examples](https://stackblitz.com/edit/np-ui-lib-demo)
+### [Working examples](https://np-ui-lib.stackblitz.io/np-slider-demo)
 ### [Code for all examples here](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)
 
 ### To Run this example project
