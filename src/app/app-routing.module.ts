@@ -115,6 +115,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-slider-demo/np-slider-demo.module').then(m => m.NpSliderDemoModule)
   },
   {
+    path: 'np-grid-layout-demo',
+    loadChildren: () => import('./np-grid-layout-demo/np-grid-layout-demo.module').then(m => m.NpGridLayoutDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'np-date-picker-demo',
     pathMatch: 'full'
