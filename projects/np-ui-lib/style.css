@@ -643,6 +643,36 @@ svg {
     vertical-align: middle;
 }
 
+.np-table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid #dfdfdf;
+    border-spacing: 0px;
+}
+
+.np-table td,
+.np-table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    text-align: left;
+}
+
+.np-table tr td:last-child,
+.np-table tr th:last-child {
+    border-right: none;
+}
+
+.np-table tr:last-child td {
+    border-bottom: none;
+}
+
+.np-table th {
+    background-color: #f1f1f1;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
