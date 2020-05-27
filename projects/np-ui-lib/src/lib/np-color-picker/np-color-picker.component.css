@@ -6,7 +6,7 @@
 .np-cp-overlay {
     background-color: #ffffff;
     width: 212px;
-    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
 
 .np-cp-block-selected {

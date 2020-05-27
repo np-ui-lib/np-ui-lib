@@ -11,6 +11,7 @@ body {
     background-color: #f1f1f1;
     text-align: center;
     border: 1px solid #c8c8c8;
+    border-radius: 2px;
 }
 
 .nav {
@@ -32,17 +33,11 @@ body {
     padding: 5px;
     background-color: #f1f1f1;
     border: 1px solid #c8c8c8;
+    border-radius: 2px;
 }
 
 .myClass {
     border: 1px solid blue !important;
-}
-
-.demo-icon {
-    height: 16px;
-    width: 16px;
-    fill: currentColor;
-    vertical-align: middle;
 }
 
 .overview-1 {
@@ -59,9 +54,4 @@ body {
 
 .overview-4 {
     background-color: #7DC931 !important;
-}
-
-.active-menu {
-    background-color: #4CAF50;
-    color: #ffffff;
 }

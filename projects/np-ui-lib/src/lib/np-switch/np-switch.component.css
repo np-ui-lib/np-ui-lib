@@ -2,6 +2,8 @@
     width: 100px;
     user-select: none;
     border: 1px solid #c8c8c8;
+    border-radius: 2px;
+    background-color: #f1f1f1;
 }
 
 .np-sw-component .np-btn {
@@ -11,4 +13,5 @@
     min-width: 49px;
     display: block;
     height: 30px;
+    padding: 3px 5px;
 }

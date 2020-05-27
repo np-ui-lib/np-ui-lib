@@ -2,6 +2,7 @@
     position: relative;
     background-color: #f1f1f1;
     border: 1px solid #c8c8c8;
+    border-radius: 2px;
     width: 200px;
 }
 
@@ -30,7 +31,7 @@
 .np-mb-menu-item .np-mb-submenu {
     position: absolute;
     z-index: 1001;
-    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
 
 .np-mb-icon {

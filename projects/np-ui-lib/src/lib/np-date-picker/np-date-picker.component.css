@@ -1,7 +1,7 @@
 .np-dp-overlay {
     background-color: #ffffff;
     width: 236px;
-    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
 
 .np-dp-weekday {
@@ -20,6 +20,7 @@
     text-align: center;
     vertical-align: middle;
     position: relative;
+    border-radius: 2px;
 }
 
 .np-dp-today {

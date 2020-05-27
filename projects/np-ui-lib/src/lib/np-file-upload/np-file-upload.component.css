@@ -15,6 +15,7 @@
 
 .np-fu-component {
     border: 1px solid #c8c8c8;
+    border-radius: 2px;
 }
 
 .np-fu-component .np-fp-input {
@@ -28,6 +29,7 @@
     height: 26px;
     background-color: #f1f1f1;
     margin: 2px;
+    border-radius: 2px;
 }
 
 .np-fp-label {

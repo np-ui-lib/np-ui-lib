@@ -1,5 +1,6 @@
 .np-bd-component {
     border: 1px solid #c8c8c8;
+    border-radius: 2px;
     background-color: #ffffff;
     padding: 3px;
 }

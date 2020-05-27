@@ -4,6 +4,7 @@
     overflow: hidden;
     background-color: #e9ecef;
     width: 100%;
+    border-radius: 2px;
 }
 
 .np-pg-progress-bar {

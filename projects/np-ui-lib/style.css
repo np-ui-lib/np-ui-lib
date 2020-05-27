@@ -1171,6 +1171,7 @@ svg {
     margin: 0px;
     background-color: #ffffff;
     border: 1px solid #c8c8c8;
+    border-radius: 2px;
     width: 100%;
     min-height: 32px;
 }
@@ -1182,6 +1183,7 @@ svg {
     align-items: stretch;
     width: 100%;
     border: 1px solid #c8c8c8;
+    border-radius: 2px;
     background-color: #ffffff;
 }
 
@@ -1206,10 +1208,11 @@ svg {
     vertical-align: middle;
     user-select: none;
     outline: none;
-    padding: 3px 5px;
+    padding: 3px 10px;
     transition: all .2s ease-in-out;
     background-color: #f1f1f1;
     border: 1px solid #c8c8c8;
+    border-radius: 2px;
     margin: 5px 0px;
     min-width: 50px;
     height: 32px;
@@ -1335,6 +1338,7 @@ svg {
 
 .np-border {
     border: 1px solid #c8c8c8;
+    border-radius: 2px;
 }
 
 .np-border-top {
@@ -1377,6 +1381,7 @@ svg {
     padding: 10px;
     margin-bottom: 5px;
     border: 1px solid #c8c8c8;
+    border-radius: 2px;
     border-left: 5px solid #c8c8c8;
     background-color: #ffffff;
     padding-right: 32px;

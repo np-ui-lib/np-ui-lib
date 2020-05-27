@@ -1,10 +1,11 @@
 .np-tabs-component {
     display: flex;
     flex-direction: column;
+    border: 1px solid #c8c8c8;
+    border-radius: 2px;
 }
 
 .np-tab-body {
-    border: 1px solid #c8c8c8;
     padding: 10px;
     flex: 1;
     overflow: auto;
@@ -15,15 +16,13 @@
     margin: 0px;
     padding: 0px;
     list-style: none;
-    border-top: 1px solid #c8c8c8;
-    border-right: 1px solid #c8c8c8;
-    border-left: 1px solid #c8c8c8;
+    border-bottom: 1px solid #c8c8c8;
     background-color: #f1f1f1;
 }
 
 .np-tab-title {
     height: 32px;
-    padding: 0px 10px;
+    padding: 0px 20px;
     display: inline-block;
     min-width: 75px;
     cursor: pointer;
@@ -49,6 +48,6 @@
 }
 
 .np-tabs-horizontal .np-tab-header {
-    border-right: none;
-    border-bottom: 1px solid #c8c8c8;
+    border-bottom: none;
+    border-right: 1px solid #c8c8c8;
 }
