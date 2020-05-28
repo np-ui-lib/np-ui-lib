@@ -1593,6 +1593,7 @@ svg {
     max-width: 100%;
     border: 1px solid #dfdfdf;
     border-spacing: 0px;
+    margin-bottom: 5px;
 }
 
 .np-table td,

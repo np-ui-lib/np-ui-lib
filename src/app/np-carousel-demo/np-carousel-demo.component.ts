@@ -41,6 +41,6 @@ export class NpCarouselDemoComponent implements OnInit {
   }
 
   addNewItem2() {
-    this.items2.push("Test9");
+    this.items2.push("Test" + (this.items2.length + 1));
   }
 }

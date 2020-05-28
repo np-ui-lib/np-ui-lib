@@ -19,6 +19,10 @@ export class NpUtilityDemoComponent implements OnInit {
   isActive: boolean = true;
   description: string;
 
+  maskedValue1: string;
+  maskedValue2: string;
+  maskedValue3: string;
+
   ngOnInit(): void {
 
   }

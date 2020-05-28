@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { NpHightLightPipe } from './np-highlight.pipe';
+import { NpMaskDirective } from './np-mask.directive';
 
 @NgModule({
-    declarations: [NpHightLightPipe],
-    exports: [NpHightLightPipe]
+    declarations: [NpHightLightPipe, NpMaskDirective],
+    exports: [NpHightLightPipe, NpMaskDirective]
 })
 export class NpUtility { }
