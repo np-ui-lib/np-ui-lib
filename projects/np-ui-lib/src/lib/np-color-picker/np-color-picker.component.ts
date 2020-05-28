@@ -36,6 +36,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   @Input() placeholder: string = "";
   @Input() hideColorInput: boolean;
   @Input() defaultOpen: boolean;
+  @Input() inputId: string;
   @Input() styleClass: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 

@@ -28,6 +28,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   @Input() items: any[];
   @Input() displayKey: string;
   @Input() placeholder: string = "";
+  @Input() inputId: string;
   @Input() styleClass: string;
   @Input() itemTemplate: TemplateRef<any>;
   @Output() onChange: EventEmitter<any> = new EventEmitter();

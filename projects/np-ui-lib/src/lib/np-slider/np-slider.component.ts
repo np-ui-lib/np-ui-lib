@@ -21,6 +21,7 @@ export class NpSliderComponent implements OnInit {
   @Input() max: number = 100;
   @Input() step: number = 1;
   @Input() styleClass: string;
+  @Input() inputId: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   _innerValue: boolean;

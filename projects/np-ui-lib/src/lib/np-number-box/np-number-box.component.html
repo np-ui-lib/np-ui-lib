@@ -1,5 +1,5 @@
 <div [ngClass]="{'np-input-group': true, 'np-disabled' : _isDisabled, 'np-nb-component': true}" [class]="styleClass">
-    <input class="np-form-control" type="number" [value]="_innerValue" [placeholder]="placeholder" [disabled]="_isDisabled" (change)="_onInputChange($event)">
+    <input class="np-form-control" type="number" [attr.id]="inputId" [value]="_innerValue" [placeholder]="placeholder" [disabled]="_isDisabled" (change)="_onInputChange($event)">
     <div class="input-group-append" *ngIf="showControls">
         <button class="np-btn np-btn-icon" type="button" (pointerdown)="_onMouseDownMinus()" (pointerup)="_onMouseUpMinus()">
             <svg class="np-icon" viewBox="0 0 24 24">

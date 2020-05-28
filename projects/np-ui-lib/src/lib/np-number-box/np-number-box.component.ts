@@ -32,6 +32,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   @Input() max: number;
   @Input() format: string;
   @Input() showControls: boolean = true;
+  @Input() inputId: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   private intervalOnMouseUp: any;

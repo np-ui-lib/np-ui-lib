@@ -42,6 +42,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Input() itemTemplate: TemplateRef<any>;
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
+  @Input() inputId: string;
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
 
   @Input() isTreeView: boolean;

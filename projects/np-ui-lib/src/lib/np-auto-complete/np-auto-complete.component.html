@@ -1,5 +1,5 @@
 <div [ngClass]="{'np-input-group': true, 'np-disabled' : _isDisabled}" [class]="styleClass">
-    <input class="np-form-control" type="text" [(ngModel)]="_displayValue" [placeholder]="placeholder" (input)="_onInput()" [disabled]="_isDisabled">
+    <input class="np-form-control" type="text" [attr.id]="inputId" [(ngModel)]="_displayValue" [placeholder]="placeholder" (input)="_onInput()" [disabled]="_isDisabled">
     <div class="input-group-append">
         <div class="np-ac-loader" *ngIf="_isLoading">
             <svg class="np-icon-sm" viewBox="0 0 24 24">

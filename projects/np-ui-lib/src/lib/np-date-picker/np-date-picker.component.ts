@@ -54,6 +54,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() disableDates: Date[] = [];
   @Input() dateLabels: any[] = [];
   @Input() isStartMonthWithMonday: boolean = false;
+  @Input() inputId: string;
   @Input() styleClass: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 

@@ -49,6 +49,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
 
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
+  @Input() inputId: string;
 
   @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
   private templatePortal: TemplatePortal<any>;

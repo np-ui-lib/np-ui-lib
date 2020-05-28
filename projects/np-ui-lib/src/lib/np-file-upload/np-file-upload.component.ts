@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Output, EventEmitter, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Output, EventEmitter, Input, ViewChild, ElementRef, AfterContentInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl, NG_VALIDATORS, Validator } from '@angular/forms';
 
 @Component({
@@ -20,13 +20,12 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl, NG_VALIDATORS, Va
     }
   ]
 })
-export class NpFileUploadComponent implements ControlValueAccessor, Validator {
+export class NpFileUploadComponent implements ControlValueAccessor, Validator, AfterContentInit {
 
   @ViewChild('fileUploadInput') fileUploadInput: ElementRef;
 
   _innerValue: any;
   _isDisabled: boolean = false;
-  _controlId: string;
   private onChangeCallback: (_: any) => void;
   private onTouchedCallback: () => void;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
@@ -34,6 +33,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Input() placeholder: string = "";
   @Input() styleClass: string;
   @Input() multiple: boolean;
+  @Input() inputId: string;
   /**
  * File extentions in string format, separated by comma
  */
@@ -56,8 +56,10 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
 
   @Input() uploadButtonLabel: string;
 
-  constructor() {
-    this._controlId = "np-file-upload_" + Math.floor((Math.random() * 10000) + 1);
+  ngAfterContentInit(): void {
+    if (!this.inputId) {
+      this.inputId = "np-file-upload_" + Math.floor((Math.random() * 10000) + 1);
+    }
   }
 
   get value(): any {

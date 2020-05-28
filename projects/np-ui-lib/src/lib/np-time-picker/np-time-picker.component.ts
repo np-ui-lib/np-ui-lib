@@ -41,6 +41,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() hideSeconds: boolean = false;
   @Input() placeholder: string = "";
   @Input() styleClass: string;
+  @Input() inputId: string;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
