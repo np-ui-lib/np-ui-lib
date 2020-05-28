@@ -1549,7 +1549,7 @@ svg {
     border-right-color: transparent;
     border-radius: 50%;
     color: #007bff!important;
-    animation: spin 1s linear infinite;
+    animation: spin 0.5s linear infinite;
     z-index: 2001;
 }
 
@@ -1591,18 +1591,18 @@ svg {
 .np-table {
     width: 100%;
     max-width: 100%;
-    margin-bottom: 1rem;
     border: 1px solid #dfdfdf;
     border-spacing: 0px;
 }
 
 .np-table td,
 .np-table th {
-    padding: .75rem;
+    padding: 0px 5px;
     vertical-align: top;
     border-right: 1px solid #dfdfdf;
     border-bottom: 1px solid #dfdfdf;
     text-align: left;
+    line-height: 32px;
 }
 
 .np-table tr td:last-child,

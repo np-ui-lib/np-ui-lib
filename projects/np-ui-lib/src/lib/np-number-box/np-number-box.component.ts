@@ -70,10 +70,16 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   }
 
   _add() {
+    if (this._isDisabled) {
+      return;
+    }
     this.value = this.value + this.steps;
   }
 
   _minus() {
+    if (this._isDisabled) {
+      return;
+    }
     this.value = this.value - this.steps;
   }
 
@@ -103,7 +109,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     if (isNaN(parseFloat(event.target.value))) {
       this.value = null;
     } else {
-      this.value = parseFloat(event.target.value);
+      this.value = event.target.value;
     }
   }
 

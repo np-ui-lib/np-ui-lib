@@ -180,7 +180,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _onFocus() {
-    if (!this.isServerSide) {
+    if (!this.isServerSide && !this._isDisabled) {
       if (!this.overlayRef.hasAttached()) {
         this.overlayRef.attach(this.templatePortal);
       }

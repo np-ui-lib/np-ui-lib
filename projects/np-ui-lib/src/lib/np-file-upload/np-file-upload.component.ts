@@ -92,11 +92,17 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   }
 
   _clear() {
+    if (this._isDisabled) {
+      return;
+    }
     this.value = null;
     this.fileUploadInput.nativeElement.value = '';
   }
 
   _onFileSelected($event) {
+    if (this._isDisabled) {
+      return;
+    }
     this.value = $event.target.files;
   }
 

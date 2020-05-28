@@ -1,3 +1,3 @@
 <div [ngClass]="{'np-sl-component':true, 'np-disabled': _isDisabled}" [class]="styleClass">
-    <input class="np-sl-input" type="range" [min]="min" [max]="max" [step]="step" [value]="_innerValue" [title]="value" (change)="_onChange($event)">
+    <input class="np-sl-input" type="range" [min]="min" [max]="max" [step]="step" [value]="_innerValue" [title]="value" [disabled]="_isDisabled" (change)="_onChange($event)">
 </div>
