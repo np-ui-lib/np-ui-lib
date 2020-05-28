@@ -13,6 +13,8 @@ export class NpMenubarComponent {
 
   @Input() items: NpMenuItem[];
   @Input() styleClass: string;
+  @Input() isPanelMenu: boolean;
+
   /**orientation of menu, valid values are horizontal and vertical. Default is vertical. */
   @Input() orientation: string = "vertical";
   @Output() _onCloseMenu: EventEmitter<any> = new EventEmitter();
@@ -30,6 +32,10 @@ export class NpMenubarComponent {
       item._y = $event.target.offsetHeight;
     }
     item._isItemsVisible = true;
+  }
+
+  _onClickPanelMenu($event, item: NpMenuItem) {
+    item._isItemsVisible = !item._isItemsVisible;
   }
 
   _onMouseLeave(item: NpMenuItem) {

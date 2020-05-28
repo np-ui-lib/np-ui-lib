@@ -1,49 +1,100 @@
-<div [class]="styleClass" [ngClass]="{'np-mb-component': true, 'np-mb-horizontal': orientation === 'horizontal'}">
-    <ng-container *ngFor="let item of items">
-        <ng-container *ngIf="item.items">
-            <div class="np-mb-menu-item" (mouseenter)="_onMouseEnter($event,item)" (mouseleave)="_onMouseLeave(item)">
-                <a class="np-mb-label" *ngIf="item.routerLink" [ngClass]="{'np-mb-active':_isActive(item)}">
-                    {{item.label}}
-                    <svg class="np-icon np-mb-icon" *ngIf="orientation === 'vertical'">
-                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                        <path d="M0 0h24v24H0z" fill="none" />
-                    </svg>
-                    <svg class="np-icon np-mb-icon" *ngIf="orientation === 'horizontal'">
-                        <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-                        <path d="M0 0h24v24H0z" fill="none" />
-                    </svg>
-                </a>
-                <a class="np-mb-label" *ngIf="!item.routerLink">
-                    {{item.label}}
-                    <svg class="np-icon np-mb-icon" *ngIf="orientation === 'vertical'">
-                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                        <path d="M0 0h24v24H0z" fill="none" />
-                    </svg>
-                    <svg class="np-icon np-mb-icon" *ngIf="orientation === 'horizontal'">
-                        <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-                        <path d="M0 0h24v24H0z" fill="none" />
-                    </svg>
-                </a>
+<div [class]="styleClass" [ngClass]="{'np-mb-component': true, 'np-mb-horizontal': orientation === 'horizontal','np-mb-panel': isPanelMenu }">
+    <ng-container *ngIf="!isPanelMenu">
+        <ng-container *ngFor="let item of items">
+            <ng-container *ngIf="item.items">
+                <div class="np-mb-menu-item" (mouseenter)="_onMouseEnter($event,item)" (mouseleave)="_onMouseLeave(item)">
+                    <a class="np-mb-label" *ngIf="item.routerLink" [ngClass]="{'np-mb-active':_isActive(item)}">
+                        {{item.label}}
+                        <svg class="np-icon np-mb-icon" *ngIf="orientation === 'vertical'">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                        <svg class="np-icon np-mb-icon" *ngIf="orientation === 'horizontal'">
+                            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                    </a>
+                    <a class="np-mb-label" *ngIf="!item.routerLink">
+                        {{item.label}}
+                        <svg class="np-icon np-mb-icon" *ngIf="orientation === 'vertical'">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                        <svg class="np-icon np-mb-icon" *ngIf="orientation === 'horizontal'">
+                            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                    </a>
+                    <ng-container *ngIf="item._isItemsVisible">
+                        <div class="np-mb-submenu" [style.top.px]="item._y" [style.left.px]="item._x">
+                            <np-menubar [items]="item.items" [orientation]="'vertical'" (_onCloseMenu)="_closeParentMenu()">
+                            </np-menubar>
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="!item.items">
+                <div class="np-mb-menu-item">
+                    <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-mb-active'" (click)="_close()">
+                        {{item.label}}
+                    </a>
+                    <a *ngIf="item.url" [href]="item.url" [target]="item.target" (click)="_close()">
+                        {{item.label}}
+                    </a>
+                    <a *ngIf="item.onClick" (click)="_onClickMenu($event, item)">
+                        {{item.label}}
+                    </a>
+                </div>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="isPanelMenu">
+        <ng-container *ngFor="let item of items">
+            <ng-container *ngIf="item.items">
+                <div class="np-mb-menu-item" (click)="_onClickPanelMenu($event,item)">
+                    <a class="np-mb-label" *ngIf="item.routerLink">
+                        {{item.label}}
+                        <svg class="np-icon np-mb-icon" *ngIf="!item._isItemsVisible">
+                            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                        <svg class="np-icon np-mb-icon" viewBox="0 0 24 24" *ngIf="item._isItemsVisible">
+                            <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                    </a>
+                    <a class="np-mb-label" *ngIf="!item.routerLink">
+                        {{item.label}}
+                        <svg class="np-icon np-mb-icon" *ngIf="!item._isItemsVisible">
+                            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                        <svg class="np-icon np-mb-icon" viewBox="0 0 24 24" *ngIf="item._isItemsVisible">
+                            <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                    </a>
+                </div>
                 <ng-container *ngIf="item._isItemsVisible">
                     <div class="np-mb-submenu" [style.top.px]="item._y" [style.left.px]="item._x">
-                        <np-menubar [items]="item.items" [orientation]="'vertical'" (_onCloseMenu)="_closeParentMenu()">
+                        <np-menubar [items]="item.items" [isPanelMenu]="true">
                         </np-menubar>
                     </div>
                 </ng-container>
-            </div>
-        </ng-container>
-        <ng-container *ngIf="!item.items">
-            <div class="np-mb-menu-item">
-                <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-mb-active'" (click)="_close()">
-                    {{item.label}}
-                </a>
-                <a *ngIf="item.url" [href]="item.url" [target]="item.target" (click)="_close()">
-                    {{item.label}}
-                </a>
-                <a *ngIf="item.onClick" (click)="_onClickMenu($event, item)">
-                    {{item.label}}
-                </a>
-            </div>
+            </ng-container>
+            <ng-container *ngIf="!item.items">
+                <div class="np-mb-menu-item">
+                    <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-mb-active'" (click)="_close()">
+                        {{item.label}}
+                    </a>
+                    <a *ngIf="item.url" [href]="item.url" [target]="item.target" (click)="_close()">
+                        {{item.label}}
+                    </a>
+                    <a *ngIf="item.onClick" (click)="_onClickMenu($event, item)">
+                        {{item.label}}
+                    </a>
+                </div>
+            </ng-container>
         </ng-container>
     </ng-container>
 </div>
