@@ -12,6 +12,9 @@ import { NpPopupMenubarDirective } from './np-popup-menubar.directive';
     RouterModule,
     OverlayModule
   ],
+  entryComponents: [
+    NpMenubarComponent,
+  ],
   exports: [NpMenubarComponent, NpPopupMenubarDirective]
 })
 export class NpMenubarModule { }
