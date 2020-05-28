@@ -27,4 +27,18 @@ export class NpUtilityDemoComponent implements OnInit {
 
   }
 
+  creditCards: any[] = [
+    {
+      'card': 'amex',
+      'placeholder': 'XXX XXXXXX XXXXX',
+      'mask': '000 000000 00000'
+    },
+    {
+      'card': 'visa',
+      'placeholder': 'XXXX XXXX XXXX XXXX',
+      'mask': '0000 0000 0000 0000'
+    }
+  ];
+  selectedCard: any = this.creditCards[0];
+
 }
