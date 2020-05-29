@@ -1174,6 +1174,7 @@ svg {
     border-radius: 2px;
     width: 100%;
     min-height: 32px;
+    outline: none;
 }
 
 .np-input-group {

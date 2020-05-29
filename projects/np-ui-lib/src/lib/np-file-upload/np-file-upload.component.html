@@ -1,6 +1,6 @@
 <div [ngClass]="{'np-fu-component': true,'np-disabled' : _isDisabled}" [class]="styleClass">
     <div class="np-input-group">
-        <input class="np-fp-input" [attr.id]="inputId" #fileUploadInput type="file" [placeholder]="placeholder" [disabled]="_isDisabled" (change)="_onFileSelected($event)" [multiple]="multiple">
+        <input class="np-fp-input" [attr.id]="inputId" #fileUploadInput type="file" [disabled]="_isDisabled" (change)="_onFileSelected($event)" [multiple]="multiple">
         <label for="{{inputId}}" class="np-fp-label">
             <span class="np-fp-btn">{{ uploadButtonLabel ? uploadButtonLabel : (multiple ? "Choose Files" : "Choose File")}}</span>
         </label>

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, Output, EventEmitter, AfterContentInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -15,7 +15,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
     }
   ]
 })
-export class NpSwitchComponent implements ControlValueAccessor {
+export class NpSwitchComponent implements ControlValueAccessor, AfterContentInit {
 
   _innerValue: boolean;
   _isDisabled: boolean = false;
@@ -25,7 +25,14 @@ export class NpSwitchComponent implements ControlValueAccessor {
   @Input() trueLabelText: string;
   @Input() falseLabelText: string;
   @Input() styleClass: string;
+  @Input() inputId: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
+
+  ngAfterContentInit(): void {
+    if (!this.inputId) {
+      this.inputId = "np-switch_" + Math.floor((Math.random() * 10000) + 1);
+    }
+  }
 
   get value(): boolean {
     return this._innerValue;
@@ -58,10 +65,10 @@ export class NpSwitchComponent implements ControlValueAccessor {
     this._isDisabled = isDisabled;
   }
 
-  onClickSwitch(value) {
+  onClickSwitch($event) {
     if (this._isDisabled) {
       return;
     }
-    this.value = value;
+    this.value = $event.target.checked;
   }
 }

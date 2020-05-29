@@ -68,6 +68,12 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>inputId</td>
+                    <td>Set id attribute to input control.</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>showNowButton</td>
                     <td>Show now button in timepicker.</td>
                     <td>boolean</td>
@@ -111,7 +117,7 @@
         <div>
             <fieldset>
                 <legend>1. basic timepicker</legend>
-                <np-time-picker [(ngModel)]="timePicker1"></np-time-picker>
+                <np-time-picker [(ngModel)]="timePicker1" [inputId]="'txtTime'"></np-time-picker>
                 <div>Selected value is : {{timePicker1}}</div>
                 <button class="np-btn" type="button" (click)="timePicker1 = '6:30:30 PM'">Set 6:30:30 PM</button>
             </fieldset>

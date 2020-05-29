@@ -30,7 +30,6 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator, A
   private onTouchedCallback: () => void;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  @Input() placeholder: string = "";
   @Input() styleClass: string;
   @Input() multiple: boolean;
   @Input() inputId: string;

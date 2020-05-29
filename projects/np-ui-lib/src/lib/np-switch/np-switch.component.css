@@ -6,12 +6,29 @@
     background-color: #f1f1f1;
 }
 
-.np-sw-component .np-btn {
+.np-sw-component input[type="checkbox"] {
+    display: none;
+}
+
+.np-sw-component .np-sw-label {
     margin: 0px;
-    border-color: transparent;
     width: 49px;
     min-width: 49px;
     display: block;
-    height: 30px;
-    padding: 3px 5px;
+    padding: 0px 5px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 28px;
+    border-radius: 2px;
+    border: 1px solid #f1f1f1;
+}
+
+.np-sw-danger {
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.np-sw-success {
+    color: #fff;
+    background-color: #1e7e34;
 }
