@@ -20,7 +20,7 @@ import { NpTreeViewItem } from '../np-tree-view/np-tree-view.model';
   ]
 })
 export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
-
+  static controlCount = 1;
   _innerValue: any[];
   _isDisabled: boolean = false;
   private onChangeCallback: (_: any) => void;
@@ -42,7 +42,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Input() itemTemplate: TemplateRef<any>;
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
-  @Input() inputId: string;
+  @Input() inputId: string = `np-tags_${NpTagsComponent.controlCount++}`;
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
 
   @Input() isTreeView: boolean;

@@ -22,6 +22,8 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 })
 export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
 
+  static controlCount = 1;
+
   _innerValue: any;
   _isDisabled: boolean = false;
   private onChangeCallback: (_: any) => void;
@@ -49,7 +51,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
 
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
-  @Input() inputId: string;
+  @Input() inputId: string = `np-auto-complete_${NpAutoCompleteComponent.controlCount++}`;
 
   @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
   private templatePortal: TemplatePortal<any>;

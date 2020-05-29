@@ -12,19 +12,19 @@
 <fieldset>
     <legend>Tabs basic</legend>
     <np-tabs #tabs>
-        <np-tab id="tab1" [title]="'Tab1'">
+        <np-tab [title]="'Tab1'">
             <p>Hi, this is tab1.</p>
         </np-tab>
-        <np-tab id="tab2" [title]="tab2Title">
+        <np-tab [title]="tab2Title">
             <ng-template #tab2Title>
                 Tab2<span class='np-badge'>{{count}}</span>
             </ng-template>
             <p>Hi, this is tab2.</p>
         </np-tab>
-        <np-tab id="tab3" [title]="'Tab3'" [disabled]="toggleTab3Disabled">
+        <np-tab [title]="'Tab3'" [disabled]="toggleTab3Disabled">
             <p>Hi, this is tab3.</p>
         </np-tab>
-        <np-tab id="tab4" [title]="'Tab4'" [height]="200" *ngIf="isTab4Visible">
+        <np-tab [title]="'Tab4'" [height]="200" *ngIf="isTab4Visible">
             <p>Hi, this is tab4.</p>
             <p>Hi, this is tab4.</p>
             <p>Hi, this is tab4.</p>
@@ -47,10 +47,10 @@
 <fieldset>
     <legend>Horizontal tabs</legend>
     <np-tabs (onTabChange)="onTabChange($event)" #tabs2 [horizontalTabs]="true">
-        <np-tab id="tab1" [title]="'Tab1'">
+        <np-tab [title]="'Tab1'">
             <p>Hi, this is tab1.</p>
         </np-tab>
-        <np-tab id="tab2" [title]="'Tab2'" [active]="true">
+        <np-tab [title]="'Tab2'" [active]="true">
             <p>Hi, this is tab2. Default active at load time.</p>
         </np-tab>
     </np-tabs>

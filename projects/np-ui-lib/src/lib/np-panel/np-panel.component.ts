@@ -8,8 +8,8 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpPanelComponent implements OnInit {
-
-  @Input() id: string;
+  static controlCount = 1;
+  @Input() inputId: string = `np-panel_${NpPanelComponent.controlCount++}`;
 
   @Input() title: string | TemplateRef<any>;
   _isTitleTemplate: boolean;

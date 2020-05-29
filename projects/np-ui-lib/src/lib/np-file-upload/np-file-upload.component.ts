@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Output, EventEmitter, Input, ViewChild, ElementRef, AfterContentInit } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Output, EventEmitter, Input, ViewChild, ElementRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl, NG_VALIDATORS, Validator } from '@angular/forms';
 
 @Component({
@@ -20,8 +20,8 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl, NG_VALIDATORS, Va
     }
   ]
 })
-export class NpFileUploadComponent implements ControlValueAccessor, Validator, AfterContentInit {
-
+export class NpFileUploadComponent implements ControlValueAccessor, Validator {
+  static controlCount = 1;
   @ViewChild('fileUploadInput') fileUploadInput: ElementRef;
 
   _innerValue: any;
@@ -32,7 +32,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator, A
 
   @Input() styleClass: string;
   @Input() multiple: boolean;
-  @Input() inputId: string;
+  @Input() inputId: string = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
   /**
  * File extentions in string format, separated by comma
  */
@@ -54,12 +54,6 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator, A
   @Input() maxFiles: number;
 
   @Input() uploadButtonLabel: string;
-
-  ngAfterContentInit(): void {
-    if (!this.inputId) {
-      this.inputId = "np-file-upload_" + Math.floor((Math.random() * 10000) + 1);
-    }
-  }
 
   get value(): any {
     return this._innerValue ? this._innerValue : null;

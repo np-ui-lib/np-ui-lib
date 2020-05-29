@@ -42,7 +42,7 @@ export class NpAccordionComponent implements AfterContentInit {
   _onPanelOpen(panel: NpPanelComponent) {
     if (this.allowMultipleOpen) {
       this._panels.toArray().forEach(_p => {
-        if (_p.id != panel.id) {
+        if (_p.inputId != panel.inputId) {
           _p.isOpen = false;
         }
       });
@@ -55,7 +55,7 @@ export class NpAccordionComponent implements AfterContentInit {
   }
 
   expandById(id: string) {
-    var panel = this._panels.find(function (item) { if (item.id === id) { return true; } });
+    var panel = this._panels.find(function (item) { if (item.inputId === id) { return true; } });
     this._openPanel(panel);
   }
 

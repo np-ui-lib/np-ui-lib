@@ -21,7 +21,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Validator, Form
   ]
 })
 export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
-
+  static controlCount = 1;
   _isDisabled: boolean = false;
   _innerValue: number;
 
@@ -32,7 +32,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   @Input() max: number;
   @Input() format: string;
   @Input() showControls: boolean = true;
-  @Input() inputId: string;
+  @Input() inputId: string = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   private intervalOnMouseUp: any;

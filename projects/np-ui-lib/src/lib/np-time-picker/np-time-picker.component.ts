@@ -20,7 +20,7 @@ import { TemplatePortal } from "@angular/cdk/portal";
   ]
 })
 export class NpTimePickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
-
+  static controlCount = 1;
   _hours: number[] = [];
   _minutes: number[] = [];
   _seconds: number[] = [];
@@ -41,7 +41,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() hideSeconds: boolean = false;
   @Input() placeholder: string = "";
   @Input() styleClass: string;
-  @Input() inputId: string;
+  @Input() inputId: string = `np-time-picker_${NpTimePickerComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 

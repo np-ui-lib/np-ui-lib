@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, Output, EventEmitter, AfterContentInit } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, Output, EventEmitter } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -15,8 +15,8 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
     }
   ]
 })
-export class NpSwitchComponent implements ControlValueAccessor, AfterContentInit {
-
+export class NpSwitchComponent implements ControlValueAccessor {
+  static controlCount = 1;
   _innerValue: boolean;
   _isDisabled: boolean = false;
   private onChangeCallback: (_: any) => void;
@@ -25,14 +25,8 @@ export class NpSwitchComponent implements ControlValueAccessor, AfterContentInit
   @Input() trueLabelText: string;
   @Input() falseLabelText: string;
   @Input() styleClass: string;
-  @Input() inputId: string;
+  @Input() inputId: string = `np-switch_${NpSwitchComponent.controlCount++}`;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
-
-  ngAfterContentInit(): void {
-    if (!this.inputId) {
-      this.inputId = "np-switch_" + Math.floor((Math.random() * 10000) + 1);
-    }
-  }
 
   get value(): boolean {
     return this._innerValue;

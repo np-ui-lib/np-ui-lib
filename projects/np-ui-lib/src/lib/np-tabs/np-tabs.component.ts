@@ -40,7 +40,7 @@ export class NpTabsComponent implements AfterContentInit {
     if (tab.disabled == true || tab.active == true) {
       return;
     }
-    this._tabs.toArray().forEach(_t => { if (_t.id != tab.id) { _t.active = false } });
+    this._tabs.toArray().forEach(_t => { if (_t.inputId != tab.inputId) { _t.active = false } });
     tab.active = true;
     this._height = tab.height;
     if (this.onTabChange) {
@@ -50,7 +50,7 @@ export class NpTabsComponent implements AfterContentInit {
   }
 
   selectTabById(id: string) {
-    var tab = this._tabs.find(function (item) { if (item.id === id) { return true; } });
+    var tab = this._tabs.find(function (item) { if (item.inputId === id) { return true; } });
     if (tab && tab.disabled != true) {
       this._selectTab(tab);
     }

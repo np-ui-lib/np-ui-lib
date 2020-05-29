@@ -139,7 +139,7 @@
     </div>
     <div class="np-form-group">
         <label class="np-form-label">Credit Card Number:</label>
-        <input type="text" class="np-form-control" [(ngModel)]="maskedValue2" [placeholder]="selectedCard.placeholder" [np-mask]="selectedCard.mask"> Value:{{maskedValue2}}
+        <input type="text" class="np-form-control" [(ngModel)]="maskedValue2" [placeholder]="selectedCard ? selectedCard.placeholder: ''" [np-mask]="selectedCard ? selectedCard.mask:''"> Value:{{maskedValue2}}
     </div>
     <div class="np-form-group">
         <label class="np-form-label">Phone Number:</label>

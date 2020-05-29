@@ -18,7 +18,8 @@ import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '
   ]
 })
 export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
-
+  static controlCount = 1;
+  
   _displayValue: string;
   _innerValue: any;
   _isDisabled: boolean = false;
@@ -28,7 +29,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   @Input() items: any[];
   @Input() displayKey: string;
   @Input() placeholder: string = "";
-  @Input() inputId: string;
+  @Input() inputId: string = `np-dropdown_${NpDropdownComponent.controlCount++}`;
   @Input() styleClass: string;
   @Input() itemTemplate: TemplateRef<any>;
   @Output() onChange: EventEmitter<any> = new EventEmitter();

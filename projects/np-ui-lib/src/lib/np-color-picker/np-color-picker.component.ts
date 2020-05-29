@@ -20,6 +20,7 @@ import { TemplatePortal } from "@angular/cdk/portal";
   ]
 })
 export class NpColorPickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
+  static controlCount = 1;
 
   _isOpen: boolean = false;
   _stripColor: string;
@@ -36,7 +37,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   @Input() placeholder: string = "";
   @Input() hideColorInput: boolean;
   @Input() defaultOpen: boolean;
-  @Input() inputId: string;
+  @Input() inputId: string = `np-color-picker_${NpColorPickerComponent.controlCount++}`;
   @Input() styleClass: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 

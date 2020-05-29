@@ -18,6 +18,8 @@ import { TemplatePortal } from "@angular/cdk/portal";
   ]
 })
 export class NpDatePickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
+  static controlCount = 1;
+
   _weekDays: string[];
   _monthsList: any[];
   _months: any[];
@@ -54,7 +56,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() disableDates: Date[] = [];
   @Input() dateLabels: any[] = [];
   @Input() isStartMonthWithMonday: boolean = false;
-  @Input() inputId: string;
+  @Input() inputId: string = `np-date-picker_${NpDatePickerComponent.controlCount++}`;
   @Input() styleClass: string;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 

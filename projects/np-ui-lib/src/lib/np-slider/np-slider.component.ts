@@ -16,12 +16,12 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class NpSliderComponent implements OnInit {
-
+  static controlCount = 1;
   @Input() min: number = 0;
   @Input() max: number = 100;
   @Input() step: number = 1;
   @Input() styleClass: string;
-  @Input() inputId: string;
+  @Input() inputId: string = `np-slider_${NpSliderComponent.controlCount++}`;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   _innerValue: boolean;
