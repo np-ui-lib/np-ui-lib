@@ -70,7 +70,8 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
       positionStrategy,
       hasBackdrop: true,
       backdropClass: "np-dd-backdrop",
-      scrollStrategy: this.overlay.scrollStrategies.reposition()
+      scrollStrategy: this.overlay.scrollStrategies.reposition(),
+      panelClass: this.styleClass
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,

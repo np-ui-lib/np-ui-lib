@@ -23,7 +23,7 @@ export class NpSidepanelComponent implements OnInit {
   @Input() width: number | string;
 
   @Input() styleClass: string;
-  @Input() backDropClass: string = "np-mod-panel";
+  @Input() backDropClass: string = "np-sp-backdrop";
 
   constructor(
     public overlay: Overlay,

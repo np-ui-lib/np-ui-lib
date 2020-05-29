@@ -30,10 +30,16 @@ export class NpPopoverDirective implements AfterViewInit {
             .flexibleConnectedTo(this.elementRef)
             .withPositions(position);
         if (this.showOnClick) {
-            this.overlayRef = this.overlay.create({ positionStrategy, hasBackdrop: true, backdropClass: "np-pop-backdrop" });
+            this.overlayRef = this.overlay.create({
+                positionStrategy,
+                hasBackdrop: true,
+                backdropClass: "np-pop-backdrop"
+            });
             this.overlayRef.backdropClick().subscribe(() => this._hide());
         } else {
-            this.overlayRef = this.overlay.create({ positionStrategy });
+            this.overlayRef = this.overlay.create({
+                positionStrategy
+            });
         }
     }
 

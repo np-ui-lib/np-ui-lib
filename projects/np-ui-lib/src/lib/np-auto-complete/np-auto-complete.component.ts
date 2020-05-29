@@ -103,7 +103,8 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       positionStrategy,
       hasBackdrop: true,
       backdropClass: "np-ac-backdrop",
-      scrollStrategy: this.overlay.scrollStrategies.reposition()
+      scrollStrategy: this.overlay.scrollStrategies.reposition(),
+      panelClass: this.styleClass
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,

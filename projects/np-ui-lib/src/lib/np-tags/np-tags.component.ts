@@ -98,7 +98,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       positionStrategy,
       hasBackdrop: true,
       backdropClass: "np-tg-backdrop",
-      scrollStrategy: this.overlay.scrollStrategies.reposition()
+      scrollStrategy: this.overlay.scrollStrategies.reposition(),
+      panelClass: this.styleClass
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,

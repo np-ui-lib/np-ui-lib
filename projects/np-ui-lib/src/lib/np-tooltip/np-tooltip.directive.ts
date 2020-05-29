@@ -23,7 +23,9 @@ export class NpTooltipDirective implements AfterViewInit {
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)
             .withPositions(position);
-        this.overlayRef = this.overlay.create({ positionStrategy });
+        this.overlayRef = this.overlay.create({
+            positionStrategy
+        });
     }
 
     ngOnDestroy() {

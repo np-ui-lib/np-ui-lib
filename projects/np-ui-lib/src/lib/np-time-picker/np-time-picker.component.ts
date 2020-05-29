@@ -79,7 +79,8 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
       positionStrategy,
       hasBackdrop: true,
       backdropClass: "np-tp-backdrop",
-      scrollStrategy: this.overlay.scrollStrategies.reposition()
+      scrollStrategy: this.overlay.scrollStrategies.reposition(),
+      panelClass: this.styleClass
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,

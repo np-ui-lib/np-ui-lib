@@ -80,7 +80,8 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
       positionStrategy,
       hasBackdrop: true,
       backdropClass: "np-cp-backdrop",
-      scrollStrategy: this.overlay.scrollStrategies.reposition()
+      scrollStrategy: this.overlay.scrollStrategies.reposition(),
+      panelClass: this.styleClass
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,
