@@ -12,11 +12,15 @@ export class NpTreeViewComponent implements OnInit {
 
   @Input() items: NpTreeViewItem[];
   @Input() styleClass: string;
+  @Input() allowSelection: boolean;
+
   @Output() onClick: EventEmitter<any> = new EventEmitter();
   @Output() onSelect: EventEmitter<any> = new EventEmitter();
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
-
-  @Input() allowSelection: boolean;
+  @Output() onExpand: EventEmitter<any> = new EventEmitter();
+  @Output() onCollapse: EventEmitter<any> = new EventEmitter();
+  @Output() onExpandAll: EventEmitter<any> = new EventEmitter();
+  @Output() onCollapseAll: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -25,18 +29,25 @@ export class NpTreeViewComponent implements OnInit {
 
   _toggleNode(item: NpTreeViewItem) {
     item.isExpanded = !item.isExpanded;
+    if (item.isExpanded) {
+      this.onExpand.emit(item);
+    } else {
+      this.onCollapse.emit(item);
+    }
   }
 
   expandAll() {
     this.items.forEach(element => {
       this._setExapnd(element);
     });
+    this.onExpandAll.emit();
   }
 
   collaseAll() {
     this.items.forEach(element => {
       this._setCollapse(element);
     });
+    this.onCollapseAll.emit();
   }
 
   _setExapnd(item: NpTreeViewItem) {

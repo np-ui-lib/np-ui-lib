@@ -11,6 +11,8 @@ export class NpAccordionDemoComponent implements OnInit {
   @ViewChild("accordionDemo", { static: true }) accordionDemo: NpAccordionComponent;
   _allowMultipleOpen: boolean = false;
 
+  pnl2Disabled: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -26,5 +28,9 @@ export class NpAccordionDemoComponent implements OnInit {
 
   onOpenPanel3($event) {
     alert("Panel 3 open");
+  }
+
+  togglePanel2() {
+    this.pnl2Disabled = !this.pnl2Disabled;
   }
 }

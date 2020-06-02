@@ -13,5 +13,10 @@ export class NpPanelDemoComponent implements OnInit {
   }
 
   title: string = "<b>What is paragraph?</b>";
+  pnl2Disabled: boolean = false;
+
+  togglePanel2Disabled() {
+    this.pnl2Disabled = !this.pnl2Disabled;
+  }
 
 }

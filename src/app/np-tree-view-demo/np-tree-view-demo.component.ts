@@ -121,4 +121,20 @@ export class NpTreeViewDemoComponent implements OnInit {
     alert(event.label + " is deselected.");
   }
 
+  onExpand(event) {
+    console.log(event.label + " is expanded.");
+  }
+
+  onCollapse(event) {
+    console.log(event.label + " is collapsed.");
+  }
+
+  onExpandAll(event) {
+    console.log("All are expanded.");
+  }
+
+  onCollapseAll(event) {
+    console.log("All are collapsed.");
+  }
+
 }

@@ -26,7 +26,8 @@ export class NpPanelComponent implements OnInit {
 
   @Input() height: number;
 
-  @Output() onOpen: EventEmitter<any> = new EventEmitter();
+  @Output() onExpand: EventEmitter<any> = new EventEmitter();
+  @Output() onCollapse: EventEmitter<any> = new EventEmitter();
 
   @Input() disabled: boolean;
 
@@ -44,8 +45,10 @@ export class NpPanelComponent implements OnInit {
       return;
     }
     this.isOpen = !this.isOpen;
-    if (this.onOpen && this.isOpen) {
-      this.onOpen.emit(this);
+    if (this.isOpen) {
+      this.onExpand.emit(this);
+    } else {
+      this.onCollapse.emit(this);
     }
   }
 

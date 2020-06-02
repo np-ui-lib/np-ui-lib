@@ -20,7 +20,7 @@
             </np-panel>
         </div>
         <div class="np-col-6">
-            <np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true" [styleClass]="'np-pn-success'" [disabled]="true">
+            <np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true" [styleClass]="'np-pn-success'" [disabled]="pnl2Disabled">
                 <p>
                     A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
                     one idea at a time to your broader argument.
@@ -78,6 +78,9 @@
                     add one idea at a time to your broader argument.
                 </p>
             </np-panel>
+        </div>
+        <div class="np-col-12">
+            <button type="button" class="np-btn" (click)="togglePanel2Disabled()">Toggle panel 2 disabled</button>
         </div>
     </div>
 </div>

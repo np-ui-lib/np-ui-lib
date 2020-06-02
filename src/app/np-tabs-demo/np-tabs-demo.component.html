@@ -15,9 +15,9 @@
         <np-tab [title]="'Tab1'">
             <p>Hi, this is tab1.</p>
         </np-tab>
-        <np-tab [title]="tab2Title">
+        <np-tab [title]="tab2Title" [inputId]="'tab2'">
             <ng-template #tab2Title>
-                Tab2<span class='np-badge'>{{count}}</span>
+                <i class="fa fa-home"></i> Tab2<span class='np-badge'>{{count}}</span>
             </ng-template>
             <p>Hi, this is tab2.</p>
         </np-tab>

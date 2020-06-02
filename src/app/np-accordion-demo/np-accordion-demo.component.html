@@ -16,7 +16,10 @@
         </p>
     </np-panel>
 
-    <np-panel [title]="'Title B'">
+    <np-panel [title]="titleB">
+        <ng-template #titleB>
+            <i class="fa fa-home"></i>Title B
+        </ng-template>
         <p>
             Content B
         </p>
@@ -39,7 +42,7 @@
         </p>
     </np-panel>
 
-    <np-panel id="pnl2" [title]="'Paragraph 2'" [disabled]="true">
+    <np-panel id="pnl2" [title]="'Paragraph 2'" [inputId]="'pnl2'" [disabled]="pnl2Disabled">
         <p>
             A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
             one idea at a time to your broader argument.
@@ -105,6 +108,7 @@
 
 
 <div class="np-btn-group">
+    <button class="np-btn" (click)="togglePanel2()">Toggle Panel 2 disabled flag</button>
     <button class="np-btn" (click)="openPara2ById()">Open paragraph 2 by Id</button>
     <button class="np-btn" (click)="openPara3ByIndex()">Open paragraph 3 by index</button>
 </div>

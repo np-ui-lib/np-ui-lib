@@ -22,6 +22,7 @@ import { ClientGridAllComponent } from './client-grid-all/client-grid-all.compon
 import { ServerGridAllComponent } from './server-grid-all/server-grid-all.component';
 import { OdataGridComponent } from './odata-grid/odata-grid.component';
 import { InsideTabGridComponent } from './inside-tab-grid/inside-tab-grid.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { InsideTabGridComponent } from './inside-tab-grid/inside-tab-grid.compon
     CommonModule,
     FormsModule,
     NpSwitchModule,
-    NpTabsModule
+    NpTabsModule,
+    HttpClientModule
   ]
 })
 export class NpDataGridDemoModule { }

@@ -4,7 +4,7 @@
             <ng-container *ngIf="item.items">
                 <div class="np-mb-menu-item" (mouseenter)="_onMouseEnter($event,item)" (mouseleave)="_onMouseLeave(item)">
                     <a class="np-mb-label" *ngIf="item.routerLink" [ngClass]="{'np-mb-active':_isActive(item)}">
-                        {{item.label}}
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
                         <svg class="np-icon np-mb-icon" *ngIf="orientation === 'vertical'">
                             <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
                             <path d="M0 0h24v24H0z" fill="none" />
@@ -15,7 +15,7 @@
                         </svg>
                     </a>
                     <a class="np-mb-label" *ngIf="!item.routerLink">
-                        {{item.label}}
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
                         <svg class="np-icon np-mb-icon" *ngIf="orientation === 'vertical'">
                             <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
                             <path d="M0 0h24v24H0z" fill="none" />
@@ -36,13 +36,13 @@
             <ng-container *ngIf="!item.items">
                 <div class="np-mb-menu-item">
                     <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-mb-active'" (click)="_close()">
-                        {{item.label}}
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
                     </a>
                     <a *ngIf="item.url" [href]="item.url" [target]="item.target" (click)="_close()">
-                        {{item.label}}
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
                     </a>
                     <a *ngIf="item.onClick" (click)="_onClickMenu($event, item)">
-                        {{item.label}}
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
                     </a>
                 </div>
             </ng-container>
@@ -53,7 +53,7 @@
             <ng-container *ngIf="item.items">
                 <div class="np-mb-menu-item" (click)="_onClickPanelMenu($event,item)">
                     <a class="np-mb-label" *ngIf="item.routerLink">
-                        {{item.label}}
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
                         <svg class="np-icon np-mb-icon" *ngIf="!item._isItemsVisible">
                             <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
                             <path d="M0 0h24v24H0z" fill="none" />
@@ -64,7 +64,7 @@
                         </svg>
                     </a>
                     <a class="np-mb-label" *ngIf="!item.routerLink">
-                        {{item.label}}
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
                         <svg class="np-icon np-mb-icon" *ngIf="!item._isItemsVisible">
                             <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
                             <path d="M0 0h24v24H0z" fill="none" />
@@ -85,13 +85,13 @@
             <ng-container *ngIf="!item.items">
                 <div class="np-mb-menu-item">
                     <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-mb-active'" (click)="_close()">
-                        {{item.label}}
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
                     </a>
                     <a *ngIf="item.url" [href]="item.url" [target]="item.target" (click)="_close()">
-                        {{item.label}}
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
                     </a>
                     <a *ngIf="item.onClick" (click)="_onClickMenu($event, item)">
-                        {{item.label}}
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
                     </a>
                 </div>
             </ng-container>

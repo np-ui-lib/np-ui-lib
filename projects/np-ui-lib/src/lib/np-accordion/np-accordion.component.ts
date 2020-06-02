@@ -22,7 +22,7 @@ export class NpAccordionComponent implements AfterContentInit {
       panel.allowToMinimize = true;
       panel.allowToClose = false;
       panel.allowToZoom = false;
-      panel.onOpen.subscribe((_p: NpPanelComponent) => {
+      panel.onExpand.subscribe((_p: NpPanelComponent) => {
         this._onPanelOpen(_p);
       });
     });
@@ -36,7 +36,7 @@ export class NpAccordionComponent implements AfterContentInit {
       return;
     }
     panel.isOpen = true;
-    panel.onOpen.emit(panel);
+    panel.onExpand.emit(panel);
   }
 
   _onPanelOpen(panel: NpPanelComponent) {

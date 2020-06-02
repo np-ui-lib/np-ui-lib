@@ -9,8 +9,8 @@ export class NpODataService {
             queryTmpArray.push(`$inlinecount=${inlineCount}`);
         } else {
             queryTmpArray.push('$count=true');
-            queryTmpArray.push(`$top=${top}`);
             queryTmpArray.push(`$skip=${skip}`);
+            queryTmpArray.push(`$top=${top}`);
         }
 
         if (sortColumns) {

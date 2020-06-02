@@ -15,10 +15,10 @@ export class NpMenubarDemoComponent implements OnInit {
 
   items: NpMenuItem[] = [
     new NpMenuItem({
-      label: "Menu 1", url: "/menu1",
+      label: "Menu 1", url: "/menu1", iconCss: "fa fa-home",
       items: [
         new NpMenuItem({
-          label: "Menu 1.1",
+          label: "Menu 1.1", iconCss: "fa fa-phone",
           items: [
             new NpMenuItem({ label: "Menu 1.1.1", url: "/menu1.1.1" }),
             new NpMenuItem({ label: "Menu 1.1.2", url: "/menu1.1.2" }),
@@ -58,10 +58,10 @@ export class NpMenubarDemoComponent implements OnInit {
 
   itemsHorizontal: NpMenuItem[] = [
     new NpMenuItem({
-      label: "Menu 1", url: "/menu1",
+      label: "Menu 1", url: "/menu1", iconCss: "fa fa-home",
       items: [
         new NpMenuItem({
-          label: "Menu 1.1",
+          label: "Menu 1.1", iconCss: "fa fa-phone",
           items: [
             new NpMenuItem({ label: "Menu 1.1.1", url: "/menu1.1.1" }),
             new NpMenuItem({ label: "Menu 1.1.2", url: "/menu1.1.2" }),
@@ -101,10 +101,10 @@ export class NpMenubarDemoComponent implements OnInit {
 
   itemsPopupMenubar: NpMenuItem[] = [
     new NpMenuItem({
-      label: "Menu 1", url: "/menu1",
+      label: "Menu 1", url: "/menu1", iconCss: "fa fa-home",
       items: [
         new NpMenuItem({
-          label: "Menu 1.1",
+          label: "Menu 1.1", iconCss: "fa fa-phone",
           items: [
             new NpMenuItem({ label: "Menu 1.1.1", url: "/menu1.1.1" }),
             new NpMenuItem({ label: "Menu 1.1.2", url: "/menu1.1.2" }),
@@ -148,10 +148,10 @@ export class NpMenubarDemoComponent implements OnInit {
 
   itemsPanelMenu: NpMenuItem[] = [
     new NpMenuItem({
-      label: "Menu 1", url: "/menu1",
+      label: "Menu 1", url: "/menu1", iconCss: "fa fa-home",
       items: [
         new NpMenuItem({
-          label: "Menu 1.1",
+          label: "Menu 1.1", iconCss: "fa fa-phone",
           items: [
             new NpMenuItem({ label: "Menu 1.1.1", url: "/menu1.1.1" }),
             new NpMenuItem({ label: "Menu 1.1.2", url: "/menu1.1.2" }),

@@ -11,7 +11,8 @@
 
 <fieldset>
     <legend>Treeview basic</legend>
-    <np-tree-view [items]="items" #treeview (onClick)="onClick($event)"></np-tree-view>
+    <np-tree-view [items]="items" #treeview (onClick)="onClick($event)" (onExpand)="onExpand($event)" (onCollapse)="onCollapse($event)" (onExpandAll)="onExpandAll($event)" (onCollapseAll)="onCollapseAll($event)">
+    </np-tree-view>
 
     <div class="np-btn-group">
         <button class="np-btn" (click)="setAllExpand()">Expand All</button>
