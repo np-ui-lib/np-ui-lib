@@ -21,6 +21,8 @@ export class NpSidepanelComponent implements OnInit {
   @Input() right: string;
   @Input() height: number | string;
   @Input() width: number | string;
+  @Input() showCloseIcon: boolean = true;
+  @Input() closeOnClickOutside: boolean = true;
 
   @Input() styleClass: string;
   @Input() backDropClass: string = "np-sp-backdrop";
@@ -65,7 +67,12 @@ export class NpSidepanelComponent implements OnInit {
         this.templatePortalContent,
         this._viewContainerRef
       );
-      this.overlayRef.backdropClick().subscribe(() => this.close());
+      this.overlayRef.backdropClick().subscribe(() => {
+        if (this.closeOnClickOutside) {
+          this.close();
+        }
+      }
+      );
       this.overlayRef.attach(this.templatePortal);
     }
   }

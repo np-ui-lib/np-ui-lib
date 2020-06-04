@@ -32,9 +32,12 @@
 
 <fieldset>
     <legend>4. Create new tag</legend>
-    <np-tags [(ngModel)]="tags4" [displayKey]="'name'" [searchResult]="searchResult4" [allowCreateNew]="true">
+    <np-tags [(ngModel)]="tags4" [displayKey]="'name'" [searchResult]="searchResult4" [allowCreateNew]="true" [itemTemplate]="itemTemplate">
     </np-tags>
     <div>Selected value : {{tags4 | json}}</div>
+    <ng-template #itemTemplate let-item="item">
+        <div>{{item.name}} ( {{item.vitamin}} )</div>
+    </ng-template>
 </fieldset>
 
 <fieldset>

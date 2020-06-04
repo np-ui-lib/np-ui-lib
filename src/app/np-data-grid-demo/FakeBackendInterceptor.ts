@@ -14,8 +14,25 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
 
     _getDataList(count: number) {
-        var names = ["Nilav", "Hemal", "Hardik", "Brijesh", "Shlok", "Shubh", "Kushal", "Aryan", "Nishin", "Vihan"];
-        var surNames = ["Patel", "Patidar"];
+        var names = ["Maria", "Ana", "Antonio", "Thomas", "Christina", "Hanna", "Frédérique", "Martín", "Laurence",
+            "Elizabeth", "Victoria", "Patricio", "Francisco", "Yang", "Pedro", "Elizabeth", "Sven", "Janine", "Ann",
+            "Roland", "Aria", "Diego", "Martine", "Maria", "Peter", "Carine", "Paolo", "Lino", "Eduardo", "José",
+            "André", "Howard", "Manuel", "Mario", "Carlos", "Yoshi", "Patricia", "Helen", "Philip", "Daniel", "Annette",
+            "Yoshi", "John", "Renate", "Jaime", "Carlos", "Felipe", "Fran", "Giovanni", "Catherine", "Jean", "Alexander",
+            "Simon", "Yvonne", "Rene", "Henriette", "Marie", "Guillermo", "Georg", "Isabel", "Bernardo", "Lúcia", "Horst",
+            "Sergio", "Paula", "Maurizio", "Janete", "Michael", "Alejandra", "Jonas", "Jose", "Hari", "Jytte", "Dominique",
+            "Art", "Pascale", "Liz", "Liu", "Karin", "Miguel", "Anabela", "Helvetius", "Palle", "Mary", "Paul", "Rita",
+            "Pirkko", "Paula", "Karl", "Matti", "Zbyszek"
+        ];
+        var surNames = ["Anders", "Trujillo", "Moreno", "Hardy", "Berglund", "Moos", "Citeaux", "Sommer", "Lebihan",
+            "Lincoln", "Ashworth", "Simpson", "Chang", "Wang", "Afonso", "Brown", "Ottlieb", "Labrune", "Devon", "Mendel",
+            "Cruz", "Roel", "Rancé", "Larsson", "Franken", "Schmitt", "Accorti", "Rodriguez", "Saavedra", "Pedro", "Fonseca",
+            "Snyder", "Pereira", "Pontes", "Hernández", "Latimer", "McKenna", "Bennett", "Cramer", "Tonini", "Roulet",
+            "Tannamuri", "Steel", "Messner", "Yorres", "González", "Izquierdo", "Wilson", "Rovelli", "Dewey", "Fresnière",
+            "Feuer", "Crowther", "Moncada", "Phillips", "Pfalzheim", "Bertrand", "Fernández", "Pipps", "de", "Batista",
+            "Carvalho", "Kloss", "Gutiérrez", "Wilson", "Moroni", "Limeira", "Holz", "Camino", "Bergulfsen", "Pavarotti",
+            "Kumar", "Petersen", "Perrier", "Braunschweiger", "Cartrain", "Nixon", "Wong", "Josephs", "Angel", "Domingues",
+            "Nagy", "Ibsen", "Saveley", "Henriot", "Müller", "Koskitalo", "Parente", "Jablonski", "Karttunen", "Piestrzeniewicz"];
 
         var data = [];
         for (var i = 1; i <= count; i++) {
@@ -25,11 +42,13 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         return data;
 
         function getDataRow(id) {
-            var bday = randomDate(new Date(1950, 10, 28), new Date(2020, 10, 28), 0, 23);
+            var bday = randomDate(new Date(1950, 10, 28), new Date(2018, 10, 28), 0, 23);
+            var nameLength = names.length;
+            var surnameLength = surNames.length;
             return {
                 Id: id,
-                FirstName: names[Math.floor(Math.random() * names.length)],
-                LastName: surNames[Math.floor(Math.random() * surNames.length)],
+                FirstName: names[Math.floor(Math.random() * nameLength)],
+                LastName: surNames[Math.floor(Math.random() * surnameLength)],
                 Age: new Date().getFullYear() - bday.getFullYear(),
                 Active: (Math.round(Math.random() % 2) == 0),
                 BirthDate: bday

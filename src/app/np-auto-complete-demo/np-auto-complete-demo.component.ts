@@ -8,17 +8,37 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class NpAutoCompleteDemoComponent implements OnInit {
 
-  data: string[] = ['nilav', 'nil', 'nilav1', 'brijesh', 'brij', 'hardik', 'hard', 'hemal', 'hem'];
+  data: string[] = ["Maria", "Ana", "Antonio", "Thomas", "Christina", "Hanna", "Frédérique", "Martín", "Laurence",
+    "Elizabeth", "Victoria", "Patricio", "Francisco", "Yang", "Pedro", "Elizabeth", "Sven", "Janine", "Ann",
+    "Roland", "Aria", "Diego", "Martine", "Peter", "Carine", "Paolo", "Lino", "Eduardo", "José",
+    "André", "Howard", "Manuel", "Mario", "Carlos", "Yoshi", "Patricia", "Helen", "Philip", "Daniel", "Annette",
+    "Yoshi", "John", "Renate", "Jaime", "Carlos", "Felipe", "Fran", "Giovanni", "Catherine", "Jean", "Alexander",
+    "Simon", "Yvonne", "Rene", "Henriette", "Marie", "Guillermo", "Georg", "Isabel", "Bernardo", "Lúcia", "Horst",
+    "Sergio", "Paula", "Maurizio", "Janete", "Michael", "Alejandra", "Jonas", "Jose", "Hari", "Jytte", "Dominique",
+    "Art", "Pascale", "Liz", "Liu", "Karin", "Miguel", "Anabela", "Helvetius", "Palle", "Mary", "Paul", "Rita",
+    "Pirkko", "Paula", "Karl", "Matti", "Zbyszek"
+  ];
   dataFull: any[] = [
-    { name: "nilav", id: 1, age: 28 },
-    { name: "nil", id: 2, age: 54 },
-    { name: "nilav1", id: 3, age: 45 },
-    { name: "brijesh", id: 4, age: 52 },
-    { name: "brij", id: 5, age: 15 },
-    { name: "hardik", id: 6, age: 46 },
-    { name: "hard", id: 7, age: 23 },
-    { name: "hemal", id: 8, age: 22 },
-    { name: "hem", id: 9, age: 50 }
+    { id: 1, name: "Maria", age: 28 },
+    { id: 2, name: "Karl", age: 6 },
+    { id: 3, name: "Jose", age: 41 },
+    { id: 4, name: "Yoshi", age: 8 },
+    { id: 5, name: "Jonas", age: 9 },
+    { id: 6, name: "Hari", age: 18 },
+    { id: 7, name: "Karl", age: 33 },
+    { id: 8, name: "Daniel", age: 18 },
+    { id: 9, name: "Yvonne", age: 27 },
+    { id: 10, name: "John", age: 26 },
+    { id: 11, name: "Mario", age: 53 },
+    { id: 12, name: "Martine", age: 65 },
+    { id: 13, name: "Jean", age: 12 },
+    { id: 14, name: "Marie", age: 46 },
+    { id: 15, name: "Paula", age: 60 },
+    { id: 16, name: "Paul", age: 69 },
+    { id: 17, name: "Frédérique", age: 34 },
+    { id: 18, name: "Aria", age: 64 },
+    { id: 19, name: "Pedro", age: 31 },
+    { id: 20, name: "Janete", age: 36 },
   ];
 
   constructor() { }
@@ -26,7 +46,7 @@ export class NpAutoCompleteDemoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  auto1: string = "nilav";
+  auto1: string = "Maria";
   searchResult1: BehaviorSubject<string[]> = new BehaviorSubject(null);
   onSearch1(keyword: string) {
     setTimeout(() => {
@@ -36,7 +56,7 @@ export class NpAutoCompleteDemoComponent implements OnInit {
     }, 1000);
   }
 
-  auto2: string = "nilav";
+  auto2: string = "Maria";
   searchResult2: BehaviorSubject<string[]> = new BehaviorSubject(null);
   onSearch2(keyword: string) {
     setTimeout(() => {
@@ -93,7 +113,7 @@ export class NpAutoCompleteDemoComponent implements OnInit {
     }, 1000);
   }
 
-  auto8: any = { name: "nilav", id: 1, age: 28 };
+  auto8: any = { name: "Maria", id: 1, age: 28 };
   searchResult8: BehaviorSubject<any[]> = new BehaviorSubject(null);
   onSearch8(keyword: string) {
     setTimeout(() => {

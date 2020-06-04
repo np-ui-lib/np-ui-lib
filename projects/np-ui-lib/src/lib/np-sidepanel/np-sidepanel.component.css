@@ -4,9 +4,16 @@
     border-radius: 2px;
     height: 100%;
     width: 100%;
+    position: relative;
 }
 
 .np-sp-backdrop {
     background-color: #000000;
     opacity: 0.3 !important;
+}
+
+.np-sp-close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
 }

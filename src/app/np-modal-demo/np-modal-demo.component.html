@@ -18,8 +18,6 @@
     <button class="np-btn" (click)="openModal2()">Open Modal 2</button>
     <button class="np-btn" (click)="closeModal2()">Close Modal 2</button>
 </div>
-<div>FirstName: {{firstName}}</div>
-<div>BirthDate: {{birthDate}}</div>
 
 <np-modal #modalDemo [height]="200" [width]="500">
     <np-modal-header>
@@ -47,7 +45,7 @@
     </np-modal-footer>
 </np-modal>
 
-<np-modal #modalDemo2 (onOpen)="onOpenModal2()" (onClose)="onCloseModal2()">
+<np-modal #modalDemo2 (onOpen)="onOpenModal2()" (onClose)="onCloseModal2()" [closeOnClickOutside]="false">
     <np-modal-header>
         Fill the details
     </np-modal-header>

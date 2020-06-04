@@ -14,6 +14,8 @@ export class NpModalComponent {
   @Input() height: number;
   @Input() width: number;
   @Input() styleClass: string;
+  @Input() closeOnClickOutside: boolean = true;
+
   @Input() backDropClass: string = "np-mod-backdrop";
   @Output() onOpen: EventEmitter<void> = new EventEmitter();
   @Output() onClose: EventEmitter<void> = new EventEmitter();
@@ -53,7 +55,11 @@ export class NpModalComponent {
         this.templatePortalContent,
         this._viewContainerRef
       );
-      this.overlayRef.backdropClick().subscribe(() => this._close());
+      this.overlayRef.backdropClick().subscribe(() => {
+        if (this.closeOnClickOutside) {
+          this._close();
+        }
+      });
 
       this.overlayRef.attach(this.templatePortal);
       this.onOpen.emit();

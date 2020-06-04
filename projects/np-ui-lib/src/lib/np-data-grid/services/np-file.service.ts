@@ -41,7 +41,7 @@ export class NpFileService {
         for (let element of data) {
             var cols = [];
             for (let column of headers) {
-                if (element[column]) {
+                if (element[column] != undefined || element[column] != null) {
                     cols.push(`"${element[column].toString().replace(/\"/g, '""')}"`);
                 } else {
                     cols.push("");

@@ -26,7 +26,7 @@
     <button type="button" class="np-btn" (click)="closeBottom()">Close bottom</button>
 </div>
 
-<np-sidepanel #sidePanelLeft [height]="'100%'">
+<np-sidepanel #sidePanelLeft [height]="'100%'" [closeOnClickOutside]="false">
     <h1>Left sidepanel example</h1>
     <form [formGroup]="myForm">
         <div class="np-container">
@@ -88,14 +88,14 @@
     </form>
 </np-sidepanel>
 
-<np-sidepanel #sidePanelRight [right]="'0'" [height]="'100%'" [width]="'200px'" [styleClass]="'myClass'">
+<np-sidepanel #sidePanelRight [right]="'0'" [height]="'100%'" [width]="'200px'" [styleClass]="'myClass'" [closeOnClickOutside]="false">
     <h1>Right sidepanel example</h1>
 </np-sidepanel>
 
-<np-sidepanel #sidePanelTop [top]="'0'" [width]="'100%'" [height]="'200px'">
+<np-sidepanel #sidePanelTop [top]="'0'" [width]="'100%'" [height]="'200px'" [showCloseIcon]="false">
     <h1>Top sidepanel example</h1>
 </np-sidepanel>
 
-<np-sidepanel #sidePanelBottom [bottom]="'0'" [width]="'100%'" [height]="'200px'">
+<np-sidepanel #sidePanelBottom [bottom]="'0'" [width]="'100%'" [height]="'200px'" [showCloseIcon]="false">
     <h1>Bottom sidepanel example</h1>
 </np-sidepanel>

@@ -2,7 +2,9 @@
     <div class="np-input-group">
         <input class="np-fp-input" [attr.id]="inputId" #fileUploadInput type="file" [disabled]="_isDisabled" (change)="_onFileSelected($event)" [multiple]="multiple">
         <label for="{{inputId}}" class="np-fp-label">
-            <span class="np-fp-btn">{{ uploadButtonLabel ? uploadButtonLabel : (multiple ? "Choose Files" : "Choose File")}}</span>
+            <span
+                class="np-fp-btn">{{ uploadButtonLabel ? uploadButtonLabel : (multiple ? "Choose Files" : "Choose File")}}</span>
+            <span class="np-fp-counts" [innerText]="_getFilesCountsText()"></span>
         </label>
         <div class="input-group-append">
             <button class="np-btn np-btn-icon" title="Clear" type="button" (click)="_clear()">
@@ -14,7 +16,7 @@
             </button>
         </div>
     </div>
-    <div *ngIf="value">
+    <div *ngIf="value && value.length > 1">
         <ul class="np-fu-files">
             <li *ngFor="let file of value">
                 <label>

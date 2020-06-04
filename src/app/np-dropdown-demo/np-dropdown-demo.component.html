@@ -38,7 +38,7 @@
     <np-dropdown [(ngModel)]="dropdownVal5" [items]="dataFull" [displayKey]="'name'" [itemTemplate]="itemTemplate">
     </np-dropdown>
     <ng-template #itemTemplate let-item="item">
-        <div>{{item.name}} ({{item.id}})</div>
+        <div>{{item.name}} ( {{item.vitamin}} )</div>
     </ng-template>
     <div>Selected value: {{dropdownVal5 | json}}</div>
 </fieldset>
