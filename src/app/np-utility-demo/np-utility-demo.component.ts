@@ -18,6 +18,7 @@ export class NpUtilityDemoComponent implements OnInit {
   birthTime: string;
   isActive: boolean = true;
   description: string;
+  photo: any;
 
   maskedValue1: string;
   maskedValue2: string;

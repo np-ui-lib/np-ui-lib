@@ -51,3 +51,8 @@
     border-bottom: none;
     border-right: 1px solid #c8c8c8;
 }
+
+.np-tabs-horizontal .np-active-tab {
+    border-right: 3px solid #007bff;
+    border-bottom: none;
+}

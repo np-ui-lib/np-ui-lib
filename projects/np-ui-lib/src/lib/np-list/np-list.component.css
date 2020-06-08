@@ -1,0 +1,29 @@
+.np-li-component {
+    position: relative;
+    background-color: #f1f1f1;
+    border: 1px solid #c8c8c8;
+    border-radius: 2px;
+    width: 100%;
+    overflow: auto;
+}
+
+.np-li-checkbox {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    vertical-align: middle;
+}
+
+.np-li-item {
+    padding: 10px;
+    border-bottom: 1px solid #c8c8c8;
+    display: flex;
+}
+
+.np-li-item:last-child {
+    border-bottom: none;
+}
+
+.np-li-selection {
+    padding-right: 10px;
+}

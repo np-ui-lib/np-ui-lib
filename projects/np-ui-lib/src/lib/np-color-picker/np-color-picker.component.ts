@@ -28,7 +28,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   _xColorCursor: string;
   _yColorCursor: string;
   _isShowCursorDiv: boolean = false;
-  _innerValue: any;
+  _innerValue: string;
   _isDisabled: boolean = false;
   private onChangeCallback: (_: any) => void;
   private onTouchedCallback: () => void;
@@ -98,11 +98,11 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     }
   }
 
-  get value(): any {
+  get value(): string {
     return this._innerValue ? this._innerValue : null;
   };
 
-  set value(v: any) {
+  set value(v: string) {
     if (v !== this._innerValue) {
       this._innerValue = v;
       this._stripColor = v;
@@ -112,7 +112,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     }
   }
 
-  writeValue(v: any): void {
+  writeValue(v: string): void {
     if (v !== this._innerValue) {
       this._innerValue = v;
       this._stripColor = v;
@@ -298,7 +298,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _onInputChange(event) {
-    if (this.value && !this.value.includes('#')) {
+    if (event.target.value && event.target.value.charAt(0) !== '#') {
       this.value = `#${event.target.value}`;
     } else {
       this.value = event.target.value;

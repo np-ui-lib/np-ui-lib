@@ -49,7 +49,7 @@ export class NpTreeViewDemoComponent implements OnInit {
         new NpTreeViewItem({ label: "Item 2.4" }),
       ]
     }),
-    new NpTreeViewItem({ label: "Item 3" }),
+    new NpTreeViewItem({ label: "Item 3", items: [] }),
     new NpTreeViewItem({ label: "Item 4" }),
     new NpTreeViewItem({ label: "Item 5" }),
   ];
@@ -60,10 +60,10 @@ export class NpTreeViewDemoComponent implements OnInit {
       items: [
         new NpTreeViewItem({
           label: "Item 1.1", items: [
-            new NpTreeViewItem({ label: "Item 1.1.1" }),
-            new NpTreeViewItem({ label: "Item 1.1.2" }),
-            new NpTreeViewItem({ label: "Item 1.1.3" }),
-            new NpTreeViewItem({ label: "Item 1.1.4" }),
+            new NpTreeViewItem({ label: "Item 1.1.1", isSelected: true }),
+            new NpTreeViewItem({ label: "Item 1.1.2", isSelected: true }),
+            new NpTreeViewItem({ label: "Item 1.1.3", isSelected: true }),
+            new NpTreeViewItem({ label: "Item 1.1.4", isSelected: true }),
           ]
         }),
         new NpTreeViewItem({ label: "Item 1.2" }),
@@ -87,7 +87,7 @@ export class NpTreeViewDemoComponent implements OnInit {
         new NpTreeViewItem({ label: "Item 2.4" }),
       ]
     }),
-    new NpTreeViewItem({ label: "Item 3" }),
+    new NpTreeViewItem({ label: "Item 3", items: [] }),
     new NpTreeViewItem({ label: "Item 4" }),
     new NpTreeViewItem({ label: "Item 5" }),
   ];
@@ -107,6 +107,10 @@ export class NpTreeViewDemoComponent implements OnInit {
   getAllSelected() {
     var selected = this.treeview2.getSelectedItems();
     alert(JSON.stringify(selected));
+  }
+
+  setAllSelected() {
+    this.treeview2.setAllSelected();
   }
 
   removeAllSelected() {

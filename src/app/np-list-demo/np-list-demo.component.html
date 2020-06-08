@@ -1,0 +1,42 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-ui-package/wiki/List">
+            np-list
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-list-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<fieldset>
+    <legend>Basic list with height</legend>
+    <np-list [items]="items" [itemTemplate]="list1Template" [height]="200">
+    </np-list>
+
+    <ng-template let-item="item" #list1Template>
+        Name: {{item.name}},<br> Age: {{item.age}}
+    </ng-template>
+</fieldset>
+
+<fieldset>
+    <legend>List with selection</legend>
+
+    <np-list [items]="items" [itemTemplate]="list2Template" [allowSelection]="true" [height]="200" [styleClass]="'myClass'" #list2>
+    </np-list>
+
+    <ng-template let-item="item" #list2Template>
+        Name: <b>{{item.name}}</b>,<br> Age: <b>{{item.age}}</b>
+    </ng-template>
+
+    <div class="np-btn-group">
+        <button type="button" class="np-btn" (click)="getSelectedItems()">Get selected items</button>
+        <button type="button" class="np-btn" (click)="setSelectedItems()">Set selected items</button>
+        <button type="button" class="np-btn" (click)="selectAll()">Select All</button>
+        <button type="button" class="np-btn" (click)="clear()">Clear</button>
+        <button type="button" class="np-btn" (click)="selectItem()">Select 1st item by item</button>
+        <button type="button" class="np-btn" (click)="deselectItem()">Deselect 1st item by item</button>
+        <button type="button" class="np-btn" (click)="selectItemByIndex()">Select 1st item by index</button>
+        <button type="button" class="np-btn" (click)="deselectItemByIndex()">Deselect 1st item by index</button>
+    </div>
+</fieldset>

@@ -83,7 +83,7 @@ export class NpTreeViewComponent implements OnInit {
   }
 
   _selectItemAndChild(item: NpTreeViewItem) {
-    if (item.items) {
+    if (item.items && item.items.length > 0) {
       item.items.forEach(element => {
         this._selectItemAndChild(element);
       });
@@ -93,7 +93,7 @@ export class NpTreeViewComponent implements OnInit {
   }
 
   _deSelectItemAndChild(item: NpTreeViewItem) {
-    if (item.items) {
+    if (item.items && item.items.length > 0) {
       item.items.forEach(element => {
         this._deSelectItemAndChild(element);
       });
@@ -103,19 +103,11 @@ export class NpTreeViewComponent implements OnInit {
   }
 
   _isSelected(item: NpTreeViewItem) {
-    if (item.items) {
-      return this.isAllChildSelected(item);
+    if (item.items && item.items.length > 0) {
+      return this._isAllChildSelected(item);
     } else {
       return item.isSelected;
     }
-  }
-
-  getSelectedItems() {
-    var selected = [];
-    this.items.forEach(element => {
-      this._getSelected(element, selected);
-    });
-    return selected;
   }
 
   _getSelected(item: NpTreeViewItem, selected: NpTreeViewItem[]) {
@@ -130,27 +122,45 @@ export class NpTreeViewComponent implements OnInit {
     }
   }
 
+  _isAllChildSelected(item: NpTreeViewItem) {
+    var isSelected = true;
+    if (item.items && item.items.length > 0) {
+      item.items.forEach(element => {
+        if (element.items) {
+          var isChildSelected = this._isAllChildSelected(element);
+          if (isChildSelected == false) {
+            isSelected = false;
+          }
+        } else {
+          if (!element.isSelected) {
+            isSelected = false;
+          }
+        }
+      });
+    } else {
+      isSelected = false;
+    }
+    return isSelected;
+  }
+
+  getSelectedItems() {
+    var selected = [];
+    this.items.forEach(element => {
+      this._getSelected(element, selected);
+    });
+    return selected;
+  }
+
   removeAllSelected() {
     this.items.forEach(element => {
       this._deSelectItemAndChild(element);
     });
   }
 
-  isAllChildSelected(item: NpTreeViewItem) {
-    var isSelected = true;
-    item.items.forEach(element => {
-      if (element.items) {
-        var isChildSelected = this.isAllChildSelected(element);
-        if (isChildSelected == false) {
-          isSelected = false;
-        }
-      } else {
-        if (!element.isSelected) {
-          isSelected = false;
-        }
-      }
+  setAllSelected() {
+    this.items.forEach(element => {
+      this._selectItemAndChild(element);
     });
-    return isSelected;
   }
 
 }

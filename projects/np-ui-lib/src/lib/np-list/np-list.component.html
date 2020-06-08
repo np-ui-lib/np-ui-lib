@@ -1,0 +1,13 @@
+<div [class]="styleClass" [ngClass]="{'np-li-component':true}" [style.max-height.px]="height">
+    <ng-container *ngFor="let item of items;let i= index;">
+        <div class="np-li-item np-li-item_{{i+1}}">
+            <div class="np-li-selection" *ngIf="allowSelection">
+                <input type="checkbox" class="np-li-checkbox" [checked]="_isSelected(item)" (change)="_onSelectItem(item,$event)">
+            </div>
+            <div class="np-li-content">
+                <ng-container *ngTemplateOutlet="itemTemplate;context:{ item: item }">
+                </ng-container>
+            </div>
+        </div>
+    </ng-container>
+</div>

@@ -30,7 +30,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   _selectedSecond: number;
   _selectedAMPM = 'AM';
   _pattern: any;
-  _innerValue: any;
+  _innerValue: string;
   _isDisabled: boolean = false;
   private onChangeCallback: (_: any) => void;
   private onTouchedCallback: () => void;
@@ -89,11 +89,11 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     this.overlayRef.backdropClick().subscribe(() => this._close());
   }
 
-  get value(): any {
+  get value(): string {
     return this._innerValue ? this._innerValue : null;
   };
 
-  set value(v: any) {
+  set value(v: string) {
     if (v !== this._innerValue) {
       this._innerValue = v;
       this.onChangeCallback(v);
@@ -102,7 +102,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     }
   }
 
-  writeValue(v: any): void {
+  writeValue(v: string): void {
     if (v !== this._innerValue) {
       this._innerValue = v;
       this._extractValues();

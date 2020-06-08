@@ -6,15 +6,6 @@ body {
     background-color: #ffffff;
 }
 
-.header h1 {
-    margin: 5px 5px 0px 5px;
-    padding: 10px 5px;
-    background-color: #f1f1f1;
-    text-align: center;
-    border: 1px solid #c8c8c8;
-    border-radius: 2px;
-}
-
 .nav {
     margin: 5px;
 }
@@ -55,4 +46,23 @@ body {
 
 .overview-4 {
     background-color: #7DC931 !important;
+}
+
+.logo {
+    height: 50px;
+    width: 200px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin: 5px 5px 0px 5px;
+    background-color: #f1f1f1;
+    border: 1px solid #c8c8c8;
+}
+
+.header h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0px;
 }
