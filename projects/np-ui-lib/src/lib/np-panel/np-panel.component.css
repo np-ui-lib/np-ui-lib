@@ -12,6 +12,11 @@
     background-color: #f1f1f1;
 }
 
+.np-pn-header i {
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
 .np-pn-header .np-row {
     min-height: 32px;
 }

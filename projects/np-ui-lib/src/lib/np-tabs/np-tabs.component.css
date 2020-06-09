@@ -20,6 +20,11 @@
     background-color: #f1f1f1;
 }
 
+.np-tab-header i {
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
 .np-tab-title {
     height: 32px;
     padding: 0px 20px;

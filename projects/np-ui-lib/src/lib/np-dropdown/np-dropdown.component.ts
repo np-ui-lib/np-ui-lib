@@ -163,4 +163,10 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     }
     return false;
   }
+
+  _onKeydown(event: KeyboardEvent) {
+    if (event.which === 9) {
+      this._close();
+    }
+  }
 }

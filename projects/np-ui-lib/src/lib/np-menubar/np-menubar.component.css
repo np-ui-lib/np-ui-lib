@@ -10,18 +10,23 @@
     position: relative;
 }
 
-.np-mb-menu-item a {
-    padding: 10px;
+.np-mb-link {
+    padding: 5px 10px;
     color: #000000;
     display: block;
     text-decoration: none;
     cursor: pointer;
 }
 
-.np-mb-menu-item a:hover {
+.np-mb-link:hover {
     background-color: #555555;
     color: #ffffff;
     text-decoration: none;
+}
+
+.np-mb-link span {
+    line-height: 24px;
+    vertical-align: middle;
 }
 
 .np-mb-active {
@@ -36,13 +41,8 @@
 }
 
 .np-mb-icon {
-    position: absolute;
-    top: 7px;
-    right: 10px;
-}
-
-.np-mb-label {
-    padding-right: 44px !important;
+    float: right;
+    padding-left: 5px;
 }
 
 .np-mb-horizontal {
@@ -62,17 +62,18 @@
     margin-left: -1px;
 }
 
-.np-mb-horizontal>.np-mb-menu-item>a {
-    padding: 10px 20px;
-}
-
 .np-mb-panel .np-mb-submenu {
     margin-top: 0px;
 }
 
 .np-mb-panel .np-mb-submenu .np-mb-component {
-    border: none;
+    border: 1px solid #c8c8c8;
     width: auto;
     background-color: #d8d8d8;
     margin: 5px;
+}
+
+.np-mb-link i {
+    padding-right: 5px;
+    vertical-align: middle;
 }

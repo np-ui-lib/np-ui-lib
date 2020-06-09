@@ -335,4 +335,10 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       item.isSelected = false;
     }
   }
+
+  _onKeydown(event: KeyboardEvent) {
+    if (event.which === 9) {
+      this._close();
+    }
+  }
 }

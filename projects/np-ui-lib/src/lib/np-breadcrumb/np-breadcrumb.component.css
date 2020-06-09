@@ -18,6 +18,7 @@
 
 .np-bd-items li a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .np-bd-items .np-icon {

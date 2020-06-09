@@ -209,4 +209,10 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       this._selectValue(this._displayValue);
     }
   }
+
+  _onKeydown(event: KeyboardEvent) {
+    if (event.which === 9) {
+      this._close();
+    }
+  }
 }

@@ -32,6 +32,11 @@ body {
     border: 1px solid blue !important;
 }
 
+.myBackDrop {
+    background-color: blue;
+    opacity: 0.3!important;
+}
+
 .overview-1 {
     background-color: #F39611 !important;
 }
@@ -65,4 +70,8 @@ body {
     width: 100%;
     text-align: center;
     margin: 0px;
+}
+
+.fa {
+    font-size: 20px;
 }

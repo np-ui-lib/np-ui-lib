@@ -1,5 +1,5 @@
 <div [ngClass]="{'np-input-group': true, 'np-disabled' : _isDisabled}" [class]="styleClass">
-    <input class="np-form-control" type="text" [attr.id]="inputId" [(ngModel)]="_displayValue" [placeholder]="placeholder" (input)="_onInput()" [disabled]="_isDisabled" autocomplete="off">
+    <input class="np-form-control" type="text" [attr.id]="inputId" [(ngModel)]="_displayValue" [placeholder]="placeholder" (input)="_onInput()" (keydown)="_onKeydown($event)" [disabled]="_isDisabled" autocomplete="off">
     <div class="input-group-append">
         <div class="np-ac-loader" *ngIf="_isLoading">
             <svg class="np-icon-sm" viewBox="0 0 24 24">
@@ -10,13 +10,13 @@
         </div>
     </div>
     <div class="input-group-append">
-        <button class="np-btn np-btn-icon" title="Clear" type="button" (click)="_clear()">
+        <div class="np-btn np-btn-icon" title="Clear" (click)="_clear()">
             <svg class="np-icon-sm" viewBox="0 0 24 24">
                 <path
                     d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                 <path d="M0 0h24v24H0z" fill="none" />
             </svg>
-        </button>
+        </div>
     </div>
 </div>
 <ng-template #templatePortalContent>

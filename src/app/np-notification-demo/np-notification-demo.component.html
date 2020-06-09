@@ -11,12 +11,33 @@
 
 <np-notification></np-notification>
 
-<div class="np-btn-group">
-    <button class="np-btn" (click)="success()">Success</button>
-    <button class="np-btn" (click)="error()">Error</button>
-    <button class="np-btn" (click)="warning()">Warning</button>
-    <button class="np-btn" (click)="info()">Info</button>
-    <button class="np-btn" (click)="successWithHeader()">Notification With Header</button>
-    <button class="np-btn" (click)="errorWithHTML()">Notification With HTML text</button>
-    <button class="np-btn" (click)="removeAll()">Remove All</button>
-</div>
+<fieldset>
+    <legend>Basic notifications</legend>
+    <div class="np-btn-group">
+        <button class="np-btn np-btn-success" (click)="success()">Success</button>
+        <button class="np-btn np-btn-danger" (click)="error()">Error</button>
+        <button class="np-btn np-btn-warning" (click)="warning()">Warning</button>
+        <button class="np-btn np-btn-info" (click)="info()">Info</button>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Notifications with header</legend>
+    <div class="np-btn-group">
+        <button class="np-btn np-btn-success" (click)="successWithHeader()">Notification With Header</button>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Notifications with HTML text</legend>
+    <div class="np-btn-group">
+        <button class="np-btn np-btn-danger" (click)="errorWithHTML()">Notification With HTML text</button>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Remove all Api</legend>
+    <div class="np-btn-group">
+        <button class="np-btn np-btn-danger" (click)="removeAll()">Remove All</button>
+    </div>
+</fieldset>

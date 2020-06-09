@@ -355,4 +355,10 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     this._selectedAMPM = this._selectedAMPM == "AM" ? "PM" : "AM";
     this._setValue();
   }
+
+  _onKeydown(event: KeyboardEvent) {
+    if (event.which === 9) {
+      this._close();
+    }
+  }
 }

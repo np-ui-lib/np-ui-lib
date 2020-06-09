@@ -267,6 +267,61 @@
         </div>
     </div>
 </div>
+
+<ng-container *ngIf="enableStateStoring">
+    <np-modal #saveNewStateModal [width]="300" (onOpen)="saveStateForm.resetForm({})">
+        <np-modal-header>
+            <b>Add New State</b>
+        </np-modal-header>
+        <np-modal-content>
+            <form #saveStateForm="ngForm">
+                <div class="np-form-group">
+                    <div class="np-form-label np-required">Name:</div>
+                    <input type="text" class="np-form-control" [(ngModel)]="_stateName" required name="txtStateName" #txtStateName="ngModel" autocomplete="off">
+                    <div class="np-form-text np-text-danger" *ngIf="txtStateName.control.touched && txtStateName.control.errors?.required">Name is required.
+                    </div>
+                    <div class="np-form-text np-text-danger" *ngIf="_nameAlreadyExistError">Name alrady exists.
+                    </div>
+                </div>
+            </form>
+        </np-modal-content>
+        <np-modal-footer>
+            <div class="np-btn-group np-float-right">
+                <button type="button" class="np-btn np-btn-primary" [disabled]="saveStateForm.invalid" (click)="_addState()">Save</button>
+                <button type="button" class="np-btn np-btn-danger" (click)="_closeModalToAddNewState()">Cancel</button>
+            </div>
+        </np-modal-footer>
+    </np-modal>
+
+    <np-modal #editStateModal [width]="300">
+        <np-modal-header>
+            <b>Success</b>
+        </np-modal-header>
+        <np-modal-content>
+            Saved successfully.
+        </np-modal-content>
+        <np-modal-footer>
+            <div class="np-btn-group np-float-right">
+                <button type="button" class="np-btn np-btn-primary" (click)="_closeModalEditState()">Ok</button>
+            </div>
+        </np-modal-footer>
+    </np-modal>
+
+    <np-modal #deleteStateModal [width]="300">
+        <np-modal-header>
+            <b>Success</b>
+        </np-modal-header>
+        <np-modal-content>
+            Deleted successfully.
+        </np-modal-content>
+        <np-modal-footer>
+            <div class="np-btn-group np-float-right">
+                <button type="button" class="np-btn np-btn-primary" (click)="_closeModalDeleteState()">Ok</button>
+            </div>
+        </np-modal-footer>
+    </np-modal>
+</ng-container>
+
 <ng-template #columnChooserTemplate>
     <div class="np-dg-col-chooser np-border">
         <div class="np-row np-no-gutters">
@@ -341,57 +396,3 @@
         </div>
     </div>
 </ng-template>
-
-<ng-container *ngIf="enableStateStoring">
-    <np-modal #saveNewStateModal [width]="300" (onOpen)="saveStateForm.resetForm({})">
-        <np-modal-header>
-            <b>Add New State</b>
-        </np-modal-header>
-        <np-modal-content>
-            <form #saveStateForm="ngForm">
-                <div class="np-form-group">
-                    <div class="np-form-label np-required">Name:</div>
-                    <input type="text" class="np-form-control" [(ngModel)]="_stateName" required name="txtStateName" #txtStateName="ngModel" autocomplete="off">
-                    <div class="np-form-text np-text-danger" *ngIf="txtStateName.control.touched && txtStateName.control.errors?.required">Name is required.
-                    </div>
-                    <div class="np-form-text np-text-danger" *ngIf="_nameAlreadyExistError">Name alrady exists.
-                    </div>
-                </div>
-            </form>
-        </np-modal-content>
-        <np-modal-footer>
-            <div class="np-btn-group np-float-right">
-                <button type="button" class="np-btn np-btn-primary" [disabled]="saveStateForm.invalid" (click)="_addState()">Save</button>
-                <button type="button" class="np-btn np-btn-danger" (click)="_closeModalToAddNewState()">Cancel</button>
-            </div>
-        </np-modal-footer>
-    </np-modal>
-
-    <np-modal #editStateModal [width]="300">
-        <np-modal-header>
-            <b>Success</b>
-        </np-modal-header>
-        <np-modal-content>
-            Saved successfully.
-        </np-modal-content>
-        <np-modal-footer>
-            <div class="np-btn-group np-float-right">
-                <button type="button" class="np-btn np-btn-primary" (click)="_closeModalEditState()">Ok</button>
-            </div>
-        </np-modal-footer>
-    </np-modal>
-
-    <np-modal #deleteStateModal [width]="300">
-        <np-modal-header>
-            <b>Success</b>
-        </np-modal-header>
-        <np-modal-content>
-            Deleted successfully.
-        </np-modal-content>
-        <np-modal-footer>
-            <div class="np-btn-group np-float-right">
-                <button type="button" class="np-btn np-btn-primary" (click)="_closeModalDeleteState()">Ok</button>
-            </div>
-        </np-modal-footer>
-    </np-modal>
-</ng-container>

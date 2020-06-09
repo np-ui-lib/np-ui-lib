@@ -3,27 +3,19 @@
         <ng-container *ngFor="let item of items">
             <ng-container *ngIf="item.items">
                 <div class="np-mb-menu-item" (mouseenter)="_onMouseEnter($event,item)" (mouseleave)="_onMouseLeave(item)">
-                    <a class="np-mb-label" *ngIf="item.routerLink" [ngClass]="{'np-mb-active':_isActive(item)}">
-                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
-                        <svg class="np-icon np-mb-icon" *ngIf="orientation === 'vertical'">
-                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                            <path d="M0 0h24v24H0z" fill="none" />
-                        </svg>
-                        <svg class="np-icon np-mb-icon" *ngIf="orientation === 'horizontal'">
-                            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-                            <path d="M0 0h24v24H0z" fill="none" />
-                        </svg>
-                    </a>
-                    <a class="np-mb-label" *ngIf="!item.routerLink">
-                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
-                        <svg class="np-icon np-mb-icon" *ngIf="orientation === 'vertical'">
-                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                            <path d="M0 0h24v24H0z" fill="none" />
-                        </svg>
-                        <svg class="np-icon np-mb-icon" *ngIf="orientation === 'horizontal'">
-                            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-                            <path d="M0 0h24v24H0z" fill="none" />
-                        </svg>
+                    <a class="np-mb-link" [ngClass]="{'np-mb-active': item.routerLink && _isActive(item)}">
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i>
+                        <span [innerHTML]="item.label"></span>
+                        <span class="np-mb-icon">
+                            <svg class="np-icon" *ngIf="orientation === 'vertical'">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                            </svg>
+                            <svg class="np-icon" *ngIf="orientation === 'horizontal'">
+                                <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                            </svg>
+                        </span>
                     </a>
                     <ng-container *ngIf="item._isItemsVisible">
                         <div class="np-mb-submenu" [style.top.px]="item._y" [style.left.px]="item._x">
@@ -35,14 +27,17 @@
             </ng-container>
             <ng-container *ngIf="!item.items">
                 <div class="np-mb-menu-item">
-                    <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-mb-active'" (click)="_close()">
-                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
+                    <a class="np-mb-link" *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-mb-active'" (click)="_close()">
+                        <span [class]="item.iconCss" *ngIf="item.iconCss"></span>
+                        <span [innerHTML]="item.label"></span>
                     </a>
-                    <a *ngIf="item.url" [href]="item.url" [target]="item.target" (click)="_close()">
-                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
+                    <a class="np-mb-link" *ngIf="item.url" [href]="item.url" [target]="item.target" (click)="_close()">
+                        <span [class]="item.iconCss" *ngIf="item.iconCss"></span>
+                        <span [innerHTML]="item.label"></span>
                     </a>
-                    <a *ngIf="item.onClick" (click)="_onClickMenu($event, item)">
-                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
+                    <a class="np-mb-link" *ngIf="item.onClick" (click)="_onClickMenu($event, item)">
+                        <span [class]="item.iconCss" *ngIf="item.iconCss"></span>
+                        <span [innerHTML]="item.label"></span>
                     </a>
                 </div>
             </ng-container>
@@ -52,27 +47,19 @@
         <ng-container *ngFor="let item of items">
             <ng-container *ngIf="item.items">
                 <div class="np-mb-menu-item" (click)="_onClickPanelMenu($event,item)">
-                    <a class="np-mb-label" *ngIf="item.routerLink">
-                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
-                        <svg class="np-icon np-mb-icon" *ngIf="!item._isItemsVisible">
-                            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-                            <path d="M0 0h24v24H0z" fill="none" />
-                        </svg>
-                        <svg class="np-icon np-mb-icon" viewBox="0 0 24 24" *ngIf="item._isItemsVisible">
-                            <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
-                            <path d="M0 0h24v24H0z" fill="none" />
-                        </svg>
-                    </a>
-                    <a class="np-mb-label" *ngIf="!item.routerLink">
-                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
-                        <svg class="np-icon np-mb-icon" *ngIf="!item._isItemsVisible">
-                            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-                            <path d="M0 0h24v24H0z" fill="none" />
-                        </svg>
-                        <svg class="np-icon np-mb-icon" viewBox="0 0 24 24" *ngIf="item._isItemsVisible">
-                            <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
-                            <path d="M0 0h24v24H0z" fill="none" />
-                        </svg>
+                    <a class="np-mb-link">
+                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i>
+                        <span [innerHTML]="item.label"></span>
+                        <span class="np-mb-icon">
+                            <svg class="np-icon" *ngIf="!item._isItemsVisible">
+                                <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                            </svg>
+                            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="item._isItemsVisible">
+                                <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                            </svg>
+                        </span>
                     </a>
                 </div>
                 <ng-container *ngIf="item._isItemsVisible">
@@ -84,14 +71,17 @@
             </ng-container>
             <ng-container *ngIf="!item.items">
                 <div class="np-mb-menu-item">
-                    <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-mb-active'" (click)="_close()">
-                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
+                    <a class="np-mb-link" *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-mb-active'" (click)="_close()">
+                        <span [class]="item.iconCss" *ngIf="item.iconCss"></span>
+                        <span [innerHTML]="item.label"></span>
                     </a>
-                    <a *ngIf="item.url" [href]="item.url" [target]="item.target" (click)="_close()">
-                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
+                    <a class="np-mb-link" *ngIf="item.url" [href]="item.url" [target]="item.target" (click)="_close()">
+                        <span [class]="item.iconCss" *ngIf="item.iconCss"></span>
+                        <span [innerHTML]="item.label"></span>
                     </a>
-                    <a *ngIf="item.onClick" (click)="_onClickMenu($event, item)">
-                        <i [class]="item.iconCss" *ngIf="item.iconCss"></i> {{item.label}}
+                    <a class="np-mb-link" *ngIf="item.onClick" (click)="_onClickMenu($event, item)">
+                        <span [class]="item.iconCss" *ngIf="item.iconCss"></span>
+                        <span [innerHTML]="item.label"></span>
                     </a>
                 </div>
             </ng-container>

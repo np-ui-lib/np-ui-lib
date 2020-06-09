@@ -29,10 +29,11 @@
 
 <ng-template #itemTemplate2 let-item="item">
     <np-card>
-        <np-card-body>
-            <h1 style="text-align: center;">{{item}}</h1>
-            <h3 style="text-align: center;">{{item}}</h3>
-            <h5 style="text-align: center;">{{item}}</h5>
-        </np-card-body>
+        <div style="text-align: center; background-color: black;color: white; padding: 10px 20px;font-weight: bolder;">
+            {{item.name}}</div>
+        <div style="text-align: center; padding: 10px 20px;font-weight: bolder;">Price: ${{item.id * 100}}</div>
+        <div style="text-align: center; padding: 10px 20px;">{{item.id * 10}} GB Storage</div>
+        <div style="text-align: center; padding: 10px 20px;">{{item.id * 10}} Emails</div>
+        <div style="text-align: center; padding: 10px 20px;">{{item.id * 10}} Domains</div>
     </np-card>
 </ng-template>

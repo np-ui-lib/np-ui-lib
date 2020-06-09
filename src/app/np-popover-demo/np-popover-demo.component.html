@@ -10,17 +10,16 @@
 </div>
 
 <fieldset>
-
-    <a np-popover [header]="'This is link A'" [body]="'Description of Link A.'">Link A</a>
+    <a np-popover [header]="'This is link A'" [body]="'Description of Link A.'">Link A : Popup on hover</a>
 </fieldset>
 
 <fieldset>
-    <a np-popover [header]="'This is link B'" [body]="'Description of Link B.'" [placement]="'right'" [showOnClick]="true">Link B</a>
+    <a np-popover [header]="'This is link B'" [body]="'Description of Link B.'" [placement]="'right'" [showOnClick]="true">Link B : Popup on click</a>
 </fieldset>
 
 <fieldset>
     <a np-popover [header]="headerC" [body]="bodyC" [showOnClick]="true" [width]="100" [styleClass]="'myClass'">Link
-        C</a>
+        C : With [width] and [styleClass] attribute</a>
     <ng-template #headerC>
         This is link C
     </ng-template>
@@ -30,21 +29,21 @@
 </fieldset>
 
 <fieldset>
-    <a np-popover #myPopoverD="NpPopoverDirective" [header]="'This is link D'" [body]="myPopoverDBody" [showOnClick]="true">Link D</a>
+    <a np-popover #myPopoverD="NpPopoverDirective" [header]="'Step 1'" [body]="myPopoverDBody" [showOnClick]="true">Step 1</a>
     <ng-template #myPopoverDBody>
-        Description of Link D.
+        Description of Step 1. Click on Next button to start tour.
         <button type="button" class="np-btn" (click)="showE()">Next</button>
     </ng-template>
     <br>
-    <a np-popover #myPopoverE="NpPopoverDirective" [header]="'This is link E'" [body]="myPopoverEBody" [showOnClick]="true">Link E</a>
+    <a np-popover #myPopoverE="NpPopoverDirective" [header]="'Step 2'" [body]="myPopoverEBody" [showOnClick]="true">Step 2</a>
     <ng-template #myPopoverEBody>
-        Description of Link E.
+        Description of Step 2. Read and Wait for Next button.
         <button *ngIf="showNext" type="button" class="np-btn" (click)="showF()">Next</button>
     </ng-template>
     <br>
-    <a np-popover #myPopoverF="NpPopoverDirective" [header]="'This is link F'" [body]="myPopoverFBody" [showOnClick]="true">Link F</a>
+    <a np-popover #myPopoverF="NpPopoverDirective" [header]="'Step 3'" [body]="myPopoverFBody" [showOnClick]="true">Step 3</a>
     <ng-template #myPopoverFBody>
-        Description of Link F.
+        Description of Step 3. Click on Close button to end tour.
         <button type="button" class="np-btn" (click)="closeF()">Close</button>
     </ng-template>
 </fieldset>

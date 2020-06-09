@@ -10,6 +10,8 @@ export class NpBreadcrumbComponent implements OnInit {
 
   @Input() styleClass: string;
   @Input() items: NpBreadCrumbItem[];
+  @Input() showHomeIcon: boolean = true;
+  @Input() homeIconCss: string;
   @Output() onClick: EventEmitter<any> = new EventEmitter();
 
   constructor() { }

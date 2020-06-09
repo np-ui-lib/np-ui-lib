@@ -9,33 +9,32 @@
     </h2>
 </div>
 
-<div>
+<p>
     <span np-tooltip [text]="'This is left tooltip.'" [placement]="'left'">
         Hover me for left tooltip
     </span>
-</div>
+</p>
 
-<div>
+<p>
     <span np-tooltip [text]="'This is right tooltip.'" [placement]="'right'" [styleClass]="'myClass'">
-        Hover me for right tooltip
+        Hover me for right tooltip, with [styleClass] attribute.
     </span>
-</div>
+</p>
 
-<div>
+<p>
     <span np-tooltip [text]="tooltipTop" [placement]="'top'">
-        Hover me for top tooltip
+        Hover me for top tooltip, with ng-template.
         <ng-template #tooltipTop>
-            <b>This is top tooltip.</b>
+            <u>This is top tooltip.</u>
         </ng-template>
     </span>
-</div>
+</p>
 
-<div>
+<p>
     <span np-tooltip [text]="tooltipBottom" [placement]="'bottom'">
-        Hover me for bottom
-        tooltip
+        Hover me for bottom tooltip, with ng-template.
         <ng-template #tooltipBottom>
             <i>This is bottom tooltip.</i>
         </ng-template>
     </span>
-</div>
+</p>

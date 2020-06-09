@@ -421,4 +421,10 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this.value = date;
     this._resetVariables();
   }
+
+  _onKeydown(event: KeyboardEvent) {
+    if (event.which === 9) {
+      this._close();
+    }
+  }
 }

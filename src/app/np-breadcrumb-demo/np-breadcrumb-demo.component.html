@@ -9,4 +9,17 @@
     </h2>
 </div>
 
-<np-breadcrumb [items]="items" (onClick)="onClick($event)"></np-breadcrumb>
+<fieldset>
+    <legend>With default home icon</legend>
+    <np-breadcrumb [items]="items" (onClick)="onClick($event)"></np-breadcrumb>
+</fieldset>
+
+<fieldset>
+    <legend>Set showHomeIcon to false</legend>
+    <np-breadcrumb [items]="items" [showHomeIcon]="false" (onClick)="onClick($event)"></np-breadcrumb>
+</fieldset>
+
+<fieldset>
+    <legend>Set homeIconCss attribute</legend>
+    <np-breadcrumb [items]="items" [homeIconCss]="'fa fa-list'" (onClick)="onClick($event)"></np-breadcrumb>
+</fieldset>

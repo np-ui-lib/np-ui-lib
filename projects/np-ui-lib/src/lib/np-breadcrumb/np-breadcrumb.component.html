@@ -1,17 +1,20 @@
 <div [ngClass]="{'np-bd-component': true}" [class]="styleClass">
     <ul class="np-bd-items">
-        <li>
-            <svg class="np-icon" viewBox="0 0 24 24">
-                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                <path d="M0 0h24v24H0z" fill="none" />
-            </svg>
-        </li>
-        <li>
-            <svg class="np-icon" viewBox="0 0 24 24">
-                <path d="M0 0h24v24H0V0z" fill="none" />
-                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-            </svg>
-        </li>
+        <ng-container *ngIf="showHomeIcon">
+            <li>
+                <i *ngIf="homeIconCss" [class]="homeIconCss"></i>
+                <svg *ngIf="!homeIconCss" class="np-icon" viewBox="0 0 24 24">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+            </li>
+            <li>
+                <svg class="np-icon" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                </svg>
+            </li>
+        </ng-container>
         <ng-container *ngFor="let item of items;  let i = index;">
             <li>
                 <a (click)="_onClick(item)">{{item.label}}</a>

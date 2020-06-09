@@ -318,4 +318,10 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     var imageData = ctx2.getImageData(x, y, 1, 1).data;
     return this._fullColorHex(imageData[0], imageData[1], imageData[2]);
   }
+
+  _onKeydown(event: KeyboardEvent) {
+    if (event.which === 9) {
+      this._close();
+    }
+  }
 }
