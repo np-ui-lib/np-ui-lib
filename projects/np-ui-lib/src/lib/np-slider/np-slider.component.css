@@ -11,8 +11,8 @@
     border-radius: 2px;
     width: 100%;
     height: 10px;
-    outline: none;
     vertical-align: middle;
+    outline: none;
 }
 
 .np-sl-input::-webkit-slider-thumb {

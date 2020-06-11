@@ -1,4 +1,4 @@
-<div [ngClass]="{'np-input-group': true, 'np-disabled' : _isDisabled}" [class]="styleClass" *ngIf="!defaultOpen; else templatePortalContent">
+<div [ngClass]="{'np-input-group': true, 'np-dp-component': true, 'np-disabled' : _isDisabled}" [class]="styleClass" *ngIf="!defaultOpen; else templatePortalContent">
     <input class="np-form-control" type="text" [attr.id]="inputId" [value]="value | date: format" [readonly]="true" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" [disabled]="_isDisabled">
     <div class="input-group-append">
         <div class="np-btn np-btn-icon" (click)="_clear()" title="Clear">
