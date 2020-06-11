@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'how-to-add',
+    loadChildren: () => import('./how-to-add/how-to-add.module').then(m => m.HowToAddModule)
+  },
+  {
     path: 'np-date-picker-demo',
     loadChildren: () => import('./np-date-picker-demo/np-date-picker-demo.module').then(m => m.NpDatePickerDemoModule)
   },
@@ -124,7 +128,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'np-date-picker-demo',
+    redirectTo: 'how-to-add',
     pathMatch: 'full'
   }
 ];

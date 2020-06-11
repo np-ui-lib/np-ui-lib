@@ -1648,6 +1648,13 @@ svg {
     background-color: #f1f1f1;
 }
 
+.np-jumbotron {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
