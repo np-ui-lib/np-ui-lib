@@ -24,13 +24,14 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   static controlCount = 1;
   @ViewChild('fileUploadInput') fileUploadInput: ElementRef;
 
-  _innerValue: any;
+  _innerValue: FileList;
   _isDisabled: boolean = false;
   private onChangeCallback: (_: any) => void;
   private onTouchedCallback: () => void;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @Input() styleClass: string;
+  @Input() accept: string;
   @Input() multiple: boolean;
   @Input() inputId: string = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
   /**
@@ -55,11 +56,11 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
 
   @Input() uploadButtonLabel: string;
 
-  get value(): any {
+  get value(): FileList {
     return this._innerValue ? this._innerValue : null;
   };
 
-  set value(v: any) {
+  set value(v: FileList) {
     if (v !== this._innerValue) {
       this._innerValue = v;
       this.onChangeCallback(v);

@@ -8,7 +8,7 @@ import { NpFileService } from './services/np-file.service';
 import { NpFilterService } from './services/np-filter.service';
 import { NpODataService } from './services/np-odata.service';
 import { NpPagerService } from './services/np-pager.service';
-import { NpUtilityService } from './services/np-utility.service';
+import { NpGridUtilityService } from './services/np-grid-utility.service';
 import { CommonModule } from '@angular/common';
 import { NpDatePickerModule } from '../np-date-picker/np-date-picker.module';
 import { OverlayModule } from "@angular/cdk/overlay";
@@ -36,7 +36,7 @@ import { NpModalModule } from '../np-modal/np-modal.module';
   providers: [
     NpPagerService,
     NpFilterService,
-    NpUtilityService,
+    NpGridUtilityService,
     NpODataService,
     NpFileService
   ]

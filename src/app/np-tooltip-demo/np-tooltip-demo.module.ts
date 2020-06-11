@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { NpTooltipDemoRoutingModule } from './np-tooltip-demo-routing.module';
 import { NpTooltipDemoComponent } from './np-tooltip-demo.component';
-import { NpTooltipModule } from 'np-ui-lib';
+import { NpTooltipModule, NpDatePickerModule } from 'np-ui-lib';
 
 @NgModule({
   declarations: [NpTooltipDemoComponent],
   imports: [
     CommonModule,
     NpTooltipDemoRoutingModule,
-    NpTooltipModule
+    NpTooltipModule,
+    NpDatePickerModule
   ]
 })
 export class NpTooltipDemoModule { }

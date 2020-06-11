@@ -68,3 +68,15 @@
     <np-file-upload [(ngModel)]="fileUpload9" [uploadButtonLabel]="'Upload your photo'">
     </np-file-upload>
 </fieldset>
+
+<fieldset>
+    <legend>Accept only images</legend>
+    <np-file-upload [(ngModel)]="fileUpload10" [accept]="'image/*'" [uploadButtonLabel]="'Upload your photo'">
+    </np-file-upload>
+</fieldset>
+
+<fieldset>
+    <legend>onChange event</legend>
+    <np-file-upload [(ngModel)]="fileUpload11" (onChange)="onChange($event)">
+    </np-file-upload>
+</fieldset>

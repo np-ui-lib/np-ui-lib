@@ -13,7 +13,7 @@ import { NpFileService } from './services/np-file.service';
 import { NpFilterService } from './services/np-filter.service';
 import { NpODataService } from './services/np-odata.service';
 import { NpPagerService } from './services/np-pager.service';
-import { NpUtilityService } from './services/np-utility.service';
+import { NpGridUtilityService } from './services/np-grid-utility.service';
 import { NpModalComponent } from '../np-modal/np-modal.component';
 
 @Component({
@@ -128,7 +128,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   constructor(private pagerService: NpPagerService,
     private filterService: NpFilterService,
-    private utilityService: NpUtilityService,
+    private utilityService: NpGridUtilityService,
     private oDataService: NpODataService,
     private fileService: NpFileService,
     public overlay: Overlay,

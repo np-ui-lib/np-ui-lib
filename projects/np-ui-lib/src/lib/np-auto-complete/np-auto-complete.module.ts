@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NpAutoCompleteComponent } from './np-auto-complete.component';
 import { FormsModule } from '@angular/forms';
-import { NpUtility } from '../np-utility/np-utility.module';
+import { NpUtilityModule } from '../np-utility/np-utility.module';
 import { NpHightLightPipe } from '../np-utility/np-highlight.pipe';
 import { OverlayModule } from "@angular/cdk/overlay";
 import { PortalModule } from "@angular/cdk/portal";
@@ -14,7 +14,7 @@ import { PortalModule } from "@angular/cdk/portal";
     FormsModule,
     OverlayModule,
     PortalModule,
-    NpUtility
+    NpUtilityModule
   ],
   providers: [NpHightLightPipe],
   exports: [NpAutoCompleteComponent]

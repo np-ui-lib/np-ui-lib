@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, TemplateRef } from '@angular/core';
+import { Directive, Input, AfterViewInit, ComponentRef, ElementRef, TemplateRef } from '@angular/core';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpTooltipComponent } from './np-tooltip.component';
@@ -9,6 +9,12 @@ export class NpTooltipDirective implements AfterViewInit {
     @Input() text: string | TemplateRef<any>;
     @Input() placement: string;
     @Input() styleClass: string;
+    @Input() tooltipOnFocus: boolean = false;
+
+    mouseEnterListener: Function;
+    mouseLeaveListener: Function;
+    focusListener: Function;
+    blurListener: Function;
 
     private overlayRef: OverlayRef;
 
@@ -24,8 +30,21 @@ export class NpTooltipDirective implements AfterViewInit {
             .flexibleConnectedTo(this.elementRef)
             .withPositions(position);
         this.overlayRef = this.overlay.create({
-            positionStrategy
+            positionStrategy,
+            scrollStrategy: this.overlay.scrollStrategies.reposition()
         });
+
+        if (this.tooltipOnFocus) {
+            this.focusListener = this._show.bind(this);
+            this.blurListener = this._hide.bind(this);
+            this.elementRef.nativeElement.addEventListener('focus', this.focusListener);
+            this.elementRef.nativeElement.addEventListener('blur', this.blurListener);
+        } else {
+            this.mouseEnterListener = this._show.bind(this);
+            this.mouseLeaveListener = this._hide.bind(this);
+            this.elementRef.nativeElement.addEventListener('mouseenter', this.mouseEnterListener);
+            this.elementRef.nativeElement.addEventListener('mouseleave', this.mouseLeaveListener);
+        }
     }
 
     ngOnDestroy() {
@@ -34,16 +53,14 @@ export class NpTooltipDirective implements AfterViewInit {
         }
     }
 
-    @HostListener('mouseenter')
-    show() {
+    _show() {
         const tooltipPortal = new ComponentPortal(NpTooltipComponent);
         const tooltipRef: ComponentRef<NpTooltipComponent> = this.overlayRef.attach(tooltipPortal);
         tooltipRef.instance.tooltip = this.text;
         tooltipRef.instance.styleClass = this.styleClass;
     }
 
-    @HostListener('mouseout')
-    hide() {
+    _hide() {
         if (this.overlayRef.hasAttached()) {
             this.overlayRef.detach();
         }

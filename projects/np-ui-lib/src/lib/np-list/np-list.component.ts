@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { NpUtilityService } from '../np-utility/np-utility.service';
 
 @Component({
   selector: 'np-list',
@@ -19,7 +20,7 @@ export class NpListComponent implements OnInit {
 
   _selectedItems: any[] = [];
 
-  constructor() { }
+  constructor(private utility: NpUtilityService) { }
 
   ngOnInit(): void {
   }
@@ -48,8 +49,9 @@ export class NpListComponent implements OnInit {
   }
 
   _getSelectedIndexOfItem(item: any) {
+    var that = this;
     return this._selectedItems.findIndex(function (element) {
-      if (JSON.stringify(element) == JSON.stringify(item)) {
+      if (that.utility.isEqual(element, item)) {
         return item;
       }
     });

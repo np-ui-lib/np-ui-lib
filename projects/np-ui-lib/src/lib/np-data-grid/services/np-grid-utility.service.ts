@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { SortDirections } from '../models/constants';
 
 @Injectable()
-export class NpUtilityService {
+export class NpGridUtilityService {
     custFilter(arr: any[], fun: any) {
         return arr.filter(fun);
     }

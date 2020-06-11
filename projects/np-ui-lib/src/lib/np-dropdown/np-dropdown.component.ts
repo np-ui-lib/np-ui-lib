@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Afte
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
+import { NpUtilityService } from '../np-utility/np-utility.service';
 
 @Component({
   selector: 'np-dropdown',
@@ -19,7 +20,7 @@ import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '
 })
 export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
   static controlCount = 1;
-  
+
   _displayValue: string;
   _innerValue: any;
   _isDisabled: boolean = false;
@@ -42,7 +43,8 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     public overlay: Overlay,
     private _viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private utility: NpUtilityService
   ) { }
 
   ngAfterContentInit(): void {
@@ -153,7 +155,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
       return false;
     }
     if (this.displayKey) {
-      if (JSON.stringify(this._innerValue) === JSON.stringify(item)) {
+      if (this.utility.isEqual(this._innerValue, item)) {
         return true;
       }
     } else {

@@ -19,7 +19,8 @@
 }
 
 .np-fu-component .np-fp-input {
-    display: none;
+    visibility: hidden;
+    position: absolute;
 }
 
 .np-fp-btn {

@@ -4,6 +4,7 @@ import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "
 import { TemplatePortal } from "@angular/cdk/portal";
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { NpTreeViewItem } from '../np-tree-view/np-tree-view.model';
+import { NpUtilityService } from '../np-utility/np-utility.service';
 
 @Component({
   selector: 'np-tags',
@@ -55,7 +56,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     public overlay: Overlay,
     private _viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private utility: NpUtilityService
   ) { }
 
   ngAfterContentInit(): void {
@@ -220,8 +222,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     if (this.displayKey) {
       var tag = {};
       tag[this.displayKey] = this._displayValue;
+      var that = this;
       var idx = this._innerValue.findIndex(function (element) {
-        if (JSON.stringify(element) == JSON.stringify(tag)) {
+        if (that.utility.isEqual(element, tag)) {
           return tag;
         }
       });
@@ -246,8 +249,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       tag.isSelected = false;
     }
     if (this.displayKey) {
+      var that = this;
       var idx = this._innerValue.findIndex(function (element) {
-        if (JSON.stringify(element) == JSON.stringify(tag)) {
+        if (that.utility.isEqual(element, tag)) {
           return tag;
         }
       });
@@ -267,8 +271,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       return false;
     }
     if (this.displayKey) {
+      var that = this;
       var idx = this._innerValue.findIndex(function (element) {
-        if (JSON.stringify(element) == JSON.stringify(tag)) {
+        if (that.utility.isEqual(element, tag)) {
           return tag;
         }
       });

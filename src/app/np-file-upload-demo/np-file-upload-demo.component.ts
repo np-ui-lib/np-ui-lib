@@ -21,4 +21,10 @@ export class NpFileUploadDemoComponent implements OnInit {
   fileUpload7: any;
   fileUpload8: any;
   fileUpload9: any;
+  fileUpload10: any;
+  fileUpload11: any;
+
+  onChange($event){
+    alert("change event occurs.");
+  }
 }
