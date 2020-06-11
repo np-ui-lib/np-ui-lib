@@ -39,8 +39,8 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   _innerValue: Date;
   _isDisabled: boolean = false;
 
-  private onChangeCallback: (_: any) => void;
-  private onTouchedCallback: () => void;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
   private templatePortal: TemplatePortal<any>;

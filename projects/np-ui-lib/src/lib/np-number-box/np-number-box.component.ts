@@ -36,8 +36,8 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   private intervalOnMouseUp: any;
-  private onChangeCallback: (_: any) => void;
-  private onTouchedCallback: () => void;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   get value(): number {
     return this._innerValue != undefined ? this._innerValue : null;

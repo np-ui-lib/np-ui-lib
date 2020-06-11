@@ -30,8 +30,8 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   _isShowCursorDiv: boolean = false;
   _innerValue: string;
   _isDisabled: boolean = false;
-  private onChangeCallback: (_: any) => void;
-  private onTouchedCallback: () => void;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   @Input() colors: string[];
   @Input() placeholder: string = "";

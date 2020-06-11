@@ -32,8 +32,8 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   _pattern: any;
   _innerValue: string;
   _isDisabled: boolean = false;
-  private onChangeCallback: (_: any) => void;
-  private onTouchedCallback: () => void;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   @Input() defaultOpen: boolean = false;
   @Input() is24Hours: boolean = false;

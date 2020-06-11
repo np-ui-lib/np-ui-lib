@@ -24,8 +24,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   static controlCount = 1;
   _innerValue: any[];
   _isDisabled: boolean = false;
-  private onChangeCallback: (_: any) => void;
-  private onTouchedCallback: () => void;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   _subscription: Subscription;
   _searchResult: any[];

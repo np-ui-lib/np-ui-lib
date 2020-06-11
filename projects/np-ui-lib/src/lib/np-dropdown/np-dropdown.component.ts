@@ -24,8 +24,8 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   _displayValue: string;
   _innerValue: any;
   _isDisabled: boolean = false;
-  private onChangeCallback: (_: any) => void;
-  private onTouchedCallback: () => void;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   @Input() items: any[];
   @Input() displayKey: string;

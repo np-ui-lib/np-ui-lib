@@ -19,8 +19,8 @@ export class NpSwitchComponent implements ControlValueAccessor {
   static controlCount = 1;
   _innerValue: boolean;
   _isDisabled: boolean = false;
-  private onChangeCallback: (_: any) => void;
-  private onTouchedCallback: () => void;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   @Input() trueLabelText: string;
   @Input() falseLabelText: string;

@@ -26,8 +26,8 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
 
   _innerValue: any;
   _isDisabled: boolean = false;
-  private onChangeCallback: (_: any) => void;
-  private onTouchedCallback: () => void;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   @Input() searchResult: BehaviorSubject<any[]>;
   _subscription: Subscription;

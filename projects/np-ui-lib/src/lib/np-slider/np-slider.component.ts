@@ -26,8 +26,8 @@ export class NpSliderComponent implements OnInit {
 
   _innerValue: boolean;
   _isDisabled: boolean = false;
-  private onChangeCallback: (_: any) => void;
-  private onTouchedCallback: () => void;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   constructor() { }
 
