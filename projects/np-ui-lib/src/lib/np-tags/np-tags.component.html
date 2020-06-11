@@ -15,7 +15,7 @@
             </div>
         </div>
     </ng-container>
-    <input class="np-form-control" type="text" autocomplete="off" [attr.id]="inputId" [(ngModel)]="_displayValue" [placeholder]="placeholder" (focus)="_onFocus()" (keydown)="_onKeydown($event)" (input)="_onInput()" [disabled]="_isDisabled">
+    <input class="np-form-control" type="text" autocomplete="off" [attr.id]="inputId" [(ngModel)]="_displayValue" [placeholder]="placeholder" (click)="_onClick()" (keydown)="_onKeydown($event)" (input)="_onInput()" [disabled]="_isDisabled">
     <div class="input-group-append">
         <div class="np-tg-loader" *ngIf="_isLoading">
             <svg class="np-icon-sm" viewBox="0 0 24 24">

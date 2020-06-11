@@ -162,6 +162,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
     }
     this.overlayRef.detach();
     this.onTouchedCallback();
+    this.elementRef.nativeElement.querySelector("input").focus();
   }
 
   _clear() {

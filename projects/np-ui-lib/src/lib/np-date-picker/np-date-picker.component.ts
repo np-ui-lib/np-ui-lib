@@ -328,6 +328,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this._isOpen = false;
     this.overlayRef.detach();
     this.onTouchedCallback();
+    this.elementRef.nativeElement.querySelector("input").focus();
   }
 
   _setMonths() {

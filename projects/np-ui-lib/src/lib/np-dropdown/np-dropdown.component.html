@@ -1,5 +1,5 @@
 <div [ngClass]="{'np-input-group': true, 'np-disabled' : _isDisabled}" [class]="styleClass">
-    <input class="np-form-control" autocomplete="off" type="text" [attr.id]="inputId" [readonly]="true" [(ngModel)]="_displayValue" [placeholder]="placeholder" (focus)="_open()" (keydown)="_onKeydown($event)" [disabled]="_isDisabled">
+    <input class="np-form-control" autocomplete="off" type="text" [attr.id]="inputId" [readonly]="true" [(ngModel)]="_displayValue" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" [disabled]="_isDisabled">
     <div class="input-group-append">
         <div class="np-btn np-btn-icon" title="Clear" (click)="_clear()">
             <svg class="np-icon-sm" viewBox="0 0 24 24">

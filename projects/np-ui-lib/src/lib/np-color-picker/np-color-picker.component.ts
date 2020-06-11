@@ -162,6 +162,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     this._isOpen = false;
     this.overlayRef.detach();
     this.onTouchedCallback();
+    this.elementRef.nativeElement.querySelector("input").focus();
   }
 
   _updateStripCanvas() {

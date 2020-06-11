@@ -55,7 +55,8 @@
 }
 
 .np-cp-hide-input .np-form-control {
-    display: none;
+    visibility: hidden;
+    position: absolute;
 }
 
 .np-cp-default-open {

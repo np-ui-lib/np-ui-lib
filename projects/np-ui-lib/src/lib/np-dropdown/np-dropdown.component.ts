@@ -124,6 +124,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     }
     this.overlayRef.detach();
     this.onTouchedCallback();
+    this.elementRef.nativeElement.querySelector("input").focus();
   }
 
   _clear() {
