@@ -7,6 +7,10 @@
                 <path d="M0 0h24v24H0z" fill="none" />
             </svg>
         </button>
-        <ng-content></ng-content>
+        <ng-content select="np-sidepanel-header"></ng-content>
+        <div class="np-sp-content">
+            <ng-content></ng-content>
+        </div>
+        <ng-content select="np-sidepanel-footer"></ng-content>
     </div>
 </ng-template>

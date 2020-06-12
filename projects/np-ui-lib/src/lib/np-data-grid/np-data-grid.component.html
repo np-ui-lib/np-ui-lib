@@ -273,7 +273,7 @@
         <np-modal-header>
             <b>Add New State</b>
         </np-modal-header>
-        <np-modal-content>
+        <div>
             <form #saveStateForm="ngForm">
                 <div class="np-form-group">
                     <div class="np-form-label np-required">Name:</div>
@@ -284,7 +284,7 @@
                     </div>
                 </div>
             </form>
-        </np-modal-content>
+        </div>
         <np-modal-footer>
             <div class="np-btn-group np-float-right">
                 <button type="button" class="np-btn np-btn-primary" [disabled]="saveStateForm.invalid" (click)="_addState()">Save</button>
@@ -297,9 +297,9 @@
         <np-modal-header>
             <b>Success</b>
         </np-modal-header>
-        <np-modal-content>
+        <div>
             Saved successfully.
-        </np-modal-content>
+        </div>
         <np-modal-footer>
             <div class="np-btn-group np-float-right">
                 <button type="button" class="np-btn np-btn-primary" (click)="_closeModalEditState()">Ok</button>
@@ -311,9 +311,9 @@
         <np-modal-header>
             <b>Success</b>
         </np-modal-header>
-        <np-modal-content>
+        <div>
             Deleted successfully.
-        </np-modal-content>
+        </div>
         <np-modal-footer>
             <div class="np-btn-group np-float-right">
                 <button type="button" class="np-btn np-btn-primary" (click)="_closeModalDeleteState()">Ok</button>

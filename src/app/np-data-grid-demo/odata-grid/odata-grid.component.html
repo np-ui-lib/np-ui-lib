@@ -1,16 +1,19 @@
 <h2>
     <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-data-grid-demo/odata-grid">
-        OData Example
+        OData Example for V4.
     </a>
 </h2>
 
-<p>To set OData operations in data grid, set <b>isODataOperations</b> to "true" in grid defination.</p>
+<p>To set OData operations in data grid, set <b>[isODataOperations]</b> to "true" in grid defination.</p>
+<p>Only support v4 OData.</p>
 <p>Here for OData, server side oprations is must.</p>
 
-<p>Note: Bakend having some issues with OData service.</p>
+<p class="np-alert np-alert-success">
+    <b>OData Query:</b> {{odataQuery}}
+</p>
 
-<np-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [singleRowSelectEnable]="true" [multiColumnSortEnable]="true" [title]="'Server side data grid'" [showColumnChooser]="true" [showToolBar]="true" [allowExport]="true" [enableStateStoring]="true"
-    [showSummary]="true" [summaryTemplate]="summaryTemplate" [allowColumnReorder]="true" [allowColumnResize]="true" [isServerOperations]="true" [isODataOperations]="true" (onLoadData)="onLoadData($event)">
+<np-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiColumnSortEnable]="true" [title]="'OData backend V4'" [showColumnChooser]="true" [showToolBar]="true" [allowExport]="true" [enableStateStoring]="true" [showSummary]="true"
+    [summaryTemplate]="summaryTemplate" [isServerOperations]="true" [isODataOperations]="true" (onLoadData)="onLoadData($event)">
 </np-data-grid>
 
 <!-- Template for birthdate column -->

@@ -17,26 +17,27 @@ export class OdataGridComponent implements OnInit {
 
   @ViewChild("serverSideGrid", { static: true }) serverSideGrid: NpDataGridComponent;
 
-  odataQuery: string = "";
+  odataQuery: string;
 
   constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
     this.gridColumns = [
-      new Column({ dataField: "UserName", visible: true, caption: "User Name", dataType: DataTypes.String, sortEnable: true, filterEnable: true }),
-      new Column({ dataField: "FirstName", visible: true, caption: "First Name", dataType: DataTypes.String, sortEnable: true, filterEnable: true }),
-      new Column({ dataField: "LastName", visible: true, caption: "Last Name", dataType: DataTypes.String }),
-      new Column({ dataField: "Age", visible: true, dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: "np-text-danger", rightAlignText: true })];
+      new Column({ dataField: "ProductID", visible: true, caption: "ID", dataType: DataTypes.Number, sortEnable: true, filterEnable: true }),
+      new Column({ dataField: "ProductName", visible: true, caption: "Product Name", dataType: DataTypes.String, sortEnable: true, filterEnable: true }),
+      new Column({ dataField: "UnitPrice", visible: true, caption: "Unit Price", dataType: DataTypes.Number, sortEnable: true, filterEnable: true }),
+      new Column({ dataField: "UnitsInStock", visible: true, caption: "Units In Stock", dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: "np-text-danger" })];
 
     this.gridDataSource = new BehaviorSubject(null);
   }
 
   onLoadData(options: LoadOptions) {
-    this.http.get("https://services.odata.org/TripPinRESTierService/(S(mvnapyb1qiwt4drfwdtigsrq))/People?" + options.odataQuery)
+    this.odataQuery = options.odataQuery;
+    this.http.get("https://services.odata.org/V4/Northwind/Northwind.svc/Products?" + options.odataQuery)
       .subscribe((data: any) => {
         if (data && data.value) {
-          var result = new DataSource(data.value, data.count, { totalCount: data.count }, options.isAllPages);
+          var result = new DataSource(data.value, data["@odata.count"], { totalCount: data["@odata.count"] }, options.isAllPages);
           this.gridDataSource.next(result);
         }
       });

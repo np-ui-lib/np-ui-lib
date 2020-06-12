@@ -5,30 +5,13 @@ import { DataTypes } from '../models/constants';
 export class NpODataService {
     buildQuery(top: number, skip: number, sortColumns: any[], filterColumns: any[], inlineCount?: string): string {
         var queryTmpArray = [];
-        if (inlineCount && inlineCount.length > 0) {
-            queryTmpArray.push(`$inlinecount=${inlineCount}`);
-        } else {
-            queryTmpArray.push('$count=true');
-            queryTmpArray.push(`$skip=${skip}`);
-            queryTmpArray.push(`$top=${top}`);
-        }
-
-        if (sortColumns) {
-            let sortQueue = [];
-            for (let element of sortColumns) {
-                sortQueue.push(`${element.dataField} ${element.sortDirection}`);
-            }
-            if (sortQueue.length > 0) {
-                queryTmpArray.push(`$orderby=${sortQueue.join(',')}`);
-            }
-        }
 
         if (filterColumns) {
             if (filterColumns && filterColumns.length === 1) {
                 if (filterColumns[0].dataType === DataTypes.String) {
-                    queryTmpArray.push(`$filter=${filterColumns[0].filterOperator}(${filterColumns[0].dataField},'${filterColumns[0].filterValue}')`);
+                    queryTmpArray.push(`$filter=(${filterColumns[0].filterOperator}(${filterColumns[0].dataField},'${filterColumns[0].filterValue}'))`);
                 } else {
-                    queryTmpArray.push(`$filter=${filterColumns[0].dataField} ${filterColumns[0].filterOperator} ${filterColumns[0].filterValue}`);
+                    queryTmpArray.push(`$filter=(${filterColumns[0].dataField} ${filterColumns[0].filterOperator} ${filterColumns[0].filterValue})`);
                 }
             }
             if (filterColumns && filterColumns.length > 1) {
@@ -41,9 +24,29 @@ export class NpODataService {
                     }
                 }
                 if (filterQueue.length > 1) {
-                    queryTmpArray.push(`$filter=${filterQueue.join(' and ')}`);
+                    queryTmpArray.push(`$filter=(${filterQueue.join(' and ')})`);
                 }
             }
+        }
+
+        if (sortColumns) {
+            let sortQueue = [];
+            for (let element of sortColumns) {
+                sortQueue.push(`${element.dataField} ${element.sortDirection}`);
+            }
+            if (sortQueue.length > 0) {
+                queryTmpArray.push(`$orderby=${sortQueue.join(', ')}`);
+            }
+        }
+
+        if (inlineCount && inlineCount.length > 0) {
+            queryTmpArray.push(`$count=true`);
+        } else {
+            queryTmpArray.push(`$top=${top}`);
+            if (skip > 0) {
+                queryTmpArray.push(`$skip=${skip}`);
+            }
+            queryTmpArray.push('$count=true');
         }
 
         return queryTmpArray.join('&');

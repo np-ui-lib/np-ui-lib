@@ -27,7 +27,9 @@
 </div>
 
 <np-sidepanel #sidePanelLeft [height]="'100%'" [closeOnClickOutside]="false">
-    <h1>Left sidepanel example</h1>
+    <np-sidepanel-header>
+        <p>Left sidepanel example</p>
+    </np-sidepanel-header>
     <form [formGroup]="myForm">
         <div class="np-container">
             <div class="np-row">
@@ -76,16 +78,14 @@
                     </div>
                 </div>
             </div>
-            <div class="np-row">
-                <div class="np-col-12">
-                    <div class="np-btn-group">
-                        <button type="submit" class="np-btn np-btn-primary" (click)="onSubmit()">Save</button>
-                        <button type="button" class="np-btn" (click)="closeLeft()">Close</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </form>
+    <np-sidepanel-footer>
+        <div class="np-btn-group">
+            <button type="button" class="np-btn np-btn-primary" (click)="onSubmit()">Save</button>
+            <button type="button" class="np-btn" (click)="closeLeft()">Close</button>
+        </div>
+    </np-sidepanel-footer>
 </np-sidepanel>
 
 <np-sidepanel #sidePanelRight [right]="'0'" [height]="'100%'" [width]="'200px'" [styleClass]="'myClass'" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">
@@ -93,7 +93,23 @@
 </np-sidepanel>
 
 <np-sidepanel #sidePanelTop [top]="'0'" [width]="'100%'" [height]="'200px'" [showCloseIcon]="false">
-    <h1>Top sidepanel example</h1>
+    <np-sidepanel-header>
+        Top sidepanel header
+    </np-sidepanel-header>
+    <p>Top sidepanel example</p>
+    <p>Top sidepanel example</p>
+    <p>Top sidepanel example</p>
+    <p>Top sidepanel example</p>
+    <p>Top sidepanel example</p>
+    <p>Top sidepanel example</p>
+    <p>Top sidepanel example</p>
+    <p>Top sidepanel example</p>
+    <p>Top sidepanel example</p>
+    <p>Top sidepanel example</p>
+    <p>Top sidepanel example</p>
+    <np-sidepanel-footer>
+        Top sidepanel footer
+    </np-sidepanel-footer>
 </np-sidepanel>
 
 <np-sidepanel #sidePanelBottom [bottom]="'0'" [width]="'100%'" [height]="'200px'" [showCloseIcon]="false">

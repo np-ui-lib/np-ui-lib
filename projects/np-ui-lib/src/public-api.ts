@@ -71,7 +71,6 @@ export * from './lib/np-alert/np-alert.component';
 export * from './lib/np-modal/np-modal.module';
 export * from './lib/np-modal/np-modal.component';
 export * from './lib/np-modal/np-modal-header.component';
-export * from './lib/np-modal/np-modal-content.component';
 export * from './lib/np-modal/np-modal-footer.component';
 
 /**Tags */
@@ -106,6 +105,8 @@ export * from './lib/np-loader/np-loader.directive';
 /**Sidepanel */
 export * from './lib/np-sidepanel/np-sidepanel.module';
 export * from './lib/np-sidepanel/np-sidepanel.component';
+export * from './lib/np-sidepanel/np-sidepanel-header.component';
+export * from './lib/np-sidepanel/np-sidepanel-footer.component';
 
 /**Breadcrumb */
 export * from './lib/np-breadcrumb/np-breadcrumb.module';

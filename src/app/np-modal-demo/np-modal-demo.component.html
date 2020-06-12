@@ -23,7 +23,7 @@
     <np-modal-header>
         Header
     </np-modal-header>
-    <np-modal-content>
+    <div>
         <p>Modal content</p>
         <p>Modal content</p>
         <p>Modal content</p>
@@ -36,7 +36,7 @@
         <p>Modal content</p>
         <p>Modal content</p>
         <p>Modal content</p>
-    </np-modal-content>
+    </div>
     <np-modal-footer>
         <div class="np-btn-group">
             <button class="np-btn np-btn-primary" (click)="openModal2()">Open another modal with form</button>
@@ -49,7 +49,7 @@
     <np-modal-header>
         Fill the details
     </np-modal-header>
-    <np-modal-content>
+    <div>
         <form [formGroup]="myForm">
             <div class="np-container">
                 <div class="np-row">
@@ -100,7 +100,7 @@
                 </div>
             </div>
         </form>
-    </np-modal-content>
+    </div>
     <np-modal-footer>
         <div class="np-btn-group">
             <button type="submit" class="np-btn np-btn-primary" (click)="onSubmit()">Save</button>
