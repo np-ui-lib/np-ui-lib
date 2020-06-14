@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, EventEmitter } from '@angular/core';
+import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, EventEmitter, Output } from '@angular/core';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpMenubarComponent } from './np-menubar.component';
@@ -9,6 +9,7 @@ export class NpPopupMenubarDirective implements AfterViewInit {
 
     @Input() items: NpMenuItem[];
     @Input() styleClass: string;
+    @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 
     private overlayRef: OverlayRef;
 
@@ -54,6 +55,7 @@ export class NpPopupMenubarDirective implements AfterViewInit {
         menubarRef.instance.styleClass = this.styleClass;
         menubarRef.instance._onCloseMenu = new EventEmitter();
         menubarRef.instance._onCloseMenu.subscribe(() => this._close());
+        menubarRef.instance.onClickMenuItem = this.onClickMenuItem;
     }
 
     _getPosition(): ConnectedPosition[] {

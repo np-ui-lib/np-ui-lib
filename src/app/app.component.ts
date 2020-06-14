@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { NpMenuItem } from 'np-ui-lib';
 
 @Component({
@@ -62,6 +62,35 @@ export class AppComponent {
     new NpMenuItem({ routerLink: "/np-grid-layout-demo", label: "Grid Layout" }),
     new NpMenuItem({ routerLink: "/np-utility-demo", label: "Other Utility" })
   ];
+
+  showMenu: boolean;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.setMenubarOnResize();
+  }
+
+  constructor() {
+    this.setMenubarOnResize();
+  }
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+  }
+
+  onClickMenuItem($event) {
+    if (window.innerWidth <= 992) {
+      this.showMenu = false;
+    }
+  }
+
+  setMenubarOnResize() {
+    if (window.innerWidth <= 992) {
+      this.showMenu = false;
+    } else {
+      this.showMenu = true;
+    }
+  }
 
 }
 

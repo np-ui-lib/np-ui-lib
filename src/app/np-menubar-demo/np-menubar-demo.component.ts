@@ -30,14 +30,14 @@ export class NpMenubarDemoComponent implements OnInit {
       ]
     }),
     new NpMenuItem({ label: "Menubar router link", routerLink: "/np-menubar-demo" }),
-    new NpMenuItem({ label: "Menu 3 click", onClick: this.onClickMenuClicked }),
+    new NpMenuItem({ label: "Menu 3 click" }),
     new NpMenuItem({
       label: "Menu 4",
       items: [
         new NpMenuItem({
           label: "Menu 4.1",
           items: [
-            new NpMenuItem({ label: "Menu 4.1.1 Click", onClick: this.onClickMenuClicked }),
+            new NpMenuItem({ label: "Menu 4.1.1 Click" }),
             new NpMenuItem({ label: "Menu 4.1.2 New Tab", url: "/menu4.1.2", target: "_blank" }),
             new NpMenuItem({ label: "Menu 4.1.3", url: "/menu4.1.3" }),
           ]
@@ -73,14 +73,14 @@ export class NpMenubarDemoComponent implements OnInit {
       ]
     }),
     new NpMenuItem({ label: "Menubar router link", routerLink: "/np-menubar-demo" }),
-    new NpMenuItem({ label: "Menu 3 click", onClick: this.onClickMenuClicked }),
+    new NpMenuItem({ label: "Menu 3 click" }),
     new NpMenuItem({
       label: "Menu 4",
       items: [
         new NpMenuItem({
           label: "Menu 4.1",
           items: [
-            new NpMenuItem({ label: "Menu 4.1.1 Click", onClick: this.onClickMenuClicked }),
+            new NpMenuItem({ label: "Menu 4.1.1 Click" }),
             new NpMenuItem({ label: "Menu 4.1.2 New Tab", url: "/menu4.1.2", target: "_blank" }),
             new NpMenuItem({ label: "Menu 4.1.3", url: "/menu4.1.3" }),
           ]
@@ -116,14 +116,14 @@ export class NpMenubarDemoComponent implements OnInit {
       ]
     }),
     new NpMenuItem({ label: "Menubar router link", routerLink: "/np-menubar-demo" }),
-    new NpMenuItem({ label: "Menu 3 click", onClick: this.onClickMenuClicked }),
+    new NpMenuItem({ label: "Menu 3 click" }),
     new NpMenuItem({
       label: "Menu 4",
       items: [
         new NpMenuItem({
           label: "Menu 4.1",
           items: [
-            new NpMenuItem({ label: "Menu 4.1.1 Click", onClick: this.onClickMenuClicked }),
+            new NpMenuItem({ label: "Menu 4.1.1 Click" }),
             new NpMenuItem({ label: "Menu 4.1.2 New Tab", url: "/menu4.1.2", target: "_blank" }),
             new NpMenuItem({ label: "Menu 4.1.3", url: "/menu4.1.3" }),
           ]
@@ -142,8 +142,10 @@ export class NpMenubarDemoComponent implements OnInit {
     new NpMenuItem({ label: "Menu 6", url: "/menu6" })
   ];
 
-  onClickMenuClicked() {
-    alert("Menu is clicked");
+  onClickMenuItem(item) {
+    if (item.label == "Menu 4.1.1 Click" || item.label == "Menu 3 click") {
+      alert("Menu is clicked");
+    }
   }
 
   itemsPanelMenu: NpMenuItem[] = [
@@ -163,14 +165,14 @@ export class NpMenubarDemoComponent implements OnInit {
       ]
     }),
     new NpMenuItem({ label: "Menubar router link", routerLink: "/np-menubar-demo" }),
-    new NpMenuItem({ label: "Menu 3 click", onClick: this.onClickMenuClicked }),
+    new NpMenuItem({ label: "Menu 3 click" }),
     new NpMenuItem({
       label: "Menu 4",
       items: [
         new NpMenuItem({
           label: "Menu 4.1",
           items: [
-            new NpMenuItem({ label: "Menu 4.1.1 Click", onClick: this.onClickMenuClicked }),
+            new NpMenuItem({ label: "Menu 4.1.1 Click" }),
             new NpMenuItem({ label: "Menu 4.1.2 New Tab", url: "/menu4.1.2", target: "_blank" }),
             new NpMenuItem({ label: "Menu 4.1.3", url: "/menu4.1.3" }),
           ]

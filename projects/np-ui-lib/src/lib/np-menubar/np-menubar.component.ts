@@ -18,6 +18,7 @@ export class NpMenubarComponent {
   /**orientation of menu, valid values are horizontal and vertical. Default is vertical. */
   @Input() orientation: string = "vertical";
   @Output() _onCloseMenu: EventEmitter<any> = new EventEmitter();
+  @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 
   constructor(private router: Router) {
   }
@@ -34,7 +35,7 @@ export class NpMenubarComponent {
     item._isItemsVisible = true;
   }
 
-  _onClickPanelMenu($event, item: NpMenuItem) {
+  _onClickPanelMenu(item: NpMenuItem) {
     item._isItemsVisible = !item._isItemsVisible;
   }
 
@@ -42,14 +43,8 @@ export class NpMenubarComponent {
     item._isItemsVisible = false;
   }
 
-  _onClickMenu($event, item: NpMenuItem) {
-    if (item.onClick) {
-      item.onClick($event);
-    }
-    this._close();
-  }
-
-  _close() {
+  _onClickMenu(item: NpMenuItem) {
+    this.onClickMenuItem.emit(item);
     this._onCloseMenu.emit();
   }
 
@@ -62,5 +57,9 @@ export class NpMenubarComponent {
 
   _isActive(item: NpMenuItem) {
     return this.router.isActive(item.routerLink, false);
+  }
+
+  _onClickMenuItem(item: NpMenuItem) {
+    this.onClickMenuItem.emit(item)
   }
 }

@@ -11,22 +11,22 @@
 
 <fieldset>
     <legend>Vertical</legend>
-    <np-menubar [items]="items"></np-menubar>
+    <np-menubar [items]="items" (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
 </fieldset>
 
 <fieldset>
     <legend>Horizontal</legend>
-    <np-menubar [items]="itemsHorizontal" [orientation]="'horizontal'" [styleClass]="'myClass'"></np-menubar>
+    <np-menubar [items]="itemsHorizontal" [orientation]="'horizontal'" [styleClass]="'myClass'" (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
 </fieldset>
 
 <fieldset>
     <legend>Popup menu</legend>
-    <button type="button" class="np-btn" np-popup-menubar [items]="itemsPopupMenubar">
+    <button type="button" class="np-btn" np-popup-menubar [items]="itemsPopupMenubar" (onClickMenuItem)="onClickMenuItem($event)">
         <i class="fa fa-bars"></i>
     </button>
 </fieldset>
 
 <fieldset>
     <legend>Panel menu</legend>
-    <np-menubar [items]="itemsPanelMenu" [isPanelMenu]="true"></np-menubar>
+    <np-menubar [items]="itemsPanelMenu" [isPanelMenu]="true" (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
 </fieldset>

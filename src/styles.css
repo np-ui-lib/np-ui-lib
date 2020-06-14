@@ -7,17 +7,17 @@ body {
 }
 
 .nav {
-    margin: 5px;
+    margin-right: 5px;
 }
 
 .main-container {
     display: flex;
+    margin: 5px;
 }
 
 .content {
     height: 100%;
     width: 100%;
-    margin: 5px 5px 5px 0px;
 }
 
 .sub-header h2 {
@@ -55,7 +55,7 @@ body {
 
 .logo {
     height: 50px;
-    width: 220px;
+    width: 170px;
 }
 
 .header {
@@ -78,4 +78,17 @@ body {
 
 .my-nav {
     width: 220px !important;
+}
+
+.menu-btn {
+    min-height: 50px;
+    min-width: 50px;
+    display: flex;
+    cursor: pointer;
+    background-color: #555;
+    color: #ffffff;
+}
+
+.menu-btn i {
+    margin: auto;
 }
