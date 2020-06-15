@@ -1,31 +1,10 @@
 @import "./../dist/np-ui-lib/style.css";
 @import "./../node_modules/font-awesome/css/font-awesome.css";
 body {
-    padding: 0px;
     margin: 0px;
-    background-color: #ffffff;
-}
-
-.nav {
-    margin-right: 5px;
-}
-
-.main-container {
-    display: flex;
-    margin: 5px;
-}
-
-.content {
+    padding: 0px;
     height: 100%;
     width: 100%;
-}
-
-.sub-header h2 {
-    margin: 0px 0px 5px 0px;
-    padding: 5px;
-    background-color: #f1f1f1;
-    border: 1px solid #c8c8c8;
-    border-radius: 2px;
 }
 
 .myClass {
@@ -53,34 +32,25 @@ body {
     background-color: #7DC931 !important;
 }
 
+header {
+    display: flex;
+    align-items: center;
+    background-color: #555;
+    color: #ffffff;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 1000;
+    height: 50px;
+}
+
 .logo {
     height: 50px;
     width: 170px;
 }
 
-.header {
-    display: flex;
-    align-items: center;
-    margin: 5px 5px 0px 5px;
-    background-color: #f1f1f1;
-    border: 1px solid #c8c8c8;
-}
-
-.header h1 {
-    width: 100%;
-    text-align: center;
-    margin: 0px;
-}
-
-.fa {
-    font-size: 20px;
-}
-
-.my-nav {
-    width: 220px !important;
-}
-
-.menu-btn {
+.header-menu-btn {
     min-height: 50px;
     min-width: 50px;
     display: flex;
@@ -89,6 +59,57 @@ body {
     color: #ffffff;
 }
 
-.menu-btn i {
+.header-menu-btn i {
     margin: auto;
+}
+
+.header-link {
+    text-align: center;
+    width: 100%;
+}
+
+.header-link a {
+    color: white;
+    font-size: 25px;
+}
+
+section {
+    margin-top: 50px;
+    height: calc(100vh - 50px);
+    overflow: hidden;
+    display: flex;
+}
+
+nav {
+    height: calc(100vh - 50px);
+    overflow: auto;
+    width: 220px;
+}
+
+.my-nav {
+    width: 100% !important;
+    border: none !important;
+    position: fixed;
+    left: 0px;
+}
+
+article {
+    flex: 1;
+    overflow: auto;
+    padding: 5px;
+}
+
+.sub-header {
+    background-color: #f1f1f1;
+    border: 1px solid #c8c8c8;
+    border-radius: 2px;
+    margin-bottom: 5px;
+}
+
+.sub-header h2 {
+    margin: 5px;
+}
+
+.color-red {
+    color: red;
 }

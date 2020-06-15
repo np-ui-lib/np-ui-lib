@@ -10,6 +10,7 @@ export class NpLoaderDemoComponent implements OnInit {
 
   loader1: boolean = false;
   loader2: boolean = false;
+  loader3: boolean = false;
 
   constructor() { }
 

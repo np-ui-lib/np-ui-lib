@@ -25,3 +25,12 @@
         <button class="np-btn" (click)="loader2 = false">Hide Loader</button>
     </div>
 </fieldset>
+
+<fieldset>
+    <legend>Loader with text</legend>
+    <div style="height: 200px;background-color: lightblue;" [np-loader]="loader3" [loadingText]="'Loading...'"></div>
+    <div class="np-btn-group">
+        <button class="np-btn" (click)="loader3 = true">Show Loader</button>
+        <button class="np-btn" (click)="loader3 = false">Hide Loader</button>
+    </div>
+</fieldset>

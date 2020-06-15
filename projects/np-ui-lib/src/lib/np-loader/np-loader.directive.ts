@@ -1,9 +1,11 @@
-import { Directive, ElementRef, Input, OnChanges, SimpleChanges, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, SimpleChanges, Renderer2, AfterContentInit } from '@angular/core';
 
 @Directive({ selector: '[np-loader]' })
-export class NpLoaderDirective implements OnChanges {
+export class NpLoaderDirective implements OnChanges, AfterContentInit {
 
     @Input('np-loader') _show: boolean;
+    @Input() loadingText: string;
+
     _loaderEle: any;
     _isActive: boolean = false;
 
@@ -13,6 +15,16 @@ export class NpLoaderDirective implements OnChanges {
         this._loaderEle = this.renderer.createElement('div');
         this.renderer.addClass(this._loaderEle, 'np-loader-background');
         this.renderer.appendChild(this._loaderEle, loader);
+    }
+
+    ngAfterContentInit(): void {
+        if (this.loadingText) {
+            var loaderTextDiv = this.renderer.createElement('div');
+            const loaderText = this.renderer.createText(this.loadingText);
+            this.renderer.appendChild(loaderTextDiv, loaderText);
+            this.renderer.addClass(loaderTextDiv, 'np-loader-text');
+            this.renderer.appendChild(this._loaderEle, loaderTextDiv);
+        }
     }
 
     ngOnChanges(changes: SimpleChanges): void {

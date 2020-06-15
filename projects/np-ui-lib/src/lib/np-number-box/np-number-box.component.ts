@@ -35,7 +35,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   @Input() inputId: string = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  private intervalOnMouseUp: any;
+  private timeout: any;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
@@ -86,24 +86,34 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
 
   _onMouseDownAdd() {
     var that = this;
-    this.intervalOnMouseUp = setInterval(function () {
-      that._add();
+    this._clearTimeout()
+    this.timeout = setTimeout(() => {
+      that._onMouseDownAdd();
     }, 100);
+    that._add();
   }
 
   _onMouseUpAdd() {
-    clearInterval(this.intervalOnMouseUp);
+    this._clearTimeout()
   }
 
   _onMouseDownMinus() {
     var that = this;
-    this.intervalOnMouseUp = setInterval(function () {
-      that._minus();
+    this._clearTimeout()
+    this.timeout = setTimeout(function () {
+      that._onMouseDownMinus();
     }, 100);
+    that._minus();
   }
 
   _onMouseUpMinus() {
-    clearInterval(this.intervalOnMouseUp);
+    this._clearTimeout()
+  }
+
+  _clearTimeout() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
   }
 
   _onInputChange(event) {

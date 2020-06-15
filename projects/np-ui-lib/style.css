@@ -1582,6 +1582,11 @@ svg {
     z-index: 2001;
 }
 
+.np-loader-text {
+    padding: 10px;
+    color: #ffffff;
+}
+
 .np-cursor-pointer {
     cursor: pointer;
 }

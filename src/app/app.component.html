@@ -1,20 +1,20 @@
-<header class="header">
-    <div class="menu-btn" (click)="toggleMenu()">
+<header>
+    <div class="header-menu-btn" (click)="toggleMenu()">
         <i class="fa fa-bars"></i>
     </div>
     <img alt="NTech Software Solutions" class="logo" src="https://raw.githubusercontent.com/NilavPatel/nilavpatel.github.io/master/images/logo-large.png">
-    <h1 class="np-hidden-sm np-hidden-md">
+    <div class="header-link np-hidden-sm np-hidden-md">
         <a title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package">
             np-ui-lib ui components
         </a>
-    </h1>
+    </div>
 </header>
-<div class="main-container">
-    <div class="nav" *ngIf="showMenu">
+<section>
+    <nav *ngIf="showMenu">
         <np-menubar [items]="menuItems" [isPanelMenu]="true" (onClickMenuItem)="onClickMenuItem($event)" styleClass="my-nav">
         </np-menubar>
-    </div>
-    <div class="content">
+    </nav>
+    <article>
         <router-outlet></router-outlet>
-    </div>
-</div>
+    </article>
+</section>
