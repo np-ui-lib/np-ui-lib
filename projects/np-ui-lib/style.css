@@ -113,7 +113,7 @@ svg {
     padding-left: 12px;
 }
 
-@media (min-width:576px) {
+@media (max-width:767px) {
     .np-col,
     .np-col-1,
     .np-col-10,
@@ -184,7 +184,7 @@ svg {
     }
 }
 
-@media (min-width:768px) {
+@media (min-width:768px) and (max-width:991px) {
     .np-col,
     .np-col-1,
     .np-col-10,
@@ -255,7 +255,7 @@ svg {
     }
 }
 
-@media (min-width:992px) {
+@media (min-width:992px) and (max-width:1199px) {
     .np-col,
     .np-col-1,
     .np-col-10,
@@ -517,7 +517,7 @@ svg {
     margin-left: 91.666667%
 }
 
-@media (min-width:576px) {
+@media (max-width:767px) {
     .np-col-sm {
         -webkit-flex-basis: 0;
         -ms-flex-preferred-size: 0;
@@ -657,7 +657,7 @@ svg {
     }
 }
 
-@media (min-width:768px) {
+@media (min-width:768px) and (max-width:991px) {
     .np-col-md {
         -webkit-flex-basis: 0;
         -ms-flex-preferred-size: 0;
@@ -797,7 +797,7 @@ svg {
     }
 }
 
-@media (min-width:992px) {
+@media (min-width:992px) and (max-width:1199px) {
     .np-col-lg {
         -webkit-flex-basis: 0;
         -ms-flex-preferred-size: 0;
