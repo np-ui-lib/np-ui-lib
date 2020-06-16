@@ -24,7 +24,7 @@ export class NpSliderComponent implements OnInit {
   @Input() inputId: string = `np-slider_${NpSliderComponent.controlCount++}`;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  _innerValue: boolean;
+  _innerValue: number;
   _isDisabled: boolean = false;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
@@ -34,11 +34,11 @@ export class NpSliderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get value(): boolean {
+  get value(): number {
     return this._innerValue;
   };
 
-  set value(v: boolean) {
+  set value(v: number) {
     if (v !== this._innerValue) {
       this._innerValue = v;
       this.onChangeCallback(v);
@@ -47,7 +47,7 @@ export class NpSliderComponent implements OnInit {
     }
   }
 
-  writeValue(v: boolean): void {
+  writeValue(v: number): void {
     if (v !== this._innerValue) {
       this._innerValue = v;
     }

@@ -13,7 +13,7 @@ export class NpSliderDemoComponent implements OnInit {
   }
 
   slider1: number = 0;
-  slider2: number = 50;
+  slider2: number = 55;
   slider3: number = 0;
   slider4: number = 0;
   slider5: number = 0;
