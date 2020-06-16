@@ -64,6 +64,7 @@ export class AppComponent {
   ];
 
   showMenu: boolean;
+  isMobileView: boolean;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -87,8 +88,10 @@ export class AppComponent {
   setMenubarOnResize() {
     if (window.innerWidth <= 992) {
       this.showMenu = false;
+      this.isMobileView = true;
     } else {
       this.showMenu = true;
+      this.isMobileView = false;
     }
   }
 

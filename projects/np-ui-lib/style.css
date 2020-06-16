@@ -1246,6 +1246,7 @@ svg {
     min-width: 50px;
     height: 32px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .np-btn:disabled {
@@ -1412,7 +1413,7 @@ svg {
     border: 1px solid #c8c8c8;
     border-radius: 2px;
     border-left: 5px solid #c8c8c8;
-    background-color: #ffffff;
+    background-color: #f1f1f1;
     padding-right: 32px;
 }
 

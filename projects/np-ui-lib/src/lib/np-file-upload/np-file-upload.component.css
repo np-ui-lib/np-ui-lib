@@ -41,6 +41,10 @@
     border-radius: 2px;
 }
 
+.np-fp-btn:hover {
+    background-color: #ddd;
+}
+
 .np-fp-label {
     position: relative;
     flex: 1 1 auto;

@@ -2,15 +2,15 @@
     <div class="header-menu-btn" (click)="toggleMenu()">
         <i class="fa fa-bars"></i>
     </div>
-    <img alt="NTech Software Solutions" class="logo" src="https://raw.githubusercontent.com/NilavPatel/nilavpatel.github.io/master/images/logo-large.png">
-    <div class="header-link np-hidden-sm np-hidden-md">
-        <a title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package">
-            np-ui-lib ui components
-        </a>
+    <div class="header-link">
+        np-ui-lib
     </div>
+    <a class="logo-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package">
+        <i class="fa fa-github"></i>
+    </a>
 </header>
 <section>
-    <nav *ngIf="showMenu">
+    <nav *ngIf="showMenu" [ngClass]="{'mobile-nav' : isMobileView}">
         <np-menubar [items]="menuItems" [isPanelMenu]="true" (onClickMenuItem)="onClickMenuItem($event)" styleClass="my-nav">
         </np-menubar>
     </nav>

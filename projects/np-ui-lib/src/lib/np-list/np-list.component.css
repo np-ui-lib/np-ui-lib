@@ -27,3 +27,7 @@
 .np-li-selection {
     padding-right: 10px;
 }
+
+.np-li-item:hover {
+    background-color: #ddd;
+}

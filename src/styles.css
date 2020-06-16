@@ -64,13 +64,16 @@ header {
 }
 
 .header-link {
-    text-align: center;
-    width: 100%;
-}
-
-.header-link a {
     color: white;
     font-size: 25px;
+}
+
+.logo-link {
+    margin-left: auto;
+    padding: 0px 10px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
 }
 
 section {
@@ -84,6 +87,12 @@ nav {
     height: calc(100vh - 50px);
     overflow: auto;
     width: 220px;
+}
+
+.mobile-nav {
+    position: absolute;
+    border-right: 1px solid #c8c8c8;
+    z-index: 3000;
 }
 
 .my-nav {

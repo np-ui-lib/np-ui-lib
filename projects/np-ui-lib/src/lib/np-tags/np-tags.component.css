@@ -20,6 +20,7 @@
     cursor: pointer;
 }
 
+.np-tg-selected,
 .np-tg-search-item:hover {
     color: #fff;
     background-color: #007bff;
@@ -45,11 +46,6 @@
     cursor: pointer;
     outline: none;
     color: #ffffff;
-}
-
-.np-tg-selected {
-    color: #fff;
-    background-color: #007bff;
 }
 
 .np-tg-gray {
