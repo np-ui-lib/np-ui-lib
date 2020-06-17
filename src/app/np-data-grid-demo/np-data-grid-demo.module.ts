@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpDataGridDemoRoutingModule } from './np-data-grid-demo-routing.module';
 import { NpDataGridDemoComponent } from './np-data-grid-demo.component';
-import { NpDataGridModule, NpSwitchModule, NpTabsModule } from 'np-ui-lib';
+import { NpDataGridModule, NpSwitchModule, NpTabsModule, NpLoaderModule } from 'np-ui-lib';
 
 import { ClientGridComponent } from './client-grid/client-grid.component';
 import { ServerGridComponent } from './server-grid/server-grid.component';
@@ -51,7 +51,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     NpSwitchModule,
     NpTabsModule,
-    HttpClientModule
+    HttpClientModule,
+    NpLoaderModule
   ]
 })
 export class NpDataGridDemoModule { }

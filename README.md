@@ -46,11 +46,11 @@ npm i np-ui-lib
 
 ### To Run this example project
 ````
-First run below command, which will create dist folder for library
-# ng build np-ui-lib --watch
+Run this command in console, which will create dist folder for library.
+$ ng build np-ui-lib --watch
 
-After above command, run below command
-# ng serve
+Then run below command in another console.
+$ ng serve
 ````
 
 ## License

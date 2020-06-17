@@ -14,6 +14,7 @@ export class ServerGridAllComponent implements OnInit {
 
   _toggleColumn: boolean = true;
   showFilters: boolean = true;
+  isLoading: boolean = true;
 
   @ViewChild("actionButtonsTemplate", { static: true }) actionButtonsTemplate: TemplateRef<any>;
   @ViewChild("birthDateColumnTemplate", { static: true }) birthDateColumnTemplate: TemplateRef<any>;
@@ -39,9 +40,11 @@ export class ServerGridAllComponent implements OnInit {
   }
 
   onLoadData(options: LoadOptions) {
+    this.isLoading = true;
     this.dataService.getDataUsingLoadOptions(options).subscribe((data: any) => {
       var result = new DataSource(data.data, data.total, { totalCount: data.total }, options.isAllPages);
       this.gridDataSource.next(result);
+      this.isLoading = false;
     });
   }
 
@@ -79,7 +82,7 @@ export class ServerGridAllComponent implements OnInit {
     columns[1].filterOperator = FilterTypes.StartsWith;
     columns[1].filterValue = "Nilav";
     columns[2].visible = false;
-    this.serverSideGrid.setColumns(columns);    
+    this.serverSideGrid.setColumns(columns);
   }
 
   setStateForServerSideGrid() {

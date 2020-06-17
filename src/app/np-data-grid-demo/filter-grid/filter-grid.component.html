@@ -26,6 +26,6 @@
 </p>
 <p>Possible values for <b>filterOperator</b> are startswith, endswith, contains, gt, lt, ge, le, eq, ne.</p>
 <p>Possible values for <b>dataType</b> are number, string, date, boolean.</p>
-<p>options:<code>{{currentLoadOptions | json}}</code></p>
+<p class="np-alert np-alert-info">Options:<code>{{currentLoadOptions | json}}</code></p>
 <np-data-grid [columns]="gridColumns" [dataSource]="serverGridDataSource" [isServerOperations]="true" (onLoadData)="onLoadDataServerGrid($event)" [showFilters]="showFilters">
 </np-data-grid>

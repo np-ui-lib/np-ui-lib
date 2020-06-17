@@ -145,9 +145,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   ngOnInit() {
-    if (this.onInit != undefined) {
-      this.onInit.emit();
-    }
+    this.onInit.emit();
   }
 
   ngAfterContentInit() {
@@ -163,10 +161,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     this.subscribeDataSource();
     if (this.isServerOperations) {
       this._getCurrentViewData(1);
-    }
-
-    if (this.onAfterInit != undefined) {
-      this.onAfterInit.emit();
     }
   }
 
@@ -199,6 +193,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       this._viewContainerRef
     );
     this.columnChooserOverlayRef.backdropClick().subscribe(() => this._closeColumnChooser());
+    this.onAfterInit.emit();
   }
 
   private subscribeDataSource() {

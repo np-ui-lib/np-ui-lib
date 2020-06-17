@@ -24,6 +24,6 @@
         string {{'}'}}</q>
 </p>
 <p>Possible values for <b>sortDirection</b> are asc, desc.</p>
-<p>options:<code>{{currentLoadOptions | json}}</code></p>
+<p class="np-alert np-alert-info">Options: <code>{{currentLoadOptions | json}}</code></p>
 <np-data-grid [columns]="gridColumns" [dataSource]="serverGridDataSource" [isServerOperations]="true" (onLoadData)="onLoadDataServerGrid($event)" [multiColumnSortEnable]="multiColumnSortEnable">
 </np-data-grid>

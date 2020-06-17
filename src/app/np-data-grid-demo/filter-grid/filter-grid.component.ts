@@ -40,7 +40,9 @@ export class FilterGridComponent implements OnInit {
   }
 
   onLoadDataServerGrid(options: LoadOptions) {
-    this.currentLoadOptions = options;
+    setTimeout(() => {
+      this.currentLoadOptions = options;
+    }, 0);
     this.dataService.getDataUsingLoadOptions(options).subscribe((data: any) => {
       var result = new DataSource(data.data, data.total, { totalCount: 10000 }, options.isAllPages);
       this.serverGridDataSource.next(result);

@@ -4,9 +4,11 @@
     </a>
 </h2>
 
-<np-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiRowSelectEnable]="true" [title]="'Server side data grid'" [showColumnChooser]="true" [showToolBar]="true" [allowExport]="true" [enableStateStoring]="true" [showFilters]="showFilters"
-    [showSummary]="true" [summaryTemplate]="summaryTemplate" (onInit)="onInit()" (onAfterInit)="onAfterInit()" [allowColumnReorder]="true" [allowColumnResize]="true" [isServerOperations]="true" [pageSize]="5" (onLoadData)="onLoadData($event)">
-</np-data-grid>
+<div [np-loader]="isLoading">
+    <np-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiRowSelectEnable]="true" [title]="'Server side data grid'" [showColumnChooser]="true" [showToolBar]="true" [allowExport]="true" [enableStateStoring]="true" [showFilters]="showFilters"
+        [showSummary]="true" [summaryTemplate]="summaryTemplate" [allowColumnReorder]="true" [allowColumnResize]="true" [isServerOperations]="true" [pageSize]="5" (onLoadData)="onLoadData($event)" (onInit)="onInit()" (onAfterInit)="onAfterInit()">
+    </np-data-grid>
+</div>
 
 <!-- Template for sction buttons column -->
 <ng-template #actionButtonsTemplate let-row="row">
