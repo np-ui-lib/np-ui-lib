@@ -10,13 +10,13 @@
 </div>
 
 <np-accordion>
-    <np-panel [title]="'Title A'">
+    <np-panel [title]="'Title A'" [isOpen]="true">
         <p>
             Content A
         </p>
     </np-panel>
 
-    <np-panel [title]="titleB">
+    <np-panel [title]="titleB" [isOpen]="false">
         <ng-template #titleB>
             <i class="fa fa-home"></i>Title B
         </ng-template>
@@ -25,7 +25,7 @@
         </p>
     </np-panel>
 
-    <np-panel [title]="'Title C'">
+    <np-panel [title]="'Title C'" [isOpen]="false">
         <p>
             Content C
         </p>
@@ -102,7 +102,7 @@
 </np-accordion>
 
 <p>
-    Single Open :
+    allow Multiple Open panels:
     <np-switch [(ngModel)]="_allowMultipleOpen"></np-switch>
 </p>
 

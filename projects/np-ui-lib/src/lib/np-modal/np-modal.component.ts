@@ -19,6 +19,8 @@ export class NpModalComponent {
   @Input() backDropClass: string = "np-mod-backdrop";
   @Output() onOpen: EventEmitter<void> = new EventEmitter();
   @Output() onClose: EventEmitter<void> = new EventEmitter();
+  static controlCount = 1;
+  @Input() inputId: string = `np-modal_${NpModalComponent.controlCount++}`;
 
   @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
   private templatePortal: TemplatePortal<any>;

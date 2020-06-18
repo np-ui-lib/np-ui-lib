@@ -9,6 +9,8 @@ export class NpCardComponent implements OnInit {
 
   @Input() styleClass: string;
   @Input() width: number;
+  static controlCount = 1;
+  @Input() inputId: string = `np-card_${NpCardComponent.controlCount++}`;
 
   constructor() { }
 

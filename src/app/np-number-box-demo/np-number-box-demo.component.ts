@@ -16,7 +16,7 @@ export class NpNumberBoxDemoComponent implements OnInit {
   number2: number = 20;
   number3: number;
   number4: number;
-  number5: number;
+  number5: number = 50;
   number6: number;
   number7: number;
   number8: number;

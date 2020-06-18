@@ -1,92 +1,94 @@
-<div [ngClass]="{'np-input-group': true, 'np-dp-component': true, 'np-disabled' : _isDisabled}" [class]="styleClass" *ngIf="!defaultOpen; else templatePortalContent">
-    <input class="np-form-control" type="text" [attr.id]="inputId" [value]="value | date: format" [readonly]="true" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" [disabled]="_isDisabled">
-    <div class="input-group-append">
-        <div class="np-btn np-btn-icon" (click)="_clear()" title="Clear">
-            <svg class="np-icon-sm" viewBox="0 0 24 24">
-                <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                <path d="M0 0h24v24H0z" fill="none" />
-            </svg>
+<div [attr.id]="inputId" [ngClass]="{'np-dp-component': true, 'np-disabled' : _isDisabled}" [class]="styleClass">
+    <div class="np-input-group" *ngIf="!defaultOpen; else templatePortalContent">
+        <input class="np-form-control" type="text" [value]="value | date: format" [readonly]="true" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" [disabled]="_isDisabled">
+        <div class="input-group-append">
+            <div class="np-btn np-btn-icon" (click)="_clear()" title="Clear">
+                <svg class="np-icon-sm" viewBox="0 0 24 24">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+            </div>
+        </div>
+        <div class="input-group-append">
+            <div class="np-btn np-btn-icon" (click)="_toggleDatePicker()">
+                <svg class="np-icon-sm" viewBox="0 0 24 24">
+                    <path
+                        d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                    <path fill="none" d="M0 0h24v24H0z" />
+                </svg>
+            </div>
         </div>
     </div>
-    <div class="input-group-append">
-        <div class="np-btn np-btn-icon" (click)="_toggleDatePicker()">
-            <svg class="np-icon-sm" viewBox="0 0 24 24">
-                <path
-                    d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
-                <path fill="none" d="M0 0h24v24H0z" />
-            </svg>
-        </div>
-    </div>
-</div>
-<ng-template #templatePortalContent>
-    <div class="np-dp-overlay np-border" [ngClass]="{'np-dp-default-open': defaultOpen, 'np-disabled' : _isDisabled}">
-        <div class="np-row np-no-gutters">
-            <div class="np-col-12">
-                <div class="np-row justify-content-around np-no-gutters np-dp-header">
-                    <div class="np-col-auto">
-                        <button class="np-btn np-btn-icon" type="button" (click)="_prevMonth()" title="Previous">
-                            <svg class="np-icon" viewBox="0 0 24 24">
-                                <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
-                                <path fill="none" d="M0 0h24v24H0V0z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="np-col-auto">
-                        <np-number-box [(ngModel)]="_currentYear" [format]="'####'" [showControls]="false" required (onChange)="_selectYear($event)">
-                        </np-number-box>
-                    </div>
-                    <div class="np-col-auto">
-                        <select class="np-form-control" (change)="_selectMonth($event)">
-                            <option *ngFor="let month of _months" [value]="month.key" [text]="month.value"
-                                [selected]="month.key == _currentMonth">
-                            </option>
-                        </select>
-                    </div>
-                    <div class="np-col-auto">
-                        <button class="np-btn np-btn-icon" type="button" (click)="_nextMonth()" title="Next">
-                            <svg class="np-icon" viewBox="0 0 24 24">
-                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                                <path fill="none" d="M0 0h24v24H0V0z" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="np-col-12">
-                <div class="np-dp-weekdays">
-                    <ng-container *ngFor="let weekDay of _weekDays;let i = index;">
-                        <div class="np-dp-weekday" [innerHTML]="weekDay"></div>
-                    </ng-container>
-                </div>
-            </div>
-            <div class="np-col-12">
-                <div class="np-dp-days">
-                    <ng-container *ngFor="let day of _days; let i = index;">
-                        <div class="np-dp-day" (click)="_selectDate(day)" [ngClass]="{'np-dp-today': _checkIsToday(day), 'np-disabled' : _checkIsDateDisabled(_currentYear,_currentMonth,day), 'np-dp-selected': _checkIsSelected(day)}">
-                            <div *ngIf="_getTooltip(_currentYear,_currentMonth,day); let label; else dayTemplate" np-tooltip [placement]="'bottom'" [text]="label">
-                                {{day}}
-                            </div>
-                            <ng-template #dayTemplate>
-                                {{day}}
-                            </ng-template>
+    <ng-template #templatePortalContent>
+        <div class="np-dp-overlay np-border" [ngClass]="{'np-dp-default-open': defaultOpen}">
+            <div class="np-row np-no-gutters">
+                <div class="np-col-12">
+                    <div class="np-row justify-content-around np-no-gutters np-dp-header">
+                        <div class="np-col-auto">
+                            <button class="np-btn np-btn-icon" type="button" (click)="_prevMonth()" title="Previous">
+                                <svg class="np-icon" viewBox="0 0 24 24">
+                                    <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                                    <path fill="none" d="M0 0h24v24H0V0z" />
+                                </svg>
+                            </button>
                         </div>
-                    </ng-container>
+                        <div class="np-col-auto">
+                            <np-number-box [(ngModel)]="_currentYear" [format]="'####'" [showControls]="false" required (onChange)="_selectYear($event)">
+                            </np-number-box>
+                        </div>
+                        <div class="np-col-auto">
+                            <select class="np-form-control" (change)="_selectMonth($event)">
+                                <option *ngFor="let month of _months" [value]="month.key" [text]="month.value"
+                                    [selected]="month.key == _currentMonth">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="np-col-auto">
+                            <button class="np-btn np-btn-icon" type="button" (click)="_nextMonth()" title="Next">
+                                <svg class="np-icon" viewBox="0 0 24 24">
+                                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                                    <path fill="none" d="M0 0h24v24H0V0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="np-col-12">
-                <div class="np-row justify-content-around np-no-gutters np-dp-footer">
-                    <div class="np-col-3" *ngIf="showTodayButton">
-                        <button class="np-btn np-btn-primary np-btn-block" type="button" (click)="_setToday()">Today</button>
+                <div class="np-col-12">
+                    <div class="np-dp-weekdays">
+                        <ng-container *ngFor="let weekDay of _weekDays;let i = index;">
+                            <div class="np-dp-weekday" [innerHTML]="weekDay"></div>
+                        </ng-container>
                     </div>
-                    <div class="np-col-3" *ngIf="!defaultOpen">
-                        <button class="np-btn np-btn-primary np-btn-block" type="button" (click)="_close()">Ok</button>
+                </div>
+                <div class="np-col-12">
+                    <div class="np-dp-days">
+                        <ng-container *ngFor="let day of _days; let i = index;">
+                            <div class="np-dp-day" (click)="_selectDate(day)" [ngClass]="{'np-dp-today': _checkIsToday(day), 'np-disabled' : _checkIsDateDisabled(_currentYear,_currentMonth,day), 'np-dp-selected': _checkIsSelected(day)}">
+                                <div *ngIf="_getTooltip(_currentYear,_currentMonth,day); let label; else dayTemplate" np-tooltip [placement]="'bottom'" [np-tooltip]="label">
+                                    {{day}}
+                                </div>
+                                <ng-template #dayTemplate>
+                                    {{day}}
+                                </ng-template>
+                            </div>
+                        </ng-container>
                     </div>
-                    <div class="np-col-3">
-                        <button class="np-btn np-btn-danger np-btn-block" type="button" (click)="_clear()">Clear</button>
+                </div>
+                <div class="np-col-12">
+                    <div class="np-row justify-content-around np-no-gutters np-dp-footer">
+                        <div class="np-col-3" *ngIf="showTodayButton">
+                            <button class="np-btn np-btn-primary np-btn-block" type="button" (click)="_setToday()">Today</button>
+                        </div>
+                        <div class="np-col-3" *ngIf="!defaultOpen">
+                            <button class="np-btn np-btn-primary np-btn-block" type="button" (click)="_close()">Ok</button>
+                        </div>
+                        <div class="np-col-3">
+                            <button class="np-btn np-btn-danger np-btn-block" type="button" (click)="_clear()">Clear</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</ng-template>
+    </ng-template>
+</div>

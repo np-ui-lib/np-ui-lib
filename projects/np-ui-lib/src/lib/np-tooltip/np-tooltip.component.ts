@@ -10,6 +10,9 @@ export class NpTooltipComponent implements OnInit {
   _isTemplate: boolean;
   @Input() tooltip: string | TemplateRef<any>;
   @Input() styleClass: string;
+  static controlCount = 1;
+  @Input() inputId: string = `np-tooltip_${NpTooltipComponent.controlCount++}`;
+
   ngOnInit(): void {
     if (this.tooltip instanceof TemplateRef) {
       this._isTemplate = true;

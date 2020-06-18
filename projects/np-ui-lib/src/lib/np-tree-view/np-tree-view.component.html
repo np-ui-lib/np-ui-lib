@@ -1,4 +1,4 @@
-<div [ngClass]="{'np-tv-component':true}" [class]="styleClass">
+<div [attr.id]="inputId" [ngClass]="{'np-tv-component':true}" [class]="styleClass">
     <ng-container *ngTemplateOutlet="treeViewTemplate;context:{items:items}">
     </ng-container>
 </div>
@@ -18,7 +18,7 @@
         <span class="np-tv-node-label">
             <label (click)="_onClick(item)">
                 <input type="checkbox" class="np-tv-checkbox" [checked]="_isSelected(item)" *ngIf="allowSelection"
-                (change)="_onSelect($event,item)">
+                    (change)="_onSelect($event,item)">
                 {{item.label}}
             </label>
         </span>

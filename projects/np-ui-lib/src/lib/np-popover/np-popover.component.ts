@@ -11,10 +11,13 @@ export class NpPopoverComponent implements OnInit {
 
   @Input() header: string | TemplateRef<any>;
   @Input() body: string | TemplateRef<any>;
-  _isHeaderTemplate: boolean;
-  _isBodyTemplate: boolean;
   @Input() width: number;
   @Input() styleClass: string;
+  static controlCount = 1;
+  @Input() inputId: string = `np-popover_${NpPopoverComponent.controlCount++}`;
+
+  _isHeaderTemplate: boolean;
+  _isBodyTemplate: boolean;
 
   constructor() { }
 

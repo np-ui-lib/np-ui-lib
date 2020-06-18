@@ -23,9 +23,10 @@ export class NpSidepanelComponent implements OnInit {
   @Input() width: number | string;
   @Input() showCloseIcon: boolean = true;
   @Input() closeOnClickOutside: boolean = true;
-
   @Input() styleClass: string;
   @Input() backDropClass: string = "np-sp-backdrop";
+  static controlCount = 1;
+  @Input() inputId: string = `np-sidepanel_${NpSidepanelComponent.controlCount++}`;
 
   constructor(
     public overlay: Overlay,

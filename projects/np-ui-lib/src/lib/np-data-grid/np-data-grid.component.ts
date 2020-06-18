@@ -25,6 +25,9 @@ import { NpModalComponent } from '../np-modal/np-modal.component';
 })
 export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
 
+  static controlCount = 1;
+  @Input() inputId: string = `np-data-grid_${NpDataGridComponent.controlCount++}`;
+
   @Input() columns: Column[];
   _columns: Column[];
 

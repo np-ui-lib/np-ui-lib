@@ -1,5 +1,5 @@
 <ng-template #templatePortalContent>
-    <div [ngClass]="{'np-sp-component':true}" [class]="styleClass">
+    <div [attr.id]="inputId" [ngClass]="{'np-sp-component':true}" [class]="styleClass">
         <button *ngIf="showCloseIcon" type="button" class="np-btn np-btn-icon np-sp-close" (click)="close()">
             <svg class="np-icon-sm" viewBox="0 0 24 24">
                 <path

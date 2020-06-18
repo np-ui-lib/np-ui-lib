@@ -13,6 +13,8 @@ export class NpTreeViewComponent implements OnInit {
   @Input() items: NpTreeViewItem[];
   @Input() styleClass: string;
   @Input() allowSelection: boolean;
+  static controlCount = 1;
+  @Input() inputId: string = `np-treeview_${NpTreeViewComponent.controlCount++}`;
 
   @Output() onClick: EventEmitter<any> = new EventEmitter();
   @Output() onSelect: EventEmitter<any> = new EventEmitter();

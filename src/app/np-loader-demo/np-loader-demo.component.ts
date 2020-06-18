@@ -11,10 +11,14 @@ export class NpLoaderDemoComponent implements OnInit {
   loader1: boolean = false;
   loader2: boolean = false;
   loader3: boolean = false;
+  loader4: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  importText = "import { NpLoaderModule } from 'np-ui-lib';"
+  htmlText = '<span [np-loader]="true"></span>';
 
 }

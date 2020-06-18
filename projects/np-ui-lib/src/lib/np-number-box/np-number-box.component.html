@@ -1,17 +1,19 @@
-<div [ngClass]="{'np-input-group': true, 'np-disabled' : _isDisabled, 'np-nb-component': true}" [class]="styleClass">
-    <input class="np-form-control" type="number" [attr.id]="inputId" [value]="_innerValue" [placeholder]="placeholder" [disabled]="_isDisabled" (change)="_onInputChange($event)" autocomplete="off">
-    <div class="input-group-append" *ngIf="showControls">
-        <div class="np-btn np-btn-icon" (mousedown)="_onMouseDownMinus()" (mouseup)="_onMouseUpMinus()" (mouseleave)="_onMouseUpMinus()">
-            <svg class="np-icon" viewBox="0 0 24 24">
-                <path d="M19 13H5v-2h14v2z" />
-                <path d="M0 0h24v24H0z" fill="none" /></svg>
+<div [attr.id]="inputId" [ngClass]="{'np-nb-component': true, 'np-disabled' : _isDisabled}" [class]="styleClass">
+    <div class="np-input-group">
+        <input class="np-form-control" type="number" [value]="_innerValue" [placeholder]="placeholder" [disabled]="_isDisabled" (change)="_onInputChange($event)" autocomplete="off">
+        <div class="input-group-append" *ngIf="showControls">
+            <div class="np-btn np-btn-icon" (mousedown)="_onMouseDownMinus()" (mouseup)="_onMouseUpMinus()" (mouseleave)="_onMouseUpMinus()">
+                <svg class="np-icon" viewBox="0 0 24 24">
+                    <path d="M19 13H5v-2h14v2z" />
+                    <path d="M0 0h24v24H0z" fill="none" /></svg>
+            </div>
         </div>
-    </div>
-    <div class="input-group-append" *ngIf="showControls">
-        <div class="np-btn np-btn-icon" (mousedown)="_onMouseDownAdd()" (mouseup)="_onMouseUpAdd()" (mouseleave)="_onMouseUpAdd()">
-            <svg class="np-icon" viewBox="0 0 24 24">
-                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                <path d="M0 0h24v24H0z" fill="none" /></svg>
+        <div class="input-group-append" *ngIf="showControls">
+            <div class="np-btn np-btn-icon" (mousedown)="_onMouseDownAdd()" (mouseup)="_onMouseUpAdd()" (mouseleave)="_onMouseUpAdd()">
+                <svg class="np-icon" viewBox="0 0 24 24">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                    <path d="M0 0h24v24H0z" fill="none" /></svg>
+            </div>
         </div>
     </div>
 </div>

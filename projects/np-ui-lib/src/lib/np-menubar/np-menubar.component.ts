@@ -14,9 +14,10 @@ export class NpMenubarComponent {
   @Input() items: NpMenuItem[];
   @Input() styleClass: string;
   @Input() isPanelMenu: boolean;
-
   /**orientation of menu, valid values are horizontal and vertical. Default is vertical. */
   @Input() orientation: string = "vertical";
+  static controlCount = 1;
+  @Input() inputId: string = `np-menubar_${NpMenubarComponent.controlCount++}`;
   @Output() _onCloseMenu: EventEmitter<any> = new EventEmitter();
   @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 

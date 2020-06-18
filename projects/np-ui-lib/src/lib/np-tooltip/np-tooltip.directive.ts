@@ -6,7 +6,7 @@ import { NpTooltipComponent } from './np-tooltip.component';
 @Directive({ selector: '[np-tooltip]' })
 export class NpTooltipDirective implements AfterViewInit {
 
-    @Input() text: string | TemplateRef<any>;
+    @Input('np-tooltip') text: string | TemplateRef<any>;
     @Input() placement: string;
     @Input() styleClass: string;
     @Input() tooltipOnFocus: boolean = false;

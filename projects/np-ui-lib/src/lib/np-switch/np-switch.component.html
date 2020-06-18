@@ -1,7 +1,6 @@
-<div [ngClass]="{'np-sw-component': true, 'np-disabled': _isDisabled}" [class]="styleClass">
-    <label [attr.for]="inputId">
-        <input type="checkbox" [attr.id]="inputId" [checked]="_innerValue" [disabled]="_isDisabled"
-            (change)="onClickSwitch($event)">
+<div [attr.id]="inputId" [ngClass]="{'np-sw-component': true, 'np-disabled' : _isDisabled}" [class]="styleClass">
+    <label>
+        <input type="checkbox" [checked]="_innerValue" [disabled]="_isDisabled" (change)="onClickSwitch($event)">
         <div class="np-row np-no-gutters">
             <div class="np-col-6">
                 <div class="np-sw-label" [ngClass]="{'np-sw-danger' : value == false}">

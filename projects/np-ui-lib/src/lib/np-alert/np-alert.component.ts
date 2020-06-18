@@ -13,6 +13,8 @@ export class NpAlertComponent implements OnInit {
   @Input() showCloseButton: boolean;
   @Input() autoClose: boolean;
   @Input() autoCloseTimeout: number;
+  static controlCount = 1;
+  @Input() inputId: string = `np-alert_${NpAlertComponent.controlCount++}`;
 
   constructor(private el: ElementRef) { }
 

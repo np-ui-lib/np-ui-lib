@@ -15,6 +15,8 @@ export class NpTabsComponent implements AfterContentInit {
   @Input() horizontalTabs: boolean;
   @Input() styleClass: string;
   @Output() onTabChange: EventEmitter<any> = new EventEmitter();
+  static controlCount = 1;
+  @Input() inputId: string = `np-tabs_${NpTabsComponent.controlCount++}`;
 
   _height: number;
 
@@ -28,10 +30,12 @@ export class NpTabsComponent implements AfterContentInit {
         this._tabs.toArray().forEach(tab => tab.active = false);
         tabs[0].active = true;
         this._height = tabs[0].height;
+        this.onTabChange.emit(tabs[0]);
         tabs[0].isLoadingFirstTime = false;
       }
     } else {
       this._height = activeTabs[0].height;
+      this.onTabChange.emit(activeTabs[0]);
       activeTabs[0].isLoadingFirstTime = false;
     }
   }
@@ -43,9 +47,7 @@ export class NpTabsComponent implements AfterContentInit {
     this._tabs.toArray().forEach(_t => { if (_t.inputId != tab.inputId) { _t.active = false } });
     tab.active = true;
     this._height = tab.height;
-    if (this.onTabChange) {
-      this.onTabChange.emit(tab);
-    }
+    this.onTabChange.emit(tab);
     tab.isLoadingFirstTime = false;
   }
 

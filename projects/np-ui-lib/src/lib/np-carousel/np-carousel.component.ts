@@ -20,6 +20,8 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy {
   @Input() pauseOnHover: boolean;
   @Input() showNavigationArrows: boolean = true;
   @Input() showNavigationIndicators: boolean = true;
+  static controlCount = 1;
+  @Input() inputId: string = `np-carousel_${NpCarouselComponent.controlCount++}`;
 
   _interval: any;
   _start: number;

@@ -13,6 +13,8 @@ export class NpBreadcrumbComponent implements OnInit {
   @Input() showHomeIcon: boolean = true;
   @Input() homeIconCss: string;
   @Output() onClick: EventEmitter<any> = new EventEmitter();
+  static controlCount = 1;
+  @Input() inputId: string = `np-breadcrumb_${NpBreadcrumbComponent.controlCount++}`;
 
   constructor() { }
 

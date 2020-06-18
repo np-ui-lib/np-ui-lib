@@ -1,4 +1,4 @@
-<div [ngClass]="'np-cs-component'" [class]="styleClass">
+<div [attr.id]="inputId" [ngClass]="'np-cs-component'" [class]="styleClass">
     <div class="np-row np-no-gutters justify-content-around align-items-center">
         <div class="np-col-auto" *ngIf="showNavigationArrows">
             <button type="button" title="Previous" class="np-btn np-btn-icon np-border" (click)="_minusSlides()">

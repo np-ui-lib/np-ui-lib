@@ -15,6 +15,8 @@ export class NpListComponent implements OnInit {
   @Input() allowSelection: boolean = false;
   @Input() styleClass: string;
   @Input() height: number;
+  static controlCount = 1;
+  @Input() inputId: string = `np-list_${NpListComponent.controlCount++}`;
   @Output() onSelect: EventEmitter<any> = new EventEmitter();
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
 
