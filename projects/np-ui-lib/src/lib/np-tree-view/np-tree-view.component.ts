@@ -165,4 +165,35 @@ export class NpTreeViewComponent implements OnInit {
     });
   }
 
+  _isIndeterminate(item: NpTreeViewItem) {
+    if (this._isSelected(item)) {
+      return false;
+    }
+    if (item.items) {
+      return this._isAnyChildSelected(item);
+    }
+    return false;
+  }
+
+  _isAnyChildSelected(item: NpTreeViewItem) {
+    var isAnySelected = false;
+    if (item.items && item.items.length > 0) {
+      item.items.forEach(element => {
+        if (isAnySelected) {
+          return;
+        }
+        if (element.items) {
+          if (this._isAnyChildSelected(element)) {
+            isAnySelected = true;
+          }
+        } else {
+          if (element.isSelected) {
+            isAnySelected = true;
+          }
+        }
+      });
+    }
+    return isAnySelected;
+  }
+
 }
