@@ -1,4 +1,4 @@
-<div [attr.id]="inputId" [ngClass]="{'np-nb-component': true, 'np-disabled' : _isDisabled}" [class]="styleClass">
+<div [ngClass]="{'np-nb-component': true, 'np-disabled' : _isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-input-group">
         <input class="np-form-control" type="number" [value]="_innerValue" [placeholder]="placeholder" [disabled]="_isDisabled" (change)="_onInputChange($event)" autocomplete="off">
         <div class="input-group-append" *ngIf="showControls">

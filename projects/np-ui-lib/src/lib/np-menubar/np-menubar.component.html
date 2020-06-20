@@ -1,4 +1,4 @@
-<div [attr.id]="inputId" [class]="styleClass" [ngClass]="{'np-mb-component': true, 'np-mb-horizontal': orientation === 'horizontal','np-mb-vertical': orientation === 'vertical','np-mb-panel': isPanelMenu }">
+<div [ngClass]="{'np-mb-component': true, 'np-mb-horizontal': orientation === 'horizontal','np-mb-vertical': orientation === 'vertical','np-mb-panel': isPanelMenu }" [class]="styleClass" [attr.id]="inputId">
     <ng-container *ngIf="!isPanelMenu">
         <ng-container *ngFor="let item of items">
             <ng-container *ngIf="item.items">

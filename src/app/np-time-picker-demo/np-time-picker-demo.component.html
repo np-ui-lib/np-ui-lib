@@ -50,6 +50,12 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>readonly</td>
+                    <td>Set readonly.</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
                     <td>required</td>
                     <td>Set required.</td>
                     <td></td>
@@ -134,8 +140,10 @@
 
         <div>
             <fieldset>
-                <legend>3. disabled</legend>
+                <legend>3. disabled and readonly</legend>
                 <np-time-picker [(ngModel)]="timePicker3" disabled></np-time-picker>
+                <br>
+                <np-time-picker [(ngModel)]="timePicker3" [readonly]="true"></np-time-picker>
             </fieldset>
         </div>
 
@@ -162,7 +170,7 @@
                 </div>
                 <div class="np-btn-group">
                     <button class="np-btn" (click)="timePicker5Disable = !timePicker5Disable">Toggle Disable</button>
-                    <button class="np-btn" (click)="timePicker5Required = !timePicker5Required">Toggle Required</button>
+                    <button class="np-btn" (click)="timePicker5Required = !timePicker5Required">Toggle required</button>
                 </div>
             </fieldset>
         </div>

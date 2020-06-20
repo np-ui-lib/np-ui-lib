@@ -45,6 +45,12 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>readonly</td>
+                    <td>Set readonly.</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
                     <td>required</td>
                     <td>Set required.</td>
                     <td></td>
@@ -163,8 +169,11 @@
 
         <div>
             <fieldset>
-                <legend>2. disabled</legend>
+                <legend>2. disabled and readonly</legend>
                 <np-date-picker [(ngModel)]="date2" disabled>
+                </np-date-picker>
+                <br>
+                <np-date-picker [(ngModel)]="date2" [readonly]="true">
                 </np-date-picker>
             </fieldset>
         </div>
@@ -193,7 +202,7 @@
                 </div>
                 <div class="np-btn-group">
                     <button class="np-btn" (click)="date4Disable = !date4Disable">Toggle Disable</button>
-                    <button class="np-btn" (click)="date4Required = !date4Required">Toggle Required</button>
+                    <button class="np-btn" (click)="date4Required = !date4Required">Toggle required</button>
                 </div>
             </fieldset>
         </div>

@@ -1,4 +1,4 @@
-<div [attr.id]="inputId" [ngClass]="{'np-ac-component':true, 'np-disabled' : _isDisabled}" [class]="styleClass">
+<div [ngClass]="{'np-ac-component':true, 'np-disabled' : _isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-input-group">
         <input class="np-form-control" type="text" [(ngModel)]="_displayValue" [placeholder]="placeholder" (input)="_onInput()" (keydown)="_onKeydown($event)" [disabled]="_isDisabled" autocomplete="off">
         <div class="input-group-append">

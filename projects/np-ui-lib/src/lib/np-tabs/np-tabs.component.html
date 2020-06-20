@@ -1,4 +1,4 @@
-<div [attr.id]="inputId" [class]="styleClass" [ngClass]="{'np-tabs-component': true, 'np-tabs-horizontal':horizontalTabs}" [style.max-height.px]="_height">
+<div [ngClass]="{'np-tabs-component': true, 'np-tabs-horizontal':horizontalTabs}" [style.max-height.px]="_height" [class]="styleClass" [attr.id]="inputId">
     <ul class="np-tab-header">
         <ng-container *ngFor="let tab of _tabs">
             <li class="np-tab-title" (click)="_selectTab(tab)" [ngClass]="{'np-active-tab':tab.active,'np-disabled': tab.disabled}">

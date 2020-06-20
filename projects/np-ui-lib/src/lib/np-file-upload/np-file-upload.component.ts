@@ -33,6 +33,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Input() styleClass: string;
   @Input() accept: string;
   @Input() multiple: boolean;
+  @Input() readonly: boolean;
   @Input() inputId: string = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
   /**
  * File extentions in string format, separated by comma
@@ -88,7 +89,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   }
 
   _clear() {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = null;
@@ -96,7 +97,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   }
 
   _onFileSelected($event) {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = $event.target.files;

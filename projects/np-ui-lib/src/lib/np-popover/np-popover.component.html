@@ -1,4 +1,4 @@
-<div [attr.id]="inputId" [style.width.px]="width" [class]="styleClass" [ngClass]="{'np-pop-component': true}">
+<div [ngClass]="{'np-pop-component': true}" [style.width.px]="width" [class]="styleClass" [attr.id]="inputId">
     <div class="np-pop-header">
         <ng-container *ngIf="!_isHeaderTemplate">
             <div [innerHTML]="header"></div>

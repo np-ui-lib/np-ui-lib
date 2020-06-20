@@ -44,6 +44,12 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>readonly</td>
+                    <td>Set readonly.</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
                     <td>required</td>
                     <td>Set required.</td>
                     <td></td>
@@ -117,8 +123,10 @@
 
         <div>
             <fieldset>
-                <legend>3. disabled</legend>
+                <legend>3. disabled and readonly</legend>
                 <np-switch [(ngModel)]="switch3" disabled></np-switch>
+                <br>
+                <np-switch [(ngModel)]="switch3" [readonly]="true"></np-switch>
             </fieldset>
         </div>
 

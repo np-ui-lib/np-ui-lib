@@ -25,6 +25,7 @@ export class NpSwitchComponent implements ControlValueAccessor {
   @Input() trueLabelText: string;
   @Input() falseLabelText: string;
   @Input() styleClass: string;
+  @Input() readonly: boolean;
   @Input() inputId: string = `np-switch_${NpSwitchComponent.controlCount++}`;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
@@ -59,8 +60,8 @@ export class NpSwitchComponent implements ControlValueAccessor {
     this._isDisabled = isDisabled;
   }
 
-  onClickSwitch($event) {
-    if (this._isDisabled) {
+  _onClickSwitch($event) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = $event.target.checked;

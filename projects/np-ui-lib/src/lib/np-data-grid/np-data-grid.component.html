@@ -1,4 +1,4 @@
-<div [attr.id]="inputId" [ngClass]="{'np-dg-component': true}" [style.max-height.px]="height" [style.max-width.px]="width" [class]="styleClass">
+<div [ngClass]="{'np-dg-component': true}" [style.max-height.px]="height" [style.max-width.px]="width" [class]="styleClass" [attr.id]="inputId">
     <div *ngIf="title" class="np-dg-title" [innerHTML]="title">
     </div>
     <div class="np-dg-toolbar" *ngIf="showToolBar">

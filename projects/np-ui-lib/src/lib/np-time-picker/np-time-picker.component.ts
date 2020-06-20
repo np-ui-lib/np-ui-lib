@@ -41,6 +41,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() hideSeconds: boolean = false;
   @Input() placeholder: string = "";
   @Input() styleClass: string;
+  @Input() readonly: boolean;
   @Input() inputId: string = `np-time-picker_${NpTimePickerComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
@@ -255,7 +256,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _open() {
-    if (this.defaultOpen == true || this._isDisabled) {
+    if (this.defaultOpen == true || this._isDisabled || this.readonly) {
       return;
     }
     this._isOpen = true;
@@ -338,7 +339,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _clear() {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = null;

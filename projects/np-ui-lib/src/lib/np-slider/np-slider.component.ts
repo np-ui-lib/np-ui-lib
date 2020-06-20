@@ -22,6 +22,7 @@ export class NpSliderComponent implements OnInit {
   @Input() step: number = 1;
   @Input() styleClass: string;
   @Input() inputId: string = `np-slider_${NpSliderComponent.controlCount++}`;
+  @Input() readonly: boolean;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   _innerValue: number;
@@ -66,7 +67,7 @@ export class NpSliderComponent implements OnInit {
   }
 
   _onChange($event) {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = $event.target.value;

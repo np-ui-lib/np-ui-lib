@@ -43,6 +43,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Input() itemTemplate: TemplateRef<any>;
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
+  @Input() readonly: boolean;
   @Input() inputId: string = `np-tags_${NpTagsComponent.controlCount++}`;
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
 
@@ -155,7 +156,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _onInput() {
-    if (this._isDisabled || !this.isServerSide) {
+    if (this._isDisabled || this.readonly || !this.isServerSide) {
       return;
     }
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
@@ -185,10 +186,11 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _onClick() {
-    if (!this.isServerSide && !this._isDisabled) {
-      if (!this.overlayRef.hasAttached()) {
-        this.overlayRef.attach(this.templatePortal);
-      }
+    if (this.isServerSide || this._isDisabled || this.readonly) {
+      return;
+    }
+    if (!this.overlayRef.hasAttached()) {
+      this.overlayRef.attach(this.templatePortal);
     }
   }
 
@@ -318,7 +320,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   clear() {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = null;

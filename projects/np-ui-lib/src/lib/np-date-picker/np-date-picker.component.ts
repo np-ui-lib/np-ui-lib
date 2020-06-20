@@ -58,6 +58,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() isStartMonthWithMonday: boolean = false;
   @Input() inputId: string = `np-date-picker_${NpDatePickerComponent.controlCount++}`;
   @Input() styleClass: string;
+  @Input() readonly: boolean;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   constructor(
@@ -274,11 +275,9 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _selectDate(day: number) {
-    if (
-      day == null ||
+    if (day == null ||
       this._checkIsDateDisabled(this._currentYear, this._currentMonth, day) ||
-      this._isDisabled
-    ) {
+      this._isDisabled || this.readonly) {
       return;
     }
     var date = new Date(this._currentYear, this._currentMonth, day);
@@ -309,7 +308,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _open() {
-    if (this.defaultOpen == true || this._isDisabled) {
+    if (this.defaultOpen == true || this._isDisabled || this.readonly) {
       return;
     }
     this._isOpen = true;
@@ -345,7 +344,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _clear() {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this._setSelectedDate(null);

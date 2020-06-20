@@ -33,6 +33,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   @Input() inputId: string = `np-dropdown_${NpDropdownComponent.controlCount++}`;
   @Input() styleClass: string;
   @Input() itemTemplate: TemplateRef<any>;
+  @Input() readonly: boolean;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
@@ -128,14 +129,14 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   _clear() {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = null;
   }
 
   _selectValue(val: any) {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = val;
@@ -143,7 +144,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   _open() {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     if (!this.overlayRef.hasAttached()) {

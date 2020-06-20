@@ -17,13 +17,13 @@
 </fieldset>
 
 <fieldset>
-    <legend>2. Disabled</legend>
+    <legend>2. disabled</legend>
     <np-auto-complete [(ngModel)]="auto2" [searchResult]="searchResult2" (onSearch)="onSearch2($event)" disabled>
     </np-auto-complete>
 </fieldset>
 
 <fieldset>
-    <legend>3. Required</legend>
+    <legend>3. required</legend>
     <form #form="ngForm">
         <np-auto-complete name="nameautosearch" #validations="ngModel" [(ngModel)]="auto3" [searchResult]="searchResult3" (onSearch)="onSearch3($event)" required>
         </np-auto-complete>

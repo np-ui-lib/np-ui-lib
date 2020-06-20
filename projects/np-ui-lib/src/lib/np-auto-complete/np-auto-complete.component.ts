@@ -39,6 +39,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
 
   @Input() placeholder: string = "";
   @Input() styleClass: string;
+  @Input() readonly: boolean;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   _isLoading: boolean = false;
@@ -166,7 +167,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   }
 
   _clear() {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = null;
@@ -174,7 +175,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   }
 
   _onInput() {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {

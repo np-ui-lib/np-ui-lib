@@ -39,6 +39,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   @Input() defaultOpen: boolean;
   @Input() inputId: string = `np-color-picker_${NpColorPickerComponent.controlCount++}`;
   @Input() styleClass: string;
+  @Input() readonly: boolean;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
@@ -140,7 +141,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _open() {
-    if (this.defaultOpen == true || this._isDisabled) {
+    if (this.defaultOpen == true || this._isDisabled || this.readonly) {
       return;
     }
     this._isOpen = true;
@@ -291,7 +292,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _clear() {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = null;

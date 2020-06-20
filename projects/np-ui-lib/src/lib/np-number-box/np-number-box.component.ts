@@ -33,6 +33,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   @Input() format: string;
   @Input() showControls: boolean = true;
   @Input() inputId: string = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
+  @Input() readonly: boolean;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   private timeout: any;
@@ -71,14 +72,14 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   }
 
   _add() {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = this.value + this.steps;
   }
 
   _minus() {
-    if (this._isDisabled) {
+    if (this._isDisabled || this.readonly) {
       return;
     }
     this.value = this.value - this.steps;

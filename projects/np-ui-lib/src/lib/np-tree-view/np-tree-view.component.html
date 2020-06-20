@@ -1,4 +1,4 @@
-<div [attr.id]="inputId" [ngClass]="{'np-tv-component':true}" [class]="styleClass">
+<div [ngClass]="{'np-tv-component':true}" [class]="styleClass" [attr.id]="inputId">
     <ng-container *ngTemplateOutlet="treeViewTemplate;context:{items:items}">
     </ng-container>
 </div>

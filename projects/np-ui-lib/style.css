@@ -1398,6 +1398,10 @@ svg {
     pointer-events: none;
 }
 
+.np-readonly {
+    pointer-events: none;
+}
+
 .np-pad-b-5 {
     padding-bottom: 5px;
 }

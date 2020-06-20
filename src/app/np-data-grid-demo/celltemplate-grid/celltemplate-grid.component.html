@@ -41,5 +41,5 @@
 
 <!-- Template for active column -->
 <ng-template #activeColumnTemplate let-row="row">
-    <np-switch [(ngModel)]="row.Active" trueLabelText="Yes" falseLabelText="No" disabled></np-switch>
+    <np-switch [(ngModel)]="row.Active" trueLabelText="Yes" falseLabelText="No" [readonly]="true"></np-switch>
 </ng-template>

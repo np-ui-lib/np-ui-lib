@@ -44,6 +44,12 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>readonly</td>
+                    <td>Set readonly.</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
                     <td>required</td>
                     <td>Set required.</td>
                     <td></td>
@@ -121,8 +127,10 @@
 
         <div>
             <fieldset>
-                <legend>2. disabled</legend>
+                <legend>2. disabled and readonly</legend>
                 <np-color-picker [(ngModel)]="color2" disabled></np-color-picker>
+                <br>
+                <np-color-picker [(ngModel)]="color2" [readonly]="true"></np-color-picker>
             </fieldset>
         </div>
 
@@ -153,7 +161,7 @@
                     <button type="button" class="np-btn" (click)="color4Disabled = !color4Disabled">Toggle
                         Disable</button>
                     <button type="button" class="np-btn" (click)="color4Required = !color4Required">Toggle
-                        Required</button>
+                        required</button>
                 </div>
             </fieldset>
         </div>

@@ -1,4 +1,4 @@
-<div [attr.id]="inputId" [ngClass]="{'np-tg-component':true, 'np-disabled' : _isDisabled}" [class]="styleClass">
+<div [ngClass]="{'np-tg-component':true, 'np-disabled' : _isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-input-group">
         <ng-container *ngFor="let tag of _innerValue">
             <div class="np-tg-tag">
