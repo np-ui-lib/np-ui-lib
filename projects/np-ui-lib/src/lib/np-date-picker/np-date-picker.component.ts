@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEn
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
 import { TemplatePortal } from "@angular/cdk/portal";
+import { NpUtilityService } from '../np-utility/np-utility.service';
 
 @Component({
   selector: "np-date-picker",
@@ -48,7 +49,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
 
   @Input() minDate: Date;
   @Input() maxDate: Date;
-  @Input() format: string = "";
+  @Input() format: string = "dd/MM/yyyy";
   @Input() defaultOpen: boolean = false;
   @Input() placeholder: string = "";
   @Input() showTodayButton: boolean = false;
@@ -65,7 +66,8 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     public overlay: Overlay,
     private _viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private utility: NpUtilityService
   ) {
     this._monthsList = [
       { key: 0, value: "January" },
@@ -87,8 +89,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this._todayDate = this._today.getDate();
     this._todayMonth = this._today.getMonth();
     this._todayYear = this._today.getFullYear();
-
-    this.format = "dd/MM/yyyy";
 
     this._weekDays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
@@ -189,7 +189,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
       this._selectedYear = null;
     }
 
-    var currentDate = this.value ? this.value : this._today;
+    var currentDate = this.value && this.value.toString() != "Invalid Date" ? this.value : this._today;
     if (this.minDate && currentDate < this.minDate) {
       currentDate = this.minDate;
     }
@@ -426,5 +426,11 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     if (event.which === 9) {
       this._close();
     }
+  }
+
+  _onInputChange($event) {
+    this.value = this.utility.ReverseFormatDate($event.target.value, this.format);
+    this._resetVariables();
+    this._calculateDays();
   }
 }
