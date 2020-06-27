@@ -127,6 +127,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-list-demo/np-list-demo.module').then(m => m.NpListDemoModule)
   },
   {
+    path: 'np-blockui-demo',
+    loadChildren: () => import('./np-blockui-demo/np-blockui-demo.module').then(m => m.NpBlockuiDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

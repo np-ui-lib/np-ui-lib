@@ -11,7 +11,7 @@
 }
 
 .np-mb-link {
-    padding: 5px 10px;
+    padding: 8px 10px;
     color: #000000;
     display: block;
     text-decoration: none;
@@ -67,10 +67,10 @@
 }
 
 .np-mb-panel .np-mb-submenu .np-mb-component {
-    border: 1px solid #c8c8c8;
+    border-left: none;
+    border-right: none;
     width: auto;
     background-color: #d8d8d8;
-    margin: 5px;
 }
 
 .np-mb-link i {

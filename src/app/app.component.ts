@@ -53,6 +53,7 @@ export class AppComponent {
     new NpMenuItem({ routerLink: "/np-tooltip-demo", label: "Tooltip" }),
     new NpMenuItem({ routerLink: "/np-popover-demo", label: "Popover" }),
     new NpMenuItem({ routerLink: "/np-loader-demo", label: "Loader" }),
+    new NpMenuItem({ routerLink: "/np-blockui-demo", label: "BlockUi" }),
     new NpMenuItem({ routerLink: "/np-progress-demo", label: "Progress" }),
     new NpMenuItem({ routerLink: "/np-carousel-demo", label: "Carousel" }),
     new NpMenuItem({ routerLink: "/np-modal-demo", label: "Modal" }),

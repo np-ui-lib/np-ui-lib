@@ -1,0 +1,54 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-ui-package/wiki/BlockUi">
+            np-blockui
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-blockui-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<np-tabs>
+    <np-tab title="Documentation">
+        <np-card>
+            <b>Module to import</b>
+            <div>
+                {{importText}}
+            </div>
+        </np-card>
+        <np-card>
+            <b>HTML</b>
+            <div>
+                {{htmlText}}
+            </div>
+        </np-card>
+        <np-card>
+            <table class="np-table">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+                <tr>
+                    <td>np-blockui</td>
+                    <td>Show block ui or not</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+            </table>
+        </np-card>
+    </np-tab>
+
+    <np-tab title="Examples">
+        <fieldset>
+            <legend>Block on div</legend>
+            <div style="height: 200px;width: 200px;background-color: lightblue;" [np-blockui]="blockUi1"></div>
+            <div class="np-btn-group">
+                <button class="np-btn" (click)="blockUi1 = true">Block</button>
+                <button class="np-btn" (click)="blockUi1 = false">Unblock</button>
+            </div>
+        </fieldset>
+    </np-tab>
+</np-tabs>

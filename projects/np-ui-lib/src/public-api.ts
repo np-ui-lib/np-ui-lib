@@ -103,6 +103,10 @@ export * from './lib/np-card/np-card-footer.component';
 export * from './lib/np-loader/np-loader.module';
 export * from './lib/np-loader/np-loader.directive';
 
+/**Blockui */
+export * from './lib/np-blockui/np-blockui.module';
+export * from './lib/np-blockui/np-blockui.directive';
+
 /**Sidepanel */
 export * from './lib/np-sidepanel/np-sidepanel.module';
 export * from './lib/np-sidepanel/np-sidepanel.component';
