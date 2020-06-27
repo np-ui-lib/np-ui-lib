@@ -429,7 +429,12 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _onInputChange($event) {
-    this.value = this.utility.ReverseFormatDate($event.target.value, this.format);
+    var date = this.utility.ReverseFormatDate($event.target.value, this.format);
+    if (this._checkIsFullDateDisabled(date)) {
+      this.value = null;
+      return;
+    }
+    this.value = date;
     this._resetVariables();
     this._calculateDays();
   }
