@@ -1,3 +1,5 @@
+import { Injectable } from "@angular/core";
+@Injectable()
 export class NpUtilityService {
     isEqual(value: any, other: any) {
         var type = Object.prototype.toString.call(value);

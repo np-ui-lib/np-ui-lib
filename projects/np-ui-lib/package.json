@@ -7,11 +7,11 @@
         "url": "http://nilavpatel.github.io"
     },
     "peerDependencies": {
-        "@angular/common": "^9.0.0",
-        "@angular/core": "^9.0.0",
-        "@angular/cdk": "^9.0.0",
-        "@angular/forms": "^9.0.0",
-        "@angular/router": "^9.0.0",
+        "@angular/common": "^10.0.1",
+        "@angular/core": "^10.0.1",
+        "@angular/cdk": "^10.0.1",
+        "@angular/forms": "^10.0.1",
+        "@angular/router": "^10.0.1",
         "rxjs": "^6.5.4"
     },
     "license": "MIT",
@@ -23,6 +23,7 @@
     "keywords": [
         "Angular",
         "Angular9",
+        "Angular10",
         "Components",
         "Typescript",
         "Datagrid",
@@ -54,5 +55,8 @@
         "Slider",
         "Masking",
         "List"
-    ]
+    ],
+    "dependencies": {
+        "tslib": "^2.0.0"
+    }
 }

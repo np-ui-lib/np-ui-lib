@@ -33,7 +33,9 @@ export class OdataGridComponent implements OnInit {
   }
 
   onLoadData(options: LoadOptions) {
-    this.odataQuery = options.odataQuery;
+    setTimeout(() => {
+      this.odataQuery = options.odataQuery;
+    }, 0);
     this.http.get("https://services.odata.org/V4/Northwind/Northwind.svc/Products?" + options.odataQuery)
       .subscribe((data: any) => {
         if (data && data.value) {
