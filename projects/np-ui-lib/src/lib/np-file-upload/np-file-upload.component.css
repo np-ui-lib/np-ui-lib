@@ -9,6 +9,11 @@
     padding: 5px;
 }
 
+.np-fu-files span {
+    line-height: 24px;
+    vertical-align: middle;
+}
+
 .np-fu-component .np-input-group {
     border: none;
 }

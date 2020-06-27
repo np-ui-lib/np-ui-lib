@@ -1,5 +1,5 @@
 # np-ui-lib  
-## Angular Ui Components  
+## Angular Ui Components for Angular 9 and 10+ 
 ### [NPM package manager](https://www.npmjs.com/package/np-ui-lib)
 ````
 npm i np-ui-lib
