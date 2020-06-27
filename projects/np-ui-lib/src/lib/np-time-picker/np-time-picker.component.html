@@ -1,6 +1,6 @@
 <div [ngClass]="{'np-tp-component': true, 'np-disabled' : _isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-input-group" *ngIf="!defaultOpen; else templatePortalContent">
-        <input class="np-form-control" type="text" [value]="value" [readonly]="true" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" [disabled]="_isDisabled" autocomplete="off">
+        <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="_isDisabled" autocomplete="off">
         <div class="input-group-append">
             <div class="np-btn np-btn-icon" (click)="_clear()" title="Clear">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">

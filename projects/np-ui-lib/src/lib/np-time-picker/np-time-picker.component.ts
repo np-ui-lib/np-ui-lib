@@ -125,13 +125,13 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   ngAfterContentInit() {
     this._hours = [];
     if (this.is24Hours) {
-      this._pattern = new RegExp("^([0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2})$");
+      this._pattern = new RegExp("^([0-9]|0[0-9]|1[0-9]|2[0-3]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9])$");
       for (var i = 0; i < 24; i++) {
         this._hours.push(i);
       }
     }
     else {
-      this._pattern = new RegExp("^(([0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}) ([AaPp][Mm]))$");
+      this._pattern = new RegExp("^(1[0-1]|0?[1-9]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9]) ?(AM|PM)$");
       for (var i = 0; i < 12; i++) {
         this._hours.push(i);
       }
@@ -362,5 +362,20 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     if (event.which === 9) {
       this._close();
     }
+  }
+
+  _onInputChange($event) {
+    var time = $event.target.value.trim();
+    time = time.toUpperCase();
+    var isValid = true;
+    if (this.is24Hours) {
+      var regex = new RegExp("^([0-9]|0[0-9]|1[0-9]|2[0-3]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9])$");
+      isValid = regex.test(time);
+    } else {
+      var regex = new RegExp("^(1[0-1]|0?[1-9]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9]) ?(AM|PM)$");
+      isValid = regex.test(time);
+    }
+    this.value = isValid ? time : null;
+    this._extractValues();
   }
 }
