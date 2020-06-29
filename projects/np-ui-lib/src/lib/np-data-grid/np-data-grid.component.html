@@ -280,7 +280,7 @@
                     <input type="text" class="np-form-control" [(ngModel)]="_stateName" required name="txtStateName" #txtStateName="ngModel" autocomplete="off">
                     <div class="np-form-text np-text-danger" *ngIf="txtStateName.control.touched && txtStateName.control.errors?.required">Name is required.
                     </div>
-                    <div class="np-form-text np-text-danger" *ngIf="_nameAlreadyExistError">Name alrady exists.
+                    <div class="np-form-text np-text-danger" *ngIf="_nameAlreadyExistError">Name already exists.
                     </div>
                 </div>
             </form>
