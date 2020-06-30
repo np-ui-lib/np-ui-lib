@@ -1,0 +1,11 @@
+<div [ngClass]="{'np-vs-component':true}" [class]="styleClass" [attr.id]="inputId">
+    <cdk-virtual-scroll-viewport [itemSize]="itemHeight" class="np-vs-list" (scrolledIndexChange)="_onScrollIndexChange($event)">
+        <div *cdkVirtualFor="let item of data" class="np-vs-item" [style.height.px]="itemHeight">
+            <ng-container *ngIf="!item; else customTemplate">
+                Loading...
+            </ng-container>
+            <ng-template #customTemplate [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{ item: item }">
+            </ng-template>
+        </div>
+    </cdk-virtual-scroll-viewport>
+</div>

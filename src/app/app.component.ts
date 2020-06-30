@@ -60,6 +60,7 @@ export class AppComponent {
     new NpMenuItem({ routerLink: "/np-sidepanel-demo", label: "Sidepanel" }),
     new NpMenuItem({ routerLink: "/np-tree-view-demo", label: "Treeview" }),
     new NpMenuItem({ routerLink: "/np-list-demo", label: "List" }),
+    new NpMenuItem({ routerLink: "/np-virtual-scroll-demo", label: "Virtual Scroll" }),
     new NpMenuItem({ routerLink: "/np-grid-layout-demo", label: "Grid Layout" }),
     new NpMenuItem({ routerLink: "/np-utility-demo", label: "Other Utility" })
   ];

@@ -34,6 +34,7 @@ npm i np-ui-lib
 1. [Modal](https://github.com/NilavPatel/np-ui-package/wiki/Modal)
 1. [Tree view](https://github.com/NilavPatel/np-ui-package/wiki/Tree-view)
 1. [List](https://github.com/NilavPatel/np-ui-package/wiki/List)
+1. [Virtual Scroll](https://github.com/NilavPatel/np-ui-package/wiki/Virtual-Scroll)
 1. [Sidepanel](https://github.com/NilavPatel/np-ui-package/wiki/Sidepanel)
 1. [Grid Layout](https://github.com/NilavPatel/np-ui-package/wiki/grid-layout)
 1. [Masking](https://github.com/NilavPatel/np-ui-package/wiki/Masking)

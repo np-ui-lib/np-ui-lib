@@ -1,0 +1,17 @@
+.np-vs-component {
+    border: 1px solid #dfdfdf;
+    background-color: #f1f1f1;
+}
+
+.np-vs-item {
+    border-bottom: 1px solid #dfdfdf;
+    padding: 10px;
+}
+
+.np-vs-item:last-child {
+    border-bottom: none;
+}
+
+.np-vs-list {
+    min-height: 250px;
+}

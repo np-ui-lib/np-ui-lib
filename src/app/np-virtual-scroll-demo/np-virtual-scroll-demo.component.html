@@ -1,0 +1,17 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-ui-package/wiki/Virtual%20Scroll">
+            np-virtual-scroll
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-virtual-scroll-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+<np-virtual-scroll [data]="data" [pageSize]="pageSize" [itemHeight]="50" [template]="itemTemplate" (loadData)="loadData($event)">
+</np-virtual-scroll>
+
+<ng-template #itemTemplate let-item="item">
+    {{item}}
+</ng-template>

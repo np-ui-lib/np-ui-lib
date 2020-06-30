@@ -131,6 +131,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-blockui-demo/np-blockui-demo.module').then(m => m.NpBlockuiDemoModule)
   },
   {
+    path: 'np-virtual-scroll-demo',
+    loadChildren: () => import('./np-virtual-scroll-demo/np-virtual-scroll-demo.module').then(m => m.NpVirtualScrollDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

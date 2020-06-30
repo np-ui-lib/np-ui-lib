@@ -127,7 +127,7 @@ export * from './lib/np-tree-view/np-tree-view.module';
 export * from './lib/np-tree-view/np-tree-view.component';
 export * from './lib/np-tree-view/np-tree-view.model';
 
-/**File uploader */
+/**File upload */
 export * from './lib/np-file-upload/np-file-upload.module';
 export * from './lib/np-file-upload/np-file-upload.component';
 
@@ -138,3 +138,7 @@ export * from './lib/np-slider/np-slider.component';
 /**List */
 export * from './lib/np-list/np-list.module';
 export * from './lib/np-list/np-list.component';
+
+/**Virtual Scroll */
+export * from './lib/np-virtual-scroll/np-virtual-scroll.module';
+export * from './lib/np-virtual-scroll/np-virtual-scroll.component';
