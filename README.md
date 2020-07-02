@@ -44,7 +44,7 @@ npm i np-ui-lib
 @import "np-ui-lib/style.css";
 ````
 
-### [Working examples](https://np-ui-lib.stackblitz.io)
+### [Working examples](https://stackblitz.com/edit/np-ui-lib)
 ### [Code for all examples here](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)
 
 ### To Run this example project
