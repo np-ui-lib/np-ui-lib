@@ -10,12 +10,12 @@
 </div>
 
 <fieldset>
-    <legend>Single file uploader</legend>
+    <legend>Single file upload</legend>
     <np-file-upload [(ngModel)]="fileUpload1"></np-file-upload>
 </fieldset>
 
 <fieldset>
-    <legend>Multiple file uploader</legend>
+    <legend>Multiple file upload</legend>
     <np-file-upload [(ngModel)]="fileUpload2" [multiple]="true"></np-file-upload>
 </fieldset>
 
@@ -30,10 +30,10 @@
 </fieldset>
 
 <fieldset>
-    <legend>File Extentions validation for svg, ico</legend>
-    <np-file-upload [(ngModel)]="fileUpload5" [extentions]="'svg,ico'" #fileUpload5Control="ngModel"></np-file-upload>
-    <div class="np-text-danger" *ngIf="fileUpload5Control.errors && fileUpload5Control.errors.extentions">
-        Invalid Extention.
+    <legend>File extensions validation for svg, ico</legend>
+    <np-file-upload [(ngModel)]="fileUpload5" [extensions]="'svg,ico'" #fileUpload5Control="ngModel"></np-file-upload>
+    <div class="np-text-danger" *ngIf="fileUpload5Control.errors && fileUpload5Control.errors.extensions">
+        Invalid extension.
     </div>
 </fieldset>
 
@@ -59,7 +59,7 @@
     <np-file-upload [(ngModel)]="fileUpload8" [multiple]="true" [maxFiles]="2" #fileUpload8Control="ngModel">
     </np-file-upload>
     <div class="np-text-danger" *ngIf="fileUpload8Control.errors && fileUpload8Control.errors.maxFiles">
-        Upto 2 files allowed to select.
+        Max 2 files allowed to select.
     </div>
 </fieldset>
 

@@ -36,9 +36,9 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Input() readonly: boolean;
   @Input() inputId: string = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
   /**
- * File extentions in string format, separated by comma
+ * File extensions in string format, separated by comma
  */
-  @Input() extentions: string;
+  @Input() extensions: string;
 
   /**
    * File size in bytes
@@ -106,17 +106,17 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   validate(control: FormControl) {
     var value = control.value ? Array.from<any>(control.value) : [];
 
-    var _isInValidExtention = false;
-    if (this.extentions) {
-      var exts = this.extentions.split(",");
+    var _isInValidExtension = false;
+    if (this.extensions) {
+      var exts = this.extensions.split(",");
       value.forEach(element => {
         if (exts.indexOf(element.name.split(".")[1]) === -1) {
-          _isInValidExtention = true;
+          _isInValidExtension = true;
         }
       });
-      if (_isInValidExtention) {
+      if (_isInValidExtension) {
         return {
-          extentions: {
+          extensions: {
             valid: false,
           }
         };
