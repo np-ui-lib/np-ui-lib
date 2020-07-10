@@ -17,13 +17,31 @@
         <button class="np-btn np-btn-info">Info</button>
     </div>
 
-    <div class="np-btn-group np-float-right">
+    <div class="np-btn-group">
         <button class="np-btn np-btn-sm np-border">Normal</button>
         <button class="np-btn np-btn-primary np-btn-sm">Primary</button>
         <button class="np-btn np-btn-success np-btn-sm">Success</button>
         <button class="np-btn np-btn-danger np-btn-sm">Error</button>
         <button class="np-btn np-btn-warning np-btn-sm">Warning</button>
         <button class="np-btn np-btn-info np-btn-sm">Info</button>
+    </div>
+
+    <div class="np-btn-group">
+        <button type="button" class="np-btn np-btn-icon np-btn-success">
+            <i class="fa fa-bars"></i>
+        </button>
+        <button type="button" class="np-btn np-btn-icon np-btn-danger">
+            <i class="fa fa-home"></i>
+        </button>
+        <button type="button" class="np-btn np-btn-icon">
+            <i class="fa fa-camera"></i>
+        </button>
+        <button type="button" class="np-btn np-btn-icon">
+            <i class="fa fa-automobile"></i>
+        </button>
+        <button type="button" class="np-btn np-btn-icon">
+            <i class="fa fa-bell"></i>
+        </button>
     </div>
 </fieldset>
 
@@ -91,7 +109,8 @@
                 <div class="np-col-6">
                     <div class="np-form-group">
                         <div class="np-form-label np-required">Upload Photo:</div>
-                        <np-file-upload [(ngModel)]="photo" name="photo" [required]="true" #fpPhoto="ngModel"></np-file-upload>
+                        <np-file-upload [(ngModel)]="photo" name="photo" [required]="true" #fpPhoto="ngModel">
+                        </np-file-upload>
                         <div class="np-form-text np-text-danger" *ngIf="fpPhoto.control.touched && fpPhoto.control.errors?.required">Photo is required.
                         </div>
                     </div>
@@ -115,7 +134,7 @@
 
 <fieldset>
     <legend>Masking</legend>
-    <table class="np-table">
+    <table class="np-table np-table-striped">
         <tr>
             <th>Format</th>
             <th>Description</th>
@@ -158,4 +177,28 @@
 <fieldset>
     <legend>Highlight Text</legend>
     <p [innerHTML]="text | npHighLight: 'paragraph'"></p>
+</fieldset>
+
+<fieldset>
+    <legend>List CSS</legend>
+    <div class="np-row">
+        <div class="np-col-6">
+            <div class="np-list">
+                <div class="np-list-item">A</div>
+                <div class="np-list-item">B</div>
+                <div class="np-list-item">C</div>
+                <div class="np-list-item">D</div>
+                <div class="np-list-item">E</div>
+            </div>
+        </div>
+        <div class="np-col-6">
+            <div class="np-list np-list-striped">
+                <div class="np-list-item">A</div>
+                <div class="np-list-item">B</div>
+                <div class="np-list-item">C</div>
+                <div class="np-list-item">D</div>
+                <div class="np-list-item">E</div>
+            </div>
+        </div>
+    </div>
 </fieldset>

@@ -1661,6 +1661,10 @@ svg {
     margin-bottom: 5px;
 }
 
+.np-table-striped tr:nth-child(odd) td {
+    background-color: #f1f1f1;
+}
+
 .np-table td,
 .np-table th {
     padding: 0px 5px;
@@ -1689,6 +1693,34 @@ svg {
     padding: 10px;
     border: 1px solid transparent;
     border-radius: 2px;
+}
+
+.np-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+    background-color: #f1f1f1;
+}
+
+.np-list-item {
+    padding: 5px 10px;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: #f1f1f1;
+}
+
+.np-list-item:last-child {
+    border-bottom: none;
+}
+
+.np-list-striped .np-list-item:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.np-list .np-list-item:hover {
+    background-color: #ddd;
 }
 
 @keyframes spin {

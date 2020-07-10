@@ -1,6 +1,6 @@
 {
     "name": "np-ui-lib",
-    "version": "10.1.1",
+    "version": "10.1.2",
     "author": {
         "name": "nilav patel",
         "email": "nilavpatel1992@gmail.com",
@@ -28,10 +28,10 @@
         "Angular10",
         "Components",
         "Typescript",
-        "Datagrid",
-        "Datepicker",
-        "Timepicker",
-        "Colorpicker",
+        "Data Grid",
+        "Date Picker",
+        "Time Picker",
+        "Color Picker",
         "Switch",
         "Autocomplete",
         "Panel",
@@ -49,15 +49,15 @@
         "Menubar",
         "Card",
         "Loader",
-        "Sidepanel",
+        "Side Panel",
         "Breadcrumb",
-        "Numberbox",
-        "Treeview",
+        "Number Box",
+        "Tree View",
         "FileUpload",
         "Slider",
         "Masking",
         "List",
         "BlockUi",
-        "Virtualscroll"
+        "Virtual Scroll"
     ]
 }
