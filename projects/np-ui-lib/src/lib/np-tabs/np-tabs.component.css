@@ -60,4 +60,5 @@
 .np-tabs-horizontal .np-active-tab {
     border-right: 3px solid #007bff;
     border-bottom: none;
+    padding-right: 17px;
 }

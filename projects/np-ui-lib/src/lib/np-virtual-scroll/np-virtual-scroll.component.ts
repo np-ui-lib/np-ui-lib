@@ -46,7 +46,6 @@ export class NpVirtualScrollComponent {
     if (!this.loadedPages.includes(page)) {
       this.loadData.emit({ first: this.pageSize * page, rows: this.pageSize });
       this.loadedPages.push(page);
-      console.log({ first: this.pageSize * page, rows: this.pageSize });
     }
   }
 }

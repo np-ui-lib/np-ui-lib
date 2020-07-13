@@ -1,12 +1,13 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { NpMenuItem } from 'np-ui-lib';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'np-ui-package';
 
   dataGridItems = [
@@ -73,8 +74,16 @@ export class AppComponent {
     this.setMenubarOnResize();
   }
 
-  constructor() {
+  constructor(private router: Router) {
     this.setMenubarOnResize();
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe((ev: any) => {
+      if (ev instanceof NavigationEnd) {
+        document.querySelector(".content").scrollTo(0, 0);
+      }
+    });
   }
 
   toggleMenu() {
