@@ -9,6 +9,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'np-ui-package';
+  year = new Date().getFullYear();
 
   dataGridItems = [
     new NpMenuItem({ url: "https://github.com/NilavPatel/np-ui-package/wiki/Data%20Grid", label: "np-data-grid", target: "_blank" }),

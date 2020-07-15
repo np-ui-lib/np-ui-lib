@@ -59,6 +59,10 @@ header {
     color: #ffffff;
 }
 
+.header-menu-btn:hover {
+    background-color: #5d5d5d;
+}
+
 .header-menu-btn i {
     margin: auto;
 }
@@ -66,6 +70,7 @@ header {
 .header-link {
     color: white;
     font-size: 25px;
+    padding-left: 5px;
 }
 
 .logo-link {
@@ -78,13 +83,13 @@ header {
 
 section {
     margin-top: 50px;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 70px);
     overflow: hidden;
     display: flex;
 }
 
 nav {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 70px);
     overflow: auto;
     width: 220px;
 }
@@ -121,4 +126,15 @@ article {
 
 .color-red {
     color: red;
+}
+
+footer {
+    text-align: center;
+    background-color: #d0d0d0;
+    padding: 1px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 20px;
+    font-size: 14px;
 }
