@@ -14,10 +14,12 @@
         <np-menubar [items]="menuItems" [isPanelMenu]="true" (onClickMenuItem)="onClickMenuItem($event)" styleClass="my-nav">
         </np-menubar>
     </nav>
-    <article class="content">
-        <router-outlet></router-outlet>
+    <article class="main">
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+        <footer>
+            {{year}} &#169; NTech Software Solutions - Made with <span class="color-red">&#10084;</span>.
+        </footer>
     </article>
 </section>
-<footer>
-    {{year}} &#169; NTech Software Solutions - Made with <span class="color-red">&#10084;</span>.
-</footer>

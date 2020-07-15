@@ -83,13 +83,13 @@ header {
 
 section {
     margin-top: 50px;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 50px);
     overflow: hidden;
     display: flex;
 }
 
 nav {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 50px);
     overflow: auto;
     width: 220px;
 }
@@ -105,12 +105,12 @@ nav {
     border: none !important;
     position: fixed;
     left: 0px;
+    padding: 10px 0px;
 }
 
 article {
     flex: 1;
     overflow: auto;
-    padding: 5px;
 }
 
 .sub-header {
@@ -128,13 +128,15 @@ article {
     color: red;
 }
 
+.content {
+    padding: 5px;
+    min-height: calc(100% - 25px);
+}
+
 footer {
     text-align: center;
-    background-color: #d0d0d0;
-    padding: 1px;
-    position: absolute;
-    bottom: 0px;
+    background-color: #ddd;
+    padding: 2px;
     width: 100%;
-    height: 20px;
-    font-size: 14px;
+    height: 25px;
 }
