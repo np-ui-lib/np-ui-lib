@@ -1702,25 +1702,29 @@ svg {
     margin-bottom: 0;
     border: 1px solid #dfdfdf;
     border-radius: 2px;
-    background-color: #f1f1f1;
 }
 
 .np-list-item {
     padding: 5px 10px;
     border-bottom: 1px solid #dfdfdf;
-    background-color: #f1f1f1;
 }
 
 .np-list-item:last-child {
     border-bottom: none;
 }
 
-.np-list-striped .np-list-item:nth-child(even) {
-    background-color: #ffffff;
+.np-list-striped .np-list-item:nth-child(odd) {
+    background-color: #f1f1f1;
 }
 
 .np-list .np-list-item:hover {
     background-color: #ddd;
+}
+
+.np-list-header {
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+    border-bottom: 1px solid #dfdfdf;
 }
 
 @keyframes spin {

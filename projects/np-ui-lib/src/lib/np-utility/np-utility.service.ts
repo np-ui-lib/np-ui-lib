@@ -35,7 +35,7 @@ export class NpUtilityService {
         }
         return true;
     };
-    ReverseFormatDate(value: string, formatDate: string): Date {
+    ReverseFormatDate(value: string, formatDate: string): any {
         if (value.length == 0) {
             return null;
         }
@@ -45,20 +45,23 @@ export class NpUtilityService {
         let month;
         let year;
         const pattern = formatDate.split(formatArray[0]);
-
         if (value) {
             for (let i = 0; i < pattern.length; i++) {
                 switch (pattern[i]) {
                     case 'd':
                     case 'dd':
-                        day = value.substr(formatDate.indexOf('d'),
-                            (value.length - formatDate.length) + pattern[i].length);
-                        break;
+                        {
+                            day = value.substr(formatDate.indexOf('d'),
+                                (value.length - formatDate.length) + pattern[i].length);
+                            break;
+                        }
                     case 'M':
                     case 'MM':
-                        month = parseInt(value.substr(formatDate.indexOf('M'),
-                            (value.length - formatDate.length) + pattern[i].length)) - 1;
-                        break;
+                        {
+                            month = parseInt(value.substr(formatDate.indexOf('M'),
+                                (value.length - formatDate.length) + pattern[i].length)) - 1;
+                            break;
+                        }
                     case 'MMM':
                     case 'MMMM':
                         {
@@ -70,16 +73,18 @@ export class NpUtilityService {
                     case 'y':
                     case 'yy':
                     case 'yyyy':
-                        year = value.substr(formatDate.indexOf('y'),
-                            (value.length - formatDate.length) + pattern[i].length);
-                        break;
+                        {
+                            year = value.substr(formatDate.indexOf('y'),
+                                (value.length - formatDate.length) + pattern[i].length);
+                            break;
+                        }
                 }
             }
         }
 
         var result = new Date(year, month, day);
         if (result.toString() == "Invalid Date") {
-            return null;
+            return "Invalid Date";
         }
         return result;
     }
@@ -117,6 +122,7 @@ export class NpUtilityService {
             case "august":
             case "aug":
                 result = 7;
+                break;
             case "september":
             case "sep":
                 result = 8;

@@ -1,11 +1,14 @@
 .np-vs-component {
     border: 1px solid #dfdfdf;
-    background-color: #f1f1f1;
 }
 
 .np-vs-item {
     border-bottom: 1px solid #dfdfdf;
     padding: 10px;
+}
+
+.np-vs-item:hover {
+    background-color: #f1f1f1;
 }
 
 .np-vs-item:last-child {

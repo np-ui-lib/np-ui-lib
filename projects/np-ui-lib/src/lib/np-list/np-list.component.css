@@ -1,6 +1,5 @@
 .np-li-component {
     position: relative;
-    background-color: #f1f1f1;
     border: 1px solid #c8c8c8;
     border-radius: 2px;
     width: 100%;
@@ -30,4 +29,9 @@
 
 .np-li-item:hover {
     background-color: #ddd;
+}
+
+.np-li-selected,
+.np-li-selected:hover {
+    background-color: #d9edf7;
 }

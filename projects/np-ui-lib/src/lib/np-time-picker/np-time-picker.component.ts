@@ -375,6 +375,9 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
       var regex = new RegExp("^(1[0-1]|0?[1-9]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9]) ?(AM|PM)$");
       isValid = regex.test(time);
     }
+    if (!isValid) {
+      $event.target.value = "";
+    }
     this.value = isValid ? time : null;
     this._extractValues();
   }
