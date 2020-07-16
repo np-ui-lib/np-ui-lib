@@ -1,8 +1,8 @@
-<div [ngClass]="{'np-cp-component': true,'np-disabled' : _isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{'np-cp-component': true,'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
     <div *ngIf="!defaultOpen; else templatePortalContent" [ngClass]="{'np-input-group': true, 'np-cp-hide-input': hideColorInput}">
-        <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="_isDisabled" autocomplete="off" maxlength="10">
+        <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="isDisabled" autocomplete="off" maxlength="10">
         <div class="input-group-append">
-            <div class="np-cp-input-selected" (click)="_toggleColorPicker()" [ngStyle]="{'background-color': _innerValue}">
+            <div class="np-cp-input-selected" (click)="_toggleColorPicker()" [ngStyle]="{'background-color': innerValue}">
             </div>
         </div>
         <div class="input-group-append">
@@ -29,10 +29,10 @@
                 <div class="np-col-12">
                     <div class="np-row np-no-gutters align-items-center np-cp-header">
                         <div class="np-col-4">
-                            <div class="np-cp-block-selected" [ngStyle]="{'background-color': _innerValue}"></div>
+                            <div class="np-cp-block-selected" [ngStyle]="{'background-color': innerValue}"></div>
                         </div>
                         <div class="np-col-8">
-                            <div><b>HEX: </b><span>{{_innerValue}}</span></div>
+                            <div><b>HEX: </b><span>{{innerValue}}</span></div>
                             <div><b>RGB: </b><span [innerText]="_currentHexToRGB()"></span></div>
                         </div>
                     </div>
@@ -68,6 +68,6 @@
             </div>
         </div>
     </ng-template>
-    <div class="np-cp-current-color" *ngIf="_isShowCursorDiv" [ngStyle]="{'background-color': _currentCursorColor, 'position': 'absolute', 'left': _xColorCursor , 'top': _yColorCursor}">
+    <div class="np-cp-current-color" *ngIf="isShowCursorDiv" [ngStyle]="{'background-color': currentCursorColor, 'position': 'absolute', 'left': xColorCursor , 'top': yColorCursor}">
     </div>
 </div>

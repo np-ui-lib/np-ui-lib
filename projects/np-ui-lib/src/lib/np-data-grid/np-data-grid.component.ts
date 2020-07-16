@@ -1,5 +1,6 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewEncapsulation, ViewChild, ViewContainerRef, ElementRef, AfterContentInit, AfterViewInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef } from '@angular/core';
+import { ViewEncapsulation, ViewChild, ViewContainerRef, ElementRef, AfterContentInit, AfterViewInit } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { OverlayRef, ConnectedPosition, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
@@ -24,126 +25,97 @@ import { NpModalComponent } from '../np-modal/np-modal.component';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
-
   static controlCount = 1;
-  @Input() inputId: string = `np-data-grid_${NpDataGridComponent.controlCount++}`;
 
+  @Input() inputId = `np-data-grid_${NpDataGridComponent.controlCount++}`;
   @Input() columns: Column[];
-  _columns: Column[];
-
   @Input() dataSource: BehaviorSubject<DataSource>;
-  _dataSource: DataSource;
-  _subscription: Subscription;
-
-  /**current view data */
-  _currentViewData: any[];
-
-  _pager: Pager;
-
-  _total: number = 0;
-
-  _filtersList: any[];
-
-  // set grid height
   @Input() height: number;
-  // set grid width
   @Input() width: number;
-
   @Input() multiColumnSortEnable: boolean;
-  _sortColumnList: any[];
-  _filterColumnList: any[];
-  _isFilterAvailable: boolean;
-
-  _enableMasterChild: boolean = false;
   @Input() masterDetailTemplate: TemplateRef<any>;
-  @Input() singleRowExpand: boolean = false;
-  @Input() expandRowOnClick: boolean = false;
-  _openRowKeys: any[] = [];
-
-  @Input() singleRowSelectEnable: boolean = false;
-  @Input() multiRowSelectEnable: boolean = false;
-  @Input() selectRowOnClick: boolean = false;
-  _selectedRowKeys: any[] = [];
-  _isAllSelected: boolean;
-  @Output() onSelect: EventEmitter<any> = new EventEmitter();
-  @Output() onDeselect: EventEmitter<any> = new EventEmitter();
-
+  @Input() singleRowExpand = false;
+  @Input() expandRowOnClick = false;
+  @Input() singleRowSelectEnable = false;
+  @Input() multiRowSelectEnable = false;
+  @Input() selectRowOnClick = false;
   @Input() key: string;
-  _key: string;
-
-  @Output() onRowClick: EventEmitter<any> = new EventEmitter();
-
-  _dataTypes = DataTypes;
-  _sortDirections = SortDirections;
-
   @Input() showColumnChooser: boolean;
-  _isOpenColumnChooser: boolean = false;
-
-  _visibleColumns: any[] = [];
-
-  @Input() title: string = "";
-
+  @Input() title = '';
   @Input() enableStateStoring: boolean;
-  _stateList: State[];
-  _currentStateName: string;
-  @Output() onStatesUpdate: EventEmitter<any> = new EventEmitter();
-
-  @Input() noDataMessage: string = "No Data Found.";
-
-  @Input() showFilters: boolean = true;
-
-  @Output() onInit: EventEmitter<any> = new EventEmitter();
-  @Output() onAfterInit: EventEmitter<any> = new EventEmitter();
-
-  @Input() showSummary: boolean = false;
+  @Input() noDataMessage = 'No Data Found.';
+  @Input() showFilters = true;
+  @Input() showSummary = false;
   @Input() summaryTemplate: TemplateRef<any>;
-  _summaryData: any;
-
-  @Input() allowColumnResize: boolean = false;
-  @Input() allowColumnReorder: boolean = false;
-
-  @Output() onLoadData: EventEmitter<LoadOptions> = new EventEmitter();
-  @Input() isServerOperations: boolean = false;
-
-  @Input() isODataOperations: boolean = false;
-
-  @Input() allowExport: boolean = false;
-  @Input() isServerExport: boolean = false;
-  @Output() onServerExport: EventEmitter<LoadOptions> = new EventEmitter();
-
-  @Input() showToolBar: boolean = false;
-
-  @Input() pageSize: number = 10;
-
+  @Input() allowColumnResize = false;
+  @Input() allowColumnReorder = false;
+  @Input() isServerOperations = false;
+  @Input() isODataOperations = false;
+  @Input() allowExport = false;
+  @Input() isServerExport = false;
+  @Input() showToolBar = false;
+  @Input() pageSize = 10;
   @Input() styleClass: string;
 
-  _searchColumnsKeyword: string;
+  @Output() onSelect: EventEmitter<any> = new EventEmitter();
+  @Output() onDeselect: EventEmitter<any> = new EventEmitter();
+  @Output() onRowClick: EventEmitter<any> = new EventEmitter();
+  @Output() onStatesUpdate: EventEmitter<any> = new EventEmitter();
+  @Output() onInit: EventEmitter<any> = new EventEmitter();
+  @Output() onAfterInit: EventEmitter<any> = new EventEmitter();
+  @Output() onLoadData: EventEmitter<LoadOptions> = new EventEmitter();
+  @Output() onServerExport: EventEmitter<LoadOptions> = new EventEmitter();
 
-  @ViewChild("columnChooserTemplate") columnChooserTemplate: TemplateRef<any>;
+  @ViewChild('columnChooserTemplate') columnChooserTemplate: TemplateRef<any>;
+  @ViewChild('saveNewStateModal') saveNewStateModal: NpModalComponent;
+  @ViewChild('editStateModal') editStateModal: NpModalComponent;
+  @ViewChild('deleteStateModal') deleteStateModal: NpModalComponent;
+
+  columnsClone: Column[];
+  dataSourceClone: DataSource;
+  subscription: Subscription;
+  currentViewData: any[];
+  pagerObj: Pager;
+  totalRow = 0;
+  filtersList: any[];
+  sortColumnList: any[];
+  filterColumnList: any[];
+  isFilterAvailable: boolean;
+  enableMasterChild = false;
+  openRowKeys: any[] = [];
+  selectedRowKeys: any[] = [];
+  isAllSelected: boolean;
+  keyColumnName: string;
+  dataTypes = DataTypes;
+  sortDirections = SortDirections;
+  isOpenColumnChooser = false;
+  visibleColumns: any[] = [];
+  stateList: State[];
+  currentStateName: string;
+  summaryData: any;
+  searchColumnsKeyword: string;
+  stateName: string;
+  nameAlreadyExistError = false;
+
   private columnChooserTemplatePortal: TemplatePortal<any>;
   private columnChooserOverlayRef: OverlayRef;
 
-  @ViewChild("saveNewStateModal") saveNewStateModal: NpModalComponent;
-  @ViewChild("editStateModal") editStateModal: NpModalComponent;
-  @ViewChild("deleteStateModal") deleteStateModal: NpModalComponent;
-  _stateName: string;
-  _nameAlreadyExistError: boolean = false;
-
-  constructor(private pagerService: NpPagerService,
+  constructor(
+    private pagerService: NpPagerService,
     private filterService: NpFilterService,
     private utilityService: NpGridUtilityService,
     private oDataService: NpODataService,
     private fileService: NpFileService,
     public overlay: Overlay,
-    private _viewContainerRef: ViewContainerRef,
+    private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef) {
-    this._sortColumnList = [];
-    this._filtersList = Constants.filters();
-    this._filterColumnList = [];
-    this._stateList = [];
-    this._currentStateName = "";
-    this._isFilterAvailable = false;
+    this.sortColumnList = [];
+    this.filtersList = Constants.filters();
+    this.filterColumnList = [];
+    this.stateList = [];
+    this.currentStateName = '';
+    this.isFilterAvailable = false;
     this.showFilters = true;
   }
 
@@ -153,13 +125,13 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   ngAfterContentInit() {
     if (this.masterDetailTemplate) {
-      this._enableMasterChild = true;
+      this.enableMasterChild = true;
     }
     this._setColumns();
     if (this.key) {
-      this._key = this.key;
+      this.keyColumnName = this.key;
     } else {
-      this._key = this._columns[0].dataField;
+      this.keyColumnName = this.columnsClone[0].dataField;
     }
     this.subscribeDataSource();
     if (this.isServerOperations) {
@@ -168,73 +140,73 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   ngAfterViewInit() {
-    var position: ConnectedPosition[] = [
+    const position: ConnectedPosition[] = [
       {
-        originX: "start",
-        originY: "bottom",
-        overlayX: "start",
-        overlayY: "top"
+        originX: 'start',
+        originY: 'bottom',
+        overlayX: 'start',
+        overlayY: 'top'
       },
       {
-        originX: "start",
-        originY: "top",
-        overlayX: "start",
-        overlayY: "bottom"
+        originX: 'start',
+        originY: 'top',
+        overlayX: 'start',
+        overlayY: 'bottom'
       }
     ];
     const positionStrategy = this.overlayPositionBuilder
-      .flexibleConnectedTo(this.elementRef.nativeElement.querySelector("#btn-column-chooser"))
+      .flexibleConnectedTo(this.elementRef.nativeElement.querySelector('#btn-column-chooser'))
       .withPositions(position);
     this.columnChooserOverlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: "np-dg-backdrop",
+      backdropClass: 'np-dg-backdrop',
       scrollStrategy: this.overlay.scrollStrategies.reposition()
     });
     this.columnChooserTemplatePortal = new TemplatePortal(
       this.columnChooserTemplate,
-      this._viewContainerRef
+      this.viewContainerRef
     );
     this.columnChooserOverlayRef.backdropClick().subscribe(() => this._closeColumnChooser());
     this.onAfterInit.emit();
   }
 
   private subscribeDataSource() {
-    this._subscription = this.dataSource.subscribe((data: DataSource) => {
+    this.subscription = this.dataSource.subscribe((data: DataSource) => {
       if (data === undefined || data === null) {
         return;
       }
       if (this.isServerOperations) {
         // to export to csv, this change has all data
         if (data.isAllPages) {
-          this.fileService.downloadCSVFile(data.data, this._visibleColumns);
+          this.fileService.downloadCSVFile(data.data, this.visibleColumns);
           return;
         }
-        this._currentViewData = data.data;
-        this._summaryData = data.summary;
-        this._total = data.total;
-        if (this._isAllSelected) {
-          for (let element of this._currentViewData) {
-            if (this._selectedRowKeys.indexOf(element[this._key]) === -1) {
-              this._selectedRowKeys.push(element[this._key]);
+        this.currentViewData = data.data;
+        this.summaryData = data.summary;
+        this.totalRow = data.total;
+        if (this.isAllSelected) {
+          for (const element of this.currentViewData) {
+            if (this.selectedRowKeys.indexOf(element[this.keyColumnName]) === -1) {
+              this.selectedRowKeys.push(element[this.keyColumnName]);
             }
           }
         }
-        this._pager = this.pagerService.getPager(this._total, this._pager.currentPage, this.pageSize);
+        this.pagerObj = this.pagerService.getPager(this.totalRow, this.pagerObj.currentPage, this.pageSize);
       }
       else {
-        var dataSource = new DataSource(data.data, data.data.length, data.summary);
-        this._dataSource = dataSource;
-        this._total = this._dataSource.total;
-        this._summaryData = this._dataSource.summary;
+        const dataSource = new DataSource(data.data, data.data.length, data.summary);
+        this.dataSourceClone = dataSource;
+        this.totalRow = this.dataSourceClone.total;
+        this.summaryData = this.dataSourceClone.summary;
         this._getCurrentViewData(1);
       }
     });
   }
 
   ngOnDestroy(): void {
-    if (this._subscription) {
-      this._subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 
@@ -242,16 +214,16 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     if (currentPageNumber === 0) {
       currentPageNumber = 1;
     }
-    if (this._pager && this._pager.totalPages > 0 && currentPageNumber > this._pager.totalPages) {
-      currentPageNumber = this._pager.totalPages;
+    if (this.pagerObj && this.pagerObj.totalPages > 0 && currentPageNumber > this.pagerObj.totalPages) {
+      currentPageNumber = this.pagerObj.totalPages;
     }
-    this._pager = this.pagerService.getPager(this._total, currentPageNumber, this.pageSize);
+    this.pagerObj = this.pagerService.getPager(this.totalRow, currentPageNumber, this.pageSize);
     if (this.isServerOperations) {
-      var loadOpt = new LoadOptions();
+      const loadOpt = new LoadOptions();
       if (this.isODataOperations) {
-        var top = this.pageSize;
-        var skip = (currentPageNumber - 1) * this.pageSize;
-        loadOpt.odataQuery = this.oDataService.buildQuery(top, skip, this._sortColumnList, this._filterColumnList);
+        const top = this.pageSize;
+        const skip = (currentPageNumber - 1) * this.pageSize;
+        loadOpt.odataQuery = this.oDataService.buildQuery(top, skip, this.sortColumnList, this.filterColumnList);
         loadOpt.pageNumber = 0;
         loadOpt.pageSize = 0;
         loadOpt.sortColumns = [];
@@ -260,29 +232,31 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       } else {
         loadOpt.pageNumber = currentPageNumber;
         loadOpt.pageSize = this.pageSize;
-        loadOpt.sortColumns = this._sortColumnList;
-        loadOpt.filterColumns = this._filterColumnList;
+        loadOpt.sortColumns = this.sortColumnList;
+        loadOpt.filterColumns = this.filterColumnList;
         loadOpt.isAllPages = false;
-        loadOpt.odataQuery = "";
+        loadOpt.odataQuery = '';
       }
       this.onLoadData.emit(loadOpt);
     } else {
-      this._currentViewData = this._dataSource.data.slice(this._pager.startIndex, this._pager.endIndex + 1);
+      this.currentViewData = this.dataSourceClone.data.slice(this.pagerObj.startIndex, this.pagerObj.endIndex + 1);
     }
   }
 
   _setColumns() {
-    var result = [];
-    for (let element of this.columns) {
+    const result = [];
+    for (const element of this.columns) {
       result.push(new Column(element));
     }
-    this._columns = result;
+    this.columnsClone = result;
     this._setVisibleColumns();
   }
 
   _setVisibleColumns() {
-    this._visibleColumns = this.utilityService.custFilter(this._columns, function (element: Column) { if (element.visible === true) { return element } });
-    this._isFilterAvailable = this.utilityService.custFilter(this._columns, function (element) { if (element.filterEnable === true && element.visible === true) { return element } }).length > 0;
+    this.visibleColumns = this.utilityService.custFilter(this.columnsClone,
+      (element: Column) => { if (element.visible === true) { return element; } });
+    this.isFilterAvailable = this.utilityService.custFilter(this.columnsClone,
+      (element) => { if (element.filterEnable === true && element.visible === true) { return element; } }).length > 0;
   }
 
   _onPageSizeChange() {
@@ -290,8 +264,8 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _onCellClick($event: any, column: Column, data: any) {
-    if (column.onCellClick != undefined) {
-      column.onCellClick($event, column, data)
+    if (column.onCellClick !== undefined) {
+      column.onCellClick($event, column, data);
     }
   }
 
@@ -305,24 +279,24 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       this._removeSortingFromColumn(column);
       return;
     }
-    var sortOrder = column.sortDirection === SortDirections.Ascending ? SortDirections.Descending : SortDirections.Ascending;
+    const sortOrder = column.sortDirection === SortDirections.Ascending ? SortDirections.Descending : SortDirections.Ascending;
     if (!this.multiColumnSortEnable) {
       this._removeAllSorting();
     }
     column.sortDirection = sortOrder;
     if (this.multiColumnSortEnable) {
-      var list = [];
-      for (let element of this._sortColumnList) {
+      const list = [];
+      for (const element of this.sortColumnList) {
         if (element.dataField !== column.dataField) {
           list.push(element);
         }
       }
-      this._sortColumnList = list;
+      this.sortColumnList = list;
     }
-    this._sortColumnList.push({ dataField: column.dataField, sortDirection: column.sortDirection });
-    this._selectedRowKeys = [];
-    this._isAllSelected = false;
-    this._openRowKeys = [];
+    this.sortColumnList.push({ dataField: column.dataField, sortDirection: column.sortDirection });
+    this.selectedRowKeys = [];
+    this.isAllSelected = false;
+    this.openRowKeys = [];
     if (!this.isServerOperations) {
       this._sortDataSource();
     }
@@ -330,43 +304,43 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _sortDataSource() {
-    var data = this._dataSource.data;
-    for (let element of this._sortColumnList) {
+    let data = this.dataSourceClone.data;
+    for (const element of this.sortColumnList) {
       data = this.utilityService.custSort(data, element.dataField, element.sortDirection);
     }
-    this._dataSource.data = data;
+    this.dataSourceClone.data = data;
   }
 
   _removeAllSorting() {
-    for (let element of this._columns) {
+    for (const element of this.columnsClone) {
       element.sortDirection = null;
     }
-    this._sortColumnList = [];
+    this.sortColumnList = [];
   }
 
   _removeSortingFromColumn(column: Column) {
     column.sortDirection = null;
-    var list = [];
-    for (let element of this._sortColumnList) {
+    const list = [];
+    for (const element of this.sortColumnList) {
       if (element.dataField !== column.dataField) {
         list.push(element);
       }
     }
-    this._sortColumnList = list;
+    this.sortColumnList = list;
 
     if (!this.isServerOperations) {
       this._resetDataSource();
       this._filterDataSource();
-      for (let element of this._sortColumnList) {
-        this._dataSource.data = this.utilityService.custSort(this._dataSource.data, element.dataField, element.sortDirection);
+      for (const element of this.sortColumnList) {
+        this.dataSourceClone.data = this.utilityService.custSort(this.dataSourceClone.data, element.dataField, element.sortDirection);
       }
     }
     this._getCurrentViewData(1);
   }
 
   _resetDataSource() {
-    this._dataSource.data = this.dataSource.getValue().data;
-    this._total = this._dataSource.data.length;
+    this.dataSourceClone.data = this.dataSource.getValue().data;
+    this.totalRow = this.dataSourceClone.data.length;
   }
 
   _onFilter(column: Column, isForceFilter: boolean = false) {
@@ -379,20 +353,23 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       || column.filterOperator === undefined || column.filterOperator === null)) {
       return;
     }
-    var currentFilterList = [];
-    for (let element of this._columns) {
+    const currentFilterList = [];
+    for (const element of this.columnsClone) {
       if (element.filterOperator === undefined || element.filterOperator === null
         || element.filterValue === undefined || element.filterValue === null || element.filterValue.toString().length === 0) {
         continue;
       }
       else {
-        currentFilterList.push({ dataField: element.dataField, filterOperator: element.filterOperator, filterValue: element.filterValue, dataType: element.dataType });
+        currentFilterList.push({
+          dataField: element.dataField, filterOperator: element.filterOperator,
+          filterValue: element.filterValue, dataType: element.dataType
+        });
       }
     }
-    this._filterColumnList = currentFilterList;
-    this._selectedRowKeys = [];
-    this._isAllSelected = false;
-    this._openRowKeys = [];
+    this.filterColumnList = currentFilterList;
+    this.selectedRowKeys = [];
+    this.isAllSelected = false;
+    this.openRowKeys = [];
     if (!this.isServerOperations) {
       this._filterDataSource();
       this._sortDataSource();
@@ -401,17 +378,17 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _filterDataSource() {
-    var filterdData = this.filterService.filterData(this._filterColumnList, this.dataSource.getValue().data);
-    this._dataSource.data = filterdData;
-    this._total = filterdData.length;
+    const data = this.filterService.filterData(this.filterColumnList, this.dataSource.getValue().data);
+    this.dataSourceClone.data = data;
+    this.totalRow = data.length;
   }
 
   _removeAllFilters() {
-    for (let element of this._columns) {
+    for (const element of this.columnsClone) {
       element.filterOperator = null;
       element.filterValue = null;
     }
-    this._filterColumnList = [];
+    this.filterColumnList = [];
   }
 
   _onClickToggleMasterChild(keyValue: any) {
@@ -422,15 +399,15 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _toggleMasterChild(keyValue: any) {
-    var idx = this._openRowKeys.indexOf(keyValue);
+    const idx = this.openRowKeys.indexOf(keyValue);
     if (idx === -1) {
       if (this.singleRowExpand) {
-        this._openRowKeys = [keyValue];
+        this.openRowKeys = [keyValue];
       } else {
-        this._openRowKeys.push(keyValue);
+        this.openRowKeys.push(keyValue);
       }
     } else {
-      this._openRowKeys.splice(idx, 1);
+      this.openRowKeys.splice(idx, 1);
     }
   }
 
@@ -446,32 +423,31 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _deSelectAll() {
-    var selectedRows = this._selectedRowKeys;
-    this._selectedRowKeys = [];
-    this._isAllSelected = false;
-    if (this.onDeselect != undefined) {
-      var event = { data: selectedRows };
+    const selectedRows = this.selectedRowKeys;
+    this.selectedRowKeys = [];
+    this.isAllSelected = false;
+    if (this.onDeselect !== undefined) {
+      const event = { data: selectedRows };
       this.onDeselect.emit(event);
     }
   }
 
   _selectAll() {
-    var key = this._key;
+    const key = this.keyColumnName;
+    const selectedKeys = [];
     if (this.isServerOperations) {
-      var selectedKeys = [];
-      for (let element of this._currentViewData) {
+      for (const element of this.currentViewData) {
         selectedKeys.push(element[key]);
       }
     } else {
-      var selectedKeys = [];
-      for (let element of this._dataSource.data) {
+      for (const element of this.dataSourceClone.data) {
         selectedKeys.push(element[key]);
       }
     }
-    this._selectedRowKeys = selectedKeys;
-    this._isAllSelected = true;
-    if (this.onSelect != undefined) {
-      var event = { data: selectedKeys };
+    this.selectedRowKeys = selectedKeys;
+    this.isAllSelected = true;
+    if (this.onSelect !== undefined) {
+      const event = { data: selectedKeys };
       this.onSelect.emit(event);
     }
   }
@@ -485,26 +461,26 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   _selectRow(keyValue: any, event: any) {
     if (this.singleRowSelectEnable) {
-      this._selectedRowKeys = [];
+      this.selectedRowKeys = [];
       if (event.target.checked) {
-        this._selectedRowKeys.push(keyValue);
+        this.selectedRowKeys.push(keyValue);
       }
     } else {
       if (event.target.checked) {
-        this._selectedRowKeys.push(keyValue);
+        this.selectedRowKeys.push(keyValue);
       } else {
-        var idx = this._selectedRowKeys.indexOf(keyValue);
-        this._selectedRowKeys.splice(idx, 1);
+        const idx = this.selectedRowKeys.indexOf(keyValue);
+        this.selectedRowKeys.splice(idx, 1);
       }
     }
     if (event.target.checked) {
-      if (this.onSelect != undefined) {
+      if (this.onSelect !== undefined) {
         event.data = keyValue;
         this.onSelect.emit(event);
       }
     } else {
-      this._isAllSelected = false;
-      if (this.onDeselect != undefined) {
+      this.isAllSelected = false;
+      if (this.onDeselect !== undefined) {
         event.data = keyValue;
         this.onDeselect.emit(event);
       }
@@ -512,29 +488,29 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _isSelected(keyValue: any) {
-    return this._selectedRowKeys.indexOf(keyValue) > -1;
+    return this.selectedRowKeys.indexOf(keyValue) > -1;
   }
 
   _isOpenChild(keyValue: any) {
-    return this._openRowKeys.indexOf(keyValue) > -1;
+    return this.openRowKeys.indexOf(keyValue) > -1;
   }
 
   _rowClick(event: any, data: any) {
     if (this.masterDetailTemplate && this.expandRowOnClick) {
-      this._toggleMasterChild(data[this._key]);
+      this._toggleMasterChild(data[this.keyColumnName]);
     }
     if ((this.singleRowSelectEnable || this.multiRowSelectEnable) && this.selectRowOnClick) {
-      if (this._isSelected(data[this._key])) {
-        this._selectRow(data[this._key], { target: { checked: false } });
+      if (this._isSelected(data[this.keyColumnName])) {
+        this._selectRow(data[this.keyColumnName], { target: { checked: false } });
       } else {
-        this._selectRow(data[this._key], { target: { checked: true } });
+        this._selectRow(data[this.keyColumnName], { target: { checked: true } });
       }
     }
     if (this.onRowClick) {
       event.data = data;
       this.onRowClick.emit(event);
     }
-  };
+  }
 
   _onColumnChoosing(col: Column) {
     col.visible = !col.visible;
@@ -552,7 +528,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _dropColumn(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this._columns, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.columnsClone, event.previousIndex, event.currentIndex);
     this._setVisibleColumns();
   }
 
@@ -560,7 +536,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * get selected row keys array
    */
   getSelectedRowKeys() {
-    return this._selectedRowKeys;
+    return this.selectedRowKeys;
   }
 
   /**
@@ -568,14 +544,15 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    */
   reset() {
     this._setColumns();
-    this._filterColumnList = [];
-    this._sortColumnList = [];
-    this._selectedRowKeys = [];
-    this._openRowKeys = [];
-    this._isAllSelected = false;
-    this._isOpenColumnChooser = false;
-    this._currentStateName = "";
-    this._pager = this.pagerService.getPager(0, 1, this.pageSize);
+    this.filterColumnList = [];
+    this.sortColumnList = [];
+    this.selectedRowKeys = [];
+    this.openRowKeys = [];
+    this.isAllSelected = false;
+    this.isOpenColumnChooser = false;
+    this.currentStateName = '';
+    this.pagerObj = this.pagerService.getPager(0, 1, this.pageSize);
+    this._closeColumnChooser();
     if (this.isServerOperations) {
       this._getCurrentViewData(1);
     }
@@ -589,7 +566,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * select all rows
    */
   selectAll() {
-    this._selectAll()
+    this._selectAll();
   }
 
   /**
@@ -604,7 +581,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * @param idx index number of column
    */
   hideColumnByIndex(idx: number) {
-    this._columns[idx].visible = false;
+    this.columnsClone[idx].visible = false;
     this._setVisibleColumns();
   }
 
@@ -613,7 +590,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * @param idx index number of column
    */
   showColumnByIndex(idx: number) {
-    this._columns[idx].visible = true;
+    this.columnsClone[idx].visible = true;
     this._setVisibleColumns();
   }
 
@@ -622,7 +599,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * @param dataField dataField value of column
    */
   hideColumnByDataField(dataField: string) {
-    for (let element of this._columns) {
+    for (const element of this.columnsClone) {
       if (element.dataField === dataField) {
         element.visible = false;
       }
@@ -635,7 +612,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * @param dataField dataField value of column
    */
   showColumnByDataField(dataField: string) {
-    for (let element of this._columns) {
+    for (const element of this.columnsClone) {
       if (element.dataField === dataField) {
         element.visible = true;
       }
@@ -657,19 +634,23 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * @param direction desc | asc
    */
   sortByColumn(dataField: string, direction: SortDirections) {
-    var sortColumn = this.utilityService.custFind(this._columns, function (element: Column) { return element.dataField === dataField });
+    const sortColumn = this.utilityService.custFind(this.columnsClone, (element: Column) => {
+      return element.dataField === dataField;
+    });
     sortColumn.sortDirection = direction;
     this._onSort(sortColumn);
   }
 
   /**
-   * filter by column 
+   * filter by column
    * @param dataField dataField value of column
    * @param keyword search keyword
    * @param type FilterTypes
    */
   filterByColumn(dataField: string, keyword: string, type: FilterTypes) {
-    var filterColumn = this.utilityService.custFind(this._columns, function (element: Column) { return element.dataField === dataField });
+    const filterColumn = this.utilityService.custFind(this.columnsClone, (element: Column) => {
+      return element.dataField === dataField;
+    });
     filterColumn.filterString = keyword;
     filterColumn.filterType = type;
     this._onFilter(filterColumn, true);
@@ -679,14 +660,14 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * get total row count
    */
   getTotalRows() {
-    return this._pager.totalItems;
+    return this.pagerObj.totalItems;
   }
 
   /**
    * get current page number
    */
   getCurrentPageNumber() {
-    return this._pager.currentPage;
+    return this.pagerObj.currentPage;
   }
 
   /**
@@ -700,28 +681,28 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * get total pages number
    */
   getTotalPages() {
-    return this._pager.totalPages;
+    return this.pagerObj.totalPages;
   }
 
   /**
-   * close all childs
+   * close all child
    */
   closeAllChild() {
-    this._openRowKeys = [];
+    this.openRowKeys = [];
   }
 
   /**
    * get filter column list
    */
   getFilterColumns() {
-    return this._filterColumnList;
+    return this.filterColumnList;
   }
 
   /**
    * get sort column list
    */
   getSortColumns() {
-    return this._sortColumnList;
+    return this.sortColumnList;
   }
 
   /**
@@ -733,38 +714,40 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   /**
    * set column list
-   * @param columns 
    */
   setColumns(columns: Column[]) {
-    this._columns = columns;
-    var currentFilterColumnList = [];
-    for (let element of this._columns) {
+    this.columnsClone = columns;
+    const currentFilterColumnList = [];
+    for (const element of this.columnsClone) {
       if (element.filterOperator && element.filterValue && element.filterValue.toString().length > 0) {
-        currentFilterColumnList.push({ dataField: element.dataField, filterOperator: element.filterOperator, filterValue: element.filterValue, dataType: element.dataType });
+        currentFilterColumnList.push({
+          dataField: element.dataField, filterOperator: element.filterOperator,
+          filterValue: element.filterValue, dataType: element.dataType
+        });
       }
     }
-    this._filterColumnList = currentFilterColumnList;
-    var currentSortColumnList = [];
-    for (let element of this._columns) {
+    this.filterColumnList = currentFilterColumnList;
+    const currentSortColumnList = [];
+    for (const element of this.columnsClone) {
       if (element.sortEnable && element.sortDirection) {
         currentSortColumnList.push({ dataField: element.dataField, sortDirection: element.sortDirection });
       }
     }
-    this._sortColumnList = currentSortColumnList;
+    this.sortColumnList = currentSortColumnList;
     if (!this.isServerOperations) {
       this._filterDataSource();
       this._sortDataSource();
     }
     this._getCurrentViewData(1);
     this._setVisibleColumns();
-    this, this._selectedRowKeys = [];
-    this._openRowKeys = [];
+    this.selectedRowKeys = [];
+    this.openRowKeys = [];
   }
 
   _saveState() {
-    var columns = this._getColumnsArray();
-    var currentStateName = this._currentStateName;
-    for (let element of this._stateList) {
+    const columns = this._getColumnsArray();
+    const currentStateName = this.currentStateName;
+    for (const element of this.stateList) {
       if (element.name === currentStateName) {
         element.columns = columns;
         this.editStateModal.open();
@@ -776,8 +759,8 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _openModalToAddNewState() {
-    this._stateName = "";
-    this._nameAlreadyExistError = false;
+    this.stateName = '';
+    this.nameAlreadyExistError = false;
     this.saveNewStateModal.open();
   }
 
@@ -786,20 +769,20 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _addState() {
-    if (this._stateName && this._stateName.trim().length === 0) {
+    if (this.stateName && this.stateName.trim().length === 0) {
       return;
     }
-    var name = this._stateName.trim();
-    var state = this._stateList.filter(function (element: State) { if (element.name === name) { return element } });
+    const name = this.stateName.trim();
+    const state = this.stateList.filter((element: State) => { if (element.name === name) { return element; } });
     if (state && state.length > 0) {
-      this._nameAlreadyExistError = true;
+      this.nameAlreadyExistError = true;
       return;
     } else {
-      this._nameAlreadyExistError = false;
+      this.nameAlreadyExistError = false;
     }
-    var columns = this._getColumnsArray();
-    this._stateList.push(new State(name, columns));
-    this._currentStateName = name;
+    const columns = this._getColumnsArray();
+    this.stateList.push(new State(name, columns));
+    this.currentStateName = name;
     if (this.onStatesUpdate) {
       this.onStatesUpdate.emit();
     }
@@ -815,20 +798,20 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _deleteState() {
-    var currentStateName = this._currentStateName;
+    const currentStateName = this.currentStateName;
 
-    var list = [];
-    for (let element of this._stateList) {
-      if (element.name != currentStateName) {
+    const list = [];
+    for (const element of this.stateList) {
+      if (element.name !== currentStateName) {
         list.push(element);
       }
     }
-    this._stateList = list;
+    this.stateList = list;
 
-    if (this._stateList.length > 0) {
-      this._currentStateName = this._stateList[0].name;
+    if (this.stateList.length > 0) {
+      this.currentStateName = this.stateList[0].name;
     } else {
-      this._currentStateName = "";
+      this.currentStateName = '';
     }
     this._loadState();
     if (this.onStatesUpdate) {
@@ -838,20 +821,22 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _loadState() {
-    var currentStateName = this._currentStateName;
-    if (currentStateName === "") {
+    const currentStateName = this.currentStateName;
+    if (currentStateName === '') {
       this.reset();
       return;
     }
-    var state = this._stateList.filter(function (element: State) { if (element.name === currentStateName) { return element } });
+    const state = this.stateList.filter((element: State) => {
+      if (element.name === currentStateName) { return element; }
+    });
     if (state && state.length > 0) {
       this.setColumns(state[0].columns);
     }
   }
 
   private _getColumnsArray() {
-    var result = [];
-    for (let element of this._columns) {
+    const result = [];
+    for (const element of this.columnsClone) {
       result.push(new Column(element));
     }
     return result;
@@ -861,7 +846,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * get state list
    */
   getAllState() {
-    return this._stateList;
+    return this.stateList;
   }
 
   /**
@@ -869,7 +854,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * @param states state array
    */
   setAllState(states: State[]) {
-    this._stateList = states;
+    this.stateList = states;
   }
 
   /**
@@ -880,7 +865,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _onRefresh() {
-    this._getCurrentViewData(this._pager.currentPage);
+    this._getCurrentViewData(this.pagerObj.currentPage);
   }
 
   _onResetColumns() {
@@ -888,7 +873,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _resizeColumn($event: any, column: Column) {
-    var currentWidth = column.width;
+    let currentWidth = column.width;
     if (isNaN(currentWidth)) {
       currentWidth = $event.source.element.nativeElement.parentElement.offsetWidth;
     }
@@ -897,43 +882,42 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _exportToFile() {
+    const loadOpt = new LoadOptions();
     if (this.isServerExport) {
-      var loadOpt = new LoadOptions();
       if (this.isODataOperations) {
-        loadOpt.odataQuery = this.oDataService.buildQuery(0, 0, this._sortColumnList, this._filterColumnList, "allpages");
+        loadOpt.odataQuery = this.oDataService.buildQuery(0, 0, this.sortColumnList, this.filterColumnList, 'allpages');
         loadOpt.isAllPages = true;
       } else {
         loadOpt.pageNumber = 1;
-        loadOpt.pageSize = this._pager.totalItems;
-        loadOpt.sortColumns = this._sortColumnList;
-        loadOpt.filterColumns = this._filterColumnList;
+        loadOpt.pageSize = this.pagerObj.totalItems;
+        loadOpt.sortColumns = this.sortColumnList;
+        loadOpt.filterColumns = this.filterColumnList;
         loadOpt.isAllPages = true;
       }
       this.onServerExport.emit(loadOpt);
       return;
     }
     if (this.isServerOperations) {
-      var loadOpt = new LoadOptions();
       if (this.isODataOperations) {
-        loadOpt.odataQuery = this.oDataService.buildQuery(0, 0, this._sortColumnList, this._filterColumnList, "allpages");
+        loadOpt.odataQuery = this.oDataService.buildQuery(0, 0, this.sortColumnList, this.filterColumnList, 'allpages');
         loadOpt.isAllPages = true;
       } else {
         loadOpt.pageNumber = 1;
-        loadOpt.pageSize = this._pager.totalItems;
-        loadOpt.sortColumns = this._sortColumnList;
-        loadOpt.filterColumns = this._filterColumnList;
+        loadOpt.pageSize = this.pagerObj.totalItems;
+        loadOpt.sortColumns = this.sortColumnList;
+        loadOpt.filterColumns = this.filterColumnList;
         loadOpt.isAllPages = true;
       }
       this.onLoadData.emit(loadOpt);
     } else {
-      this.fileService.downloadCSVFile(this._dataSource.data, this._visibleColumns);
+      this.fileService.downloadCSVFile(this.dataSourceClone.data, this.visibleColumns);
     }
   }
 
   /**
-   * Remove all sortings
+   * Remove all sorting
    */
-  removeAllSortings() {
+  removeAllSorting() {
     this._removeAllSorting();
     this._getCurrentViewData(1);
   }
@@ -947,17 +931,17 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _showAllColumns() {
-    this._columns.forEach(function (element) {
+    this.columnsClone.forEach((element) => {
       element.visible = true;
     });
     this._setVisibleColumns();
   }
 
   _clearColumnSearch() {
-    this._searchColumnsKeyword = null;
+    this.searchColumnsKeyword = null;
   }
 
   _getCurrentPageStatistics() {
-    return `per page / ${this._pager.startIndex >= 0 ? this._pager.startIndex + 1 : 0} - ${this._pager.endIndex + 1} of ${this._pager.totalItems}`;
+    return `per page / ${this.pagerObj.startIndex >= 0 ? this.pagerObj.startIndex + 1 : 0} - ${this.pagerObj.endIndex + 1} of ${this.pagerObj.totalItems}`;
   }
 }

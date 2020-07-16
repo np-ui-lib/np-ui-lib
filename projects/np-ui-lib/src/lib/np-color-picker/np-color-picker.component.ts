@@ -1,9 +1,8 @@
-import {
-  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit
-} from "@angular/core";
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
-import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
-import { TemplatePortal } from "@angular/cdk/portal";
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, } from '@angular/core';
+import { TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from '@angular/core';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
 
 @Component({
   selector: 'np-color-picker',
@@ -21,36 +20,35 @@ import { TemplatePortal } from "@angular/cdk/portal";
 })
 export class NpColorPickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
   static controlCount = 1;
-
-  _isOpen: boolean = false;
-  _stripColor: string;
-  _currentCursorColor: string;
-  _xColorCursor: string;
-  _yColorCursor: string;
-  _isShowCursorDiv: boolean = false;
-  _innerValue: string;
-  _isDisabled: boolean = false;
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
+  constructor(public overlay: Overlay,
+    private viewContainerRef: ViewContainerRef,
+    private overlayPositionBuilder: OverlayPositionBuilder,
+    private elementRef: ElementRef) {
+  }
 
   @Input() colors: string[];
-  @Input() placeholder: string = "";
+  @Input() placeholder = '';
   @Input() hideColorInput: boolean;
   @Input() defaultOpen: boolean;
-  @Input() inputId: string = `np-color-picker_${NpColorPickerComponent.controlCount++}`;
+  @Input() inputId = `np-color-picker_${NpColorPickerComponent.controlCount++}`;
   @Input() styleClass: string;
   @Input() readonly: boolean;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+
+  isOpen = false;
+  stripColor: string;
+  currentCursorColor: string;
+  xColorCursor: string;
+  yColorCursor: string;
+  isShowCursorDiv = false;
+  innerValue: string;
+  isDisabled = false;
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
-
-  constructor(public overlay: Overlay,
-    private _viewContainerRef: ViewContainerRef,
-    private overlayPositionBuilder: OverlayPositionBuilder,
-    private elementRef: ElementRef) {
-  }
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   ngAfterContentInit() {
     if (!this.colors) {
@@ -61,18 +59,18 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     }
   }
   ngAfterViewInit() {
-    var position: ConnectedPosition[] = [
+    const position: ConnectedPosition[] = [
       {
-        originX: "start",
-        originY: "bottom",
-        overlayX: "start",
-        overlayY: "top"
+        originX: 'start',
+        originY: 'bottom',
+        overlayX: 'start',
+        overlayY: 'top'
       },
       {
-        originX: "start",
-        originY: "top",
-        overlayX: "start",
-        overlayY: "bottom"
+        originX: 'start',
+        originY: 'top',
+        overlayX: 'start',
+        overlayY: 'bottom'
       }
     ];
     const positionStrategy = this.overlayPositionBuilder
@@ -81,13 +79,13 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: "np-cp-backdrop",
+      backdropClass: 'np-cp-backdrop',
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
       panelClass: this.styleClass
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,
-      this._viewContainerRef
+      this.viewContainerRef
     );
     this.overlayRef.backdropClick().subscribe(() => this._close());
 
@@ -100,13 +98,13 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   get value(): string {
-    return this._innerValue ? this._innerValue : null;
-  };
+    return this.innerValue ? this.innerValue : null;
+  }
 
   set value(v: string) {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
-      this._stripColor = v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
+      this.stripColor = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
       this.onChange.emit(v);
@@ -114,9 +112,9 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   writeValue(v: string): void {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
-      this._stripColor = v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
+      this.stripColor = v;
     }
   }
 
@@ -129,11 +127,11 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this._isDisabled = isDisabled;
+    this.isDisabled = isDisabled;
   }
 
   _toggleColorPicker() {
-    if (this._isOpen) {
+    if (this.isOpen) {
       this._close();
     } else {
       this._open();
@@ -141,11 +139,11 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _open() {
-    if (this.defaultOpen == true || this._isDisabled || this.readonly) {
+    if (this.defaultOpen === true || this.isDisabled || this.readonly) {
       return;
     }
-    this._isOpen = true;
-    this._stripColor = this.value;
+    this.isOpen = true;
+    this.stripColor = this.value;
     if (!this.overlayRef.hasAttached()) {
       this.overlayRef.attach(this.templatePortal);
     }
@@ -159,23 +157,23 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     if (this.defaultOpen) {
       return;
     }
-    this._isShowCursorDiv = false;
-    this._isOpen = false;
+    this.isShowCursorDiv = false;
+    this.isOpen = false;
     this.overlayRef.detach();
     this.onTouchedCallback();
-    this.elementRef.nativeElement.querySelector("input").focus();
+    this.elementRef.nativeElement.querySelector('input').focus();
   }
 
   _updateStripCanvas() {
-    var strip;
+    let strip: HTMLCanvasElement;
     if (this.defaultOpen) {
-      strip = <HTMLCanvasElement>this.elementRef.nativeElement.querySelector('.np-cp-canvas-strip');
+      strip = (this.elementRef.nativeElement.querySelector('.np-cp-canvas-strip') as HTMLCanvasElement);
     } else {
-      strip = <HTMLCanvasElement>this.overlayRef.overlayElement.querySelector('.np-cp-canvas-strip');
+      strip = (this.overlayRef.overlayElement.querySelector('.np-cp-canvas-strip') as HTMLCanvasElement);
     }
-    var ctx2 = strip.getContext('2d');
+    const ctx2 = strip.getContext('2d');
     ctx2.rect(0, 0, 25, 170);
-    var grd1 = ctx2.createLinearGradient(0, 0, 0, 170);
+    const grd1 = ctx2.createLinearGradient(0, 0, 0, 170);
     grd1.addColorStop(0, '#FF0000');
     grd1.addColorStop(0.09, '#FF7F00');
     grd1.addColorStop(0.18, '#FFFF00');
@@ -193,24 +191,24 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _updateBlockCanvas() {
-    var block;
+    let block: HTMLCanvasElement;
     if (this.defaultOpen) {
-      block = <HTMLCanvasElement>this.elementRef.nativeElement.querySelector('.np-cp-canvas-block');
+      block = (this.elementRef.nativeElement.querySelector('.np-cp-canvas-block') as HTMLCanvasElement);
     } else {
-      block = <HTMLCanvasElement>this.overlayRef.overlayElement.querySelector('.np-cp-canvas-block');
+      block = (this.overlayRef.overlayElement.querySelector('.np-cp-canvas-block') as HTMLCanvasElement);
     }
-    var ctx1 = block.getContext('2d');
+    const ctx1 = block.getContext('2d');
 
-    ctx1.fillStyle = this._stripColor ? this._stripColor : (this.value ? this.value : "#FF0000");
+    ctx1.fillStyle = this.stripColor ? this.stripColor : (this.value ? this.value : '#FF0000');
     ctx1.fillRect(0, 0, 170, 170);
 
-    var grdWhite = ctx1.createLinearGradient(0, 0, 170, 0);
+    const grdWhite = ctx1.createLinearGradient(0, 0, 170, 0);
     grdWhite.addColorStop(0, 'rgba(255,255,255,1)');
     grdWhite.addColorStop(1, 'rgba(255,255,255,0)');
     ctx1.fillStyle = grdWhite;
     ctx1.fillRect(0, 0, 170, 170);
 
-    var grdBlack = ctx1.createLinearGradient(0, 0, 0, 170);
+    const grdBlack = ctx1.createLinearGradient(0, 0, 0, 170);
     grdBlack.addColorStop(0, 'rgba(0,0,0,0)');
     grdBlack.addColorStop(1, 'rgba(0,0,0,1)');
     ctx1.fillStyle = grdBlack;
@@ -218,7 +216,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _clickStripeColor(e: any) {
-    this._stripColor = this._getColorFromClickevent(e, '.np-cp-canvas-strip');
+    this.stripColor = this._getColorFromClickevent(e, '.np-cp-canvas-strip');
     this._updateBlockCanvas();
   }
 
@@ -227,49 +225,49 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _fullColorHex(r: number, g: number, b: number) {
-    var red = this._rgbToHex(r);
-    var green = this._rgbToHex(g);
-    var blue = this._rgbToHex(b);
+    const red = this._rgbToHex(r);
+    const green = this._rgbToHex(g);
+    const blue = this._rgbToHex(b);
     return `#${red}${green}${blue}`;
-  };
+  }
 
   _rgbToHex(rgb: number) {
-    var hex = Number(rgb).toString(16);
+    let hex = Number(rgb).toString(16);
     if (hex.length < 2) {
       hex = `0${hex}`;
     }
     return hex;
-  };
+  }
 
   _onMouseLeaveStrip() {
-    this._isShowCursorDiv = false;
+    this.isShowCursorDiv = false;
   }
 
   _onMouseLeaveBlock() {
-    this._isShowCursorDiv = false;
+    this.isShowCursorDiv = false;
   }
 
   _onMouseOverStrip(e: any) {
-    this._isShowCursorDiv = true;
-    this._xColorCursor = `${e.pageX}px`;
-    this._yColorCursor = `${e.pageY}px`;
-    this._currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-strip');
+    this.isShowCursorDiv = true;
+    this.xColorCursor = `${e.pageX}px`;
+    this.yColorCursor = `${e.pageY}px`;
+    this.currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-strip');
   }
 
   _onMouseOverBlock(e: any) {
-    this._isShowCursorDiv = true;
-    this._xColorCursor = `${e.pageX}px`;
-    this._yColorCursor = `${e.pageY}px`;
-    this._currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-block');
+    this.isShowCursorDiv = true;
+    this.xColorCursor = `${e.pageX}px`;
+    this.yColorCursor = `${e.pageY}px`;
+    this.currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-block');
   }
 
   _onClickColorBlock(color: string) {
-    if (color == undefined || color == null) {
+    if (color === undefined || color == null) {
       this.value = null;
       return;
     }
     this.value = color;
-    this._stripColor = color;
+    this.stripColor = color;
     this._updateBlockCanvas();
   }
 
@@ -277,14 +275,14 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     return this._hexToRgb(this.value);
   }
 
-  _hexToRgb(hexColor) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexColor);
-    var rgb = result ? {
+  _hexToRgb(hexColor: string) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexColor);
+    const rgb = result ? {
       r: parseInt(result[1], 16),
       g: parseInt(result[2], 16),
       b: parseInt(result[3], 16)
     } : null;
-    return rgb ? `${rgb.r}, ${rgb.g}, ${rgb.b}` : "";
+    return rgb ? `${rgb.r}, ${rgb.g}, ${rgb.b}` : '';
   }
 
   getSelectedRGB() {
@@ -292,14 +290,14 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _clear() {
-    if (this._isDisabled || this.readonly) {
+    if (this.isDisabled || this.readonly) {
       return;
     }
     this.value = null;
     this._close();
   }
 
-  _onInputChange(event) {
+  _onInputChange(event: { target: { value: string; }; }) {
     if (event.target.value && event.target.value.charAt(0) !== '#') {
       this.value = `#${event.target.value}`;
     } else {
@@ -308,21 +306,21 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _getColorFromClickevent(e: any, clickedElement: string) {
-    var strip;
+    let strip: HTMLCanvasElement;
     if (this.defaultOpen) {
-      strip = <HTMLCanvasElement>this.elementRef.nativeElement.querySelector(clickedElement);
+      strip = (this.elementRef.nativeElement.querySelector(clickedElement) as HTMLCanvasElement);
     } else {
-      strip = <HTMLCanvasElement>this.overlayRef.overlayElement.querySelector(clickedElement);
+      strip = (this.overlayRef.overlayElement.querySelector(clickedElement) as HTMLCanvasElement);
     }
-    var ctx2 = strip.getContext('2d');
-    var x = e.offsetX;
-    var y = e.offsetY;
-    var imageData = ctx2.getImageData(x, y, 1, 1).data;
+    const ctx2 = strip.getContext('2d');
+    const x = e.offsetX;
+    const y = e.offsetY;
+    const imageData = ctx2.getImageData(x, y, 1, 1).data;
     return this._fullColorHex(imageData[0], imageData[1], imageData[2]);
   }
 
   _onKeydown(event: KeyboardEvent) {
-    if (event.which === 9) {
+    if (event.key === 'Tab') {
       this._close();
     }
   }

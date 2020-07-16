@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { Column } from '../models/column.model';
 
 @Injectable()
@@ -27,9 +27,9 @@ export class NpFileService {
     }
 
     private createCSVData(data: any[], columnList: Column[]) {
-        var headersLabels = [];
-        var headers = [];
-        for (let element of columnList) {
+        const headersLabels = [];
+        const headers = [];
+        for (const element of columnList) {
             if (element.dataField === undefined) {
                 continue;
             }
@@ -38,23 +38,23 @@ export class NpFileService {
         }
         const head = headersLabels.join(',') + '\r\n';
         const rows = [];
-        for (let element of data) {
-            var cols = [];
-            for (let column of headers) {
-                if (element[column] != undefined || element[column] != null) {
+        for (const element of data) {
+            const cols = [];
+            for (const column of headers) {
+                if (element[column] !== undefined || element[column] != null) {
                     cols.push(`"${element[column].toString().replace(/\"/g, '""')}"`);
                 } else {
-                    cols.push("");
+                    cols.push('');
                 }
             }
-            rows.push(cols.join(","));
+            rows.push(cols.join(','));
         }
         return head + rows.join('\r\n');
     }
 
     private normalizeFileName(fileName: string, extension: string) {
         if (fileName === undefined || fileName === null || fileName.length === 0) {
-            fileName = "download";
+            fileName = 'download';
         }
         const suffix = '.' + extension;
         const extensionPattern = new RegExp(`(\\${extension})?$`);

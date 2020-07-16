@@ -205,7 +205,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   }
 
   _onKeydown(event: KeyboardEvent) {
-    if (event.key === 'tab') {
+    if (event.key === 'Tab') {
       this._close();
     }
   }

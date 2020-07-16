@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { DataTypes } from '../models/constants';
 
 @Injectable()
 export class NpODataService {
     buildQuery(top: number, skip: number, sortColumns: any[], filterColumns: any[], inlineCount?: string): string {
-        var queryTmpArray = [];
+        const queryTmpArray = [];
 
         if (filterColumns) {
             if (filterColumns && filterColumns.length === 1) {
@@ -15,8 +15,8 @@ export class NpODataService {
                 }
             }
             if (filterColumns && filterColumns.length > 1) {
-                let filterQueue = [];
-                for (let element of filterColumns) {
+                const filterQueue = [];
+                for (const element of filterColumns) {
                     if (element.dataType === DataTypes.String) {
                         filterQueue.push(`${element.filterOperator}(${element.dataField} ,'${element.filterValue}')`);
                     } else {
@@ -30,8 +30,8 @@ export class NpODataService {
         }
 
         if (sortColumns) {
-            let sortQueue = [];
-            for (let element of sortColumns) {
+            const sortQueue = [];
+            for (const element of sortColumns) {
                 sortQueue.push(`${element.dataField} ${element.sortDirection}`);
             }
             if (sortQueue.length > 0) {

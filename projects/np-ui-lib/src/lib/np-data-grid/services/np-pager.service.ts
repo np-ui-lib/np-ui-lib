@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { Pager } from '../models/pager.model';
 
 @Injectable()
 export class NpPagerService {
     getPager(totalItems: number, currentPage: number = 1, pageSize: number = 10): Pager {
         // calculate total pages
-        pageSize = parseInt(pageSize.toString());
-        let totalPages = Math.ceil(totalItems / pageSize);
+        pageSize = Number(pageSize.toString());
+        const totalPages = Math.ceil(totalItems / pageSize);
 
         // ensure current page isn't out of range
         if (currentPage < 1) {
@@ -15,7 +15,8 @@ export class NpPagerService {
             currentPage = totalPages;
         }
 
-        let startPage: number, endPage: number;
+        let startPage: number;
+        let endPage: number;
         if (totalPages <= 10) {
             // less than 10 total pages so show all
             startPage = 1;
@@ -35,23 +36,23 @@ export class NpPagerService {
         }
 
         // calculate start and end item indexes
-        let startIndex = (currentPage - 1) * pageSize;
-        let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
+        const startIndex = (currentPage - 1) * pageSize;
+        const endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
 
         // create an array of pages to ng-repeat in the pager control
-        let pages = Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
+        const pages = Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
 
         // return object with all pager properties required by the view
         return {
-            totalItems: totalItems,
-            currentPage: currentPage,
-            pageSize: pageSize,
-            totalPages: totalPages,
-            startPage: startPage,
-            endPage: endPage,
-            startIndex: startIndex,
-            endIndex: endIndex,
-            pages: pages
+            totalItems,
+            currentPage,
+            pageSize,
+            totalPages,
+            startPage,
+            endPage,
+            startIndex,
+            endIndex,
+            pages
         };
     }
 }

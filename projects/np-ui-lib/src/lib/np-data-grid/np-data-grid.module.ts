@@ -11,8 +11,8 @@ import { NpPagerService } from './services/np-pager.service';
 import { NpGridUtilityService } from './services/np-grid-utility.service';
 import { CommonModule } from '@angular/common';
 import { NpDatePickerModule } from '../np-date-picker/np-date-picker.module';
-import { OverlayModule } from "@angular/cdk/overlay";
-import { PortalModule } from "@angular/cdk/portal";
+import { OverlayModule } from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal';
 import { NpModalModule } from '../np-modal/np-modal.module';
 
 @NgModule({

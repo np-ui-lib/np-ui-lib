@@ -2,108 +2,108 @@ export class Constants {
     static filters(): any[] {
         return [{
             name: FilterTypes.StartsWith,
-            text: "abc*",
+            text: 'abc*',
             forDataType: DataTypes.String
         },
         {
             name: FilterTypes.EndsWith,
-            text: "*abc",
+            text: '*abc',
             forDataType: DataTypes.String
         },
         {
             name: FilterTypes.Contains,
-            text: "*abc*",
+            text: '*abc*',
             forDataType: DataTypes.String
         },
         {
             name: FilterTypes.GreaterThan,
-            text: ">",
+            text: '>',
             forDataType: DataTypes.Number
         },
         {
             name: FilterTypes.LessThan,
-            text: "<",
+            text: '<',
             forDataType: DataTypes.Number
         },
         {
             name: FilterTypes.GreaterThanOrEquals,
-            text: ">=",
+            text: '>=',
             forDataType: DataTypes.Number
         },
         {
             name: FilterTypes.LessThanOrEquals,
-            text: "<=",
+            text: '<=',
             forDataType: DataTypes.Number
         }, {
             name: FilterTypes.Equals,
-            text: "=",
+            text: '=',
             forDataType: DataTypes.Number
         },
         {
             name: FilterTypes.Equals,
-            text: "=",
+            text: '=',
             forDataType: DataTypes.Boolean
         },
         {
             name: FilterTypes.GreaterThan,
-            text: ">",
+            text: '>',
             forDataType: DataTypes.Date
         }, {
             name: FilterTypes.LessThan,
-            text: "<",
+            text: '<',
             forDataType: DataTypes.Date
         },
         {
             name: FilterTypes.GreaterThanOrEquals,
-            text: ">=",
+            text: '>=',
             forDataType: DataTypes.Date
         }, {
             name: FilterTypes.LessThanOrEquals,
-            text: "<=",
+            text: '<=',
             forDataType: DataTypes.Date
         }, {
             name: FilterTypes.Equals,
-            text: "=",
+            text: '=',
             forDataType: DataTypes.Date
         }, {
             name: FilterTypes.NotEquals,
-            text: "≠",
+            text: '≠',
             forDataType: DataTypes.Number
         },
         {
             name: FilterTypes.NotEquals,
-            text: "≠",
+            text: '≠',
             forDataType: DataTypes.Date
         },
         {
             name: FilterTypes.NotEquals,
-            text: "≠",
+            text: '≠',
             forDataType: DataTypes.Boolean
         }];
     }
 }
 
 export enum FilterTypes {
-    StartsWith = "startswith",
-    EndsWith = "endswith",
-    Contains = "contains",
-    GreaterThan = "gt",
-    LessThan = "lt",
-    LessThanOrEquals = "le",
-    GreaterThanOrEquals = "ge",
-    Equals = "eq",
-    NotEquals = "ne",
-    Reset = "Reset"
+    StartsWith = 'startswith',
+    EndsWith = 'endswith',
+    Contains = 'contains',
+    GreaterThan = 'gt',
+    LessThan = 'lt',
+    LessThanOrEquals = 'le',
+    GreaterThanOrEquals = 'ge',
+    Equals = 'eq',
+    NotEquals = 'ne',
+    Reset = 'Reset'
 }
 
 export enum DataTypes {
-    Number = "number",
-    String = "string",
-    Date = "date",
-    Boolean = "boolean"
+    Number = 'number',
+    String = 'string',
+    Date = 'date',
+    Boolean = 'boolean'
 }
 
 export enum SortDirections {
-    Ascending = "asc",
-    Descending = "desc"
+    Ascending = 'asc',
+    Descending = 'desc'
 }

@@ -114,8 +114,8 @@ export class ServerGridAllComponent implements OnInit {
     this.serverSideGrid.removeAllFilters();
   }
 
-  clearSortings() {
-    this.serverSideGrid.removeAllSortings();
+  clearSorting() {
+    this.serverSideGrid.removeAllSorting();
   }
 
   reset() {
