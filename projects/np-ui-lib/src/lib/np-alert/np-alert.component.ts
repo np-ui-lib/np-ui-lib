@@ -7,14 +7,14 @@ import { Component, OnInit, Input, ElementRef, ViewEncapsulation, ChangeDetectio
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpAlertComponent implements OnInit {
+  static controlCount = 1;
 
   @Input() type: string;
   @Input() styleClass: string;
   @Input() showCloseButton: boolean;
   @Input() autoClose: boolean;
   @Input() autoCloseTimeout: number;
-  static controlCount = 1;
-  @Input() inputId: string = `np-alert_${NpAlertComponent.controlCount++}`;
+  @Input() inputId = `np-alert_${NpAlertComponent.controlCount++}`;
 
   constructor(private el: ElementRef) { }
 
