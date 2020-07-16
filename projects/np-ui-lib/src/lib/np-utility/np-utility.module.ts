@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { NpHightLightPipe } from './np-highlight.pipe';
 import { NpMaskDirective } from './np-mask.directive';
 import { NpUtilityService } from './np-utility.service';
-import { NpIndeterminate } from './np-indeterminate.directive';
+import { NpIndeterminateDirective } from './np-indeterminate.directive';
 
 @NgModule({
-    declarations: [NpHightLightPipe, NpMaskDirective, NpIndeterminate],
-    exports: [NpHightLightPipe, NpMaskDirective, NpIndeterminate],
+    declarations: [NpHightLightPipe, NpMaskDirective, NpIndeterminateDirective],
+    exports: [NpHightLightPipe, NpMaskDirective, NpIndeterminateDirective],
     providers: [NpUtilityService]
 })
 export class NpUtilityModule { }

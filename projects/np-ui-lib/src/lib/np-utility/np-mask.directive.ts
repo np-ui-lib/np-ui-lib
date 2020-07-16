@@ -11,7 +11,7 @@ export class NpMaskDirective implements OnInit {
     @Input('np-mask') mask: string;
 
     private control: NgControl;
-    private _lastMaskedValue = '';
+    private lastMaskedValue = '';
 
     constructor(
         private injector: Injector,
@@ -27,26 +27,26 @@ export class NpMaskDirective implements OnInit {
         const originalWriteVal = this.control.valueAccessor.writeValue.bind(this.control.valueAccessor);
         this.control.valueAccessor.writeValue = (val: any) => originalWriteVal(this._maskValue(val));
 
-        const originalChange = (<any>this.control.valueAccessor)['onChange'].bind(this.control.valueAccessor);
+        const originalChange = (this.control.valueAccessor as any).onChange.bind(this.control.valueAccessor);
         this.control.valueAccessor.registerOnChange((val: any) => originalChange(this._unmaskValue(val)));
 
         this._setVal(this._maskValue(this.control.value));
     }
 
     private _maskValue(val: string): string {
-        if (val == null || val == undefined) {
+        if (val == null || val === undefined) {
             return;
         }
 
-        if (!this.mask || val === this._lastMaskedValue) {
+        if (!this.mask || val === this.lastMaskedValue) {
             return val;
         }
 
-        const maskedVal = this._lastMaskedValue =
+        const maskedVal = this.lastMaskedValue =
             valueToFormat(
                 val,
-                this.mask, this._lastMaskedValue.length > val.length,
-                this._lastMaskedValue);
+                this.mask, this.lastMaskedValue.length > val.length,
+                this.lastMaskedValue);
 
         return maskedVal;
     }
@@ -67,5 +67,4 @@ export class NpMaskDirective implements OnInit {
             this.control.control.setValue(val, { emitEvent: false });
         }
     }
-
 }

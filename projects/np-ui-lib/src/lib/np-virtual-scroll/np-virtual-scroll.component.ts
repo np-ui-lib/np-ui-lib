@@ -8,14 +8,14 @@ import { Component, Input, Output, EventEmitter, TemplateRef, ViewEncapsulation,
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpVirtualScrollComponent {
+  static controlCount = 1;
 
   @Input() data: any[];
   @Input() pageSize: number;
   @Input() itemHeight: number;
   @Input() template: TemplateRef<any>;
   @Input() styleClass: string;
-  static controlCount = 1;
-  @Input() inputId: string = `np-virtualscroll_${NpVirtualScrollComponent.controlCount++}`;
+  @Input() inputId = `np-virtualscroll_${NpVirtualScrollComponent.controlCount++}`;
 
   @Output() loadData: EventEmitter<any> = new EventEmitter();
 
@@ -24,12 +24,12 @@ export class NpVirtualScrollComponent {
   constructor() { }
 
   _onScrollIndexChange(index: number) {
-    let pageRange = this._createPageRange(Math.floor(index / this.pageSize));
+    const pageRange = this._createPageRange(Math.floor(index / this.pageSize));
     pageRange.forEach(page => this.loadPage(page));
   }
 
   private _createPageRange(page: number) {
-    let range: number[] = [];
+    const range: number[] = [];
 
     if (page !== 0) {
       range.push(page - 1);

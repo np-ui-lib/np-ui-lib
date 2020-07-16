@@ -1,18 +1,18 @@
 
 export interface StringHashMap<T> { [key: string]: T; }
 
-const _formatToRegExp: StringHashMap<RegExp> = {
-    '0': /[0-9]/, 'a': /[a-z]/, 'A': /[A-Z]/, 'B': /[a-zA-Z]/,
+const formatToRegExp: StringHashMap<RegExp> = {
+    0: /[0-9]/, a: /[a-z]/, A: /[A-Z]/, B: /[a-zA-Z]/,
 };
 
-const _allFormatsStr = '(' +
-    Object.keys(_formatToRegExp)
-        .map(key => _formatToRegExp[key].toString())
+const allFormatsStr = '(' +
+    Object.keys(formatToRegExp)
+        .map(key => formatToRegExp[key].toString())
         .map(regexStr => regexStr.substr(1, regexStr.length - 2))
         .join('|')
     + ')';
 
-const _allFormatsGlobal = getAllFormatRegexp('g');
+const allFormatsGlobal = getAllFormatRegexp('g');
 
 /**
  * Apply format to a value string
@@ -77,14 +77,14 @@ export function valueToFormat(value: string, format: string, goingBack = false, 
 }
 
 export function unmaskValue(value: string): string {
-    const unmaskedMathes = value.match(_allFormatsGlobal);
+    const unmaskedMathes = value.match(allFormatsGlobal);
     return unmaskedMathes ? unmaskedMathes.join('') : '';
 }
 
 function getAllFormatRegexp(flags?: string) {
-    return new RegExp(_allFormatsStr, flags);
+    return new RegExp(allFormatsStr, flags);
 }
 
 function getFormatRegexp(formatChar: string): RegExp | null {
-    return formatChar && _formatToRegExp[formatChar] ? _formatToRegExp[formatChar] : null;
+    return formatChar && formatToRegExp[formatChar] ? formatToRegExp[formatChar] : null;
 }
