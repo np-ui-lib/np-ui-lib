@@ -6,11 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./np-card.component.css']
 })
 export class NpCardComponent implements OnInit {
+  static controlCount = 1;
 
   @Input() styleClass: string;
   @Input() width: number;
-  static controlCount = 1;
-  @Input() inputId: string = `np-card_${NpCardComponent.controlCount++}`;
+  @Input() inputId = `np-card_${NpCardComponent.controlCount++}`;
 
   constructor() { }
 

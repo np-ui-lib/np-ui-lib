@@ -7,23 +7,21 @@ import { NpBreadCrumbItem } from './np-breadcrumb.model';
   styleUrls: ['./np-breadcrumb.component.css']
 })
 export class NpBreadcrumbComponent implements OnInit {
+  static controlCount = 1;
 
   @Input() styleClass: string;
   @Input() items: NpBreadCrumbItem[];
-  @Input() showHomeIcon: boolean = true;
+  @Input() showHomeIcon = true;
   @Input() homeIconCss: string;
+  @Input() inputId = `np-breadcrumb_${NpBreadcrumbComponent.controlCount++}`;
   @Output() onClick: EventEmitter<any> = new EventEmitter();
-  static controlCount = 1;
-  @Input() inputId: string = `np-breadcrumb_${NpBreadcrumbComponent.controlCount++}`;
-
-  constructor() { }
 
   ngOnInit(): void {
   }
 
   _onClick(item: NpBreadCrumbItem) {
     if (this.onClick) {
-      this.onClick.emit(item)
+      this.onClick.emit(item);
     }
   }
 
