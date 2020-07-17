@@ -1,6 +1,6 @@
-<div [ngClass]="{'np-tg-component':true, 'np-disabled' : _isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{'np-tg-component':true, 'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-input-group">
-        <ng-container *ngFor="let tag of _innerValue">
+        <ng-container *ngFor="let tag of innerValue">
             <div class="np-tg-tag">
                 <div class="np-row np-no-gutters align-items-center">
                     <div class="np-col-auto" [innerHTML]="_getDisplayValue(tag)"></div>
@@ -16,9 +16,9 @@
                 </div>
             </div>
         </ng-container>
-        <input class="np-form-control" type="text" autocomplete="off" [(ngModel)]="_displayValue" [placeholder]="placeholder" (click)="_onClick()" (keydown)="_onKeydown($event)" (input)="_onInput()" [disabled]="_isDisabled">
+        <input class="np-form-control" type="text" autocomplete="off" [(ngModel)]="displayValue" [placeholder]="placeholder" (click)="_onClick()" (keydown)="_onKeydown($event)" (input)="_onInput()" [disabled]="isDisabled">
         <div class="input-group-append">
-            <div class="np-tg-loader" *ngIf="_isLoading">
+            <div class="np-tg-loader" *ngIf="isLoading">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path
                         d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" />
@@ -40,25 +40,25 @@
         <div class="np-tg-overlay np-border">
             <div class="np-row np-no-gutters">
                 <ng-container *ngIf="!isTreeView">
-                    <div class="np-col-12" *ngFor="let item of _searchResult; let i = index;">
+                    <div class="np-col-12" *ngFor="let item of options; let i = index;">
                         <div class="np-tg-search-item" (click)="_selectValue(item)" [ngClass]="{'np-tg-selected': _isSelected(item)}">
                             <ng-container *ngIf="!itemTemplate; else customTemplate">
-                                <span [innerHTML]="displayKey ? item[displayKey] : item | npHighLight : _displayValue"></span>
+                                <span [innerHTML]="(displayKey ? item[displayKey] : item ) | npHighLight : displayValue"></span>
                             </ng-container>
-                            <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item, keyword: _displayValue}">
+                            <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item, keyword: displayValue}">
                             </ng-template>
                         </div>
                     </div>
                 </ng-container>
                 <ng-container *ngIf="isTreeView">
-                    <np-tree-view [items]="_searchResult" [allowSelection]="true" (onSelect)="_onSelectNode($event)" (onDeselect)="_onDeselectNode($event)"></np-tree-view>
+                    <np-tree-view [items]="options" [allowSelection]="true" (onSelect)="_onSelectNode($event)" (onDeselect)="_onDeselectNode($event)"></np-tree-view>
                 </ng-container>
-                <div class="np-col-12" *ngIf="_searchResult && _searchResult.length===0">
+                <div class="np-col-12" *ngIf="options && options.length===0">
                     <div class="np-tg-search-item np-disabled np-tg-gray">
                         <b>No Result Found.</b>
                     </div>
                 </div>
-                <div class="np-col-12" *ngIf="allowCreateNew && _displayValue">
+                <div class="np-col-12" *ngIf="allowCreateNew && displayValue">
                     <div class="np-tg-search-item np-tg-gray" (click)="_createNewTag()">
                         <b>Create New</b>
                     </div>

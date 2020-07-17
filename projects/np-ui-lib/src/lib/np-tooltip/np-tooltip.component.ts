@@ -7,15 +7,17 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpTooltipComponent implements OnInit {
-  _isTemplate: boolean;
+  static controlCount = 1;
+
   @Input() tooltip: string | TemplateRef<any>;
   @Input() styleClass: string;
-  static controlCount = 1;
-  @Input() inputId: string = `np-tooltip_${NpTooltipComponent.controlCount++}`;
+  @Input() inputId = `np-tooltip_${NpTooltipComponent.controlCount++}`;
+
+  isTemplate: boolean;
 
   ngOnInit(): void {
     if (this.tooltip instanceof TemplateRef) {
-      this._isTemplate = true;
+      this.isTemplate = true;
     }
   }
 }

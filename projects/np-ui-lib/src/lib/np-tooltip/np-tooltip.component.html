@@ -1,10 +1,10 @@
 <div [ngClass]="'np-tt-component'" [class]="styleClass" [attr.id]="inputId">
     <div class="np-row np-no-gutters">
         <div class="np-col-12">
-            <ng-container *ngIf="!_isTemplate">
+            <ng-container *ngIf="!isTemplate">
                 <div [innerHTML]="tooltip"></div>
             </ng-container>
-            <ng-template *ngIf="_isTemplate" [ngTemplateOutlet]="tooltip">
+            <ng-template *ngIf="isTemplate" [ngTemplateOutlet]="tooltip">
             </ng-template>
         </div>
     </div>

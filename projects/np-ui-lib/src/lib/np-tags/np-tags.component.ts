@@ -1,7 +1,8 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from "@angular/core";
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
-import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from "@angular/cdk/overlay";
-import { TemplatePortal } from "@angular/cdk/portal";
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, OnDestroy } from '@angular/core';
+import { ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from '@angular/core';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { NpTreeViewItem } from '../np-tree-view/np-tree-view.model';
 import { NpUtilityService } from '../np-utility/np-utility.service';
@@ -20,23 +21,12 @@ import { NpUtilityService } from '../np-utility/np-utility.service';
     }
   ]
 })
-export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
+export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit, OnDestroy {
   static controlCount = 1;
-  _innerValue: any[];
-  _isDisabled: boolean = false;
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
-
-  _subscription: Subscription;
-  _searchResult: any[];
-  _displayValue: string;
-  _searchTimeout: any;
-  _isLoading: boolean = false;
 
   @Input() searchResult: BehaviorSubject<any[]>;
-  @Input() placeholder: string = "";
+  @Input() placeholder = '';
   @Input() styleClass: string;
-  @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Input() isServerSide: boolean;
   @Input() allowCreateNew: boolean;
   @Input() displayKey: string;
@@ -44,32 +34,44 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
   @Input() readonly: boolean;
-  @Input() inputId: string = `np-tags_${NpTagsComponent.controlCount++}`;
+  @Input() inputId = `np-tags_${NpTagsComponent.controlCount++}`;
+
+  @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
 
   @Input() isTreeView: boolean;
 
-  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+
+  subscription: Subscription;
+  options: any[];
+  displayValue: string;
+  searchTimeout: any;
+  isLoading = false;
+  innerValue: any[];
+  isDisabled = false;
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   constructor(
     public overlay: Overlay,
-    private _viewContainerRef: ViewContainerRef,
+    private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef,
     private utility: NpUtilityService
   ) { }
 
   ngAfterContentInit(): void {
-    this._subscription = this.searchResult.subscribe((data) => {
+    this.subscription = this.searchResult.subscribe((data) => {
       if (this.maxResultLimit && this.maxResultLimit > 0 && data && data.length > this.maxResultLimit) {
-        this._searchResult = data.splice(0, this.maxResultLimit);
+        this.options = data.splice(0, this.maxResultLimit);
       } else {
-        this._searchResult = data;
+        this.options = data;
       }
       if (this.isServerSide) {
-        this._isLoading = false;
+        this.isLoading = false;
         if (data) {
           if (!this.overlayRef.hasAttached()) {
             this.overlayRef.attach(this.templatePortal);
@@ -80,18 +82,18 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   ngAfterViewInit(): void {
-    var position: ConnectedPosition[] = [
+    const position: ConnectedPosition[] = [
       {
-        originX: "start",
-        originY: "bottom",
-        overlayX: "start",
-        overlayY: "top"
+        originX: 'start',
+        originY: 'bottom',
+        overlayX: 'start',
+        overlayY: 'top'
       },
       {
-        originX: "start",
-        originY: "top",
-        overlayX: "start",
-        overlayY: "bottom"
+        originX: 'start',
+        originY: 'top',
+        overlayX: 'start',
+        overlayY: 'bottom'
       }
     ];
     const positionStrategy = this.overlayPositionBuilder
@@ -100,30 +102,30 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: "np-tg-backdrop",
+      backdropClass: 'np-tg-backdrop',
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
       panelClass: this.styleClass
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,
-      this._viewContainerRef
+      this.viewContainerRef
     );
     this.overlayRef.backdropClick().subscribe(() => this._close());
   }
 
   ngOnDestroy(): void {
-    if (this._subscription) {
-      this._subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 
   get value(): any[] {
-    return this._innerValue ? this._innerValue : null;
-  };
+    return this.innerValue ? this.innerValue : null;
+  }
 
   set value(v: any[]) {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
       this.onChange.emit(v);
@@ -131,8 +133,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   writeValue(v: any): void {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
     }
   }
 
@@ -145,31 +147,31 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this._isDisabled = isDisabled;
+    this.isDisabled = isDisabled;
   }
 
   _close() {
-    this._displayValue = null;
+    this.displayValue = null;
     this.overlayRef.detach();
     this.onTouchedCallback();
-    this.elementRef.nativeElement.querySelector("input").focus();
+    this.elementRef.nativeElement.querySelector('input').focus();
   }
 
   _onInput() {
-    if (this._isDisabled || this.readonly || !this.isServerSide) {
+    if (this.isDisabled || this.readonly || !this.isServerSide) {
       return;
     }
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
-      if (this._displayValue == undefined || this._displayValue == null || this._displayValue.length < this.minSearchCharLimit) {
+      if (this.displayValue === undefined || this.displayValue == null || this.displayValue.length < this.minSearchCharLimit) {
         return;
       }
     }
-    this._isLoading = true;
-    if (this._searchTimeout) {
-      clearTimeout(this._searchTimeout);
+    this.isLoading = true;
+    if (this.searchTimeout) {
+      clearTimeout(this.searchTimeout);
     }
-    this._searchTimeout = setTimeout(() => {
-      this.onSearch.emit(this._displayValue);
+    this.searchTimeout = setTimeout(() => {
+      this.onSearch.emit(this.displayValue);
     }, 1000);
   }
 
@@ -186,7 +188,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _onClick() {
-    if (this.isServerSide || this._isDisabled || this.readonly) {
+    if (this.isServerSide || this.isDisabled || this.readonly) {
       return;
     }
     if (!this.overlayRef.hasAttached()) {
@@ -198,35 +200,35 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     if (this._isAlreadyCreated()) {
       return;
     }
-    if (this._searchResult == undefined || this._searchResult == null) {
-      this._searchResult = [];
+    if (this.options === undefined || this.options == null) {
+      this.options = [];
     }
     if (this.displayKey) {
-      var newObj;
+      let newObj;
       if (this.isTreeView) {
-        newObj = new NpTreeViewItem({ label: this._displayValue });
+        newObj = new NpTreeViewItem({ label: this.displayValue });
       } else {
         newObj = {};
-        newObj[this.displayKey] = this._displayValue;
+        newObj[this.displayKey] = this.displayValue;
       }
-      this._searchResult.push(newObj);
+      this.options.push(newObj);
       this._selectValue(newObj);
     } else {
-      this._searchResult.push(this._displayValue);
-      this._selectValue(this._displayValue);
+      this.options.push(this.displayValue);
+      this._selectValue(this.displayValue);
     }
-    this._displayValue = null;
+    this.displayValue = null;
   }
 
   _isAlreadyCreated() {
-    if (!this._innerValue) {
+    if (!this.innerValue) {
       return false;
     }
     if (this.displayKey) {
-      var tag = {};
-      tag[this.displayKey] = this._displayValue;
-      var that = this;
-      var idx = this._innerValue.findIndex(function (element) {
+      const tag = {};
+      tag[this.displayKey] = this.displayValue;
+      const that = this;
+      const idx = this.innerValue.findIndex((element) => {
         if (that.utility.isEqual(element, tag)) {
           return tag;
         }
@@ -235,7 +237,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
         return true;
       }
     } else {
-      var idx = this._innerValue.indexOf(this._displayValue);
+      const idx = this.innerValue.indexOf(this.displayValue);
       if (idx > -1) {
         return true;
       }
@@ -252,30 +254,31 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       tag.isSelected = false;
     }
     if (this.displayKey) {
-      var that = this;
-      var idx = this._innerValue.findIndex(function (element) {
+      const that = this;
+      const idx = this.innerValue.findIndex((element) => {
         if (that.utility.isEqual(element, tag)) {
           return tag;
         }
       });
       if (idx > -1) {
-        this._innerValue.splice(idx, 1);
+        this.innerValue.splice(idx, 1);
       }
       return;
-    }
-    var idx = this._innerValue.indexOf(tag);
-    if (idx > -1) {
-      this._innerValue.splice(idx, 1);
+    } else {
+      const idx = this.innerValue.indexOf(tag);
+      if (idx > -1) {
+        this.innerValue.splice(idx, 1);
+      }
     }
   }
 
   _isSelected(tag: any) {
-    if (!this._innerValue || this._innerValue.length == 0) {
+    if (!this.innerValue || this.innerValue.length === 0) {
       return false;
     }
     if (this.displayKey) {
-      var that = this;
-      var idx = this._innerValue.findIndex(function (element) {
+      const that = this;
+      const idx = this.innerValue.findIndex((element) => {
         if (that.utility.isEqual(element, tag)) {
           return tag;
         }
@@ -284,7 +287,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
         return true;
       }
     } else {
-      var idx = this._innerValue.indexOf(tag);
+      const idx = this.innerValue.indexOf(tag);
       if (idx > -1) {
         return true;
       }
@@ -320,15 +323,15 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   clear() {
-    if (this._isDisabled || this.readonly) {
+    if (this.isDisabled || this.readonly) {
       return;
     }
     this.value = null;
     if (this.isServerSide) {
-      this._searchResult = null;
+      this.options = null;
     }
     if (this.isTreeView) {
-      this._searchResult.forEach(element => {
+      this.options.forEach(element => {
         this._clearInTreeView(element);
       });
     }
@@ -345,7 +348,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _onKeydown(event: KeyboardEvent) {
-    if (event.which === 9) {
+    if (event.key === 'Tab') {
       this._close();
     }
   }

@@ -1,31 +1,32 @@
-import { Directive, Input, AfterViewInit, ComponentRef, ElementRef, TemplateRef } from '@angular/core';
+import { Directive, Input, AfterViewInit, ComponentRef, ElementRef, TemplateRef, OnDestroy } from '@angular/core';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpTooltipComponent } from './np-tooltip.component';
 
 @Directive({ selector: '[np-tooltip]' })
-export class NpTooltipDirective implements AfterViewInit {
+export class NpTooltipDirective implements AfterViewInit, OnDestroy {
 
     @Input('np-tooltip') text: string | TemplateRef<any>;
     @Input() placement: string;
     @Input() styleClass: string;
-    @Input() tooltipOnFocus: boolean = false;
-
-    mouseEnterListener: Function;
-    mouseLeaveListener: Function;
-    focusListener: Function;
-    blurListener: Function;
+    @Input() tooltipOnFocus = false;
 
     private overlayRef: OverlayRef;
 
-    constructor(private overlay: Overlay,
+    mouseEnterListener: () => void = () => { };
+    mouseLeaveListener: () => void = () => { };
+    focusListener: () => void = () => { };
+    blurListener: () => void = () => { };
+
+    constructor(
+        private overlay: Overlay,
         private overlayPositionBuilder: OverlayPositionBuilder,
         private elementRef: ElementRef) {
     }
 
     ngAfterViewInit(): void {
         this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-tt-target`).trim();
-        var position: ConnectedPosition[] = this._getPosition();
+        const position: ConnectedPosition[] = this._getPosition();
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)
             .withPositions(position);
@@ -67,9 +68,9 @@ export class NpTooltipDirective implements AfterViewInit {
     }
 
     _getPosition(): ConnectedPosition[] {
-        var result: ConnectedPosition[];
+        let result: ConnectedPosition[];
         switch (this.placement) {
-            case "left":
+            case 'left':
                 {
                     result = [{
                         originX: 'start',
@@ -80,7 +81,7 @@ export class NpTooltipDirective implements AfterViewInit {
                     }];
                     break;
                 }
-            case "right":
+            case 'right':
                 {
                     result = [{
                         originX: 'end',
@@ -91,7 +92,7 @@ export class NpTooltipDirective implements AfterViewInit {
                     }];
                     break;
                 }
-            case "top":
+            case 'top':
                 {
                     result = [{
                         originX: 'center',
@@ -102,7 +103,7 @@ export class NpTooltipDirective implements AfterViewInit {
                     }];
                     break;
                 }
-            case "bottom":
+            case 'bottom':
             default:
                 {
                     result = [{
