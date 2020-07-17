@@ -24,7 +24,7 @@ export class NpVirtualScrollDemoComponent implements OnInit {
 
   loadData(event) {
     setTimeout(() => {
-      let fetchedData = this.allData.slice(event.first, (event.first + event.rows));
+      const fetchedData = this.allData.slice(event.first, (event.first + event.rows));
 
       Array.prototype.splice.apply(this.data, [...[event.first, event.rows], ...fetchedData]);
 

@@ -19,7 +19,7 @@
                     </a>
                     <ng-container *ngIf="item.isItemsVisible">
                         <div class="np-mb-submenu" [style.top.px]="item.y" [style.left.px]="item.x">
-                            <np-menubar [items]="item.items" [orientation]="'vertical'" (_onCloseMenu)="_closeParentMenu()" (onClickMenuItem)="_onClickMenuItem($event)">
+                            <np-menubar [items]="item.items" [orientation]="'vertical'" (onCloseMenu)="_closeParentMenu()" (onClickMenuItem)="_onClickMenuItem($event)">
                             </np-menubar>
                         </div>
                     </ng-container>

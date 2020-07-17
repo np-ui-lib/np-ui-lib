@@ -17,7 +17,7 @@ export class NpMenubarComponent {
   @Input() isPanelMenu: boolean;
   @Input() orientation = 'vertical';
   @Input() inputId = `np-menubar_${NpMenubarComponent.controlCount++}`;
-  @Output() _onCloseMenu: EventEmitter<any> = new EventEmitter();
+  @Output() onCloseMenu: EventEmitter<any> = new EventEmitter();
   @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 
   constructor(private router: Router) {
@@ -45,14 +45,14 @@ export class NpMenubarComponent {
 
   _onClickMenu(item: NpMenuItem) {
     this.onClickMenuItem.emit(item);
-    this._onCloseMenu.emit();
+    this.onCloseMenu.emit();
   }
 
   _closeParentMenu() {
     this.items.forEach(element => {
       element.isItemsVisible = false;
     });
-    this._onCloseMenu.emit();
+    this.onCloseMenu.emit();
   }
 
   _isActive(item: NpMenuItem) {

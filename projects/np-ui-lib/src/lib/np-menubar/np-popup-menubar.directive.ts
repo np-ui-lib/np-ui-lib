@@ -54,8 +54,8 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
         const menubarRef: ComponentRef<NpMenubarComponent> = this.overlayRef.attach(menubarPortal);
         menubarRef.instance.items = this.items;
         menubarRef.instance.styleClass = this.styleClass;
-        menubarRef.instance._onCloseMenu = new EventEmitter();
-        menubarRef.instance._onCloseMenu.subscribe(() => this._close());
+        menubarRef.instance.onCloseMenu = new EventEmitter();
+        menubarRef.instance.onCloseMenu.subscribe(() => this._close());
         menubarRef.instance.onClickMenuItem = this.onClickMenuItem;
     }
 
