@@ -22,48 +22,34 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl, NG_VALIDATORS, Va
 })
 export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   static controlCount = 1;
-  @ViewChild('fileUploadInput') fileUploadInput: ElementRef;
-
-  _innerValue: FileList;
-  _isDisabled: boolean = false;
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
-  @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @Input() styleClass: string;
   @Input() accept: string;
   @Input() multiple: boolean;
   @Input() readonly: boolean;
-  @Input() inputId: string = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
-  /**
- * File extensions in string format, separated by comma
- */
+  @Input() inputId = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
   @Input() extensions: string;
-
-  /**
-   * File size in bytes
-   */
   @Input() size: number;
-
-  /**
- * All File size in bytes
- */
   @Input() totalSize: number;
-
-  /**
-   * Files allowed to select
-   */
   @Input() maxFiles: number;
-
   @Input() uploadButtonLabel: string;
 
+  @Output() onChange: EventEmitter<any> = new EventEmitter();
+
+  @ViewChild('fileUploadInput') fileUploadInput: ElementRef;
+
+  innerValue: FileList;
+  isDisabled = false;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
+
   get value(): FileList {
-    return this._innerValue ? this._innerValue : null;
-  };
+    return this.innerValue ? this.innerValue : null;
+  }
 
   set value(v: FileList) {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
       this.onChange.emit(v);
@@ -71,8 +57,8 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   }
 
   writeValue(v: any): void {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
     }
   }
 
@@ -85,11 +71,11 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this._isDisabled = isDisabled;
+    this.isDisabled = isDisabled;
   }
 
   _clear() {
-    if (this._isDisabled || this.readonly) {
+    if (this.isDisabled || this.readonly) {
       return;
     }
     this.value = null;
@@ -97,24 +83,24 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   }
 
   _onFileSelected($event) {
-    if (this._isDisabled || this.readonly) {
+    if (this.isDisabled || this.readonly) {
       return;
     }
     this.value = $event.target.files;
   }
 
   validate(control: FormControl) {
-    var value = control.value ? Array.from<any>(control.value) : [];
+    const value = control.value ? Array.from<any>(control.value) : [];
 
-    var _isInValidExtension = false;
+    let isInValidExtension = false;
     if (this.extensions) {
-      var exts = this.extensions.split(",");
+      const exts = this.extensions.split(',');
       value.forEach(element => {
-        if (exts.indexOf(element.name.split(".")[1]) === -1) {
-          _isInValidExtension = true;
+        if (exts.indexOf(element.name.split('.')[1]) === -1) {
+          isInValidExtension = true;
         }
       });
-      if (_isInValidExtension) {
+      if (isInValidExtension) {
         return {
           extensions: {
             valid: false,
@@ -123,14 +109,14 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
       }
     }
 
-    var _isInValidSize = false;
+    let isInValidSize = false;
     if (this.size) {
       value.forEach(element => {
         if (element.size > this.size) {
-          _isInValidSize = true;
+          isInValidSize = true;
         }
       });
-      if (_isInValidSize) {
+      if (isInValidSize) {
         return {
           size: {
             valid: false,
@@ -140,7 +126,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     }
 
     if (this.multiple && this.totalSize) {
-      var totalSize = 0;
+      let totalSize = 0;
       value.forEach(element => {
         totalSize = totalSize + element.size;
       });
@@ -173,8 +159,10 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   }
 
   _formatBytes(file: File, decimals = 2) {
-    var bytes = file.size;
-    if (bytes === 0) return '0 Bytes';
+    const bytes = file.size;
+    if (bytes === 0) {
+      return '0 Bytes';
+    }
 
     const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;

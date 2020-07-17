@@ -3,6 +3,8 @@ import { Directive, ElementRef, Input, OnChanges, SimpleChanges, Renderer2 } fro
 @Directive({ selector: '[np-blockui]' })
 export class NpBlockUiDirective implements OnChanges {
 
+    @Input('np-blockui') visible: boolean;
+
     element: any;
     isActive = false;
 
@@ -18,8 +20,6 @@ export class NpBlockUiDirective implements OnChanges {
         this.renderer.addClass(this.element, 'np-blockui-background');
         this.renderer.appendChild(this.element, blockUi);
     }
-
-    @Input('np-blockui') visible: boolean;
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.visible.currentValue === true) {

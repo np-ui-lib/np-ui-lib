@@ -3,32 +3,32 @@ import { Directive, ElementRef, Input, OnChanges, SimpleChanges, Renderer2, Afte
 @Directive({ selector: '[np-loader]' })
 export class NpLoaderDirective implements OnChanges, AfterContentInit {
 
-    @Input('np-loader') _show: boolean;
+    @Input('np-loader') show: boolean;
     @Input() loadingText: string;
 
-    _loaderEle: any;
-    _isActive: boolean = false;
+    loaderEle: any;
+    isActive = false;
 
     constructor(private elRef: ElementRef, private renderer: Renderer2) {
-        var loader = this.renderer.createElement('div');
+        const loader = this.renderer.createElement('div');
         this.renderer.addClass(loader, 'np-loader');
-        this._loaderEle = this.renderer.createElement('div');
-        this.renderer.addClass(this._loaderEle, 'np-loader-background');
-        this.renderer.appendChild(this._loaderEle, loader);
+        this.loaderEle = this.renderer.createElement('div');
+        this.renderer.addClass(this.loaderEle, 'np-loader-background');
+        this.renderer.appendChild(this.loaderEle, loader);
     }
 
     ngAfterContentInit(): void {
         if (this.loadingText) {
-            var loaderTextDiv = this.renderer.createElement('div');
+            const loaderTextDiv = this.renderer.createElement('div');
             const loaderText = this.renderer.createText(this.loadingText);
             this.renderer.appendChild(loaderTextDiv, loaderText);
             this.renderer.addClass(loaderTextDiv, 'np-loader-text');
-            this.renderer.appendChild(this._loaderEle, loaderTextDiv);
+            this.renderer.appendChild(this.loaderEle, loaderTextDiv);
         }
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        if (changes._show.currentValue == true) {
+        if (changes.show.currentValue === true) {
             this._showLoader();
         } else {
             this._hideLoader();
@@ -36,20 +36,20 @@ export class NpLoaderDirective implements OnChanges, AfterContentInit {
     }
 
     _showLoader() {
-        if (this._isActive) {
+        if (this.isActive) {
             return;
         }
-        this._isActive = true;
+        this.isActive = true;
         this.renderer.addClass(this.elRef.nativeElement, 'np-loader-target');
-        this.renderer.appendChild(this.elRef.nativeElement, this._loaderEle);
+        this.renderer.appendChild(this.elRef.nativeElement, this.loaderEle);
     }
 
     _hideLoader() {
-        if (!this._isActive) {
+        if (!this.isActive) {
             return;
         }
-        this._isActive = false;
+        this.isActive = false;
         this.renderer.removeClass(this.elRef.nativeElement, 'np-loader-target');
-        this.renderer.removeChild(this.elRef.nativeElement, this._loaderEle);
+        this.renderer.removeChild(this.elRef.nativeElement, this.loaderEle);
     }
 }

@@ -9,18 +9,19 @@ import { NpUtilityService } from '../np-utility/np-utility.service';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpListComponent implements OnInit {
+  static controlCount = 1;
 
   @Input() items: any[];
   @Input() itemTemplate: TemplateRef<any>;
-  @Input() allowSelection: boolean = false;
+  @Input() allowSelection = false;
   @Input() styleClass: string;
   @Input() height: number;
-  static controlCount = 1;
-  @Input() inputId: string = `np-list_${NpListComponent.controlCount++}`;
+  @Input() inputId = `np-list_${NpListComponent.controlCount++}`;
+  
   @Output() onSelect: EventEmitter<any> = new EventEmitter();
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
 
-  _selectedItems: any[] = [];
+  selectedItems: any[] = [];
 
   constructor(private utility: NpUtilityService) { }
 
@@ -28,20 +29,20 @@ export class NpListComponent implements OnInit {
   }
 
   clear() {
-    this._selectedItems = [];
+    this.selectedItems = [];
   }
 
   getSelectedItems() {
-    return this._selectedItems;
+    return this.selectedItems;
   }
 
   _onSelectItem(item: any, event: any) {
     if (event.target.checked) {
-      this._selectedItems.push(item);
+      this.selectedItems.push(item);
       this.onSelect.emit(item);
     } else {
-      var idx = this._selectedItems.indexOf(item);
-      this._selectedItems.splice(idx, 1);
+      const idx = this.selectedItems.indexOf(item);
+      this.selectedItems.splice(idx, 1);
       this.onDeselect.emit(item);
     }
   }
@@ -51,8 +52,8 @@ export class NpListComponent implements OnInit {
   }
 
   _getSelectedIndexOfItem(item: any) {
-    var that = this;
-    return this._selectedItems.findIndex(function (element) {
+    const that = this;
+    return this.selectedItems.findIndex((element) => {
       if (that.utility.isEqual(element, item)) {
         return item;
       }
@@ -60,38 +61,38 @@ export class NpListComponent implements OnInit {
   }
 
   selectAll() {
-    var items = [];
-    this.items.forEach(function (element) {
+    const items = [];
+    this.items.forEach((element) => {
       items.push(element);
     });
-    this._selectedItems = items;
+    this.selectedItems = items;
   }
 
   selectItem(item: any) {
     if (!this._isSelected(item)) {
-      this._selectedItems.push(item);
+      this.selectedItems.push(item);
     }
   }
 
   selectItemByIndex(idx: number) {
-    var item = this.items[idx];
+    const item = this.items[idx];
     this.selectItem(item);
   }
 
   deselectItem(item: any) {
-    var idx = this._getSelectedIndexOfItem(item);
+    const idx = this._getSelectedIndexOfItem(item);
     if (idx > -1) {
-      this._selectedItems.splice(idx, 1);
+      this.selectedItems.splice(idx, 1);
     }
   }
 
   deselectItemByIndex(idx: number) {
-    var item = this.items[idx];
+    const item = this.items[idx];
     this.deselectItem(item);
   }
 
   setSelectedItems(items: any[]) {
-    this._selectedItems = items;
+    this.selectedItems = items;
   }
 
 }
