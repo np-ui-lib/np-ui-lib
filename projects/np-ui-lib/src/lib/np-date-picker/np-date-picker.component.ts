@@ -35,7 +35,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() inputId = `np-date-picker_${NpDatePickerComponent.controlCount++}`;
   @Input() styleClass: string;
   @Input() readonly: boolean;
-  
+
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
