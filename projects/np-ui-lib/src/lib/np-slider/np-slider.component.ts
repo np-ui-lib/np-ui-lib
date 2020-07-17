@@ -17,16 +17,16 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class NpSliderComponent implements OnInit {
   static controlCount = 1;
-  @Input() min: number = 0;
-  @Input() max: number = 100;
-  @Input() step: number = 1;
+  @Input() min = 0;
+  @Input() max = 100;
+  @Input() step = 1;
   @Input() styleClass: string;
-  @Input() inputId: string = `np-slider_${NpSliderComponent.controlCount++}`;
+  @Input() inputId = `np-slider_${NpSliderComponent.controlCount++}`;
   @Input() readonly: boolean;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  _innerValue: number;
-  _isDisabled: boolean = false;
+  innerValue: number;
+  isDisabled = false;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
@@ -36,12 +36,12 @@ export class NpSliderComponent implements OnInit {
   }
 
   get value(): number {
-    return this._innerValue;
-  };
+    return this.innerValue;
+  }
 
   set value(v: number) {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
       this.onChange.emit(v);
@@ -49,8 +49,8 @@ export class NpSliderComponent implements OnInit {
   }
 
   writeValue(v: number): void {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
     }
   }
 
@@ -63,11 +63,11 @@ export class NpSliderComponent implements OnInit {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this._isDisabled = isDisabled;
+    this.isDisabled = isDisabled;
   }
 
   _onChange($event) {
-    if (this._isDisabled || this.readonly) {
+    if (this.isDisabled || this.readonly) {
       return;
     }
     this.value = $event.target.value;

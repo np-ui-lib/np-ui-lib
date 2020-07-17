@@ -10,10 +10,7 @@ import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overla
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpSidepanelComponent implements OnInit {
-
-  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
-  private templatePortal: TemplatePortal<any>;
-  private overlayRef: OverlayRef;
+  static controlCount = 1;
 
   @Input() top: string;
   @Input() bottom: string;
@@ -21,16 +18,19 @@ export class NpSidepanelComponent implements OnInit {
   @Input() right: string;
   @Input() height: number | string;
   @Input() width: number | string;
-  @Input() showCloseIcon: boolean = true;
-  @Input() closeOnClickOutside: boolean = true;
+  @Input() showCloseIcon = true;
+  @Input() closeOnClickOutside = true;
   @Input() styleClass: string;
-  @Input() backDropClass: string = "np-sp-backdrop";
-  static controlCount = 1;
-  @Input() inputId: string = `np-sidepanel_${NpSidepanelComponent.controlCount++}`;
+  @Input() backDropClass = 'np-sp-backdrop';
+  @Input() inputId = `np-sidepanel_${NpSidepanelComponent.controlCount++}`;
+
+  @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+  private templatePortal: TemplatePortal<any>;
+  private overlayRef: OverlayRef;
 
   constructor(
     public overlay: Overlay,
-    private _viewContainerRef: ViewContainerRef,
+    private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder) { }
 
   ngOnInit(): void {
@@ -42,7 +42,7 @@ export class NpSidepanelComponent implements OnInit {
 
   open() {
     // if overlay is not attached then only attach
-    if (this.overlayRef == undefined || !this.overlayRef.hasAttached()) {
+    if (this.overlayRef === undefined || !this.overlayRef.hasAttached()) {
       const positionStrategy = this.overlayPositionBuilder.global();
       if (this.left) {
         positionStrategy.left(this.left);
@@ -66,7 +66,7 @@ export class NpSidepanelComponent implements OnInit {
       });
       this.templatePortal = new TemplatePortal(
         this.templatePortalContent,
-        this._viewContainerRef
+        this.viewContainerRef
       );
       this.overlayRef.backdropClick().subscribe(() => {
         if (this.closeOnClickOutside) {

@@ -8,16 +8,16 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@a
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpProgressComponent {
+  static controlCount = 1;
 
   @Input() value: number;
   @Input() styleClass: string;
   @Input() indeterminate: boolean;
   @Input() striped: boolean;
   @Input() animated: boolean;
-  @Input() showLabel: boolean = true;
+  @Input() showLabel = true;
   @Input() height: number;
-  static controlCount = 1;
-  @Input() inputId: string = `np-progress_${NpProgressComponent.controlCount++}`;
+  @Input() inputId = `np-progress_${NpProgressComponent.controlCount++}`;
 
   getTooltipText() {
     return `${this.value}%`;
