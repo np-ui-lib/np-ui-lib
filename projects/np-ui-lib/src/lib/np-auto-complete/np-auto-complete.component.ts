@@ -22,12 +22,6 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit, OnDestroy {
 
   static controlCount = 1;
-  constructor(
-    public overlay: Overlay,
-    private viewContainerRef: ViewContainerRef,
-    private overlayPositionBuilder: OverlayPositionBuilder,
-    private elementRef: ElementRef
-  ) { }
 
   @Input() searchResult: BehaviorSubject<any[]>;
   @Input() placeholder = '';
@@ -56,6 +50,13 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   private overlayRef: OverlayRef;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
+
+  constructor(
+    public overlay: Overlay,
+    private viewContainerRef: ViewContainerRef,
+    private overlayPositionBuilder: OverlayPositionBuilder,
+    private elementRef: ElementRef
+  ) { }
 
   ngAfterContentInit(): void {
     this.subscription = this.searchResult.subscribe((data) => {

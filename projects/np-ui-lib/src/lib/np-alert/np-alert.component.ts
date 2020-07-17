@@ -8,7 +8,6 @@ import { Component, OnInit, Input, ElementRef, ViewEncapsulation, ChangeDetectio
 })
 export class NpAlertComponent implements OnInit {
   static controlCount = 1;
-  constructor(private el: ElementRef) { }
 
   @Input() type: string;
   @Input() styleClass: string;
@@ -16,6 +15,8 @@ export class NpAlertComponent implements OnInit {
   @Input() autoClose: boolean;
   @Input() autoCloseTimeout: number;
   @Input() inputId = `np-alert_${NpAlertComponent.controlCount++}`;
+
+  constructor(private el: ElementRef) { }
 
   ngOnInit(): void {
     if (this.autoClose) {

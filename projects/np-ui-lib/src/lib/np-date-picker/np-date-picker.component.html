@@ -1,6 +1,6 @@
-<div [ngClass]="{'np-dp-component': true, 'np-disabled' : _isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{'np-dp-component': true, 'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-input-group" *ngIf="!defaultOpen; else templatePortalContent">
-        <input class="np-form-control" type="text" [value]="value | date: format" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="_isDisabled">
+        <input class="np-form-control" type="text" [value]="value | date: format" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="isDisabled">
         <div class="input-group-append">
             <div class="np-btn np-btn-icon" (click)="_clear()" title="Clear">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
@@ -34,13 +34,13 @@
                             </button>
                         </div>
                         <div class="np-col-auto">
-                            <np-number-box [(ngModel)]="_currentYear" [format]="'####'" [showControls]="false" required (onChange)="_selectYear($event)">
+                            <np-number-box [(ngModel)]="currentYear" [format]="'####'" [showControls]="false" required (onChange)="_selectYear($event)">
                             </np-number-box>
                         </div>
                         <div class="np-col-auto">
                             <select class="np-form-control" (change)="_selectMonth($event)">
-                                <option *ngFor="let month of _months" [value]="month.key" [text]="month.value"
-                                    [selected]="month.key == _currentMonth">
+                                <option *ngFor="let month of months" [value]="month.key" [text]="month.value"
+                                    [selected]="month.key == currentMonth">
                                 </option>
                             </select>
                         </div>
@@ -56,16 +56,16 @@
                 </div>
                 <div class="np-col-12">
                     <div class="np-dp-weekdays">
-                        <ng-container *ngFor="let weekDay of _weekDays;let i = index;">
+                        <ng-container *ngFor="let weekDay of weekDays;let i = index;">
                             <div class="np-dp-weekday" [innerHTML]="weekDay"></div>
                         </ng-container>
                     </div>
                 </div>
                 <div class="np-col-12">
                     <div class="np-dp-days">
-                        <ng-container *ngFor="let day of _days; let i = index;">
-                            <div class="np-dp-day" (click)="_selectDate(day)" [ngClass]="{'np-dp-today': _checkIsToday(day), 'np-disabled' : _checkIsDateDisabled(_currentYear,_currentMonth,day), 'np-dp-selected': _checkIsSelected(day)}">
-                                <div *ngIf="_getTooltip(_currentYear,_currentMonth,day); let label; else dayTemplate" np-tooltip [placement]="'bottom'" [np-tooltip]="label">
+                        <ng-container *ngFor="let day of days; let i = index;">
+                            <div class="np-dp-day" (click)="_selectDate(day)" [ngClass]="{'np-dp-today': _checkIsToday(day), 'np-disabled' : _checkIsDateDisabled(currentYear,currentMonth,day), 'np-dp-selected': _checkIsSelected(day)}">
+                                <div *ngIf="_getTooltip(currentYear,currentMonth,day); let label; else dayTemplate" np-tooltip [placement]="'bottom'" [np-tooltip]="label">
                                     {{day}}
                                 </div>
                                 <ng-template #dayTemplate>

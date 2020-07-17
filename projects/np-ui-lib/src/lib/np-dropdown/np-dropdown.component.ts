@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, AfterViewInit, AfterContentInit, Input, Output, EventEmitter, TemplateRef, ViewChild, ViewContainerRef, ElementRef } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, AfterViewInit, AfterContentInit } from '@angular/core';
+import { Input, Output, EventEmitter, TemplateRef, ViewChild, ViewContainerRef, ElementRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
@@ -21,28 +22,28 @@ import { NpUtilityService } from '../np-utility/np-utility.service';
 export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
   static controlCount = 1;
 
-  _displayValue: string;
-  _innerValue: any;
-  _isDisabled: boolean = false;
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
-
   @Input() items: any[];
   @Input() displayKey: string;
-  @Input() placeholder: string = "";
-  @Input() inputId: string = `np-dropdown_${NpDropdownComponent.controlCount++}`;
+  @Input() placeholder = '';
+  @Input() inputId = `np-dropdown_${NpDropdownComponent.controlCount++}`;
   @Input() styleClass: string;
   @Input() itemTemplate: TemplateRef<any>;
   @Input() readonly: boolean;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+
+  displayValue: string;
+  innerValue: any;
+  isDisabled = false;
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   constructor(
     public overlay: Overlay,
-    private _viewContainerRef: ViewContainerRef,
+    private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef,
     private utility: NpUtilityService
@@ -53,18 +54,18 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   ngAfterViewInit(): void {
-    var position: ConnectedPosition[] = [
+    const position: ConnectedPosition[] = [
       {
-        originX: "start",
-        originY: "bottom",
-        overlayX: "start",
-        overlayY: "top"
+        originX: 'start',
+        originY: 'bottom',
+        overlayX: 'start',
+        overlayY: 'top'
       },
       {
-        originX: "start",
-        originY: "top",
-        overlayX: "start",
-        overlayY: "bottom"
+        originX: 'start',
+        originY: 'top',
+        overlayX: 'start',
+        overlayY: 'bottom'
       }
     ];
     const positionStrategy = this.overlayPositionBuilder
@@ -73,25 +74,25 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: "np-dd-backdrop",
+      backdropClass: 'np-dd-backdrop',
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
       panelClass: this.styleClass
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,
-      this._viewContainerRef
+      this.viewContainerRef
     );
     this.overlayRef.backdropClick().subscribe(() => this._close());
   }
 
   get value(): any {
-    return this._innerValue ? this._innerValue : null;
-  };
+    return this.innerValue ? this.innerValue : null;
+  }
 
   set value(v: any) {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
-      this._displayValue = this.displayKey && v ? v[this.displayKey] : v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
+      this.displayValue = this.displayKey && v ? v[this.displayKey] : v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
       this.onChange.emit(v);
@@ -99,9 +100,9 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   writeValue(v: any): void {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
-      this._displayValue = this.displayKey && v ? v[this.displayKey] : v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
+      this.displayValue = this.displayKey && v ? v[this.displayKey] : v;
     }
   }
 
@@ -114,29 +115,29 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this._isDisabled = isDisabled;
+    this.isDisabled = isDisabled;
   }
 
   _close() {
     if (this.value) {
-      this._displayValue = this.displayKey && this.value ? this.value[this.displayKey] : this.value;
+      this.displayValue = this.displayKey && this.value ? this.value[this.displayKey] : this.value;
     } else {
-      this._displayValue = null;
+      this.displayValue = null;
     }
     this.overlayRef.detach();
     this.onTouchedCallback();
-    this.elementRef.nativeElement.querySelector("input").focus();
+    this.elementRef.nativeElement.querySelector('input').focus();
   }
 
   _clear() {
-    if (this._isDisabled || this.readonly) {
+    if (this.isDisabled || this.readonly) {
       return;
     }
     this.value = null;
   }
 
   _selectValue(val: any) {
-    if (this._isDisabled || this.readonly) {
+    if (this.isDisabled || this.readonly) {
       return;
     }
     this.value = val;
@@ -144,7 +145,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   _open() {
-    if (this._isDisabled || this.readonly) {
+    if (this.isDisabled || this.readonly) {
       return;
     }
     if (!this.overlayRef.hasAttached()) {
@@ -153,15 +154,15 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   _isSelected(item: any) {
-    if (!this._innerValue || this._innerValue.length === 0) {
+    if (!this.innerValue || this.innerValue.length === 0) {
       return false;
     }
     if (this.displayKey) {
-      if (this.utility.isEqual(this._innerValue, item)) {
+      if (this.utility.isEqual(this.innerValue, item)) {
         return true;
       }
     } else {
-      if (this._innerValue === item) {
+      if (this.innerValue === item) {
         return true;
       }
     }
@@ -169,7 +170,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   _onKeydown(event: KeyboardEvent) {
-    if (event.which === 9) {
+    if (event.key === 'Tab') {
       this._close();
     }
   }

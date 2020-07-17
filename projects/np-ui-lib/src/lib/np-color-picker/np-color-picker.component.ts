@@ -20,11 +20,6 @@ import { TemplatePortal } from '@angular/cdk/portal';
 })
 export class NpColorPickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
   static controlCount = 1;
-  constructor(public overlay: Overlay,
-    private viewContainerRef: ViewContainerRef,
-    private overlayPositionBuilder: OverlayPositionBuilder,
-    private elementRef: ElementRef) {
-  }
 
   @Input() colors: string[];
   @Input() placeholder = '';
@@ -36,6 +31,13 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+
+  constructor(
+    public overlay: Overlay,
+    private viewContainerRef: ViewContainerRef,
+    private overlayPositionBuilder: OverlayPositionBuilder,
+    private elementRef: ElementRef) {
+  }
 
   isOpen = false;
   stripColor: string;
