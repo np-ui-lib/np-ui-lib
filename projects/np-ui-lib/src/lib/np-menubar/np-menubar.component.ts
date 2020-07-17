@@ -10,14 +10,13 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpMenubarComponent {
+  static controlCount = 1;
 
   @Input() items: NpMenuItem[];
   @Input() styleClass: string;
   @Input() isPanelMenu: boolean;
-  /**orientation of menu, valid values are horizontal and vertical. Default is vertical. */
-  @Input() orientation: string = "vertical";
-  static controlCount = 1;
-  @Input() inputId: string = `np-menubar_${NpMenubarComponent.controlCount++}`;
+  @Input() orientation = 'vertical';
+  @Input() inputId = `np-menubar_${NpMenubarComponent.controlCount++}`;
   @Output() _onCloseMenu: EventEmitter<any> = new EventEmitter();
   @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 
@@ -25,23 +24,23 @@ export class NpMenubarComponent {
   }
 
   _onMouseEnter($event, item: NpMenuItem) {
-    if (this.orientation === "vertical") {
-      item._x = $event.target.offsetWidth;
-      item._y = 0;
+    if (this.orientation === 'vertical') {
+      item.x = $event.target.offsetWidth;
+      item.y = 0;
     }
     else {
-      item._x = 0;
-      item._y = $event.target.offsetHeight;
+      item.x = 0;
+      item.y = $event.target.offsetHeight;
     }
-    item._isItemsVisible = true;
+    item.isItemsVisible = true;
   }
 
   _onClickPanelMenu(item: NpMenuItem) {
-    item._isItemsVisible = !item._isItemsVisible;
+    item.isItemsVisible = !item.isItemsVisible;
   }
 
   _onMouseLeave(item: NpMenuItem) {
-    item._isItemsVisible = false;
+    item.isItemsVisible = false;
   }
 
   _onClickMenu(item: NpMenuItem) {
@@ -51,7 +50,7 @@ export class NpMenubarComponent {
 
   _closeParentMenu() {
     this.items.forEach(element => {
-      element._isItemsVisible = false;
+      element.isItemsVisible = false;
     });
     this._onCloseMenu.emit();
   }
@@ -61,6 +60,6 @@ export class NpMenubarComponent {
   }
 
   _onClickMenuItem(item: NpMenuItem) {
-    this.onClickMenuItem.emit(item)
+    this.onClickMenuItem.emit(item);
   }
 }

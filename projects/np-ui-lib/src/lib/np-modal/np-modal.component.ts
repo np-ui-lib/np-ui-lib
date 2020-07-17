@@ -1,5 +1,5 @@
 import { Component, ViewChild, TemplateRef, ViewContainerRef, ViewEncapsulation, ChangeDetectionStrategy, Input, EventEmitter, Output } from '@angular/core';
-import { Overlay, OverlayRef, OverlayPositionBuilder } from "@angular/cdk/overlay";
+import { Overlay, OverlayRef, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 
 @Component({
@@ -10,25 +10,25 @@ import { TemplatePortal } from '@angular/cdk/portal';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpModalComponent {
+  static controlCount = 1;
 
   @Input() height: number;
   @Input() width: number;
   @Input() styleClass: string;
-  @Input() closeOnClickOutside: boolean = true;
+  @Input() closeOnClickOutside = true;
+  @Input() backDropClass = 'np-mod-backdrop';
+  @Input() inputId = `np-modal_${NpModalComponent.controlCount++}`;
 
-  @Input() backDropClass: string = "np-mod-backdrop";
   @Output() onOpen: EventEmitter<void> = new EventEmitter();
   @Output() onClose: EventEmitter<void> = new EventEmitter();
-  static controlCount = 1;
-  @Input() inputId: string = `np-modal_${NpModalComponent.controlCount++}`;
 
-  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
 
   constructor(
     public overlay: Overlay,
-    private _viewContainerRef: ViewContainerRef,
+    private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder) { }
 
   _close() {
@@ -42,7 +42,7 @@ export class NpModalComponent {
 
   open() {
     // if overlay is not attached then only attach
-    if (this.overlayRef == undefined || !this.overlayRef.hasAttached()) {
+    if (this.overlayRef === undefined || !this.overlayRef.hasAttached()) {
       const positionStrategy = this.overlayPositionBuilder.global().centerHorizontally().centerVertically();
       this.overlayRef = this.overlay.create({
         positionStrategy,
@@ -51,11 +51,11 @@ export class NpModalComponent {
         height: this.height,
         width: this.width,
         scrollStrategy: this.overlay.scrollStrategies.block(),
-        panelClass: "np-mod-overlay"
+        panelClass: 'np-mod-overlay'
       });
       this.templatePortal = new TemplatePortal(
         this.templatePortalContent,
-        this._viewContainerRef
+        this.viewContainerRef
       );
       this.overlayRef.backdropClick().subscribe(() => {
         if (this.closeOnClickOutside) {

@@ -1,11 +1,11 @@
-import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpMenubarComponent } from './np-menubar.component';
 import { NpMenuItem } from './np-menu.model';
 
 @Directive({ selector: '[np-popup-menubar]' })
-export class NpPopupMenubarDirective implements AfterViewInit {
+export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
 
     @Input() items: NpMenuItem[];
     @Input() styleClass: string;
@@ -13,21 +13,22 @@ export class NpPopupMenubarDirective implements AfterViewInit {
 
     private overlayRef: OverlayRef;
 
-    constructor(private overlay: Overlay,
+    constructor(
+        private overlay: Overlay,
         private overlayPositionBuilder: OverlayPositionBuilder,
         private elementRef: ElementRef) {
     }
 
     ngAfterViewInit(): void {
         this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-mb-target`).trim();
-        var position: ConnectedPosition[] = this._getPosition();
+        const position: ConnectedPosition[] = this._getPosition();
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)
             .withPositions(position);
         this.overlayRef = this.overlay.create({
             positionStrategy,
             hasBackdrop: true,
-            backdropClass: "np-mb-backdrop",
+            backdropClass: 'np-mb-backdrop',
             scrollStrategy: this.overlay.scrollStrategies.reposition()
         });
         this.overlayRef.backdropClick().subscribe(() => this._close());

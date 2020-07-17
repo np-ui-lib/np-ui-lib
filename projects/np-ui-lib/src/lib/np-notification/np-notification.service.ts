@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { NpNotification } from './np-notification.model';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class NpNotificationService {
     }
 
     close(msg: NpNotification) {
-        var idx = this.messages.indexOf(msg);
+        const idx = this.messages.indexOf(msg);
         if (idx > -1) {
             this.messages.splice(idx, 1);
         }

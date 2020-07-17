@@ -2,16 +2,16 @@ import { QueryParamsHandling } from '@angular/router';
 
 export class NpMenuItem {
     constructor(item: any) {
-        this.label = item["label"];
-        this.items = item["items"];
-        this.url = item["url"];
-        this.target = item["target"] ? item["target"] : "_self";
-        this.routerLink = item["routerLink"];
-        this.queryParams = item["queryParams"];
-        this.fragment = item["fragment"];
-        this.queryParamsHandling = item["queryParamsHandling"];
-        this.iconCss = item["iconCss"];
-        this._isItemsVisible = false;
+        this.label = item.label;
+        this.items = item.items;
+        this.url = item.url;
+        this.target = item.target ? item.target : '_self';
+        this.routerLink = item.routerLink;
+        this.queryParams = item.queryParams;
+        this.fragment = item.fragment;
+        this.queryParamsHandling = item.queryParamsHandling;
+        this.iconCss = item.iconCss;
+        this.isItemsVisible = false;
     }
     public label: string;
     public items: NpMenuItem[];
@@ -22,7 +22,7 @@ export class NpMenuItem {
     public fragment: string;
     public queryParamsHandling: QueryParamsHandling;
     public iconCss: string;
-    _isItemsVisible: boolean;
-    _x: number;
-    _y: number;
+    isItemsVisible: boolean;
+    x: number;
+    y: number;
 }

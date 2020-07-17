@@ -10,12 +10,12 @@ import { NpNotification } from './np-notification.model';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpNotificationComponent {
-
-  constructor(private npNotificationService: NpNotificationService) { }
+  static controlCount = 1;
 
   @Input() styleClass: string;
-  static controlCount = 1;
-  @Input() inputId: string = `np-notification_${NpNotificationComponent.controlCount++}`;
+  @Input() inputId = `np-notification_${NpNotificationComponent.controlCount++}`;
+
+  constructor(private npNotificationService: NpNotificationService) { }
 
   get messageService(): NpNotificationService {
     return this.npNotificationService;
