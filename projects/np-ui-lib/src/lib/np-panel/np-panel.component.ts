@@ -9,34 +9,30 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
 })
 export class NpPanelComponent implements OnInit {
   static controlCount = 1;
-  @Input() inputId: string = `np-panel_${NpPanelComponent.controlCount++}`;
 
+  @Input() inputId = `np-panel_${NpPanelComponent.controlCount++}`;
   @Input() title: string | TemplateRef<any>;
-  _isTitleTemplate: boolean;
-
   @Input() allowToMinimize: boolean;
-  @Input() isOpen: boolean = true;
-
+  @Input() isOpen = true;
   @Input() allowToZoom: boolean;
-  _isZoom: boolean = false;
-
   @Input() allowToClose: boolean;
-
   @Input() styleClass: string;
-
   @Input() height: number;
+  @Input() disabled: boolean;
 
   @Output() onExpand: EventEmitter<any> = new EventEmitter();
   @Output() onCollapse: EventEmitter<any> = new EventEmitter();
 
-  @Input() disabled: boolean;
+
+  isTitleTemplate: boolean;
+  isZoom = false;
 
   constructor(private el: ElementRef) {
   }
 
   ngOnInit(): void {
     if (this.title instanceof TemplateRef) {
-      this._isTitleTemplate = true;
+      this.isTitleTemplate = true;
     }
   }
 
@@ -68,8 +64,8 @@ export class NpPanelComponent implements OnInit {
     if (this.disabled) {
       return;
     }
-    this._isZoom = !this._isZoom;
-    if (this._isZoom == true) {
+    this.isZoom = !this.isZoom;
+    if (this.isZoom === true) {
       this.isOpen = true;
     }
   }

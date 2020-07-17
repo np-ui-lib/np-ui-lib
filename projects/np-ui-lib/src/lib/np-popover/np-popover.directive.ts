@@ -1,13 +1,13 @@
-import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, TemplateRef } from '@angular/core';
+import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, TemplateRef, OnDestroy } from '@angular/core';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpPopoverComponent } from './np-popover.component';
 
 @Directive({
     selector: '[np-popover]',
-    exportAs: "NpPopoverDirective"
+    exportAs: 'NpPopoverDirective'
 })
-export class NpPopoverDirective implements AfterViewInit {
+export class NpPopoverDirective implements AfterViewInit, OnDestroy {
 
     @Input() placement: string;
     @Input() header: string | TemplateRef<any>;
@@ -18,14 +18,15 @@ export class NpPopoverDirective implements AfterViewInit {
 
     private overlayRef: OverlayRef;
 
-    constructor(private overlay: Overlay,
+    constructor(
+        private overlay: Overlay,
         private overlayPositionBuilder: OverlayPositionBuilder,
         private elementRef: ElementRef) {
     }
 
     ngAfterViewInit(): void {
         this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-pop-target`).trim();
-        var position: ConnectedPosition[] = this._getPosition();
+        const position: ConnectedPosition[] = this._getPosition();
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)
             .withPositions(position);
@@ -33,7 +34,7 @@ export class NpPopoverDirective implements AfterViewInit {
             this.overlayRef = this.overlay.create({
                 positionStrategy,
                 hasBackdrop: true,
-                backdropClass: "np-pop-backdrop"
+                backdropClass: 'np-pop-backdrop'
             });
             this.overlayRef.backdropClick().subscribe(() => this._hide());
         } else {
@@ -93,9 +94,9 @@ export class NpPopoverDirective implements AfterViewInit {
     }
 
     _getPosition(): ConnectedPosition[] {
-        var result: ConnectedPosition[];
+        let result: ConnectedPosition[];
         switch (this.placement) {
-            case "left":
+            case 'left':
                 {
                     result = [{
                         originX: 'start',
@@ -106,7 +107,7 @@ export class NpPopoverDirective implements AfterViewInit {
                     }];
                     break;
                 }
-            case "right":
+            case 'right':
                 {
                     result = [{
                         originX: 'end',
@@ -117,7 +118,7 @@ export class NpPopoverDirective implements AfterViewInit {
                     }];
                     break;
                 }
-            case "top":
+            case 'top':
                 {
                     result = [{
                         originX: 'center',
@@ -128,7 +129,7 @@ export class NpPopoverDirective implements AfterViewInit {
                     }];
                     break;
                 }
-            case "bottom":
+            case 'bottom':
             default:
                 {
                     result = [{

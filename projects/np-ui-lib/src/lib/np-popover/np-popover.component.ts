@@ -8,25 +8,25 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ContentC
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpPopoverComponent implements OnInit {
+  static controlCount = 1;
 
   @Input() header: string | TemplateRef<any>;
   @Input() body: string | TemplateRef<any>;
   @Input() width: number;
   @Input() styleClass: string;
-  static controlCount = 1;
-  @Input() inputId: string = `np-popover_${NpPopoverComponent.controlCount++}`;
+  @Input() inputId = `np-popover_${NpPopoverComponent.controlCount++}`;
 
-  _isHeaderTemplate: boolean;
-  _isBodyTemplate: boolean;
+  isHeaderTemplate: boolean;
+  isBodyTemplate: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
     if (this.header instanceof TemplateRef) {
-      this._isHeaderTemplate = true;
+      this.isHeaderTemplate = true;
     }
     if (this.body instanceof TemplateRef) {
-      this._isBodyTemplate = true;
+      this.isBodyTemplate = true;
     }
   }
 }

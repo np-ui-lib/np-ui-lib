@@ -1,16 +1,16 @@
-<div [ngClass]="{'np-pn-component': true, 'np-pn-zoom':_isZoom, 'np-disabled': disabled}" [style.max-height.px]="height" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{'np-pn-component': true, 'np-pn-zoom':isZoom, 'np-disabled': disabled}" [style.max-height.px]="height" [class]="styleClass" [attr.id]="inputId">
     <div class="np-pn-header">
         <div class="np-row justify-content-between align-items-center np-no-gutters">
             <div class="np-col-auto" [ngClass]="{'np-cursor-pointer': allowToMinimize}" (click)="_toggleMinimize()">
-                <ng-container *ngIf="!_isTitleTemplate">
+                <ng-container *ngIf="!isTitleTemplate">
                     <div [innerHTML]="title"></div>
                 </ng-container>
-                <ng-template *ngIf="_isTitleTemplate" [ngTemplateOutlet]="title">
+                <ng-template *ngIf="isTitleTemplate" [ngTemplateOutlet]="title">
                 </ng-template>
             </div>
             <div class="np-col-auto" *ngIf="allowToMinimize || allowToZoom || allowToClose">
                 <div class="np-row np-no-gutters">
-                    <div class="np-col-auto" *ngIf="allowToMinimize && !_isZoom">
+                    <div class="np-col-auto" *ngIf="allowToMinimize && !isZoom">
                         <button type="button" class="np-btn np-btn-icon" (click)="_toggleMinimize()" title="{{isOpen ? 'Collapse' : 'Expand'}}">
                             <svg class="np-icon" viewBox="0 0 24 24" *ngIf="!isOpen">
                                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
@@ -23,13 +23,13 @@
                         </button>
                     </div>
                     <div class="np-col-auto" *ngIf="allowToZoom">
-                        <button type="button" class="np-btn np-btn-icon" (click)="_toggleZoom()" title="{{_isZoom ? 'Zoom Out':'Zoom In'}}">
-                            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="_isZoom">
+                        <button type="button" class="np-btn np-btn-icon" (click)="_toggleZoom()" title="{{isZoom ? 'Zoom Out':'Zoom In'}}">
+                            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="isZoom">
                                 <path d="M0 0h24v24H0V0z" fill="none" />
                                 <path
                                     d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z" />
                             </svg>
-                            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="!_isZoom">
+                            <svg class="np-icon" viewBox="0 0 24 24" *ngIf="!isZoom">
                                 <path
                                     d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
                                 <path d="M0 0h24v24H0V0z" fill="none" />
@@ -37,7 +37,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="np-col-auto" *ngIf="allowToClose && !_isZoom">
+                    <div class="np-col-auto" *ngIf="allowToClose && !isZoom">
                         <button type="button" class="np-btn np-btn-icon" (click)="_close()" title="Close">
                             <svg class="np-icon" viewBox="0 0 24 24">
                                 <path

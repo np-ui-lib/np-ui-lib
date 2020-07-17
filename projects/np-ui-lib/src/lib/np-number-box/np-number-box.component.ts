@@ -22,31 +22,31 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Validator, Form
 })
 export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   static controlCount = 1;
-  _isDisabled: boolean = false;
-  _innerValue: number;
 
-  @Input() placeholder: string = "";
+  @Input() placeholder = '';
   @Input() styleClass: string;
-  @Input() steps: number = 1;
+  @Input() steps = 1;
   @Input() min: number;
   @Input() max: number;
   @Input() format: string;
-  @Input() showControls: boolean = true;
-  @Input() inputId: string = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
+  @Input() showControls = true;
+  @Input() inputId = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
   @Input() readonly: boolean;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
+  innerValue: number;
+  isDisabled = false;
   private timeout: any;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
   get value(): number {
-    return this._innerValue != undefined ? this._innerValue : null;
+    return this.innerValue !== undefined ? this.innerValue : null;
   }
 
   set value(v: number) {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
       this.onChange.emit(v);
@@ -54,8 +54,8 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   }
 
   writeValue(v: number): void {
-    if (v !== this._innerValue) {
-      this._innerValue = v;
+    if (v !== this.innerValue) {
+      this.innerValue = v;
     }
   }
 
@@ -68,26 +68,26 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this._isDisabled = isDisabled;
+    this.isDisabled = isDisabled;
   }
 
   _add() {
-    if (this._isDisabled || this.readonly) {
+    if (this.isDisabled || this.readonly) {
       return;
     }
     this.value = this.value + this.steps;
   }
 
   _minus() {
-    if (this._isDisabled || this.readonly) {
+    if (this.isDisabled || this.readonly) {
       return;
     }
     this.value = this.value - this.steps;
   }
 
   _onMouseDownAdd() {
-    var that = this;
-    this._clearTimeout()
+    const that = this;
+    this._clearTimeout();
     this.timeout = setTimeout(() => {
       that._onMouseDownAdd();
     }, 200);
@@ -95,20 +95,20 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   }
 
   _onMouseUpAdd() {
-    this._clearTimeout()
+    this._clearTimeout();
   }
 
   _onMouseDownMinus() {
-    var that = this;
-    this._clearTimeout()
-    this.timeout = setTimeout(function () {
+    const that = this;
+    this._clearTimeout();
+    this.timeout = setTimeout(() => {
       that._onMouseDownMinus();
     }, 200);
     that._minus();
   }
 
   _onMouseUpMinus() {
-    this._clearTimeout()
+    this._clearTimeout();
   }
 
   _clearTimeout() {
@@ -126,14 +126,14 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   }
 
   validate(control: FormControl) {
-    if (this.min != undefined && this.value < this.min) {
+    if (this.min !== undefined && this.value < this.min) {
       return {
         min: {
           valid: false,
         },
       };
     }
-    if (this.max != undefined && this.value > this.max) {
+    if (this.max !== undefined && this.value > this.max) {
       return {
         max: {
           valid: false,
@@ -141,7 +141,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
       };
     }
     if (this.format) {
-      var regex = this._createValidationRegEx();
+      const regex = this._createValidationRegEx();
       if (this.value && !regex.test(this.value.toString())) {
         return {
           format: {
@@ -153,7 +153,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   }
 
   _createValidationRegEx() {
-    var format = this.format
+    const format = this.format
       .replace(/[^#\.\,]/g, '')
       .replace(/#/g, '\\d')
       .replace(/\./g, '\\.');
