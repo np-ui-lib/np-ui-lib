@@ -9,12 +9,12 @@ import { NpTreeViewItem } from './np-tree-view.model';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpTreeViewComponent implements OnInit {
+  static controlCount = 1;
 
   @Input() items: NpTreeViewItem[];
   @Input() styleClass: string;
   @Input() allowSelection: boolean;
-  static controlCount = 1;
-  @Input() inputId: string = `np-treeview_${NpTreeViewComponent.controlCount++}`;
+  @Input() inputId = `np-treeview_${NpTreeViewComponent.controlCount++}`;
 
   @Output() onClick: EventEmitter<any> = new EventEmitter();
   @Output() onSelect: EventEmitter<any> = new EventEmitter();
@@ -125,12 +125,12 @@ export class NpTreeViewComponent implements OnInit {
   }
 
   _isAllChildSelected(item: NpTreeViewItem) {
-    var isSelected = true;
+    let isSelected = true;
     if (item.items && item.items.length > 0) {
       item.items.forEach(element => {
         if (element.items) {
-          var isChildSelected = this._isAllChildSelected(element);
-          if (isChildSelected == false) {
+          const isChildSelected = this._isAllChildSelected(element);
+          if (isChildSelected === false) {
             isSelected = false;
           }
         } else {
@@ -146,7 +146,7 @@ export class NpTreeViewComponent implements OnInit {
   }
 
   getSelectedItems() {
-    var selected = [];
+    const selected = [];
     this.items.forEach(element => {
       this._getSelected(element, selected);
     });
@@ -176,7 +176,7 @@ export class NpTreeViewComponent implements OnInit {
   }
 
   _isAnyChildSelected(item: NpTreeViewItem) {
-    var isAnySelected = false;
+    let isAnySelected = false;
     if (item.items && item.items.length > 0) {
       item.items.forEach(element => {
         if (isAnySelected) {

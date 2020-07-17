@@ -1,6 +1,6 @@
-<div [ngClass]="{'np-tp-component': true, 'np-disabled' : _isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{'np-tp-component': true, 'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-input-group" *ngIf="!defaultOpen; else templatePortalContent">
-        <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="_isDisabled" autocomplete="off">
+        <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="isDisabled" autocomplete="off">
         <div class="input-group-append">
             <div class="np-btn np-btn-icon" (click)="_clear()" title="Clear">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
@@ -75,29 +75,29 @@
                     <div class="np-row justify-content-around np-no-gutters np-tp-controls">
                         <div class="np-col-3">
                             <select class="np-tp-select np-border" title="Hour" (change)="_changeTime($event, 'hour')" size="4">
-                                <option *ngFor="let hour of _hours" [value]="hour" [text]="hour"
-                                    [selected]="hour == _selectedHour">
+                                <option *ngFor="let hour of hours" [value]="hour" [text]="hour"
+                                    [selected]="hour == selectedHour">
                                 </option>
                             </select>
                         </div>
                         <div class="np-col-3">
                             <select class="np-tp-select np-border" title="Minute" (change)="_changeTime($event, 'minute')" size="4">
-                                <option *ngFor="let minute of _minutes" [value]="minute" [text]="minute"
-                                    [selected]="minute == _selectedMinute">
+                                <option *ngFor="let minute of minutes" [value]="minute" [text]="minute"
+                                    [selected]="minute == selectedMinute">
                                 </option>
                             </select>
                         </div>
                         <div class="np-col-3" *ngIf="hideSeconds == false">
                             <select class="np-tp-select np-border" title="Second" (change)="_changeTime($event, 'second')" size="4">
-                                <option *ngFor="let second of _seconds" [value]="second" [text]="second"
-                                    [selected]="second == _selectedSecond">
+                                <option *ngFor="let second of seconds" [value]="second" [text]="second"
+                                    [selected]="second == selectedSecond">
                                 </option>
                             </select>
                         </div>
                         <div class="np-col-3 align-self-center" *ngIf="is24Hours == false">
                             <select class="np-tp-select np-border np-tp-overflow-hidden" (change)="_changeTime($event, 'AMPM')" size="2">
-                                <option value="AM" [selected]="'AM' == _selectedAMPM">AM</option>
-                                <option value="PM" [selected]="'PM' == _selectedAMPM">PM</option>
+                                <option value="AM" [selected]="'AM' == selectedAMPM">AM</option>
+                                <option value="PM" [selected]="'PM' == selectedAMPM">PM</option>
                             </select>
                         </div>
                     </div>
