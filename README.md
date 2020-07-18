@@ -64,5 +64,5 @@ $ ng serve
 This project is licensed under the MIT License.
 ## Contributors
 <p>
-  <img width="200px" height="100px" src="https://raw.githubusercontent.com/NilavPatel/nilavpatel.github.io/master/images/logo-large.png">
+  <img width="200px" height="50px" src="https://raw.githubusercontent.com/NilavPatel/nilavpatel.github.io/master/images/logo-large.png">
 </p>
