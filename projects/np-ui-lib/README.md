@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="200px" height="200px" src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/logo.jpg">
+</p>
+
 # np-ui-lib  
 ## Angular Ui Components for Angular 10+ 
 ### [NPM package manager](https://www.npmjs.com/package/np-ui-lib)  
