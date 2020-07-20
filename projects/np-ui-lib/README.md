@@ -2,9 +2,9 @@
   <img width="200px" height="200px" src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/logo.jpg">
 </p>
 
-[![Build](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/build.svg)]
-[![License](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/license.svg)]
-[![Contribution](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/contributions.svg)]
+![Build](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/build.svg)
+![License](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/license.svg)
+![Contribution](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/contributions.svg)
 
 # np-ui-lib  
 ## Angular Ui Components for Angular 10+ 
