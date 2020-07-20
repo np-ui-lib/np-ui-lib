@@ -1,0 +1,10 @@
+<np-modal #modal>
+    <span [innerHtml]="message"></span>
+    <input *ngIf="type == 'prompt'" type="text" class="np-form-control" [(ngModel)]="value">
+    <np-modal-footer>
+        <div class="np-btn-group">
+            <button class="np-btn np-btn-primary" (click)="onOk()">Ok</button>
+            <button *ngIf="type !== 'alert'" class="np-btn np-btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+    </np-modal-footer>
+</np-modal>

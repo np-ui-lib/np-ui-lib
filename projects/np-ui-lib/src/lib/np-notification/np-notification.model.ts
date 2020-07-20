@@ -6,6 +6,7 @@ export class NpNotification {
         this.autoCloseTimeout = value.autoCloseTimeout;
         this.id = Math.random();
     }
+    /* type should be Success, Error, Warning, Info */
     public type: string;
     public header: string;
     public message: string;

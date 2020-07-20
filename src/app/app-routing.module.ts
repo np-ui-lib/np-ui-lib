@@ -135,6 +135,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-virtual-scroll-demo/np-virtual-scroll-demo.module').then(m => m.NpVirtualScrollDemoModule)
   },
   {
+    path: 'np-dialog-demo',
+    loadChildren: () => import('./np-dialog-demo/np-dialog-demo.module').then(m => m.NpDialogDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

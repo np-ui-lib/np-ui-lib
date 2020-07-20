@@ -41,6 +41,7 @@ npm i np-ui-lib
 1. [BlockUi](https://github.com/NilavPatel/np-ui-package/wiki/BlockUi)
 1. [Carousel](https://github.com/NilavPatel/np-ui-package/wiki/Carousel)
 1. [Modal](https://github.com/NilavPatel/np-ui-package/wiki/Modal)
+1. [Dialog](https://github.com/NilavPatel/np-ui-package/wiki/Dialog)
 1. [Tree view](https://github.com/NilavPatel/np-ui-package/wiki/Tree-view)
 1. [List](https://github.com/NilavPatel/np-ui-package/wiki/List)
 1. [Virtual Scroll](https://github.com/NilavPatel/np-ui-package/wiki/Virtual-Scroll)

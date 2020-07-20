@@ -1,0 +1,8 @@
+.np-mod-header {
+    display: none;
+}
+
+.np-mod-content {
+    min-height: 100px;
+    min-width: 250px;
+}

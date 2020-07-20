@@ -142,3 +142,7 @@ export * from './lib/np-list/np-list.component';
 /*Virtual Scroll */
 export * from './lib/np-virtual-scroll/np-virtual-scroll.module';
 export * from './lib/np-virtual-scroll/np-virtual-scroll.component';
+
+/*Dialog */
+export * from './lib/np-dialog/np-dialog.module';
+export * from './lib/np-dialog/np-dialog.component';

@@ -1,6 +1,6 @@
 {
     "name": "np-ui-lib",
-    "version": "10.2.0",
+    "version": "10.2.1",
     "author": {
         "name": "nilav patel",
         "email": "nilavpatel1992@gmail.com",
@@ -58,6 +58,7 @@
         "Masking",
         "List",
         "BlockUi",
-        "Virtual Scroll"
+        "Virtual Scroll",
+        "Dialog"
     ]
 }

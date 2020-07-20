@@ -9,6 +9,7 @@ import { Component, OnInit, Input, ElementRef, ViewEncapsulation, ChangeDetectio
 export class NpAlertComponent implements OnInit {
   static controlCount = 1;
 
+  /* type should be Success, Error, Warning, Info */
   @Input() type: string;
   @Input() styleClass: string;
   @Input() showCloseButton: boolean;

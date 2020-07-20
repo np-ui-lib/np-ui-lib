@@ -138,6 +138,7 @@
 
 .np-dg-col-resize-handle:hover {
     background-color: #fcf8e3;
+    border-bottom: 1px solid #c8c8c8;
 }
 
 .np-dg-sticky-header {

@@ -1,0 +1,22 @@
+<div class="sub-header">
+    <h2>
+        <a class="github-link" target="_blank" href="https://github.com/NilavPatel/np-ui-package/wiki/Dialog">
+            np-dialog
+        </a> &nbsp;|&nbsp;
+        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-dialog-demo">
+            Demo
+        </a>
+    </h2>
+</div>
+
+
+<np-dialog [type]="'alert'" [message]="'Saved successfully.'" (onOkClick)="onOkClick()" #dialogAlert></np-dialog>
+<np-dialog [type]="'prompt'" [message]="'Enter your name'" (onOkClick)="onPromptOkClick($event)" (onCancelClick)="onCancelClick()" #dialogPrompt></np-dialog>
+<np-dialog [type]="'confirm'" [message]="'Are you sure to delete?'" (onOkClick)="onOkClick()" (onCancelClick)="onCancelClick()" #dialogConfirm>
+</np-dialog>
+
+<div class="np-btn-group">
+    <button class="np-btn" (click)="openAlert()">Open Alert</button>
+    <button class="np-btn" (click)="openPrompt()">Open Prompt</button>
+    <button class="np-btn" (click)="openConfirm()">Open Confirm</button>
+</div>
