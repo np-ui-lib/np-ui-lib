@@ -1661,10 +1661,6 @@ svg {
     margin-bottom: 5px;
 }
 
-.np-table-striped tr:nth-child(odd) td {
-    background-color: #f1f1f1;
-}
-
 .np-table td,
 .np-table th {
     padding: 0px 5px;
@@ -1688,6 +1684,14 @@ svg {
     background-color: #f1f1f1;
 }
 
+.np-table td {
+    background-color: #ffffff;
+}
+
+.np-table-striped tr:nth-child(odd) td {
+    background-color: #f1f1f1;
+}
+
 .np-jumbotron {
     background-color: #f1f1f1;
     padding: 10px;
@@ -1707,6 +1711,7 @@ svg {
 .np-list-item {
     padding: 5px 10px;
     border-bottom: 1px solid #dfdfdf;
+    background-color: #ffffff;
 }
 
 .np-list-item:last-child {

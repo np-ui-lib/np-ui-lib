@@ -1,5 +1,5 @@
 <np-modal #modal>
-    <span [innerHtml]="message"></span>
+    <span [innerHTML]="message"></span>
     <input *ngIf="type == 'prompt'" type="text" class="np-form-control" [(ngModel)]="value">
     <np-modal-footer>
         <div class="np-btn-group">

@@ -4,6 +4,7 @@
     border-radius: 2px;
     width: 100%;
     overflow: auto;
+    background-color: #ffffff;
 }
 
 .np-li-checkbox {
