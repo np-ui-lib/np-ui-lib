@@ -9,27 +9,86 @@
     </h2>
 </div>
 
-<fieldset>
-    <legend>Default</legend>
-    <np-progress [value]="55"></np-progress>
-</fieldset>
+<np-tabs>
+    <np-tab title="Documentation">
+        <np-card>
+            <b>Module to import</b>
+            <div>
+                {{importText}}
+            </div>
+        </np-card>
+        <np-card>
+            <b>HTML</b>
+            <div>
+                {{htmlText}}
+            </div>
+        </np-card>
+        <np-card>
+            <table class="np-table">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+                <tr>
+                    <td>striped</td>
+                    <td>Striped design</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>animated</td>
+                    <td>Show animated design</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>showLabel</td>
+                    <td>Show % number</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>Height of progress bar in px</td>
+                    <td>number</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>styleClass</td>
+                    <td>Set extra class on progress bar, pre defined classes like np-pg-success, np-pg-danger, np-pg-info, np-pg-warning </td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+            </table>
+        </np-card>
+    </np-tab>
+    <np-tab title="Examples">
+        <fieldset>
+            <legend>Default</legend>
+            <np-progress [value]="55"></np-progress>
+        </fieldset>
 
-<fieldset>
-    <legend>Success + striped</legend>
-    <np-progress [value]="progressCount" [styleClass]="'np-pg-success'" [striped]="true"></np-progress>
-</fieldset>
+        <fieldset>
+            <legend>Success + striped</legend>
+            <np-progress [value]="progressCount" [styleClass]="'np-pg-success'" [striped]="true"></np-progress>
+        </fieldset>
 
-<fieldset>
-    <legend>Error + animated + height</legend>
-    <np-progress [value]="50" [styleClass]="'np-pg-danger'" [animated]="true" [showLabel]="false" [height]="5"></np-progress>
-</fieldset>
+        <fieldset>
+            <legend>Error + animated + height</legend>
+            <np-progress [value]="50" [styleClass]="'np-pg-danger'" [animated]="true" [showLabel]="false" [height]="5">
+            </np-progress>
+        </fieldset>
 
-<fieldset>
-    <legend>Warning</legend>
-    <np-progress [value]="100" [styleClass]="'np-pg-warning'"></np-progress>
-</fieldset>
+        <fieldset>
+            <legend>Warning</legend>
+            <np-progress [value]="100" [styleClass]="'np-pg-warning'"></np-progress>
+        </fieldset>
 
-<fieldset>
-    <legend>Info + indeterminate</legend>
-    <np-progress [indeterminate]="true" [styleClass]="'np-pg-info'"></np-progress>
-</fieldset>
+        <fieldset>
+            <legend>Info + indeterminate</legend>
+            <np-progress [indeterminate]="true" [styleClass]="'np-pg-info'"></np-progress>
+        </fieldset>
+    </np-tab>
+</np-tabs>

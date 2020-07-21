@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpProgressDemoComponent implements OnInit {
 
+  importText = "import { NpProgressModule } from 'np-ui-lib';"
+  htmlText = '<np-progress [value]="50"></np-progress>';
+
   progressCount: number = 2;
 
   constructor() { }
