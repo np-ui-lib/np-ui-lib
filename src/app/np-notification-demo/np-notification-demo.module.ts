@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpNotificationDemoRoutingModule } from './np-notification-demo-routing.module';
 import { NpNotificationDemoComponent } from './np-notification-demo.component';
-import { NpNotificationModule } from 'np-ui-lib';
+import { NpTabsModule, NpCardModule } from 'np-ui-lib';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { NpNotificationModule } from 'np-ui-lib';
   imports: [
     CommonModule,
     NpNotificationDemoRoutingModule,
-    NpNotificationModule
+    NpTabsModule,
+    NpCardModule
   ]
 })
 export class NpNotificationDemoModule { }

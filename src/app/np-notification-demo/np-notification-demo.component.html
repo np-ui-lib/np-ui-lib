@@ -9,35 +9,72 @@
     </h2>
 </div>
 
-<np-notification></np-notification>
 
-<fieldset>
-    <legend>Basic notifications</legend>
-    <div class="np-btn-group">
-        <button class="np-btn np-btn-success" (click)="success()">Success</button>
-        <button class="np-btn np-btn-danger" (click)="error()">Error</button>
-        <button class="np-btn np-btn-warning" (click)="warning()">Warning</button>
-        <button class="np-btn np-btn-info" (click)="info()">Info</button>
-    </div>
-</fieldset>
+<np-tabs>
+    <np-tab title="Documentation">
+        <np-card>
+            <b>Module to import</b>
+            <div>
+                <code [innerText]="importText"></code>
+            </div>
+        </np-card>
+        <np-card>
+            <b>HTML</b>
+            <div>
+                <code [innerText]="htmlText"></code>
+            </div>
+            <p class="np-text-danger">Add above line in your main application module's template file app.component.html only once.
+            </p>
+        </np-card>
+        <np-card>
+            <b>Import service and class from np-ui-lib in any component</b>
+            <div>
+                <code [innerHTML]="importServiceAndClass"></code>
+            </div>
+            <br>
+            <div>
+                <code [innerHTML]="createServiceObject"></code>
+            </div>
+            <br>
+            <b>How to show notification from any component?</b>
+            <div>
+                <code [innerHTML]="methodText"></code>
+            </div>
+            <p>Where <b>type</b> can be Success, Danger, Info, Warning.</p>
+            <p>Also set <b>autoCloseTimeout</b> property for closing notifications auto. Default time is 10000 ms.</p>
+            <p>Set <b>header</b> to header show in notification, which is type of string.</p>
+        </np-card>
+    </np-tab>
+    <np-tab title="Examples">
+        <fieldset>
+            <legend>Basic notifications</legend>
+            <div class="np-btn-group">
+                <button class="np-btn np-btn-success" (click)="success()">Success</button>
+                <button class="np-btn np-btn-danger" (click)="error()">Error</button>
+                <button class="np-btn np-btn-warning" (click)="warning()">Warning</button>
+                <button class="np-btn np-btn-info" (click)="info()">Info</button>
+            </div>
+        </fieldset>
 
-<fieldset>
-    <legend>Notifications with header</legend>
-    <div class="np-btn-group">
-        <button class="np-btn np-btn-success" (click)="successWithHeader()">Notification With Header</button>
-    </div>
-</fieldset>
+        <fieldset>
+            <legend>Notifications with header</legend>
+            <div class="np-btn-group">
+                <button class="np-btn np-btn-success" (click)="successWithHeader()">Notification With Header</button>
+            </div>
+        </fieldset>
 
-<fieldset>
-    <legend>Notifications with HTML text</legend>
-    <div class="np-btn-group">
-        <button class="np-btn np-btn-danger" (click)="errorWithHTML()">Notification With HTML text</button>
-    </div>
-</fieldset>
+        <fieldset>
+            <legend>Notifications with HTML text</legend>
+            <div class="np-btn-group">
+                <button class="np-btn np-btn-danger" (click)="errorWithHTML()">Notification With HTML text</button>
+            </div>
+        </fieldset>
 
-<fieldset>
-    <legend>Remove all Api</legend>
-    <div class="np-btn-group">
-        <button class="np-btn np-btn-danger" (click)="removeAll()">Remove All</button>
-    </div>
-</fieldset>
+        <fieldset>
+            <legend>Remove all Api</legend>
+            <div class="np-btn-group">
+                <button class="np-btn np-btn-danger" (click)="removeAll()">Remove All</button>
+            </div>
+        </fieldset>
+    </np-tab>
+</np-tabs>

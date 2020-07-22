@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { fakeBackendProvider } from './np-data-grid-demo/FakeBackendInterceptor';
-import { NpMenubarModule } from 'np-ui-lib';
+import { NpMenubarModule, NpNotificationModule } from 'np-ui-lib';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { NpMenubarModule } from 'np-ui-lib';
     CommonModule,
     FormsModule,
     AppRoutingModule,
-    NpMenubarModule
+    NpMenubarModule,
+    NpNotificationModule
   ],
   providers: [
     // provider used to create fake backend
