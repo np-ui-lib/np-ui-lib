@@ -8,8 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NpCardComponent implements OnInit {
   static controlCount = 1;
 
-  @Input() styleClass: string;
   @Input() width: number;
+  @Input() styleClass: string;
   @Input() inputId = `np-card_${NpCardComponent.controlCount++}`;
 
   constructor() { }

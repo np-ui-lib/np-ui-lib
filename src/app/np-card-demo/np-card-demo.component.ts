@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpCardDemoComponent implements OnInit {
 
+  importText = `import { NpCardModule } from \'np-ui-lib\';`;
+  htmlText = `<np-card>
+  <np-card-header>Header</np-card-header>
+  Body content
+  <np-card-footer>Footer</np-card-footer>
+<np-card>`;
+
   constructor() { }
 
   ngOnInit(): void {

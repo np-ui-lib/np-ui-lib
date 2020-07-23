@@ -9,6 +9,7 @@
 
 .np-cd-body {
     padding: 10px;
+    overflow: auto;
 }
 
 .np-cd-footer {

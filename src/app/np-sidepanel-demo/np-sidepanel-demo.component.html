@@ -9,109 +9,217 @@
     </h2>
 </div>
 
-<div class="np-btn-group">
-    <button type="button" class="np-btn" (click)="openLeft()">Open left</button>
-    <button type="button" class="np-btn" (click)="closeLeft()">Close left</button>
-</div>
-<div class="np-btn-group">
-    <button type="button" class="np-btn" (click)="openRight()">Open right</button>
-    <button type="button" class="np-btn" (click)="closeRight()">Close right</button>
-</div>
-<div class="np-btn-group">
-    <button type="button" class="np-btn" (click)="openTop()">Open top</button>
-    <button type="button" class="np-btn" (click)="closeTop()">Close top</button>
-</div>
-<div class="np-btn-group">
-    <button type="button" class="np-btn" (click)="openBottom()">Open bottom</button>
-    <button type="button" class="np-btn" (click)="closeBottom()">Close bottom</button>
-</div>
-
-<np-sidepanel #sidePanelLeft [height]="'100%'" [closeOnClickOutside]="false">
-    <np-sidepanel-header>
-        <p>Left sidepanel example</p>
-    </np-sidepanel-header>
-    <form [formGroup]="myForm">
-        <div class="np-container">
-            <div class="np-row">
-                <div class="np-col-6">
-                    <div class="np-form-group">
-                        <div class="np-form-label np-required">First name:</div>
-                        <input type="text" class="np-form-control" formControlName="firstName" required name="txtFirstName">
-                    </div>
-                </div>
-                <div class="np-col-6">
-                    <div class="np-form-group">
-                        <div class="np-form-label np-required">Last name:</div>
-                        <input type="text" class="np-form-control" formControlName="lastName" required name="txtLastName">
-                    </div>
-                </div>
+<np-tabs>
+    <np-tab title="Documentation">
+        <np-card>
+            <b>Module to import</b>
+            <div>
+                <pre><code [innerText]="importText"></code></pre>
             </div>
-            <div class="np-row">
-                <div class="np-col-6">
-                    <div class="np-form-group">
-                        <div class="np-form-label np-required">Birth date:</div>
-                        <np-date-picker formControlName="birthDate" name="txtBirthDate" required>
-                        </np-date-picker>
-                    </div>
-                </div>
-                <div class="np-col-6">
-                    <div class="np-form-group">
-                        <div class="np-form-label np-required">Birth time:</div>
-                        <np-time-picker formControlName="birthTime" name="txtBirthTime" [required]="true">
-                        </np-time-picker>
-                    </div>
-                </div>
+        </np-card>
+        <np-card>
+            <b>HTML</b>
+            <div>
+                <pre><code [innerText]="htmlText"></code></pre>
             </div>
-            <div class="np-row">
-                <div class="np-col-12">
-                    <div class="np-form-group">
-                        <div class="np-form-label np-required">Is Active:</div>
-                        <np-switch formControlName="isActive" name="swIsActive" [required]="true"></np-switch>
-                    </div>
-                </div>
-            </div>
-            <div class="np-row">
-                <div class="np-col-12">
-                    <div class="np-form-group">
-                        <div class="np-form-label">Description:</div>
-                        <textarea class="np-form-control" rows="3" formControlName="description" name="txtDescription"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    <np-sidepanel-footer>
+        </np-card>
+        <np-card>
+            <table class="np-table">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+                <tr>
+                    <td>top</td>
+                    <td>Set top position in px. Set this '0', if it is top side panel</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>bottom</td>
+                    <td>Set bottom position in px. Set this '0', if it is bottom side panel</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>left</td>
+                    <td>Set left position in px. Set this '0', if it is left side panel</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>right</td>
+                    <td>Set right position in px. Set this '0', if it is right side panel</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>Set height, if pass as number then it will take it in px</td>
+                    <td>string | number</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>Set width, if pass as number then it will take it in px</td>
+                    <td>string | number</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>showCloseIcon</td>
+                    <td>Show close icon or not</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td>closeOnClickOutside</td>
+                    <td>Close panel on outside click or not</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td>backDropClass</td>
+                    <td>Set backdrop class</td>
+                    <td>string</td>
+                    <td>np-sp-backdrop</td>
+                </tr>
+                <tr>
+                    <td>styleClass</td>
+                    <td>Set extra class on component</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+            </table>
+        </np-card>
+        <np-card>
+            <table class="np-table">
+                <tr>
+                    <th>Api</th>
+                    <th>Description</th>
+                    <th>Parameters</th>
+                </tr>
+                <tr>
+                    <td>
+                        open()
+                    </td>
+                    <td>
+                        Open side panel
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        close()
+                    </td>
+                    <td>
+                        Close side panel
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </np-card>
+    </np-tab>
+    <np-tab title="Examples">
         <div class="np-btn-group">
-            <button type="button" class="np-btn np-btn-primary" (click)="onSubmit()">Save</button>
-            <button type="button" class="np-btn" (click)="closeLeft()">Close</button>
+            <button type="button" class="np-btn" (click)="openLeft()">Open left</button>
+
+            <button type="button" class="np-btn" (click)="openRight()">Open right</button>
+
+            <button type="button" class="np-btn" (click)="openTop()">Open top</button>
+
+            <button type="button" class="np-btn" (click)="openBottom()">Open bottom</button>
         </div>
-    </np-sidepanel-footer>
-</np-sidepanel>
 
-<np-sidepanel #sidePanelRight [right]="'0'" [height]="'100%'" [width]="'200px'" [styleClass]="'myClass'" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">
-    <h1>Right sidepanel example</h1>
-</np-sidepanel>
+        <np-sidepanel #sidePanelLeft [height]="'100%'" [closeOnClickOutside]="false">
+            <np-sidepanel-header>
+                <p>Left sidepanel example</p>
+            </np-sidepanel-header>
+            <form [formGroup]="myForm">
+                <div class="np-container">
+                    <div class="np-row">
+                        <div class="np-col-6">
+                            <div class="np-form-group">
+                                <div class="np-form-label np-required">First name:</div>
+                                <input type="text" class="np-form-control" formControlName="firstName" required name="txtFirstName">
+                            </div>
+                        </div>
+                        <div class="np-col-6">
+                            <div class="np-form-group">
+                                <div class="np-form-label np-required">Last name:</div>
+                                <input type="text" class="np-form-control" formControlName="lastName" required name="txtLastName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="np-row">
+                        <div class="np-col-6">
+                            <div class="np-form-group">
+                                <div class="np-form-label np-required">Birth date:</div>
+                                <np-date-picker formControlName="birthDate" name="txtBirthDate" required>
+                                </np-date-picker>
+                            </div>
+                        </div>
+                        <div class="np-col-6">
+                            <div class="np-form-group">
+                                <div class="np-form-label np-required">Birth time:</div>
+                                <np-time-picker formControlName="birthTime" name="txtBirthTime" [required]="true">
+                                </np-time-picker>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="np-row">
+                        <div class="np-col-12">
+                            <div class="np-form-group">
+                                <div class="np-form-label np-required">Is Active:</div>
+                                <np-switch formControlName="isActive" name="swIsActive" [required]="true"></np-switch>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="np-row">
+                        <div class="np-col-12">
+                            <div class="np-form-group">
+                                <div class="np-form-label">Description:</div>
+                                <textarea class="np-form-control" rows="3" formControlName="description" name="txtDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <np-sidepanel-footer>
+                <div class="np-btn-group">
+                    <button type="button" class="np-btn np-btn-primary" (click)="onSubmit()">Save</button>
+                    <button type="button" class="np-btn" (click)="closeLeft()">Close</button>
+                </div>
+            </np-sidepanel-footer>
+        </np-sidepanel>
 
-<np-sidepanel #sidePanelTop [top]="'0'" [width]="'100%'" [height]="'200px'" [showCloseIcon]="false">
-    <np-sidepanel-header>
-        Top sidepanel header
-    </np-sidepanel-header>
-    <p>Top sidepanel example</p>
-    <p>Top sidepanel example</p>
-    <p>Top sidepanel example</p>
-    <p>Top sidepanel example</p>
-    <p>Top sidepanel example</p>
-    <p>Top sidepanel example</p>
-    <p>Top sidepanel example</p>
-    <p>Top sidepanel example</p>
-    <p>Top sidepanel example</p>
-    <p>Top sidepanel example</p>
-    <p>Top sidepanel example</p>
-    <np-sidepanel-footer>
-        Top sidepanel footer
-    </np-sidepanel-footer>
-</np-sidepanel>
+        <np-sidepanel #sidePanelRight [right]="'0'" [height]="'100%'" [width]="'200px'" [styleClass]="'myClass'" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">
+            <h1>Right sidepanel example</h1>
+        </np-sidepanel>
 
-<np-sidepanel #sidePanelBottom [bottom]="'0'" [width]="'100%'" [height]="'200px'" [showCloseIcon]="false">
-    <h1>Bottom sidepanel example</h1>
-</np-sidepanel>
+        <np-sidepanel #sidePanelTop [top]="'0'" [width]="'100%'" [height]="'200px'" [showCloseIcon]="false">
+            <np-sidepanel-header>
+                Top sidepanel header
+            </np-sidepanel-header>
+            <p>Top sidepanel example</p>
+            <p>Top sidepanel example</p>
+            <p>Top sidepanel example</p>
+            <p>Top sidepanel example</p>
+            <p>Top sidepanel example</p>
+            <p>Top sidepanel example</p>
+            <p>Top sidepanel example</p>
+            <p>Top sidepanel example</p>
+            <p>Top sidepanel example</p>
+            <p>Top sidepanel example</p>
+            <p>Top sidepanel example</p>
+            <np-sidepanel-footer>
+                Top sidepanel footer
+            </np-sidepanel-footer>
+        </np-sidepanel>
+
+        <np-sidepanel #sidePanelBottom [bottom]="'0'" [width]="'100%'" [height]="'200px'" [showCloseIcon]="false">
+            <h1>Bottom sidepanel example</h1>
+        </np-sidepanel>
+    </np-tab>
+</np-tabs>

@@ -9,11 +9,22 @@ import { NpSidepanelComponent } from 'np-ui-lib';
 })
 export class NpSidepanelDemoComponent implements OnInit {
 
+  importText = 'import { NpSidepanelModule } from \'np-ui-lib\';';
+  htmlText = `<np-sidepanel [right]="'0'" [height]="'100%'" [width]="'200px'">
+  <np-sidepanel-header>
+    Header
+  </np-sidepanel-header>
+  Body Content
+  <np-sidepanel-footer>
+    Footer
+  </np-sidepanel-footer>
+</np-sidepanel>`;
+
   firstName: string;
   lastName: string;
   birthDate: Date;
   birthTime: string;
-  isActive: boolean = true;
+  isActive = true;
   description: string;
 
   myForm = new FormGroup({
@@ -25,10 +36,10 @@ export class NpSidepanelDemoComponent implements OnInit {
     description: new FormControl(''),
   });
 
-  @ViewChild("sidePanelLeft", { static: true }) sidePanelLeft: NpSidepanelComponent;
-  @ViewChild("sidePanelRight", { static: true }) sidePanelRight: NpSidepanelComponent;
-  @ViewChild("sidePanelTop", { static: true }) sidePanelTop: NpSidepanelComponent;
-  @ViewChild("sidePanelBottom", { static: true }) sidePanelBottom: NpSidepanelComponent;
+  @ViewChild('sidePanelLeft', { static: true }) sidePanelLeft: NpSidepanelComponent;
+  @ViewChild('sidePanelRight', { static: true }) sidePanelRight: NpSidepanelComponent;
+  @ViewChild('sidePanelTop', { static: true }) sidePanelTop: NpSidepanelComponent;
+  @ViewChild('sidePanelBottom', { static: true }) sidePanelBottom: NpSidepanelComponent;
 
   constructor() { }
 
@@ -53,7 +64,7 @@ export class NpSidepanelDemoComponent implements OnInit {
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
-    (<any>Object).values(formGroup.controls).forEach(control => {
+    (Object as any).values(formGroup.controls).forEach(control => {
       control.markAsTouched();
       if (control.controls) {
         this.markFormGroupTouched(control);
@@ -65,24 +76,11 @@ export class NpSidepanelDemoComponent implements OnInit {
     this.sidePanelRight.open();
   }
 
-  closeRight() {
-    this.sidePanelRight.close();
-  }
-
   openTop() {
     this.sidePanelTop.open();
-  }
-
-  closeTop() {
-    this.sidePanelTop.close();
   }
 
   openBottom() {
     this.sidePanelBottom.open();
   }
-
-  closeBottom() {
-    this.sidePanelBottom.close();
-  }
-
 }

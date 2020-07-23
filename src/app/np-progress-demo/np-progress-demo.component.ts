@@ -7,16 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpProgressDemoComponent implements OnInit {
 
-  importText = "import { NpProgressModule } from 'np-ui-lib';"
+  importText = 'import { NpProgressModule } from \'np-ui-lib\';';
   htmlText = '<np-progress [value]="50"></np-progress>';
 
-  progressCount: number = 2;
+  progressCount = 2;
 
   constructor() { }
 
   ngOnInit(): void {
-    var interval = setInterval(() => {
-      var progress = this.progressCount * 2;
+    const interval = setInterval(() => {
+      const progress = this.progressCount * 2;
       if (progress > 100) {
         this.progressCount = 100;
         clearInterval(interval);
