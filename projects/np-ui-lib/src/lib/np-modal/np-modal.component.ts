@@ -14,9 +14,9 @@ export class NpModalComponent {
 
   @Input() height: number;
   @Input() width: number;
-  @Input() styleClass: string;
   @Input() closeOnClickOutside = true;
   @Input() backDropClass = 'np-mod-backdrop';
+  @Input() styleClass: string;
   @Input() inputId = `np-modal_${NpModalComponent.controlCount++}`;
 
   @Output() onOpen: EventEmitter<void> = new EventEmitter();

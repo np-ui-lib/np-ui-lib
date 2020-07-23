@@ -7,16 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpSwitchDemoComponent implements OnInit {
 
-  switch1: boolean = true;
-  switch2: boolean = false;
-  switch3: boolean = true;
+  switch1 = true;
+  switch2 = false;
+  switch3 = true;
   switch4: boolean;
-  switch5: boolean = true;
-  switch6: boolean = true;
-  switch7: boolean = true;
-  switch8: boolean = true;
+  switch5 = true;
+  switch6 = true;
+  switch7 = true;
+  switch8 = true;
 
-  importText = "import { NpSwitchModule } from 'np-ui-lib';"
+  importText = 'import { NpSwitchModule } from \'np-ui-lib\';';
   htmlText = '<np-switch [(ngModel)]="switch1"></np-switch>';
 
   constructor() { }
