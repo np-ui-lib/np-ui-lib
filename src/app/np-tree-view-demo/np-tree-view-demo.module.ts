@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { NpTreeViewDemoRoutingModule } from './np-tree-view-demo-routing.module';
 import { NpTreeViewDemoComponent } from './np-tree-view-demo.component';
-import { NpTreeViewModule } from 'np-ui-lib';
+import { NpTreeViewModule, NpTabsModule, NpCardModule, NpSwitchModule } from 'np-ui-lib';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,11 @@ import { NpTreeViewModule } from 'np-ui-lib';
   imports: [
     CommonModule,
     NpTreeViewDemoRoutingModule,
-    NpTreeViewModule
+    NpTreeViewModule,
+    NpTabsModule,
+    NpCardModule,
+    NpSwitchModule,
+    FormsModule
   ]
 })
 export class NpTreeViewDemoModule { }

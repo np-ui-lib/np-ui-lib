@@ -17,7 +17,7 @@
         </button>
         <span class="np-tv-node-label">
             <label (click)="_onClick(item)">
-                <input type="checkbox" class="np-tv-checkbox" [checked]="_isSelected(item)" [indeterminate]="_isIndeterminate(item)" *ngIf="allowSelection"
+                <input *ngIf="allowSelection" type="checkbox" class="np-tv-checkbox" [checked]="item.isSelected"  [indeterminate]="!item.isSelected && _isIndeterminate(item)"
                     (change)="_onSelect($event,item)">
                 {{item.label}}
             </label>
