@@ -13,7 +13,6 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy {
   @Input() items: any[] = [];
   @Input() autoPlay: boolean;
   @Input() autoPlayInterval = 5000;
-  @Input() styleClass: string;
   @Input() itemTemplate: TemplateRef<any>;
   @Input() visibleNum = 1;
   @Input() scrollNum = 1;
@@ -21,6 +20,7 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy {
   @Input() pauseOnHover: boolean;
   @Input() showNavigationArrows = true;
   @Input() showNavigationIndicators = true;
+  @Input() styleClass: string;
   @Input() inputId = `np-carousel_${NpCarouselComponent.controlCount++}`;
 
   interval: any;

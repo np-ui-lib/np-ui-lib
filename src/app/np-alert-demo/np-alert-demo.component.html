@@ -63,25 +63,43 @@
                 </tr>
             </table>
         </np-card>
+        <np-card>
+            <table class="np-table">
+                <tr>
+                    <th>Api</th>
+                    <th>Description</th>
+                    <th>Parameters</th>
+                </tr>
+                <tr>
+                    <td>
+                        close()
+                    </td>
+                    <td>
+                        close alert message
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </np-card>
     </np-tab>
     <np-tab title="Examples">
-        <np-alert type="Success" showCloseButton="true">
+        <np-alert type="Success" [showCloseButton]="true">
             Hi this is success alert message.
         </np-alert>
 
-        <np-alert type="Error" showCloseButton="true">
+        <np-alert type="Error" [showCloseButton]="true">
             Hi this is Danger alert message.
         </np-alert>
 
-        <np-alert type="Warning" showCloseButton="true">
+        <np-alert type="Warning" [showCloseButton]="true">
             Hi this is Warning alert message.
         </np-alert>
 
-        <np-alert type="Info" showCloseButton="true" autoClose="true">
+        <np-alert type="Info" [showCloseButton]="true" [autoClose]="true">
             Hi this is info alert message. Auto close after default timeout of 10000 ms.
         </np-alert>
 
-        <np-alert showCloseButton="true" autoClose="true" autoCloseTimeout="5000">
+        <np-alert [showCloseButton]="true" [autoClose]="true" [autoCloseTimeout]=5000>
             Hi this is custom alert message. Auto close after timeout of 50000 ms.
         </np-alert>
     </np-tab>
