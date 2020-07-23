@@ -8,6 +8,10 @@ import { NpDialogComponent } from 'np-ui-lib';
 })
 export class NpDialogDemoComponent implements OnInit {
 
+  importText = 'import { NpDialogModule } from \'np-ui-lib\';';
+  htmlText = `<np-dialog [type]="'alert'" [message]="'Saved successfully.'" (onOkClick)="onOkClick()" #dialogAlert>
+</np-dialog>`;
+
   @ViewChild('dialogAlert', { static: true }) dialogAlert: NpDialogComponent;
   @ViewChild('dialogPrompt', { static: true }) dialogPrompt: NpDialogComponent;
   @ViewChild('dialogConfirm', { static: true }) dialogConfirm: NpDialogComponent;

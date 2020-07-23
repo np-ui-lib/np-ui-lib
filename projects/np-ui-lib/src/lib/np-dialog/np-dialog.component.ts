@@ -14,9 +14,8 @@ export class NpDialogComponent implements OnInit {
   @Input() message: string;
   /* type should be alert, prompt, or confirm */
   @Input() type: string;
-  @Output() valueChange: EventEmitter<any> = new EventEmitter();
-  @Input() inputId = `np-dialog_${NpDialogComponent.controlCount++}`;
   @Input() styleClass: string;
+  @Input() inputId = `np-dialog_${NpDialogComponent.controlCount++}`;
   @Output() onOkClick: EventEmitter<any> = new EventEmitter();
   @Output() onCancelClick: EventEmitter<any> = new EventEmitter();
 
