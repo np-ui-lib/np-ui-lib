@@ -10,36 +10,18 @@ export class NpUtilityDemoComponent implements OnInit {
 
   constructor() { }
 
-  text: string = "A paragraph is a series of related sentences developing a central idea, called the topic.Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea.Paragraphs add one idea at a time to your broader argument.";
+  text = 'A paragraph is a series of related sentences developing a central idea, called the topic.Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea.Paragraphs add one idea at a time to your broader argument.';
 
   firstName: string;
   lastName: string;
   birthDate: Date;
   birthTime: string;
-  isActive: boolean = true;
+  isActive = true;
   description: string;
   photo: any;
-
-  maskedValue1: string;
-  maskedValue2: string;
-  maskedValue3: string;
 
   ngOnInit(): void {
 
   }
-
-  creditCards: any[] = [
-    {
-      'card': 'amex',
-      'placeholder': 'XXX XXXXXX XXXXX',
-      'mask': '000 000000 00000'
-    },
-    {
-      'card': 'visa',
-      'placeholder': 'XXXX XXXX XXXX XXXX',
-      'mask': '0000 0000 0000 0000'
-    }
-  ];
-  selectedCard: any = this.creditCards[0];
 
 }

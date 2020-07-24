@@ -23,7 +23,7 @@ export * from './lib/np-time-picker/np-time-picker.component';
 export * from './lib/np-switch/np-switch.module';
 export * from './lib/np-switch/np-switch.component';
 
-/*Notifications */
+/*Notification */
 export * from './lib/np-notification/np-notification.module';
 export * from './lib/np-notification/np-notification.component';
 export * from './lib/np-notification/np-notification.service';

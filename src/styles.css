@@ -113,17 +113,6 @@ article {
     overflow: auto;
 }
 
-.sub-header {
-    background-color: #f1f1f1;
-    border: 1px solid #c8c8c8;
-    border-radius: 2px;
-    margin-bottom: 5px;
-}
-
-.sub-header h2 {
-    margin: 5px;
-}
-
 .color-red {
     color: red;
 }
@@ -139,4 +128,10 @@ footer {
     padding: 2px;
     width: 100%;
     min-height: 25px;
+}
+
+.sub-header {
+    font-size: 22px;
+    padding: 10px;
+    font-weight: bolder;
 }

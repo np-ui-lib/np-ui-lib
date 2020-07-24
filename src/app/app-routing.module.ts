@@ -139,6 +139,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-dialog-demo/np-dialog-demo.module').then(m => m.NpDialogDemoModule)
   },
   {
+    path: 'np-mask-demo',
+    loadChildren: () => import('./np-mask-demo/np-mask-demo.module').then(m => m.NpMaskDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

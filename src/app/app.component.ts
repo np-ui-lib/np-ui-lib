@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-tabs-demo', label: 'Tabs' }),
     new NpMenuItem({ routerLink: '/np-card-demo', label: 'Card' }),
     new NpMenuItem({ routerLink: '/np-alert-demo', label: 'Alert' }),
-    new NpMenuItem({ routerLink: '/np-notification-demo', label: 'Notifications' }),
+    new NpMenuItem({ routerLink: '/np-notification-demo', label: 'Notification' }),
     new NpMenuItem({ routerLink: '/np-tooltip-demo', label: 'Tooltip' }),
     new NpMenuItem({ routerLink: '/np-popover-demo', label: 'Popover' }),
     new NpMenuItem({ routerLink: '/np-loader-demo', label: 'Loader' }),
@@ -61,10 +61,11 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-modal-demo', label: 'Modal' }),
     new NpMenuItem({ routerLink: '/np-dialog-demo', label: 'Dialog' }),
     new NpMenuItem({ routerLink: '/np-sidepanel-demo', label: 'Sidepanel' }),
-    new NpMenuItem({ routerLink: '/np-tree-view-demo', label: 'Treeview' }),
+    new NpMenuItem({ routerLink: '/np-tree-view-demo', label: 'Tree view' }),
     new NpMenuItem({ routerLink: '/np-list-demo', label: 'List' }),
     new NpMenuItem({ routerLink: '/np-virtual-scroll-demo', label: 'Virtual Scroll' }),
     new NpMenuItem({ routerLink: '/np-grid-layout-demo', label: 'Grid Layout' }),
+    new NpMenuItem({ routerLink: '/np-mask-demo', label: 'Masking' }),
     new NpMenuItem({ routerLink: '/np-utility-demo', label: 'Other Utility' })
   ];
 

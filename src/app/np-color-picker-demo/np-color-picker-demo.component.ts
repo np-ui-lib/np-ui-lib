@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpColorPickerDemoComponent implements OnInit {
 
-  color1: string = "#5fe64b";
-  color2: string = "#5fe64b";
+  color1 = '#5fe64b';
+  color2 = '#5fe64b';
   color3: string;
-  color4: string = "#5fe64b";
+  color4 = '#5fe64b';
   color4Required = false;
   color4Disabled = false;
   color5: string;
@@ -21,16 +21,16 @@ export class NpColorPickerDemoComponent implements OnInit {
   color9: string;
   color10: string;
 
-  importText = "import { NpColorPickerModule } from 'np-ui-lib';"
+  importText = 'import { NpColorPickerModule } from \'np-ui-lib\';';
   htmlText = '<np-color-picker [(ngModel)]="color1"></np-color-picker>';
-  
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   onChangeColor(e) {
-    alert("Selected color is " + e);
+    alert('Selected color is ' + e);
   }
 
 }

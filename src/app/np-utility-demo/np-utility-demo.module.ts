@@ -3,7 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { NpUtilityDemoRoutingModule } from './np-utility-demo-routing.module';
 import { NpUtilityDemoComponent } from './np-utility-demo.component';
-import { NpUtilityModule, NpHightLightPipe, NpDatePickerModule, NpTimePickerModule, NpSwitchModule, NpDropdownModule, NpFileUploadModule } from 'np-ui-lib';
+import {
+  NpUtilityModule, NpHightLightPipe, NpDatePickerModule, NpTimePickerModule, NpSwitchModule,
+  NpFileUploadModule
+} from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,7 +19,6 @@ import { FormsModule } from '@angular/forms';
     NpDatePickerModule,
     NpTimePickerModule,
     NpSwitchModule,
-    NpDropdownModule,
     NpFileUploadModule
   ],
   providers: [NpHightLightPipe]

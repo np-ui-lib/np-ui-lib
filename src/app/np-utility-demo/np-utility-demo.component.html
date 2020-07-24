@@ -1,9 +1,5 @@
 <div class="sub-header">
-    <h2>
-        <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-utility-demo">
-            np-utility
-        </a>
-    </h2>
+    Other Utilities
 </div>
 
 <fieldset>
@@ -130,48 +126,6 @@
             </div>
         </div>
     </form>
-</fieldset>
-
-<fieldset>
-    <legend>Masking</legend>
-    <table class="np-table np-table-striped">
-        <tr>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>0</td>
-            <td>0-9</td>
-        </tr>
-        <tr>
-            <td>a</td>
-            <td>a-z</td>
-        </tr>
-        <tr>
-            <td>A</td>
-            <td>A-Z</td>
-        </tr>
-        <tr>
-            <td>B</td>
-            <td>aA-zZ</td>
-        </tr>
-    </table>
-    <div class="np-form-group">
-        <label class="np-form-label">000-aaa-AAA-BBB</label>
-        <input type="text" class="np-form-control" [(ngModel)]="maskedValue1" placeholder="000-aaa-AAA-BBB" [np-mask]="'000-aaa-AAA-BBB'"> Value:{{maskedValue1}}
-    </div>
-    <div class="np-form-group">
-        <label class="np-form-label">Select credit card type:</label>
-        <np-dropdown [items]="creditCards" [(ngModel)]="selectedCard" [displayKey]="'card'"></np-dropdown>
-    </div>
-    <div class="np-form-group">
-        <label class="np-form-label">Credit Card Number:</label>
-        <input type="text" class="np-form-control" [(ngModel)]="maskedValue2" [placeholder]="selectedCard ? selectedCard.placeholder: ''" [np-mask]="selectedCard ? selectedCard.mask:''"> Value:{{maskedValue2}}
-    </div>
-    <div class="np-form-group">
-        <label class="np-form-label">Phone Number:</label>
-        <input type="text" class="np-form-control" [(ngModel)]="maskedValue3" placeholder="+(000) 000-0000" [np-mask]="'+(000) 000-0000'"> Value:{{maskedValue3}}
-    </div>
 </fieldset>
 
 <fieldset>
