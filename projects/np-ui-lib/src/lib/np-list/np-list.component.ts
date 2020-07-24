@@ -14,10 +14,10 @@ export class NpListComponent implements OnInit {
   @Input() items: any[];
   @Input() itemTemplate: TemplateRef<any>;
   @Input() allowSelection = false;
-  @Input() styleClass: string;
   @Input() height: number;
+  @Input() styleClass: string;
   @Input() inputId = `np-list_${NpListComponent.controlCount++}`;
-  
+
   @Output() onSelect: EventEmitter<any> = new EventEmitter();
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
 

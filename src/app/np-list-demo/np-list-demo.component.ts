@@ -10,33 +10,41 @@ export class NpListDemoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  importText = 'import { NpListModule } from \'np-ui-lib\';';
+  htmlText = `<np-list [items]="items" [itemTemplate]="listTemplate">
+</np-list>
 
-  @ViewChild("list2", { static: true }) list2: NpListComponent;
+<ng-template let-item="item" #listTemplate>
+  Name: {{item.name}},<br> Age: {{item.age}}
+</ng-template>`;
+
+  @ViewChild('list2', { static: true }) list2: NpListComponent;
 
   items: any[] = [
-    { id: 1, name: "Maria", age: 28 },
-    { id: 2, name: "Karl", age: 6 },
-    { id: 3, name: "Jose", age: 41 },
-    { id: 4, name: "Yoshi", age: 8 },
-    { id: 5, name: "Jonas", age: 9 },
-    { id: 6, name: "Hari", age: 18 },
-    { id: 7, name: "Karl", age: 33 },
-    { id: 8, name: "Daniel", age: 18 },
-    { id: 9, name: "Yvonne", age: 27 },
-    { id: 10, name: "John", age: 26 },
-    { id: 11, name: "Mario", age: 53 },
-    { id: 12, name: "Martine", age: 65 },
-    { id: 13, name: "Jean", age: 12 },
-    { id: 14, name: "Marie", age: 46 },
-    { id: 15, name: "Paula", age: 60 },
-    { id: 16, name: "Paul", age: 69 },
-    { id: 17, name: "Frédérique", age: 34 },
-    { id: 18, name: "Aria", age: 64 },
-    { id: 19, name: "Pedro", age: 31 },
-    { id: 20, name: "Janete", age: 36 },
+    { id: 1, name: 'Maria', age: 28 },
+    { id: 2, name: 'Karl', age: 6 },
+    { id: 3, name: 'Jose', age: 41 },
+    { id: 4, name: 'Yoshi', age: 8 },
+    { id: 5, name: 'Jonas', age: 9 },
+    { id: 6, name: 'Hari', age: 18 },
+    { id: 7, name: 'Karl', age: 33 },
+    { id: 8, name: 'Daniel', age: 18 },
+    { id: 9, name: 'Yvonne', age: 27 },
+    { id: 10, name: 'John', age: 26 },
+    { id: 11, name: 'Mario', age: 53 },
+    { id: 12, name: 'Martine', age: 65 },
+    { id: 13, name: 'Jean', age: 12 },
+    { id: 14, name: 'Marie', age: 46 },
+    { id: 15, name: 'Paula', age: 60 },
+    { id: 16, name: 'Paul', age: 69 },
+    { id: 17, name: 'Frédérique', age: 34 },
+    { id: 18, name: 'Aria', age: 64 },
+    { id: 19, name: 'Pedro', age: 31 },
+    { id: 20, name: 'Janete', age: 36 },
   ];
+
+  ngOnInit(): void {
+  }
 
   getSelectedItems() {
     alert(JSON.stringify(this.list2.getSelectedItems()));
@@ -44,9 +52,9 @@ export class NpListDemoComponent implements OnInit {
 
   setSelectedItems() {
     this.list2.setSelectedItems([
-      { id: 1, name: "Maria", age: 28 },
-      { id: 2, name: "Karl", age: 6 },
-      { id: 3, name: "Jose", age: 41 }]);
+      { id: 1, name: 'Maria', age: 28 },
+      { id: 2, name: 'Karl', age: 6 },
+      { id: 3, name: 'Jose', age: 41 }]);
   }
 
   clear() {
@@ -58,7 +66,7 @@ export class NpListDemoComponent implements OnInit {
   }
 
   selectItem() {
-    this.list2.selectItem({ id: 1, name: "Maria", age: 28 });
+    this.list2.selectItem({ id: 1, name: 'Maria', age: 28 });
   }
 
   selectItemByIndex() {
@@ -66,7 +74,7 @@ export class NpListDemoComponent implements OnInit {
   }
 
   deselectItem() {
-    this.list2.deselectItem({ id: 1, name: "Maria", age: 28 });
+    this.list2.deselectItem({ id: 1, name: 'Maria', age: 28 });
   }
 
   deselectItemByIndex() {

@@ -25,7 +25,7 @@ export class NpVirtualScrollComponent {
 
   _onScrollIndexChange(index: number) {
     const pageRange = this._createPageRange(Math.floor(index / this.pageSize));
-    pageRange.forEach(page => this.loadPage(page));
+    pageRange.forEach(page => this._loadPage(page));
   }
 
   private _createPageRange(page: number) {
@@ -42,7 +42,7 @@ export class NpVirtualScrollComponent {
     return range;
   }
 
-  loadPage(page: number) {
+  _loadPage(page: number) {
     if (!this.loadedPages.includes(page)) {
       this.loadData.emit({ first: this.pageSize * page, rows: this.pageSize });
       this.loadedPages.push(page);

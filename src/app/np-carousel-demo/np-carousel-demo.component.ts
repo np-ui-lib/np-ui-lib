@@ -10,7 +10,11 @@ export class NpCarouselDemoComponent implements OnInit {
 
   importText = `import { NpCarouselModule } from \'np-ui-lib\';`;
   htmlText = `<np-carousel [items]="items" [itemTemplate]="itemTemplate" [autoPlay]="true" [pauseOnHover]="true">
-</np-carousel>`;
+</np-carousel>
+
+<ng-template #itemTemplate let-item="item">
+  <img [src]="item.imageUrl" class="ng-responsive-img">
+</ng-template>`;
 
   @ViewChild('slider') slider: NpCarouselComponent;
 

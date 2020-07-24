@@ -8,17 +8,17 @@ import { NpTabsComponent, NpModalComponent } from 'np-ui-lib';
 })
 export class NpLoaderDemoComponent implements OnInit {
 
-  loader1: boolean = false;
-  loader2: boolean = false;
-  loader3: boolean = false;
-  loader4: boolean = false;
-
   constructor() { }
+
+  loader1 = false;
+  loader2 = false;
+  loader3 = false;
+  loader4 = false;
+
+  importText = 'import { NpLoaderModule } from \'np-ui-lib\';';
+  htmlText = '<span [np-loader]="true"></span>';
 
   ngOnInit(): void {
   }
-
-  importText = "import { NpLoaderModule } from 'np-ui-lib';"
-  htmlText = '<span [np-loader]="true"></span>';
 
 }

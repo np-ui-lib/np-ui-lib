@@ -9,34 +9,191 @@
     </h2>
 </div>
 
-<fieldset>
-    <legend>Basic list with height</legend>
-    <np-list [items]="items" [itemTemplate]="list1Template" [height]="200">
-    </np-list>
+<np-tabs>
+    <np-tab title="Documentation">
+        <np-card>
+            <b>Module to import</b>
+            <div>
+                <pre><code [innerText]="importText"></code></pre>
+            </div>
+        </np-card>
+        <np-card>
+            <b>HTML</b>
+            <div>
+                <pre><code [innerText]="htmlText"></code></pre>
+            </div>
+        </np-card>
+        <np-card>
+            <table class="np-table">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+                <tr>
+                    <td>items</td>
+                    <td>Array of items</td>
+                    <td>any[]</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>itemTemplate</td>
+                    <td>Template to display item, with variable let-item="item"</td>
+                    <td>TemplateRef&lt;any&gt;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>allowSelection</td>
+                    <td>Allow to select or not</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>Set height of list in px</td>
+                    <td>number</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>styleClass</td>
+                    <td>Add extra class to component</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+            </table>
+        </np-card>
+        <np-card>
+            <table class="np-table">
+                <tr>
+                    <th>Api</th>
+                    <th>Description</th>
+                    <th>Parameters</th>
+                </tr>
+                <tr>
+                    <td>
+                        selectItem(item:any)
+                    </td>
+                    <td>
+                        Select item
+                    </td>
+                    <td>item: any</td>
+                </tr>
+                <tr>
+                    <td>
+                        selectItemByIndex(idx:number)
+                    </td>
+                    <td>
+                        Select item by index, start with 0
+                    </td>
+                    <td>idx: number</td>
+                </tr>
+                <tr>
+                    <td>
+                        deselectItem(item:any)
+                    </td>
+                    <td>
+                        Deselect item
+                    </td>
+                    <td>item: any</td>
+                </tr>
+                <tr>
+                    <td>
+                        deselectItemByIndex(idx:number)
+                    </td>
+                    <td>
+                        Deselect item by index, start with 0
+                    </td>
+                    <td>idx: number</td>
+                </tr>
+                <tr>
+                    <td>
+                        selectAll()
+                    </td>
+                    <td>
+                        Select all
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        clear()
+                    </td>
+                    <td>
+                        Clear all selected items
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        setSelectedItems(items: any[])
+                    </td>
+                    <td>
+                        Select items
+                    </td>
+                    <td>items: any[]</td>
+                </tr>
+            </table>
+        </np-card>
+        <np-card>
+            <table class="np-table">
+                <tr>
+                    <th>Methods</th>
+                    <th>Description</th>
+                    <th>Parameters</th>
+                </tr>
+                <tr>
+                    <td>
+                        onSelect(item: any)
+                    </td>
+                    <td>
+                        Callback event on selecting item
+                    </td>
+                    <td>item: any</td>
+                </tr>
+                <tr>
+                    <td>
+                        onDeselect(item: any)
+                    </td>
+                    <td>
+                        Callback event on deselecting item
+                    </td>
+                    <td>item: any</td>
+                </tr>
+            </table>
+        </np-card>
+    </np-tab>
+    <np-tab title="Examples">
+        <fieldset>
+            <legend>Basic list with height</legend>
+            <np-list [items]="items" [itemTemplate]="list1Template" [height]="200">
+            </np-list>
 
-    <ng-template let-item="item" #list1Template>
-        Name: {{item.name}},<br> Age: {{item.age}}
-    </ng-template>
-</fieldset>
+            <ng-template let-item="item" #list1Template>
+                Name: {{item.name}},<br> Age: {{item.age}}
+            </ng-template>
+        </fieldset>
 
-<fieldset>
-    <legend>List with selection</legend>
+        <fieldset>
+            <legend>List with selection</legend>
 
-    <np-list [items]="items" [itemTemplate]="list2Template" [allowSelection]="true" [height]="200" [styleClass]="'myClass'" #list2>
-    </np-list>
+            <np-list [items]="items" [itemTemplate]="list2Template" [allowSelection]="true" [height]="200" [styleClass]="'myClass'" #list2>
+            </np-list>
 
-    <ng-template let-item="item" #list2Template>
-        Name: <b>{{item.name}}</b>,<br> Age: <b>{{item.age}}</b>
-    </ng-template>
+            <ng-template let-item="item" #list2Template>
+                Name: <b>{{item.name}}</b>,<br> Age: <b>{{item.age}}</b>
+            </ng-template>
 
-    <div class="np-btn-group">
-        <button type="button" class="np-btn" (click)="getSelectedItems()">Get selected items</button>
-        <button type="button" class="np-btn" (click)="setSelectedItems()">Set selected items</button>
-        <button type="button" class="np-btn" (click)="selectAll()">Select All</button>
-        <button type="button" class="np-btn" (click)="clear()">Clear</button>
-        <button type="button" class="np-btn" (click)="selectItem()">Select 1st item by item</button>
-        <button type="button" class="np-btn" (click)="deselectItem()">Deselect 1st item by item</button>
-        <button type="button" class="np-btn" (click)="selectItemByIndex()">Select 1st item by index</button>
-        <button type="button" class="np-btn" (click)="deselectItemByIndex()">Deselect 1st item by index</button>
-    </div>
-</fieldset>
+            <div class="np-btn-group">
+                <button type="button" class="np-btn" (click)="getSelectedItems()">Get selected items</button>
+                <button type="button" class="np-btn" (click)="setSelectedItems()">Set selected items</button>
+                <button type="button" class="np-btn" (click)="selectAll()">Select All</button>
+                <button type="button" class="np-btn" (click)="clear()">Clear</button>
+                <button type="button" class="np-btn" (click)="selectItem()">Select 1st item by item</button>
+                <button type="button" class="np-btn" (click)="deselectItem()">Deselect 1st item by item</button>
+                <button type="button" class="np-btn" (click)="selectItemByIndex()">Select 1st item by index</button>
+                <button type="button" class="np-btn" (click)="deselectItemByIndex()">Deselect 1st item by index</button>
+            </div>
+        </fieldset>
+    </np-tab>
+</np-tabs>
