@@ -25,10 +25,11 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   @Input() items: any[];
   @Input() displayKey: string;
   @Input() placeholder = '';
-  @Input() inputId = `np-dropdown_${NpDropdownComponent.controlCount++}`;
-  @Input() styleClass: string;
   @Input() itemTemplate: TemplateRef<any>;
   @Input() readonly: boolean;
+  @Input() styleClass: string;
+  @Input() inputId = `np-dropdown_${NpDropdownComponent.controlCount++}`;
+
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;

@@ -7,15 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpSliderDemoComponent implements OnInit {
 
+  importText = 'import { NpSliderModule } from \'np-ui-lib\';';
+  htmlText = '<np-slider [(ngModel)]="slider1"></np-slider>';
+
   constructor() { }
+
+  slider1 = 0;
+  slider2 = 55;
+  slider3 = 0;
+  slider4 = 0;
+  slider5 = 0;
 
   ngOnInit(): void {
   }
-
-  slider1: number = 0;
-  slider2: number = 55;
-  slider3: number = 0;
-  slider4: number = 0;
-  slider5: number = 0;
 
 }

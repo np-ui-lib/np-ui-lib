@@ -5,7 +5,7 @@
 <fieldset>
     <legend>Button group</legend>
     <div class="np-btn-group">
-        <button class="np-btn np-border">Normal</button>
+        <button class="np-btn">Normal</button>
         <button class="np-btn np-btn-primary">Primary</button>
         <button class="np-btn np-btn-success">Success</button>
         <button class="np-btn np-btn-danger">Error</button>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="np-btn-group">
-        <button class="np-btn np-btn-sm np-border">Normal</button>
+        <button class="np-btn np-btn-sm">Normal</button>
         <button class="np-btn np-btn-primary np-btn-sm">Primary</button>
         <button class="np-btn np-btn-success np-btn-sm">Success</button>
         <button class="np-btn np-btn-danger np-btn-sm">Error</button>
@@ -29,13 +29,13 @@
         <button type="button" class="np-btn np-btn-icon np-btn-danger">
             <i class="fa fa-home"></i>
         </button>
-        <button type="button" class="np-btn np-btn-icon">
+        <button type="button" class="np-btn np-btn-icon np-border">
             <i class="fa fa-camera"></i>
         </button>
-        <button type="button" class="np-btn np-btn-icon">
+        <button type="button" class="np-btn np-btn-icon np-border">
             <i class="fa fa-automobile"></i>
         </button>
-        <button type="button" class="np-btn np-btn-icon">
+        <button type="button" class="np-btn np-btn-icon np-border">
             <i class="fa fa-bell"></i>
         </button>
     </div>
@@ -45,12 +45,42 @@
     <legend>Badges</legend>
 
     <div class="np-btn-group">
-        <button class="np-btn np-border">Normal<span class="np-badge">5</span></button>
+        <button class="np-btn">Normal<span class="np-badge">5</span></button>
         <button class="np-btn np-btn-primary">Primary<span class="np-badge">200</span></button>
         <button class="np-btn np-btn-success">Success<span class="np-badge">200</span></button>
         <button class="np-btn np-btn-danger">Error<span class="np-badge">20000000</span></button>
         <button class="np-btn np-btn-warning">Warning<span class="np-badge">New</span></button>
         <button class="np-btn np-btn-info">Info<span class="np-badge">10</span></button>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>List CSS</legend>
+    <div class="np-row">
+        <div class="np-col-6">
+            <div class="np-list">
+                <div class="np-list-header">
+                    List
+                </div>
+                <div class="np-list-item">A</div>
+                <div class="np-list-item">B</div>
+                <div class="np-list-item">C</div>
+                <div class="np-list-item">D</div>
+                <div class="np-list-item">E</div>
+            </div>
+        </div>
+        <div class="np-col-6">
+            <div class="np-list np-list-striped">
+                <div class="np-list-header">
+                    List Striped
+                </div>
+                <div class="np-list-item">A</div>
+                <div class="np-list-item">B</div>
+                <div class="np-list-item">C</div>
+                <div class="np-list-item">D</div>
+                <div class="np-list-item">E</div>
+            </div>
+        </div>
     </div>
 </fieldset>
 
@@ -129,36 +159,7 @@
 </fieldset>
 
 <fieldset>
-    <legend>Highlight Text</legend>
+    <legend>How to Highlight Text?</legend>
+    <pre><code>{{highlightTextCode}}</code></pre>
     <p [innerHTML]="text | npHighLight: 'paragraph'"></p>
-</fieldset>
-
-<fieldset>
-    <legend>List CSS</legend>
-    <div class="np-row">
-        <div class="np-col-6">
-            <div class="np-list">
-                <div class="np-list-header">
-                    List
-                </div>
-                <div class="np-list-item">A</div>
-                <div class="np-list-item">B</div>
-                <div class="np-list-item">C</div>
-                <div class="np-list-item">D</div>
-                <div class="np-list-item">E</div>
-            </div>
-        </div>
-        <div class="np-col-6">
-            <div class="np-list np-list-striped">
-                <div class="np-list-header">
-                    List Striped
-                </div>
-                <div class="np-list-item">A</div>
-                <div class="np-list-item">B</div>
-                <div class="np-list-item">C</div>
-                <div class="np-list-item">D</div>
-                <div class="np-list-item">E</div>
-            </div>
-        </div>
-    </div>
 </fieldset>
