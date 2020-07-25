@@ -1,7 +1,7 @@
 <div [ngClass]="{'np-pn-component': true, 'np-pn-zoom':isZoom, 'np-disabled': disabled}" [style.max-height.px]="height" [class]="styleClass" [attr.id]="inputId">
     <div class="np-pn-header">
         <div class="np-row justify-content-between align-items-center np-no-gutters">
-            <div class="np-col-auto" [ngClass]="{'np-cursor-pointer': allowToMinimize}" (click)="_toggleMinimize()">
+            <div class="np-col-auto np-pn-title" [ngClass]="{'np-cursor-pointer': allowToMinimize}" (click)="_toggleMinimize()">
                 <ng-container *ngIf="!isTitleTemplate">
                     <div [innerHTML]="title"></div>
                 </ng-container>

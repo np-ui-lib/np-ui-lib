@@ -8,10 +8,21 @@ import { NpAccordionComponent } from 'np-ui-lib';
 })
 export class NpAccordionDemoComponent implements OnInit {
 
-  @ViewChild("accordionDemo", { static: true }) accordionDemo: NpAccordionComponent;
-  _allowMultipleOpen: boolean = false;
+  importText = 'import { NpAccordionModule } from \'np-ui-lib\';';
+  htmlText = `<np-accordion>
+  <np-panel [title]="'Details'" [isOpen]="true">
+      Panel 1 Content
+  </np-panel>
+  <np-panel [title]="'Specifications'">
+    Panel 2 Content
+  </np-panel>
+  ...
+</np-accordion>`;
 
-  pnl2Disabled: boolean = false;
+  @ViewChild('accordionDemo', { static: true }) accordionDemo: NpAccordionComponent;
+  allowMultipleOpen = false;
+
+  pnl2Disabled = false;
 
   constructor() { }
 
@@ -19,7 +30,7 @@ export class NpAccordionDemoComponent implements OnInit {
   }
 
   openPara2ById() {
-    this.accordionDemo.expandById("pnl2");
+    this.accordionDemo.expandById('pnl2');
   }
 
   openPara3ByIndex() {
@@ -27,7 +38,7 @@ export class NpAccordionDemoComponent implements OnInit {
   }
 
   onOpenPanel3($event) {
-    alert("Panel 3 open");
+    alert('Panel 3 open');
   }
 
   togglePanel2() {

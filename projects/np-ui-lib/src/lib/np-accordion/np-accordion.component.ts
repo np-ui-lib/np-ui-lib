@@ -46,4 +46,12 @@ export class NpAccordionComponent implements AfterContentInit {
   expandById(id: string) {
     this.panels.find(item => { if (item.inputId === id) { return true; } })._expand();
   }
+
+  collapseByIndex(idx: number) {
+    this.panels.toArray()[idx]._collapse();
+  }
+
+  collapseById(id: string) {
+    this.panels.find(item => { if (item.inputId === id) { return true; } })._collapse();
+  }
 }

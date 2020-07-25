@@ -10,19 +10,18 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
 export class NpPanelComponent implements OnInit {
   static controlCount = 1;
 
-  @Input() inputId = `np-panel_${NpPanelComponent.controlCount++}`;
   @Input() title: string | TemplateRef<any>;
   @Input() allowToMinimize: boolean;
-  @Input() isOpen = true;
   @Input() allowToZoom: boolean;
   @Input() allowToClose: boolean;
-  @Input() styleClass: string;
+  @Input() isOpen = true;
   @Input() height: number;
   @Input() disabled: boolean;
+  @Input() styleClass: string;
+  @Input() inputId = `np-panel_${NpPanelComponent.controlCount++}`;
 
   @Output() onExpand: EventEmitter<any> = new EventEmitter();
   @Output() onCollapse: EventEmitter<any> = new EventEmitter();
-
 
   isTitleTemplate: boolean;
   isZoom = false;

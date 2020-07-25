@@ -8,12 +8,12 @@ import { NpPopoverDirective } from 'np-ui-lib';
 })
 export class NpPopoverDemoComponent implements OnInit {
 
-  importText = "import { NpPopoverModule } from 'np-ui-lib';"
+  importText = 'import { NpPopoverModule } from \'np-ui-lib\';';
   htmlText = `<a np-popover [header]="'Link header'" [body]="'Link Description.'">Link</a>`;
 
-  @ViewChild("myPopoverD") myPopoverD: NpPopoverDirective;
-  @ViewChild("myPopoverE") myPopoverE: NpPopoverDirective;
-  @ViewChild("myPopoverF") myPopoverF: NpPopoverDirective;
+  @ViewChild('myPopoverD') myPopoverD: NpPopoverDirective;
+  @ViewChild('myPopoverE') myPopoverE: NpPopoverDirective;
+  @ViewChild('myPopoverF') myPopoverF: NpPopoverDirective;
 
   showNext: boolean;
 

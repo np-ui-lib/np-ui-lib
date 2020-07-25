@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpAccordionDemoRoutingModule } from './np-accordion-demo-routing.module';
 import { NpAccordionDemoComponent } from './np-accordion-demo.component';
-import { NpAccordionModule, NpPanelModule, NpSwitchModule } from 'np-ui-lib';
+import { NpAccordionModule, NpPanelModule, NpSwitchModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -14,7 +14,9 @@ import { FormsModule } from '@angular/forms';
     NpAccordionDemoRoutingModule,
     NpAccordionModule,
     NpPanelModule,
-    NpSwitchModule
+    NpSwitchModule,
+    NpTabsModule,
+    NpCardModule
   ]
 })
 export class NpAccordionDemoModule { }

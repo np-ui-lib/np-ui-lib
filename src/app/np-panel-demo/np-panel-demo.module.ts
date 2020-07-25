@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpPanelDemoRoutingModule } from './np-panel-demo-routing.module';
 import { NpPanelDemoComponent } from './np-panel-demo.component';
-import { NpPanelModule } from 'np-ui-lib';
+import { NpPanelModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
 
 
 @NgModule({
@@ -11,7 +11,9 @@ import { NpPanelModule } from 'np-ui-lib';
   imports: [
     CommonModule,
     NpPanelDemoRoutingModule,
-    NpPanelModule
+    NpPanelModule,
+    NpCardModule,
+    NpTabsModule
   ]
 })
 export class NpPanelDemoModule { }
