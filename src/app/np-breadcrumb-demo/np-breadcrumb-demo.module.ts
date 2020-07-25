@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { NpBreadcrumbDemoRoutingModule } from './np-breadcrumb-demo-routing.module';
 import { NpBreadcrumbDemoComponent } from './np-breadcrumb-demo.component';
-import { NpBreadcrumbModule } from 'np-ui-lib';
+import { NpBreadcrumbModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
 
 @NgModule({
   declarations: [NpBreadcrumbDemoComponent],
   imports: [
     CommonModule,
     NpBreadcrumbDemoRoutingModule,
-    NpBreadcrumbModule
+    NpBreadcrumbModule,
+    NpCardModule,
+    NpTabsModule
   ]
 })
 export class NpBreadcrumbDemoModule { }

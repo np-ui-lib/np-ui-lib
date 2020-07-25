@@ -8,13 +8,14 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
 })
 export class NpTabComponent implements OnInit {
     static controlCount = 1;
-    @Input() inputId = `np-tab_${NpTabComponent.controlCount++}`;
+
     @Input() title: string | TemplateRef<any>;
     @Input() active = false;
     @Input() disabled = false;
     @Input() height: number;
-    isLoadingFirstTime = true;
+    @Input() inputId = `np-tab_${NpTabComponent.controlCount++}`;
 
+    isLoadingFirstTime = true;
     titleIsTemplate: boolean;
 
     ngOnInit(): void {

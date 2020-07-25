@@ -1,4 +1,4 @@
-export class NpBreadCrumbItem {
+export class NpBreadcrumbItem {
     constructor(item: any) {
         this.label = item.label;
         this.data = item.data;

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { NpBreadCrumbItem } from './np-breadcrumb.model';
+import { NpBreadcrumbItem } from './np-breadcrumb.model';
 
 @Component({
   selector: 'np-breadcrumb',
@@ -9,17 +9,18 @@ import { NpBreadCrumbItem } from './np-breadcrumb.model';
 export class NpBreadcrumbComponent implements OnInit {
   static controlCount = 1;
 
-  @Input() styleClass: string;
-  @Input() items: NpBreadCrumbItem[];
+  @Input() items: NpBreadcrumbItem[];
   @Input() showHomeIcon = true;
   @Input() homeIconCss: string;
+  @Input() styleClass: string;
   @Input() inputId = `np-breadcrumb_${NpBreadcrumbComponent.controlCount++}`;
+
   @Output() onClick: EventEmitter<any> = new EventEmitter();
 
   ngOnInit(): void {
   }
 
-  _onClick(item: NpBreadCrumbItem) {
+  _onClick(item: NpBreadcrumbItem) {
     if (this.onClick) {
       this.onClick.emit(item);
     }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpTabsDemoRoutingModule } from './np-tabs-demo-routing.module';
 import { NpTabsDemoComponent } from './np-tabs-demo.component';
-import { NpTabsModule } from 'np-ui-lib';
+import { NpTabsModule, NpCardModule } from 'np-ui-lib';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { NpTabsModule } from 'np-ui-lib';
   imports: [
     CommonModule,
     NpTabsDemoRoutingModule,
-    NpTabsModule
+    NpTabsModule,
+    NpCardModule
   ]
 })
 export class NpTabsDemoModule { }

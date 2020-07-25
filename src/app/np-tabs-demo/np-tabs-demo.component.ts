@@ -8,12 +8,21 @@ import { NpTabsComponent } from 'np-ui-lib';
 })
 export class NpTabsDemoComponent implements OnInit {
 
-  @ViewChild("tabs", { static: true }) tabs: NpTabsComponent;
-  @ViewChild("tabs2", { static: true }) tabs2: NpTabsComponent;
+  importText = 'import { NpTabsModule } from \'np-ui-lib\';';
+  htmlText = `<np-tabs>
+  <np-tab title="Home">
+  </np-tab>
+  <np-tab title="Details">
+  </np-tab>
+  ...
+</np-tabs>`;
 
-  count: number = 5;
-  isTab4Visible: boolean = true;
-  toggleTab3Disabled: boolean = true;
+  @ViewChild('tabs', { static: true }) tabs: NpTabsComponent;
+  @ViewChild('tabs2', { static: true }) tabs2: NpTabsComponent;
+
+  count = 5;
+  isTab4Visible = true;
+  toggleTab3Disabled = true;
 
   constructor() { }
 
@@ -25,12 +34,12 @@ export class NpTabsDemoComponent implements OnInit {
   }
 
   loadTabById() {
-    this.tabs.selectTabById("tab2");
+    this.tabs.selectTabById('tab2');
 
   }
 
-  onTabChange(_tab) {
-    console.log(`tab changed to ${_tab.title}, is loading first time : ${_tab.isLoadingFirstTime}`);
+  onTabChange(tab) {
+    console.log(`tab changed to ${tab.title}, is loading first time : ${tab.isLoadingFirstTime}`);
   }
 
   changeCount() {

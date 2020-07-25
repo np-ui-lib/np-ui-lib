@@ -11,7 +11,7 @@ export class NpPanelDemoComponent implements OnInit {
 
   importText = 'import { NpPanelModule } from \'np-ui-lib\';';
   htmlText = `<np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true" [styleClass]="'np-pn-danger'" [height]="200">
-  Panel body content
+  Panel Body content...
 </np-panel>`;
 
   title = '<b>What is paragraph?</b>';

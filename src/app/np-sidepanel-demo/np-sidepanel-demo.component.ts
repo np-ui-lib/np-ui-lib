@@ -14,7 +14,7 @@ export class NpSidepanelDemoComponent implements OnInit {
   <np-sidepanel-header>
     Header
   </np-sidepanel-header>
-  Body Content
+  Body content...
   <np-sidepanel-footer>
     Footer
   </np-sidepanel-footer>

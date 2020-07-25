@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NpBreadCrumbItem } from 'np-ui-lib';
+import { NpBreadcrumbItem } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-breadcrumb-demo',
@@ -8,19 +8,22 @@ import { NpBreadCrumbItem } from 'np-ui-lib';
 })
 export class NpBreadcrumbDemoComponent implements OnInit {
 
+  importText = `import { NpBreadcrumbModule } from \'np-ui-lib\';`;
+  htmlText = `<np-breadcrumb [items]="items"></np-breadcrumb>`;
+
   constructor() { }
+
+  items: NpBreadcrumbItem[] = [
+    new NpBreadcrumbItem({ label: 'Galaxy' }),
+    new NpBreadcrumbItem({ label: 'Earth' }),
+    new NpBreadcrumbItem({ label: 'Asia' }),
+    new NpBreadcrumbItem({ label: 'India' }),
+    new NpBreadcrumbItem({ label: 'Gujarat' }),
+    new NpBreadcrumbItem({ label: 'Ahmedabad' })
+  ];
 
   ngOnInit(): void {
   }
-
-  items: NpBreadCrumbItem[] = [
-    new NpBreadCrumbItem({ label: "Galaxy" }),
-    new NpBreadCrumbItem({ label: "Earth" }),
-    new NpBreadCrumbItem({ label: "Asia" }),
-    new NpBreadCrumbItem({ label: "India" }),
-    new NpBreadCrumbItem({ label: "Gujarat" }),
-    new NpBreadCrumbItem({ label: "Ahmedabad" })
-  ];
 
   onClick(item) {
     alert(item.label);
