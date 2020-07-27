@@ -33,6 +33,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
   @Input() inputId = `np-auto-complete_${NpAutoCompleteComponent.controlCount++}`;
+
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
