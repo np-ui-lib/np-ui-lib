@@ -26,15 +26,9 @@
                 </tr>
                 <tr>
                     <td>items</td>
-                    <td>List data</td>
+                    <td>Array of data in hierarchical structure</td>
                     <td>NpTreeViewItem[]</td>
                     <td></td>
-                </tr>
-                <tr>
-                    <td>allowSelection</td>
-                    <td>Allow selection of nodes</td>
-                    <td>boolean</td>
-                    <td>false</td>
                 </tr>
                 <tr>
                     <td>styleClass</td>
@@ -63,24 +57,6 @@
                     </td>
                     <td>
                         Callback to click event on node.
-                    </td>
-                    <td>NpTreeViewItem : node</td>
-                </tr>
-                <tr>
-                    <td>
-                        onSelect(NpTreeViewItem : node)
-                    </td>
-                    <td>
-                        Callback when selecting node.
-                    </td>
-                    <td>NpTreeViewItem : node</td>
-                </tr>
-                <tr>
-                    <td>
-                        onDeselect(NpTreeViewItem : node)
-                    </td>
-                    <td>
-                        Callback when deselecting node.
                     </td>
                     <td>NpTreeViewItem : node</td>
                 </tr>
@@ -147,55 +123,20 @@
                     </td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>
-                        getSelectedItems()
-                    </td>
-                    <td>
-                        Get list of all selected nodes in array.
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        removeAllSelected()
-                    </td>
-                    <td>
-                        Remove all node selection.
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        setAllSelected()
-                    </td>
-                    <td>
-                        Set all nodes selected.
-                    </td>
-                    <td></td>
-                </tr>
             </table>
         </np-card>
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
             <legend>Treeview basic</legend>
-            <np-tree-view [items]="items" #treeview (onClick)="onClick($event)" (onExpand)="onExpand($event)" (onCollapse)="onCollapse($event)" (onExpandAll)="onExpandAll($event)" (onCollapseAll)="onCollapseAll($event)">
+            <np-tree-view [items]="items" #treeview (onClick)="onClick($event)" (onExpand)="onExpand($event)"
+                (onCollapse)="onCollapse($event)" (onExpandAll)="onExpandAll($event)"
+                (onCollapseAll)="onCollapseAll($event)">
             </np-tree-view>
 
             <div class="np-btn-group">
                 <button class="np-btn" (click)="setAllExpand()">Expand All</button>
                 <button class="np-btn" (click)="setAllCollapse()">Collapse All</button>
-            </div>
-        </fieldset>
-
-        <fieldset>
-            <legend>Treeview Selection</legend>
-            <np-tree-view [items]="items2" [allowSelection]="true" #treeview2 (onSelect)="onSelect($event)" (onDeselect)="onDeselect($event)"></np-tree-view>
-            <div class="np-btn-group">
-                <button class="np-btn" (click)="getAllSelected()">Get all selected</button>
-                <button class="np-btn" (click)="setAllSelected()">Set all selected</button>
-                <button class="np-btn" (click)="removeAllSelected()">Remove All selected</button>
             </div>
         </fieldset>
     </np-tab>

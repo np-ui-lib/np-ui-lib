@@ -5,7 +5,8 @@
 
 <ng-template #treeViewTemplate let-items="items">
     <div *ngFor="let item of items" class="np-tv-node">
-        <button type="button" class="np-btn np-btn-icon" *ngIf="item.items" (click)="_toggleNode(item)" title="{{item.isExpanded ? 'Collapse' : 'Expand'}}">
+        <button type="button" class="np-btn np-btn-icon" *ngIf="item.childItems" (click)="_toggleNode(item)"
+            title="{{item.isExpanded ? 'Collapse' : 'Expand'}}">
             <svg class="np-icon" viewBox="0 0 24 24" *ngIf="!item.isExpanded">
                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
                 <path d="M0 0h24v24H0z" fill="none" />
@@ -17,13 +18,11 @@
         </button>
         <span class="np-tv-node-label">
             <label (click)="_onClick(item)">
-                <input *ngIf="allowSelection" type="checkbox" class="np-tv-checkbox" [checked]="item.isSelected"  [indeterminate]="!item.isSelected && _isIndeterminate(item)"
-                    (change)="_onSelect($event,item)">
                 {{item.label}}
             </label>
         </span>
-        <ng-container *ngIf="item.items && item.isExpanded">
-            <ng-container *ngTemplateOutlet="treeViewTemplate;context:{items:item.items}">
+        <ng-container *ngIf="item.childItems && item.isExpanded">
+            <ng-container *ngTemplateOutlet="treeViewTemplate;context:{items:item.childItems}">
             </ng-container>
         </ng-container>
     </div>

@@ -4,7 +4,6 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { NpTreeViewItem } from '../np-tree-view/np-tree-view.model';
 import { NpUtilityService } from '../np-utility/np-utility.service';
 
 @Component({
@@ -39,8 +38,6 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
 
-  @Input() isTreeView: boolean;
-
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
 
   subscription: Subscription;
@@ -50,6 +47,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   isLoading = false;
   innerValue: any[];
   isDisabled = false;
+
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
   private onChangeCallback: (_: any) => void = () => { };
@@ -205,12 +203,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     }
     if (this.displayKey) {
       let newObj;
-      if (this.isTreeView) {
-        newObj = new NpTreeViewItem({ label: this.displayValue });
-      } else {
-        newObj = {};
-        newObj[this.displayKey] = this.displayValue;
-      }
+      newObj = {};
+      newObj[this.displayKey] = this.displayValue;
       this.options.push(newObj);
       this._selectValue(newObj);
     } else {
@@ -250,9 +244,6 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _removeTag(tag: any) {
-    if (this.isTreeView) {
-      tag.isSelected = false;
-    }
     if (this.displayKey) {
       const that = this;
       const idx = this.innerValue.findIndex((element) => {
@@ -329,21 +320,6 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     this.value = null;
     if (this.isServerSide) {
       this.options = null;
-    }
-    if (this.isTreeView) {
-      this.options.forEach(element => {
-        this._clearInTreeView(element);
-      });
-    }
-  }
-
-  _clearInTreeView(item) {
-    if (item.items) {
-      item.items.forEach(element => {
-        this._clearInTreeView(element);
-      });
-    } else {
-      item.isSelected = false;
     }
   }
 

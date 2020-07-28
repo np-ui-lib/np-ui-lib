@@ -13,14 +13,13 @@ export class NpTreeViewDemoComponent implements OnInit {
 </np-tree-view>`;
 
   @ViewChild('treeview', { static: true }) treeview: NpTreeViewComponent;
-  @ViewChild('treeview2', { static: true }) treeview2: NpTreeViewComponent;
 
   items: NpTreeViewItem[] = [
     new NpTreeViewItem({
       label: 'Item 1',
-      items: [
+      childItems: [
         new NpTreeViewItem({
-          label: 'Item 1.1', items: [
+          label: 'Item 1.1', childItems: [
             new NpTreeViewItem({ label: 'Item 1.1.1' }),
             new NpTreeViewItem({ label: 'Item 1.1.2' }),
             new NpTreeViewItem({ label: 'Item 1.1.3' }),
@@ -34,9 +33,9 @@ export class NpTreeViewDemoComponent implements OnInit {
     }),
     new NpTreeViewItem({
       label: 'Item 2',
-      items: [
+      childItems: [
         new NpTreeViewItem({
-          label: 'Item 2.1', items: [
+          label: 'Item 2.1', childItems: [
             new NpTreeViewItem({ label: 'Item 2.1.1' }),
             new NpTreeViewItem({ label: 'Item 2.1.2' }),
             new NpTreeViewItem({ label: 'Item 2.1.3' }),
@@ -48,45 +47,7 @@ export class NpTreeViewDemoComponent implements OnInit {
         new NpTreeViewItem({ label: 'Item 2.4' }),
       ]
     }),
-    new NpTreeViewItem({ label: 'Item 3', items: [] }),
-    new NpTreeViewItem({ label: 'Item 4' }),
-    new NpTreeViewItem({ label: 'Item 5' }),
-  ];
-
-  items2: NpTreeViewItem[] = [
-    new NpTreeViewItem({
-      label: 'Item 1',
-      items: [
-        new NpTreeViewItem({
-          label: 'Item 1.1', isSelected: true, items: [
-            new NpTreeViewItem({ label: 'Item 1.1.1', isSelected: true }),
-            new NpTreeViewItem({ label: 'Item 1.1.2', isSelected: true }),
-            new NpTreeViewItem({ label: 'Item 1.1.3', isSelected: true }),
-            new NpTreeViewItem({ label: 'Item 1.1.4', isSelected: true }),
-          ]
-        }),
-        new NpTreeViewItem({ label: 'Item 1.2' }),
-        new NpTreeViewItem({ label: 'Item 1.3' }),
-        new NpTreeViewItem({ label: 'Item 1.4' }),
-      ]
-    }),
-    new NpTreeViewItem({
-      label: 'Item 2',
-      items: [
-        new NpTreeViewItem({
-          label: 'Item 2.1', items: [
-            new NpTreeViewItem({ label: 'Item 2.1.1' }),
-            new NpTreeViewItem({ label: 'Item 2.1.2' }),
-            new NpTreeViewItem({ label: 'Item 2.1.3' }),
-            new NpTreeViewItem({ label: 'Item 2.1.4' }),
-          ]
-        }),
-        new NpTreeViewItem({ label: 'Item 2.2' }),
-        new NpTreeViewItem({ label: 'Item 2.3' }),
-        new NpTreeViewItem({ label: 'Item 2.4' }),
-      ]
-    }),
-    new NpTreeViewItem({ label: 'Item 3', items: [] }),
+    new NpTreeViewItem({ label: 'Item 3', childItems: [] }),
     new NpTreeViewItem({ label: 'Item 4' }),
     new NpTreeViewItem({ label: 'Item 5' }),
   ];
@@ -106,27 +67,6 @@ export class NpTreeViewDemoComponent implements OnInit {
 
   onClick(item) {
     alert(item.label);
-  }
-
-  getAllSelected() {
-    const selected = this.treeview2.getSelectedItems();
-    alert(Array.prototype.map.call(selected, (item) => item.label).join(','));
-  }
-
-  setAllSelected() {
-    this.treeview2.setAllSelected();
-  }
-
-  removeAllSelected() {
-    this.treeview2.removeAllSelected();
-  }
-
-  onSelect(event) {
-    alert(event.label + ' is selected.');
-  }
-
-  onDeselect(event) {
-    alert(event.label + ' is deselected.');
   }
 
   onExpand(event) {
