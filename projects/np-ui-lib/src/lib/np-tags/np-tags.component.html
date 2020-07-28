@@ -41,30 +41,35 @@
     </div>
     <ng-template #templatePortalContent>
         <div class="np-tg-overlay np-border">
-            <div class="np-row np-no-gutters">
-                <div class="np-col-12" *ngFor="let item of options; let i = index;">
-                    <div class="np-tg-search-item" (click)="_selectValue(item)"
-                        [ngClass]="{'np-tg-selected': _isSelected(item)}">
-                        <ng-container *ngIf="!itemTemplate; else customTemplate">
-                            <span
-                                [innerHTML]="(displayKey ? item[displayKey] : item ) | npHighLight : displayValue"></span>
-                        </ng-container>
-                        <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
-                            [ngTemplateOutletContext]="{item: item, keyword: displayValue}">
-                        </ng-template>
+            <ng-container *ngIf="!isTreeView">
+                <div class="np-row np-no-gutters">
+                    <div class="np-col-12" *ngFor="let item of options; let i = index;">
+                        <div class="np-tg-search-item" (click)="_selectValue(item)"
+                            [ngClass]="{'np-tg-selected': _isSelected(item)}">
+                            <ng-container *ngIf="!itemTemplate; else customTemplate">
+                                <span
+                                    [innerHTML]="(displayKey ? item[displayKey] : item ) | npHighLight : displayValue"></span>
+                            </ng-container>
+                            <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
+                                [ngTemplateOutletContext]="{item: item, keyword: displayValue}">
+                            </ng-template>
+                        </div>
+                    </div>
+                    <div class="np-col-12" *ngIf="options && options.length===0">
+                        <div class="np-tg-search-item np-disabled np-tg-gray">
+                            <b>No Result Found.</b>
+                        </div>
+                    </div>
+                    <div class="np-col-12" *ngIf="allowCreateNew && displayValue">
+                        <div class="np-tg-search-item np-tg-gray" (click)="_createNewTag()">
+                            <b>Create New</b>
+                        </div>
                     </div>
                 </div>
-                <div class="np-col-12" *ngIf="options && options.length===0">
-                    <div class="np-tg-search-item np-disabled np-tg-gray">
-                        <b>No Result Found.</b>
-                    </div>
-                </div>
-                <div class="np-col-12" *ngIf="allowCreateNew && displayValue">
-                    <div class="np-tg-search-item np-tg-gray" (click)="_createNewTag()">
-                        <b>Create New</b>
-                    </div>
-                </div>
-            </div>
+            </ng-container>
+            <ng-container *ngIf="isTreeView">
+                <np-tree-view [items]="options" [selectionMode]="'multiple'" [(selection)]="value"></np-tree-view>
+            </ng-container>
         </div>
     </ng-template>
 </div>

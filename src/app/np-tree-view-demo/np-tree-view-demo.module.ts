@@ -11,12 +11,12 @@ import { FormsModule } from '@angular/forms';
   declarations: [NpTreeViewDemoComponent],
   imports: [
     CommonModule,
+    FormsModule,
     NpTreeViewDemoRoutingModule,
     NpTreeViewModule,
     NpTabsModule,
     NpCardModule,
-    NpSwitchModule,
-    FormsModule
+    NpSwitchModule
   ]
 })
 export class NpTreeViewDemoModule { }

@@ -31,6 +31,18 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>selectionMode</td>
+                    <td>Set selection mode as single or multiple</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>selection</td>
+                    <td>Get/Set selected nodes</td>
+                    <td>NpTreeViewItem[]</td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>styleClass</td>
                     <td>Set extra class on component</td>
                     <td>string</td>
@@ -96,6 +108,24 @@
                     </td>
                     <td></td>
                 </tr>
+                <tr>
+                    <td>
+                        onSelect(NpTreeViewItem : node)
+                    </td>
+                    <td>
+                        Callback when selecting node.
+                    </td>
+                    <td>NpTreeViewItem : node</td>
+                </tr>
+                <tr>
+                    <td>
+                        onDeselect(NpTreeViewItem : node)
+                    </td>
+                    <td>
+                        Callback when deselecting node.
+                    </td>
+                    <td>NpTreeViewItem : node</td>
+                </tr>
             </table>
         </np-card>
         <np-card>
@@ -138,6 +168,21 @@
                 <button class="np-btn" (click)="setAllExpand()">Expand All</button>
                 <button class="np-btn" (click)="setAllCollapse()">Collapse All</button>
             </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Treeview single selection</legend>
+            <np-tree-view [items]="items2" #treeview2 [(selection)]="selection2" [selectionMode]="'single'"
+                (onSelect)="onSelect($event)" (onDeselect)="onDeselect($event)">
+            </np-tree-view>
+            <div>Selected value : {{selection2 | json}}</div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Treeview multiple selection</legend>
+            <np-tree-view [items]="items3" #treeview3 [(selection)]="selection3" [selectionMode]="'multiple'">
+            </np-tree-view>
+            <div>Selected value : {{selection3 | json}}</div>
         </fieldset>
     </np-tab>
 </np-tabs>
