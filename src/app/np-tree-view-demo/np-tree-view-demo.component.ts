@@ -175,4 +175,12 @@ export class NpTreeViewDemoComponent implements OnInit {
     console.log('Node deselected.');
   }
 
+  selectAll() {
+    this.treeview3.selectAll();
+  }
+
+  deselectAll() {
+    this.treeview3.deselectAll();
+  }
+
 }

@@ -7,20 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpNumberBoxDemoComponent implements OnInit {
 
+  importText = 'import { NpNumberBoxModule } from \'np-ui-lib\';';
+  htmlText = '<np-number-box [(ngModel)]="value"></np-number-box>';
+
+  number1 = 50;
+  number2 = 20;
+  number3: number;
+  number4: number;
+  number5 = 50;
+  number6: number;
+  number7: number;
+  number8: number;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  number1: number = 50;
-  number2: number = 20;
-  number3: number;
-  number4: number;
-  number5: number = 50;
-  number6: number;
-  number7: number;
-  number8: number;
-  
   setNumber1() {
     this.number1 = 100;
   }

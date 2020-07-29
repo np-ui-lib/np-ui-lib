@@ -224,4 +224,34 @@ export class NpTreeViewComponent implements OnChanges {
     }
   }
 
+  selectAll() {
+    if (this._isSingleSelectionMode()) {
+      return;
+    }
+    this.selection = [];
+    this.items.forEach(element => {
+      this._selectAll(element);
+    });
+    this._syncSelectionForAll();
+    this.selectionChange.emit(this.selection);
+  }
+
+  _selectAll(item: NpTreeViewItem) {
+    this.selection.push(item);
+    if (item.childItems) {
+      item.childItems.forEach(element => {
+        this._selectAll(element);
+      });
+    }
+  }
+
+  deselectAll() {
+    if (this._isSingleSelectionMode()) {
+      return;
+    }
+    this.selection = [];
+    this._syncSelectionForAll();
+    this.selectionChange.emit(this.selection);
+  }
+
 }

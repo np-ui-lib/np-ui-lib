@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpNumberBoxDemoRoutingModule } from './np-number-box-demo-routing.module';
 import { NpNumberBoxDemoComponent } from './np-number-box-demo.component';
-import { NpNumberBoxModule } from 'np-ui-lib';
+import { NpNumberBoxModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     NpNumberBoxDemoRoutingModule,
     NpNumberBoxModule,
-    FormsModule
+    FormsModule,
+    NpTabsModule,
+    NpCardModule
   ]
 })
 export class NpNumberBoxDemoModule { }

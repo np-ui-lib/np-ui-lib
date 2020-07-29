@@ -26,7 +26,6 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
 
   @Input() searchResult: BehaviorSubject<any[]>;
   @Input() placeholder = '';
-  @Input() styleClass: string;
   @Input() isServerSide: boolean;
   @Input() allowCreateNew: boolean;
   @Input() displayKey: string;
@@ -35,6 +34,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Input() minSearchCharLimit: number;
   @Input() readonly: boolean;
   @Input() isTreeView: boolean;
+  @Input() styleClass: string;
   @Input() inputId = `np-tags_${NpTagsComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();

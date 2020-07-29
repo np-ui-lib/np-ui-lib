@@ -24,14 +24,15 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   static controlCount = 1;
 
   @Input() placeholder = '';
-  @Input() styleClass: string;
   @Input() steps = 1;
   @Input() min: number;
   @Input() max: number;
   @Input() format: string;
   @Input() showControls = true;
-  @Input() inputId = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
   @Input() readonly: boolean;
+  @Input() styleClass: string;
+  @Input() inputId = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
+
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   innerValue: number;

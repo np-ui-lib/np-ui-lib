@@ -9,6 +9,17 @@ import { NpTreeViewItem } from 'np-ui-lib';
 })
 export class NpTagsDemoComponent implements OnInit {
 
+  importText = 'import { NpTagsModule } from \'np-ui-lib\';';
+  htmlText = `<np-tags [(ngModel)]="value" [searchResult]="items" [isServerSide]="true" (onSearch)="onSearchName($event)">
+</np-tags>`;
+  templateText = `<ng-template #itemTemplate let-item="item">
+  <div>{{item.name}} ( {{item.vitamin}} )</div>
+</ng-template>`;
+  onSearchText = `onSearchName(keyword: string) {
+    ...Search data
+    this.searchResult.next(searchData);
+}`;
+
   data: string[] = ['Apple', 'Banana', 'Orange', 'Mango', 'Graps', 'Strawberry',
     'Watermelon', 'Kiwi', 'Blackberries', 'Blueberries', 'Cherries', 'Cranberries', 'Guava',
     'Java-Plum', 'Lychee', 'Papaya'];

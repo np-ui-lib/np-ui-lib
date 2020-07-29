@@ -153,6 +153,24 @@
                     </td>
                     <td></td>
                 </tr>
+                <tr>
+                    <td>
+                        selectAll()
+                    </td>
+                    <td>
+                        Select all nodes
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        deselectAll()
+                    </td>
+                    <td>
+                        Deselect all nodes
+                    </td>
+                    <td></td>
+                </tr>
             </table>
         </np-card>
     </np-tab>
@@ -183,6 +201,10 @@
             <np-tree-view [items]="items3" #treeview3 [(selection)]="selection3" [selectionMode]="'multiple'">
             </np-tree-view>
             <div>Selected value : {{selection3 | json}}</div>
+            <div class="np-btn-group">
+                <button class="np-btn" (click)="selectAll()">Select All</button>
+                <button class="np-btn" (click)="deselectAll()">Deselect All</button>
+            </div>
         </fieldset>
     </np-tab>
 </np-tabs>
