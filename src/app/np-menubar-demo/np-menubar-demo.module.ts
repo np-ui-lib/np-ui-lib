@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpMenubarDemoRoutingModule } from './np-menubar-demo-routing.module';
 import { NpMenubarDemoComponent } from './np-menubar-demo.component';
-import { NpMenubarModule } from 'np-ui-lib';
+import { NpMenubarModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
 
 
 @NgModule({
@@ -11,7 +11,9 @@ import { NpMenubarModule } from 'np-ui-lib';
   imports: [
     CommonModule,
     NpMenubarDemoRoutingModule,
-    NpMenubarModule
+    NpMenubarModule,
+    NpCardModule,
+    NpTabsModule
   ]
 })
 export class NpMenubarDemoModule { }

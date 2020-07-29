@@ -23,16 +23,16 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl, NG_VALIDATORS, Va
 export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   static controlCount = 1;
 
-  @Input() styleClass: string;
-  @Input() accept: string;
   @Input() multiple: boolean;
   @Input() readonly: boolean;
-  @Input() inputId = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
   @Input() extensions: string;
+  @Input() accept: string;
   @Input() size: number;
   @Input() totalSize: number;
   @Input() maxFiles: number;
   @Input() uploadButtonLabel: string;
+  @Input() styleClass: string;
+  @Input() inputId = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 

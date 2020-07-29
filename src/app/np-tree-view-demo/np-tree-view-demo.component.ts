@@ -11,6 +11,23 @@ export class NpTreeViewDemoComponent implements OnInit {
   importText = 'import { NpTreeViewModule } from \'np-ui-lib\';';
   htmlText = `<np-tree-view [items]="items">
 </np-tree-view>`;
+modelText = `items: NpTreeViewItem[] = [
+  new NpTreeViewItem({
+    label: 'Item 1',
+    key: 'Item 1',
+    childItems: [
+      new NpTreeViewItem({
+        label: 'Item 1.1', key: 'Item 1.1', childItems: [
+          new NpTreeViewItem({ label: 'Item 1.1.1', key: 'Item 1.1.1' }),
+          new NpTreeViewItem({ label: 'Item 1.1.2', key: 'Item 1.1.2' }),
+          new NpTreeViewItem({ label: 'Item 1.1.3', key: 'Item 1.1.3' }),
+          new NpTreeViewItem({ label: 'Item 1.1.4', key: 'Item 1.1.4' }),
+        ]
+      })
+    ]
+  }),
+  ...
+];`;
 
   @ViewChild('treeview', { static: true }) treeview: NpTreeViewComponent;
   @ViewChild('treeview2', { static: true }) treeview2: NpTreeViewComponent;

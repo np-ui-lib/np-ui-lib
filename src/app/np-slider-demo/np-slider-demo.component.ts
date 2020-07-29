@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NpSliderDemoComponent implements OnInit {
 
   importText = 'import { NpSliderModule } from \'np-ui-lib\';';
-  htmlText = '<np-slider [(ngModel)]="slider1"></np-slider>';
+  htmlText = '<np-slider [(ngModel)]="value"></np-slider>';
 
   constructor() { }
 

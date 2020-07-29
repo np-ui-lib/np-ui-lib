@@ -10,6 +10,11 @@ export class NpBreadcrumbDemoComponent implements OnInit {
 
   importText = `import { NpBreadcrumbModule } from \'np-ui-lib\';`;
   htmlText = `<np-breadcrumb [items]="items"></np-breadcrumb>`;
+  modelText = `items = [
+  new NpBreadcrumbItem({ label: 'Galaxy', data: { id : 1} }),
+  new NpBreadcrumbItem({ label: 'Earth', data: { id : 2} }),
+  ...
+];`;
 
   constructor() { }
 

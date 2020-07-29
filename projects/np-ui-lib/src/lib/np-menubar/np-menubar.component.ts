@@ -13,10 +13,11 @@ export class NpMenubarComponent {
   static controlCount = 1;
 
   @Input() items: NpMenuItem[];
-  @Input() styleClass: string;
-  @Input() isPanelMenu: boolean;
   @Input() orientation = 'vertical';
+  @Input() isPanelMenu: boolean;
+  @Input() styleClass: string;
   @Input() inputId = `np-menubar_${NpMenubarComponent.controlCount++}`;
+
   @Output() onCloseMenu: EventEmitter<any> = new EventEmitter();
   @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 

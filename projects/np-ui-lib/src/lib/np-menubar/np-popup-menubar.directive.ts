@@ -9,6 +9,7 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
 
     @Input() items: NpMenuItem[];
     @Input() styleClass: string;
+
     @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 
     private overlayRef: OverlayRef;
