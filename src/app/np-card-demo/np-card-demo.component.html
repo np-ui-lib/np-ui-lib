@@ -15,7 +15,8 @@
             <div>
                 <pre><code [innerText]="htmlText"></code></pre>
             </div>
-            <p class="np-text-danger">Note: np-card-title, np-card-header, np-card-footer are optional.</p>
+            <p class="np-text-danger">Note: np-card-header, np-card-image, np-card-footer are optional.</p>
+            <p class="np-text-info"><b>np-cd-title</b> and <b>np-cd-subtitle</b> classes are also available.</p>
         </np-card>
         <np-card>
             <table class="np-table">
@@ -78,17 +79,30 @@
             <div class="np-row">
                 <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6 np-col-xl-6">
                     <np-card>
-                        <np-card-title>
-                            Card Title
-                        </np-card-title>
                         <np-card-header>
-                            <img src="../../assets/images/test1.jpg">
+                            <div class="np-cd-avatar">
+                                <img class="np-avatar" src="../../assets/images/img_avatar.png">
+                            </div>
+                            <div class="np-cd-title">
+                                Card Title
+                            </div>
+                            <div class="np-cd-subtitle">
+                                Card Subtitle
+                            </div>
                         </np-card-header>
+                        <np-card-image>
+                            <img src="../../assets/images/test1.jpg">
+                        </np-card-image>
                         <h2>What is Lorem Ipsum?</h2>
                         <div>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has
+                            survived not only five centuries, but also the leap into electronic typesetting, remaining
+                            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                            containing Lorem Ipsum passages, and more
+                            recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+                            Ipsum.
                         </div>
                         <np-card-footer>
                             <button class="np-btn">Ok</button>
@@ -99,7 +113,9 @@
                     <np-card [styleClass]="'myClass'" [width]="300">
                         <h2>What is paragraph?</h2>
                         <div>
-                            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                            A paragraph is a series of related sentences developing a central idea, called the topic.
+                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
+                            group of sentences that supports one central, unified idea. Paragraphs add
                             one idea at a time to your broader argument.
                         </div>
                     </np-card>

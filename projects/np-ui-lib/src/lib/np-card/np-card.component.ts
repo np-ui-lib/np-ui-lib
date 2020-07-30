@@ -1,9 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'np-card',
   templateUrl: './np-card.component.html',
-  styleUrls: ['./np-card.component.css']
+  styleUrls: ['./np-card.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpCardComponent implements OnInit {
   static controlCount = 1;

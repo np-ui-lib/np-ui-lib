@@ -7,6 +7,18 @@
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
 
+.np-cd-header {
+    padding: 10px;
+    background-color: #f1f1f1;
+    overflow: auto;
+}
+
+.np-cd-image img{
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
 .np-cd-body {
     padding: 10px;
     overflow: auto;
@@ -17,8 +29,16 @@
     background-color: #f1f1f1;
 }
 
-.np-cd-title {
-    padding: 10px;
-    font-size: 24px;
+.np-cd-title{
+    font-size: x-large;
     font-weight: bold;
+}
+
+.np-cd-subtitle{
+    font-weight: bold;
+}
+
+.np-cd-avatar{
+    float: left;
+    padding-right: 10px;
 }

@@ -9,8 +9,8 @@ export class NpCardDemoComponent implements OnInit {
 
   importText = `import { NpCardModule } from \'np-ui-lib\';`;
   htmlText = `<np-card>
-  <np-card-title>Title</np-card-title>
   <np-card-header>Header</np-card-header>
+  <np-card-image><img src="../../assets/images/test1.jpg"/></np-card-image>
   Body content...
   <np-card-footer>Footer</np-card-footer>
 <np-card>`;

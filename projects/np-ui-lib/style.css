@@ -1587,6 +1587,15 @@ svg {
     z-index: 2001;
 }
 
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .np-loader-text {
     padding: 10px;
     color: #ffffff;
@@ -1732,11 +1741,9 @@ svg {
     border-bottom: 1px solid #dfdfdf;
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.np-avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
