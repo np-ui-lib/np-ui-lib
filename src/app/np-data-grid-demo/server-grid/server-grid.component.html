@@ -1,11 +1,15 @@
-<h2>
-    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-data-grid-demo/server-grid">
-        Server side simple data grid example.
-    </a>
-</h2>
+<div class="sub-header">
+    Server side basic data grid example
+</div>
 <p>To add server side oprations in data grid, set <b>isServerOperations</b> to "true" in grid defination.</p>
 <p>And also add method <b>onLoadData(options:LoadOptions)</b>. This method will be invoked every time to fetch data.
 </p>
+<div class="np-jumbotron">
+    <pre><code>{{htmlText}}</code></pre>
+</div>
+<div class="np-jumbotron">
+    <pre><code>{{gridDataSourceText}}</code></pre>
+</div>
 <p><b>LoadOptions</b> has below properties:</p>
 <ul>
     <li><b>pageNumber</b></li>
@@ -21,14 +25,7 @@
 <p>Possible values for <b>filterOperator</b> are startswith, endswith, contains, gt, lt, ge, le, eq, ne.</p>
 <p>Possible values for <b>dataType</b> are number, string, date, boolean.</p>
 
-<p>pass data to dataSource with "next()" method of <b>dataSource</b> as below</p>
-<ul>
-    <li><b>data</b> (Array of data based on loadOptioins, which is retrived from server side API)</li>
-    <li><b>total</b> (Pass total count of records which is get from server side API)</li>
-    <li><b>summary</b> (Pass summary data object if showSummary is set to "true")</li>
-    <li><b>isAllPages</b> (If isAllPages set to "true" in loadOptions, then set this "true", else "false".)</li>
-</ul>
-
 <p class="np-alert np-alert-info">Options:<code>{{currentLoadOptions | json}}</code></p>
-<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [isServerOperations]="true" (onLoadData)="onLoadData($event)">
+<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [isServerOperations]="true"
+    (onLoadData)="onLoadData($event)">
 </np-data-grid>

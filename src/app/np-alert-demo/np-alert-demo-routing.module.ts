@@ -4,7 +4,7 @@ import { NpAlertDemoComponent } from './np-alert-demo.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: NpAlertDemoComponent
   }
 ];

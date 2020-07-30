@@ -14,50 +14,50 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
 
     _getDataList(count: number) {
-        var names = ["Maria", "Ana", "Antonio", "Thomas", "Christina", "Hanna", "Frédérique", "Martín", "Laurence",
-            "Elizabeth", "Victoria", "Patricio", "Francisco", "Yang", "Pedro", "Elizabeth", "Sven", "Janine", "Ann",
-            "Roland", "Aria", "Diego", "Martine", "Maria", "Peter", "Carine", "Paolo", "Lino", "Eduardo", "José",
-            "André", "Howard", "Manuel", "Mario", "Carlos", "Yoshi", "Patricia", "Helen", "Philip", "Daniel", "Annette",
-            "Yoshi", "John", "Renate", "Jaime", "Carlos", "Felipe", "Fran", "Giovanni", "Catherine", "Jean", "Alexander",
-            "Simon", "Yvonne", "Rene", "Henriette", "Marie", "Guillermo", "Georg", "Isabel", "Bernardo", "Lúcia", "Horst",
-            "Sergio", "Paula", "Maurizio", "Janete", "Michael", "Alejandra", "Jonas", "Jose", "Hari", "Jytte", "Dominique",
-            "Art", "Pascale", "Liz", "Liu", "Karin", "Miguel", "Anabela", "Helvetius", "Palle", "Mary", "Paul", "Rita",
-            "Pirkko", "Paula", "Karl", "Matti", "Zbyszek"
+        const names = ['Maria', 'Ana', 'Antonio', 'Thomas', 'Christina', 'Hanna', 'Frédérique', 'Martín', 'Laurence',
+            'Elizabeth', 'Victoria', 'Patricio', 'Francisco', 'Yang', 'Pedro', 'Elizabeth', 'Sven', 'Janine', 'Ann',
+            'Roland', 'Aria', 'Diego', 'Martine', 'Maria', 'Peter', 'Carine', 'Paolo', 'Lino', 'Eduardo', 'José',
+            'André', 'Howard', 'Manuel', 'Mario', 'Carlos', 'Yoshi', 'Patricia', 'Helen', 'Philip', 'Daniel', 'Annette',
+            'Yoshi', 'John', 'Renate', 'Jaime', 'Carlos', 'Felipe', 'Fran', 'Giovanni', 'Catherine', 'Jean', 'Alexander',
+            'Simon', 'Yvonne', 'Rene', 'Henriette', 'Marie', 'Guillermo', 'Georg', 'Isabel', 'Bernardo', 'Lúcia', 'Horst',
+            'Sergio', 'Paula', 'Maurizio', 'Janete', 'Michael', 'Alejandra', 'Jonas', 'Jose', 'Hari', 'Jytte', 'Dominique',
+            'Art', 'Pascale', 'Liz', 'Liu', 'Karin', 'Miguel', 'Anabela', 'Helvetius', 'Palle', 'Mary', 'Paul', 'Rita',
+            'Pirkko', 'Paula', 'Karl', 'Matti', 'Zbyszek'
         ];
-        var surNames = ["Anders", "Trujillo", "Moreno", "Hardy", "Berglund", "Moos", "Citeaux", "Sommer", "Lebihan",
-            "Lincoln", "Ashworth", "Simpson", "Chang", "Wang", "Afonso", "Brown", "Ottlieb", "Labrune", "Devon", "Mendel",
-            "Cruz", "Roel", "Rancé", "Larsson", "Franken", "Schmitt", "Accorti", "Rodriguez", "Saavedra", "Pedro", "Fonseca",
-            "Snyder", "Pereira", "Pontes", "Hernández", "Latimer", "McKenna", "Bennett", "Cramer", "Tonini", "Roulet",
-            "Tannamuri", "Steel", "Messner", "Yorres", "González", "Izquierdo", "Wilson", "Rovelli", "Dewey", "Fresnière",
-            "Feuer", "Crowther", "Moncada", "Phillips", "Pfalzheim", "Bertrand", "Fernández", "Pipps", "de", "Batista",
-            "Carvalho", "Kloss", "Gutiérrez", "Wilson", "Moroni", "Limeira", "Holz", "Camino", "Bergulfsen", "Pavarotti",
-            "Kumar", "Petersen", "Perrier", "Braunschweiger", "Cartrain", "Nixon", "Wong", "Josephs", "Angel", "Domingues",
-            "Nagy", "Ibsen", "Saveley", "Henriot", "Müller", "Koskitalo", "Parente", "Jablonski", "Karttunen", "Piestrzeniewicz"];
+        const surNames = ['Anders', 'Trujillo', 'Moreno', 'Hardy', 'Berglund', 'Moos', 'Citeaux', 'Sommer', 'Lebihan',
+            'Lincoln', 'Ashworth', 'Simpson', 'Chang', 'Wang', 'Afonso', 'Brown', 'Ottlieb', 'Labrune', 'Devon', 'Mendel',
+            'Cruz', 'Roel', 'Rancé', 'Larsson', 'Franken', 'Schmitt', 'Accorti', 'Rodriguez', 'Saavedra', 'Pedro', 'Fonseca',
+            'Snyder', 'Pereira', 'Pontes', 'Hernández', 'Latimer', 'McKenna', 'Bennett', 'Cramer', 'Tonini', 'Roulet',
+            'Tannamuri', 'Steel', 'Messner', 'Yorres', 'González', 'Izquierdo', 'Wilson', 'Rovelli', 'Dewey', 'Fresnière',
+            'Feuer', 'Crowther', 'Moncada', 'Phillips', 'Pfalzheim', 'Bertrand', 'Fernández', 'Pipps', 'de', 'Batista',
+            'Carvalho', 'Kloss', 'Gutiérrez', 'Wilson', 'Moroni', 'Limeira', 'Holz', 'Camino', 'Bergulfsen', 'Pavarotti',
+            'Kumar', 'Petersen', 'Perrier', 'Braunschweiger', 'Cartrain', 'Nixon', 'Wong', 'Josephs', 'Angel', 'Domingues',
+            'Nagy', 'Ibsen', 'Saveley', 'Henriot', 'Müller', 'Koskitalo', 'Parente', 'Jablonski', 'Karttunen', 'Piestrzeniewicz'];
 
-        var data = [];
-        for (var i = 1; i <= count; i++) {
+        const data = [];
+        for (let i = 1; i <= count; i++) {
             data.push(getDataRow(i));
         }
 
         return data;
 
         function getDataRow(id) {
-            var bday = randomDate(new Date(1950, 10, 28), new Date(2018, 10, 28), 0, 23);
-            var nameLength = names.length;
-            var surnameLength = surNames.length;
+            const bday = randomDate(new Date(1950, 10, 28), new Date(2018, 10, 28), 0, 23);
+            const nameLength = names.length;
+            const surnameLength = surNames.length;
             return {
                 Id: id,
                 FirstName: names[Math.floor(Math.random() * nameLength)],
                 LastName: surNames[Math.floor(Math.random() * surnameLength)],
                 Age: new Date().getFullYear() - bday.getFullYear(),
-                Active: (Math.round(Math.random() % 2) == 0),
+                Active: (Math.round(Math.random() % 2) === 0),
                 BirthDate: bday
-            }
+            };
         }
 
         function randomDate(start, end, startHour, endHour) {
-            var date = new Date(+start + Math.random() * (end - start));
-            var hour = startHour + Math.random() * (endHour - startHour) | 0;
+            const date = new Date(+start + Math.random() * (end - start));
+            const hour = startHour + Math.random() * (endHour - startHour) | 0;
             date.setHours(hour);
             return date;
         }
@@ -70,7 +70,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         // wrap in delayed observable to simulate server api call
         return of(null)
             .pipe(mergeMap(handleRoute))
-            .pipe(materialize()) // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)
+            .pipe(materialize())
             .pipe(delay(500))
             .pipe(dematerialize());
 
@@ -92,120 +92,120 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
         function getDataUsingLoadOptions(loadOptions) {
-            var data2 = data;
+            let data2 = data;
 
             if (loadOptions.filterColumns && loadOptions.filterColumns.length > 0) {
                 data2 = _filterDataSource(data2, loadOptions.filterColumns);
             }
 
             if (loadOptions.sortColumns && loadOptions.sortColumns.length > 0) {
-                for (let element of loadOptions.sortColumns) {
+                for (const element of loadOptions.sortColumns) {
                     data2 = _.orderBy(data2, element.dataField, element.sortDirection);
                 }
             }
 
-            let startIndex = (loadOptions.pageNumber - 1) * loadOptions.pageSize;
-            let endIndex = Math.min(startIndex + loadOptions.pageSize - 1, data2.length - 1);
+            const startIndex = (loadOptions.pageNumber - 1) * loadOptions.pageSize;
+            const endIndex = Math.min(startIndex + loadOptions.pageSize - 1, data2.length - 1);
 
-            var result = { data: data2.slice(startIndex, endIndex + 1), total: data2.length }
+            const result = { data: data2.slice(startIndex, endIndex + 1), total: data2.length };
             return ok(result);
         }
 
         // helper functions
 
         function _filterDataSource(data, filterColumns) {
-            for (var element of filterColumns) {
-                if (element.filterOperator == "startswith") {
-                    data = _.filter(data, function (a) {
+            for (const element of filterColumns) {
+                if (element.filterOperator === 'startswith') {
+                    data = _.filter(data, a => {
                         return _.startsWith(a[element.dataField].toLowerCase(), element.filterValue.toLowerCase());
                     });
-                } else if (element.filterOperator == "endswith") {
-                    data = _.filter(data, function (a) {
+                } else if (element.filterOperator === 'endswith') {
+                    data = _.filter(data, a => {
                         return _.endsWith(a[element.dataField].toLowerCase(), element.filterValue.toLowerCase());
                     });
-                } else if (element.filterOperator == "contains") {
-                    data = _.filter(data, function (a) {
+                } else if (element.filterOperator === 'contains') {
+                    data = _.filter(data, a => {
                         return a[element.dataField].toLowerCase().indexOf(element.filterValue.toLowerCase()) !== -1;
                     });
-                } else if (element.filterOperator == "gt") {
-                    if (element.dataType == "number") {
-                        data = _.filter(data, function (a) {
-                            return a[element.dataField] > parseInt(element.filterValue);
+                } else if (element.filterOperator === 'gt') {
+                    if (element.dataType === 'number') {
+                        data = _.filter(data, a => {
+                            return a[element.dataField] > Number(element.filterValue);
                         });
-                    } else if (element.dataType == "date") {
-                        data = _.filter(data, function (a) {
+                    } else if (element.dataType === 'date') {
+                        data = _.filter(data, a => {
                             return a[element.dataField].setHours(0, 0, 0, 0) > new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
-                } else if (element.filterOperator == "ge") {
-                    if (element.dataType == "number") {
-                        data = _.filter(data, function (a) {
-                            return a[element.dataField] >= parseInt(element.filterValue);
+                } else if (element.filterOperator === 'ge') {
+                    if (element.dataType === 'number') {
+                        data = _.filter(data, a => {
+                            return a[element.dataField] >= Number(element.filterValue);
                         });
-                    } else if (element.dataType == "date") {
-                        data = _.filter(data, function (a) {
+                    } else if (element.dataType === 'date') {
+                        data = _.filter(data, a => {
                             return a[element.dataField].setHours(0, 0, 0, 0) >= new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
-                } else if (element.filterOperator == "lt") {
-                    if (element.dataType == "number") {
-                        data = _.filter(data, function (a) {
-                            return a[element.dataField] < parseInt(element.filterValue);
+                } else if (element.filterOperator === 'lt') {
+                    if (element.dataType === 'number') {
+                        data = _.filter(data, a => {
+                            return a[element.dataField] < Number(element.filterValue);
                         });
-                    } else if (element.dataType == "date") {
-                        data = _.filter(data, function (a) {
+                    } else if (element.dataType === 'date') {
+                        data = _.filter(data, a => {
                             return a[element.dataField].setHours(0, 0, 0, 0) < new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
-                } else if (element.filterOperator == "le") {
-                    if (element.dataType == "number") {
-                        data = _.filter(data, function (a) {
-                            return a[element.dataField] <= parseInt(element.filterValue);
+                } else if (element.filterOperator === 'le') {
+                    if (element.dataType === 'number') {
+                        data = _.filter(data, a => {
+                            return a[element.dataField] <= Number(element.filterValue);
                         });
-                    } else if (element.dataType == "date") {
-                        data = _.filter(data, function (a) {
+                    } else if (element.dataType === 'date') {
+                        data = _.filter(data, a => {
                             return a[element.dataField].setHours(0, 0, 0, 0) <= new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
-                } else if (element.filterOperator == "eq") {
-                    if (element.dataType == "boolean") {
-                        if (element.filterValue == "true") {
-                            data = _.filter(data, function (a) {
-                                return a[element.dataField] == true;
+                } else if (element.filterOperator === 'eq') {
+                    if (element.dataType === 'boolean') {
+                        if (element.filterValue === 'true') {
+                            data = _.filter(data, a => {
+                                return a[element.dataField] === true;
                             });
                         } else {
-                            data = _.filter(data, function (a) {
-                                return a[element.dataField] == false;
+                            data = _.filter(data, a => {
+                                return a[element.dataField] === false;
                             });
                         }
-                    } else if (element.dataType == "number") {
-                        data = _.filter(data, function (a) {
-                            return a[element.dataField] === parseInt(element.filterValue);
+                    } else if (element.dataType === 'number') {
+                        data = _.filter(data, a => {
+                            return a[element.dataField] === Number(element.filterValue);
                         });
-                    } else if (element.dataType == "date") {
-                        data = _.filter(data, function (a) {
-                            return a[element.dataField].setHours(0, 0, 0, 0) == new Date(element.filterValue).setHours(0, 0, 0, 0);
+                    } else if (element.dataType === 'date') {
+                        data = _.filter(data, a => {
+                            return a[element.dataField].setHours(0, 0, 0, 0) === new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
                 }
-                else if (element.filterOperator == "ne") {
-                    if (element.dataType == "boolean") {
-                        if (element.filterValue == "true") {
-                            data = _.filter(data, function (a) {
-                                return a[element.dataField] != true;
+                else if (element.filterOperator === 'ne') {
+                    if (element.dataType === 'boolean') {
+                        if (element.filterValue === 'true') {
+                            data = _.filter(data, a => {
+                                return a[element.dataField] !== true;
                             });
                         } else {
-                            data = _.filter(data, function (a) {
-                                return a[element.dataField] != false;
+                            data = _.filter(data, a => {
+                                return a[element.dataField] !== false;
                             });
                         }
-                    } else if (element.dataType == "number") {
-                        data = _.filter(data, function (a) {
+                    } else if (element.dataType === 'number') {
+                        data = _.filter(data, a => {
                             return a[element.dataField] !== parseInt(element.filterValue);
                         });
-                    } else if (element.dataType == "date") {
-                        data = _.filter(data, function (a) {
-                            return a[element.dataField].setHours(0, 0, 0, 0) != new Date(element.filterValue).setHours(0, 0, 0, 0);
+                    } else if (element.dataType === 'date') {
+                        data = _.filter(data, a => {
+                            return a[element.dataField].setHours(0, 0, 0, 0) !== new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
                 }
@@ -214,7 +214,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
         function ok(body?) {
-            return of(new HttpResponse({ status: 200, body }))
+            return of(new HttpResponse({ status: 200, body }));
         }
 
         function error(message) {
@@ -222,14 +222,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
         function updateFirstName(keys: any[]) {
-            var records = data.filter(function (element) {
-                if (keys.indexOf(element["Id"]) > -1) {
-                    return element
+            const records = data.filter(element => {
+                if (keys.indexOf(element.Id) > -1) {
+                    return element;
                 }
             });
             if (records) {
                 records.forEach(element => {
-                    element.FirstName = element.FirstName + " updated";
+                    element.FirstName = element.FirstName + ' updated';
                 });
             }
             return ok(true);

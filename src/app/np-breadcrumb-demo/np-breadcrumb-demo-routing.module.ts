@@ -4,7 +4,7 @@ import { NpBreadcrumbDemoComponent } from './np-breadcrumb-demo.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: NpBreadcrumbDemoComponent
   }
 ];

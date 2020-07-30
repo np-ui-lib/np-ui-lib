@@ -4,7 +4,7 @@ import { HowToAddComponent } from './how-to-add.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: HowToAddComponent
   }
 ];

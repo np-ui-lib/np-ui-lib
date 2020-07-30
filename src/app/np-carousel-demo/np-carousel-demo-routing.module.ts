@@ -4,7 +4,7 @@ import { NpCarouselDemoComponent } from './np-carousel-demo.component';
 
 
 const routes: Routes = [{
-  path: "",
+  path: '',
   component: NpCarouselDemoComponent
 }];
 

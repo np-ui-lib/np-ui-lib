@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   year = new Date().getFullYear();
 
   dataGridItems = [
-    new NpMenuItem({ url: 'https://github.com/NilavPatel/np-ui-package/wiki/Data%20Grid', label: 'np-data-grid', target: '_blank' }),
     new NpMenuItem({ routerLink: '/np-data-grid-demo/client-grid', label: 'Client Side' }),
     new NpMenuItem({ routerLink: '/np-data-grid-demo/server-grid', label: 'Server Side' }),
     new NpMenuItem({ routerLink: '/np-data-grid-demo/sorting-grid', label: 'Sorting' }),

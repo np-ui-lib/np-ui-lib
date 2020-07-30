@@ -12,43 +12,43 @@ export class RowSelectGridComponent implements OnInit {
   gridColumns: any[];
   gridDataSource: BehaviorSubject<DataSource> = new BehaviorSubject(null);
 
-  @ViewChild("singleSelectGrid", { static: true }) singleSelectGrid: NpDataGridComponent;
-  @ViewChild("multiSelectGrid", { static: true }) multiSelectGrid: NpDataGridComponent;
+  @ViewChild('singleSelectGrid', { static: true }) singleSelectGrid: NpDataGridComponent;
+  @ViewChild('multiSelectGrid', { static: true }) multiSelectGrid: NpDataGridComponent;
 
   constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
     this.gridColumns = [
-      new Column({ dataField: "Id", visible: true, caption: "Id", dataType: DataTypes.Number }),
-      new Column({ dataField: "FirstName", visible: true, caption: "First Name", dataType: DataTypes.String }),
-      new Column({ dataField: "LastName", visible: true, caption: "Last Name", dataType: DataTypes.String }),
-      new Column({ dataField: "BirthDate", visible: true, caption: "Birth Date", dataType: DataTypes.Date }),
-      new Column({ dataField: "Age", visible: true, caption: "Age", dataType: DataTypes.Number }),
-      new Column({ dataField: "Active", visible: true, caption: "Is Active?", dataType: DataTypes.Boolean })];
+      new Column({ dataField: 'Id', visible: true, caption: 'Id', dataType: DataTypes.Number }),
+      new Column({ dataField: 'FirstName', visible: true, caption: 'First Name', dataType: DataTypes.String }),
+      new Column({ dataField: 'LastName', visible: true, caption: 'Last Name', dataType: DataTypes.String }),
+      new Column({ dataField: 'BirthDate', visible: true, caption: 'Birth Date', dataType: DataTypes.Date }),
+      new Column({ dataField: 'Age', visible: true, caption: 'Age', dataType: DataTypes.Number }),
+      new Column({ dataField: 'Active', visible: true, caption: 'Is Active?', dataType: DataTypes.Boolean })];
 
     this.dataService.getAll().subscribe((data: any) => {
 
-      var dataSource = new DataSource(data, 0, { totalCount: 10000 });
+      const dataSource = new DataSource(data, 0, { totalCount: 10000 });
       this.gridDataSource.next(dataSource);
     });
   }
 
   onSelectRow($event) {
-    alert("selected rows:" + $event.data);
+    alert('selected rows:' + $event.data);
   }
 
   onDeselectRow($event) {
-    alert("de selected rows:" + $event.data);
+    alert('de selected rows:' + $event.data);
   }
 
   getSelectedRows() {
-    var selectedRows = this.singleSelectGrid.getSelectedRowKeys();
+    const selectedRows = this.singleSelectGrid.getSelectedRowKeys();
     alert(selectedRows);
   }
 
   getMultiSelectedRows() {
-    var selectedRows = this.multiSelectGrid.getSelectedRowKeys();
+    const selectedRows = this.multiSelectGrid.getSelectedRowKeys();
     alert(selectedRows);
   }
 

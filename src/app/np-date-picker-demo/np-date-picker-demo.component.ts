@@ -36,8 +36,8 @@ export class NpDatePickerDemoComponent implements OnInit {
     this.disableDates7.push(new Date());
     this.dateLabels12.push({
       date: new Date(),
-      label: "Today"
-    })
+      label: 'Today'
+    });
   }
 
   setDate1() {

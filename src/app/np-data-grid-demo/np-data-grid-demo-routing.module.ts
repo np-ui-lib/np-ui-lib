@@ -40,7 +40,7 @@ const routes: Routes = [
       { path: 'server-grid-all', component: ServerGridAllComponent },
       { path: 'odata-grid', component: OdataGridComponent },
       { path: 'inside-tab-grid', component: InsideTabGridComponent },
-      { path: '**', redirectTo: "client-grid" }
+      { path: '**', redirectTo: 'client-grid' }
     ]
   }
 ];

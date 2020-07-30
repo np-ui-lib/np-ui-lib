@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpTimePickerDemoComponent implements OnInit {
 
-  timePicker1: string = "10:0:0 AM";
-  timePicker2: string = "10:0:0";
-  timePicker3: string = "10:0:0 AM";
+  timePicker1 = '10:0:0 AM';
+  timePicker2 = '10:0:0';
+  timePicker3 = '10:0:0 AM';
   timePicker4: string;
   timePicker5: string;
   timePicker5Disable = false;
@@ -21,7 +21,7 @@ export class NpTimePickerDemoComponent implements OnInit {
   timePicker9: string;
   timePicker10: string;
 
-  importText = "import { NpTimePickerModule } from 'np-ui-lib';"
+  importText = 'import { NpTimePickerModule } from \'np-ui-lib\';';
   htmlText = '<np-time-picker [(ngModel)]="time1"></np-time-picker>';
 
   constructor() { }
@@ -30,7 +30,7 @@ export class NpTimePickerDemoComponent implements OnInit {
   }
 
   onChange(value: string) {
-    alert("time changed " + value);
+    alert('time changed ' + value);
   }
 
 }

@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpBlockuiDemoComponent implements OnInit {
 
-  blockUi1: boolean = false;
-
   constructor() { }
+
+  blockUi1 = false;
+
+  importText = 'import { NpBlockUiModule } from \'np-ui-lib\';';
+  htmlText = '<span [np-blockui]="true"></span>';
 
   ngOnInit(): void {
   }
-
-  importText = "import { NpBlockUiModule } from 'np-ui-lib';"
-  htmlText = '<span [np-blockui]="true"></span>';
 
 }

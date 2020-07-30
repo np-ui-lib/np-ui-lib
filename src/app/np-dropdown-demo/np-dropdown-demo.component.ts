@@ -15,7 +15,7 @@ export class NpDropdownDemoComponent implements OnInit {
 
   constructor() { }
 
-  data: string[] = ['Apple', 'Banana', 'Orange', 'Mango', 'Graps', 'Strawberry', 'Watermelon', 'Kiwi', 'Blackberries', 'Blueberries', 'Cherries', 'Cranberries', 'Guava', 'Java-Plum', 'Lychee', 'Papaya',];
+  data: string[] = ['Apple', 'Banana', 'Orange', 'Mango', 'Graps', 'Strawberry', 'Watermelon', 'Kiwi', 'Blackberries', 'Blueberries', 'Cherries', 'Cranberries', 'Guava', 'Java-Plum', 'Lychee', 'Papaya'];
   dataFull: any[] = [
     { id: 1, name: 'Apple', vitamin: 'A, B1, B6' },
     { id: 2, name: 'Banana', vitamin: 'A, B1, B6' },

@@ -4,7 +4,7 @@ import { NpVirtualScrollDemoComponent } from './np-virtual-scroll-demo.component
 
 
 const routes: Routes = [{
-  path: "",
+  path: '',
   component: NpVirtualScrollDemoComponent
 }];
 

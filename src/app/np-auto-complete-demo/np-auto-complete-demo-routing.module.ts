@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NpAutoCompleteDemoComponent } from './np-auto-complete-demo.component';
 
 const routes: Routes = [{
-  path: "",
+  path: '',
   component: NpAutoCompleteDemoComponent
 }];
 

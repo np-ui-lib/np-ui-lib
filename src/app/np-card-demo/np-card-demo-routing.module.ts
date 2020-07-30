@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NpCardDemoComponent } from './np-card-demo.component';
 
 const routes: Routes = [{
-  path: "",
+  path: '',
   component: NpCardDemoComponent
 }];
 

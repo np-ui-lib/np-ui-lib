@@ -21,22 +21,22 @@ export class NpNotificationDemoComponent implements OnInit {
   }
 
   success() {
-    var msg = new NpNotification({ message: 'This is success', type: 'Success' });
+    const msg = new NpNotification({ message: 'This is success', type: 'Success' });
     this.notificationService.show(msg);
   }
 
   error() {
-    var msg = new NpNotification({ message: 'This is error', type: 'Error' });
+    const msg = new NpNotification({ message: 'This is error', type: 'Error' });
     this.notificationService.show(msg);
   }
 
   warning() {
-    var msg = new NpNotification({ message: 'This is warning', type: 'Warning' });
+    const msg = new NpNotification({ message: 'This is warning', type: 'Warning' });
     this.notificationService.show(msg);
   }
 
   info() {
-    var msg = new NpNotification({ message: 'This is info', type: 'Info', autoCloseTimeout: 5000 });
+    const msg = new NpNotification({ message: 'This is info', type: 'Info', autoCloseTimeout: 5000 });
     this.notificationService.show(msg);
   }
 
@@ -45,12 +45,12 @@ export class NpNotificationDemoComponent implements OnInit {
   }
 
   successWithHeader() {
-    var msg = new NpNotification({ message: 'This is success', type: 'Success', header: 'Success' });
+    const msg = new NpNotification({ message: 'This is success', type: 'Success', header: 'Success' });
     this.notificationService.show(msg);
   }
 
   errorWithHTML() {
-    var msg = new NpNotification({
+    const msg = new NpNotification({
       message: '<b>This is</b> <i>error</i> message <b>HTML<b> text.',
       type: 'Error', header: '<i>Error</i>'
     });

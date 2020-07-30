@@ -4,7 +4,7 @@ import { NpBlockuiDemoComponent } from './np-blockui-demo.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: NpBlockuiDemoComponent
   }
 ];

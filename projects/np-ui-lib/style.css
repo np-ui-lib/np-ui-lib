@@ -1706,6 +1706,8 @@ svg {
     padding: 10px;
     border: 1px solid transparent;
     border-radius: 2px;
+    margin-bottom: 5px;
+    overflow: auto;
 }
 
 .np-list {

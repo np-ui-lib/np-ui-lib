@@ -5,7 +5,7 @@ import { NpAccordionDemoComponent } from './np-accordion-demo.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: NpAccordionDemoComponent
   }
 ];

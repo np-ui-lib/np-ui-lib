@@ -1,10 +1,17 @@
-<h2>
-    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-data-grid-demo/client-grid">
-        Client side simple data grid example.
-    </a>
-</h2>
+<div class="sub-header">
+    Client side basic data grid example
+</div>
+<div class="np-jumbotron">
+    <pre><code>{{htmlText}}</code></pre>
+</div>
 <p>To set client side operations in datagrid, add <b>columns</b> and <b>dataSource</b> in grid defination.</p>
-<p><b>dataSource</b> is typeof <b>BehaviorSubject&lt;DataSource&gt;</b>.</p>
+<div class="np-jumbotron">
+    <pre><code>{{gridColumnText}}</code></pre>
+</div>
+<div class="np-jumbotron">
+    <pre><code>{{gridDataSourceText}}</code></pre>
+</div>
+<p><b>dataSource</b> is typeof <b>BehaviorSubject&lt;DataSource&gt;</b>, where import DataSource from 'np-ui-lib'.</p>
 <p>Retrive all data and pass those data to dataSource with "next()" method.</p>
 <p><b>DataSource</b> class has below properties:</p>
 <ul>
