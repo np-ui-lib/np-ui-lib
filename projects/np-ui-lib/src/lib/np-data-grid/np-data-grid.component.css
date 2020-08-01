@@ -1,21 +1,21 @@
 .np-dg-component {
-    border: 1px solid #c8c8c8;
+    border: 1px solid #9e9e9e;
     border-radius: 2px;
     display: flex;
     flex-direction: column;
 }
 
 .np-dg-title {
-    border-bottom: 1px solid #c8c8c8;
+    border-bottom: 1px solid #9e9e9e;
     width: 100%;
     padding: 5px;
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
 }
 
 .np-dg-toolbar {
-    border-bottom: 1px solid #c8c8c8;
+    border-bottom: 1px solid #9e9e9e;
     padding: 3px;
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
 }
 
 .np-dg-toolbar-item {
@@ -32,7 +32,7 @@
     width: 350px;
     padding: 5px;
     overflow: auto;
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
 
@@ -41,16 +41,16 @@
 }
 
 .np-dg-columns {
-    border-top: 1px solid #c8c8c8;
-    border-left: 1px solid #c8c8c8;
-    border-right: 1px solid #c8c8c8;
+    border-top: 1px solid #9e9e9e;
+    border-left: 1px solid #9e9e9e;
+    border-right: 1px solid #9e9e9e;
     border-bottom: none;
     margin: 5px 0px;
 }
 
 .np-dg-columns-item {
-    border-bottom: 1px solid #c8c8c8;
-    background-color: #ffffff;
+    border-bottom: 1px solid #9e9e9e;
+    background-color: #f5f5f5;
     height: 32px;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .np-dg-columns-item.cdk-drag-preview {
-    border: 1px solid #c8c8c8;
+    border: 1px solid #9e9e9e;
 }
 
 .np-dg-container {
@@ -87,19 +87,19 @@
 .np-dg-table-header th {
     position: relative;
     padding: 0px 5px;
-    border-right: 1px solid #c8c8c8;
-    border-bottom: 1px solid #c8c8c8;
+    border-right: 1px solid #9e9e9e;
+    border-bottom: 1px solid #9e9e9e;
     font-weight: bold;
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
     line-height: 32px;
 }
 
 .np-dg-table-body th {
     padding: 5px;
     margin: 0px;
-    border-right: 1px solid #c8c8c8;
-    border-bottom: 1px solid #c8c8c8;
-    background-color: #f1f1f1;
+    border-right: 1px solid #9e9e9e;
+    border-bottom: 1px solid #9e9e9e;
+    background-color: #f5f5f5;
     overflow: hidden;
 }
 
@@ -110,8 +110,8 @@
 .np-dg-table-body td {
     padding: 5px;
     margin: 0px;
-    border-right: 1px solid #c8c8c8;
-    border-bottom: 1px solid #c8c8c8;
+    border-right: 1px solid #9e9e9e;
+    border-bottom: 1px solid #9e9e9e;
     background-color: #ffffff;
     overflow: hidden;
 }
@@ -138,7 +138,7 @@
 
 .np-dg-col-resize-handle:hover {
     background-color: #fcf8e3;
-    border-bottom: 1px solid #c8c8c8;
+    border-bottom: 1px solid #9e9e9e;
 }
 
 .np-dg-sticky-header {
@@ -156,14 +156,14 @@
 .np-dg-sticky-right {
     position: sticky !important;
     right: 0px;
-    border-left: 1px solid #c8c8c8;
+    border-left: 1px solid #9e9e9e;
     z-index: 2;
 }
 
 .np-dg-table-summary {
-    border-top: 1px solid #c8c8c8;
+    border-top: 1px solid #9e9e9e;
     padding: 5px;
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
 }
 
 .np-dg-table-footer {
@@ -211,16 +211,20 @@
 }
 
 .np-dg-table-body tr:hover td {
-    background-color: #d9edf7;
+    background-color: #eeeeee;
 }
 
 .np-dg-row-selected td {
-    background-color: #d9edf7;
+    background-color: #e0e0e0;
+}
+
+.np-dg-table-body .np-dg-row-selected:hover td {
+    background-color: #bdbdbd;
 }
 
 .np-dg-pagination {
-    background-color: #f1f1f1;
-    border-top: 1px solid #c8c8c8;
+    background-color: #f5f5f5;
+    border-top: 1px solid #9e9e9e;
     padding: 3px;
 }
 

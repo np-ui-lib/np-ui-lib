@@ -12,7 +12,7 @@ export class NpNotificationDemoComponent implements OnInit {
   htmlText = `<np-notification></np-notification>`;
   importServiceAndClass = `import { NpNotificationService, NpNotification } from 'np-ui-lib'; `;
   createServiceObject = `constructor(private notificationService: NpNotificationService) { }`;
-  methodText = `var msg = new NpNotification({ message: "This is success", type: "Success" });
+  methodText = `var msg = new NpNotification({ message: "This is success", type: "success" });
     <br>this.notificationService.show(msg);`;
 
   constructor(private notificationService: NpNotificationService) { }
@@ -21,22 +21,22 @@ export class NpNotificationDemoComponent implements OnInit {
   }
 
   success() {
-    const msg = new NpNotification({ message: 'This is success', type: 'Success' });
+    const msg = new NpNotification({ message: 'This is success', type: 'success' });
     this.notificationService.show(msg);
   }
 
   error() {
-    const msg = new NpNotification({ message: 'This is error', type: 'Error' });
+    const msg = new NpNotification({ message: 'This is error', type: 'error' });
     this.notificationService.show(msg);
   }
 
   warning() {
-    const msg = new NpNotification({ message: 'This is warning', type: 'Warning' });
+    const msg = new NpNotification({ message: 'This is warning', type: 'warning' });
     this.notificationService.show(msg);
   }
 
   info() {
-    const msg = new NpNotification({ message: 'This is info', type: 'Info', autoCloseTimeout: 5000 });
+    const msg = new NpNotification({ message: 'This is info', type: 'info', autoCloseTimeout: 5000 });
     this.notificationService.show(msg);
   }
 
@@ -45,14 +45,14 @@ export class NpNotificationDemoComponent implements OnInit {
   }
 
   successWithHeader() {
-    const msg = new NpNotification({ message: 'This is success', type: 'Success', header: 'Success' });
+    const msg = new NpNotification({ message: 'This is success', type: 'success', header: 'Success' });
     this.notificationService.show(msg);
   }
 
   errorWithHTML() {
     const msg = new NpNotification({
       message: '<b>This is</b> <i>error</i> message <b>HTML<b> text.',
-      type: 'Error', header: '<i>Error</i>'
+      type: 'error', header: '<i>Error</i>'
     });
     this.notificationService.show(msg);
   }

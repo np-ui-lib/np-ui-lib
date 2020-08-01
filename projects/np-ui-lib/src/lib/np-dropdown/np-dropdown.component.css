@@ -13,8 +13,14 @@
     cursor: pointer;
 }
 
-.np-dd-item:hover,
+.np-dd-item:hover {
+    background-color: #eeeeee;
+}
+
 .np-dd-selected {
-    color: #fff;
-    background-color: #007bff;
+    background-color: #e0e0e0;
+}
+
+.np-dd-selected:hover {
+    background-color: #bdbdbd;
 }

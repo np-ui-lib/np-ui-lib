@@ -20,7 +20,7 @@
         <input class="np-form-control" type="text" autocomplete="off" [(ngModel)]="displayValue"
             [placeholder]="placeholder" (click)="_onClick()" (keydown)="_onKeydown($event)" (input)="_onInput()"
             [disabled]="isDisabled">
-        <div class="input-group-append">
+        <div class="np-input-group-append">
             <div class="np-tg-loader" *ngIf="isLoading">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path
@@ -29,7 +29,7 @@
                 </svg>
             </div>
         </div>
-        <div class="input-group-append">
+        <div class="np-input-group-append">
             <div class="np-btn np-btn-icon" title="Clear" (click)="clear()">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path
@@ -56,12 +56,12 @@
                         </div>
                     </div>
                     <div class="np-col-12" *ngIf="options && options.length===0">
-                        <div class="np-tg-search-item np-disabled np-tg-gray">
+                        <div class="np-tg-search-item np-disabled">
                             <b>No Result Found.</b>
                         </div>
                     </div>
                     <div class="np-col-12" *ngIf="allowCreateNew && displayValue">
-                        <div class="np-tg-search-item np-tg-gray" (click)="_createNewTag()">
+                        <div class="np-tg-search-item" (click)="_createNewTag()">
                             <b>Create New</b>
                         </div>
                     </div>

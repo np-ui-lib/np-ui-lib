@@ -1,7 +1,7 @@
 <div [ngClass]="{'np-ac-component':true, 'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-input-group">
         <input class="np-form-control" type="text" [(ngModel)]="displayValue" [placeholder]="placeholder" (input)="_onInput()" (keydown)="_onKeydown($event)" [disabled]="isDisabled" autocomplete="off">
-        <div class="input-group-append">
+        <div class="np-input-group-append">
             <div class="np-ac-loader" *ngIf="isLoading">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path
@@ -10,7 +10,7 @@
                 </svg>
             </div>
         </div>
-        <div class="input-group-append">
+        <div class="np-input-group-append">
             <div class="np-btn np-btn-icon" title="Clear" (click)="_clear()">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path
@@ -33,12 +33,12 @@
                     </div>
                 </div>
                 <div class="np-col-12" *ngIf="options && options.length===0">
-                    <div class="np-ac-search-item np-disabled np-ac-bg-gray">
+                    <div class="np-ac-search-item np-disabled">
                         <b>No Result Found.</b>
                     </div>
                 </div>
                 <div class="np-col-12" *ngIf="allowCreateNew && displayValue">
-                    <div class="np-ac-search-item np-ac-bg-gray" (click)="_createNewTag()">
+                    <div class="np-ac-search-item" (click)="_createNewTag()">
                         <b>Create New</b>
                     </div>
                 </div>

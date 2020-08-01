@@ -21,10 +21,5 @@
 }
 
 .np-ac-search-item:hover {
-    color: #fff;
-    background-color: #007bff;
-}
-
-.np-ac-bg-gray {
-    background-color: #f1f1f1;
+    background-color: #eeeeee;
 }

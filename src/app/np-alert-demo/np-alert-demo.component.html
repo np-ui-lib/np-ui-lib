@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>type</td>
-                    <td>Type of alert like Success, Danger, Info, Warning</td>
+                    <td>Type of alert like 'success' | 'danger' | 'info' | 'warning'</td>
                     <td>string</td>
                     <td></td>
                 </tr>
@@ -82,19 +82,19 @@
         </np-card>
     </np-tab>
     <np-tab title="Examples">
-        <np-alert type="Success" [showCloseButton]="true">
+        <np-alert type="success" [showCloseButton]="true">
             Hi this is success alert message.
         </np-alert>
 
-        <np-alert type="Error" [showCloseButton]="true">
+        <np-alert type="error" [showCloseButton]="true">
             Hi this is Danger alert message.
         </np-alert>
 
-        <np-alert type="Warning" [showCloseButton]="true">
+        <np-alert type="warning" [showCloseButton]="true">
             Hi this is Warning alert message.
         </np-alert>
 
-        <np-alert type="Info" [showCloseButton]="true" [autoClose]="true">
+        <np-alert type="info" [showCloseButton]="true" [autoClose]="true">
             Hi this is info alert message. Auto close after default timeout of 10000 ms.
         </np-alert>
 

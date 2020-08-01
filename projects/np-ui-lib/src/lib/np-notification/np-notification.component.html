@@ -1,9 +1,9 @@
 <div *ngIf="messageService" [ngClass]="'np-nt-component'" [class]="styleClass" [attr.id]="inputId">
     <ng-container *ngFor="let msg of messageService.messages.reverse()">
-        <div class="np-row np-no-gutters np-alert" [attr.id]="msg.id" [ngClass]="{'np-alert-success': msg.type==='Success',
-                'np-alert-danger': msg.type==='Error',
-                'np-alert-warning': msg.type==='Warning',
-                'np-alert-info': msg.type==='Info'}">
+        <div class="np-row np-no-gutters np-alert" [attr.id]="msg.id" [ngClass]="{'np-alert-success': msg.type==='success',
+                'np-alert-danger': msg.type==='error',
+                'np-alert-warning': msg.type==='warning',
+                'np-alert-info': msg.type==='info'}">
             <div class="np-col-12">
                 <div class="np-row np-no-gutters">
                     <div class="np-col-auto np-alert-icons">

@@ -1170,7 +1170,7 @@ svg {
     padding: 5px;
     margin: 0px;
     background-color: #ffffff;
-    border: 1px solid #c8c8c8;
+    border: 1px solid #9e9e9e;
     border-radius: 2px;
     width: 100%;
     min-height: 32px;
@@ -1211,13 +1211,12 @@ svg {
     flex-wrap: wrap;
     align-items: stretch;
     width: 100%;
-    border: 1px solid #c8c8c8;
+    border: 1px solid #9e9e9e;
     border-radius: 2px;
     background-color: #ffffff;
 }
 
-.input-group-prepend,
-.input-group-append {
+.np-input-group-append {
     display: flex;
 }
 
@@ -1238,9 +1237,8 @@ svg {
     user-select: none;
     outline: none;
     padding: 3px 10px;
-    transition: all .2s ease-in-out;
-    background-color: #f1f1f1;
-    border: 1px solid #c8c8c8;
+    background-color: #f5f5f5;
+    border: 1px solid #9e9e9e;
     border-radius: 2px;
     margin: 5px 0px;
     min-width: 50px;
@@ -1255,7 +1253,7 @@ svg {
 }
 
 .np-btn:hover {
-    background-color: #ddd;
+    background-color: #eeeeee;
 }
 
 .np-btn-icon {
@@ -1367,24 +1365,24 @@ svg {
 }
 
 .np-border {
-    border: 1px solid #c8c8c8;
+    border: 1px solid #9e9e9e;
     border-radius: 2px;
 }
 
 .np-border-top {
-    border-top: 1px solid #c8c8c8;
+    border-top: 1px solid #9e9e9e;
 }
 
 .np-border-bottom {
-    border-bottom: 1px solid #c8c8c8;
+    border-bottom: 1px solid #9e9e9e;
 }
 
 .np-border-right {
-    border-right: 1px solid #c8c8c8;
+    border-right: 1px solid #9e9e9e;
 }
 
 .np-border-left {
-    border-left: 1px solid #c8c8c8;
+    border-left: 1px solid #9e9e9e;
 }
 
 .np-clearfix::after {
@@ -1414,10 +1412,10 @@ svg {
     position: relative;
     padding: 10px;
     margin-bottom: 5px;
-    border: 1px solid #c8c8c8;
+    border: 1px solid #9e9e9e;
     border-radius: 2px;
-    border-left: 5px solid #c8c8c8;
-    background-color: #f1f1f1;
+    border-left: 5px solid #9e9e9e;
+    background-color: #eeeeee;
     padding-right: 32px;
 }
 
@@ -1577,14 +1575,14 @@ svg {
 }
 
 .np-loader {
-    width: 32px;
-    height: 32px;
-    border: 5px solid currentColor;
-    border-right-color: transparent;
+    border: 2px solid currentColor;
+    border-right-color: #007bff;
     border-radius: 50%;
-    color: #007bff!important;
+    color: #c7e0f4 !important;
     animation: spin 0.5s linear infinite;
     z-index: 2001;
+    width: 32px;
+    height: 32px;
 }
 
 @keyframes spin {
@@ -1665,7 +1663,7 @@ svg {
 .np-table {
     width: 100%;
     max-width: 100%;
-    border: 1px solid #dfdfdf;
+    border: 1px solid #9e9e9e;
     border-spacing: 0px;
     margin-bottom: 5px;
 }
@@ -1674,8 +1672,8 @@ svg {
 .np-table th {
     padding: 0px 5px;
     vertical-align: top;
-    border-right: 1px solid #dfdfdf;
-    border-bottom: 1px solid #dfdfdf;
+    border-right: 1px solid #9e9e9e;
+    border-bottom: 1px solid #9e9e9e;
     text-align: left;
     line-height: 32px;
 }
@@ -1690,7 +1688,7 @@ svg {
 }
 
 .np-table th {
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
 }
 
 .np-table td {
@@ -1698,11 +1696,11 @@ svg {
 }
 
 .np-table-striped tr:nth-child(odd) td {
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
 }
 
 .np-jumbotron {
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
     padding: 10px;
     border: 1px solid transparent;
     border-radius: 2px;
@@ -1715,13 +1713,13 @@ svg {
     flex-direction: column;
     padding-left: 0;
     margin-bottom: 0;
-    border: 1px solid #dfdfdf;
+    border: 1px solid #9e9e9e;
     border-radius: 2px;
 }
 
 .np-list-item {
     padding: 5px 10px;
-    border-bottom: 1px solid #dfdfdf;
+    border-bottom: 1px solid #9e9e9e;
     background-color: #ffffff;
 }
 
@@ -1730,17 +1728,17 @@ svg {
 }
 
 .np-list-striped .np-list-item:nth-child(odd) {
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
 }
 
 .np-list .np-list-item:hover {
-    background-color: #ddd;
+    background-color: #eeeeee;
 }
 
 .np-list-header {
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
     padding: 5px 10px;
-    border-bottom: 1px solid #dfdfdf;
+    border-bottom: 1px solid #9e9e9e;
 }
 
 .np-avatar {

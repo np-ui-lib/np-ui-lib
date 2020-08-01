@@ -92,16 +92,36 @@
                 <div class="np-col-6">
                     <div class="np-form-group">
                         <div class="np-form-label np-required">First name:</div>
-                        <input type="text" class="np-form-control" [(ngModel)]="firstName" required name="txtFirstName" #txtFirstName="ngModel">
-                        <div class="np-form-text np-text-danger" *ngIf="txtFirstName.control.touched && txtFirstName.control.errors?.required">First name is required.
+                        <div class="np-input-group">
+                            <input type="text" class="np-form-control" [(ngModel)]="firstName" required
+                                name="txtFirstName" #txtFirstName="ngModel">
+                            <div class="np-input-group-append">
+                                <div class="np-btn np-btn-icon">
+                                    <i class="np-icon-sm fa fa-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="np-form-text np-text-danger"
+                            *ngIf="txtFirstName.control.touched && txtFirstName.control.errors?.required">First name is
+                            required.
                         </div>
                     </div>
                 </div>
                 <div class="np-col-6">
                     <div class="np-form-group">
                         <div class="np-form-label np-required">Last name:</div>
-                        <input type="text" class="np-form-control" [(ngModel)]="lastName" required name="txtLastName" #txtLastName="ngModel">
-                        <div class="np-form-text np-text-danger" *ngIf="txtLastName.control.touched && txtLastName.control.errors?.required">Last name is required.
+                        <div class="np-input-group">
+                            <input type="text" class="np-form-control" [(ngModel)]="lastName" required
+                                name="txtLastName" #txtLastName="ngModel">
+                            <div class="np-input-group-append">
+                                <div class="np-btn np-btn-icon">
+                                    <i class="np-icon-sm fa fa-lock"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="np-form-text np-text-danger"
+                            *ngIf="txtLastName.control.touched && txtLastName.control.errors?.required">Last name is
+                            required.
                         </div>
                     </div>
                 </div>
@@ -112,15 +132,20 @@
                         <div class="np-form-label np-required">Birth date:</div>
                         <np-date-picker [(ngModel)]="birthDate" name="txtBirthDate" required #txtBirthDate="ngModel">
                         </np-date-picker>
-                        <div class="np-form-text np-text-danger" *ngIf="txtBirthDate.control.touched && txtBirthDate.control.errors?.required">Birth date is required.
+                        <div class="np-form-text np-text-danger"
+                            *ngIf="txtBirthDate.control.touched && txtBirthDate.control.errors?.required">Birth date is
+                            required.
                         </div>
                     </div>
                 </div>
                 <div class="np-col-6">
                     <div class="np-form-group">
                         <div class="np-form-label np-required">Birth time:</div>
-                        <np-time-picker [(ngModel)]="birthTime" name="birthTime" [required]="true" #txtbirthTime="ngModel"></np-time-picker>
-                        <div class="np-form-text np-text-danger" *ngIf="txtbirthTime.control.touched && txtbirthTime.control.errors?.required">Birth time is required.
+                        <np-time-picker [(ngModel)]="birthTime" name="birthTime" [required]="true"
+                            #txtbirthTime="ngModel"></np-time-picker>
+                        <div class="np-form-text np-text-danger"
+                            *ngIf="txtbirthTime.control.touched && txtbirthTime.control.errors?.required">Birth time is
+                            required.
                         </div>
                     </div>
                 </div>
@@ -137,7 +162,8 @@
                         <div class="np-form-label np-required">Upload Photo:</div>
                         <np-file-upload [(ngModel)]="photo" name="photo" [required]="true" #fpPhoto="ngModel">
                         </np-file-upload>
-                        <div class="np-form-text np-text-danger" *ngIf="fpPhoto.control.touched && fpPhoto.control.errors?.required">Photo is required.
+                        <div class="np-form-text np-text-danger"
+                            *ngIf="fpPhoto.control.touched && fpPhoto.control.errors?.required">Photo is required.
                         </div>
                     </div>
                 </div>
@@ -146,7 +172,8 @@
                 <div class="np-col-12">
                     <div class="np-form-group">
                         <div class="np-form-label">Description:</div>
-                        <textarea class="np-form-control" rows="3" [(ngModel)]="description" name="txtDescription"></textarea>
+                        <textarea class="np-form-control" rows="3" [(ngModel)]="description"
+                            name="txtDescription"></textarea>
                     </div>
                 </div>
             </div>

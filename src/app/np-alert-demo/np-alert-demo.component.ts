@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NpAlertDemoComponent implements OnInit {
 
   importText = 'import { NpAlertModule } from \'np-ui-lib\';';
-  htmlText = `<np-alert type="Success" showCloseButton="true">
+  htmlText = `<np-alert type="success" showCloseButton="true">
   Hi this is success alert message.
 </np-alert>`;
 

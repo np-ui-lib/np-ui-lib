@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpTabsComponent, NpModalComponent } from 'np-ui-lib';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-loader-demo',

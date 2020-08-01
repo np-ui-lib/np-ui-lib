@@ -52,13 +52,13 @@
 
 .np-dp-header {
     padding: 5px 0px;
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
 }
 
 .np-dp-weekdays,
 .np-dp-footer {
     padding: 5px;
-    background-color: #f1f1f1;
+    background-color: #f5f5f5;
 }
 
 .np-dp-days {

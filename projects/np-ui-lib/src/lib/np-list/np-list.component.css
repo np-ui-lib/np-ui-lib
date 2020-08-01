@@ -1,6 +1,6 @@
 .np-li-component {
     position: relative;
-    border: 1px solid #c8c8c8;
+    border: 1px solid #9e9e9e;
     border-radius: 2px;
     width: 100%;
     overflow: auto;
@@ -16,7 +16,7 @@
 
 .np-li-item {
     padding: 10px;
-    border-bottom: 1px solid #c8c8c8;
+    border-bottom: 1px solid #9e9e9e;
     display: flex;
 }
 
@@ -29,10 +29,13 @@
 }
 
 .np-li-item:hover {
-    background-color: #ddd;
+    background-color: #eeeeee;
 }
 
-.np-li-selected,
+.np-li-selected{
+    background-color: #e0e0e0;
+}
+
 .np-li-selected:hover {
-    background-color: #d9edf7;
+    background-color: #bdbdbd;
 }

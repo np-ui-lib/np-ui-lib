@@ -1,4 +1,4 @@
-<np-modal #modal>
+<np-modal #modal [styleClass]="'np-dialog'">
     <span [innerHTML]="message"></span>
     <input *ngIf="type == 'prompt'" type="text" class="np-form-control" [(ngModel)]="value">
     <np-modal-footer>

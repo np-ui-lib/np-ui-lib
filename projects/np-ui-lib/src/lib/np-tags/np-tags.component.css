@@ -20,10 +20,16 @@
     cursor: pointer;
 }
 
-.np-tg-selected,
 .np-tg-search-item:hover {
-    color: #fff;
-    background-color: #007bff;
+    background-color: #eeeeee;
+}
+
+.np-tg-selected {
+    background-color: #e0e0e0;
+}
+
+.np-tg-selected:hover {
+    background-color: #bdbdbd;
 }
 
 .np-tg-tag {
@@ -46,10 +52,6 @@
     cursor: pointer;
     outline: none;
     color: #ffffff;
-}
-
-.np-tg-gray {
-    background-color: #f1f1f1;
 }
 
 .np-tg-overlay np-tree-view {

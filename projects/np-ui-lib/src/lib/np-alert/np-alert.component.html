@@ -1,8 +1,8 @@
 <div [ngClass]="{'np-row np-no-gutters np-alert': true,
-                'np-alert-success': type ==='Success',
-                'np-alert-danger': type ==='Error',
-                'np-alert-warning': type ==='Warning',
-                'np-alert-info': type ==='Info'}" [class]="styleClass" [attr.id]="inputId">
+                'np-alert-success': type ==='success',
+                'np-alert-danger': type ==='error',
+                'np-alert-warning': type ==='warning',
+                'np-alert-info': type ==='info'}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-col-12">
         <span>
             <svg class="np-icon" viewBox="0 0 24 24" *ngIf="type ==='Success'">

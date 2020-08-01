@@ -1,7 +1,7 @@
 <div [ngClass]="{'np-dp-component': true, 'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-input-group" *ngIf="!defaultOpen; else templatePortalContent">
         <input class="np-form-control" type="text" [value]="value | date: format" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="isDisabled">
-        <div class="input-group-append">
+        <div class="np-input-group-append">
             <div class="np-btn np-btn-icon" (click)="_clear()" title="Clear">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path
@@ -10,7 +10,7 @@
                 </svg>
             </div>
         </div>
-        <div class="input-group-append">
+        <div class="np-input-group-append">
             <div class="np-btn np-btn-icon" (click)="_toggleDatePicker()">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path
