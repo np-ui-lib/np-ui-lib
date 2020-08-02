@@ -1,8 +1,8 @@
 # np-ui-lib  
-## Angular Ui Components for Angular 10+ 
+## Native Angular UI Components and Design Framework
 
 <p align="center">
-  <img width="200px" height="200px" src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/logo.jpg">
+  <img width="200px" height="200px" src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/logo.png">
 </p>
 
 ![Typescript](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/typescript.svg)

@@ -62,13 +62,13 @@
                 </tr>
                 <tr>
                     <td>showCloseIcon</td>
-                    <td>Show close icon or not</td>
+                    <td>Show close icon</td>
                     <td>boolean</td>
                     <td>true</td>
                 </tr>
                 <tr>
                     <td>closeOnClickOutside</td>
-                    <td>Close panel on outside click or not</td>
+                    <td>Close panel on click of outside area</td>
                     <td>boolean</td>
                     <td>true</td>
                 </tr>
@@ -141,13 +141,15 @@
                         <div class="np-col-6">
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">First name:</div>
-                                <input type="text" class="np-form-control" formControlName="firstName" required name="txtFirstName">
+                                <input type="text" class="np-form-control" formControlName="firstName" required
+                                    name="txtFirstName">
                             </div>
                         </div>
                         <div class="np-col-6">
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Last name:</div>
-                                <input type="text" class="np-form-control" formControlName="lastName" required name="txtLastName">
+                                <input type="text" class="np-form-control" formControlName="lastName" required
+                                    name="txtLastName">
                             </div>
                         </div>
                     </div>
@@ -179,7 +181,8 @@
                         <div class="np-col-12">
                             <div class="np-form-group">
                                 <div class="np-form-label">Description:</div>
-                                <textarea class="np-form-control" rows="3" formControlName="description" name="txtDescription"></textarea>
+                                <textarea class="np-form-control" rows="3" formControlName="description"
+                                    name="txtDescription"></textarea>
                             </div>
                         </div>
                     </div>
@@ -193,7 +196,8 @@
             </np-sidepanel-footer>
         </np-sidepanel>
 
-        <np-sidepanel #sidePanelRight [right]="'0'" [height]="'100%'" [width]="'200px'" [styleClass]="'myClass'" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">
+        <np-sidepanel #sidePanelRight [right]="'0'" [height]="'100%'" [width]="'200px'" [styleClass]="'myClass'"
+            [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">
             <h1>Right sidepanel example</h1>
         </np-sidepanel>
 
