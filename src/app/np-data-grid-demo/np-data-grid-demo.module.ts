@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpDataGridDemoRoutingModule } from './np-data-grid-demo-routing.module';
 import { NpDataGridDemoComponent } from './np-data-grid-demo.component';
-import { NpDataGridModule, NpSwitchModule, NpTabsModule, NpLoaderModule } from 'np-ui-lib';
+import { NpDataGridModule, NpSwitchModule, NpTabsModule, NpLoaderModule, NpCardModule } from 'np-ui-lib';
 
 import { ClientGridComponent } from './client-grid/client-grid.component';
 import { ServerGridComponent } from './server-grid/server-grid.component';
@@ -23,6 +23,7 @@ import { ServerGridAllComponent } from './server-grid-all/server-grid-all.compon
 import { OdataGridComponent } from './odata-grid/odata-grid.component';
 import { InsideTabGridComponent } from './inside-tab-grid/inside-tab-grid.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DataGridDocComponent } from './data-grid-doc/data-grid-doc.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     ClientGridAllComponent,
     ServerGridAllComponent,
     OdataGridComponent,
-    InsideTabGridComponent],
+    InsideTabGridComponent,
+    DataGridDocComponent],
   imports: [
     NpDataGridDemoRoutingModule,
     NpDataGridModule,
@@ -52,7 +54,8 @@ import { HttpClientModule } from '@angular/common/http';
     NpSwitchModule,
     NpTabsModule,
     HttpClientModule,
-    NpLoaderModule
+    NpLoaderModule,
+    NpCardModule
   ]
 })
 export class NpDataGridDemoModule { }

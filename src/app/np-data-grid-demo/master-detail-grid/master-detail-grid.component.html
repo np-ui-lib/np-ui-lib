@@ -4,16 +4,16 @@
     </a>
 </h2>
 <p>To set Master Detail tables in data grid, create <b>&lt;ng-template&gt;</b> in HTML file and set it in
-    <b>masterDetailTemplate</b> in grid defination.</p>
+    <b>masterDetailTemplate</b> in grid defination</p>
 
 <h4>singleRowExpand</h4>
-<p>To set single row expand mode set <b>singleRowExpand</b> to "true" in grid defination.</p>
+<p>To set single row expand mode set <b>singleRowExpand</b> to "true" in grid defination</p>
 <p>Check here, singleRowExpand
     <np-switch [(ngModel)]="singleRowExpand"></np-switch>
 </p>
 
 <h4>expandRowOnClick</h4>
-<p>To expand/collaps details row on row click set <b>expandRowOnClick</b> to "true" in grid definations.</p>
+<p>To expand/collaps details row on row click set <b>expandRowOnClick</b> to "true" in grid definations</p>
 
 <np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [masterDetailTemplate]="masterDetailTemplate" [singleRowExpand]="singleRowExpand" [expandRowOnClick]="true">
 </np-data-grid>

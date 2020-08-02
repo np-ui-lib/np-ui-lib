@@ -56,7 +56,7 @@
                 </tr>
                 <tr>
                     <td>inputId</td>
-                    <td>Set id attribute.</td>
+                    <td>Set id attribute</td>
                     <td>string</td>
                     <td></td>
                 </tr>
@@ -74,7 +74,8 @@
                         loadData(&#123;first: number, rows: pageSize&#125;)
                     </td>
                     <td>
-                        Callback to load data event, fetch data in this method. <br>first is the index of first record in page, and rows is number of page size.
+                        Callback to load data event, fetch data in this method
+                        <br>first is the index of first record in page, and rows is number of page size
                     </td>
                     <td>&#123;first: number, rows: pageSize&#125;</td>
                 </tr>
@@ -88,7 +89,8 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Basic</legend>
-            <np-virtual-scroll [data]="data" [pageSize]="pageSize" [itemHeight]="50" [template]="itemTemplate" (loadData)="loadData($event)">
+            <np-virtual-scroll [data]="data" [pageSize]="pageSize" [itemHeight]="50" [template]="itemTemplate"
+                (loadData)="loadData($event)">
             </np-virtual-scroll>
 
             <ng-template #itemTemplate let-item="item">

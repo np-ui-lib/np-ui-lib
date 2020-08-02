@@ -139,3 +139,7 @@ footer {
     line-height: 4.375rem;
     margin: 0px;
 }
+
+pre{
+    line-height: 20px;
+}

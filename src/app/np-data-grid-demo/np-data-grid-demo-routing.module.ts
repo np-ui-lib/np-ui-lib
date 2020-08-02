@@ -18,12 +18,14 @@ import { ClientGridAllComponent } from './client-grid-all/client-grid-all.compon
 import { ServerGridAllComponent } from './server-grid-all/server-grid-all.component';
 import { OdataGridComponent } from './odata-grid/odata-grid.component';
 import { InsideTabGridComponent } from './inside-tab-grid/inside-tab-grid.component';
+import { DataGridDocComponent } from './data-grid-doc/data-grid-doc.component';
 
 const routes: Routes = [
   {
     path: '',
     component: NpDataGridDemoComponent,
     children: [
+      { path: 'data-grid-doc', component: DataGridDocComponent },
       { path: 'client-grid', component: ClientGridComponent },
       { path: 'server-grid', component: ServerGridComponent },
       { path: 'sorting-grid', component: SortingGridComponent },

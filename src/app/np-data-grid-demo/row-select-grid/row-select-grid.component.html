@@ -4,21 +4,21 @@
     </a>
 </h2>
 
-<p>To set single row selection, set <b>singleRowSelectEnable</b> to "true" in grid defination.</p>
-<p>To set multi row selection, set <b>multiRowSelectEnable</b> to "true" in grid defination.</p>
-<p>In multi row selection, Select All checkbox is given in table header to select/unselect all rows.</p>
+<p>To set single row selection, set <b>singleRowSelectEnable</b> to "true" in grid defination</p>
+<p>To set multi row selection, set <b>multiRowSelectEnable</b> to "true" in grid defination</p>
+<p>In multi row selection, Select All checkbox is given in table header to select/unselect all rows</p>
 
 <h4>onSelect and onDeselect events:</h4>
-<p>In both single/multi select, <b>onSelect($event)</b>, <b>onDeselect($event)</b> methods can be bound.</p>
+<p>In both single/multi select, <b>onSelect($event)</b>, <b>onDeselect($event)</b> methods can be bound</p>
 <p>This methods will be run when any row will be selected or de-selected. In $event.data, affected row keys will be passed.
 </p>
 
 <h4>getSelectedRowKeys API:</h4>
-<p>Here <b>getSelectedRowKeys()</b> API is also available, which will return array of all selected rows keys.</p>
-<p>On reset of data grid, all selected keys will be removed.</p>
+<p>Here <b>getSelectedRowKeys()</b> API is also available, which will return array of all selected rows keys</p>
+<p>On reset of data grid, all selected keys will be removed</p>
 
 <h4>selectRowOnClick</h4>
-<p>To select row on click set <b>selectRowOnClick</b> to true in grid defination.</p>
+<p>To select row on click set <b>selectRowOnClick</b> to true in grid defination</p>
 
 <h4>Single Row Selection</h4>
 <np-data-grid #singleSelectGrid [columns]="gridColumns" [dataSource]="gridDataSource" [singleRowSelectEnable]="true">
