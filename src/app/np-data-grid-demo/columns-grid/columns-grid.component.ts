@@ -23,7 +23,7 @@ export class ColumnsGridComponent implements OnInit {
       new Column({ dataField: 'LastName', visible: true, caption: 'Last Name', dataType: DataTypes.String, sortEnable: true, filterEnable: true }),
       new Column({ dataField: 'BirthDate', visible: true, caption: 'Birth Date', dataType: DataTypes.Date, sortEnable: true, filterEnable: true }),
       new Column({ dataField: 'Age', visible: true, caption: 'Age', dataType: DataTypes.Number, sortEnable: true, filterEnable: true, rightAlignText: true }),
-      new Column({ dataField: 'Active', visible: true, caption: 'Is Active?', dataType: DataTypes.Boolean, sortEnable: true, filterEnable: true, styleClass: 'txt-red' })];
+      new Column({ dataField: 'Active', visible: true, caption: 'Is Active?', dataType: DataTypes.Boolean, sortEnable: true, filterEnable: true, styleClass: 'np-text-danger' })];
 
     this.dataService.getAll().subscribe((data: any) => {
       const dataSource = new DataSource(data, 0, { totalCount: 10000 });

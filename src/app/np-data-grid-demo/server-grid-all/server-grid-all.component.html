@@ -1,12 +1,14 @@
-<h2>
-    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-data-grid-demo/server-grid-all">
-        Server side grid full example
-    </a>
-</h2>
+<div class="sub-header">
+    Server side grid full example
+</div>
+<p>Here <b>np-loader</b> is used to show loader on server side operations. </p>
 
 <div [np-loader]="isLoading">
-    <np-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiRowSelectEnable]="true" [title]="'Server side data grid'" [showColumnChooser]="true" [showToolBar]="true" [allowExport]="true" [enableStateStoring]="true" [showFilters]="showFilters"
-        [showSummary]="true" [summaryTemplate]="summaryTemplate" [allowColumnReorder]="true" [allowColumnResize]="true" [isServerOperations]="true" [pageSize]="5" (onLoadData)="onLoadData($event)" (onInit)="onInit()" (onAfterInit)="onAfterInit()">
+    <np-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiRowSelectEnable]="true"
+        [title]="'Server side data grid'" [showColumnChooser]="true" [showToolBar]="true" [allowExport]="true"
+        [enableStateStoring]="true" [showFilters]="showFilters" [showSummary]="true" [summaryTemplate]="summaryTemplate"
+        [allowColumnReorder]="true" [allowColumnResize]="true" [isServerOperations]="true" [pageSize]="5"
+        (onLoadData)="onLoadData($event)" (onInit)="onInit()" (onAfterInit)="onAfterInit()">
     </np-data-grid>
 </div>
 

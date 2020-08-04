@@ -32,7 +32,7 @@ export class Column {
     public width: number;
     public caption: string;
     public sortDirection: SortDirections;
-    public filterValue: string;
+    public filterValue: any;
     public filterOperator: FilterTypes;
     public sortEnable: boolean;
     public filterEnable: boolean;

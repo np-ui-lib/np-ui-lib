@@ -12,7 +12,7 @@ export class ServerGridAllComponent implements OnInit {
   gridColumns: any[];
   gridDataSource: BehaviorSubject<DataSource>;
 
-  _toggleColumn = true;
+  toggleColumn = true;
   showFilters = true;
   isLoading = true;
 
@@ -54,10 +54,10 @@ export class ServerGridAllComponent implements OnInit {
 
   onActionClick(rowData: any, event: any, $event) {
     $event.stopPropagation();
-    if (event == 'Edit') {
+    if (event === 'Edit') {
       alert('Edit button click for row: ' + rowData.Id);
     }
-    if (event == 'Delete') {
+    if (event === 'Delete') {
       alert('Delete button click for row: ' + rowData.Id);
     }
   }
@@ -68,8 +68,8 @@ export class ServerGridAllComponent implements OnInit {
   }
 
   toggleFirstColumn() {
-    this._toggleColumn = !this._toggleColumn;
-    if (this._toggleColumn) {
+    this.toggleColumn = !this.toggleColumn;
+    if (this.toggleColumn) {
       this.serverSideGrid.showColumnByIndex(0);
     } else {
       this.serverSideGrid.hideColumnByIndex(0);
@@ -80,7 +80,7 @@ export class ServerGridAllComponent implements OnInit {
     const columns = this.serverSideGrid.getColumns();
     columns[0].sortDirection = SortDirections.Descending;
     columns[1].filterOperator = FilterTypes.StartsWith;
-    columns[1].filterValue = 'Nilav';
+    columns[1].filterValue = 'Philip';
     columns[2].visible = false;
     this.serverSideGrid.setColumns(columns);
   }

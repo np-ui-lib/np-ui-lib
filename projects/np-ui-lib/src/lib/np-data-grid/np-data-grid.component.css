@@ -10,6 +10,7 @@
     width: 100%;
     padding: 5px;
     background-color: #f5f5f5;
+    font-weight: bold;
 }
 
 .np-dg-toolbar {
@@ -50,7 +51,7 @@
 
 .np-dg-columns-item {
     border-bottom: 1px solid #9e9e9e;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
     height: 32px;
 }
 
@@ -59,7 +60,7 @@
 }
 
 .np-dg-col-drag-placeholder {
-    background-color: #fcf8e3;
+    background-color: #f5f5f5;
     height: 32px;
 }
 
@@ -137,8 +138,7 @@
 }
 
 .np-dg-col-resize-handle:hover {
-    background-color: #fcf8e3;
-    border-bottom: 1px solid #9e9e9e;
+    background-color: #007bff;
 }
 
 .np-dg-sticky-header {
@@ -173,10 +173,6 @@
     z-index: 3;
 }
 
-.np-dg-child-row td {
-    padding: 5px 10px;
-}
-
 .np-dg-no-data-message {
     padding: 0px 5px;
     text-align: center;
@@ -200,7 +196,8 @@
 }
 
 .np-dg-child-row td {
-    background-color: #fcf8e3;
+    background-color: #ffffff;
+    padding: 5px 10px;
 }
 
 .np-dg-search-columns {

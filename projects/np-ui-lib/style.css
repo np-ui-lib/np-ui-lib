@@ -1,4 +1,3 @@
-@import "~@angular/cdk/overlay-prebuilt.css";
 button,
 input,
 optgroup,
@@ -1505,6 +1504,26 @@ svg {
     position: relative;
     margin: 0px 5px;
     color: #000000;
+}
+
+.np-badge-success{
+    color: #fff;
+    background-color: #1e7e34;
+}
+
+.np-badge-danger{
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.np-badge-warning{
+    color: #fff;
+    background-color: #d39e00;
+}
+
+.np-badge-info{
+    color: #fff;
+    background-color: #117a8b;
 }
 
 .np-container {

@@ -1,10 +1,12 @@
-<h2>
-    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-data-grid-demo/client-grid-all">
-        Client side grid full example
-    </a>
-</h2>
-<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [multiColumnSortEnable]=true [masterDetailTemplate]="masterChildTemplate" [height]="600" [width]="1000" [enableStateStoring]="true" [multiRowSelectEnable]="true" [showColumnChooser]="true"
-    [showToolBar]="true" [showFilters]="false" [allowExport]="true" [title]="'Client side data grid'" [noDataMessage]="'No data available.'" [showSummary]="true" [summaryTemplate]="summaryTemplate" [allowColumnReorder]="true" [allowColumnResize]="true">
+<div class="sub-header">
+    Client side grid full example
+</div>
+
+<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [multiColumnSortEnable]=true
+    [masterDetailTemplate]="masterChildTemplate" [height]="600" [width]="1000" [enableStateStoring]="true"
+    [multiRowSelectEnable]="true" [showColumnChooser]="true" [showToolBar]="true" [showFilters]="false"
+    [allowExport]="true" [title]="'Client side data grid'" [noDataMessage]="'No data available.'" [showSummary]="true"
+    [summaryTemplate]="summaryTemplate" [allowColumnReorder]="true" [allowColumnResize]="true">
 </np-data-grid>
 
 <!-- Template for action buttons column -->

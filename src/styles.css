@@ -1,3 +1,4 @@
+@import "~@angular/cdk/overlay-prebuilt.css";
 @import "./../dist/np-ui-lib/style.css";
 @import "./../node_modules/font-awesome/css/font-awesome.css";
 body {
@@ -17,19 +18,28 @@ body {
 }
 
 .overview-1 {
-    background-color: #F39611 !important;
+    background-color: #f8ebcb !important;
 }
 
 .overview-2 {
-    background-color: #326DDF !important;
+    background-color: #ffe5dc !important;
 }
 
 .overview-3 {
-    background-color: #E02364 !important;
+    background-color: #EEE9FA !important;
 }
 
 .overview-4 {
-    background-color: #7DC931 !important;
+    background-color: #e3f8f1 !important;
+}
+
+.overview-header{
+    font-size: 20px;
+}
+
+.overview-number{
+    font-size: 26px;
+    font-weight: bolder;
 }
 
 header {
@@ -142,4 +152,23 @@ footer {
 
 pre{
     line-height: 20px;
+}
+
+.dashboard-card{
+    background-color: #f5f5f5 !important;
+}
+
+.dashboard-card h1{
+    font-weight: 22px;;
+    margin: 10px 0px;
+}
+
+.dashboard-card .np-cd-body div{
+    font-weight: 18px;
+    padding: 2px 0px;
+}
+
+.dashboard-card i {
+    padding-right: 10px;
+    color: #007bff !important;
 }

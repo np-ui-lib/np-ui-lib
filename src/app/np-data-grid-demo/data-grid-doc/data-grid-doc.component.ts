@@ -22,6 +22,17 @@ export class DataGridDocComponent implements OnInit {
   summaryTempText = `<ng-template #summaryTemplate let-summary="summary">
   <span>Total:{{summary ? summary.totalCount : 0}}</span>
 </ng-template>`;
+  importColumnText = `import { Column } from \'np-ui-lib\';`;
+  celltemplateText = `<ng-template #activeColumnTemplate let-row="row">
+  <np-switch [(ngModel)]="row.Active" trueLabelText="Yes" falseLabelText="No"
+  [readonly]="true"></np-switch>
+</ng-template>`;
+  cellClickEventText = `  onCellClick(event, column, data) {
+    alert('Column: ' + column.dataField + ' , rowKey:' + data.Id);
+  }`;
+  importDataSourceText = `import { DataSource } from \'np-ui-lib\';`;
+  filterColText = `[{ dataField : string, filterOperator: string, filterValue: string, dataType: string}, ...]`;
+  sortColText = `[{ dataField : string, sortDirection: string }, ...]`;
 
   constructor() { }
 

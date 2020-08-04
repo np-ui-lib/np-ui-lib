@@ -1,14 +1,12 @@
-<h2>
-    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-data-grid-demo/summary-grid">
-        Summary Example
-    </a>
-</h2>
+<div class="sub-header">
+    Summary example
+</div>
 
-<p>To add summary at footer of data grid, set <b>showSummary</b> to "true" in grid defination</p>
-<p>And set <b>summaryTemplate</b> with template refrence of summary</p>
-<p>In <b>dataSource</b>, <b>summary</b> object will be passed with data which will be accessed in template</p>
+<p>Set <b>showSummary</b> and <b>summaryTemplate</b> in data grid defination.</p>
+<p>Pass <b>DataSource.summary</b> property in data source.</p>
 
-<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [showSummary]="true" [summaryTemplate]="summaryTemplate">
+<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [showSummary]="true"
+    [summaryTemplate]="summaryTemplate">
 </np-data-grid>
 
 <!-- Template for summary section -->

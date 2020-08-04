@@ -16,196 +16,710 @@
 </np-card>
 
 <np-card>
-    <b>&lt;np-data-grid&gt;</b>
-    <table class="np-table">
-        <tr>
-            <th>Property</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Default</th>
-        </tr>
-        <tr>
-            <td>columns</td>
-            <td>
-                Array of columns
-                <pre><code>{{columnText}}</code></pre>
-            </td>
-            <td>Column[]</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>dataSource</td>
-            <td>Object of DataSource</td>
-            <td>BehaviorSubject&lt;DataSource&gt;</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>isServerOperations</td>
-            <td>Set this property to true if server side operations</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>isODataOperations</td>
-            <td>Is OData server operations, then set this property to true<br>
-                OData V4 is supported only
-            </td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>height</td>
-            <td>Set height in px</td>
-            <td>number</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>width</td>
-            <td>Set width in px</td>
-            <td>number</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>key</td>
-            <td>Set unique key column field, by default first column will be set as key</td>
-            <td>string</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>pageSize</td>
-            <td>Set page size</td>
-            <td>number</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>multiColumnSortEnable</td>
-            <td>Allow multi column sorting</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>singleRowSelectEnable</td>
-            <td>Set single row selection</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>multiRowSelectEnable</td>
-            <td>Set multi row selection</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>selectRowOnClick</td>
-            <td>Select row on click</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>masterDetailTemplate</td>
-            <td>Child row template
-                <pre><code>{{childRowText}}</code></pre>
-            </td>
-            <td>TemplateRef&lt;any&gt;</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>singleRowExpand</td>
-            <td>Expand only single row</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>expandRowOnClick</td>
-            <td>Expand row on click of row</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>showToolBar</td>
-            <td>Show toolbar</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>showColumnChooser</td>
-            <td>Show column chooser</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>enableStateStoring</td>
-            <td>Allow state management if grid</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>showFilters</td>
-            <td>Show filters row, must be set to true for showing filters row in grid</td>
-            <td>boolean</td>
-            <td>true</td>
-        </tr>
-        <tr>
-            <td>allowExport</td>
-            <td>Allow to export to CSV file</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>isServerExport</td>
-            <td>Is server side export, if <b>isServerOperations</b> is true then, set this property to true</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>showSummary</td>
-            <td>Show summary row at end</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>summaryTemplate</td>
-            <td>Set summary template.
-                <pre><code>{{summaryTempText}}</code></pre>
-            </td>
-            <td>TemplateRef&lt;any&gt;</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>allowColumnReorder</td>
-            <td>Allow to column re-order</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>allowColumnResize</td>
-            <td>Allow to column re-size</td>
-            <td>boolean</td>
-            <td>false</td>
-        </tr>
-        <tr>
-            <td>title</td>
-            <td>Set title to data grid</td>
-            <td>string</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>noDataMessage</td>
-            <td>Set message when there is no data found</td>
-            <td>string</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>styleClass</td>
-            <td>Set extra class on component</td>
-            <td>string</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>inputId</td>
-            <td>Set id attribute</td>
-            <td>string</td>
-            <td></td>
-        </tr>
-    </table>
+    <np-tabs>
+        <np-tab title="np-data-grid">
+            <table class="np-table">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+                <tr>
+                    <td>columns</td>
+                    <td>
+                        Array of columns
+                        <pre><code>{{columnText}}</code></pre>
+                    </td>
+                    <td>Column[]</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>dataSource</td>
+                    <td>Object of DataSource</td>
+                    <td>BehaviorSubject&lt;DataSource&gt;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>isServerOperations</td>
+                    <td>Set this property to true if server side operations</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>isODataOperations</td>
+                    <td>Is OData server operations, then set this property to true<br>
+                        OData V4 is supported only
+                    </td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>Set height in px</td>
+                    <td>number</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>Set width in px</td>
+                    <td>number</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>key</td>
+                    <td>Set unique key column field, by default first column will be set as key</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>pageSize</td>
+                    <td>Set page size</td>
+                    <td>number</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>multiColumnSortEnable</td>
+                    <td>Allow multi column sorting</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>singleRowSelectEnable</td>
+                    <td>Set single row selection</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>multiRowSelectEnable</td>
+                    <td>Set multi row selection</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>selectRowOnClick</td>
+                    <td>Select row on click</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>masterDetailTemplate</td>
+                    <td>Child row template
+                        <pre><code>{{childRowText}}</code></pre>
+                    </td>
+                    <td>TemplateRef&lt;any&gt;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>singleRowExpand</td>
+                    <td>Expand only single row</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>expandRowOnClick</td>
+                    <td>Expand row on click of row</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>showToolBar</td>
+                    <td>Show toolbar 
+                        <br>
+                        Must be set to true for column chooser, state management and export functionality.
+                    </td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>showColumnChooser</td>
+                    <td>Show column chooser</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>enableStateStoring</td>
+                    <td>Allow state management in grid</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>showFilters</td>
+                    <td>Show filters row, must be set to true for showing filters row in grid</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td>allowExport</td>
+                    <td>Allow to export to CSV file</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>isServerExport</td>
+                    <td>Is server side export, if <b>isServerOperations</b> is true then, set this property to true</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>showSummary</td>
+                    <td>Show summary row at end</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>summaryTemplate</td>
+                    <td>Set summary template.
+                        <pre><code>{{summaryTempText}}</code></pre>
+                    </td>
+                    <td>TemplateRef&lt;any&gt;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>allowColumnReorder</td>
+                    <td>Allow to column re-order</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>allowColumnResize</td>
+                    <td>Allow to column re-size</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>Set title to data grid</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>noDataMessage</td>
+                    <td>Set message when there is no data found</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>styleClass</td>
+                    <td>Set extra class on component</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>inputId</td>
+                    <td>Set id attribute</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+            </table>
+        </np-tab>
+
+        <np-tab title="Column">
+            <pre><code>{{importColumnText}}</code></pre>
+            <table class="np-table">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+                <tr>
+                    <td>dataField</td>
+                    <td>Data field property name</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>dataType</td>
+                    <td>
+                        Data field type, import DataTypes from 'np-ui-lib' package
+                        <br>
+                        DataTypes can be 'number', 'string', 'date', 'boolean'
+                    </td>
+                    <td>DataTypes</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>visible</td>
+                    <td>Set default visible or not</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>Set column width in px</td>
+                    <td>number</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>caption</td>
+                    <td>Set column title</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>sortDirection</td>
+                    <td>
+                        Set sort direction, import SortDirections from 'np-ui-lib' package
+                        <br>
+                        SortDirections can be 'asc' or 'desc'
+                    </td>
+                    <td>SortDirections</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>filterOperator</td>
+                    <td>
+                        Filter operator, import FilterTypes from 'np-ui-lib' package
+                        <br>
+                        FilterTypes can be 'startswith', 'endswith', 'contains', 'gt', 'lt', 'le', 'ge', 'eq', 'ne'
+                    </td>
+                    <td>FilterTypes</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>filterValue</td>
+                    <td>Value to filter column</td>
+                    <td>any</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>sortEnable</td>
+                    <td>Allow to sort on column</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>filterEnable</td>
+                    <td>Allow to filter column</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>cellTemplate</td>
+                    <td>
+                        Template to show column
+                        <pre><code>{{celltemplateText}}</code></pre>
+                    </td>
+                    <td>TemplateRef&lt;any&gt; </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>onCellClick</td>
+                    <td>
+                        Pass function to call on cell click
+                        <pre><code>{{cellClickEventText}}</code></pre>
+                    </td>
+                    <td>any</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>styleClass</td>
+                    <td>Add CSS class to column</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>rightAlignText</td>
+                    <td>Show right aligned text</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>stickyColumnLeft</td>
+                    <td>Sticky column on left side, only first column can be stickyColumnLeft</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+
+                <tr>
+                    <td>stickyColumnRight</td>
+                    <td>Sticky column on right side, only last column can be stickyColumnRight</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+            </table>
+        </np-tab>
+
+        <np-tab title="DataSource">
+            <pre><code>{{importDataSourceText}}</code></pre>
+            <table class="np-table">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Array of data</td>
+                    <td>any[]</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>total</td>
+                    <td>Count of total records, only required for server side operations, in client side operations pass
+                        0</td>
+                    <td>number</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>summary</td>
+                    <td>Summary data</td>
+                    <td>any</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>isAllPages</td>
+                    <td>This property is used on export to CSV in server side operations,<br> it will help to know is
+                        all
+                        pages fetched to export,<br>
+                        if in <b>LoadOptions.isAllPages</b> is true, then pass <b>DataSource.isAllPages = true</b> in
+                        next() method.
+                    </td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+            </table>
+        </np-tab>
+
+        <np-tab title="Api">
+            <table class="np-table">
+                <tr>
+                    <th>Api</th>
+                    <th>Description</th>
+                    <th>Parameters</th>
+                </tr>
+                <tr>
+                    <td>
+                        goToPage(pageNumber: number)
+                    </td>
+                    <td>
+                        Go to page
+                    </td>
+                    <td>pageNumber: number</td>
+                </tr>
+                <tr>
+                    <td>
+                        getCurrentPageNumber()
+                    </td>
+                    <td>
+                        Get current page number
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        getPageSize()
+                    </td>
+                    <td>
+                        Get page size
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        getTotalPages()
+                    </td>
+                    <td>
+                        Get total page count
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        getTotalRows()
+                    </td>
+                    <td>
+                        Get total rows count
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        getColumns()
+                    </td>
+                    <td>
+                        Get all columns list
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        setColumns(columns: Column[])
+                    </td>
+                    <td>
+                        Set columns configurations
+                    </td>
+                    <td>columns: Column[]</td>
+                </tr>
+                <tr>
+                    <td>
+                        getSelectedRowKeys()
+                    </td>
+                    <td>
+                        Get selected row keys
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        selectAll()
+                    </td>
+                    <td>
+                        Select All rows
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        deSelectAll()
+                    </td>
+                    <td>
+                        Deselect All rows
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        showColumnByIndex(idx: number)
+                    </td>
+                    <td>
+                        Show column by index
+                    </td>
+                    <td>idx: number</td>
+                </tr>
+                <tr>
+                    <td>
+                        hideColumnByIndex(idx: number)
+                    </td>
+                    <td>
+                        Hide column by index
+                    </td>
+                    <td>idx: number</td>
+                </tr>
+                <tr>
+                    <td>
+                        showColumnByDataField(dataField: string)
+                    </td>
+                    <td>
+                        Show column by data field
+                    </td>
+                    <td>dataField: string</td>
+                </tr>
+                <tr>
+                    <td>
+                        hideColumnByDataField(dataField: string)
+                    </td>
+                    <td>
+                        Hide column by data field
+                    </td>
+                    <td>dataField: string</td>
+                </tr>
+                <tr>
+                    <td>
+                        sortByColumn(dataField: string, direction: SortDirections)
+                    </td>
+                    <td>
+                        Sort column by data field
+                    </td>
+                    <td>dataField: string, direction: SortDirections</td>
+                </tr>
+                <tr>
+                    <td>
+                        filterByColumn(dataField: string, keyword: string, type: FilterTypes)
+                    </td>
+                    <td>
+                        Filter column by data field
+                    </td>
+                    <td>dataField: string, keyword: string, type: FilterTypes</td>
+                </tr>
+                <tr>
+                    <td>
+                        getSortColumns()
+                    </td>
+                    <td>
+                        Get array of sorting column
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        getFilterColumns()
+                    </td>
+                    <td>
+                        Get array of filtering column
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        removeAllSortings()
+                    </td>
+                    <td>
+                        Remove sorting from all columns
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        removeAllFilters()
+                    </td>
+                    <td>
+                        Remove filters from all columns
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        refresh()
+                    </td>
+                    <td>
+                        Refresh current page data
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        reset()
+                    </td>
+                    <td>
+                        Reset data grid (remove sorting, filtering, column selection)
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        closeAllChild()
+                    </td>
+                    <td>
+                        Close all details sections
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        getAllState()
+                    </td>
+                    <td>
+                        Get all states from state management
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        setAllState(states: State[])
+                    </td>
+                    <td>
+                        Set array of states,
+                        <br>import State from 'np-ui-lib' package
+                    </td>
+                    <td>states: State[]</td>
+                </tr>
+            </table>
+        </np-tab>
+
+        <np-tab title="Method">
+            <table class="np-table">
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                    <th>Parameters</th>
+                </tr>
+                <tr>
+                    <td>
+                        onLoadData(options : loadOptions)
+                    </td>
+                    <td>
+                        Callback to data load, import loadOptions from 'np-ui-lib' package
+                        <br>
+                        loadOptions has properties like 'pageNumber', 'pageSize', 'sortColumns', 'filterColumns'
+                        <br>
+                        'odataQuery', and 'isAllPages'
+                        <br>
+                        <b>sortColumns :</b> Array of sort columns
+                        <pre><code>{{sortColText}}</code></pre>
+                        <b>filterColumns :</b> Array of filter columns
+                        <pre><code>{{filterColText}}</code></pre>
+                        <b>odataQuery :</b> If <b>isODataOperations</b> is set to true, then OData query will be pass to
+                        <br> loadOptions.
+                    </td>
+                    <td>options : loadOptions</td>
+                </tr>
+                <tr>
+                    <td>
+                        onInit()
+                    </td>
+                    <td>
+                        Callback event for component init
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        onAfterInit()
+                    </td>
+                    <td>
+                        Callback event for component after init
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        onRowClick(event)
+                    </td>
+                    <td>
+                        Callback event for row click
+                        <br>
+                        <b>event.data</b> contains the data of clicked row
+                    </td>
+                    <td>event</td>
+                </tr>
+                <tr>
+                    <td>
+                        onSelect(event)
+                    </td>
+                    <td>
+                        Callback event for row select
+                        <br>
+                        <b>event.data</b> contains the all selected row keys
+                    </td>
+                    <td>event</td>
+                </tr>
+                <tr>
+                    <td>
+                        onDeselect(event)
+                    </td>
+                    <td>
+                        Callback event for row deselect
+                        <br>
+                        <b>event.data</b> contains the all deselected row keys
+                    </td>
+                    <td>event</td>
+                </tr>
+                <tr>
+                    <td>
+                        onStatesUpdate()
+                    </td>
+                    <td>
+                        Callback event when add/edit/delete any state in state management
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        onServerExport(options : loadOptions)
+                    </td>
+                    <td>
+                        Callback event on export data on server side,
+                        <br>
+                        here <b>isAllPages</b> flage will be true in loadOptions
+                    </td>
+                    <td>options : loadOptions</td>
+                </tr>
+            </table>
+        </np-tab>
+    </np-tabs>
 </np-card>

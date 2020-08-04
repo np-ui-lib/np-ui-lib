@@ -52,7 +52,8 @@ npm i np-ui-lib
 
 ### Import css to your application:
 ````css
-@import "np-ui-lib/style.css";
+@import "~@angular/cdk/overlay-prebuilt.css";
+@import "./../dist/np-ui-lib/style.css";
 ````
 
 ### [Working examples](https://stackblitz.com/edit/np-ui-lib)

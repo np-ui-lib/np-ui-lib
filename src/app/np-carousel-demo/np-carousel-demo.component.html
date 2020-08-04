@@ -146,18 +146,23 @@
         </fieldset>
 
         <fieldset>
-            <np-carousel #slider [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="3" [currentPage]="1" [scrollNum]="1">
+            <np-carousel #slider [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="3" [currentPage]="1"
+                [scrollNum]="1">
             </np-carousel>
 
             <ng-template #itemTemplate2 let-item="item">
                 <np-card>
-                    <div style="text-align: center; background-color: black;color: white; padding: 10px 20px;font-weight: bolder;">
+                    <div
+                        style="text-align: center; background-color: black;color: white; padding: 10px 20px;font-size: 22px;">
                         {{item.name}}</div>
-                    <div style="text-align: center; padding: 10px 20px;font-weight: bolder;">Price: ${{item.id * 100}}
+                    <div style="text-align: center; padding: 10px 20px;font-size: 26px;">${{item.id * 100}}/mo
                     </div>
                     <div style="text-align: center; padding: 10px 20px;">{{item.id * 10}} GB Storage</div>
                     <div style="text-align: center; padding: 10px 20px;">{{item.id * 10}} Emails</div>
                     <div style="text-align: center; padding: 10px 20px;">{{item.id * 10}} Domains</div>
+                    <div style="text-align: center;">
+                        <button class="np-btn np-btn-primary">Select</button>
+                    </div>
                 </np-card>
             </ng-template>
 

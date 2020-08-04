@@ -1,32 +1,7 @@
-<h2>
-    <a class="github-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package/tree/master/src/app/np-data-grid-demo/other-grid">
-        Others
-    </a>
-</h2>
+<div class="sub-header">
+    Set grid height, width and Column width
+</div>
 
-<h4>key</h4>
-<p>To set key column in data grid, set <b>key</b> property with column's dataField value in grid defination</p>
-<p>Example: <code>[key]="'Id'"</code></p>
-
-<h4>height</h4>
-<p>To set height of data grid, set <b>height</b> property in grid defination</p>
-<p>Example: <code>[height]="500"</code>. No need to pass "px" as this value will be considered in pixels only</p>
-
-<h4>width</h4>
-<p>To set width of data grid, set <b>width</b> property in grid defination</p>
-<p>Example: <code>[width]="1000"</code>. No need to pass "px" as this value will be considered in pixels only</p>
-
-<h4>title</h4>
-<p>To show title message on grid, set <b>title</b> property in grid defination</p>
-<p>Example <code>[title]="'All Employees in company.'"</code></p>
-<p>Default message is "No Data Found."</p>
-
-<h4>noDataMessage</h4>
-<p>To show message when no records found, set <b>noDataMessage</b> property in grid defination</p>
-<p>Example <code>[noDataMessage]="'No Employee found.'"</code></p>
-
-<h4>pageSize</h4>
-<p>To set default pagesize for data grid, set <b>pageSize</b> property</p>
-
-<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [key]="'Id'" [height]="500" [width]="1000" [pageSize]=5>
+<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [key]="'Id'" [height]="500" [width]="1000"
+    [pageSize]=5>
 </np-data-grid>

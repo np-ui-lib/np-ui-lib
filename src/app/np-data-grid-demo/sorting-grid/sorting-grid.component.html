@@ -3,39 +3,19 @@
 </div>
 <p>
     To add sorting in data grid set <b>sortEnable</b> to "true" in column definations.
-    <br>
-    Default value for <b>sortEnable</b> is "false".
-</p>
-<p>
-    To set multicolumn sorting, set <b>sortEnable</b> to "true" and <b>multiColumnSortEnable</b> to "true" in grid
-    defination.
-    <br>
-    Default value for <b>multiColumnSortEnable</b> is "false".
 </p>
 <span>
-    To set Multi column sort enable for both:
+    To set multi column sort enable:
     <np-switch [(ngModel)]="multiColumnSortEnable"></np-switch>
 </span>
 <div class="sub-header">
     Client side sorting
 </div>
-<p>
-    In Client side data grid, all sorting oprations will be done on client side.
-</p>
 <np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [multiColumnSortEnable]="multiColumnSortEnable">
 </np-data-grid>
-
-
 <div class="sub-header">
     Server side sorting
 </div>
-<p>
-    In Server side data grid, <b>sortColumns</b> will be passed to <b>onLoadData(options:LoadOptions)</b>.
-    <br>
-    Which will contains array of all sorting columns as <q>{{ '{' }} column : string, sortDirection:
-        string {{'}'}}</q>
-</p>
-<p>Possible values for <b>sortDirection</b> are asc, desc</p>
 <p class="np-alert np-alert-info">Options: <code>{{currentLoadOptions | json}}</code></p>
 <np-data-grid [columns]="gridColumns" [dataSource]="serverGridDataSource" [isServerOperations]="true"
     (onLoadData)="onLoadDataServerGrid($event)" [multiColumnSortEnable]="multiColumnSortEnable">
