@@ -5,7 +5,6 @@ import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from '
 import { TemplatePortal } from '@angular/cdk/portal';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { NpUtilityService } from '../np-utility/np-utility.service';
-import { NpTreeViewItem } from '../np-tree-view/np-tree-view.model';
 
 @Component({
   selector: 'np-tags',
@@ -34,6 +33,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Input() minSearchCharLimit: number;
   @Input() readonly: boolean;
   @Input() isTreeView: boolean;
+  @Input() orderBy: string;
+  @Input() orderDir: string;
   @Input() styleClass: string;
   @Input() inputId = `np-tags_${NpTagsComponent.controlCount++}`;
 

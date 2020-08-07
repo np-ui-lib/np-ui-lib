@@ -41,6 +41,26 @@ export class NpListDemoComponent implements OnInit {
     { id: 18, name: 'Aria', age: 64 },
     { id: 19, name: 'Pedro', age: 31 },
     { id: 20, name: 'Janete', age: 36 },
+    { id: 21, name: 'Maria', age: 28 },
+    { id: 22, name: 'Karl', age: 6 },
+    { id: 23, name: 'Jose', age: 41 },
+    { id: 24, name: 'Yoshi', age: 8 },
+    { id: 25, name: 'Jonas', age: 9 },
+    { id: 26, name: 'Hari', age: 18 },
+    { id: 27, name: 'Karl', age: 33 },
+    { id: 28, name: 'Daniel', age: 18 },
+    { id: 29, name: 'Yvonne', age: 27 },
+    { id: 30, name: 'John', age: 26 },
+    { id: 31, name: 'Mario', age: 53 },
+    { id: 32, name: 'Martine', age: 65 },
+    { id: 33, name: 'Jean', age: 12 },
+    { id: 34, name: 'Marie', age: 46 },
+    { id: 35, name: 'Paula', age: 60 },
+    { id: 36, name: 'Paul', age: 69 },
+    { id: 37, name: 'Frédérique', age: 34 },
+    { id: 38, name: 'Aria', age: 64 },
+    { id: 39, name: 'Pedro', age: 31 },
+    { id: 40, name: 'Janete', age: 36 }
   ];
 
   ngOnInit(): void {

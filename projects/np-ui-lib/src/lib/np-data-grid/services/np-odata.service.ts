@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataTypes } from '../models/constants';
+import { DataTypes, FilterTypes } from '../models/constants';
 
 @Injectable()
 export class NpODataService {
@@ -9,7 +9,11 @@ export class NpODataService {
         if (filterColumns) {
             if (filterColumns && filterColumns.length === 1) {
                 if (filterColumns[0].dataType === DataTypes.String) {
-                    queryTmpArray.push(`$filter=(${filterColumns[0].filterOperator}(${filterColumns[0].dataField},'${filterColumns[0].filterValue}'))`);
+                    if (filterColumns[0].filterOperator === FilterTypes.Equals) {
+                        queryTmpArray.push(`$filter=(${filterColumns[0].dataField} eq '${filterColumns[0].filterValue}')`);
+                    } else {
+                        queryTmpArray.push(`$filter=(${filterColumns[0].filterOperator}(${filterColumns[0].dataField},'${filterColumns[0].filterValue}'))`);
+                    }
                 } else {
                     queryTmpArray.push(`$filter=(${filterColumns[0].dataField} ${filterColumns[0].filterOperator} ${filterColumns[0].filterValue})`);
                 }
@@ -18,7 +22,11 @@ export class NpODataService {
                 const filterQueue = [];
                 for (const element of filterColumns) {
                     if (element.dataType === DataTypes.String) {
-                        filterQueue.push(`${element.filterOperator}(${element.dataField} ,'${element.filterValue}')`);
+                        if (element.filterOperator === FilterTypes.Equals) {
+                            filterQueue.push(`${element.dataField} eq '${element.filterValue}'`);
+                        } else {
+                            filterQueue.push(`${element.filterOperator}(${element.dataField} ,'${element.filterValue}')`);
+                        }
                     } else {
                         filterQueue.push(`${element.dataField} ${element.filterOperator} ${element.filterValue}`);
                     }

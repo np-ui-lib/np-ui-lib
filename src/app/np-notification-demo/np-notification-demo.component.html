@@ -15,7 +15,8 @@
             <div>
                 <pre><code [innerText]="htmlText"></code></pre>
             </div>
-            <p class="np-text-danger">Add above line in your main application module's template file app.component.html only once.
+            <p class="np-text-danger">Add above line in your main application module's template file app.component.html
+                only once.
             </p>
         </np-card>
         <np-card>
@@ -33,8 +34,27 @@
                 <code [innerHTML]="methodText"></code>
             </div>
             <p>Where <b>type</b> can be 'success' | 'danger' | 'info' | 'warning'</p>
-            <p>Also set <b>autoCloseTimeout</b> property for closing notification automatically. Default time is 10000 ms</p>
+            <p>Also set <b>autoCloseTimeout</b> property for closing notification automatically. Default time is 10000
+                ms</p>
             <p>Set <b>header</b> to show header in notification, which is type of string</p>
+        </np-card>
+        <np-card>
+            <table class="np-table">
+                <tr>
+                    <th>Api</th>
+                    <th>Description</th>
+                    <th>Parameters</th>
+                </tr>
+                <tr>
+                    <td>
+                        closeAll()
+                    </td>
+                    <td>
+                        Close all notifications
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
         </np-card>
     </np-tab>
     <np-tab title="Examples">
@@ -63,9 +83,9 @@
         </fieldset>
 
         <fieldset>
-            <legend>Remove all Api</legend>
+            <legend>Remove all</legend>
             <div class="np-btn-group">
-                <button class="np-btn np-btn-danger" (click)="removeAll()">Remove All</button>
+                <button class="np-btn np-btn-danger" (click)="closeAll()">Remove All</button>
             </div>
         </fieldset>
     </np-tab>

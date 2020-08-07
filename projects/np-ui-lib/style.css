@@ -1409,13 +1409,28 @@ svg {
 
 .np-alert {
     position: relative;
-    padding: 10px;
+    padding: 5px;
     margin-bottom: 5px;
     border: 1px solid #9e9e9e;
     border-radius: 2px;
     border-left: 5px solid #9e9e9e;
     background-color: #eeeeee;
-    padding-right: 32px;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.np-alert-message {
+    flex: 1;
+    padding: 5px;
+}
+
+.np-alert-header {
+    font-weight: bold;
+}
+
+.np-alert .np-btn {
+    color: inherit;
 }
 
 .np-alert-success {
@@ -1456,20 +1471,6 @@ svg {
 
 .np-alert-info .np-btn:hover {
     background-color: #bcdff1;
-}
-
-.np-alert-header {
-    font-weight: bold;
-}
-
-.np-alert-close {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-}
-
-.np-alert-icons .np-icon {
-    margin-right: 5px;
 }
 
 .np-float-left {
@@ -1673,7 +1674,7 @@ svg {
     color: #d9534f;
 }
 
-.ng-responsive-img {
+.np-responsive-img {
     width: 100%;
     height: auto;
     vertical-align: middle;

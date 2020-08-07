@@ -22,7 +22,7 @@ export class NpTimePickerDemoComponent implements OnInit {
   timePicker10: string;
 
   importText = 'import { NpTimePickerModule } from \'np-ui-lib\';';
-  htmlText = '<np-time-picker [(ngModel)]="time1"></np-time-picker>';
+  htmlText = '<np-time-picker [(ngModel)]="value"></np-time-picker>';
 
   constructor() { }
 

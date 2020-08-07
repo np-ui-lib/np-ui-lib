@@ -64,7 +64,7 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: 'Menu 4.3', url: '/menu4.3' }),
       ]
     }),
-    new NpMenuItem({ label: 'Data grid', routerLink: '/np-data-grid-demo/client-grid' }),
+    new NpMenuItem({ label: 'Data grid', routerLink: '/np-data-grid-demo/data-grid-doc' }),
     new NpMenuItem({ label: 'Menu 6', url: '/menu6' })
   ];
 
@@ -107,7 +107,7 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: 'Menu 4.3', url: '/menu4.3' }),
       ]
     }),
-    new NpMenuItem({ label: 'Data grid', routerLink: '/np-data-grid-demo/client-grid' }),
+    new NpMenuItem({ label: 'Data grid', routerLink: '/np-data-grid-demo/data-grid-doc' }),
     new NpMenuItem({ label: 'Menu 6', url: '/menu6' })
   ];
 
@@ -150,7 +150,7 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: 'Menu 4.3', url: '/menu4.3' }),
       ]
     }),
-    new NpMenuItem({ label: 'Data grid', routerLink: '/np-data-grid-demo/client-grid' }),
+    new NpMenuItem({ label: 'Data grid', routerLink: '/np-data-grid-demo/data-grid-doc' }),
     new NpMenuItem({ label: 'Menu 6', url: '/menu6' })
   ];
 
@@ -193,7 +193,7 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: 'Menu 4.3', url: '/menu4.3' }),
       ]
     }),
-    new NpMenuItem({ label: 'Data grid', routerLink: '/np-data-grid-demo/client-grid' }),
+    new NpMenuItem({ label: 'Data grid', routerLink: '/np-data-grid-demo/data-grid-doc' }),
     new NpMenuItem({ label: 'Menu 6', url: '/menu6' })
   ];
 

@@ -49,6 +49,22 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>orderBy</td>
+                    <td>Set order by property</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>orderDir</td>
+                    <td>
+                        Set order direction 'asc' or 'desc'. Default value is 'asc'.
+                        <br>
+                        If data is type of string[], then only use orderDir.
+                    </td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>styleClass</td>
                     <td>Add extra class to component</td>
                     <td>string</td>
@@ -165,7 +181,7 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Basic list with height</legend>
-            <np-list [items]="items" [itemTemplate]="list1Template" [height]="200">
+            <np-list [items]="items" [itemTemplate]="list1Template" [height]="200" [orderBy]="'name'" [orderDir]="'asc'">
             </np-list>
 
             <ng-template let-item="item" #list1Template>
@@ -176,7 +192,8 @@
         <fieldset>
             <legend>List with selection</legend>
 
-            <np-list [items]="items" [itemTemplate]="list2Template" [allowSelection]="true" [height]="200" [styleClass]="'myClass'" #list2>
+            <np-list [items]="items" [itemTemplate]="list2Template" [allowSelection]="true" [height]="200"
+                [styleClass]="'myClass'" #list2>
             </np-list>
 
             <ng-template let-item="item" #list2Template>

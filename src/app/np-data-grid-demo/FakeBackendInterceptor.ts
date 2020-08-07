@@ -34,12 +34,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             'Kumar', 'Petersen', 'Perrier', 'Braunschweiger', 'Cartrain', 'Nixon', 'Wong', 'Josephs', 'Angel', 'Domingues',
             'Nagy', 'Ibsen', 'Saveley', 'Henriot', 'Müller', 'Koskitalo', 'Parente', 'Jablonski', 'Karttunen', 'Piestrzeniewicz'];
 
-        const data = [];
+        const dataList = [];
         for (let i = 1; i <= count; i++) {
-            data.push(getDataRow(i));
+            dataList.push(getDataRow(i));
         }
 
-        return data;
+        return dataList;
 
         function getDataRow(id) {
             const bday = randomDate(new Date(1950, 10, 28), new Date(2018, 10, 28), 0, 23);
@@ -186,6 +186,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         data = _.filter(data, a => {
                             return a[element.dataField].setHours(0, 0, 0, 0) === new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
+                    } else if (element.dataType === 'string') {
+                        data = _.filter(data, a => {
+                            return a[element.dataField].toLowerCase() === element.filterValue.toLowerCase();
+                        });
                     }
                 }
                 else if (element.filterOperator === 'ne') {
@@ -201,7 +205,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         }
                     } else if (element.dataType === 'number') {
                         data = _.filter(data, a => {
-                            return a[element.dataField] !== parseInt(element.filterValue);
+                            return a[element.dataField] !== Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
                         data = _.filter(data, a => {

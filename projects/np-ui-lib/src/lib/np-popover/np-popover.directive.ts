@@ -14,6 +14,7 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
     @Input() body: string | TemplateRef<any>;
     @Input() showOnClick: boolean;
     @Input() width: number;
+    @Input() backDropClass = 'np-pop-backdrop';
     @Input() styleClass: string;
 
     private overlayRef: OverlayRef;
@@ -34,7 +35,7 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
             this.overlayRef = this.overlay.create({
                 positionStrategy,
                 hasBackdrop: true,
-                backdropClass: 'np-pop-backdrop'
+                backdropClass: this.backDropClass
             });
             this.overlayRef.backdropClick().subscribe(() => this._hide());
         } else {

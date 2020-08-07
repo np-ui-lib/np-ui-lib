@@ -70,6 +70,22 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>orderBy</td>
+                    <td>Set order by property</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>orderDir</td>
+                    <td>
+                        Set order direction 'asc' or 'desc'. Default value is 'asc'.
+                        <br>
+                        If data is type of string[], then only use orderDir.
+                    </td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>placeholder</td>
                     <td>Set placeholder</td>
                     <td>string</td>
@@ -112,20 +128,22 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Basic dropdown with string items</legend>
-            <np-dropdown [(ngModel)]="dropdownVal1" [items]="data"></np-dropdown>
+            <np-dropdown [(ngModel)]="dropdownVal1" [items]="data" [orderDir]="'asc'"></np-dropdown>
             <div>Selected value: {{dropdownVal1}}</div>
             <button class="np-btn" (click)="changeValue()">Change value</button>
         </fieldset>
 
         <fieldset>
-            <legend>Basic dropdown with custom type items</legend>
-            <np-dropdown [(ngModel)]="dropdownVal2" [items]="dataFull" [displayKey]="'name'"></np-dropdown>
+            <legend>Basic dropdown with custom type items + order by name + order direction descending</legend>
+            <np-dropdown [(ngModel)]="dropdownVal2" [items]="dataFull" [displayKey]="'name'" [orderBy]="'name'"
+                [orderDir]="'desc'"></np-dropdown>
             <div>Selected value: {{dropdownVal2 | json}}</div>
         </fieldset>
 
         <fieldset>
             <legend>required</legend>
-            <np-dropdown [(ngModel)]="dropdownVal3" [items]="data" [required]="true" [placeholder]="'Select from dropdown'">
+            <np-dropdown [(ngModel)]="dropdownVal3" [items]="data" [required]="true"
+                [placeholder]="'Select from dropdown'">
             </np-dropdown>
         </fieldset>
 
@@ -136,7 +154,8 @@
 
         <fieldset>
             <legend>Item template</legend>
-            <np-dropdown [(ngModel)]="dropdownVal5" [items]="dataFull" [displayKey]="'name'" [itemTemplate]="itemTemplate">
+            <np-dropdown [(ngModel)]="dropdownVal5" [items]="dataFull" [displayKey]="'name'"
+                [itemTemplate]="itemTemplate">
             </np-dropdown>
             <ng-template #itemTemplate let-item="item">
                 <div>{{item.name}} ( {{item.vitamin}} )</div>

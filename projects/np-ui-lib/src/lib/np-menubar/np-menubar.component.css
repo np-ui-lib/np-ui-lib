@@ -11,22 +11,22 @@
 }
 
 .np-mb-link {
-    padding: 8px 10px;
     color: #000000;
-    display: block;
     text-decoration: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 5px 10px;
 }
 
 .np-mb-link:hover {
     background-color: #eeeeee;
     color: #007bff;
-    text-decoration: none;
 }
 
-.np-mb-link span {
-    line-height: 24px;
-    vertical-align: middle;
+.np-mb-text {
+    flex: 1;
 }
 
 .np-mb-active {
@@ -49,8 +49,8 @@
     width: 100%;
 }
 
-.np-mb-horizontal>.np-mb-menu-item {
-    display: inline-block;
+.np-mb-horizontal {
+    display: flex;
 }
 
 .np-mb-submenu {
@@ -78,6 +78,5 @@
 }
 
 .np-mb-link i {
-    padding-right: 5px;
-    vertical-align: middle;
+    padding-right: 10px;
 }

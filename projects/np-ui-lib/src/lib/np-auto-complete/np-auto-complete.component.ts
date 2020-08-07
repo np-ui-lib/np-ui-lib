@@ -32,6 +32,8 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   @Input() itemTemplate: TemplateRef<any>;
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
+  @Input() orderBy: string;
+  @Input() orderDir: string;
   @Input() inputId = `np-auto-complete_${NpAutoCompleteComponent.controlCount++}`;
 
   @Output() onSearch: EventEmitter<any> = new EventEmitter();

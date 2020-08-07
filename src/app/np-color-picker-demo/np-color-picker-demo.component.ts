@@ -22,7 +22,7 @@ export class NpColorPickerDemoComponent implements OnInit {
   color10: string;
 
   importText = 'import { NpColorPickerModule } from \'np-ui-lib\';';
-  htmlText = '<np-color-picker [(ngModel)]="color1"></np-color-picker>';
+  htmlText = '<np-color-picker [(ngModel)]="value"></np-color-picker>';
 
   constructor() { }
 

@@ -28,7 +28,7 @@ export class NpDatePickerDemoComponent implements OnInit {
   date14: Date;
 
   importText = `import { NpDatePickerModule } from 'np-ui-lib';`;
-  htmlText = `<np-date-picker [(ngModel)]="date1"></np-date-picker>`;
+  htmlText = `<np-date-picker [(ngModel)]="value"></np-date-picker>`;
 
   constructor() { }
 

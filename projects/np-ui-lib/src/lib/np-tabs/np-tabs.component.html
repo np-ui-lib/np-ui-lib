@@ -1,15 +1,17 @@
-<div [ngClass]="{'np-tabs-component': true, 'np-tabs-horizontal':horizontalTabs}" [style.max-height.px]="height" [class]="styleClass" [attr.id]="inputId">
-    <ul class="np-tab-header">
+<div [ngClass]="{'np-tabs-component': true, 'np-tabs-horizontal':horizontalTabs}" [style.max-height.px]="height"
+    [class]="styleClass" [attr.id]="inputId">
+    <div class="np-tab-header">
         <ng-container *ngFor="let tab of tabs">
-            <li class="np-tab-title" (click)="_selectTab(tab)" [ngClass]="{'np-active-tab':tab.active,'np-disabled': tab.disabled}">
+            <div class="np-tab-title" (click)="_selectTab(tab)"
+                [ngClass]="{'np-active-tab':tab.active,'np-disabled': tab.disabled}">
                 <ng-container *ngIf="!tab.titleIsTemplate">
-                    <span [innerHTML]="tab.title"></span>
+                    <div [innerHTML]="tab.title"></div>
                 </ng-container>
                 <ng-template *ngIf="tab.titleIsTemplate" [ngTemplateOutlet]="tab.title">
                 </ng-template>
-            </li>
+            </div>
         </ng-container>
-    </ul>
+    </div>
     <div class="np-tab-body">
         <ng-content></ng-content>
     </div>

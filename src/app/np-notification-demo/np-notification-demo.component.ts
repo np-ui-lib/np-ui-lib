@@ -40,7 +40,7 @@ export class NpNotificationDemoComponent implements OnInit {
     this.notificationService.show(msg);
   }
 
-  removeAll() {
+  closeAll() {
     this.notificationService.closeAll();
   }
 

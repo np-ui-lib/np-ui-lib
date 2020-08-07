@@ -1,6 +1,8 @@
-<div [ngClass]="{'np-dd-component':true, 'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{'np-dd-component':true, 'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass"
+    [attr.id]="inputId">
     <div class="np-input-group">
-        <input class="np-form-control" autocomplete="off" type="text" [readonly]="true" [(ngModel)]="displayValue" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" [disabled]="isDisabled">
+        <input class="np-form-control" autocomplete="off" type="text" [readonly]="true" [(ngModel)]="displayValue"
+            [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" [disabled]="isDisabled">
         <div class="np-input-group-append">
             <div class="np-btn np-btn-icon" title="Clear" (click)="_clear()">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
@@ -14,12 +16,14 @@
     <ng-template #templatePortalContent>
         <div class="np-dd-overlay np-border">
             <div class="np-row np-no-gutters">
-                <div class="np-col-12" *ngFor="let item of items; let i = index;">
-                    <div class="np-dd-item" (click)="_selectValue(item)" [ngClass]="{'np-dd-selected': _isSelected(item)}">
+                <div class="np-col-12" *ngFor="let item of items | npOrderBy: orderBy : orderDir ; let i = index;">
+                    <div class="np-dd-item" (click)="_selectValue(item)"
+                        [ngClass]="{'np-dd-selected': _isSelected(item)}">
                         <ng-container *ngIf="!itemTemplate; else customTemplate">
                             <span [innerHTML]="displayKey ? item[displayKey] : item"></span>
                         </ng-container>
-                        <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}">
+                        <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
+                            [ngTemplateOutletContext]="{item: item}">
                         </ng-template>
                     </div>
                 </div>

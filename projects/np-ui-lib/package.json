@@ -1,17 +1,17 @@
 {
     "name": "np-ui-lib",
-    "version": "10.2.5",
+    "version": "10.2.6",
     "author": {
         "name": "nilav patel",
         "email": "nilavpatel1992@gmail.com",
         "url": "http://nilavpatel.github.io"
     },
     "peerDependencies": {
-        "@angular/common": "^10.0.1",
-        "@angular/core": "^10.0.1",
-        "@angular/cdk": "^10.0.1",
-        "@angular/forms": "^10.0.1",
-        "@angular/router": "^10.0.1",
+        "@angular/common": "^10.0.0",
+        "@angular/core": "^10.0.0",
+        "@angular/cdk": "^10.0.0",
+        "@angular/forms": "^10.0.0",
+        "@angular/router": "^10.0.0",
         "rxjs": "^6.5.5"
     },
     "dependencies": {

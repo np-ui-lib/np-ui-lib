@@ -34,16 +34,19 @@
 
 .np-tg-tag {
     margin: 2px 0px 0px 2px;
-    padding: 1px 1px 1px 10px;
     height: 100%;
     color: #fff;
     background-color: #007bff;
     border-radius: 2px;
+    display: flex;
+}
+
+.np-tg-tag div{
+    padding: 4px 4px 4px 10px;
 }
 
 .np-tg-close {
     display: flex;
-    margin: 0px 0px 0px 5px;
     padding: 0px;
     height: 24px;
     width: 24px;

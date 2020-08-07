@@ -70,6 +70,22 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>orderBy</td>
+                    <td>Set order by property</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>orderDir</td>
+                    <td>
+                        Set order direction 'asc' or 'desc'. Default value is 'asc'.
+                        <br>
+                        If data is type of string[], then only use orderDir.
+                    </td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>placeholder</td>
                     <td>Set placeholder</td>
                     <td>string</td>
@@ -128,7 +144,7 @@
                         onSearch(v: any)
                     </td>
                     <td>
-                        Callback event when search<br>
+                        Callback event on search<br>
                         <pre><code>{{onSearchText}}</code></pre>
                     </td>
                     <td>search keyword</td>
@@ -146,14 +162,16 @@
 
         <fieldset>
             <legend>2. disabled</legend>
-            <np-auto-complete [(ngModel)]="auto2" [searchResult]="searchResult2" (onSearch)="onSearch2($event)" disabled>
+            <np-auto-complete [(ngModel)]="auto2" [searchResult]="searchResult2" (onSearch)="onSearch2($event)"
+                disabled>
             </np-auto-complete>
         </fieldset>
 
         <fieldset>
             <legend>3. required</legend>
             <form #form="ngForm">
-                <np-auto-complete name="nameautosearch" #validations="ngModel" [(ngModel)]="auto3" [searchResult]="searchResult3" (onSearch)="onSearch3($event)" required>
+                <np-auto-complete name="nameautosearch" #validations="ngModel" [(ngModel)]="auto3"
+                    [searchResult]="searchResult3" (onSearch)="onSearch3($event)" required>
                 </np-auto-complete>
                 <div *ngIf="validations.control.touched && validations.control.errors?.required" class="np-text-danger">
                     Name is required.
@@ -165,33 +183,38 @@
 
         <fieldset>
             <legend>4. Bind change event</legend>
-            <np-auto-complete [(ngModel)]="auto4" [searchResult]="searchResult4" (onSearch)="onSearch4($event)" (onChange)="onChnage4($event)">
+            <np-auto-complete [(ngModel)]="auto4" [searchResult]="searchResult4" (onSearch)="onSearch4($event)"
+                (onChange)="onChnage4($event)">
             </np-auto-complete>
         </fieldset>
 
         <fieldset>
             <legend>5. Style class</legend>
-            <np-auto-complete [(ngModel)]="auto5" [searchResult]="searchResult5" [styleClass]="'myClass'" (onSearch)="onSearch5($event)">
+            <np-auto-complete [(ngModel)]="auto5" [searchResult]="searchResult5" [styleClass]="'myClass'"
+                (onSearch)="onSearch5($event)">
             </np-auto-complete>
         </fieldset>
 
         <fieldset>
             <legend>6. Allow to create new value</legend>
-            <np-auto-complete [(ngModel)]="auto6" [searchResult]="searchResult6" [allowCreateNew]="true" (onSearch)="onSearch6($event)">
+            <np-auto-complete [(ngModel)]="auto6" [searchResult]="searchResult6" [allowCreateNew]="true"
+                (onSearch)="onSearch6($event)">
             </np-auto-complete>
             <div>Selected value : {{auto6}}</div>
         </fieldset>
 
         <fieldset>
-            <legend>7. Display key for any[]</legend>
-            <np-auto-complete [(ngModel)]="auto7" [searchResult]="searchResult7" [allowCreateNew]="true" (onSearch)="onSearch7($event)" [displayKey]="'name'">
+            <legend>7. Display key for any[] + order by name + order direction ascending</legend>
+            <np-auto-complete [(ngModel)]="auto7" [searchResult]="searchResult7" [allowCreateNew]="true"
+                (onSearch)="onSearch7($event)" [displayKey]="'name'" [orderBy]="'name'" [orderDir]="'asc'">
             </np-auto-complete>
             <div>Selected value : {{auto7 | json}}</div>
         </fieldset>
 
         <fieldset>
             <legend>8. Item template</legend>
-            <np-auto-complete [(ngModel)]="auto8" [searchResult]="searchResult8" [allowCreateNew]="true" (onSearch)="onSearch8($event)" [displayKey]="'name'" [itemTemplate]="itemTemplateRef">
+            <np-auto-complete [(ngModel)]="auto8" [searchResult]="searchResult8" [allowCreateNew]="true"
+                (onSearch)="onSearch8($event)" [displayKey]="'name'" [itemTemplate]="itemTemplateRef">
             </np-auto-complete>
             <!-- Template for search item -->
             <ng-template #itemTemplateRef let-item="item" let-keyword="keyword">
@@ -202,19 +225,22 @@
 
         <fieldset>
             <legend>9. Max search result limit</legend>
-            <np-auto-complete [(ngModel)]="auto9" [searchResult]="searchResult9" (onSearch)="onSearch9($event)" [displayKey]="'name'" [maxResultLimit]="2">
+            <np-auto-complete [(ngModel)]="auto9" [searchResult]="searchResult9" (onSearch)="onSearch9($event)"
+                [displayKey]="'name'" [maxResultLimit]="2">
             </np-auto-complete>
         </fieldset>
 
         <fieldset>
             <legend>10. Placeholder</legend>
-            <np-auto-complete [(ngModel)]="auto10" [searchResult]="searchResult10" (onSearch)="onSearch10($event)" [displayKey]="'name'" placeholder="Search and Select name...">
+            <np-auto-complete [(ngModel)]="auto10" [searchResult]="searchResult10" (onSearch)="onSearch10($event)"
+                [displayKey]="'name'" placeholder="Search and Select name...">
             </np-auto-complete>
         </fieldset>
 
         <fieldset>
             <legend>11. Minimum search characters limit to search (After 3 characters)</legend>
-            <np-auto-complete [(ngModel)]="auto11" [searchResult]="searchResult11" (onSearch)="onSearch11($event)" [displayKey]="'name'" [minSearchCharLimit]="3">
+            <np-auto-complete [(ngModel)]="auto11" [searchResult]="searchResult11" (onSearch)="onSearch11($event)"
+                [displayKey]="'name'" [minSearchCharLimit]="3">
             </np-auto-complete>
         </fieldset>
     </np-tab>

@@ -42,6 +42,7 @@ export * from './lib/np-utility/np-utility.module';
 export * from './lib/np-utility/np-highlight.pipe';
 export * from './lib/np-utility/np-mask.directive';
 export * from './lib/np-utility/np-indeterminate.directive';
+export * from './lib/np-utility/np-orderby.pipe';
 
 /*Tooltip */
 export * from './lib/np-tooltip/np-tooltip.module';

@@ -27,9 +27,9 @@ export class DataGridDocComponent implements OnInit {
   <np-switch [(ngModel)]="row.Active" trueLabelText="Yes" falseLabelText="No"
   [readonly]="true"></np-switch>
 </ng-template>`;
-  cellClickEventText = `  onCellClick(event, column, data) {
-    alert('Column: ' + column.dataField + ' , rowKey:' + data.Id);
-  }`;
+  cellClickEventText = `onCellClick(event, column, data) {
+  alert('Column: ' + column.dataField + ' , rowKey:' + data.Id);
+}`;
   importDataSourceText = `import { DataSource } from \'np-ui-lib\';`;
   filterColText = `[{ dataField : string, filterOperator: string, filterValue: string, dataType: string}, ...]`;
   sortColText = `[{ dataField : string, sortDirection: string }, ...]`;

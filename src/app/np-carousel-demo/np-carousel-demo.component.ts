@@ -13,7 +13,7 @@ export class NpCarouselDemoComponent implements OnInit {
 </np-carousel>
 
 <ng-template #itemTemplate let-item="item">
-  <img [src]="item.imageUrl" class="ng-responsive-img">
+  <img [src]="item.imageUrl" class="np-responsive-img">
 </ng-template>`;
 
   @ViewChild('slider') slider: NpCarouselComponent;

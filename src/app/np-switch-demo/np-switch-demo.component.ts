@@ -17,7 +17,7 @@ export class NpSwitchDemoComponent implements OnInit {
   switch8 = true;
 
   importText = 'import { NpSwitchModule } from \'np-ui-lib\';';
-  htmlText = '<np-switch [(ngModel)]="switch1"></np-switch>';
+  htmlText = '<np-switch [(ngModel)]="value"></np-switch>';
 
   constructor() { }
 

@@ -49,6 +49,12 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>backDropClass</td>
+                    <td>Set backdrop class</td>
+                    <td>string</td>
+                    <td>np-pop-backdrop</td>
+                </tr>
+                <tr>
                     <td>styleClass</td>
                     <td>Set extra class on component</td>
                     <td>string</td>
@@ -92,11 +98,11 @@
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
-            <a np-popover [header]="'This is link A'" [body]="'Description of Link A.'">Link A : Popup on hover</a>
+            <a np-popover [header]="'This is link A'" [body]="'Description of Link A.'">Link A : Popover on hover</a>
         </fieldset>
 
         <fieldset>
-            <a np-popover [header]="'This is link B'" [body]="'Description of Link B.'" [placement]="'right'" [showOnClick]="true">Link B : Popup on click</a>
+            <a np-popover [header]="'This is link B'" [body]="'Description of Link B.'" [placement]="'right'" [showOnClick]="true">Link B : Popover on click</a>
         </fieldset>
 
         <fieldset>
@@ -111,19 +117,20 @@
         </fieldset>
 
         <fieldset>
-            <a np-popover #myPopoverD="NpPopoverDirective" [header]="'Step 1'" [body]="myPopoverDBody" [showOnClick]="true">Step 1</a>
+            <legend>backDropClass and Api example</legend>
+            <a np-popover #myPopoverD="NpPopoverDirective" [header]="'Step 1'" [body]="myPopoverDBody" [showOnClick]="true" [backDropClass]="'myBackDrop'">Step 1</a>
             <ng-template #myPopoverDBody>
                 Description of Step 1. Click on Next button to start tour.
                 <button type="button" class="np-btn" (click)="showE()">Next</button>
             </ng-template>
             <br>
-            <a np-popover #myPopoverE="NpPopoverDirective" [header]="'Step 2'" [body]="myPopoverEBody" [showOnClick]="true">Step 2</a>
+            <a np-popover #myPopoverE="NpPopoverDirective" [header]="'Step 2'" [body]="myPopoverEBody" [showOnClick]="true" [backDropClass]="'myBackDrop'">Step 2</a>
             <ng-template #myPopoverEBody>
                 Description of Step 2. Read and Wait for Next button.
-                <button *ngIf="showNext" type="button" class="np-btn" (click)="showF()">Next</button>
+                <button type="button" class="np-btn" (click)="showF()">Next</button>
             </ng-template>
             <br>
-            <a np-popover #myPopoverF="NpPopoverDirective" [header]="'Step 3'" [body]="myPopoverFBody" [showOnClick]="true">Step 3</a>
+            <a np-popover #myPopoverF="NpPopoverDirective" [header]="'Step 3'" [body]="myPopoverFBody" [showOnClick]="true" [backDropClass]="'myBackDrop'">Step 3</a>
             <ng-template #myPopoverFBody>
                 Description of Step 3. Click on Close button to end tour.
                 <button type="button" class="np-btn" (click)="closeF()">Close</button>

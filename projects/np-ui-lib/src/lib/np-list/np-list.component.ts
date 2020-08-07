@@ -15,6 +15,8 @@ export class NpListComponent implements OnInit {
   @Input() itemTemplate: TemplateRef<any>;
   @Input() allowSelection = false;
   @Input() height: number;
+  @Input() orderBy: string;
+  @Input() orderDir: string;
   @Input() styleClass: string;
   @Input() inputId = `np-list_${NpListComponent.controlCount++}`;
 

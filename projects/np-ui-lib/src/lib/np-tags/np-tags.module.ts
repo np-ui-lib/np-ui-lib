@@ -18,7 +18,6 @@ import { NpTreeViewModule } from '../np-tree-view/np-tree-view.module';
     NpUtilityModule,
     NpTreeViewModule
   ],
-  providers: [NpHightLightPipe],
   exports: [NpTagsComponent]
 })
 export class NpTagsModule { }

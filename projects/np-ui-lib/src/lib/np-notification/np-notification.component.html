@@ -1,39 +1,35 @@
 <div *ngIf="messageService" [ngClass]="'np-nt-component'" [class]="styleClass" [attr.id]="inputId">
     <ng-container *ngFor="let msg of messageService.messages.reverse()">
-        <div class="np-row np-no-gutters np-alert" [attr.id]="msg.id" [ngClass]="{'np-alert-success': msg.type==='success',
-                'np-alert-danger': msg.type==='error',
-                'np-alert-warning': msg.type==='warning',
-                'np-alert-info': msg.type==='info'}">
-            <div class="np-col-12">
-                <div class="np-row np-no-gutters">
-                    <div class="np-col-auto np-alert-icons">
-                        <svg class="np-icon" viewBox="0 0 24 24" *ngIf="msg.type ==='Success'">
-                            <path d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                        </svg>
-                        <svg class="np-icon" viewBox="0 0 24 24" *ngIf="msg.type ==='Error'">
-                            <path d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-                        </svg>
-                        <svg class="np-icon" viewBox="0 0 24 24" *ngIf="msg.type ==='Warning'">
-                            <path d="M0 0h24v24H0z" fill="none" />
-                            <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
-                        </svg>
-                        <svg class="np-icon" viewBox="0 0 24 24" *ngIf="msg.type ==='Info'">
-                            <path d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-                        </svg>
-                    </div>
-                    <div class="np-col-auto">
-                        <div class="np-alert-header" *ngIf="msg.header" [innerHTML]="msg.header"></div>
-                        <div [innerHTML]="msg.message"></div>
-                    </div>
-                </div>
+        <div class="np-alert" [attr.id]="msg.id" [ngClass]="{'np-alert-success': msg.type==='success',
+                'np-alert-danger': msg.type ==='error',
+                'np-alert-warning': msg.type ==='warning',
+                'np-alert-info': msg.type ==='info'}">
+            <div class="np-alert-icon">
+                <svg class="np-icon" viewBox="0 0 24 24" *ngIf="msg.type ==='success'">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                </svg>
+                <svg class="np-icon" viewBox="0 0 24 24" *ngIf="msg.type ==='error'">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                </svg>
+                <svg class="np-icon" viewBox="0 0 24 24" *ngIf="msg.type ==='warning'">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+                </svg>
+                <svg class="np-icon" viewBox="0 0 24 24" *ngIf="msg.type ==='info'">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                </svg>
             </div>
-            <button type="button" class="np-btn np-btn-icon np-nt-close" title="Close" (click)="_close(msg)">
+            <div class="np-alert-message">
+                <div class="np-alert-header" *ngIf="msg.header" [innerHTML]="msg.header"></div>
+                <div class="np-alert-text" [innerHTML]="msg.message"></div>
+            </div>
+            <button type="button" class="np-btn np-btn-icon" title="Close" (click)="_close(msg)">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path
                         d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />

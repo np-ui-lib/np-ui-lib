@@ -8,22 +8,22 @@
 }
 
 .np-pn-header {
-    padding-left: 10px;
     background-color: #f5f5f5;
     font-weight: bold;
+    display: flex;
+    min-height: 32px;
+    align-items: center;
 }
 
 .np-pn-title {
+    flex: 1;
+    padding-left: 10px;
     display: flex;
+    align-items: center;
 }
 
-.np-pn-header i {
+.np-pn-title i {
     padding-right: 5px;
-    vertical-align: middle;
-}
-
-.np-pn-header .np-row {
-    min-height: 32px;
 }
 
 .np-pn-body {

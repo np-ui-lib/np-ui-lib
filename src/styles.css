@@ -84,9 +84,12 @@ header {
 .logo-link {
     margin-left: auto;
     padding: 0px 10px;
-    font-size: 30px;
     color: white;
     cursor: pointer;
+}
+
+.logo-link i{
+    font-size: 30px !important;
 }
 
 section {
@@ -111,8 +114,6 @@ nav {
 .my-nav {
     width: 100% !important;
     border: none !important;
-    position: fixed;
-    left: 0px;
     padding: 10px 0px;
 }
 
@@ -152,13 +153,17 @@ footer {
 
 pre{
     line-height: 20px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    overflow: auto;
 }
 
-.dashboard-card{
+.dashboard-card {
     background-color: #f5f5f5 !important;
 }
 
-.dashboard-card h1{
+.dashboard-card h1 {
     font-weight: 22px;;
     margin: 10px 0px;
 }
@@ -171,4 +176,13 @@ pre{
 .dashboard-card i {
     padding-right: 10px;
     color: #007bff !important;
+    font-size: 16px !important;
+}
+
+.fa {
+    font-size: 24px;
+}
+
+.np-input-group-append .fa, .dashboard-card .fa {
+    font-size: 20px;
 }

@@ -1,6 +1,8 @@
-<div [ngClass]="{'np-ac-component':true, 'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{'np-ac-component':true, 'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass"
+    [attr.id]="inputId">
     <div class="np-input-group">
-        <input class="np-form-control" type="text" [(ngModel)]="displayValue" [placeholder]="placeholder" (input)="_onInput()" (keydown)="_onKeydown($event)" [disabled]="isDisabled" autocomplete="off">
+        <input class="np-form-control" type="text" [(ngModel)]="displayValue" [placeholder]="placeholder"
+            (input)="_onInput()" (keydown)="_onKeydown($event)" [disabled]="isDisabled" autocomplete="off">
         <div class="np-input-group-append">
             <div class="np-ac-loader" *ngIf="isLoading">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
@@ -23,12 +25,14 @@
     <ng-template #templatePortalContent>
         <div class="np-ac-overlay np-border">
             <div class="np-row np-no-gutters">
-                <div class="np-col-12" *ngFor="let item of options; let i = index;">
+                <div class="np-col-12" *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index;">
                     <div class="np-ac-search-item" (click)="_selectValue(item)">
                         <ng-container *ngIf="!itemTemplate; else customTemplate">
-                            <span [innerHTML]="(displayKey ? item[displayKey] : item) | npHighLight : displayValue"></span>
+                            <span
+                                [innerHTML]="(displayKey ? item[displayKey] : item) | npHighLight : displayValue"></span>
                         </ng-container>
-                        <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item, keyword: displayValue}">
+                        <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
+                            [ngTemplateOutletContext]="{item: item, keyword: displayValue}">
                         </ng-template>
                     </div>
                 </div>

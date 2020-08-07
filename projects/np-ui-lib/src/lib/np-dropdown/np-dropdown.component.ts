@@ -27,6 +27,8 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   @Input() placeholder = '';
   @Input() itemTemplate: TemplateRef<any>;
   @Input() readonly: boolean;
+  @Input() orderBy: string;
+  @Input() orderDir: string;
   @Input() styleClass: string;
   @Input() inputId = `np-dropdown_${NpDropdownComponent.controlCount++}`;
 

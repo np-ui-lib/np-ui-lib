@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
 import { NpUtilityModule } from '../np-utility/np-utility.module';
+import { NpOrderByPipe } from '../np-utility/np-orderby.pipe';
 
 @NgModule({
   declarations: [NpDropdownComponent],
