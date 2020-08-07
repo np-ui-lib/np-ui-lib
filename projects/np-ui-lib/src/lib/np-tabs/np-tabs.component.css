@@ -8,9 +8,8 @@
 
 .np-tab-body {
     padding: 10px;
-    flex: 1;
+    width: 100%;
     overflow: auto;
-    background-color: #ffffff;
 }
 
 .np-tab-header {
@@ -20,7 +19,6 @@
     background-color: #f5f5f5;
     font-weight: bold;
     display: flex;
-    align-items: center;
 }
 
 .np-tab-title {

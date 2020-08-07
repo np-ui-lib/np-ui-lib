@@ -26,14 +26,14 @@
                 </tr>
                 <tr>
                     <td>height</td>
-                    <td>Set height of modal in px</td>
-                    <td>number</td>
+                    <td>Set height, if pass as number then it will take it in px. Like '100%', '100px', 200</td>
+                    <td>string | number</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>width</td>
-                    <td>Set width of modal in px</td>
-                    <td>number</td>
+                    <td>Set width, if pass as number then it will take it in px. Like '100%', '100px', 200</td>
+                    <td>string | number</td>
                     <td></td>
                 </tr>
                 <tr>
@@ -165,13 +165,15 @@
                                 <div class="np-col-6">
                                     <div class="np-form-group">
                                         <div class="np-form-label np-required">First name:</div>
-                                        <input type="text" class="np-form-control" formControlName="firstName" required name="txtFirstName">
+                                        <input type="text" class="np-form-control" formControlName="firstName" required
+                                            name="txtFirstName">
                                     </div>
                                 </div>
                                 <div class="np-col-6">
                                     <div class="np-form-group">
                                         <div class="np-form-label np-required">Last name:</div>
-                                        <input type="text" class="np-form-control" formControlName="lastName" required name="txtLastName">
+                                        <input type="text" class="np-form-control" formControlName="lastName" required
+                                            name="txtLastName">
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +188,8 @@
                                 <div class="np-col-6">
                                     <div class="np-form-group">
                                         <div class="np-form-label np-required">Birth time:</div>
-                                        <np-time-picker formControlName="birthTime" name="txtBirthTime" [required]="true">
+                                        <np-time-picker formControlName="birthTime" name="txtBirthTime"
+                                            [required]="true">
                                         </np-time-picker>
                                     </div>
                                 </div>
@@ -204,7 +207,8 @@
                                 <div class="np-col-12">
                                     <div class="np-form-group">
                                         <div class="np-form-label">Description:</div>
-                                        <textarea class="np-form-control" rows="3" formControlName="description" name="txtDescription"></textarea>
+                                        <textarea class="np-form-control" rows="3" formControlName="description"
+                                            name="txtDescription"></textarea>
                                     </div>
                                 </div>
                             </div>

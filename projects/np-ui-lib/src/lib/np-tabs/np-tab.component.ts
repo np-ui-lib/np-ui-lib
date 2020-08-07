@@ -12,7 +12,6 @@ export class NpTabComponent implements OnInit {
     @Input() title: string | TemplateRef<any>;
     @Input() active = false;
     @Input() disabled = false;
-    @Input() height: number;
     @Input() inputId = `np-tab_${NpTabComponent.controlCount++}`;
 
     isLoadingFirstTime = true;

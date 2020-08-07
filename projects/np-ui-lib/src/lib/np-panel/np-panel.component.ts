@@ -36,6 +36,9 @@ export class NpPanelComponent implements OnInit {
   }
 
   _toggleMinimize() {
+    if (this.isZoom) {
+      return;
+    }
     if (this.isOpen) {
       this._collapse();
     } else {

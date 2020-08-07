@@ -32,6 +32,12 @@
                     <td>false</td>
                 </tr>
                 <tr>
+                    <td>height</td>
+                    <td>Set height of tabs in px</td>
+                    <td>number</td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>styleClass</td>
                     <td>Set extra class on component</td>
                     <td>string</td>
@@ -71,12 +77,6 @@
                     <td>Set tab as disabled</td>
                     <td>boolean</td>
                     <td>false</td>
-                </tr>
-                <tr>
-                    <td>height</td>
-                    <td>Set height of tab in px</td>
-                    <td>number</td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td>isLoadingFirstTime</td>
@@ -146,13 +146,15 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Tabs basic</legend>
-            <np-tabs #tabs>
+            <np-tabs #tabs [height]="200">
                 <np-tab [title]="'Tab1'">
                     <h1>
                         Tab 1
                     </h1>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                 </np-tab>
@@ -164,7 +166,9 @@
                         Tab 2
                     </h1>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                 </np-tab>
@@ -173,28 +177,38 @@
                         Tab 3
                     </h1>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                 </np-tab>
-                <np-tab [title]="'Tab4'" [height]="200" *ngIf="isTab4Visible">
+                <np-tab [title]="'Tab4'" *ngIf="isTab4Visible">
                     <h1>
                         Tab 4
                     </h1>
                     <p>
-                        A first paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs
+                        A first paragraph is a series of related sentences developing a central idea, called the topic.
+                        Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group
+                        of sentences that supports one central, unified idea. Paragraphs
                         add one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A last paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs
+                        A last paragraph is a series of related sentences developing a central idea, called the topic.
+                        Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group
+                        of sentences that supports one central, unified idea. Paragraphs
                         add one idea at a time to your broader argument.
                     </p>
                 </np-tab>
@@ -211,40 +225,52 @@
 
         <fieldset>
             <legend>Horizontal tabs</legend>
-            <np-tabs (onTabChange)="onTabChange($event)" #tabs2 [horizontalTabs]="true">
+            <np-tabs (onTabChange)="onTabChange($event)" #tabs2 [horizontalTabs]="true" [height]="200">
                 <np-tab [title]="'Tab1'">
                     <h1>
                         Tab 1 , Check console for isLoadingFirstTime flag value.
                     </h1>
                     <h1>
-                        This isLoadingFirstTime flag is used to know tab is open for first time. This helps in loading data from cache.
+                        This isLoadingFirstTime flag is used to know tab is open for first time. This helps in loading
+                        data from cache.
                     </h1>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                 </np-tab>
-                <np-tab [title]="'Tab2'" [active]="true" [height]="200">
+                <np-tab [title]="'Tab2'" [active]="true">
                     <h1>
                         Tab 2 , Check console for isLoadingFirstTime flag value
                     </h1>
                     <h1>
-                        This isLoadingFirstTime flag is used to know tab is open for first time. This helps in loading data from cache.
+                        This isLoadingFirstTime flag is used to know tab is open for first time. This helps in loading
+                        data from cache.
                     </h1>
                     <p>
-                        A first paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs
+                        A first paragraph is a series of related sentences developing a central idea, called the topic.
+                        Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group
+                        of sentences that supports one central, unified idea. Paragraphs
                         add one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A last paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs
+                        A last paragraph is a series of related sentences developing a central idea, called the topic.
+                        Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group
+                        of sentences that supports one central, unified idea. Paragraphs
                         add one idea at a time to your broader argument.
                     </p>
                 </np-tab>

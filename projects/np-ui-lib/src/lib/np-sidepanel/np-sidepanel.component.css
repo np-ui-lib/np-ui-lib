@@ -39,6 +39,6 @@
 
 .np-sp-content {
     padding: 10px;
-    flex: 1;
+    height: 100%;
     overflow: auto;
 }

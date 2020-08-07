@@ -15,12 +15,11 @@ export class NpTabsComponent implements AfterContentInit {
   @ContentChildren(NpTabComponent) tabs: QueryList<NpTabComponent>;
 
   @Input() horizontalTabs: boolean;
+  @Input() height: number;
   @Input() styleClass: string;
   @Input() inputId = `np-tabs_${NpTabsComponent.controlCount++}`;
 
   @Output() onTabChange: EventEmitter<any> = new EventEmitter();
-
-  height: number;
 
   ngAfterContentInit() {
     // if default active and not disabled tab is present then select it.
@@ -31,12 +30,10 @@ export class NpTabsComponent implements AfterContentInit {
       if (tabs) {
         this.tabs.toArray().forEach(tab => tab.active = false);
         tabs[0].active = true;
-        this.height = tabs[0].height;
         this.onTabChange.emit(tabs[0]);
         tabs[0].isLoadingFirstTime = false;
       }
     } else {
-      this.height = activeTabs[0].height;
       this.onTabChange.emit(activeTabs[0]);
       activeTabs[0].isLoadingFirstTime = false;
     }
@@ -48,7 +45,6 @@ export class NpTabsComponent implements AfterContentInit {
     }
     this.tabs.toArray().forEach(element => { if (element.inputId !== tab.inputId) { element.active = false; } });
     tab.active = true;
-    this.height = tab.height;
     this.onTabChange.emit(tab);
     tab.isLoadingFirstTime = false;
   }

@@ -374,7 +374,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
 
   _checkIsWeekDayDisabled(index: number) {
     const day = this.weekDays[index];
-    return this.disableWeekDays.includes(day);
+    return this.disableWeekDays.indexOf(day) > -1;
   }
 
   _checkIsFullDateDisabled(date: Date) {
