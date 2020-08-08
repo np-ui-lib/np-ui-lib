@@ -1,5 +1,6 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, QueryList, AfterContentInit, Input } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, QueryList, AfterContentInit, Input, OnDestroy } from '@angular/core';
 import { NpPanelComponent } from '../np-panel/np-panel.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'np-accordion',
@@ -8,7 +9,8 @@ import { NpPanelComponent } from '../np-panel/np-panel.component';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class NpAccordionComponent implements AfterContentInit {
+export class NpAccordionComponent implements AfterContentInit, OnDestroy {
+
   static controlCount = 1;
 
   @ContentChildren(NpPanelComponent) panels: QueryList<NpPanelComponent>;
@@ -18,25 +20,33 @@ export class NpAccordionComponent implements AfterContentInit {
   @Input() styleClass: string;
   @Input() inputId = `np-accordion_${NpAccordionComponent.controlCount++}`;
 
+  subscriptions: Subscription[] = [];
+
   ngAfterContentInit(): void {
     this.panels.toArray().forEach(panel => {
       panel.isOpen = this.allowMultipleOpen ? panel.isOpen : false;
       panel.allowToMinimize = true;
       panel.allowToClose = false;
       panel.allowToZoom = false;
-      panel.onExpand.subscribe((pan: NpPanelComponent) => {
-        if (!this.allowMultipleOpen) {
-          this.panels.toArray().forEach(element => {
-            if (element.inputId !== pan.inputId) {
-              element._collapse();
-            }
-          });
-        }
-      });
+      this.subscriptions.push(
+        panel.onExpand.subscribe((pan: NpPanelComponent) => {
+          if (!this.allowMultipleOpen) {
+            this.panels.toArray().forEach(element => {
+              if (element.inputId !== pan.inputId) {
+                element._collapse();
+              }
+            });
+          }
+        })
+      );
     });
     if (this.defaultOpenIndex >= 0) {
       this.expandByIndex(this.defaultOpenIndex);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(element => element.unsubscribe());
   }
 
   expandByIndex(idx: number) {

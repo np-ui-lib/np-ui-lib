@@ -3,6 +3,7 @@ import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpMenubarComponent } from './np-menubar.component';
 import { NpMenuItem } from './np-menu.model';
+import { Subscription } from 'rxjs';
 
 @Directive({ selector: '[np-popup-menubar]' })
 export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
@@ -11,6 +12,8 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
     @Input() styleClass: string;
 
     @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
+
+    subscription: Subscription;
 
     private overlayRef: OverlayRef;
 
@@ -33,14 +36,19 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
             scrollStrategy: this.overlay.scrollStrategies.reposition()
         });
         this.overlayRef.backdropClick().subscribe(() => this._close());
-        this.onClickMenuItem.subscribe(() => {
-            this._close();
+        this.subscription = this.onClickMenuItem.subscribe(() => {
+            setTimeout(() => {
+                this._close();
+            }, 100);
         });
     }
 
     ngOnDestroy() {
         if (this.overlayRef.hasAttached()) {
             this._close();
+        }
+        if (this.subscription) {
+            this.subscription.unsubscribe();
         }
     }
 
