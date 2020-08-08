@@ -1,6 +1,5 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, Output, EventEmitter, AfterContentInit } from '@angular/core';
 import { NpMenuItem } from './np-menu.model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'np-menubar',
@@ -9,7 +8,7 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpMenubarComponent {
+export class NpMenubarComponent implements AfterContentInit {
   static controlCount = 1;
 
   @Input() items: NpMenuItem[];
@@ -18,46 +17,30 @@ export class NpMenubarComponent {
   @Input() styleClass: string;
   @Input() inputId = `np-menubar_${NpMenubarComponent.controlCount++}`;
 
-  @Output() onCloseMenu: EventEmitter<any> = new EventEmitter();
   @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
-  _onMouseEnter($event, item: NpMenuItem) {
-    if (this.orientation === 'vertical') {
-      item.x = $event.target.offsetWidth;
-      item.y = 0;
+  ngAfterContentInit(): void {
+    if (!this.isPanelMenu) {
+      this.onClickMenuItem.subscribe(() => {
+        this.items.forEach(element => {
+          if (element.items) {
+            this._collapseMenu(element);
+          }
+        });
+      });
     }
-    else {
-      item.x = 0;
-      item.y = $event.target.offsetHeight;
-    }
-    item.isItemsVisible = true;
   }
 
-  _onClickPanelMenu(item: NpMenuItem) {
-    item.isItemsVisible = !item.isItemsVisible;
-  }
-
-  _onMouseLeave(item: NpMenuItem) {
-    item.isItemsVisible = false;
-  }
-
-  _onClickMenu(item: NpMenuItem) {
-    this.onClickMenuItem.emit(item);
-    this.onCloseMenu.emit();
-  }
-
-  _closeParentMenu() {
-    this.items.forEach(element => {
-      element.isItemsVisible = false;
+  _collapseMenu(item: NpMenuItem) {
+    item.items.forEach(element => {
+      if (element.items) {
+        this._collapseMenu(element);
+      }
     });
-    this.onCloseMenu.emit();
-  }
-
-  _isActive(item: NpMenuItem) {
-    return this.router.isActive(item.routerLink, false);
+    item.isChildVisible = false;
   }
 
   _onClickMenuItem(item: NpMenuItem) {

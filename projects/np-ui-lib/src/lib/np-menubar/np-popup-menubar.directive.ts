@@ -33,6 +33,9 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
             scrollStrategy: this.overlay.scrollStrategies.reposition()
         });
         this.overlayRef.backdropClick().subscribe(() => this._close());
+        this.onClickMenuItem.subscribe(() => {
+            this._close();
+        });
     }
 
     ngOnDestroy() {
@@ -55,8 +58,6 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
         const menubarRef: ComponentRef<NpMenubarComponent> = this.overlayRef.attach(menubarPortal);
         menubarRef.instance.items = this.items;
         menubarRef.instance.styleClass = this.styleClass;
-        menubarRef.instance.onCloseMenu = new EventEmitter();
-        menubarRef.instance.onCloseMenu.subscribe(() => this._close());
         menubarRef.instance.onClickMenuItem = this.onClickMenuItem;
     }
 

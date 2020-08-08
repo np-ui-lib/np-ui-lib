@@ -55,7 +55,7 @@ export class NpMenubarDemoComponent implements OnInit {
           ]
         }),
         new NpMenuItem({
-          label: 'Menu 4.2', items: [
+          label: 'Menu 4.2', visible: false, items: [
             new NpMenuItem({ label: 'Menu 4.2.1', url: '/menu4.2.1' }),
             new NpMenuItem({ label: 'Menu 4.2.2', url: '/menu4.2.2' }),
             new NpMenuItem({ label: 'Menu 4.2.3', url: '/menu4.2.3' }),
@@ -98,7 +98,7 @@ export class NpMenubarDemoComponent implements OnInit {
           ]
         }),
         new NpMenuItem({
-          label: 'Menu 4.2', items: [
+          label: 'Menu 4.2', visible: false, items: [
             new NpMenuItem({ label: 'Menu 4.2.1', url: '/menu4.2.1' }),
             new NpMenuItem({ label: 'Menu 4.2.2', url: '/menu4.2.2' }),
             new NpMenuItem({ label: 'Menu 4.2.3', url: '/menu4.2.3' }),
@@ -141,7 +141,7 @@ export class NpMenubarDemoComponent implements OnInit {
           ]
         }),
         new NpMenuItem({
-          label: 'Menu 4.2', items: [
+          label: 'Menu 4.2', visible: false, items: [
             new NpMenuItem({ label: 'Menu 4.2.1', url: '/menu4.2.1' }),
             new NpMenuItem({ label: 'Menu 4.2.2', url: '/menu4.2.2' }),
             new NpMenuItem({ label: 'Menu 4.2.3', url: '/menu4.2.3' }),
@@ -184,7 +184,7 @@ export class NpMenubarDemoComponent implements OnInit {
           ]
         }),
         new NpMenuItem({
-          label: 'Menu 4.2', items: [
+          label: 'Menu 4.2', visible: false, items: [
             new NpMenuItem({ label: 'Menu 4.2.1', url: '/menu4.2.1' }),
             new NpMenuItem({ label: 'Menu 4.2.2', url: '/menu4.2.2' }),
             new NpMenuItem({ label: 'Menu 4.2.3', url: '/menu4.2.3' }),
