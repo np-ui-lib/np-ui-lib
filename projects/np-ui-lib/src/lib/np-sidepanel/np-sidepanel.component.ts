@@ -21,6 +21,7 @@ export class NpSidepanelComponent implements OnInit {
   @Input() showCloseIcon = true;
   @Input() closeOnClickOutside = true;
   @Input() backDropClass = 'np-sp-backdrop';
+  @Input() hasBackDrop = true;
   @Input() styleClass: string;
   @Input() inputId = `np-sidepanel_${NpSidepanelComponent.controlCount++}`;
 
@@ -58,7 +59,7 @@ export class NpSidepanelComponent implements OnInit {
       }
       this.overlayRef = this.overlay.create({
         positionStrategy,
-        hasBackdrop: true,
+        hasBackdrop: this.hasBackDrop,
         backdropClass: this.backDropClass,
         height: this.height,
         width: this.width,

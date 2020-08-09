@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NpModalComponent } from 'np-ui-lib';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-np-modal-demo',
@@ -35,12 +35,12 @@ export class NpModalDemoComponent implements OnInit {
   @ViewChild('modalDemo2', { static: true }) modalDemo2: NpModalComponent;
 
   myForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    birthDate: new FormControl(null),
-    birthTime: new FormControl(''),
-    isActive: new FormControl(false),
-    description: new FormControl(''),
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    birthDate: new FormControl(null, Validators.required),
+    birthTime: new FormControl('', Validators.required),
+    isActive: new FormControl(false, Validators.required),
+    description: new FormControl('', Validators.required),
   });
 
   ngOnInit(): void {

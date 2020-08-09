@@ -16,6 +16,7 @@ export class NpModalComponent {
   @Input() width: number;
   @Input() closeOnClickOutside = true;
   @Input() backDropClass = 'np-mod-backdrop';
+  @Input() hasBackDrop = true;
   @Input() styleClass: string;
   @Input() inputId = `np-modal_${NpModalComponent.controlCount++}`;
 
@@ -46,7 +47,7 @@ export class NpModalComponent {
       const positionStrategy = this.overlayPositionBuilder.global().centerHorizontally().centerVertically();
       this.overlayRef = this.overlay.create({
         positionStrategy,
-        hasBackdrop: true,
+        hasBackdrop: this.hasBackDrop,
         backdropClass: this.backDropClass,
         height: this.height,
         width: this.width,

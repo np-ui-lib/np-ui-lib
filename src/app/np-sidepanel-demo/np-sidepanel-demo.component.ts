@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NpSidepanelComponent } from 'np-ui-lib';
 
 @Component({
@@ -28,12 +28,12 @@ export class NpSidepanelDemoComponent implements OnInit {
   description: string;
 
   myForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    birthDate: new FormControl(null),
-    birthTime: new FormControl(''),
-    isActive: new FormControl(false),
-    description: new FormControl(''),
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    birthDate: new FormControl(null, Validators.required),
+    birthTime: new FormControl('', Validators.required),
+    isActive: new FormControl(false, Validators.required),
+    description: new FormControl('', Validators.required),
   });
 
   @ViewChild('sidePanelLeft', { static: true }) sidePanelLeft: NpSidepanelComponent;

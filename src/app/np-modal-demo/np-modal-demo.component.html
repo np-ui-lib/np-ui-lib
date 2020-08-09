@@ -43,6 +43,12 @@
                     <td>true</td>
                 </tr>
                 <tr>
+                    <td>hasBackDrop</td>
+                    <td>Show backdrop or not</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                </tr>
+                <tr>
                     <td>backDropClass</td>
                     <td>Set backdrop class</td>
                     <td>string</td>
@@ -120,7 +126,7 @@
     <np-tab title="Examples">
 
         <fieldset>
-            <np-modal #modalDemo [height]="250" [width]="500">
+            <np-modal #modalDemo [height]="250" [width]="500" [hasBackDrop]="false">
                 <np-modal-header>
                     Header
                 </np-modal-header>
@@ -165,14 +171,14 @@
                                 <div class="np-col-6">
                                     <div class="np-form-group">
                                         <div class="np-form-label np-required">First name:</div>
-                                        <input type="text" class="np-form-control" formControlName="firstName" required
+                                        <input type="text" class="np-form-control" formControlName="firstName"
                                             name="txtFirstName">
                                     </div>
                                 </div>
                                 <div class="np-col-6">
                                     <div class="np-form-group">
                                         <div class="np-form-label np-required">Last name:</div>
-                                        <input type="text" class="np-form-control" formControlName="lastName" required
+                                        <input type="text" class="np-form-control" formControlName="lastName"
                                             name="txtLastName">
                                     </div>
                                 </div>
@@ -181,15 +187,14 @@
                                 <div class="np-col-6">
                                     <div class="np-form-group">
                                         <div class="np-form-label np-required">Birth date:</div>
-                                        <np-date-picker formControlName="birthDate" name="txtBirthDate" required>
+                                        <np-date-picker formControlName="birthDate" name="txtBirthDate">
                                         </np-date-picker>
                                     </div>
                                 </div>
                                 <div class="np-col-6">
                                     <div class="np-form-group">
                                         <div class="np-form-label np-required">Birth time:</div>
-                                        <np-time-picker formControlName="birthTime" name="txtBirthTime"
-                                            [required]="true">
+                                        <np-time-picker formControlName="birthTime" name="txtBirthTime">
                                         </np-time-picker>
                                     </div>
                                 </div>
@@ -198,7 +203,7 @@
                                 <div class="np-col-12">
                                     <div class="np-form-group">
                                         <div class="np-form-label np-required">Is Active:</div>
-                                        <np-switch formControlName="isActive" name="swIsActive" [required]="true">
+                                        <np-switch formControlName="isActive" name="swIsActive">
                                         </np-switch>
                                     </div>
                                 </div>
@@ -206,7 +211,7 @@
                             <div class="np-row">
                                 <div class="np-col-12">
                                     <div class="np-form-group">
-                                        <div class="np-form-label">Description:</div>
+                                        <div class="np-form-label np-required">Description:</div>
                                         <textarea class="np-form-control" rows="3" formControlName="description"
                                             name="txtDescription"></textarea>
                                     </div>
