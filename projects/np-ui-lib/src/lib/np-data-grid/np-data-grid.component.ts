@@ -492,6 +492,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _isOpenChild(keyValue: any) {
+    if (!this.enableMasterChild) {
+      return false;
+    }
     return this.openRowKeys.indexOf(keyValue) > -1;
   }
 
@@ -943,5 +946,13 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   _getCurrentPageStatistics() {
     return `per page / ${this.pagerObj.startIndex >= 0 ? this.pagerObj.startIndex + 1 : 0} - ${this.pagerObj.endIndex + 1} of ${this.pagerObj.totalItems}`;
+  }
+
+  _allowRowSelection() {
+    return this.singleRowSelectEnable || this.multiRowSelectEnable;
+  }
+
+  _getColSpanForChildRow() {
+    return this.visibleColumns.length + (this._allowRowSelection() ? 1 : 0) + 1;
   }
 }
