@@ -148,3 +148,9 @@ export * from './lib/np-virtual-scroll/np-virtual-scroll.component';
 /*Dialog */
 export * from './lib/np-dialog/np-dialog.module';
 export * from './lib/np-dialog/np-dialog.component';
+
+/*Steps */
+export * from './lib/np-steps/np-steps.module';
+export * from './lib/np-steps/np-steps.component';
+export * from './lib/np-steps/np-step.component';
+export * from './lib/np-steps/np-step-buttons.directive';

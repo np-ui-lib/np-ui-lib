@@ -16,39 +16,40 @@
 npm i np-ui-lib
 ````
 ### List of components:
-1. [Date Picker](https://github.com/NilavPatel/np-ui-package/wiki/Date-Picker)
-1. [Time Picker](https://github.com/NilavPatel/np-ui-package/wiki/Time-Picker)
-1. [Color Picker](https://github.com/NilavPatel/np-ui-package/wiki/Color-Picker)
-1. [Switch](https://github.com/NilavPatel/np-ui-package/wiki/Switch)
-1. [Dropdown](https://github.com/NilavPatel/np-ui-package/wiki/Dropdown)
-1. [Auto Complete](https://github.com/NilavPatel/np-ui-package/wiki/Auto-Complete)
-1. [Tags](https://github.com/NilavPatel/np-ui-package/wiki/Tags)
-1. [Number box](https://github.com/NilavPatel/np-ui-package/wiki/Number-Box)
-1. [File Upload](https://github.com/NilavPatel/np-ui-package/wiki/File-Upload)
-1. [Slider](https://github.com/NilavPatel/np-ui-package/wiki/Slider)
-1. [Menubar](https://github.com/NilavPatel/np-ui-package/wiki/Menubar)
-1. [Breadcrumb](https://github.com/NilavPatel/np-ui-package/wiki/Breadcrumb)
-1. [Data Grid](https://github.com/NilavPatel/np-ui-package/wiki/Data-Grid)
-1. [Alert](https://github.com/NilavPatel/np-ui-package/wiki/Alert)
-1. [Notification](https://github.com/NilavPatel/np-ui-package/wiki/Notification)
-1. [Tooltip](https://github.com/NilavPatel/np-ui-package/wiki/Tooltip)
-1. [Popover](https://github.com/NilavPatel/np-ui-package/wiki/Popover)
-1. [Panel](https://github.com/NilavPatel/np-ui-package/wiki/Panel)
-1. [Accordion](https://github.com/NilavPatel/np-ui-package/wiki/Accordion)
-1. [Tabs](https://github.com/NilavPatel/np-ui-package/wiki/Tabs)
-1. [Card](https://github.com/NilavPatel/np-ui-package/wiki/Card)
-1. [Progress](https://github.com/NilavPatel/np-ui-package/wiki/Progress)
-1. [Loader](https://github.com/NilavPatel/np-ui-package/wiki/Loader)
-1. [BlockUi](https://github.com/NilavPatel/np-ui-package/wiki/BlockUi)
-1. [Carousel](https://github.com/NilavPatel/np-ui-package/wiki/Carousel)
-1. [Modal](https://github.com/NilavPatel/np-ui-package/wiki/Modal)
-1. [Dialog](https://github.com/NilavPatel/np-ui-package/wiki/Dialog)
-1. [Tree view](https://github.com/NilavPatel/np-ui-package/wiki/Tree-view)
-1. [List](https://github.com/NilavPatel/np-ui-package/wiki/List)
-1. [Virtual Scroll](https://github.com/NilavPatel/np-ui-package/wiki/Virtual-Scroll)
-1. [Sidepanel](https://github.com/NilavPatel/np-ui-package/wiki/Sidepanel)
-1. [Grid Layout](https://github.com/NilavPatel/np-ui-package/wiki/grid-layout)
-1. [Masking](https://github.com/NilavPatel/np-ui-package/wiki/Masking)
+1.  Date Picker
+1.  Time Picker
+1.  Color Picker
+1.  Switch
+1.  Dropdown
+1.  Auto Complete
+1.  Tags
+1.  Number box
+1.  File Upload
+1.  Slider
+1.  Menubar
+1.  Breadcrumb
+1.  Data Grid
+1.  Alert
+1.  Notification
+1.  Tooltip
+1.  Popover
+1.  Panel
+1.  Accordion
+1.  Tabs
+1.  Steps
+1.  Card
+1.  Progress
+1.  Loader
+1.  BlockUi
+1.  Carousel
+1.  Modal
+1.  Dialog
+1.  Tree View
+1.  List
+1.  Virtual Scroll
+1.  Sidepanel
+1.  Grid Layout
+1.  Masking
 
 ### Import css to your application:
 ````css

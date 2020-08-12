@@ -59,6 +59,7 @@
         "List",
         "BlockUi",
         "Virtual Scroll",
-        "Dialog"
+        "Dialog",
+        "steps"
     ]
 }

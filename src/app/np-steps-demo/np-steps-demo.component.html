@@ -1,0 +1,70 @@
+<div class="sub-header">
+    Steps
+</div>
+
+<np-steps #stepper>
+    <form>
+        <np-step label="Add Personal Info" #personalStep [stepControl]="personal">
+            <div [formGroup]="personal">
+                <h3>Personal Info</h3>
+                <br>
+                <label>
+                    First Name:
+                    <input type="text" class="np-form-control" formControlName="firstName">
+                </label>
+                <br>
+                <label>
+                    Last Name:
+                    <input type="text" class="np-form-control" formControlName="lastName">
+                </label>
+                <div class="np-btn-group">
+                    <button type="button" class="np-btn" npStepNext>Next</button>
+                </div>
+            </div>
+        </np-step>
+        <np-step label="Add Address" #addressStep [stepControl]="address">
+            <div [formGroup]="address">
+                <h3>Address</h3>
+                <br>
+                <label>
+                    Street:
+                    <input type="text" class="np-form-control" formControlName="street">
+                </label>
+                <br>
+                <label>
+                    City:
+                    <input type="text" class="np-form-control" formControlName="city">
+                </label>
+                <br>
+                <label>
+                    State:
+                    <input type="text" class="np-form-control" formControlName="state">
+                </label>
+                <br>
+                <label>
+                    Zip Code:
+                    <input type="text" class="np-form-control" formControlName="zip">
+                </label>
+                <div class="np-btn-group">
+                    <button type="button" class="np-btn" npStepPrevious>Previous</button>
+                    <button type="button" class="np-btn" npStepNext>Next</button>
+                </div>
+            </div>
+        </np-step>
+        <np-step label="Upload Images" #photosStep [stepControl]="photos">
+            <div [formGroup]="photos">
+                <h3>Upload Images</h3>
+                <br>
+                <label>
+                    Upload Images:
+                    <input type="file" class="np-form-control" formControlName="images">
+                </label>
+                <div class="np-btn-group">
+                    <button type="button" class="np-btn" npStepPrevious>Previous</button>
+                    <button type="button" class="np-btn np-btn-primary" [disabled]="">Save</button>
+                    <button type="button" class="np-btn np-btn-danger" (click)="stepper.reset()">Reset</button>
+                </div>
+            </div>
+        </np-step>
+    </form>
+</np-steps>
