@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpStepsDemoRoutingModule } from './np-steps-demo-routing.module';
 import { NpStepsDemoComponent } from './np-steps-demo.component';
-import { NpStepsModule } from 'np-ui-lib';
+import { NpStepsModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,7 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     NpStepsDemoRoutingModule,
-    NpStepsModule
+    NpStepsModule,
+    NpCardModule,
+    NpTabsModule
   ]
 })
 export class NpStepsDemoModule { }

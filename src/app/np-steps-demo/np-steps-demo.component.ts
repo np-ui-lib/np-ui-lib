@@ -8,6 +8,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class NpStepsDemoComponent implements OnInit {
 
+  importText = 'import { NpStepsModule } from \'np-ui-lib\';';
+  htmlText = `<np-steps>
+  <np-step label="Personal Info">
+    ...
+  <np-step>
+  ...
+</np-steps>`;
+  previousBtnText = `<button type="button" class="np-btn" npStepPrevious>Previous</button>`;
+  nextBtnText = `<button type="button" class="np-btn" npStepNext>Next</button>`;
+
   personal = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required)
