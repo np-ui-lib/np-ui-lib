@@ -1,0 +1,33 @@
+<div [ngClass]="{'np-accordion-item': true, 'np-disabled': disabled}" [style.max-height.px]="height"
+    [class]="styleClass" [attr.id]="inputId">
+    <div class="np-accordion-header">
+        <div class="np-accordion-title" (click)="_toggle()">
+            <ng-container *ngIf="!isTitleTemplate">
+                <div [innerHTML]="title"></div>
+            </ng-container>
+            <ng-template *ngIf="isTitleTemplate" [ngTemplateOutlet]="title">
+            </ng-template>
+        </div>
+
+        <div class="np-accordion-icons">
+            <button *ngIf="isOpen" type="button" class="np-btn np-btn-icon np-accordion-collapse" title="Collapse"
+                (click)="_collapse()">
+                <svg class="np-icon" viewBox="0 0 24 24">
+                    <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+            </button>
+            <button *ngIf="!isOpen" type="button" class="np-btn np-btn-icon np-accordion-expand" title="Expand"
+                (click)="_expand()">
+                <svg class="np-icon" viewBox="0 0 24 24">
+                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="np-accordion-body" *ngIf="isOpen">
+        <ng-content></ng-content>
+    </div>
+</div>

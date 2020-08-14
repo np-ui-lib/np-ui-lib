@@ -1,6 +1,10 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, QueryList, AfterContentInit, Input, OnDestroy } from '@angular/core';
-import { NpPanelComponent } from '../np-panel/np-panel.component';
+import {
+  Component, ViewEncapsulation, ChangeDetectionStrategy, AfterContentInit,
+  OnDestroy, ContentChildren, QueryList, Input, Output, EventEmitter
+} from '@angular/core';
 import { Subscription } from 'rxjs';
+
+import { NpAccordionItemComponent } from './np-accordion-item/np-accordion-item.component';
 
 @Component({
   selector: 'np-accordion',
@@ -13,55 +17,60 @@ export class NpAccordionComponent implements AfterContentInit, OnDestroy {
 
   static controlCount = 1;
 
-  @ContentChildren(NpPanelComponent) panels: QueryList<NpPanelComponent>;
+  @ContentChildren(NpAccordionItemComponent) items: QueryList<NpAccordionItemComponent>;
 
   @Input() defaultOpenIndex: number;
   @Input() allowMultipleOpen = true;
   @Input() styleClass: string;
   @Input() inputId = `np-accordion_${NpAccordionComponent.controlCount++}`;
 
+  @Output() onExpand: EventEmitter<any> = new EventEmitter();
+  @Output() onCollapse: EventEmitter<any> = new EventEmitter();
+
   subscriptions: Subscription[] = [];
 
   ngAfterContentInit(): void {
-    this.panels.toArray().forEach(panel => {
-      panel.isOpen = this.allowMultipleOpen ? panel.isOpen : false;
-      panel.allowToMinimize = true;
-      panel.allowToClose = false;
-      panel.allowToZoom = false;
-      this.subscriptions.push(
-        panel.onExpand.subscribe((pan: NpPanelComponent) => {
-          if (!this.allowMultipleOpen) {
-            this.panels.toArray().forEach(element => {
-              if (element.inputId !== pan.inputId) {
-                element._collapse();
-              }
-            });
-          }
-        })
-      );
-    });
     if (this.defaultOpenIndex >= 0) {
       this.expandByIndex(this.defaultOpenIndex);
     }
+    this.items.toArray().forEach(element => {
+      this.subscriptions.push(element._onExpand.subscribe((item) => { this._onExpand(item); }));
+      this.subscriptions.push(element._onCollapse.subscribe((item) => { this._onCollapse(item); }));
+    });
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.forEach(element => element.unsubscribe());
+    this.subscriptions.forEach(element => { element.unsubscribe(); });
   }
 
   expandByIndex(idx: number) {
-    this.panels.toArray()[idx]._expand();
+    this.items.toArray()[idx]._expand();
   }
 
   expandById(id: string) {
-    this.panels.find(item => { if (item.inputId === id) { return true; } })._expand();
+    this.items.toArray().find(item => { if (item.inputId === id) { return true; } })._expand();
   }
 
   collapseByIndex(idx: number) {
-    this.panels.toArray()[idx]._collapse();
+    this.items.toArray()[idx]._collapse();
   }
 
   collapseById(id: string) {
-    this.panels.find(item => { if (item.inputId === id) { return true; } })._collapse();
+    this.items.toArray().find(item => { if (item.inputId === id) { return true; } })._collapse();
+  }
+
+  _onExpand(item: NpAccordionItemComponent) {
+    if (!this.allowMultipleOpen) {
+      this.items.toArray().forEach(element => {
+        if (item.inputId !== element.inputId && element.isOpen) {
+          element._collapse();
+        }
+      });
+    }
+    this.onExpand.emit(item);
+  }
+
+  _onCollapse(item: NpAccordionItemComponent) {
+    this.onCollapse.emit(item);
   }
 }

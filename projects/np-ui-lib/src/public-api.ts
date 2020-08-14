@@ -64,6 +64,7 @@ export * from './lib/np-tabs/np-tab.component';
 /*Accordion */
 export * from './lib/np-accordion/np-accordion.module';
 export * from './lib/np-accordion/np-accordion.component';
+export * from './lib/np-accordion/np-accordion-item/np-accordion-item.component';
 
 /*Alert */
 export * from './lib/np-alert/np-alert.module';

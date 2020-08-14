@@ -17,6 +17,7 @@
             </div>
         </np-card>
         <np-card>
+            <b>&lt;np-accordion&gt;</b>
             <table class="np-table">
                 <tr>
                     <th>Property</th>
@@ -32,7 +33,8 @@
                 </tr>
                 <tr>
                     <td>allowMultipleOpen</td>
-                    <td>Allow multiple panels to be open, if set to false, then when open new panel, other panels will be close</td>
+                    <td>Allow multiple panels to be open, if set to false, then when open new panel, other panels will
+                        be close</td>
                     <td>boolean</td>
                     <td>false</td>
                 </tr>
@@ -49,10 +51,56 @@
                     <td></td>
                 </tr>
             </table>
-            <div class="np-alert np-alert-danger">Panel component's properties like title, isOpen, height, disabled will work here.
-            </div>
         </np-card>
         <np-card>
+            <b>&lt;np-accordion-item&gt;</b>
+            <table class="np-table">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>Title of panel</td>
+                    <td>string | TemplateRef &lt;any&gt;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>isOpen</td>
+                    <td>Set default open</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>Set height for accordion item in px</td>
+                    <td>number</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>disabled</td>
+                    <td>Set disabled</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>styleClass</td>
+                    <td>Set extra class on component</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>inputId</td>
+                    <td>Set id attribute</td>
+                    <td>string</td>
+                    <td></td>
+                </tr>
+            </table>
+        </np-card>
+        <np-card>
+            <b>&lt;np-accordion&gt;</b>
             <table class="np-table">
                 <tr>
                     <th>Apis</th>
@@ -98,103 +146,156 @@
             </table>
         </np-card>
         <np-card>
-            <div class="np-alert np-alert-danger">Panel component's methods like onExpand(), onCollapse() will work here.
-            </div>
+            <b>&lt;np-accordion&gt;</b>
+            <table class="np-table">
+                <tr>
+                    <th>Methods</th>
+                    <th>Description</th>
+                    <th>Parameters</th>
+                </tr>
+                <tr>
+                    <td>
+                        onExpand()
+                    </td>
+                    <td>
+                        Callback on expanding panel.
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        onCollapse()
+                    </td>
+                    <td>
+                        Callback on collapsing panel.
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
         </np-card>
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
             <legend>Basic</legend>
             <np-accordion>
-                <np-panel [title]="'Title A'" [isOpen]="true">
+                <np-accordion-item [title]="'Title A'" [isOpen]="true">
                     <p>
                         Content A
                     </p>
-                </np-panel>
+                </np-accordion-item>
 
-                <np-panel [title]="titleB" [isOpen]="false">
+                <np-accordion-item [title]="titleB" [isOpen]="false">
                     <ng-template #titleB>
                         <i class="fa fa-home"></i>Title B
                     </ng-template>
                     <p>
                         Content B
                     </p>
-                </np-panel>
+                </np-accordion-item>
 
-                <np-panel [title]="'Title C'" [isOpen]="false">
+                <np-accordion-item [title]="'Title C'" [isOpen]="false">
                     <p>
                         Content C
                     </p>
-                </np-panel>
+                </np-accordion-item>
             </np-accordion>
         </fieldset>
 
         <fieldset>
-            <np-accordion [defaultOpenIndex]="0" [allowMultipleOpen]="allowMultipleOpen" #accordionDemo>
-                <np-panel id="pnl1" [title]="'Paragraph 1'">
+            <np-accordion [defaultOpenIndex]="1" [allowMultipleOpen]="allowMultipleOpen" #accordionDemo
+                (onExpand)="onExpand($event)" (onCollapse)="onCollapse($event)">
+                <np-accordion-item inputId="item1" [title]="'Paragraph 1'">
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
-                </np-panel>
+                </np-accordion-item>
 
-                <np-panel id="pnl2" [title]="'Paragraph 2'" [inputId]="'pnl2'" [disabled]="pnl2Disabled">
+                <np-accordion-item inputId="item2" [title]="'Paragraph 2'" [disabled]="item2Disabled">
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
-                </np-panel>
+                </np-accordion-item>
 
-                <np-panel id="pnl3" [title]="'Paragraph 3'" [height]="200" (onOpen)="onOpenPanel3($event)">
+                <np-accordion-item inputId="item3" [title]="'Paragraph 3'" [height]="200">
                     <p>
-                        A first paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs
+                        A first paragraph is a series of related sentences developing a central idea, called the topic.
+                        Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group
+                        of sentences that supports one central, unified idea. Paragraphs
                         add one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add
+                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
+                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
+                        sentences that supports one central, unified idea. Paragraphs add
                         one idea at a time to your broader argument.
                     </p>
                     <p>
-                        A last paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs
+                        A last paragraph is a series of related sentences developing a central idea, called the topic.
+                        Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group
+                        of sentences that supports one central, unified idea. Paragraphs
                         add one idea at a time to your broader argument.
                     </p>
-                </np-panel>
+                </np-accordion-item>
             </np-accordion>
 
             <p>
@@ -202,11 +303,10 @@
                 <np-switch [(ngModel)]="allowMultipleOpen"></np-switch>
             </p>
 
-
             <div class="np-btn-group">
-                <button class="np-btn" (click)="togglePanel2()">Toggle Panel 2 disabled flag</button>
-                <button class="np-btn" (click)="openPara2ById()">Open paragraph 2 by Id</button>
-                <button class="np-btn" (click)="openPara3ByIndex()">Open paragraph 3 by index</button>
+                <button class="np-btn" (click)="toggleItem2Disabled()">Toggle paragraph 2's disabled flag</button>
+                <button class="np-btn" (click)="openItem2()">Open paragraph 2 by Id</button>
+                <button class="np-btn" (click)="openItem3()">Open paragraph 3 by index</button>
             </div>
         </fieldset>
     </np-tab>

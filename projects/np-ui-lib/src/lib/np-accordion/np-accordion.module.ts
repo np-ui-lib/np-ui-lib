@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { NpAccordionComponent } from './np-accordion.component';
-import { NpPanelModule } from '../np-panel/np-panel.module';
+import { NpAccordionItemComponent } from './np-accordion-item/np-accordion-item.component';
 
 @NgModule({
-  declarations: [NpAccordionComponent],
+  declarations: [NpAccordionComponent, NpAccordionItemComponent],
   imports: [
-    CommonModule,
-    NpPanelModule
+    CommonModule
   ],
-  exports: [NpAccordionComponent]
+  exports: [NpAccordionComponent, NpAccordionItemComponent]
 })
 export class NpAccordionModule { }

@@ -10,38 +10,42 @@ export class NpAccordionDemoComponent implements OnInit {
 
   importText = 'import { NpAccordionModule } from \'np-ui-lib\';';
   htmlText = `<np-accordion>
-  <np-panel [title]="'Details'" [isOpen]="true">
+  <np-accordion-item [title]="'Details'" [isOpen]="true">
       Panel 1 Content
-  </np-panel>
-  <np-panel [title]="'Specifications'">
+  </np-accordion-item>
+  <np-accordion-item [title]="'Specifications'">
     Panel 2 Content
-  </np-panel>
+  </np-accordion-item>
   ...
 </np-accordion>`;
 
   @ViewChild('accordionDemo', { static: true }) accordionDemo: NpAccordionComponent;
   allowMultipleOpen = false;
 
-  pnl2Disabled = false;
+  item2Disabled = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  openPara2ById() {
-    this.accordionDemo.expandById('pnl2');
+  openItem2() {
+    this.accordionDemo.expandById('item2');
   }
 
-  openPara3ByIndex() {
+  openItem3() {
     this.accordionDemo.expandByIndex(2);
   }
 
-  onOpenPanel3($event) {
-    alert('Panel 3 open');
+  toggleItem2Disabled() {
+    this.item2Disabled = !this.item2Disabled;
   }
 
-  togglePanel2() {
-    this.pnl2Disabled = !this.pnl2Disabled;
+  onExpand(item) {
+    console.log(`Expand item ${item.inputId}`);
+  }
+
+  onCollapse(item) {
+    console.log(`Collpase item ${item.inputId}`);
   }
 }

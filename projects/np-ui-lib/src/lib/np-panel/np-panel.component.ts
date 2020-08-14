@@ -1,4 +1,7 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef, OnInit, Output, EventEmitter, ElementRef } from '@angular/core';
+import {
+  Component, ViewEncapsulation, ChangeDetectionStrategy, Input, TemplateRef,
+  Output, EventEmitter, ElementRef, AfterContentInit
+} from '@angular/core';
 
 @Component({
   selector: 'np-panel',
@@ -7,7 +10,7 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpPanelComponent implements OnInit {
+export class NpPanelComponent implements AfterContentInit {
   static controlCount = 1;
 
   @Input() title: string | TemplateRef<any>;
@@ -28,26 +31,14 @@ export class NpPanelComponent implements OnInit {
 
   constructor(private el: ElementRef) {
   }
-
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
     if (this.title instanceof TemplateRef) {
       this.isTitleTemplate = true;
     }
   }
 
-  _toggleMinimize() {
-    if (this.isZoom) {
-      return;
-    }
-    if (this.isOpen) {
-      this._collapse();
-    } else {
-      this._expand();
-    }
-  }
-
   _expand() {
-    if (!this.allowToMinimize || this.disabled) {
+    if (this.disabled) {
       return;
     }
     this.isOpen = true;
@@ -55,21 +46,26 @@ export class NpPanelComponent implements OnInit {
   }
 
   _collapse() {
-    if (!this.allowToMinimize || this.disabled) {
+    if (this.disabled) {
       return;
     }
     this.isOpen = false;
     this.onCollapse.emit(this);
   }
 
-  _toggleZoom() {
+  _zoomIn() {
     if (this.disabled) {
       return;
     }
-    this.isZoom = !this.isZoom;
-    if (this.isZoom === true) {
-      this.isOpen = true;
+    this._expand();
+    this.isZoom = true;
+  }
+
+  _zoomOut() {
+    if (this.disabled) {
+      return;
     }
+    this.isZoom = false;
   }
 
   _close() {
