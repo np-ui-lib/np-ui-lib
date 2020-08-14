@@ -5,129 +5,137 @@
 <np-tabs>
     <np-tab title="Documentation">
         <np-card>
-            <b>Module to import</b>
-            <div>
-                <pre><code [innerText]="importText"></code></pre>
-            </div>
+            <np-card-body>
+                <b>Module to import</b>
+                <div>
+                    <pre><code [innerText]="importText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
         <np-card>
-            <b>HTML</b>
-            <div>
-                <pre><code [innerText]="htmlText"></code></pre>
-            </div>
+            <np-card-body>
+                <b>HTML</b>
+                <div>
+                    <pre><code [innerText]="htmlText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
         <np-card>
-            <table class="np-table">
-                <tr>
-                    <th>Property</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Default</th>
-                </tr>
-                <tr>
-                    <td>ngModel</td>
-                    <td>Value</td>
-                    <td>any</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>disabled</td>
-                    <td>Set disabled</td>
-                    <td>boolean</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>readonly</td>
-                    <td>Set readonly</td>
-                    <td>boolean</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>required</td>
-                    <td>Set required</td>
-                    <td>boolean</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>multiple</td>
-                    <td>Allow to upload multiple files</td>
-                    <td>boolean</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>extensions</td>
-                    <td>Set extensions to allow to upload
-                        <br>Multiple extension with comma seprated like 'png,jpg,jpeg'
-                    </td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>accept</td>
-                    <td>Accept verbs for file selector like 'image/*'</td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>size</td>
-                    <td>Set individual file size validation in bytes</td>
-                    <td>number</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>totalSize</td>
-                    <td>Set total file size validation in bytes. Only for multiple file uploads</td>
-                    <td>number</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>maxFiles</td>
-                    <td>Set maximum number of file to upload validation</td>
-                    <td>number</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>uploadButtonLabel</td>
-                    <td>Set upload button text</td>
-                    <td>string</td>
-                    <td>Choose File/Choose Files</td>
-                </tr>
-                <tr>
-                    <td>styleClass</td>
-                    <td>Set extra class on component</td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>inputId</td>
-                    <td>Set id attribute</td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-            </table>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                    </tr>
+                    <tr>
+                        <td>ngModel</td>
+                        <td>Value</td>
+                        <td>any</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>Set disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>readonly</td>
+                        <td>Set readonly</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>required</td>
+                        <td>Set required</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>multiple</td>
+                        <td>Allow to upload multiple files</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>extensions</td>
+                        <td>Set extensions to allow to upload
+                            <br>Multiple extension with comma seprated like 'png,jpg,jpeg'
+                        </td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>accept</td>
+                        <td>Accept verbs for file selector like 'image/*'</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>size</td>
+                        <td>Set individual file size validation in bytes</td>
+                        <td>number</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>totalSize</td>
+                        <td>Set total file size validation in bytes. Only for multiple file uploads</td>
+                        <td>number</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>maxFiles</td>
+                        <td>Set maximum number of file to upload validation</td>
+                        <td>number</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>uploadButtonLabel</td>
+                        <td>Set upload button text</td>
+                        <td>string</td>
+                        <td>Choose File/Choose Files</td>
+                    </tr>
+                    <tr>
+                        <td>styleClass</td>
+                        <td>Set extra class on component</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>Set id attribute</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                </table>
 
-            <div class="np-text-info">
-                There are four inbuild control validations for extensions, size, totalSize, maxFiles.
-            </div>
+                <div class="np-text-info">
+                    There are four inbuild control validations for extensions, size, totalSize, maxFiles.
+                </div>
+            </np-card-body>
         </np-card>
 
         <np-card>
-            <table class="np-table">
-                <tr>
-                    <th>Method</th>
-                    <th>Description</th>
-                    <th>Parameters</th>
-                </tr>
-                <tr>
-                    <td>
-                        onChange(v: any)
-                    </td>
-                    <td>
-                        Callback event on value change.
-                    </td>
-                    <td>value</td>
-                </tr>
-            </table>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            onChange(v: any)
+                        </td>
+                        <td>
+                            Callback event on value change.
+                        </td>
+                        <td>value</td>
+                    </tr>
+                </table>
+            </np-card-body>
         </np-card>
     </np-tab>
     <np-tab title="Examples">

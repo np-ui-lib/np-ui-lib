@@ -5,47 +5,54 @@
 <np-tabs>
     <np-tab title="Documentation">
         <np-card>
-            <b>Module to import</b>
-            <div>
-                <pre><code [innerText]="importText"></code></pre>
-            </div>
+            <np-card-body>
+                <b>Module to import</b>
+                <div>
+                    <pre><code [innerText]="importText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
         <np-card>
-            <b>HTML</b>
-            <div>
-                <pre><code [innerText]="htmlText"></code></pre>
-            </div>
+            <np-card-body>
+                <b>HTML</b>
+                <div>
+                    <pre><code [innerText]="htmlText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
         <np-card>
-            <table class="np-table np-table-striped">
-                <tr>
-                    <th>Format</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td>0</td>
-                    <td>0-9</td>
-                </tr>
-                <tr>
-                    <td>a</td>
-                    <td>a-z</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>A-Z</td>
-                </tr>
-                <tr>
-                    <td>B</td>
-                    <td>aA-zZ</td>
-                </tr>
-            </table>
+            <np-card-body>
+                <table class="np-table np-table-striped">
+                    <tr>
+                        <th>Format</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>0-9</td>
+                    </tr>
+                    <tr>
+                        <td>a</td>
+                        <td>a-z</td>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>A-Z</td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>aA-zZ</td>
+                    </tr>
+                </table>
+            </np-card-body>
         </np-card>
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
             <div class="np-form-group">
                 <label class="np-form-label">000-aaa-AAA-BBB</label>
-                <input type="text" class="np-form-control" [(ngModel)]="maskedValue1" placeholder="000-aaa-AAA-BBB" [np-mask]="'000-aaa-AAA-BBB'"> Value:{{maskedValue1}}
+                <input type="text" class="np-form-control" [(ngModel)]="maskedValue1" placeholder="000-aaa-AAA-BBB"
+                    [np-mask]="'000-aaa-AAA-BBB'"> Value:{{maskedValue1}}
             </div>
         </fieldset>
         <fieldset>
@@ -55,13 +62,16 @@
             </div>
             <div class="np-form-group">
                 <label class="np-form-label">Credit Card Number:</label>
-                <input type="text" class="np-form-control" [(ngModel)]="maskedValue2" [placeholder]="selectedCard ? selectedCard.placeholder: ''" [np-mask]="selectedCard ? selectedCard.mask:''"> Value:{{maskedValue2}}
+                <input type="text" class="np-form-control" [(ngModel)]="maskedValue2"
+                    [placeholder]="selectedCard ? selectedCard.placeholder: ''"
+                    [np-mask]="selectedCard ? selectedCard.mask:''"> Value:{{maskedValue2}}
             </div>
         </fieldset>
         <fieldset>
             <div class="np-form-group">
                 <label class="np-form-label">Phone Number:</label>
-                <input type="text" class="np-form-control" [(ngModel)]="maskedValue3" placeholder="+(000) 000-0000" [np-mask]="'+(000) 000-0000'"> Value:{{maskedValue3}}
+                <input type="text" class="np-form-control" [(ngModel)]="maskedValue3" placeholder="+(000) 000-0000"
+                    [np-mask]="'+(000) 000-0000'"> Value:{{maskedValue3}}
             </div>
         </fieldset>
     </np-tab>

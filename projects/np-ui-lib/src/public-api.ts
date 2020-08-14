@@ -23,11 +23,11 @@ export * from './lib/np-time-picker/np-time-picker.component';
 export * from './lib/np-switch/np-switch.module';
 export * from './lib/np-switch/np-switch.component';
 
-/*Notification */
-export * from './lib/np-notification/np-notification.module';
-export * from './lib/np-notification/np-notification.component';
-export * from './lib/np-notification/np-notification.service';
-export * from './lib/np-notification/np-notification.model';
+/*Notifications */
+export * from './lib/np-notifications/np-notifications.module';
+export * from './lib/np-notifications/np-notifications.component';
+export * from './lib/np-notifications/np-notifications.service';
+export * from './lib/np-notifications/np-notification.model';
 
 /*Auto complete */
 export * from './lib/np-auto-complete/np-auto-complete.module';
@@ -100,6 +100,7 @@ export * from './lib/np-card/np-card.module';
 export * from './lib/np-card/np-card.component';
 export * from './lib/np-card/np-card-header.component';
 export * from './lib/np-card/np-card-image.component';
+export * from './lib/np-card/np-card-body.component';
 export * from './lib/np-card/np-card-footer.component';
 
 /*Loader */

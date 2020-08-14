@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-steps-demo', label: 'Steps' }),
     new NpMenuItem({ routerLink: '/np-card-demo', label: 'Card' }),
     new NpMenuItem({ routerLink: '/np-alert-demo', label: 'Alert' }),
-    new NpMenuItem({ routerLink: '/np-notification-demo', label: 'Notification' }),
+    new NpMenuItem({ routerLink: '/np-notifications-demo', label: 'Notifications' }),
     new NpMenuItem({ routerLink: '/np-tooltip-demo', label: 'Tooltip' }),
     new NpMenuItem({ routerLink: '/np-popover-demo', label: 'Popover' }),
     new NpMenuItem({ routerLink: '/np-loader-demo', label: 'Loader' }),

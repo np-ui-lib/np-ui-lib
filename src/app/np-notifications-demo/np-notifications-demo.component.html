@@ -1,16 +1,16 @@
 <div class="sub-header">
-    Notification
+    Notifications
 </div>
 
 <np-tabs>
     <np-tab title="Documentation">
-        <np-card>
+        <np-card><np-card-body>
             <b>Module to import</b>
             <div>
                 <pre><code [innerText]="importText"></code></pre>
             </div>
-        </np-card>
-        <np-card>
+        </np-card-body></np-card>
+        <np-card><np-card-body>
             <b>HTML</b>
             <div>
                 <pre><code [innerText]="htmlText"></code></pre>
@@ -18,8 +18,8 @@
             <p class="np-alert np-alert-danger">Add above line in your main application module's template file app.component.html
                 only once.
             </p>
-        </np-card>
-        <np-card>
+        </np-card-body></np-card>
+        <np-card><np-card-body>
             <b>Import service and class from np-ui-lib in any component</b>
             <div>
                 <code [innerHTML]="importServiceAndClass"></code>
@@ -37,8 +37,8 @@
             <p>Also set <b>autoCloseTimeout</b> property for closing notification automatically. Default time is 10000
                 ms</p>
             <p>Set <b>header</b> to show header in notification, which is type of string</p>
-        </np-card>
-        <np-card>
+        </np-card-body></np-card>
+        <np-card><np-card-body>
             <table class="np-table">
                 <tr>
                     <th>Api</th>
@@ -55,7 +55,7 @@
                     <td></td>
                 </tr>
             </table>
-        </np-card>
+        </np-card-body></np-card>
     </np-tab>
     <np-tab title="Examples">
         <fieldset>

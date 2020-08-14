@@ -1,4 +1,4 @@
-.np-cd-component {
+.np-card {
     background-color: #ffffff;
     overflow: hidden;
     margin: 5px;
@@ -7,38 +7,40 @@
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
 
-.np-cd-header {
+.np-card-header {
     padding: 10px;
     background-color: #f5f5f5;
     overflow: auto;
 }
 
-.np-cd-image img{
+.np-card-image img{
     width: 100%;
     height: auto;
     vertical-align: middle;
 }
 
-.np-cd-body {
+.np-card-body {
     padding: 10px;
     overflow: auto;
 }
 
-.np-cd-footer {
+.np-card-footer {
     padding: 10px;
     background-color: #f5f5f5;
 }
 
-.np-cd-title{
+.np-card-title{
     font-size: x-large;
     font-weight: bold;
+    padding: 2px 0px;
 }
 
-.np-cd-subtitle{
+.np-card-subtitle{
     font-weight: bold;
+    padding: 1px 0px;
 }
 
-.np-cd-avatar{
+.np-card-avatar{
     float: left;
     padding-right: 10px;
 }

@@ -27,8 +27,8 @@ const routes: Routes = [
     loadChildren: () => import('./np-switch-demo/np-switch-demo.module').then(m => m.NpSwitchDemoModule)
   },
   {
-    path: 'np-notification-demo',
-    loadChildren: () => import('./np-notification-demo/np-notification-demo.module').then(m => m.NpNotificationDemoModule)
+    path: 'np-notifications-demo',
+    loadChildren: () => import('./np-notifications-demo/np-notifications-demo.module').then(m => m.NpNotificationsDemoModule)
   },
   {
     path: 'np-auto-complete-demo',

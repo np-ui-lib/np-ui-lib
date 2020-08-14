@@ -2,8 +2,7 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/
 
 @Component({
     selector: 'np-card-footer',
-    template: '<div class="np-cd-footer"><ng-content></ng-content></div>',
-    styleUrls: ['./np-card.component.css'],
+    template: '<div class="np-card-footer"><ng-content></ng-content></div>',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.Default
 })

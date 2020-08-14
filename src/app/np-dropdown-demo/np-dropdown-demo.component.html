@@ -5,124 +5,132 @@
 <np-tabs>
     <np-tab title="Documentation">
         <np-card>
-            <b>Module to import</b>
-            <div>
-                <pre><code [innerText]="importText"></code></pre>
-            </div>
+            <np-card-body>
+                <b>Module to import</b>
+                <div>
+                    <pre><code [innerText]="importText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
         <np-card>
-            <b>HTML</b>
-            <div>
-                <pre><code [innerText]="htmlText"></code></pre>
-            </div>
+            <np-card-body>
+                <b>HTML</b>
+                <div>
+                    <pre><code [innerText]="htmlText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
         <np-card>
-            <table class="np-table">
-                <tr>
-                    <th>Property</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Default</th>
-                </tr>
-                <tr>
-                    <td>ngModel</td>
-                    <td>Value</td>
-                    <td>any</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>items</td>
-                    <td>Array of data</td>
-                    <td>any[]</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>disabled</td>
-                    <td>Set disabled</td>
-                    <td>boolean</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>readonly</td>
-                    <td>Set readonly</td>
-                    <td>boolean</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>required</td>
-                    <td>Set required</td>
-                    <td>boolean</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>displayKey</td>
-                    <td>If <b>items</b> is type of any[], then set property name which needs to display in dropdown.
-                    </td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>itemTemplate</td>
-                    <td>Set template for item. Use var let-item="item" in template to access item.
-                        <pre><code>{{templateText}}</code></pre>
-                    </td>
-                    <td>TemplateRef&lt;any&gt;</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>orderBy</td>
-                    <td>Set order by property</td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>orderDir</td>
-                    <td>
-                        Set order direction 'asc' or 'desc'. Default value is 'asc'.
-                        <br>
-                        If data is type of string[], then only use orderDir.
-                    </td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>placeholder</td>
-                    <td>Set placeholder</td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>styleClass</td>
-                    <td>Set extra class on component</td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>inputId</td>
-                    <td>Set id attribute</td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-            </table>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                    </tr>
+                    <tr>
+                        <td>ngModel</td>
+                        <td>Value</td>
+                        <td>any</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>items</td>
+                        <td>Array of data</td>
+                        <td>any[]</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>Set disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>readonly</td>
+                        <td>Set readonly</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>required</td>
+                        <td>Set required</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>displayKey</td>
+                        <td>If <b>items</b> is type of any[], then set property name which needs to display in dropdown.
+                        </td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>itemTemplate</td>
+                        <td>Set template for item. Use var let-item="item" in template to access item.
+                            <pre><code>{{templateText}}</code></pre>
+                        </td>
+                        <td>TemplateRef&lt;any&gt;</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>orderBy</td>
+                        <td>Set order by property</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>orderDir</td>
+                        <td>
+                            Set order direction 'asc' or 'desc'. Default value is 'asc'.
+                            <br>
+                            If data is type of string[], then only use orderDir.
+                        </td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>placeholder</td>
+                        <td>Set placeholder</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>styleClass</td>
+                        <td>Set extra class on component</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>Set id attribute</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </np-card-body>
         </np-card>
 
         <np-card>
-            <table class="np-table">
-                <tr>
-                    <th>Method</th>
-                    <th>Description</th>
-                    <th>Parameters</th>
-                </tr>
-                <tr>
-                    <td>
-                        onChange(v: any)
-                    </td>
-                    <td>
-                        Callback event on value change.
-                    </td>
-                    <td>value</td>
-                </tr>
-            </table>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            onChange(v: any)
+                        </td>
+                        <td>
+                            Callback event on value change.
+                        </td>
+                        <td>value</td>
+                    </tr>
+                </table>
+            </np-card-body>
         </np-card>
     </np-tab>
     <np-tab title="Examples">

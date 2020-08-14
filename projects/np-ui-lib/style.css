@@ -1420,7 +1420,7 @@ svg {
     min-height: 44px;
 }
 
-.np-alert-message {
+.np-alert-detail {
     flex: 1;
     padding: 5px;
 }

@@ -5,13 +5,15 @@
     <div class="header-link">
         np-ui-lib
     </div>
-    <a class="logo-link" title="Go to github repository" target="_blank" href="https://github.com/NilavPatel/np-ui-package">
+    <a class="logo-link" title="Go to github repository" target="_blank"
+        href="https://github.com/NilavPatel/np-ui-package">
         <i class="fa fa-github"></i>
     </a>
 </header>
 <section>
     <nav *ngIf="showMenu" [ngClass]="{'mobile-nav' : isMobileView}">
-        <np-menubar [items]="menuItems" [isPanelMenu]="true" (onClickMenuItem)="onClickMenuItem($event)" styleClass="my-nav">
+        <np-menubar [items]="menuItems" [isPanelMenu]="true" (onClickMenuItem)="onClickMenuItem($event)"
+            styleClass="my-nav">
         </np-menubar>
     </nav>
     <article class="main">
@@ -23,4 +25,4 @@
         </footer>
     </article>
 </section>
-<np-notification></np-notification>
+<np-notifications></np-notifications>

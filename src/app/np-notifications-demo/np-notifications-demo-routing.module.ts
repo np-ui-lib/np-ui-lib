@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NpNotificationDemoComponent } from './np-notification-demo.component';
+import { NpNotificationsDemoComponent } from './np-notifications-demo.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: NpNotificationDemoComponent
+    component: NpNotificationsDemoComponent
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class NpNotificationDemoRoutingModule { }
+export class NpNotificationsDemoRoutingModule { }

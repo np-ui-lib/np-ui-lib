@@ -4,7 +4,7 @@ import { NpNotification } from './np-notification.model';
 @Injectable({
     providedIn: 'root'
 })
-export class NpNotificationService {
+export class NpNotificationsService {
 
     messages: NpNotification[] = [];
 

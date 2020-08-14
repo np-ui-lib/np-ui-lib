@@ -1,4 +1,4 @@
-.np-nt-component {
+.np-notifications {
     position: fixed;
     bottom: 0px;
     right: 0px;
@@ -7,7 +7,7 @@
     margin: 5px;
 }
 
-.np-nt-close-all {
+.np-alert-close-all {
     position: absolute;
     left: -35px;
     bottom: 5px;

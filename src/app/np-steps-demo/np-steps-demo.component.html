@@ -5,67 +5,79 @@
 <np-tabs>
     <np-tab title="Documentation">
         <np-card>
-            <b>Module to import</b>
-            <div>
-                <pre><code [innerText]="importText"></code></pre>
-            </div>
+            <np-card-body>
+                <b>Module to import</b>
+                <div>
+                    <pre><code [innerText]="importText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
         <np-card>
-            <b>HTML</b>
-            <div>
-                <pre><code [innerText]="htmlText"></code></pre>
-            </div>
+            <np-card-body>
+                <b>HTML</b>
+                <div>
+                    <pre><code [innerText]="htmlText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
         <np-card>
-            <b>&lt;np-steps&gt;</b>
-            <p>
-                <b>&lt;np-steps&gt;</b> extends <b>&lt;cdk-stepper&gt;</b>
+            <np-card-body>
+                <b>&lt;np-steps&gt;</b>
+                <p>
+                    <b>&lt;np-steps&gt;</b> extends <b>&lt;cdk-stepper&gt;</b>
+                    <br>
+                    Find documentation for <b>&lt;cdk-stepper&gt;</b> at <a
+                        href="https://material.angular.io/cdk/stepper/api#CdkStepper">here</a>.
+                </p>
+            </np-card-body>
+        </np-card>
+        <np-card>
+            <np-card-body>
+                <b>&lt;np-step&gt;</b>
+                <p>
+                    <b>&lt;np-step&gt;</b> extends <b>&lt;cdk-step&gt;</b>
+                    <br>
+                    Find documentation for <b>&lt;cdk-step&gt;</b> at <a
+                        href="https://material.angular.io/cdk/stepper/api#CdkStep">here</a>.
+                </p>
+                <p class="np-alert np-alert-danger">
+                    <b>Note:</b>&nbsp;Insted of&nbsp;<b>stepLabel</b>&nbsp;use&nbsp;<b>labelTemplate</b>&nbsp;property.
+                </p>
+                <table class="np-table">
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                    </tr>
+                    <tr>
+                        <td>labelTemplate</td>
+                        <td>Template for step label</td>
+                        <td>Template&lt;any&gt;</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
+        <np-card>
+            <np-card-body>
+                <b>npStepNext</b>
                 <br>
-                Find documentation for <b>&lt;cdk-stepper&gt;</b> at <a
-                    href="https://material.angular.io/cdk/stepper/api#CdkStepper">here</a>.
-            </p>
+                Show next button into step.
+                <div>
+                    <pre><code [innerText]="nextBtnText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
         <np-card>
-            <b>&lt;np-step&gt;</b>
-            <p>
-                <b>&lt;np-step&gt;</b> extends <b>&lt;cdk-step&gt;</b>
+            <np-card-body>
+                <b>npStepPrevious</b>
                 <br>
-                Find documentation for <b>&lt;cdk-step&gt;</b> at <a
-                    href="https://material.angular.io/cdk/stepper/api#CdkStep">here</a>.
-            </p>
-            <p class="np-alert np-alert-danger">
-                <b>Note:</b>&nbsp;Insted of&nbsp;<b>stepLabel</b>&nbsp;use&nbsp;<b>labelTemplate</b>&nbsp;property.
-            </p>
-            <table class="np-table">
-                <tr>
-                    <th>Property</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Default</th>
-                </tr>
-                <tr>
-                    <td>labelTemplate</td>
-                    <td>Template for step label</td>
-                    <td>Template&lt;any&gt;</td>
-                    <td></td>
-                </tr>
-            </table>
-        </np-card>
-        <np-card>
-            <b>npStepNext</b>
-            <br>
-            Show next button into step.
-            <div>
-                <pre><code [innerText]="nextBtnText"></code></pre>
-            </div>
-        </np-card>
-        <np-card>
-            <b>npStepPrevious</b>
-            <br>
-            Show previous button into step.
-            <div>
-                <pre><code [innerText]="previousBtnText"></code></pre>
-            </div>
+                Show previous button into step.
+                <div>
+                    <pre><code [innerText]="previousBtnText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
     </np-tab>
     <np-tab title="Examples">

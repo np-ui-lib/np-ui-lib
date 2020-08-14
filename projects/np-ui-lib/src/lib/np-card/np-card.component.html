@@ -1,8 +1,3 @@
-<div [ngClass]="{'np-cd-component': true}" [style.width.px]="width" [class]="styleClass" [attr.id]="inputId">
-    <ng-content select="np-card-header"></ng-content>
-    <ng-content select="np-card-image"></ng-content>
-    <div class="np-cd-body">
-        <ng-content></ng-content>
-    </div>
-    <ng-content select="np-card-footer"></ng-content>
+<div [ngClass]="{'np-card': true}" [style.width.px]="width" [class]="styleClass" [attr.id]="inputId">
+    <ng-content></ng-content>
 </div>

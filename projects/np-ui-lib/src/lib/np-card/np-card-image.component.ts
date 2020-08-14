@@ -2,8 +2,7 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/
 
 @Component({
     selector: 'np-card-image',
-    template: '<div class="np-cd-image"><ng-content></ng-content></div>',
-    styleUrls: ['./np-card.component.css'],
+    template: '<div class="np-card-image"><ng-content></ng-content></div>',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.Default
 })

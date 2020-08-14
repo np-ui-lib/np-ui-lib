@@ -5,56 +5,62 @@
 <np-tabs>
     <np-tab title="Documentation">
         <np-card>
-            <b>Module to import</b>
-            <div>
-                <pre><code [innerText]="importText"></code></pre>
-            </div>
+            <np-card-body>
+                <b>Module to import</b>
+                <div>
+                    <pre><code [innerText]="importText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
         <np-card>
-            <b>HTML</b>
-            <div>
-                <pre><code [innerText]="htmlText"></code></pre>
-            </div>
+            <np-card-body>
+                <b>HTML</b>
+                <div>
+                    <pre><code [innerText]="htmlText"></code></pre>
+                </div>
+            </np-card-body>
         </np-card>
         <np-card>
-            <table class="np-table">
-                <tr>
-                    <th>Property</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Default</th>
-                </tr>
-                <tr>
-                    <td>np-tooltip</td>
-                    <td>String text or ng-template reference</td>
-                    <td>string | TemplateRef</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>placement</td>
-                    <td>Set where to show tooltip, possible values are 'left', 'right', 'top', 'bottom'</td>
-                    <td>string</td>
-                    <td>bottom</td>
-                </tr>
-                <tr>
-                    <td>tooltipOnFocus</td>
-                    <td>Show tooltip on focus of input control</td>
-                    <td>boolean</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>styleClass</td>
-                    <td>Set extra class on component</td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>inputId</td>
-                    <td>Set id attribute</td>
-                    <td>string</td>
-                    <td></td>
-                </tr>
-            </table>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                    </tr>
+                    <tr>
+                        <td>np-tooltip</td>
+                        <td>String text or ng-template reference</td>
+                        <td>string | TemplateRef</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>placement</td>
+                        <td>Set where to show tooltip, possible values are 'left', 'right', 'top', 'bottom'</td>
+                        <td>string</td>
+                        <td>bottom</td>
+                    </tr>
+                    <tr>
+                        <td>tooltipOnFocus</td>
+                        <td>Show tooltip on focus of input control</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>styleClass</td>
+                        <td>Set extra class on component</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>Set id attribute</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </np-card-body>
         </np-card>
     </np-tab>
 
@@ -91,7 +97,8 @@
 
 
         <p>
-            <input type="text" style="width: 200px;" placeholder="Tooltip on focus" class="np-form-control" [np-tooltip]="'Enter your name.'" [tooltipOnFocus]="true">
+            <input type="text" style="width: 200px;" placeholder="Tooltip on focus" class="np-form-control"
+                [np-tooltip]="'Enter your name.'" [tooltipOnFocus]="true">
         </p>
     </np-tab>
 </np-tabs>
