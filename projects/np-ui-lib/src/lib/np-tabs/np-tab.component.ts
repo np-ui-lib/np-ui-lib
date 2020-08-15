@@ -2,7 +2,7 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
 
 @Component({
     selector: 'np-tab',
-    template: '<div *ngIf="_show()" [attr.id]="inputId"><ng-content></ng-content></div>',
+    template: '<div *ngIf="_isActive()" [attr.id]="inputId"><ng-content></ng-content></div>',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.Default
 })
@@ -14,7 +14,7 @@ export class NpTabComponent implements OnInit {
     @Input() disabled = false;
     @Input() inputId = `np-tab_${NpTabComponent.controlCount++}`;
 
-    isLoadingFirstTime = true;
+    isLoadFirstTime = true;
     titleIsTemplate: boolean;
 
     ngOnInit(): void {
@@ -23,7 +23,7 @@ export class NpTabComponent implements OnInit {
         }
     }
 
-    _show() {
+    _isActive() {
         return this.active;
     }
 }

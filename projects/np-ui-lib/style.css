@@ -1759,3 +1759,19 @@ svg {
     height: 50px;
     border-radius: 50%;
 }
+
+.np-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 3px;
+}
+
+.np-toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.np-toolbar-item {
+    padding: 2px;
+}

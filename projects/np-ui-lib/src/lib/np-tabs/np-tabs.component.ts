@@ -31,11 +31,11 @@ export class NpTabsComponent implements AfterContentInit {
         this.tabs.toArray().forEach(tab => tab.active = false);
         tabs[0].active = true;
         this.onTabChange.emit(tabs[0]);
-        tabs[0].isLoadingFirstTime = false;
+        tabs[0].isLoadFirstTime = false;
       }
     } else {
       this.onTabChange.emit(activeTabs[0]);
-      activeTabs[0].isLoadingFirstTime = false;
+      activeTabs[0].isLoadFirstTime = false;
     }
   }
 
@@ -46,7 +46,7 @@ export class NpTabsComponent implements AfterContentInit {
     this.tabs.toArray().forEach(element => { if (element.inputId !== tab.inputId) { element.active = false; } });
     tab.active = true;
     this.onTabChange.emit(tab);
-    tab.isLoadingFirstTime = false;
+    tab.isLoadFirstTime = false;
   }
 
   selectTabById(id: string) {
@@ -61,5 +61,23 @@ export class NpTabsComponent implements AfterContentInit {
     if (tab && tab.disabled !== true) {
       this._selectTab(tab);
     }
+  }
+
+  getSelectedTabIndex() {
+    let selectedIndex = -1;
+    this.tabs.toArray().findIndex((element, idx) => {
+      if (element.active) {
+        selectedIndex = idx;
+      }
+    });
+    return selectedIndex;
+  }
+
+  getSelectedTab() {
+    const idx = this.getSelectedTabIndex();
+    if (idx === -1) {
+      return null;
+    }
+    return this.tabs.toArray()[idx];
   }
 }

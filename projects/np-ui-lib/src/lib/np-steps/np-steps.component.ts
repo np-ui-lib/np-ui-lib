@@ -13,6 +13,10 @@ import { NpStepComponent } from './np-step.component';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpStepsComponent extends CdkStepper {
+  static controlCount = 1;
+
+  @Input() styleClass: string;
+  @Input() inputId = `np-steps_${NpStepsComponent.controlCount++}`;
 
   _onClick(index: number): void {
     this.selectedIndex = index;

@@ -22,6 +22,7 @@ export class CelltemplateGridComponent implements OnInit {
   @ViewChild('actionButtonsTemplate', { static: true }) actionButtonsTemplate: TemplateRef<any>;
   @ViewChild('birthDateColumnTemplate', { static: true }) birthDateColumnTemplate: TemplateRef<any>;
   @ViewChild('activeColumnTemplate', { static: true }) activeColumnTemplate: TemplateRef<any>;
+  @ViewChild('avatarColumnTemplate', { static: true }) avatarColumnTemplate: TemplateRef<any>;
 
   constructor(private dataService: DataService) {
   }
@@ -30,6 +31,7 @@ export class CelltemplateGridComponent implements OnInit {
 
     this.gridColumns = [
       new Column({ dataField: 'Id', visible: true, caption: 'Id', dataType: DataTypes.Number, sortEnable: true, filterEnable: true }),
+      new Column({ visible: true, caption: 'Photo', cellTemplate: this.avatarColumnTemplate , width: 60}),
       new Column({ dataField: 'FirstName', visible: true, caption: 'First Name', dataType: DataTypes.String, sortEnable: true, filterEnable: true }),
       new Column({ dataField: 'LastName', visible: true, caption: 'Last Name', dataType: DataTypes.String, sortEnable: true, filterEnable: true }),
       new Column({ dataField: 'BirthDate', visible: true, caption: 'Birth Date', dataType: DataTypes.Date, sortEnable: true, filterEnable: true, cellTemplate: this.birthDateColumnTemplate }),

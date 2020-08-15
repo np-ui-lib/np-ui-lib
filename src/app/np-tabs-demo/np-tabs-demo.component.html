@@ -86,7 +86,7 @@
                         <td>false</td>
                     </tr>
                     <tr>
-                        <td>isLoadingFirstTime</td>
+                        <td>isLoadFirstTime</td>
                         <td>Internal property, will be true on loading tab first time, after that will be set to false
                             <br> Helpful while making lazy loading tabs, and fetching data on click of tab
                         </td>
@@ -129,6 +129,24 @@
                         </td>
                         <td>id: string</td>
                     </tr>
+                    <tr>
+                        <td>
+                            getSelectedTabIndex()
+                        </td>
+                        <td>
+                            Get selected tab index
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            getSelectedTab()
+                        </td>
+                        <td>
+                            Get selected tab
+                        </td>
+                        <td></td>
+                    </tr>
                 </table>
             </np-card-body>
         </np-card>
@@ -147,7 +165,7 @@
                         </td>
                         <td>
                             Callback event on change of tab<br>
-                            <b>isLoadingFirstTime</b> property of tab is used here to add lazy loading in tabs
+                            <b>isLoadFirstTime</b> property of tab is used here to add lazy loading in tabs
                         </td>
                         <td>tab: NpTabComponent</td>
                     </tr>
@@ -240,10 +258,10 @@
             <np-tabs (onTabChange)="onTabChange($event)" #tabs2 [horizontalTabs]="true" [height]="200">
                 <np-tab [title]="'Tab1'">
                     <h1>
-                        Tab 1 , Check console for isLoadingFirstTime flag value.
+                        Tab 1 , Check console for isLoadFirstTime flag value.
                     </h1>
                     <h1>
-                        This isLoadingFirstTime flag is used to know tab is open for first time. This helps in loading
+                        This isLoadFirstTime flag is used to know tab is open for first time. This helps in loading
                         data from cache.
                     </h1>
                     <p>
@@ -255,10 +273,10 @@
                 </np-tab>
                 <np-tab [title]="'Tab2'" [active]="true">
                     <h1>
-                        Tab 2 , Check console for isLoadingFirstTime flag value
+                        Tab 2 , Check console for isLoadFirstTime flag value
                     </h1>
                     <h1>
-                        This isLoadingFirstTime flag is used to know tab is open for first time. This helps in loading
+                        This isLoadFirstTime flag is used to know tab is open for first time. This helps in loading
                         data from cache.
                     </h1>
                     <p>

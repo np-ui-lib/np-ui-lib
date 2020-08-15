@@ -1,4 +1,4 @@
-.np-tabs-component {
+.np-tabs {
     display: flex;
     flex-direction: column;
     border: 1px solid #9e9e9e;
@@ -6,13 +6,7 @@
     background-color: #ffffff;
 }
 
-.np-tab-body {
-    padding: 10px;
-    width: 100%;
-    overflow: auto;
-}
-
-.np-tab-header {
+.np-tabs-header {
     margin: 0px;
     padding: 0px;
     border-bottom: 1px solid #9e9e9e;
@@ -34,27 +28,29 @@
     background-color: #eeeeee;
 }
 
-.np-tab-title i {
-    padding-right: 5px;
-}
-
-.np-active-tab {
+.np-tab-active {
     color: #007bff;
     border-bottom: 2px solid #007bff;
     padding-top: 2px;
 }
 
-.np-tabs-horizontal.np-tabs-component {
+.np-tab-body {
+    padding: 10px;
+    width: 100%;
+    overflow: auto;
+}
+
+.np-tabs-horizontal {
     flex-direction: row !important;
 }
 
-.np-tabs-horizontal .np-tab-header {
+.np-tabs-horizontal .np-tabs-header {
     border-bottom: none;
     border-right: 1px solid #9e9e9e;
     flex-direction: column !important;
 }
 
-.np-tabs-horizontal .np-active-tab {
+.np-tabs-horizontal .np-tab-active {
     border-right: 2px solid #007bff;
     border-bottom: none;
     padding-right: 18px;

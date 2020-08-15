@@ -1,11 +1,11 @@
-<div class="np-st-component">
-    <div class="np-st-header">
+<div [ngClass]="{ 'np-steps' : true }" [class]="styleClass" [attr.id]="inputId">
+    <div class="np-steps-header">
         <ng-container *ngFor="let step of steps; let i = index;">
-            <div class="np-st-title" [ngClass]="{ 'np-st-active': selectedIndex === i, 
-            'np-st-done' : step.completed,
-            'np-st-error' : step.hasError }" (click)="_onClick(i)">
+            <div class="np-step-title" [ngClass]="{ 'np-step-active': selectedIndex === i, 
+            'np-step-done' : step.completed,
+            'np-step-error' : step.hasError }" (click)="_onClick(i)">
                 <ng-container *ngIf="!_isTemplate(step); else stepLabelTemp">
-                    <button type="button" class="np-st-step-number">{{i + 1}}</button>
+                    <button type="button" class="np-step-number">{{i + 1}}</button>
                     <span [innerHtml]="step.label"></span>
                 </ng-container>
                 <ng-template #stepLabelTemp [ngTemplateOutlet]="step.labelTemplate">
@@ -14,7 +14,7 @@
         </ng-container>
     </div>
 
-    <div class="np-st-body" [style.display]="selected ? 'block' : 'none'">
+    <div class="np-step-body">
         <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
     </div>
 </div>

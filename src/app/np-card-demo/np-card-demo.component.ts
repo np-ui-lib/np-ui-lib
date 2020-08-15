@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NpCardDemoComponent implements OnInit {
 
   importText = `import { NpCardModule } from \'np-ui-lib\';`;
-  htmlText = `<np-card><np-card-body>
+  htmlText = `<np-card>
   <np-card-header>
     Header...
   </np-card-header>
@@ -21,7 +21,7 @@ export class NpCardDemoComponent implements OnInit {
   <np-card-footer>
     Footer...
   </np-card-footer>
-<np-card><np-card-body>`;
+</np-card>`;
 
   constructor() { }
 

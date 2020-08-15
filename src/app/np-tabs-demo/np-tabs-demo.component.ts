@@ -39,7 +39,7 @@ export class NpTabsDemoComponent implements OnInit {
   }
 
   onTabChange(tab) {
-    console.log(`tab changed to ${tab.title}, is loading first time : ${tab.isLoadingFirstTime}`);
+    console.log(`tab changed to ${tab.title}, is load first time : ${tab.isLoadFirstTime}`);
   }
 
   changeCount() {
