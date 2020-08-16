@@ -154,12 +154,12 @@
         </fieldset>
 
         <fieldset>
-            <np-carousel #slider [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="3" [currentPage]="1"
-                [scrollNum]="1">
+            <np-carousel #slider [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="visibleNum"
+                [currentPage]="1" [scrollNum]="scrollNum">
             </np-carousel>
 
             <ng-template #itemTemplate2 let-item="item">
-                <np-card>
+                <np-card [width]="200">
                     <np-card-body>
                         <div
                             style="text-align: center; background-color: black;color: white; padding: 10px 20px;font-size: 22px;">
@@ -175,6 +175,16 @@
                     </np-card-body>
                 </np-card>
             </ng-template>
+
+            <div>
+                Slides To Show:
+                <input type="number" class="np-form-control" [(ngModel)]="visibleNum" [min]="1" [max]="5">
+            </div>
+
+            <div>
+                Slides To Scroll:
+                <input type="number" class="np-form-control" [(ngModel)]="scrollNum" [min]="1" [max]="5">
+            </div>
 
             <div class="np-btn-group">
                 <button class="np-btn" (click)="selectPage2()">Go to page 2</button>

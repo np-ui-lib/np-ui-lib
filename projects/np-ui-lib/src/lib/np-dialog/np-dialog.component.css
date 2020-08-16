@@ -1,8 +1,8 @@
-.np-dialog .np-mod-header {
+.np-dialog .np-modal-header {
     display: none;
 }
 
-.np-mod-content {
+.np-dialog .np-modal-body {
     min-height: 100px;
     min-width: 250px;
 }

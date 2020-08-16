@@ -25,6 +25,8 @@ export class NpCarouselDemoComponent implements OnInit {
   ];
 
   items2: any[];
+  visibleNum = 1;
+  scrollNum = 1;
 
   constructor() { }
 

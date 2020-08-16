@@ -1,28 +1,28 @@
-.np-cs-component {
+.np-carousel {
     height: 100%;
 }
 
-.np-cs-items {
+.np-carousel-items {
     flex: 1;
     overflow: hidden;
     margin: 0px 5px;
 }
 
-.np-cs-item {
+.np-carousel-item {
     display: none;
 }
 
-.np-cs-item-active {
+.np-carousel-active {
     display: block;
     margin: 5px;
 }
 
-.np-cs-dot-list {
+.np-carousel-nav {
     text-align: center;
     width: 100%;
 }
 
-.np-cs-dot {
+.np-carousel-dot {
     cursor: pointer;
     width: 30px;
     height: 3px;
@@ -32,7 +32,7 @@
     transition: background-color 0.6s ease;
 }
 
-.np-cs-active,
-.np-cs-dot:hover {
+.np-carousel-dot-active,
+.np-carousel-dot:hover {
     background-color: #717171;
 }

@@ -1,4 +1,7 @@
-import { Component, Input, OnDestroy, TemplateRef, HostListener, AfterContentInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component, Input, OnDestroy, TemplateRef, HostListener, AfterContentInit, ViewEncapsulation,
+  ChangeDetectionStrategy, OnChanges, SimpleChanges
+} from '@angular/core';
 
 @Component({
   selector: 'np-carousel',
@@ -7,7 +10,8 @@ import { Component, Input, OnDestroy, TemplateRef, HostListener, AfterContentIni
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpCarouselComponent implements AfterContentInit, OnDestroy {
+export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChanges {
+
   static controlCount = 1;
 
   @Input() items: any[] = [];
@@ -37,6 +41,12 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy {
     this._getSlidesFromPage();
     if (this.autoPlay) {
       this._setAutoSlideChange();
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.scrollNum || changes.visibleNum) {
+      this._getSlidesFromPage();
     }
   }
 

@@ -91,7 +91,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     this._clearTimeout();
     this.timeout = setTimeout(() => {
       that._onMouseDownAdd();
-    }, 100);
+    }, 200);
     that._add();
   }
 
@@ -104,7 +104,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     this._clearTimeout();
     this.timeout = setTimeout(() => {
       that._onMouseDownMinus();
-    }, 100);
+    }, 200);
     that._minus();
   }
 
