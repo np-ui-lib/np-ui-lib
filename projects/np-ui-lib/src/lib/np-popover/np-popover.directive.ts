@@ -14,7 +14,7 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
     @Input() body: string | TemplateRef<any>;
     @Input() showOnClick: boolean;
     @Input() width: number;
-    @Input() backDropClass = 'np-pop-backdrop';
+    @Input() backDropClass = 'np-popover-backdrop';
     @Input() hasBackDrop = true;
     @Input() styleClass: string;
 
@@ -27,7 +27,7 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit(): void {
-        this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-pop-target`).trim();
+        this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-popover-target`).trim();
         const position: ConnectedPosition[] = this._getPosition();
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)

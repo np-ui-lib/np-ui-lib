@@ -1,12 +1,12 @@
-<div [ngClass]="{'np-pop-component': true}" [style.width.px]="width" [class]="styleClass" [attr.id]="inputId">
-    <div class="np-pop-header">
+<div [ngClass]="{'np-popover': true}" [style.width.px]="width" [class]="styleClass" [attr.id]="inputId">
+    <div class="np-popover-header">
         <ng-container *ngIf="!isHeaderTemplate">
             <div [innerHTML]="header"></div>
         </ng-container>
         <ng-template *ngIf="isHeaderTemplate" [ngTemplateOutlet]="header">
         </ng-template>
     </div>
-    <div class="np-pop-body">
+    <div class="np-popover-body">
         <ng-container *ngIf="!isBodyTemplate">
             <div [innerHTML]="body"></div>
         </ng-container>

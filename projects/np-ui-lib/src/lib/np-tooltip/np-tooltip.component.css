@@ -1,4 +1,4 @@
-.np-tt-component {
+.np-tooltip {
     padding: 5px;
     background-color: #000000;
     color: #ffffff;
@@ -7,6 +7,6 @@
     border-radius: 2px;
 }
 
-.np-tt-target {
+.np-tooltip-target {
     cursor: pointer;
 }

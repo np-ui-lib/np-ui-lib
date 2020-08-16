@@ -13,7 +13,7 @@ export class NpLoaderDirective implements OnChanges, AfterContentInit {
         const loader = this.renderer.createElement('div');
         this.renderer.addClass(loader, 'np-loader');
         this.loaderEle = this.renderer.createElement('div');
-        this.renderer.addClass(this.loaderEle, 'np-loader-background');
+        this.renderer.addClass(this.loaderEle, 'np-loader-backdrop');
         this.renderer.appendChild(this.loaderEle, loader);
     }
 

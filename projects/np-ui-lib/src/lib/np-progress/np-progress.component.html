@@ -1,13 +1,10 @@
-<div [ngClass]="'np-pg-component'" [class]="styleClass" [attr.id]="inputId">
-    <div class="np-row np-no-gutters">
-        <div class="np-col-12">
-            <div class="np-pg-container" [style.height.px]="height">
-                <div *ngIf="!indeterminate" class="np-pg-progress-bar" [style.width.%]="value" [ngClass]="{'np-pg-striped': striped, 'np-pg-animated': animated}">
-                    <span *ngIf="showLabel">{{getTooltipText()}}</span>
-                </div>
-                <div *ngIf="indeterminate" class="np-pg-progress-bar np-pg-indeterminate">
-                </div>
-            </div>
+<div [ngClass]="{'np-progress' : true}" [class]="styleClass" [attr.id]="inputId">
+    <div class="np-progress-container" [style.height.px]="height">
+        <div *ngIf="!indeterminate" class="np-progress-bar" [style.width.%]="value"
+            [ngClass]="{'np-progress-striped': striped, 'np-progress-animated': animated}">
+            <span *ngIf="showLabel">{{getTooltipText()}}</span>
+        </div>
+        <div *ngIf="indeterminate" class="np-progress-bar np-progress-indeterminate">
         </div>
     </div>
 </div>

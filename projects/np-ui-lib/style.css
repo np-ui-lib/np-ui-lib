@@ -1573,7 +1573,7 @@ svg {
     pointer-events: none;
 }
 
-.np-loader-background {
+.np-loader-backdrop {
     height: 100%;
     width: 100%;
     background-color: rgb(0, 0, 0, 0.3);
@@ -1616,7 +1616,7 @@ svg {
     pointer-events: none;
 }
 
-.np-blockui-background {
+.np-blockui-backdrop {
     height: 100%;
     width: 100%;
     background-color: rgb(0, 0, 0, 0.3);

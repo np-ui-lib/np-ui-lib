@@ -25,7 +25,7 @@ export class NpTooltipDirective implements AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit(): void {
-        this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-tt-target`).trim();
+        this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-tooltip-target`).trim();
         const position: ConnectedPosition[] = this._getPosition();
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)

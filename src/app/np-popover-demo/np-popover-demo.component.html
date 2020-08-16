@@ -42,6 +42,12 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>placement</td>
+                        <td>Set popover position from 'left' | 'right' | 'top' | 'bottom'</td>
+                        <td>string</td>
+                        <td>bottom</td>
+                    </tr>
+                    <tr>
                         <td>showOnClick</td>
                         <td>Show popover on click of target</td>
                         <td>boolean</td>
@@ -112,7 +118,9 @@
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
-            <a np-popover [header]="'This is link A'" [body]="'Description of Link A.'">Link A : Popover on hover</a>
+            <a np-popover [header]="'This is link A'" [body]="'Description of Link A.'">
+                <i class="fa fa-info"></i>
+            </a>
         </fieldset>
 
         <fieldset>

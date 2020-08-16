@@ -1,4 +1,4 @@
-.np-pg-container {
+.np-progress-container {
     display: flex;
     height: 15px;
     overflow: hidden;
@@ -7,7 +7,7 @@
     border-radius: 2px;
 }
 
-.np-pg-progress-bar {
+.np-progress-bar {
     display: flex;
     flex-direction: column;
     color: #fff;
@@ -16,37 +16,37 @@
     text-align: center;
 }
 
-.np-pg-striped {
+.np-progress-striped {
     background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
     background-size: 15px 15px;
 }
 
-.np-pg-animated {
+.np-progress-animated {
     background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
     background-size: 15px 15px;
     animation: np-progress-bar-stripes 1s linear reverse infinite;
 }
 
-.np-pg-indeterminate {
+.np-progress-indeterminate {
     width: 100%;
     background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
     background-size: 15px 15px;
     animation: np-progress-bar-stripes 1s linear reverse infinite;
 }
 
-.np-pg-success .np-pg-progress-bar {
+.np-progress-success .np-progress-bar {
     background-color: #1e7e34!important;
 }
 
-.np-pg-danger .np-pg-progress-bar {
+.np-progress-danger .np-progress-bar {
     background-color: #bd2130!important;
 }
 
-.np-pg-warning .np-pg-progress-bar {
+.np-progress-warning .np-progress-bar {
     background-color: #d39e00!important;
 }
 
-.np-pg-info .np-pg-progress-bar {
+.np-progress-info .np-progress-bar {
     background-color: #117a8b!important;
 }
 
