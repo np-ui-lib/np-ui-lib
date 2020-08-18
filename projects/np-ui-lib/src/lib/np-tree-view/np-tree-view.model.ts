@@ -5,6 +5,7 @@ export class NpTreeViewItem {
         this.childItems = item.childItems;
         this.isExpanded = item.isExpanded;
         this.data = item.data;
+        this.iconClass = item.iconClass;
     }
 
     label: string;
@@ -13,4 +14,5 @@ export class NpTreeViewItem {
     childItems: NpTreeViewItem[];
     data: any;
     partiallySelected: boolean;
+    iconClass: string;
 }

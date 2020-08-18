@@ -18,6 +18,8 @@
 
 .np-accordion-title {
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .np-accordion-body {

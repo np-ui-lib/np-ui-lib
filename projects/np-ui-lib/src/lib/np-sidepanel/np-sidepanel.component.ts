@@ -20,7 +20,7 @@ export class NpSidepanelComponent implements OnInit {
   @Input() width: number | string;
   @Input() showCloseIcon = true;
   @Input() closeOnClickOutside = true;
-  @Input() backDropClass = 'np-sp-backdrop';
+  @Input() backDropClass = 'np-sidepanel-backdrop';
   @Input() hasBackDrop = true;
   @Input() styleClass: string;
   @Input() inputId = `np-sidepanel_${NpSidepanelComponent.controlCount++}`;

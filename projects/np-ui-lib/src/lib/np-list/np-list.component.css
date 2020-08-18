@@ -1,41 +1,19 @@
-.np-li-component {
-    position: relative;
-    border: 1px solid #9e9e9e;
-    border-radius: 2px;
-    width: 100%;
-    overflow: auto;
-    background-color: #ffffff;
-}
 
-.np-li-checkbox {
+.np-list-checkbox {
     cursor: pointer;
     height: 15px;
     width: 15px;
     vertical-align: middle;
 }
 
-.np-li-item {
-    padding: 10px;
-    border-bottom: 1px solid #9e9e9e;
-    display: flex;
-}
-
-.np-li-item:last-child {
-    border-bottom: none;
-}
-
-.np-li-selection {
-    padding-right: 10px;
-}
-
-.np-li-item:hover {
-    background-color: #eeeeee;
-}
-
-.np-li-selected{
+.np-list-selected {
     background-color: #e0e0e0;
 }
 
-.np-li-selected:hover {
-    background-color: #bdbdbd;
+.np-list-selected:hover {
+    background-color: #bdbdbd !important;
+}
+
+.np-list-checkbox {
+    margin-right: 10px;
 }

@@ -1,6 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { NpMenuItem } from 'np-ui-lib';
 import { Router, NavigationEnd } from '@angular/router';
+import { DatePipe } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'np-ui-package';
   year = new Date().getFullYear();
+  downloads = 0;
 
   dataGridItems = [
     new NpMenuItem({ routerLink: '/np-data-grid-demo/data-grid-doc', label: 'Documentation' }),
@@ -74,12 +77,13 @@ export class AppComponent implements OnInit {
   isMobileView: boolean;
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize() {
     this.setMenubarOnResize();
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private http: HttpClient, public datepipe: DatePipe) {
     this.setMenubarOnResize();
+    this.getNPMDownloads();
   }
 
   ngOnInit(): void {
@@ -94,7 +98,7 @@ export class AppComponent implements OnInit {
     this.showMenu = !this.showMenu;
   }
 
-  onClickMenuItem($event) {
+  onClickMenuItem(item) {
     if (window.innerWidth <= 992) {
       this.showMenu = false;
     }
@@ -108,6 +112,18 @@ export class AppComponent implements OnInit {
       this.showMenu = true;
       this.isMobileView = false;
     }
+  }
+
+  getNPMDownloads() {
+    const today = this.datepipe.transform(new Date(), 'yyyy-MM-dd');
+    const url = `https://api.npmjs.org/downloads/point/2020-03-21:${today}/np-ui-lib`;
+
+    this.http.get<any>(url)
+      .subscribe((result: any) => {
+        if (result) {
+          this.downloads = result.downloads;
+        }
+      });
   }
 
 }

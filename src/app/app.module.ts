@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { fakeBackendProvider } from './np-data-grid-demo/FakeBackendInterceptor';
 import { NpMenubarModule, NpNotificationsModule } from 'np-ui-lib';
 
@@ -24,7 +24,8 @@ import { NpMenubarModule, NpNotificationsModule } from 'np-ui-lib';
   ],
   providers: [
     // provider used to create fake backend
-    fakeBackendProvider
+    fakeBackendProvider,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

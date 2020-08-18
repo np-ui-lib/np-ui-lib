@@ -66,13 +66,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
 
+        if (url.endsWith('/getAll') || url.endsWith('/getDataUsingLoadOptions') || url.endsWith('/updateFirstName')) {
+            // wrap in delayed observable to simulate server api call
+            return of(null)
+                .pipe(mergeMap(handleRoute))
+                .pipe(materialize())
+                .pipe(delay(500))
+                .pipe(dematerialize());
+        }
 
-        // wrap in delayed observable to simulate server api call
-        return of(null)
-            .pipe(mergeMap(handleRoute))
-            .pipe(materialize())
-            .pipe(delay(500))
-            .pipe(dematerialize());
+        return next.handle(request);
 
         function handleRoute() {
             switch (true) {

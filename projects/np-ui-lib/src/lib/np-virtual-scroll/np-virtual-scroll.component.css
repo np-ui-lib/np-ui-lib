@@ -1,21 +1,21 @@
-.np-vs-component {
+.np-virtual-scroll {
     border: 1px solid #9e9e9e;
     background-color: #ffffff;
 }
 
-.np-vs-item {
+.np-virtual-scroll-item {
     border-bottom: 1px solid #9e9e9e;
     padding: 10px;
 }
 
-.np-vs-item:hover {
+.np-virtual-scroll-item:hover {
     background-color: #eeeeee;
 }
 
-.np-vs-item:last-child {
+.np-virtual-scroll-item:last-child {
     border-bottom: none;
 }
 
-.np-vs-list {
+.np-virtual-scroll-items {
     min-height: 250px;
 }

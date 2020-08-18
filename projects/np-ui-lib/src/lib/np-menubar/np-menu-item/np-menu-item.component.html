@@ -1,10 +1,10 @@
 <ng-container *ngIf="item.visible">
     <ng-container *ngIf="item.items">
-        <div class="np-mb-menu-item" (mouseenter)="_onMouseEnter($event,item)" (mouseleave)="_onMouseLeave(item)">
-            <a class="np-mb-link" [ngClass]="{'np-mb-active': item.routerLink && _isActive(item)}">
+        <div class="np-menu-item" (mouseenter)="_onMouseEnter($event,item)" (mouseleave)="_onMouseLeave(item)">
+            <a class="np-menu-link" [ngClass]="{'np-menu-active': item.routerLink && _isActive(item)}">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
-                <div class="np-mb-text" [innerHTML]="item.label"></div>
-                <div class="np-mb-icon">
+                <div class="np-menu-text" [innerHTML]="item.label"></div>
+                <div class="np-menu-icon">
                     <svg class="np-icon" *ngIf="orientation === 'vertical'">
                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
                         <path d="M0 0h24v24H0z" fill="none" />
@@ -16,7 +16,7 @@
                 </div>
             </a>
             <ng-container *ngIf="item.isChildVisible">
-                <div class="np-mb-submenu" [style.top.px]="item.y" [style.left.px]="item.x">
+                <div class="np-submenu" [style.top.px]="item.y" [style.left.px]="item.x">
                     <ng-container *ngFor="let child of item.items">
                         <np-menu-item [item]="child" [orientation]="'vertical'"
                             (onClickItem)="_onClickMenuItem($event)">
@@ -27,22 +27,22 @@
         </div>
     </ng-container>
     <ng-container *ngIf="!item.items">
-        <div class="np-mb-menu-item">
-            <a class="np-mb-link" *ngIf="item.routerLink" [routerLink]="item.routerLink"
+        <div class="np-menu-item">
+            <a class="np-menu-link" *ngIf="item.routerLink" [routerLink]="item.routerLink"
                 [queryParams]="item.queryParams" [fragment]="item.fragment"
-                [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-mb-active'"
+                [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-menu-active'"
                 (click)="_onClickMenuItem(item)">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
-                <div class="np-mb-text" [innerHTML]="item.label"></div>
+                <div class="np-menu-text" [innerHTML]="item.label"></div>
             </a>
-            <a class="np-mb-link" *ngIf="item.url" [href]="item.url" [target]="item.target"
+            <a class="np-menu-link" *ngIf="item.url" [href]="item.url" [target]="item.target"
                 (click)="_onClickMenuItem(item)">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
-                <div class="np-mb-text" [innerHTML]="item.label"></div>
+                <div class="np-menu-text" [innerHTML]="item.label"></div>
             </a>
-            <a class="np-mb-link" *ngIf="!item.routerLink && !item.url" (click)="_onClickMenuItem(item)">
+            <a class="np-menu-link" *ngIf="!item.routerLink && !item.url" (click)="_onClickMenuItem(item)">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
-                <div class="np-mb-text" [innerHTML]="item.label"></div>
+                <div class="np-menu-text" [innerHTML]="item.label"></div>
             </a>
         </div>
     </ng-container>
