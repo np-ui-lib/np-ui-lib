@@ -69,3 +69,8 @@
 .np-menubar-panel .np-submenu .np-menu-link:hover {
     background-color: #bdbdbd;
 }
+
+.np-menu-item i {
+    font-size: x-large;
+    padding-right: 5px;
+}

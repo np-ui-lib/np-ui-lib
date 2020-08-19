@@ -2,6 +2,7 @@
     [class]="styleClass" [attr.id]="inputId">
     <div class="np-accordion-header">
         <div class="np-accordion-title" (click)="_toggle()">
+            <i *ngIf="iconCss" [ngClass]="iconCss"></i>
             <ng-container *ngIf="!isTitleTemplate">
                 <div [innerHTML]="title"></div>
             </ng-container>

@@ -11,7 +11,7 @@ export class NpTreeViewDemoComponent implements OnInit {
   importText = 'import { NpTreeViewModule } from \'np-ui-lib\';';
   htmlText = `<np-tree-view [items]="items">
 </np-tree-view>`;
-modelText = `items: NpTreeViewItem[] = [
+  modelText = `items: NpTreeViewItem[] = [
   new NpTreeViewItem({
     label: 'Item 1',
     key: 'Item 1',
@@ -35,19 +35,19 @@ modelText = `items: NpTreeViewItem[] = [
 
   items: NpTreeViewItem[] = [
     new NpTreeViewItem({
-      label: 'Item 1',
+      label: 'Item 1', iconCss: 'fa fa-folder',
       childItems: [
         new NpTreeViewItem({
-          label: 'Item 1.1', childItems: [
-            new NpTreeViewItem({ label: 'Item 1.1.1' }),
-            new NpTreeViewItem({ label: 'Item 1.1.2' }),
-            new NpTreeViewItem({ label: 'Item 1.1.3' }),
-            new NpTreeViewItem({ label: 'Item 1.1.4' }),
+          label: 'Item 1.1', iconCss: 'fa fa-folder', childItems: [
+            new NpTreeViewItem({ label: 'Item 1.1.1', iconCss: 'fa fa-file' }),
+            new NpTreeViewItem({ label: 'Item 1.1.2', iconCss: 'fa fa-file' }),
+            new NpTreeViewItem({ label: 'Item 1.1.3', iconCss: 'fa fa-file' }),
+            new NpTreeViewItem({ label: 'Item 1.1.4', iconCss: 'fa fa-file' }),
           ]
         }),
-        new NpTreeViewItem({ label: 'Item 1.2' }),
-        new NpTreeViewItem({ label: 'Item 1.3' }),
-        new NpTreeViewItem({ label: 'Item 1.4' }),
+        new NpTreeViewItem({ label: 'Item 1.2', iconCss: 'fa fa-file' }),
+        new NpTreeViewItem({ label: 'Item 1.3', iconCss: 'fa fa-file' }),
+        new NpTreeViewItem({ label: 'Item 1.4', iconCss: 'fa fa-file' }),
       ]
     }),
     new NpTreeViewItem({

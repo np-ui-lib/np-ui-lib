@@ -1,9 +1,9 @@
 <div [ngClass]="{'np-breadcrumb': true}" [class]="styleClass" [attr.id]="inputId">
     <ul class="np-breadcrumb-items">
-        <ng-container *ngIf="showHomeIcon">
+        <ng-container *ngIf="showIcon">
             <li class="np-breadcrumb-item">
-                <i *ngIf="homeIconCss" [class]="homeIconCss"></i>
-                <svg *ngIf="!homeIconCss" class="np-icon" viewBox="0 0 24 24">
+                <i *ngIf="iconCss" [class]="iconCss"></i>
+                <svg *ngIf="!iconCss" class="np-icon" viewBox="0 0 24 24">
                     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
                     <path d="M0 0h24v24H0z" fill="none" />
                 </svg>

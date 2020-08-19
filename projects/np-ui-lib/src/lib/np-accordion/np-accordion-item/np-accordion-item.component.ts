@@ -13,6 +13,7 @@ export class NpAccordionItemComponent implements AfterContentInit {
   @Input() isOpen = false;
   @Input() height: number;
   @Input() disabled: boolean;
+  @Input() iconCss: string;
   @Input() styleClass: string;
   @Input() inputId = `np-accordion-item_${NpAccordionItemComponent.controlCount++}`;
 

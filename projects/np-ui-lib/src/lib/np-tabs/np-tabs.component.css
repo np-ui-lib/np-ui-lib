@@ -56,3 +56,8 @@
     padding-right: 18px;
     padding-top: 0px;
 }
+
+.np-tab-title i {
+    font-size: x-large;
+    padding-right: 5px;
+}

@@ -15,7 +15,7 @@ import { NpFilterService } from './services/np-filter.service';
 import { NpODataService } from './services/np-odata.service';
 import { NpPagerService } from './services/np-pager.service';
 import { NpGridUtilityService } from './services/np-grid-utility.service';
-import { NpModalComponent } from '../np-modal/np-modal.component';
+import { NpDialogComponent } from '../np-dialog/np-dialog.component';
 
 @Component({
   selector: 'np-data-grid',
@@ -67,9 +67,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   @Output() onServerExport: EventEmitter<LoadOptions> = new EventEmitter();
 
   @ViewChild('columnChooserTemplate') columnChooserTemplate: TemplateRef<any>;
-  @ViewChild('saveNewStateModal') saveNewStateModal: NpModalComponent;
-  @ViewChild('editStateModal') editStateModal: NpModalComponent;
-  @ViewChild('deleteStateModal') deleteStateModal: NpModalComponent;
+  @ViewChild('saveNewStateModal') saveNewStateModal: NpDialogComponent;
+  @ViewChild('editStateModal') editStateModal: NpDialogComponent;
+  @ViewChild('deleteStateModal') deleteStateModal: NpDialogComponent;
 
   columnsClone: Column[];
   dataSourceClone: DataSource;
@@ -94,7 +94,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   currentStateName: string;
   summaryData: any;
   searchColumnsKeyword: string;
-  stateName: string;
   nameAlreadyExistError = false;
 
   private columnChooserTemplatePortal: TemplatePortal<any>;
@@ -391,24 +390,32 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     this.filterColumnList = [];
   }
 
-  _onClickToggleMasterChild(keyValue: any) {
+  _onClickExpandRow(keyValue: any) {
     if (this.expandRowOnClick === true) {
       return;
     }
-    this._toggleMasterChild(keyValue);
+    this._expandRow(keyValue);
   }
 
-  _toggleMasterChild(keyValue: any) {
-    const idx = this.openRowKeys.indexOf(keyValue);
-    if (idx === -1) {
-      if (this.singleRowExpand) {
-        this.openRowKeys = [keyValue];
-      } else {
-        this.openRowKeys.push(keyValue);
-      }
-    } else {
-      this.openRowKeys.splice(idx, 1);
+  _expandRow(keyValue: any) {
+    if (this.singleRowExpand === true) {
+      this.openRowKeys = [keyValue];
     }
+    else {
+      this.openRowKeys.push(keyValue);
+    }
+  }
+
+  _onClickCollapseRow(keyValue: any) {
+    if (this.expandRowOnClick === true) {
+      return;
+    }
+    this._collapseRow(keyValue);
+  }
+
+  _collapseRow(keyValue: any) {
+    const idx = this.openRowKeys.indexOf(keyValue);
+    this.openRowKeys.splice(idx, 1);
   }
 
   _onClickSelectAll(event: any) {
@@ -500,7 +507,11 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   _rowClick(event: any, data: any) {
     if (this.masterDetailTemplate && this.expandRowOnClick) {
-      this._toggleMasterChild(data[this.keyColumnName]);
+      if (this._isOpenChild(data[this.keyColumnName])) {
+        this._collapseRow(data[this.keyColumnName]);
+      } else {
+        this._expandRow(data[this.keyColumnName]);
+      }
     }
     if ((this.singleRowSelectEnable || this.multiRowSelectEnable) && this.selectRowOnClick) {
       if (this._isSelected(data[this.keyColumnName])) {
@@ -761,21 +772,15 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
   }
 
-  _openModalToAddNewState() {
-    this.stateName = '';
-    this.nameAlreadyExistError = false;
+  _openDialogAddNewState() {
     this.saveNewStateModal.open();
   }
 
-  _closeModalToAddNewState() {
-    this.saveNewStateModal.close();
-  }
-
-  _addState() {
-    if (this.stateName && this.stateName.trim().length === 0) {
+  _addState(stateName: string) {
+    if (stateName && stateName.trim().length === 0) {
       return;
     }
-    const name = this.stateName.trim();
+    const name = stateName.trim();
     const state = this.stateList.filter((element: State) => { if (element.name === name) { return element; } });
     if (state && state.length > 0) {
       this.nameAlreadyExistError = true;
@@ -789,20 +794,10 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     if (this.onStatesUpdate) {
       this.onStatesUpdate.emit();
     }
-    this.saveNewStateModal.close();
-  }
-
-  _closeModalEditState() {
-    this.editStateModal.close();
-  }
-
-  _closeModalDeleteState() {
-    this.deleteStateModal.close();
   }
 
   _deleteState() {
     const currentStateName = this.currentStateName;
-
     const list = [];
     for (const element of this.stateList) {
       if (element.name !== currentStateName) {

@@ -36,6 +36,18 @@
                         <td>false</td>
                     </tr>
                     <tr>
+                        <td>diameter</td>
+                        <td>Set diameter of loader in px</td>
+                        <td>number</td>
+                        <td>32</td>
+                    </tr>
+                    <tr>
+                        <td>strokeWidth</td>
+                        <td>Set stroke width of loader in px</td>
+                        <td>number</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
                         <td>loadingText</td>
                         <td>Set text to show on loader</td>
                         <td>string</td>
@@ -77,7 +89,7 @@
         <fieldset>
             <legend>On other component</legend>
 
-            <div [np-loader]="loader4">
+            <div [np-loader]="loader4" [diameter]="64" [strokeWidth]="4">
                 <np-tabs>
                     <np-tab [title]="'Tab 1'">
                         <h1>

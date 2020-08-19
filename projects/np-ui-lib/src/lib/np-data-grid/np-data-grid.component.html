@@ -1,18 +1,18 @@
-<div [ngClass]="{'np-dg-component': true}" [style.max-height.px]="height" [style.max-width.px]="width"
-    [class]="styleClass" [attr.id]="inputId">
-    <div *ngIf="title" class="np-dg-title" [innerHTML]="title">
+<div [ngClass]="{'np-grid': true}" [style.max-height.px]="height" [style.max-width.px]="width" [class]="styleClass"
+    [attr.id]="inputId">
+    <div *ngIf="title" class="np-grid-title" [innerHTML]="title">
     </div>
-    <div *ngIf="showToolBar" class="np-dg-toolbar">
-        <div *ngIf="showColumnChooser" class="np-dg-toolbar-item">
-            <button type="button" title="Column chooser" class="np-btn np-btn-icon np-border" id="btn-column-chooser"
-                (click)="_openColumnChooser()">
+    <div *ngIf="showToolBar" class="np-grid-toolbar">
+        <div *ngIf="showColumnChooser" class="np-grid-toolbar-item">
+            <button type="button" title="Column chooser" class="np-btn np-btn-icon np-border np-column-chooser-btn"
+                id="btn-column-chooser" (click)="_openColumnChooser()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M4 5v13h17V5H4zm10 2v9h-3V7h3zM6 7h3v9H6V7zm13 9h-3V7h3v9z" />
                 </svg>
             </button>
         </div>
-        <div *ngIf="isFilterAvailable" class="np-dg-toolbar-item">
-            <button type="button" title="Toggle filters" class="np-btn np-btn-icon np-border"
+        <div *ngIf="isFilterAvailable" class="np-grid-toolbar-item">
+            <button type="button" title="Toggle filters" class="np-btn np-btn-icon np-border np-toggle-filter-btn"
                 (click)="showFilters = !showFilters">
                 <svg *ngIf="!showFilters" class="np-icon" viewBox="0 0 24 24">
                     <path
@@ -24,8 +24,9 @@
                 </svg>
             </button>
         </div>
-        <div *ngIf="allowExport" class="np-dg-toolbar-item">
-            <button type="button" title="Export" class="np-btn np-btn-icon np-border" (click)="_exportToFile()">
+        <div *ngIf="allowExport" class="np-grid-toolbar-item">
+            <button type="button" title="Export" class="np-btn np-btn-icon np-border np-grid-export-btn"
+                (click)="_exportToFile()">
                 <svg viewBox="0 0 24 24" class="np-icon">
                     <path
                         d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
@@ -34,23 +35,24 @@
         </div>
         <div class="np-toolbar-spacer"></div>
         <ng-container *ngIf="enableStateStoring">
-            <div class="np-dg-toolbar-item">
-                <select class="np-form-control" [(ngModel)]="currentStateName" (change)="_loadState()">
+            <div class="np-grid-toolbar-item">
+                <select class="np-form-control np-grid-states" [(ngModel)]="currentStateName" (change)="_loadState()">
                     <option value="">Select...</option>
                     <option *ngFor="let state of stateList" [text]="state.name" [value]="state.name">
                     </option>
                 </select>
             </div>
-            <div *ngIf="currentStateName.length > 0" class="np-dg-toolbar-item">
-                <button type="button" class="np-btn np-btn-icon np-border" title="Save state" (click)="_saveState()">
+            <div *ngIf="currentStateName.length > 0" class="np-grid-toolbar-item">
+                <button type="button" class="np-btn np-btn-icon np-border np-grid-state-save" title="Save state"
+                    (click)="_saveState()">
                     <svg class="np-icon" viewBox="0 0 24 24">
                         <path
                             d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6z" />
                     </svg>
                 </button>
             </div>
-            <div *ngIf="currentStateName.length > 0" class="np-dg-toolbar-item">
-                <button type="button" class="np-btn np-btn-icon np-border" title="Delete state"
+            <div *ngIf="currentStateName.length > 0" class="np-grid-toolbar-item">
+                <button type="button" class="np-btn np-btn-icon np-border np-grid-state-delete" title="Delete state"
                     (click)="_deleteState()">
                     <svg class="np-icon" viewBox="0 0 24 24">
                         <path
@@ -58,9 +60,9 @@
                     </svg>
                 </button>
             </div>
-            <div class="np-dg-toolbar-item">
-                <button type="button" class="np-btn np-btn-icon np-border" title="Add state"
-                    (click)="_openModalToAddNewState()">
+            <div class="np-grid-toolbar-item">
+                <button type="button" class="np-btn np-btn-icon np-border np-grid-state-add" title="Add state"
+                    (click)="_openDialogAddNewState()">
                     <svg class="np-icon" viewBox="0 0 24 24">
                         <path
                             d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-8-2h2v-4h4v-2h-4V7h-2v4H7v2h4z" />
@@ -69,8 +71,8 @@
             </div>
         </ng-container>
     </div>
-    <div class="np-dg-container">
-        <div class="np-dg-table-header">
+    <div class="np-grid-container">
+        <div class="np-grid-thead">
             <table>
                 <colgroup>
                     <col *ngIf="enableMasterChild" style="width: 35px;">
@@ -78,118 +80,120 @@
                     <col *ngFor="let column of visibleColumns" [style.width.px]="column.width">
                 </colgroup>
                 <thead>
-                    <tr class="np-dg-header-row">
+                    <tr>
                         <th *ngIf="enableMasterChild"></th>
                         <th *ngIf="_allowRowSelection()">
-                            <input *ngIf="multiRowSelectEnable" type="checkbox" class="np-dg-checkbox"
+                            <input *ngIf="multiRowSelectEnable" type="checkbox" class="np-grid-checkbox"
                                 title="Select/Unselect all" [(ngModel)]="isAllSelected"
                                 (change)="_onClickSelectAll($event)">
                         </th>
                         <th *ngFor="let column of visibleColumns; let k = index;"
-                            [ngClass]="{'np-dg-sticky-left': column.stickyColumnLeft, 'np-dg-sticky-right': column.stickyColumnRight}">
+                            [ngClass]="{'np-grid-sticky-left': column.stickyColumnLeft, 'np-grid-sticky-right': column.stickyColumnRight}">
                             <span [innerHTML]="column.caption" (click)="_onSort(column)"
                                 [ngClass]="{'np-cursor-pointer': column.sortEnable}">
                             </span>
-                            <button *ngIf="column.sortEnable" type="button" class="np-btn np-btn-icon"
-                                (click)="_onSort(column)">
-                                <svg *ngIf="column.sortDirection === sortDirections.Ascending" class="np-icon-sm"
-                                    viewBox="0 0 24 24">
-                                    <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" />
-                                </svg>
-                                <svg *ngIf="column.sortDirection === sortDirections.Descending" class="np-icon-sm"
-                                    viewBox="0 0 24 24">
-                                    <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" />
-                                </svg>
-                                <svg *ngIf="!column.sortDirection" class="np-icon-sm np-dg-sort-enable"
-                                    viewBox="0 0 24 24">
-                                    <path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z" />
-                                    <path d="M0 0h24v24H0z" fill="none" />
-                                </svg>
-                            </button>
-                            <div *ngIf="allowColumnResize" class="np-dg-col-resize-handle" cdkDrag cdkDragLockAxis="x"
+                            <ng-container *ngIf="column.sortEnable">
+                                <button *ngIf="column.sortDirection === sortDirections.Ascending" type="button"
+                                    class="np-sort-ascending" (click)="_onSort(column)">
+                                    <svg class="np-icon-sm" viewBox="0 0 24 24">
+                                        <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" />
+                                    </svg>
+                                </button>
+                                <button *ngIf="column.sortDirection === sortDirections.Descending" type="button"
+                                    class="np-sort-descending" (click)="_onSort(column)">
+                                    <svg class="np-icon-sm" viewBox="0 0 24 24">
+                                        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" />
+                                    </svg>
+                                </button>
+                                <button *ngIf="!column.sortDirection" type="button" class="np-sort-toggle"
+                                    (click)="_onSort(column)">
+                                    <svg class="np-icon-sm" viewBox="0 0 24 24">
+                                        <path d="M0 0h24v24H0z" fill="none" />
+                                        <path
+                                            d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z" />
+                                    </svg>
+                                </button>
+                            </ng-container>
+                            <div *ngIf="allowColumnResize" class="np-grid-resize-handle" cdkDrag cdkDragLockAxis="x"
                                 (cdkDragEnded)="_resizeColumn($event, column)">
                             </div>
+                        </th>
+                    </tr>
+                    <tr class="np-grid-filter" *ngIf="isFilterAvailable && showFilters">
+                        <th *ngIf="enableMasterChild"></th>
+                        <th *ngIf="_allowRowSelection()"></th>
+                        <th *ngFor="let column of visibleColumns; let l = index;"
+                            [ngClass]="{'np-grid-sticky-left': column.stickyColumnLeft, 'np-grid-sticky-right': column.stickyColumnRight}">
+                            <ng-container *ngIf="column.filterEnable">
+                                <select class="np-form-control np-grid-filter-type" [(ngModel)]="column.filterOperator"
+                                    (change)="_onFilter(column, false)">
+                                    <option [value]="undefined" disabled hidden>Select...
+                                    </option>
+                                    <option *ngFor="let fOperator of filtersList | filterTypesPipe: column.dataType"
+                                        [text]="fOperator.text" [value]="fOperator.name">
+                                    </option>
+                                    <option value="Reset" [disabled]="column.filterOperator === undefined">
+                                        Reset
+                                    </option>
+                                </select>
+                                <input *ngIf="column.dataType === dataTypes.String" type="text"
+                                    class="np-form-control np-grid-filter-val" [(ngModel)]="column.filterValue"
+                                    (change)="_onFilter(column, false)" placeholder="Search...">
+                                <input *ngIf="column.dataType === dataTypes.Number" type="number"
+                                    class="np-form-control np-grid-filter-val" [(ngModel)]="column.filterValue"
+                                    (change)="_onFilter(column, false)" placeholder="Search...">
+                                <np-date-picker *ngIf="column.dataType === dataTypes.Date"
+                                    styleClass="np-grid-filter-val" [(ngModel)]="column.filterValue"
+                                    (onChange)="_onFilter(column, false)" placeholder="dd/MM/yyyy">
+                                </np-date-picker>
+                                <select *ngIf="column.dataType === dataTypes.Boolean"
+                                    class="np-form-control np-grid-filter-val" [(ngModel)]="column.filterValue"
+                                    (change)="_onFilter(column, false)">
+                                    <option [value]="undefined" disabled hidden>Select...</option>
+                                    <option [value]="true">True</option>
+                                    <option [value]="false">False</option>
+                                </select>
+                            </ng-container>
                         </th>
                     </tr>
                 </thead>
             </table>
         </div>
-        <div class="np-dg-table-body">
+        <div class="np-grid-tbody">
             <table>
                 <colgroup>
                     <col *ngIf="enableMasterChild" style="width: 35px;">
                     <col *ngIf="_allowRowSelection()" style="width: 35px;">
                     <col *ngFor="let column of visibleColumns" [style.width.px]="column.width">
                 </colgroup>
-                <ng-container *ngIf="isFilterAvailable && showFilters">
-                    <thead>
-                        <tr class="np-dg-header-row">
-                            <th *ngIf="enableMasterChild"></th>
-                            <th *ngIf="_allowRowSelection()"></th>
-                            <th *ngFor="let column of visibleColumns; let l = index;"
-                                [ngClass]="{'np-dg-sticky-left': column.stickyColumnLeft, 'np-dg-sticky-right': column.stickyColumnRight}">
-                                <ng-container *ngIf="column.filterEnable">
-                                    <select class="np-form-control np-dg-filter-type"
-                                        [(ngModel)]="column.filterOperator" (change)="_onFilter(column, false)">
-                                        <option [value]="undefined" disabled hidden>Select...
-                                        </option>
-                                        <option *ngFor="let fOperator of filtersList | filterTypesPipe: column.dataType"
-                                            [text]="fOperator.text" [value]="fOperator.name">
-                                        </option>
-                                        <option value="Reset" [disabled]="column.filterOperator === undefined">
-                                            Reset
-                                        </option>
-                                    </select>
-                                    <input *ngIf="column.dataType === dataTypes.String" type="text"
-                                        class="np-form-control" [(ngModel)]="column.filterValue"
-                                        (change)="_onFilter(column, false)" placeholder="Search...">
-                                    <input *ngIf="column.dataType === dataTypes.Number" type="number"
-                                        class="np-form-control" [(ngModel)]="column.filterValue"
-                                        (change)="_onFilter(column, false)" placeholder="Search...">
-                                    <np-date-picker *ngIf="column.dataType === dataTypes.Date"
-                                        [(ngModel)]="column.filterValue" (onChange)="_onFilter(column, false)"
-                                        placeholder="dd/MM/yyyy">
-                                    </np-date-picker>
-                                    <select *ngIf="column.dataType === dataTypes.Boolean" class="np-form-control"
-                                        [(ngModel)]="column.filterValue" (change)="_onFilter(column, false)">
-                                        <option [value]="undefined" disabled hidden>Select...</option>
-                                        <option [value]="true">True</option>
-                                        <option [value]="false">False</option>
-                                    </select>
-                                </ng-container>
-                            </th>
-                        </tr>
-                    </thead>
-                </ng-container>
                 <tbody>
-                    <ng-container *ngFor="let data of currentViewData; let  i = index">
-                        <tr id="row_{{i}}" class="np-dg-body-row"
-                            [ngClass]="{'np-dg-row-selected': _isSelected(data[keyColumnName])}"
+                    <ng-container *ngFor="let data of currentViewData; let i = index">
+                        <tr id="row_{{i}}" [ngClass]="{'np-grid-selected': _isSelected(data[keyColumnName])}"
                             (click)="_rowClick($event,data)">
-                            <ng-container *ngIf="enableMasterChild">
-                                <td class="np-dg-master-child-col">
-                                    <button type="button" class="np-btn np-btn-icon"
-                                        (click)="_onClickToggleMasterChild(data[keyColumnName])">
-                                        <svg *ngIf="!_isOpenChild(data[keyColumnName])" class="np-icon-sm"
-                                            viewBox="0 0 24 24">
-                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                            <path d="M0 0h24v24H0z" fill="none" /></svg>
-                                        <svg *ngIf="_isOpenChild(data[keyColumnName])" class="np-icon-sm"
-                                            viewBox="0 0 24 24">
+                            <td *ngIf="enableMasterChild">
+                                <button *ngIf="!_isOpenChild(data[keyColumnName]); else collapseRowButton" type="button"
+                                    class="np-child-expand"
+                                    (click)="_onClickExpandRow(data[keyColumnName])">
+                                    <svg class="np-icon-sm" viewBox="0 0 24 24">
+                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                        <path d="M0 0h24v24H0z" fill="none" /></svg>
+                                </button>
+                                <ng-template #collapseRowButton>
+                                    <button type="button" class="np-child-collapse"
+                                        (click)="_onClickCollapseRow(data[keyColumnName])">
+                                        <svg class="np-icon-sm" viewBox="0 0 24 24">
                                             <path d="M19 13H5v-2h14v2z" />
                                             <path d="M0 0h24v24H0z" fill="none" /></svg>
                                     </button>
-                                </td>
-                            </ng-container>
-                            <ng-container *ngIf="_allowRowSelection()">
-                                <td>
-                                    <input type="checkbox" class="np-dg-checkbox"
-                                        [checked]="_isSelected(data[keyColumnName])"
-                                        (change)="_onClickSelectRow(data[keyColumnName],$event)">
-                                </td>
-                            </ng-container>
+                                </ng-template>
+                            </td>
+                            <td *ngIf="_allowRowSelection()">
+                                <input type="checkbox" class="np-grid-checkbox"
+                                    [checked]="_isSelected(data[keyColumnName])"
+                                    (change)="_onClickSelectRow(data[keyColumnName],$event)">
+                            </td>
                             <td *ngFor="let column of visibleColumns; let j = index;" [class]="column.styleClass"
-                                [ngClass]="{'np-text-right' : column.rightAlignText,'np-dg-sticky-left': column.stickyColumnLeft,'np-dg-sticky-right':column.stickyColumnRight}"
+                                [ngClass]="{'np-text-right' : column.rightAlignText,'np-grid-sticky-left': column.stickyColumnLeft,'np-grid-sticky-right':column.stickyColumnRight}"
                                 (click)="_onCellClick($event, column, data)">
                                 <ng-container *ngIf="!column.cellTemplate; else customTemplate;">
                                     {{data[column.dataField]}}
@@ -200,7 +204,7 @@
                             </td>
                         </tr>
                         <ng-container *ngIf="_isOpenChild(data[keyColumnName])">
-                            <tr id="row_{{i}}_child" class="np-dg-child-row">
+                            <tr id="row_{{i}}_child" class="np-child-row">
                                 <td [attr.colspan]="_getColSpanForChildRow()">
                                     <ng-container *ngTemplateOutlet="masterDetailTemplate; context: { row: data }">
                                     </ng-container>
@@ -211,27 +215,25 @@
                 </tbody>
             </table>
         </div>
-        <div *ngIf="currentViewData && currentViewData.length === 0" class="np-dg-no-data-message">
+        <div *ngIf="currentViewData && currentViewData.length === 0" class="np-grid-no-data">
             <div [innerHTML]="noDataMessage"></div>
         </div>
-        <div class="np-dg-table-footer">
-            <div *ngIf="showSummary" class="np-dg-table-summary">
-                <ng-container *ngTemplateOutlet="summaryTemplate;context:{ summary: summaryData }">
-                </ng-container>
-            </div>
+        <div *ngIf="showSummary" class="np-grid-summary">
+            <ng-container *ngTemplateOutlet="summaryTemplate;context:{ summary: summaryData }">
+            </ng-container>
         </div>
     </div>
-    <div class="np-dg-toolbar np-dg-pagination" *ngIf="pagerObj && pagerObj.pages && pagerObj.pages.length > 0">
-        <div class="np-dg-toolbar-item">
-            <button type="button" class="np-btn np-btn-icon np-border" title="First page"
+    <div class="np-grid-pagination np-grid-toolbar" *ngIf="pagerObj && pagerObj.pages && pagerObj.pages.length > 0">
+        <div class="np-grid-toolbar-item">
+            <button type="button" class="np-btn np-btn-icon np-border np-grid-first" title="First page"
                 [ngClass]="{'np-disabled':pagerObj.currentPage === 1}" (click)="_getCurrentViewData(1)">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"></path>
                 </svg>
             </button>
         </div>
-        <div class="np-dg-toolbar-item">
-            <button type="button" class="np-btn np-btn-icon np-border" title="Prev page"
+        <div class="np-grid-toolbar-item">
+            <button type="button" class="np-btn np-btn-icon np-border np-grid-prev" title="Prev page"
                 [ngClass]="{'np-disabled':pagerObj.currentPage === 1}"
                 (click)="_getCurrentViewData(pagerObj.currentPage - 1)">
                 <svg class="np-icon" viewBox="0 0 24 24">
@@ -239,15 +241,15 @@
                 </svg>
             </button>
         </div>
-        <div class="np-dg-toolbar-item">
+        <div class="np-grid-toolbar-item np-grid-current-page">
             <input type="number" class="np-form-control" [(ngModel)]="pagerObj.currentPage"
                 (change)="_getCurrentViewData(pagerObj.currentPage)">
         </div>
-        <div class="np-dg-toolbar-item">
+        <div class="np-grid-toolbar-item">
             / {{pagerObj.totalPages}}
         </div>
-        <div class="np-dg-toolbar-item">
-            <button type="button" title="Next page" class="np-btn np-btn-icon np-border"
+        <div class="np-grid-toolbar-item">
+            <button type="button" title="Next page" class="np-btn np-btn-icon np-border np-grid-next"
                 [ngClass]="{'np-disabled':pagerObj.currentPage === pagerObj.totalPages}"
                 (click)="_getCurrentViewData(pagerObj.currentPage + 1)">
                 <svg class="np-icon" viewBox="0 0 24 24">
@@ -255,8 +257,8 @@
                 </svg>
             </button>
         </div>
-        <div class="np-dg-toolbar-item">
-            <button type="button" title="Last page" class="np-btn np-btn-icon np-border"
+        <div class="np-grid-toolbar-item">
+            <button type="button" title="Last page" class="np-btn np-btn-icon np-border np-grid-last"
                 [ngClass]="{'np-disabled':pagerObj.currentPage === pagerObj.totalPages}"
                 (click)="_getCurrentViewData(pagerObj.totalPages)">
                 <svg class="np-icon" viewBox="0 0 24 24">
@@ -265,12 +267,14 @@
             </button>
         </div>
         <div class="np-toolbar-spacer"></div>
-        <div class="np-dg-toolbar-item">
-            <input type="number" class="np-form-control" [(ngModel)]="pageSize" (change)="_onPageSizeChange()">
+        <div class="np-grid-toolbar-item">
+            <input type="number" class="np-form-control np-grid-page-size" [(ngModel)]="pageSize"
+                (change)="_onPageSizeChange()">
         </div>
-        <div class="np-dg-toolbar-item">{{_getCurrentPageStatistics()}}</div>
-        <div class="np-dg-toolbar-item">
-            <button type="button" class="np-btn np-btn-icon np-border" title="Refresh" (click)="_onRefresh()">
+        <div class="np-grid-toolbar-item">{{_getCurrentPageStatistics()}}</div>
+        <div class="np-grid-toolbar-item">
+            <button type="button" class="np-btn np-btn-icon np-border np-grid-refresh" title="Refresh"
+                (click)="_onRefresh()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path
                         d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
@@ -282,80 +286,33 @@
 </div>
 
 <ng-container *ngIf="enableStateStoring">
-    <np-modal #saveNewStateModal [width]="300" (onOpen)="saveStateForm.resetForm({})">
-        <np-modal-header>
-            <b>Add New State</b>
-        </np-modal-header>
-        <div>
-            <form #saveStateForm="ngForm">
-                <div class="np-form-group">
-                    <div class="np-form-label np-required">Name:</div>
-                    <input type="text" class="np-form-control" [(ngModel)]="stateName" required name="txtStateName"
-                        #txtStateName="ngModel" autocomplete="off">
-                    <div class="np-form-text np-text-danger"
-                        *ngIf="txtStateName.control.touched && txtStateName.control.errors?.required">Name is required.
-                    </div>
-                    <div class="np-form-text np-text-danger" *ngIf="nameAlreadyExistError">Name already exists.
-                    </div>
-                </div>
-            </form>
-        </div>
-        <np-modal-footer>
-            <div class="np-btn-group np-float-right">
-                <button type="button" class="np-btn np-btn-primary" [disabled]="saveStateForm.invalid"
-                    (click)="_addState()">Save</button>
-                <button type="button" class="np-btn np-btn-danger" (click)="_closeModalToAddNewState()">Cancel</button>
-            </div>
-        </np-modal-footer>
-    </np-modal>
-
-    <np-modal #editStateModal [width]="300">
-        <np-modal-header>
-            <b>Success</b>
-        </np-modal-header>
-        <div>
-            Saved successfully.
-        </div>
-        <np-modal-footer>
-            <div class="np-btn-group np-float-right">
-                <button type="button" class="np-btn np-btn-primary" (click)="_closeModalEditState()">Ok</button>
-            </div>
-        </np-modal-footer>
-    </np-modal>
-
-    <np-modal #deleteStateModal [width]="300">
-        <np-modal-header>
-            <b>Success</b>
-        </np-modal-header>
-        <div>
-            Deleted successfully.
-        </div>
-        <np-modal-footer>
-            <div class="np-btn-group np-float-right">
-                <button type="button" class="np-btn np-btn-primary" (click)="_closeModalDeleteState()">Ok</button>
-            </div>
-        </np-modal-footer>
-    </np-modal>
+    <np-dialog [type]="'prompt'" [message]="'Add New State'" (onOkClick)="_addState($event)" #saveNewStateModal>
+    </np-dialog>
+    <np-dialog [type]="'alert'" [message]="'Saved successfully.'" #editStateModal></np-dialog>
+    <np-dialog [type]="'alert'" [message]="'Deleted successfully.'" #deleteStateModal></np-dialog>
 </ng-container>
 
 <ng-template #columnChooserTemplate>
-    <div class="np-dg-col-chooser np-border">
-        <div class="np-btn-group">
-            <button type="button" class="np-btn np-btn-icon" title="Show all columns" (click)="_showAllColumns()">
+    <div class="np-column-chooser np-border">
+        <div class="np-btn-group np-float-right">
+            <button type="button" class="np-btn np-btn-icon np-grid-show-all" title="Show all columns"
+                (click)="_showAllColumns()">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0z" fill="none" />
                     <path
                         d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
                 </svg>
             </button>
-            <button type="button" class="np-btn np-btn-icon" title="Reset all" (click)="_onResetColumns()">
+            <button type="button" class="np-btn np-btn-icon np-grid-reset" title="Reset all"
+                (click)="_onResetColumns()">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path
                         d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" />
                     <path d="M0 0h24v24H0z" fill="none" />
                 </svg>
             </button>
-            <button type="button" class="np-btn np-btn-icon" title="Close" (click)="_closeColumnChooser()">
+            <button type="button" class="np-btn np-btn-icon np-grid-close" title="Close"
+                (click)="_closeColumnChooser()">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path
                         d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
@@ -363,10 +320,10 @@
                 </svg>
             </button>
         </div>
-        <div class="np-dg-col-search">
-            <input type="text" placeholder="Search Columns..." class="np-form-control"
+        <div class="np-grid-search">
+            <input type="text" placeholder="Search Columns..." class="np-form-control np-grid-search-input"
                 [(ngModel)]="searchColumnsKeyword">
-            <button type="button" class="np-btn np-btn-icon np-border np-float-right" title="Clear"
+            <button type="button" class="np-btn np-btn-icon np-border np-float-right np-grid-clear" title="Clear"
                 (click)="_clearColumnSearch()">
                 <svg class="np-icon-sm" viewBox="0 0 24 24">
                     <path
@@ -375,21 +332,21 @@
                 </svg>
             </button>
         </div>
-        <div class="np-dg-columns" cdkDropList [cdkDropListDisabled]="!allowColumnReorder"
+        <div class="np-grid-columns" cdkDropList [cdkDropListDisabled]="!allowColumnReorder"
             (cdkDropListDropped)="_dropColumn($event)">
             <div *ngFor="let column of columnsClone | searchColumnsPipe : searchColumnsKeyword"
-                class="np-dg-columns-item" cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".np-dg-columns">
+                class="np-grid-columns-item" cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".np-grid-columns">
                 <label>
-                    <input type="checkbox" [checked]="column.visible" class="np-dg-checkbox"
+                    <input type="checkbox" [checked]="column.visible" class="np-grid-checkbox"
                         (change)="_onColumnChoosing(column)">{{column.caption}}
                 </label>
-                <div cdkDragHandle class="np-dg-col-drag-handle" *ngIf="allowColumnReorder">
+                <div cdkDragHandle class="np-grid-drag-handle" *ngIf="allowColumnReorder">
                     <svg class="np-icon-sm" viewBox="0 0 24 24">
                         <path
                             d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z" />
                     </svg>
                 </div>
-                <div class="np-dg-col-drag-placeholder" *cdkDragPlaceholder></div>
+                <div class="np-grid-drag-placeholder" *cdkDragPlaceholder></div>
             </div>
         </div>
     </div>

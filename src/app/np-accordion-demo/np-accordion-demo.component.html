@@ -94,6 +94,12 @@
                         <td>false</td>
                     </tr>
                     <tr>
+                        <td>iconCss</td>
+                        <td>Set CSS for icon like 'fa fa-home'</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>styleClass</td>
                         <td>Set extra class on component</td>
                         <td>string</td>
@@ -197,10 +203,7 @@
                     </p>
                 </np-accordion-item>
 
-                <np-accordion-item [title]="titleB" [isOpen]="false">
-                    <ng-template #titleB>
-                        <i class="fa fa-home"></i>Title B
-                    </ng-template>
+                <np-accordion-item [title]="'Title B'" [isOpen]="false" [iconCss]="'fa fa-home'">
                     <p>
                         Content B
                     </p>

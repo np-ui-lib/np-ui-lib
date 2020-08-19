@@ -26,3 +26,8 @@
     padding: 0px 10px;
     font-weight: bold;
 }
+
+.np-breadcrumb-item i {
+    font-size: x-large;
+    padding-right: 5px;
+}

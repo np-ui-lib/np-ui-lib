@@ -10,8 +10,8 @@ export class NpBreadcrumbComponent implements OnInit {
   static controlCount = 1;
 
   @Input() items: NpBreadcrumbItem[];
-  @Input() showHomeIcon = true;
-  @Input() homeIconCss: string;
+  @Input() showIcon = true;
+  @Input() iconCss: string;
   @Input() styleClass: string;
   @Input() inputId = `np-breadcrumb_${NpBreadcrumbComponent.controlCount++}`;
 

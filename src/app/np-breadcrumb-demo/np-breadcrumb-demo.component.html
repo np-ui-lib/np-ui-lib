@@ -36,14 +36,15 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>showHomeIcon</td>
-                        <td>Show home icon</td>
+                        <td>showIcon</td>
+                        <td>Show icon or not</td>
                         <td>boolean</td>
                         <td>true</td>
                     </tr>
                     <tr>
-                        <td>homeIconCss</td>
-                        <td>Css class for home icon like 'fa fa-home'</td>
+                        <td>iconCss</td>
+                        <td>Set CSS for icon like 'fa fa-home',
+                            <br>if not passing this then default home icon will display.</td>
                         <td>string</td>
                         <td></td>
                     </tr>
@@ -116,13 +117,13 @@
         </fieldset>
 
         <fieldset>
-            <legend>Set showHomeIcon to false</legend>
-            <np-breadcrumb [items]="items" [showHomeIcon]="false" (onClick)="onClick($event)"></np-breadcrumb>
+            <legend>Set showIcon to false</legend>
+            <np-breadcrumb [items]="items" [showIcon]="false" (onClick)="onClick($event)"></np-breadcrumb>
         </fieldset>
 
         <fieldset>
-            <legend>Set homeIconCss attribute</legend>
-            <np-breadcrumb [items]="items" [homeIconCss]="'fa fa-list'" (onClick)="onClick($event)"></np-breadcrumb>
+            <legend>Set iconCss attribute</legend>
+            <np-breadcrumb [items]="items" [iconCss]="'fa fa-list'" (onClick)="onClick($event)"></np-breadcrumb>
         </fieldset>
     </np-tab>
 </np-tabs>

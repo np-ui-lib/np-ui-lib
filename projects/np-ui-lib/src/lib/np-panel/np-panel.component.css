@@ -32,3 +32,13 @@
     max-height: none !important;
     z-index: 1000;
 }
+
+.np-panel-title {
+    display: flex;
+    align-items: center;
+}
+
+.np-panel-title i {
+    font-size: x-large;
+    padding-right: 5px;
+}

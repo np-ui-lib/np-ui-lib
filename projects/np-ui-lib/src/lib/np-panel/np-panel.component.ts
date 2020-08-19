@@ -20,6 +20,7 @@ export class NpPanelComponent implements AfterContentInit {
   @Input() isOpen = true;
   @Input() height: number;
   @Input() disabled: boolean;
+  @Input() iconCss: string;
   @Input() styleClass: string;
   @Input() inputId = `np-panel_${NpPanelComponent.controlCount++}`;
 

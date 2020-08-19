@@ -10,6 +10,7 @@ export class NpTabComponent implements OnInit {
     static controlCount = 1;
 
     @Input() title: string | TemplateRef<any>;
+    @Input() iconCss: string;
     @Input() active = false;
     @Input() disabled = false;
     @Input() inputId = `np-tab_${NpTabComponent.controlCount++}`;

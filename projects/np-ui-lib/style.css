@@ -1587,14 +1587,12 @@ svg {
 }
 
 .np-loader {
-    border: 2px solid currentColor;
+    border-style: solid;
     border-right-color: #007bff;
     border-radius: 50%;
     color: #c7e0f4 !important;
     animation: spin 0.5s linear infinite;
     z-index: 2001;
-    width: 32px;
-    height: 32px;
 }
 
 @keyframes spin {

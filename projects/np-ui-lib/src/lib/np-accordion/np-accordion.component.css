@@ -28,3 +28,8 @@
     overflow: auto;
     flex: 1;
 }
+
+.np-accordion-title i {
+    font-size: x-large;
+    padding-right: 5px;
+}

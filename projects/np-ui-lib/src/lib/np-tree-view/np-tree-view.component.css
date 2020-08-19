@@ -19,3 +19,8 @@
 .np-treeview-checkbox {
     margin-right: 5px;
 }
+
+.np-treeview-label i {
+    font-size: inherit;
+    padding-right: 5px;
+}
