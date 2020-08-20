@@ -9,6 +9,7 @@ export class NpLoaderDirective implements OnChanges, OnInit {
     @Input() loadingText: string;
 
     loaderEle: any;
+    isactive = false;
     initialized = false;
 
     constructor(private elRef: ElementRef, private renderer: Renderer2) {
@@ -47,18 +48,20 @@ export class NpLoaderDirective implements OnChanges, OnInit {
     }
 
     _showLoader() {
-        if (!this.initialized) {
+        if (!this.initialized || this.isactive) {
             return;
         }
         this.renderer.addClass(this.elRef.nativeElement, 'np-loader-target');
         this.renderer.appendChild(this.elRef.nativeElement, this.loaderEle);
+        this.isactive = true;
     }
 
     _hideLoader() {
-        if (!this.initialized) {
+        if (!this.initialized || !this.isactive) {
             return;
         }
         this.renderer.removeClass(this.elRef.nativeElement, 'np-loader-target');
         this.renderer.removeChild(this.elRef.nativeElement, this.loaderEle);
+        this.isactive = false;
     }
 }

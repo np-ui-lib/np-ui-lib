@@ -38,7 +38,9 @@ export class NpSidepanelComponent implements OnInit {
   }
 
   close() {
-    this.overlayRef.detach();
+    if (this.overlayRef && this.overlayRef.hasAttached()) {
+      this.overlayRef.detach();
+    }
   }
 
   open() {

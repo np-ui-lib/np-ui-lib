@@ -13,15 +13,18 @@
     background-color: #f5f5f5;
     font-weight: bold;
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .np-tab-title {
     display: flex;
     align-items: center;
-    padding: 0px 20px;
-    min-width: 75px;
-    min-height: 32px;
+    justify-content: center;
+    min-width: 70px;
+    min-height: 2rem;
     cursor: pointer;
+    padding: 0px 10px;
 }
 
 .np-tab-title:hover {
@@ -53,11 +56,11 @@
 .np-tabs-horizontal .np-tab-active {
     border-right: 2px solid #007bff;
     border-bottom: none;
-    padding-right: 18px;
+    padding-right: 8px;
     padding-top: 0px;
 }
 
 .np-tab-title i {
     font-size: x-large;
-    padding-right: 5px;
+    padding-right: 10px;
 }

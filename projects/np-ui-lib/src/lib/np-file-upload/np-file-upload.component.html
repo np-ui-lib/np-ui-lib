@@ -1,33 +1,34 @@
-<div [ngClass]="{'np-fu-component': true,'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{ 'np-file-upload': true, 'np-disabled': isDisabled , 'np-readonly': readonly }" [class]="styleClass"
+    [attr.id]="inputId">
     <div class="np-input-group">
-        <label class="np-fp-label">
-            <input class="np-fp-input" [attr.accept]="accept" #fileUploadInput type="file" [disabled]="isDisabled"
+        <label class="np-file-label">
+            <input class="np-file-input" [attr.accept]="accept" #fileUploadInput type="file" [disabled]="isDisabled"
                 (change)="_onFileSelected($event)" [multiple]="multiple">
             <span
-                class="np-fp-btn">{{ uploadButtonLabel ? uploadButtonLabel : (multiple ? "Choose Files" : "Choose File")}}</span>
-            <span class="np-fp-counts" [innerText]="_getFilesCountsText()"></span>
+                class="np-file-btn">{{ uploadButtonLabel ? uploadButtonLabel : (multiple ? "Choose Files" : "Choose File")}}</span>
+            <span class="np-file-counts" [innerText]="_getFilesCountsText()"></span>
         </label>
         <div class="np-input-group-append">
-            <div class="np-btn np-btn-icon" title="Clear" (click)="_clear()">
-                <svg class="np-icon-sm" viewBox="0 0 24 24">
+            <button type="button" class="np-btn-icon np-btn-clear" title="Clear" (click)="_clear()">
+                <svg class="np-icon" viewBox="0 0 24 24">
                     <path
                         d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                     <path d="M0 0h24v24H0z" fill="none" />
                 </svg>
-            </div>
+            </button>
         </div>
     </div>
-    <div *ngIf="value && value.length > 0">
-        <ul class="np-fu-file-list">
-            <li *ngFor="let file of value">
+    <div class="np-list np-file-list" *ngIf="value && value.length > 0">
+        <div class="np-list-item" *ngFor="let file of value">
+            <span>
                 <svg viewBox="0 0 24 24" class="np-icon">
                     <path d="M0 0h24v24H0V0z" fill="none" />
                     <path
                         d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
                 </svg>
-                <span [innerHTML]="file.name"></span>
-                <span class="np-float-right" [innerHTML]="_formatBytes(file)"></span>
-            </li>
-        </ul>
+                {{file.name}}
+            </span>
+            <span class="np-float-right" [innerHTML]="_formatBytes(file)"></span>
+        </div>
     </div>
 </div>

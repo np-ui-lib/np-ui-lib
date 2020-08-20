@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { NpTooltipModule } from '../np-tooltip/np-tooltip.module';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
-import { NpNumberBoxModule } from '../np-number-box/np-number-box.module';
 import { NpUtilityModule } from '../np-utility/np-utility.module';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { NpUtilityModule } from '../np-utility/np-utility.module';
     OverlayModule,
     PortalModule,
     NpTooltipModule,
-    NpNumberBoxModule,
     NpUtilityModule
   ],
   exports: [NpDatePickerComponent]

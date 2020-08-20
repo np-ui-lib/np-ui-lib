@@ -1,73 +1,59 @@
-<div [ngClass]="{'np-cp-component': true,'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
-    <div *ngIf="!defaultOpen; else templatePortalContent" [ngClass]="{'np-input-group': true, 'np-cp-hide-input': hideColorInput}">
-        <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="isDisabled" autocomplete="off" maxlength="10">
+<div [ngClass]="{ 'np-color-picker': true, 'np-disabled': isDisabled , 'np-readonly': readonly }" [class]="styleClass"
+    [attr.id]="inputId">
+    <div *ngIf="!defaultOpen; else templatePortalContent"
+        [ngClass]="{'np-input-group': true, 'np-input-hidden': hideColorInput}">
+        <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (click)="_open()"
+            (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="isDisabled" autocomplete="off"
+            maxlength="10">
         <div class="np-input-group-append">
-            <div class="np-cp-input-selected" (click)="_toggleColorPicker()" [ngStyle]="{'background-color': innerValue}">
+            <div class="np-input-color-block" (click)="_toggleColorPicker()"
+                [ngStyle]="{'background-color': innerValue}">
             </div>
-        </div>
-        <div class="np-input-group-append">
-            <div class="np-btn np-btn-icon" (click)="_clear()" title="Clear">
-                <svg class="np-icon-sm" viewBox="0 0 24 24">
+            <button type="button" class="np-btn-icon np-btn-clear" (click)="_clear()" title="Clear">
+                <svg class="np-icon" viewBox="0 0 24 24">
                     <path
                         d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                     <path d="M0 0h24v24H0z" fill="none" />
                 </svg>
-            </div>
-        </div>
-        <div class="np-input-group-append">
-            <div class="np-btn np-btn-icon" (click)="_toggleColorPicker()">
-                <svg class="np-icon-sm" viewBox="0 0 24 24">
+            </button>
+            <button type="button" class="np-btn-icon np-toggle-overlay" (click)="_toggleColorPicker()">
+                <svg class="np-icon" viewBox="0 0 24 24">
                     <path
                         d="M20.71 5.63l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-3.12 3.12-1.93-1.91-1.41 1.41 1.42 1.42L3 16.25V21h4.75l8.92-8.92 1.42 1.42 1.41-1.41-1.92-1.92 3.12-3.12c.4-.4.4-1.03.01-1.42zM6.92 19L5 17.08l8.06-8.06 1.92 1.92L6.92 19z" />
                 </svg>
-            </div>
+            </button>
         </div>
     </div>
-    <ng-template #templatePortalContent>
-        <div class="np-cp-overlay np-border" [ngClass]="{'np-cp-default-open': defaultOpen}">
-            <div class="np-row np-no-gutters">
-                <div class="np-col-12">
-                    <div class="np-row np-no-gutters align-items-center np-cp-header">
-                        <div class="np-col-4">
-                            <div class="np-cp-block-selected" [ngStyle]="{'background-color': innerValue}"></div>
-                        </div>
-                        <div class="np-col-8">
-                            <div><b>HEX: </b><span>{{innerValue}}</span></div>
-                            <div><b>RGB: </b><span [innerText]="_currentHexToRGB()"></span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="np-col-12">
-                    <div class="np-row justify-content-between np-no-gutters np-cp-canvases">
-                        <div class="np-col-auto">
-                            <canvas class="np-cp-canvas-block" width="170" height="170" (click)="_clickBlockColor($event)" (mousemove)="_onMouseOverBlock($event)" (mouseleave)="_onMouseLeaveBlock()"></canvas>
-                        </div>
-                        <div class="np-col-auto">
-                            <canvas class="np-cp-canvas-strip" width="25" height="170" (click)="_clickStripeColor($event)" (mousemove)="_onMouseOverStrip($event)" (mouseleave)="_onMouseLeaveStrip()"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="np-col-12" *ngIf="colors && colors.length > 0">
-                    <div class="np-row np-no-gutters np-cp-color-blocks">
-                        <div class="np-col-12">
-                            <div class="np-cp-color-block" *ngFor="let color of colors" [style.background-color]="color" (click)="_onClickColorBlock(color)">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="np-col-12">
-                    <div class="np-row justify-content-around np-no-gutters np-cp-footer">
-                        <div class="np-col-4" *ngIf="!defaultOpen">
-                            <button class="np-btn np-btn-primary np-btn-block" type="button" (click)="_close()">Ok</button>
-                        </div>
-                        <div class="np-col-4">
-                            <button class="np-btn np-btn-danger np-btn-block" type="button" (click)="_clear()">Clear</button>
-                        </div>
-                    </div>
-                </div>
+</div>
+
+<ng-template #templatePortalContent>
+    <div class="np-color-picker-overlay" [ngClass]="{'np-overlay-open': defaultOpen}">
+        <div class="np-color-picker-header">
+            <div class="np-selected-color-block" [ngStyle]="{'background-color': innerValue}"></div>
+            <div>
+                <div><b>HEX: </b><span>{{innerValue}}</span></div>
+                <div><b>RGB: </b><span [innerText]="_currentHexToRGB()"></span></div>
             </div>
         </div>
-    </ng-template>
-    <div class="np-cp-current-color" *ngIf="isShowCursorDiv" [ngStyle]="{'background-color': currentCursorColor, 'position': 'absolute', 'left': xColorCursor , 'top': yColorCursor}">
+        <div class="np-color-canvases">
+            <canvas class="np-color-picker-block" width="170" height="170" (click)="_clickBlockColor($event)"
+                (mousemove)="_onMouseOverBlock($event)" (mouseleave)="_onMouseLeaveBlock()"></canvas>
+            <canvas class="np-color-picker-strip" width="25" height="170" (click)="_clickStripeColor($event)"
+                (mousemove)="_onMouseOverStrip($event)" (mouseleave)="_onMouseLeaveStrip()"></canvas>
+        </div>
+        <div *ngIf="colors && colors.length > 0" class="np-color-blocks">
+            <div class="np-color-block" *ngFor="let color of colors" [style.background-color]="color"
+                (click)="_onClickColorBlock(color)">
+            </div>
+        </div>
+        <div class="np-color-picker-footer">
+            <button *ngIf="!defaultOpen" class="np-btn np-btn-primary np-ok" type="button"
+                (click)="_close()">Ok</button>
+            <button class="np-btn np-btn-danger np-clear" type="button" (click)="_clear()">Clear</button>
+        </div>
     </div>
+</ng-template>
+
+<div class="np-current-color-block" *ngIf="isShowCursorDiv"
+    [ngStyle]="{'background-color': currentCursorColor, 'position': 'absolute', 'left': xColorCursor , 'top': yColorCursor}">
 </div>

@@ -5,19 +5,29 @@
 }
 
 .np-treeview-node {
-    padding-left: 35px;
+    padding-left: 2rem;
     position: relative;
-    line-height: 32px;
+    line-height: 2rem;
 }
 
 .np-treeview-collapse,
 .np-treeview-expand {
     position: absolute;
     left: 0px;
+    border: none;
+    background-color: transparent;
 }
 
 .np-treeview-checkbox {
+    cursor: pointer;
+    height: 1rem;
+    width: 1rem;
+    vertical-align: middle;
     margin-right: 5px;
+}
+
+.np-treeview-label {
+    margin-left: 5px;
 }
 
 .np-treeview-label i {

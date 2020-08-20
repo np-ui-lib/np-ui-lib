@@ -51,24 +51,24 @@ export class NpTreeViewDemoComponent implements OnInit {
       ]
     }),
     new NpTreeViewItem({
-      label: 'Item 2',
+      label: 'Item 2', iconCss: 'fa fa-folder',
       childItems: [
         new NpTreeViewItem({
-          label: 'Item 2.1', childItems: [
-            new NpTreeViewItem({ label: 'Item 2.1.1' }),
-            new NpTreeViewItem({ label: 'Item 2.1.2' }),
-            new NpTreeViewItem({ label: 'Item 2.1.3' }),
-            new NpTreeViewItem({ label: 'Item 2.1.4' }),
+          label: 'Item 2.1', iconCss: 'fa fa-folder', childItems: [
+            new NpTreeViewItem({ label: 'Item 2.1.1', iconCss: 'fa fa-file' }),
+            new NpTreeViewItem({ label: 'Item 2.1.2', iconCss: 'fa fa-file' }),
+            new NpTreeViewItem({ label: 'Item 2.1.3', iconCss: 'fa fa-file' }),
+            new NpTreeViewItem({ label: 'Item 2.1.4', iconCss: 'fa fa-file' }),
           ]
         }),
-        new NpTreeViewItem({ label: 'Item 2.2' }),
-        new NpTreeViewItem({ label: 'Item 2.3' }),
-        new NpTreeViewItem({ label: 'Item 2.4' }),
+        new NpTreeViewItem({ label: 'Item 2.2', iconCss: 'fa fa-file' }),
+        new NpTreeViewItem({ label: 'Item 2.3', iconCss: 'fa fa-file' }),
+        new NpTreeViewItem({ label: 'Item 2.4', iconCss: 'fa fa-file' }),
       ]
     }),
-    new NpTreeViewItem({ label: 'Item 3', childItems: [] }),
-    new NpTreeViewItem({ label: 'Item 4' }),
-    new NpTreeViewItem({ label: 'Item 5' }),
+    new NpTreeViewItem({ label: 'Item 3', iconCss: 'fa fa-folder', childItems: [] }),
+    new NpTreeViewItem({ label: 'Item 4', iconCss: 'fa fa-file' }),
+    new NpTreeViewItem({ label: 'Item 5', iconCss: 'fa fa-file' }),
   ];
 
   items2: NpTreeViewItem[] = [

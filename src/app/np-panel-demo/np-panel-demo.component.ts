@@ -14,7 +14,7 @@ export class NpPanelDemoComponent implements OnInit {
   Panel Body content...
 </np-panel>`;
 
-  title = '<b>What is paragraph?</b>';
+  title = 'What is paragraph?';
   pnl2Disabled = false;
 
   ngOnInit(): void {

@@ -12,7 +12,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 32px;
+    flex-wrap: wrap;
+    min-height: 2rem;
     padding-left: 10px;
 }
 
@@ -20,6 +21,12 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    font-weight: bold;
+}
+
+.np-accordion-icons .np-btn-icon {
+    display: inline-block;
+    border: none;
 }
 
 .np-accordion-body {
@@ -31,5 +38,5 @@
 
 .np-accordion-title i {
     font-size: x-large;
-    padding-right: 5px;
+    padding-right: 10px;
 }

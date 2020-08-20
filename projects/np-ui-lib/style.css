@@ -20,16 +20,9 @@ svg {
 
 .np-icon {
     display: inline-block;
-    width: 24px;
-    height: 24px;
     vertical-align: middle;
-}
-
-.np-icon-sm {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    padding: 3px;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 .np-row {
@@ -1172,7 +1165,7 @@ svg {
     border: 1px solid #9e9e9e;
     border-radius: 2px;
     width: 100%;
-    min-height: 32px;
+    min-height: 2rem;
     outline: none;
 }
 
@@ -1208,7 +1201,6 @@ svg {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
     width: 100%;
     border: 1px solid #9e9e9e;
     border-radius: 2px;
@@ -1217,60 +1209,49 @@ svg {
 
 .np-input-group-append {
     display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .np-input-group>.np-form-control {
     position: relative;
     flex: 1 1 auto;
+    border: none;
     width: 1%;
-    margin-bottom: 0;
-    border-color: transparent;
-    min-height: 30px;
-    outline: none;
 }
 
 .np-btn {
+    height: 2rem;
+    min-width: 50px;
+    padding: 0px 10px;
+    margin: 0px;
     text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    outline: none;
-    padding: 3px 10px;
     background-color: #f5f5f5;
     border: 1px solid #9e9e9e;
     border-radius: 2px;
-    margin: 5px 0px;
-    min-width: 50px;
-    height: 32px;
+    outline: none;
     cursor: pointer;
-    text-decoration: none;
-}
-
-.np-btn:disabled {
-    opacity: 0.5;
-    pointer-events: none;
-}
-
-.np-btn:hover {
-    background-color: #eeeeee;
 }
 
 .np-btn-icon {
+    height: 2rem;
+    width: 2rem;
+    padding: 0px;
     margin: 0px;
-    padding: 3px;
-    border-color: transparent;
-    background-color: transparent;
-    min-width: 32px;
+    text-align: center;
+    background-color: #f5f5f5;
+    border: 1px solid #9e9e9e;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
 }
 
 .np-btn-sm {
-    padding: 0px 5px;
-    height: 20px;
+    height: 1.5rem;
 }
 
 .np-btn-block {
-    display: block;
-    width: 100%
+    width: 100%;
 }
 
 .np-btn-primary {
@@ -1303,6 +1284,24 @@ svg {
     border-color: #5bc0de
 }
 
+.np-input-group .np-btn,
+.np-input-group .np-btn-icon {
+    border: none;
+    background-color: #ffffff;
+}
+
+.np-btn:disabled,
+.np-btn-icon:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.np-btn:hover,
+.np-btn-icon:hover {
+    background-color: #eeeeee;
+}
+
+
 .np-btn-primary:hover {
     color: #fff;
     background-color: #025aa5;
@@ -1325,22 +1324,21 @@ svg {
 }
 
 .np-btn-group {
-    margin: 5px 0px;
+    margin: 3px 0px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.np-btn-group .np-btn {
-    display: inline-block;
-    margin: 0px 5px 0px 0px;
+.np-btn-group .np-btn, 
+.np-btn-group .np-btn-sm, 
+.np-btn-group .np-btn-icon{
+    margin: 2px 5px 2px 0px;
 }
 
-.np-btn-group .np-btn:last-child {
+.np-btn-group .np-btn:last-child, 
+.np-btn-group .np-btn-sm:last-child, 
+.np-btn-group .np-btn-icon:last-child{
     margin-right: 0px;
-}
-
-.np-input-group .np-btn {
-    height: 30px;
-    min-width: 30px;
-    padding: 2px;
 }
 
 .np-border-0 {
@@ -1417,7 +1415,7 @@ svg {
     background-color: #eeeeee;
     display: flex;
     align-items: center;
-    min-height: 44px;
+    min-height: 3rem;
 }
 
 .np-alert-detail {
@@ -1429,8 +1427,10 @@ svg {
     font-weight: bold;
 }
 
-.np-alert .np-btn {
+.np-alert .np-btn-icon{
     color: inherit;
+    background-color: transparent;
+    border: none;
 }
 
 .np-alert-success {
@@ -1457,19 +1457,19 @@ svg {
     color: #a94442
 }
 
-.np-alert-success .np-btn:hover {
+.np-alert-success .np-btn-icon:hover {
     background-color: #d0e9c6;
 }
 
-.np-alert-danger .np-btn:hover {
+.np-alert-danger .np-btn-icon:hover {
     background-color: #ebcccc;
 }
 
-.np-alert-warning .np-btn:hover {
+.np-alert-warning .np-btn-icon:hover {
     background-color: #faf2cc;
 }
 
-.np-alert-info .np-btn:hover {
+.np-alert-info .np-btn-icon:hover {
     background-color: #bcdff1;
 }
 
@@ -1497,6 +1497,7 @@ svg {
     position: relative;
     margin: 0px 5px;
     color: #080707;
+    white-space: nowrap;
 }
 
 .np-badge-success{
@@ -1628,8 +1629,8 @@ svg {
 }
 
 .np-blockui svg {
-    width: 32px;
-    height: 32px;
+    height: 2rem;
+    width: 2rem;
     border-radius: 50%;
     color: #000000;
     z-index: 2001;
@@ -1641,27 +1642,6 @@ svg {
 
 .np-pad-5 {
     padding: 5px;
-}
-
-.np-form-control.ng-touched.ng-invalid,
-.ng-touched.ng-invalid:not(form) .np-sw-component,
-.ng-touched.ng-invalid:not(form) .np-tp-default-open,
-.ng-touched.ng-invalid:not(form) .np-dp-default-open,
-.ng-touched.ng-invalid:not(form) .np-cp-default-open,
-.ng-touched.ng-invalid:not(form) .np-input-group,
-.np-form-control.ng-dirty.ng-invalid,
-.ng-dirty.ng-invalid:not(form) .np-sw-component,
-.ng-dirty.ng-invalid:not(form) .np-tp-default-open,
-.ng-dirty.ng-invalid:not(form) .np-dp-default-open,
-.ng-dirty.ng-invalid:not(form) .np-cp-default-open,
-.ng-dirty.ng-invalid:not(form) .np-fu-component,
-.ng-dirty.ng-invalid:not(form) .np-sl-input,
-.ng-dirty.ng-invalid:not(form) .np-input-group {
-    border-color: #d9534f !important;
-}
-
-.ng-touched.ng-invalid:not(form) .np-input-group .np-icon-sm {
-    color: #d9534f;
 }
 
 .np-responsive-img {
@@ -1774,4 +1754,21 @@ svg {
 
 .np-toolbar-item {
     padding: 2px;
+}
+
+.np-form-control.ng-touched.ng-invalid,
+.np-form-control.ng-dirty.ng-invalid,
+.ng-touched.ng-invalid:not(form) .np-switch,
+.ng-touched.ng-invalid:not(form) .np-overlay-open,
+.ng-touched.ng-invalid:not(form) .np-slider-input,
+.ng-touched.ng-invalid:not(form) .np-input-group,
+.ng-dirty.ng-invalid:not(form) .np-switch,
+.ng-dirty.ng-invalid:not(form) .np-overlay-open,
+.ng-dirty.ng-invalid:not(form) .np-slider-input,
+.ng-dirty.ng-invalid:not(form) .np-input-group {
+    border: 1px solid #d9534f !important;
+}
+
+.ng-touched.ng-invalid:not(form) .np-input-group .np-icon {
+    color: #d9534f;
 }

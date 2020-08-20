@@ -169,9 +169,9 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   _updateStripCanvas() {
     let strip: HTMLCanvasElement;
     if (this.defaultOpen) {
-      strip = (this.elementRef.nativeElement.querySelector('.np-cp-canvas-strip') as HTMLCanvasElement);
+      strip = (this.elementRef.nativeElement.querySelector('.np-color-picker-strip') as HTMLCanvasElement);
     } else {
-      strip = (this.overlayRef.overlayElement.querySelector('.np-cp-canvas-strip') as HTMLCanvasElement);
+      strip = (this.overlayRef.overlayElement.querySelector('.np-color-picker-strip') as HTMLCanvasElement);
     }
     const ctx2 = strip.getContext('2d');
     ctx2.rect(0, 0, 25, 170);
@@ -195,9 +195,9 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   _updateBlockCanvas() {
     let block: HTMLCanvasElement;
     if (this.defaultOpen) {
-      block = (this.elementRef.nativeElement.querySelector('.np-cp-canvas-block') as HTMLCanvasElement);
+      block = (this.elementRef.nativeElement.querySelector('.np-color-picker-block') as HTMLCanvasElement);
     } else {
-      block = (this.overlayRef.overlayElement.querySelector('.np-cp-canvas-block') as HTMLCanvasElement);
+      block = (this.overlayRef.overlayElement.querySelector('.np-color-picker-block') as HTMLCanvasElement);
     }
     const ctx1 = block.getContext('2d');
 
@@ -218,12 +218,12 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _clickStripeColor(e: any) {
-    this.stripColor = this._getColorFromClickevent(e, '.np-cp-canvas-strip');
+    this.stripColor = this._getColorFromClickevent(e, '.np-color-picker-strip');
     this._updateBlockCanvas();
   }
 
   _clickBlockColor(e: any) {
-    this.value = this._getColorFromClickevent(e, '.np-cp-canvas-block');
+    this.value = this._getColorFromClickevent(e, '.np-color-picker-block');
   }
 
   _fullColorHex(r: number, g: number, b: number) {
@@ -253,14 +253,14 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     this.isShowCursorDiv = true;
     this.xColorCursor = `${e.pageX}px`;
     this.yColorCursor = `${e.pageY}px`;
-    this.currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-strip');
+    this.currentCursorColor = this._getColorFromClickevent(e, '.np-color-picker-strip');
   }
 
   _onMouseOverBlock(e: any) {
     this.isShowCursorDiv = true;
     this.xColorCursor = `${e.pageX}px`;
     this.yColorCursor = `${e.pageY}px`;
-    this.currentCursorColor = this._getColorFromClickevent(e, '.np-cp-canvas-block');
+    this.currentCursorColor = this._getColorFromClickevent(e, '.np-color-picker-block');
   }
 
   _onClickColorBlock(color: string) {

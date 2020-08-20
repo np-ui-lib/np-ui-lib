@@ -109,6 +109,8 @@ nav {
 article {
     flex: 1;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .color-red {
@@ -117,7 +119,7 @@ article {
 
 .content {
     padding: 5px;
-    min-height: calc(100% - 25px);
+    flex: 1;
 }
 
 footer {
@@ -169,7 +171,7 @@ pre{
 }
 
 .fa {
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .np-input-group-append .fa, .dashboard-card .fa {

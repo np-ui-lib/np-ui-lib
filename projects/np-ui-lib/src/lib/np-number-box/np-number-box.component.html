@@ -1,19 +1,23 @@
-<div [ngClass]="{'np-nb-component': true, 'np-disabled' : isDisabled , 'np-readonly' : readonly}" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{ 'np-number-box': true, 'np-disabled': isDisabled , 'np-readonly': readonly }" [class]="styleClass"
+    [attr.id]="inputId">
     <div class="np-input-group">
-        <input class="np-form-control" type="number" [value]="innerValue" [placeholder]="placeholder" [disabled]="isDisabled" (change)="_onInputChange($event)" autocomplete="off">
+        <input class="np-form-control" type="number" [value]="innerValue" [placeholder]="placeholder"
+            [disabled]="isDisabled" (change)="_onInputChange($event)" autocomplete="off">
         <div class="np-input-group-append" *ngIf="showControls">
-            <div class="np-btn np-btn-icon" (mousedown)="_onMouseDownMinus()" (mouseup)="_onMouseUpMinus()" (mouseleave)="_onMouseUpMinus()">
+            <button type="button" class="np-btn-icon np-number-plus" (mousedown)="_onMouseDownMinus()"
+                (mouseup)="_onMouseUpMinus()" (mouseleave)="_onMouseUpMinus()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M19 13H5v-2h14v2z" />
-                    <path d="M0 0h24v24H0z" fill="none" /></svg>
-            </div>
-        </div>
-        <div class="np-input-group-append" *ngIf="showControls">
-            <div class="np-btn np-btn-icon" (mousedown)="_onMouseDownAdd()" (mouseup)="_onMouseUpAdd()" (mouseleave)="_onMouseUpAdd()">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+            </button>
+            <button type="button" class="np-btn-icon np-number-minus" (mousedown)="_onMouseDownAdd()"
+                (mouseup)="_onMouseUpAdd()" (mouseleave)="_onMouseUpAdd()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                    <path d="M0 0h24v24H0z" fill="none" /></svg>
-            </div>
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+            </button>
         </div>
     </div>
 </div>

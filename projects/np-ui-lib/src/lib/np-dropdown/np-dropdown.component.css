@@ -1,26 +1,23 @@
-.np-dd-overlay {
+.np-dropdown-overlay {
     background-color: #ffffff;
     min-width: 250px;
-    max-width: 300px;
     max-height: 300px;
     overflow: auto;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
 
-.np-dd-item {
-    padding: 5px 10px;
-    min-height: 32px;
+.np-dropdown-overlay .np-list {
+    border: none;
+}
+
+.np-dropdown-overlay .np-list-item {
     cursor: pointer;
 }
 
-.np-dd-item:hover {
-    background-color: #eeeeee;
-}
-
-.np-dd-selected {
+.np-dropdown-selected {
     background-color: #e0e0e0;
 }
 
-.np-dd-selected:hover {
-    background-color: #bdbdbd;
+.np-dropdown-selected:hover {
+    background-color: #bdbdbd !important;
 }

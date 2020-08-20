@@ -1,25 +1,22 @@
-.np-ac-loader {
+.np-auto-complete-loader {
     animation: spin 2s linear infinite;
-    height: 30px;
-    width: 30px;
+    height: 2rem;
+    width: 2rem;
     padding: 2px;
 }
 
-.np-ac-overlay {
+.np-auto-complete-overlay {
     background-color: #ffffff;
     min-width: 250px;
-    max-width: 300px;
     max-height: 300px;
     overflow: auto;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
 
-.np-ac-search-item {
-    padding: 5px 10px;
-    min-height: 32px;
-    cursor: pointer;
+.np-auto-complete-overlay .np-list {
+    border: none;
 }
 
-.np-ac-search-item:hover {
-    background-color: #eeeeee;
+.np-auto-complete-overlay .np-list-item {
+    cursor: pointer;
 }

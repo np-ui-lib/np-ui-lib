@@ -16,8 +16,8 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    min-height: 40px;
-    padding: 5px 10px;
+    height: 2.5rem;
+    padding: 0px 10px;
 }
 
 .np-menu-link:hover {
@@ -72,5 +72,5 @@
 
 .np-menu-item i {
     font-size: x-large;
-    padding-right: 5px;
+    padding-right: 10px;
 }

@@ -1,72 +1,84 @@
-.np-cp-input-selected {
+.np-input-color-block {
     height: 100%;
-    width: 30px;
+    width: 2rem;
 }
 
-.np-cp-overlay {
-    background-color: #ffffff;
-    width: 212px;
-    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+.np-input-hidden {
+    width: 98px;
 }
 
-.np-cp-block-selected {
-    height: 50px;
-    width: 50px;
-}
-
-.np-cp-color-block {
-    height: 20px;
-    width: 20px;
-    margin-right: 5px;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.np-cp-current-color {
-    height: 30px;
-    width: 30px;
-    margin-top: 10px;
-    margin-left: 10px;
-    z-index: 1001;
-}
-
-.np-cp-canvas-strip:hover,
-.np-cp-canvas-block:hover {
-    cursor: crosshair !important;
-}
-
-.np-cp-header,
-.np-cp-footer {
-    padding: 5px;
-    background-color: #f5f5f5;
-}
-
-.np-cp-canvases {
-    height: 180px;
-    padding: 5px;
-}
-
-.np-cp-color-blocks {
-    padding-left: 5px;
-}
-
-.np-cp-hide-input {
-    width: 92px;
-}
-
-.np-cp-hide-input .np-form-control {
+.np-input-hidden .np-form-control {
     position: absolute;
     width: 1px;
     height: 1px;
     padding: 0;
     margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-    visibility: inherit;
-    white-space: nowrap;
+    visibility: hidden;
 }
 
-.np-cp-default-open {
+.np-color-picker-overlay {
+    background-color: #ffffff;
+    width: min-content;
+    min-width: 210px;
+    border: 1px solid #9e9e9e;
+    border-radius: 2px;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+}
+
+.np-overlay-open {
     box-shadow: none;
+}
+
+.np-color-picker-header{
+    padding: 5px;
+    background-color: #f5f5f5;
+    display: flex;
+}
+
+.np-selected-color-block {
+    height: 3rem;
+    width: 3rem;
+    margin-right: 5px;
+}
+
+.np-current-color-block {
+    height: 2rem;
+    width: 2rem;
+    margin-top: 10px;
+    margin-left: 10px;
+    z-index: 1001;
+}
+
+.np-color-canvases {
+    height: 180px;
+    padding: 5px;
+    width: 210px;
+}
+
+.np-color-picker-block {
+    margin-right: 5px;
+}
+
+.np-color-picker-strip:hover,
+.np-color-picker-block:hover {
+    cursor: crosshair !important;
+}
+
+.np-color-blocks {
+    padding-left: 5px;
+}
+
+.np-color-block {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.np-color-picker-footer {
+    padding: 5px;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-around;
 }

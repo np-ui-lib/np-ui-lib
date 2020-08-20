@@ -33,8 +33,10 @@ export class NpModalComponent {
     private overlayPositionBuilder: OverlayPositionBuilder) { }
 
   _close() {
-    this.overlayRef.detach();
-    this.onClose.emit();
+    if (this.overlayRef && this.overlayRef.hasAttached()) {
+      this.overlayRef.detach();
+      this.onClose.emit();
+    }
   }
 
   close() {

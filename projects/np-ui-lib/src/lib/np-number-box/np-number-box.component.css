@@ -1,7 +1,7 @@
 /* Chrome, Safari, Edge, Opera */
 
-.np-nb-component .np-form-control::-webkit-outer-spin-button,
-.np-nb-component .np-form-control::-webkit-inner-spin-button {
+.np-number-box .np-form-control::-webkit-outer-spin-button,
+.np-number-box .np-form-control::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
@@ -9,6 +9,6 @@
 
 /* Firefox */
 
-.np-nb-component .np-form-control {
+.np-number-box .np-form-control {
     -moz-appearance: textfield;
 }

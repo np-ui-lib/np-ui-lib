@@ -1,11 +1,4 @@
 
-.np-list-checkbox {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    vertical-align: middle;
-}
-
 .np-list-selected {
     background-color: #e0e0e0;
 }
@@ -15,5 +8,9 @@
 }
 
 .np-list-checkbox {
+    cursor: pointer;
+    height: 1rem;
+    width: 1rem;
+    vertical-align: middle;
     margin-right: 10px;
 }

@@ -102,7 +102,6 @@
             <np-virtual-scroll [data]="data" [pageSize]="pageSize" [itemHeight]="50" [template]="itemTemplate"
                 (loadData)="loadData($event)">
             </np-virtual-scroll>
-
             <ng-template #itemTemplate let-item="item">
                 {{item}}
             </ng-template>

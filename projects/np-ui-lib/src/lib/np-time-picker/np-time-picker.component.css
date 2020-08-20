@@ -1,38 +1,53 @@
-.np-tp-overlay {
+.np-time-picker-overlay {
     background-color: #ffffff;
-    width: 210px;
+    width: min-content;
+    min-width: 210px;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    border: 1px solid #9e9e9e;
+    border-radius: 2px;
 }
 
-.np-tp-header {
+.np-overlay-open {
+    box-shadow: none;
+}
+
+.np-time-picker-header {
     padding: 5px;
     background-color: #f5f5f5;
     font-weight: bold;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.np-tp-footer {
+.np-time-picker-footer {
     padding: 5px;
     background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.np-tp-controls {
+.np-time-picker-controls {
     padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.np-tp-select {
+.np-time-picker-controls .np-btn-icon {
+    border: none;
+}
+
+.np-time-picker-select {
     width: 45px;
     margin: 0px 2px;
 }
 
-.np-tp-select option {
+.np-time-picker-select option {
     padding: 5px;
 }
 
 .np-tp-overflow-hidden {
     overflow: hidden;
-}
-
-.np-tp-default-open {
-    box-shadow: none;
 }

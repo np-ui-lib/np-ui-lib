@@ -11,4 +11,6 @@
     position: absolute;
     left: -35px;
     bottom: 5px;
+    border: none;
+    background-color: transparent;
 }
