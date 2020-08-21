@@ -29,8 +29,8 @@
         <div class="np-time-picker-header">
             <div>{{ is24Hours ? 'HH' : 'hh' }}</div>
             <div>mm</div>
-            <div *ngIf="hideSeconds == false">ss</div>
-            <div *ngIf="is24Hours == false">tt</div>
+            <div *ngIf="hideSeconds === false">ss</div>
+            <div *ngIf="is24Hours === false">tt</div>
         </div>
         <div class="np-time-picker-controls">
             <button type="button" tabindex="-1" class="np-btn-icon" (click)="_minusHour()">
@@ -45,14 +45,14 @@
                     <path d="M0 0h24v24H0z" fill="none" />
                 </svg>
             </button>
-            <button *ngIf="hideSeconds == false" type="button" tabindex="-1" class="np-btn-icon"
+            <button *ngIf="hideSeconds === false" type="button" tabindex="-1" class="np-btn-icon"
                 (click)="_minusSecond()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
                     <path d="M0 0h24v24H0z" fill="none" />
                 </svg>
             </button>
-            <button *ngIf="is24Hours == false" type="button" tabindex="-1" class="np-btn-icon" (click)="_changeAMPM()">
+            <button *ngIf="is24Hours === false" type="button" tabindex="-1" class="np-btn-icon" (click)="_changeAMPM()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
                     <path d="M0 0h24v24H0z" fill="none" />
@@ -62,25 +62,25 @@
         <div class="np-time-picker-controls">
             <select class="np-time-picker-select" tabindex="-1" title="Hour" (change)="_changeTime($event, 'hour')"
                 size="4">
-                <option *ngFor="let hour of hours" [value]="hour" [text]="hour" [selected]="hour == selectedHour">
+                <option *ngFor="let hour of hours" [value]="hour" [text]="hour" [selected]="hour === selectedHour">
                 </option>
             </select>
             <select class="np-time-picker-select" tabindex="-1" title="Minute" (change)="_changeTime($event, 'minute')"
                 size="4">
                 <option *ngFor="let minute of minutes" tabindex="-1" [value]="minute" [text]="minute"
-                    [selected]="minute == selectedMinute">
+                    [selected]="minute === selectedMinute">
                 </option>
             </select>
-            <select *ngIf="hideSeconds == false" class="np-time-picker-select" tabindex="-1" title="Second"
+            <select *ngIf="hideSeconds === false" class="np-time-picker-select" tabindex="-1" title="Second"
                 (change)="_changeTime($event, 'second')" size="4">
                 <option *ngFor="let second of seconds" [value]="second" [text]="second"
-                    [selected]="second == selectedSecond">
+                    [selected]="second === selectedSecond">
                 </option>
             </select>
-            <select *ngIf="is24Hours == false" class="np-time-picker-select" tabindex="-1"
+            <select *ngIf="is24Hours === false" class="np-time-picker-select" tabindex="-1"
                 (change)="_changeTime($event, 'AMPM')" size="2">
-                <option value="AM" [selected]="'AM' == selectedAMPM">AM</option>
-                <option value="PM" [selected]="'PM' == selectedAMPM">PM</option>
+                <option value="AM" [selected]="'AM' === selectedAMPM">AM</option>
+                <option value="PM" [selected]="'PM' === selectedAMPM">PM</option>
             </select>
         </div>
         <div class="np-time-picker-controls">
@@ -96,13 +96,14 @@
                     <path fill="none" d="M0 0h24v24H0V0z" />
                 </svg>
             </button>
-            <button *ngIf="hideSeconds == false" type="button" tabindex="-1" class="np-btn-icon" (click)="_addSecond()">
+            <button *ngIf="hideSeconds === false" type="button" tabindex="-1" class="np-btn-icon"
+                (click)="_addSecond()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
                     <path fill="none" d="M0 0h24v24H0V0z" />
                 </svg>
             </button>
-            <button *ngIf="is24Hours == false" type="button" tabindex="-1" class="np-btn-icon" (click)="_changeAMPM()">
+            <button *ngIf="is24Hours === false" type="button" tabindex="-1" class="np-btn-icon" (click)="_changeAMPM()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
                     <path fill="none" d="M0 0h24v24H0V0z" />

@@ -13,6 +13,7 @@
     height: 1px;
     padding: 0;
     margin: -1px;
+    visibility: hidden;
 }
 
 .np-color-picker-overlay {

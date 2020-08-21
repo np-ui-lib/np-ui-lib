@@ -176,7 +176,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       return;
     }
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
-      if (this.displayValue === undefined || this.displayValue == null || this.displayValue.length < this.minSearchCharLimit) {
+      if (this.displayValue === undefined || this.displayValue === null || this.displayValue.length < this.minSearchCharLimit) {
         return;
       }
     }
@@ -195,7 +195,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   }
 
   _createNewTag() {
-    if (this.options === undefined || this.options == null) {
+    if (this.options === undefined || this.options === null) {
       this.options = [];
     }
     if (this.displayKey) {

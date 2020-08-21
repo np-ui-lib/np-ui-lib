@@ -10,8 +10,10 @@
         </div>
         <div class="np-col-auto np-carousel-items">
             <div class="np-row np-no-gutters justify-content-around align-items-center">
-                <div class="np-col-auto np-carousel-item" *ngFor="let item of items;let i = index;" [ngClass]="{'np-carousel-active': _isActive(i)}">
-                    <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}">
+                <div class="np-col-auto np-carousel-item" *ngFor="let item of items;let i = index;"
+                    [ngClass]="{'np-carousel-active': _isActive(i)}">
+                    <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
+                        [ngTemplateOutletContext]="{item: item}">
                     </ng-template>
                 </div>
             </div>
@@ -26,7 +28,8 @@
         </div>
         <div class="np-carousel-nav" *ngIf="showNavigationIndicators">
             <ng-container *ngFor="let img of _getEmptyArray(_totalPages()); let i = index">
-                <span class="np-carousel-dot" [ngClass]="{'np-carousel-dot-active': currentPage == i}" (click)="_goToPage(i)"></span>
+                <span class="np-carousel-dot" [ngClass]="{'np-carousel-dot-active': currentPage === i}"
+                    (click)="_goToPage(i)"></span>
             </ng-container>
         </div>
     </div>

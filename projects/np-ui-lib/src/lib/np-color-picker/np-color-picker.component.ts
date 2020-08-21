@@ -267,7 +267,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _onClickColorBlock(color: string) {
-    if (color === undefined || color == null) {
+    if (color === undefined || color === null) {
       this.value = null;
       return;
     }

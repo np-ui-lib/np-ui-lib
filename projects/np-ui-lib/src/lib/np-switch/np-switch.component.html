@@ -3,10 +3,10 @@
     <label (change)="_onClickSwitch($event)">
         <input class="np-switch-input" type="checkbox" [checked]="innerValue" [disabled]="isDisabled"
             [autofocus]="autoFocus">
-        <div class="np-switch-label" [ngClass]="{'np-switch-danger' : value == false}">
+        <div class="np-switch-label" [ngClass]="{'np-switch-danger' : value === false}">
             <span [innerHTML]="falseLabelText ? falseLabelText:'False'"></span>
         </div>
-        <div class="np-switch-label" [ngClass]="{'np-switch-success' : value == true}">
+        <div class="np-switch-label" [ngClass]="{'np-switch-success' : value === true}">
             <span [innerHTML]="trueLabelText ? trueLabelText:'True'"></span>
         </div>
     </label>

@@ -51,7 +51,7 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChang
   }
 
   _totalPages() {
-    if (this.items === undefined || this.items == null) {
+    if (this.items === undefined || this.items === null) {
       return 0;
     }
     return Math.ceil((this.items.length - this.visibleNum + this.scrollNum) / this.scrollNum);

@@ -59,7 +59,7 @@ npm i np-ui-lib
 
 ### [Working examples](https://stackblitz.com/edit/np-ui-lib)
 ### [Code for all examples here](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)
-### [Change log](https://github.com/NilavPatel/np-ui-package/tree/master/projects/np-ui-lib/CHANGELOG.md)
+### [Release Notes](https://github.com/NilavPatel/np-ui-package/tree/master/projects/np-ui-lib/CHANGELOG.md)
 
 ## License
 This project is licensed under the MIT License.
