@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 import * as _ from 'lodash';
 
@@ -57,16 +57,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function randomDate(start, end, startHour, endHour) {
             const date = new Date(+start + Math.random() * (end - start));
-            const hour = startHour + Math.random() * (endHour - startHour) | 0;
+            const hour = (startHour + Math.random() * (endHour - startHour)) || 0;
             date.setHours(hour);
             return date;
         }
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const { url, method, headers, body } = request;
+        const { url, method, body } = request;
 
-        if (url.endsWith('/getAll') || url.endsWith('/getDataUsingLoadOptions') || url.endsWith('/updateFirstName')) {
+        if (url.endsWith('/getAllUsers') || url.endsWith('/getAllUsers') || url.endsWith('/updateUsers')) {
             // wrap in delayed observable to simulate server api call
             return of(null)
                 .pipe(mergeMap(handleRoute))
@@ -79,26 +79,24 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function handleRoute() {
             switch (true) {
-                case url.endsWith('/getAll') && method === 'GET':
-                    return getAll();
-                case url.endsWith('/getDataUsingLoadOptions') && method === 'POST':
-                    return getDataUsingLoadOptions(body);
-                case url.endsWith('/updateFirstName') && method === 'POST':
-                    return updateFirstName(body);
+                case url.endsWith('/getAllUsers') && method === 'GET':
+                    return getAllUsers();
+                case url.endsWith('/getAllUsers') && method === 'POST':
+                    return getAllUsersWithOptions(body);
+                case url.endsWith('/updateUsers') && method === 'POST':
+                    return updateUsers(body);
             }
         }
 
-        // route functions
-
-        function getAll() {
+        function getAllUsers() {
             return ok(data);
         }
 
-        function getDataUsingLoadOptions(loadOptions) {
+        function getAllUsersWithOptions(loadOptions: any) {
             let data2 = data;
 
             if (loadOptions.filterColumns && loadOptions.filterColumns.length > 0) {
-                data2 = _filterDataSource(data2, loadOptions.filterColumns);
+                data2 = filterData(data2, loadOptions.filterColumns);
             }
 
             if (loadOptions.sortColumns && loadOptions.sortColumns.length > 0) {
@@ -114,83 +112,81 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             return ok(result);
         }
 
-        // helper functions
-
-        function _filterDataSource(data, filterColumns) {
+        function filterData(dataSource: any, filterColumns: any[]) {
             for (const element of filterColumns) {
                 if (element.filterOperator === 'startswith') {
-                    data = _.filter(data, a => {
+                    dataSource = _.filter(dataSource, a => {
                         return _.startsWith(a[element.dataField].toLowerCase(), element.filterValue.toLowerCase());
                     });
                 } else if (element.filterOperator === 'endswith') {
-                    data = _.filter(data, a => {
+                    dataSource = _.filter(dataSource, a => {
                         return _.endsWith(a[element.dataField].toLowerCase(), element.filterValue.toLowerCase());
                     });
                 } else if (element.filterOperator === 'contains') {
-                    data = _.filter(data, a => {
+                    dataSource = _.filter(dataSource, a => {
                         return a[element.dataField].toLowerCase().indexOf(element.filterValue.toLowerCase()) !== -1;
                     });
                 } else if (element.filterOperator === 'gt') {
                     if (element.dataType === 'number') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField] > Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField].setHours(0, 0, 0, 0) > new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
                 } else if (element.filterOperator === 'ge') {
                     if (element.dataType === 'number') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField] >= Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField].setHours(0, 0, 0, 0) >= new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
                 } else if (element.filterOperator === 'lt') {
                     if (element.dataType === 'number') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField] < Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField].setHours(0, 0, 0, 0) < new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
                 } else if (element.filterOperator === 'le') {
                     if (element.dataType === 'number') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField] <= Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField].setHours(0, 0, 0, 0) <= new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
                 } else if (element.filterOperator === 'eq') {
                     if (element.dataType === 'boolean') {
                         if (element.filterValue === 'true') {
-                            data = _.filter(data, a => {
+                            dataSource = _.filter(dataSource, a => {
                                 return a[element.dataField] === true;
                             });
                         } else {
-                            data = _.filter(data, a => {
+                            dataSource = _.filter(dataSource, a => {
                                 return a[element.dataField] === false;
                             });
                         }
                     } else if (element.dataType === 'number') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField] === Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField].setHours(0, 0, 0, 0) === new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     } else if (element.dataType === 'string') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField].toLowerCase() === element.filterValue.toLowerCase();
                         });
                     }
@@ -198,37 +194,33 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 else if (element.filterOperator === 'ne') {
                     if (element.dataType === 'boolean') {
                         if (element.filterValue === 'true') {
-                            data = _.filter(data, a => {
+                            dataSource = _.filter(dataSource, a => {
                                 return a[element.dataField] !== true;
                             });
                         } else {
-                            data = _.filter(data, a => {
+                            dataSource = _.filter(dataSource, a => {
                                 return a[element.dataField] !== false;
                             });
                         }
                     } else if (element.dataType === 'number') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField] !== Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
-                        data = _.filter(data, a => {
+                        dataSource = _.filter(dataSource, a => {
                             return a[element.dataField].setHours(0, 0, 0, 0) !== new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
                 }
             }
-            return data;
+            return dataSource;
         }
 
-        function ok(body?) {
-            return of(new HttpResponse({ status: 200, body }));
+        function ok(response: any) {
+            return of(new HttpResponse({ status: 200, body: JSON.parse(JSON.stringify(response)) }));
         }
 
-        function error(message) {
-            return throwError({ error: { message } });
-        }
-
-        function updateFirstName(keys: any[]) {
+        function updateUsers(keys: any[]) {
             const records = data.filter(element => {
                 if (keys.indexOf(element.Id) > -1) {
                     return element;

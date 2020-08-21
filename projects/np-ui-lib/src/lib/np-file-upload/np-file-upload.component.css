@@ -4,7 +4,7 @@
     height: 1px;
     padding: 0;
     margin: -1px;
-    visibility: hidden;
+    outline: none;
 }
 
 .np-file-btn {
@@ -35,5 +35,6 @@
 .np-file-list .np-list-item {
     padding: 5px;
     justify-content: space-between;
+    align-items: center;
     background-color: #f5f5f5;
 }

@@ -1,15 +1,15 @@
 <div [ngClass]="{ 'np-file-upload': true, 'np-disabled': isDisabled , 'np-readonly': readonly }" [class]="styleClass"
     [attr.id]="inputId">
     <div class="np-input-group">
-        <label class="np-file-label">
-            <input class="np-file-input" [attr.accept]="accept" #fileUploadInput type="file" [disabled]="isDisabled"
-                (change)="_onFileSelected($event)" [multiple]="multiple">
+        <label class="np-file-label" tabindex="auto">
+            <input type="file" class="np-file-input" [attr.accept]="accept" [disabled]="isDisabled"
+                [multiple]="multiple" #fileUploadInput (change)="_onFileSelected($event)">
             <span
                 class="np-file-btn">{{ uploadButtonLabel ? uploadButtonLabel : (multiple ? "Choose Files" : "Choose File")}}</span>
             <span class="np-file-counts" [innerText]="_getFilesCountsText()"></span>
         </label>
         <div class="np-input-group-append">
-            <button type="button" class="np-btn-icon np-btn-clear" title="Clear" (click)="_clear()">
+            <button type="button" tabindex="-1" class="np-btn-icon np-btn-clear" title="Clear" (click)="_clear()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path
                         d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />

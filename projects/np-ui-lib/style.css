@@ -1,8 +1,4 @@
-button,
-input,
-optgroup,
-select,
-textarea {
+button, input, optgroup, select, textarea {
     margin: 0;
 }
 
@@ -32,71 +28,7 @@ svg {
     margin-left: -12px;
 }
 
-.np-col,
-.np-col-1,
-.np-col-10,
-.np-col-11,
-.np-col-12,
-.np-col-2,
-.np-col-3,
-.np-col-4,
-.np-col-5,
-.np-col-6,
-.np-col-7,
-.np-col-8,
-.np-col-9,
-.np-col-lg,
-.np-col-lg-1,
-.np-col-lg-10,
-.np-col-lg-11,
-.np-col-lg-12,
-.np-col-lg-2,
-.np-col-lg-3,
-.np-col-lg-4,
-.np-col-lg-5,
-.np-col-lg-6,
-.np-col-lg-7,
-.np-col-lg-8,
-.np-col-lg-9,
-.np-col-md,
-.np-col-md-1,
-.np-col-md-10,
-.np-col-md-11,
-.np-col-md-12,
-.np-col-md-2,
-.np-col-md-3,
-.np-col-md-4,
-.np-col-md-5,
-.np-col-md-6,
-.np-col-md-7,
-.np-col-md-8,
-.np-col-md-9,
-.np-col-sm,
-.np-col-sm-1,
-.np-col-sm-10,
-.np-col-sm-11,
-.np-col-sm-12,
-.np-col-sm-2,
-.np-col-sm-3,
-.np-col-sm-4,
-.np-col-sm-5,
-.np-col-sm-6,
-.np-col-sm-7,
-.np-col-sm-8,
-.np-col-sm-9,
-.np-col-xl,
-.np-col-xl-1,
-.np-col-xl-10,
-.np-col-xl-11,
-.np-col-xl-12,
-.np-col-xl-2,
-.np-col-xl-3,
-.np-col-xl-4,
-.np-col-xl-5,
-.np-col-xl-6,
-.np-col-xl-7,
-.np-col-xl-8,
-.np-col-xl-9 {
+.np-col, .np-col-1, .np-col-10, .np-col-11, .np-col-12, .np-col-2, .np-col-3, .np-col-4, .np-col-5, .np-col-6, .np-col-7, .np-col-8, .np-col-9, .np-col-lg, .np-col-lg-1, .np-col-lg-10, .np-col-lg-11, .np-col-lg-12, .np-col-lg-2, .np-col-lg-3, .np-col-lg-4, .np-col-lg-5, .np-col-lg-6, .np-col-lg-7, .np-col-lg-8, .np-col-lg-9, .np-col-md, .np-col-md-1, .np-col-md-10, .np-col-md-11, .np-col-md-12, .np-col-md-2, .np-col-md-3, .np-col-md-4, .np-col-md-5, .np-col-md-6, .np-col-md-7, .np-col-md-8, .np-col-md-9, .np-col-sm, .np-col-sm-1, .np-col-sm-10, .np-col-sm-11, .np-col-sm-12, .np-col-sm-2, .np-col-sm-3, .np-col-sm-4, .np-col-sm-5, .np-col-sm-6, .np-col-sm-7, .np-col-sm-8, .np-col-sm-9, .np-col-xl, .np-col-xl-1, .np-col-xl-10, .np-col-xl-11, .np-col-xl-12, .np-col-xl-2, .np-col-xl-3, .np-col-xl-4, .np-col-xl-5, .np-col-xl-6, .np-col-xl-7, .np-col-xl-8, .np-col-xl-9 {
     position: relative;
     flex-basis: 0;
     flex-grow: 1;
@@ -106,284 +38,28 @@ svg {
 }
 
 @media (max-width:767px) {
-    .np-col,
-    .np-col-1,
-    .np-col-10,
-    .np-col-11,
-    .np-col-12,
-    .np-col-2,
-    .np-col-3,
-    .np-col-4,
-    .np-col-5,
-    .np-col-6,
-    .np-col-7,
-    .np-col-8,
-    .np-col-9,
-    .np-col-lg,
-    .np-col-lg-1,
-    .np-col-lg-10,
-    .np-col-lg-11,
-    .np-col-lg-12,
-    .np-col-lg-2,
-    .np-col-lg-3,
-    .np-col-lg-4,
-    .np-col-lg-5,
-    .np-col-lg-6,
-    .np-col-lg-7,
-    .np-col-lg-8,
-    .np-col-lg-9,
-    .np-col-md,
-    .np-col-md-1,
-    .np-col-md-10,
-    .np-col-md-11,
-    .np-col-md-12,
-    .np-col-md-2,
-    .np-col-md-3,
-    .np-col-md-4,
-    .np-col-md-5,
-    .np-col-md-6,
-    .np-col-md-7,
-    .np-col-md-8,
-    .np-col-md-9,
-    .np-col-sm,
-    .np-col-sm-1,
-    .np-col-sm-10,
-    .np-col-sm-11,
-    .np-col-sm-12,
-    .np-col-sm-2,
-    .np-col-sm-3,
-    .np-col-sm-4,
-    .np-col-sm-5,
-    .np-col-sm-6,
-    .np-col-sm-7,
-    .np-col-sm-8,
-    .np-col-sm-9,
-    .np-col-xl,
-    .np-col-xl-1,
-    .np-col-xl-10,
-    .np-col-xl-11,
-    .np-col-xl-12,
-    .np-col-xl-2,
-    .np-col-xl-3,
-    .np-col-xl-4,
-    .np-col-xl-5,
-    .np-col-xl-6,
-    .np-col-xl-7,
-    .np-col-xl-8,
-    .np-col-xl-9 {
+    .np-col, .np-col-1, .np-col-10, .np-col-11, .np-col-12, .np-col-2, .np-col-3, .np-col-4, .np-col-5, .np-col-6, .np-col-7, .np-col-8, .np-col-9, .np-col-lg, .np-col-lg-1, .np-col-lg-10, .np-col-lg-11, .np-col-lg-12, .np-col-lg-2, .np-col-lg-3, .np-col-lg-4, .np-col-lg-5, .np-col-lg-6, .np-col-lg-7, .np-col-lg-8, .np-col-lg-9, .np-col-md, .np-col-md-1, .np-col-md-10, .np-col-md-11, .np-col-md-12, .np-col-md-2, .np-col-md-3, .np-col-md-4, .np-col-md-5, .np-col-md-6, .np-col-md-7, .np-col-md-8, .np-col-md-9, .np-col-sm, .np-col-sm-1, .np-col-sm-10, .np-col-sm-11, .np-col-sm-12, .np-col-sm-2, .np-col-sm-3, .np-col-sm-4, .np-col-sm-5, .np-col-sm-6, .np-col-sm-7, .np-col-sm-8, .np-col-sm-9, .np-col-xl, .np-col-xl-1, .np-col-xl-10, .np-col-xl-11, .np-col-xl-12, .np-col-xl-2, .np-col-xl-3, .np-col-xl-4, .np-col-xl-5, .np-col-xl-6, .np-col-xl-7, .np-col-xl-8, .np-col-xl-9 {
         padding-right: 15px;
         padding-left: 15px
     }
 }
 
 @media (min-width:768px) and (max-width:991px) {
-    .np-col,
-    .np-col-1,
-    .np-col-10,
-    .np-col-11,
-    .np-col-12,
-    .np-col-2,
-    .np-col-3,
-    .np-col-4,
-    .np-col-5,
-    .np-col-6,
-    .np-col-7,
-    .np-col-8,
-    .np-col-9,
-    .np-col-lg,
-    .np-col-lg-1,
-    .np-col-lg-10,
-    .np-col-lg-11,
-    .np-col-lg-12,
-    .np-col-lg-2,
-    .np-col-lg-3,
-    .np-col-lg-4,
-    .np-col-lg-5,
-    .np-col-lg-6,
-    .np-col-lg-7,
-    .np-col-lg-8,
-    .np-col-lg-9,
-    .np-col-md,
-    .np-col-md-1,
-    .np-col-md-10,
-    .np-col-md-11,
-    .np-col-md-12,
-    .np-col-md-2,
-    .np-col-md-3,
-    .np-col-md-4,
-    .np-col-md-5,
-    .np-col-md-6,
-    .np-col-md-7,
-    .np-col-md-8,
-    .np-col-md-9,
-    .np-col-sm,
-    .np-col-sm-1,
-    .np-col-sm-10,
-    .np-col-sm-11,
-    .np-col-sm-12,
-    .np-col-sm-2,
-    .np-col-sm-3,
-    .np-col-sm-4,
-    .np-col-sm-5,
-    .np-col-sm-6,
-    .np-col-sm-7,
-    .np-col-sm-8,
-    .np-col-sm-9,
-    .np-col-xl,
-    .np-col-xl-1,
-    .np-col-xl-10,
-    .np-col-xl-11,
-    .np-col-xl-12,
-    .np-col-xl-2,
-    .np-col-xl-3,
-    .np-col-xl-4,
-    .np-col-xl-5,
-    .np-col-xl-6,
-    .np-col-xl-7,
-    .np-col-xl-8,
-    .np-col-xl-9 {
+    .np-col, .np-col-1, .np-col-10, .np-col-11, .np-col-12, .np-col-2, .np-col-3, .np-col-4, .np-col-5, .np-col-6, .np-col-7, .np-col-8, .np-col-9, .np-col-lg, .np-col-lg-1, .np-col-lg-10, .np-col-lg-11, .np-col-lg-12, .np-col-lg-2, .np-col-lg-3, .np-col-lg-4, .np-col-lg-5, .np-col-lg-6, .np-col-lg-7, .np-col-lg-8, .np-col-lg-9, .np-col-md, .np-col-md-1, .np-col-md-10, .np-col-md-11, .np-col-md-12, .np-col-md-2, .np-col-md-3, .np-col-md-4, .np-col-md-5, .np-col-md-6, .np-col-md-7, .np-col-md-8, .np-col-md-9, .np-col-sm, .np-col-sm-1, .np-col-sm-10, .np-col-sm-11, .np-col-sm-12, .np-col-sm-2, .np-col-sm-3, .np-col-sm-4, .np-col-sm-5, .np-col-sm-6, .np-col-sm-7, .np-col-sm-8, .np-col-sm-9, .np-col-xl, .np-col-xl-1, .np-col-xl-10, .np-col-xl-11, .np-col-xl-12, .np-col-xl-2, .np-col-xl-3, .np-col-xl-4, .np-col-xl-5, .np-col-xl-6, .np-col-xl-7, .np-col-xl-8, .np-col-xl-9 {
         padding-right: 15px;
         padding-left: 15px
     }
 }
 
 @media (min-width:992px) and (max-width:1199px) {
-    .np-col,
-    .np-col-1,
-    .np-col-10,
-    .np-col-11,
-    .np-col-12,
-    .np-col-2,
-    .np-col-3,
-    .np-col-4,
-    .np-col-5,
-    .np-col-6,
-    .np-col-7,
-    .np-col-8,
-    .np-col-9,
-    .np-col-lg,
-    .np-col-lg-1,
-    .np-col-lg-10,
-    .np-col-lg-11,
-    .np-col-lg-12,
-    .np-col-lg-2,
-    .np-col-lg-3,
-    .np-col-lg-4,
-    .np-col-lg-5,
-    .np-col-lg-6,
-    .np-col-lg-7,
-    .np-col-lg-8,
-    .np-col-lg-9,
-    .np-col-md,
-    .np-col-md-1,
-    .np-col-md-10,
-    .np-col-md-11,
-    .np-col-md-12,
-    .np-col-md-2,
-    .np-col-md-3,
-    .np-col-md-4,
-    .np-col-md-5,
-    .np-col-md-6,
-    .np-col-md-7,
-    .np-col-md-8,
-    .np-col-md-9,
-    .np-col-sm,
-    .np-col-sm-1,
-    .np-col-sm-10,
-    .np-col-sm-11,
-    .np-col-sm-12,
-    .np-col-sm-2,
-    .np-col-sm-3,
-    .np-col-sm-4,
-    .np-col-sm-5,
-    .np-col-sm-6,
-    .np-col-sm-7,
-    .np-col-sm-8,
-    .np-col-sm-9,
-    .np-col-xl,
-    .np-col-xl-1,
-    .np-col-xl-10,
-    .np-col-xl-11,
-    .np-col-xl-12,
-    .np-col-xl-2,
-    .np-col-xl-3,
-    .np-col-xl-4,
-    .np-col-xl-5,
-    .np-col-xl-6,
-    .np-col-xl-7,
-    .np-col-xl-8,
-    .np-col-xl-9 {
+    .np-col, .np-col-1, .np-col-10, .np-col-11, .np-col-12, .np-col-2, .np-col-3, .np-col-4, .np-col-5, .np-col-6, .np-col-7, .np-col-8, .np-col-9, .np-col-lg, .np-col-lg-1, .np-col-lg-10, .np-col-lg-11, .np-col-lg-12, .np-col-lg-2, .np-col-lg-3, .np-col-lg-4, .np-col-lg-5, .np-col-lg-6, .np-col-lg-7, .np-col-lg-8, .np-col-lg-9, .np-col-md, .np-col-md-1, .np-col-md-10, .np-col-md-11, .np-col-md-12, .np-col-md-2, .np-col-md-3, .np-col-md-4, .np-col-md-5, .np-col-md-6, .np-col-md-7, .np-col-md-8, .np-col-md-9, .np-col-sm, .np-col-sm-1, .np-col-sm-10, .np-col-sm-11, .np-col-sm-12, .np-col-sm-2, .np-col-sm-3, .np-col-sm-4, .np-col-sm-5, .np-col-sm-6, .np-col-sm-7, .np-col-sm-8, .np-col-sm-9, .np-col-xl, .np-col-xl-1, .np-col-xl-10, .np-col-xl-11, .np-col-xl-12, .np-col-xl-2, .np-col-xl-3, .np-col-xl-4, .np-col-xl-5, .np-col-xl-6, .np-col-xl-7, .np-col-xl-8, .np-col-xl-9 {
         padding-right: 15px;
         padding-left: 15px
     }
 }
 
 @media (min-width:1200px) {
-    .np-col,
-    .np-col-1,
-    .np-col-10,
-    .np-col-11,
-    .np-col-12,
-    .np-col-2,
-    .np-col-3,
-    .np-col-4,
-    .np-col-5,
-    .np-col-6,
-    .np-col-7,
-    .np-col-8,
-    .np-col-9,
-    .np-col-lg,
-    .np-col-lg-1,
-    .np-col-lg-10,
-    .np-col-lg-11,
-    .np-col-lg-12,
-    .np-col-lg-2,
-    .np-col-lg-3,
-    .np-col-lg-4,
-    .np-col-lg-5,
-    .np-col-lg-6,
-    .np-col-lg-7,
-    .np-col-lg-8,
-    .np-col-lg-9,
-    .np-col-md,
-    .np-col-md-1,
-    .np-col-md-10,
-    .np-col-md-11,
-    .np-col-md-12,
-    .np-col-md-2,
-    .np-col-md-3,
-    .np-col-md-4,
-    .np-col-md-5,
-    .np-col-md-6,
-    .np-col-md-7,
-    .np-col-md-8,
-    .np-col-md-9,
-    .np-col-sm,
-    .np-col-sm-1,
-    .np-col-sm-10,
-    .np-col-sm-11,
-    .np-col-sm-12,
-    .np-col-sm-2,
-    .np-col-sm-3,
-    .np-col-sm-4,
-    .np-col-sm-5,
-    .np-col-sm-6,
-    .np-col-sm-7,
-    .np-col-sm-8,
-    .np-col-sm-9,
-    .np-col-xl,
-    .np-col-xl-1,
-    .np-col-xl-10,
-    .np-col-xl-11,
-    .np-col-xl-12,
-    .np-col-xl-2,
-    .np-col-xl-3,
-    .np-col-xl-4,
-    .np-col-xl-5,
-    .np-col-xl-6,
-    .np-col-xl-7,
-    .np-col-xl-8,
-    .np-col-xl-9 {
+    .np-col, .np-col-1, .np-col-10, .np-col-11, .np-col-12, .np-col-2, .np-col-3, .np-col-4, .np-col-5, .np-col-6, .np-col-7, .np-col-8, .np-col-9, .np-col-lg, .np-col-lg-1, .np-col-lg-10, .np-col-lg-11, .np-col-lg-12, .np-col-lg-2, .np-col-lg-3, .np-col-lg-4, .np-col-lg-5, .np-col-lg-6, .np-col-lg-7, .np-col-lg-8, .np-col-lg-9, .np-col-md, .np-col-md-1, .np-col-md-10, .np-col-md-11, .np-col-md-12, .np-col-md-2, .np-col-md-3, .np-col-md-4, .np-col-md-5, .np-col-md-6, .np-col-md-7, .np-col-md-8, .np-col-md-9, .np-col-sm, .np-col-sm-1, .np-col-sm-10, .np-col-sm-11, .np-col-sm-12, .np-col-sm-2, .np-col-sm-3, .np-col-sm-4, .np-col-sm-5, .np-col-sm-6, .np-col-sm-7, .np-col-sm-8, .np-col-sm-9, .np-col-xl, .np-col-xl-1, .np-col-xl-10, .np-col-xl-11, .np-col-xl-12, .np-col-xl-2, .np-col-xl-3, .np-col-xl-4, .np-col-xl-5, .np-col-xl-6, .np-col-xl-7, .np-col-xl-8, .np-col-xl-9 {
         padding-right: 15px;
         padding-left: 15px
     }
@@ -459,8 +135,7 @@ svg {
     margin-left: 0;
 }
 
-.np-no-gutters>.np-col,
-.np-no-gutters>[class*=np-col-] {
+.np-no-gutters>.np-col, .np-no-gutters>[class*=np-col-] {
     padding-right: 0;
     padding-left: 0;
 }
@@ -511,103 +186,59 @@ svg {
 
 @media (max-width:767px) {
     .np-col-sm {
-        -webkit-flex-basis: 0;
-        -ms-flex-preferred-size: 0;
         flex-basis: 0;
-        -webkit-box-flex: 1;
-        -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
         flex-grow: 1;
         max-width: 100%
     }
     .np-col-sm-auto {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
         flex: 0 0 auto;
         width: auto
     }
     .np-col-sm-1 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 8.333333%;
-        -ms-flex: 0 0 8.333333%;
         flex: 0 0 8.333333%;
         max-width: 8.333333%
     }
     .np-col-sm-2 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 16.666667%;
-        -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
         max-width: 16.666667%
     }
     .np-col-sm-3 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 25%;
-        -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%
     }
     .np-col-sm-4 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 33.333333%;
-        -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%
     }
     .np-col-sm-5 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 41.666667%;
-        -ms-flex: 0 0 41.666667%;
         flex: 0 0 41.666667%;
         max-width: 41.666667%
     }
     .np-col-sm-6 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 50%;
-        -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%
     }
     .np-col-sm-7 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 58.333333%;
-        -ms-flex: 0 0 58.333333%;
         flex: 0 0 58.333333%;
         max-width: 58.333333%
     }
     .np-col-sm-8 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 66.666667%;
-        -ms-flex: 0 0 66.666667%;
         flex: 0 0 66.666667%;
         max-width: 66.666667%
     }
     .np-col-sm-9 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 75%;
-        -ms-flex: 0 0 75%;
         flex: 0 0 75%;
         max-width: 75%
     }
     .np-col-sm-10 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 83.333333%;
-        -ms-flex: 0 0 83.333333%;
         flex: 0 0 83.333333%;
         max-width: 83.333333%
     }
     .np-col-sm-11 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 91.666667%;
-        -ms-flex: 0 0 91.666667%;
         flex: 0 0 91.666667%;
         max-width: 91.666667%
     }
     .np-col-sm-12 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         max-width: 100%
     }
@@ -651,103 +282,59 @@ svg {
 
 @media (min-width:768px) and (max-width:991px) {
     .np-col-md {
-        -webkit-flex-basis: 0;
-        -ms-flex-preferred-size: 0;
         flex-basis: 0;
-        -webkit-box-flex: 1;
-        -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
         flex-grow: 1;
         max-width: 100%
     }
     .np-col-md-auto {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
         flex: 0 0 auto;
         width: auto
     }
     .np-col-md-1 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 8.333333%;
-        -ms-flex: 0 0 8.333333%;
         flex: 0 0 8.333333%;
         max-width: 8.333333%
     }
     .np-col-md-2 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 16.666667%;
-        -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
         max-width: 16.666667%
     }
     .np-col-md-3 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 25%;
-        -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%
     }
     .np-col-md-4 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 33.333333%;
-        -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%
     }
     .np-col-md-5 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 41.666667%;
-        -ms-flex: 0 0 41.666667%;
         flex: 0 0 41.666667%;
         max-width: 41.666667%
     }
     .np-col-md-6 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 50%;
-        -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%
     }
     .np-col-md-7 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 58.333333%;
-        -ms-flex: 0 0 58.333333%;
         flex: 0 0 58.333333%;
         max-width: 58.333333%
     }
     .np-col-md-8 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 66.666667%;
-        -ms-flex: 0 0 66.666667%;
         flex: 0 0 66.666667%;
         max-width: 66.666667%
     }
     .np-col-md-9 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 75%;
-        -ms-flex: 0 0 75%;
         flex: 0 0 75%;
         max-width: 75%
     }
     .np-col-md-10 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 83.333333%;
-        -ms-flex: 0 0 83.333333%;
         flex: 0 0 83.333333%;
         max-width: 83.333333%
     }
     .np-col-md-11 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 91.666667%;
-        -ms-flex: 0 0 91.666667%;
         flex: 0 0 91.666667%;
         max-width: 91.666667%
     }
     .np-col-md-12 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         max-width: 100%
     }
@@ -791,103 +378,59 @@ svg {
 
 @media (min-width:992px) and (max-width:1199px) {
     .np-col-lg {
-        -webkit-flex-basis: 0;
-        -ms-flex-preferred-size: 0;
         flex-basis: 0;
-        -webkit-box-flex: 1;
-        -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
         flex-grow: 1;
         max-width: 100%
     }
     .np-col-lg-auto {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
         flex: 0 0 auto;
         width: auto
     }
     .np-col-lg-1 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 8.333333%;
-        -ms-flex: 0 0 8.333333%;
         flex: 0 0 8.333333%;
         max-width: 8.333333%
     }
     .np-col-lg-2 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 16.666667%;
-        -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
         max-width: 16.666667%
     }
     .np-col-lg-3 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 25%;
-        -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%
     }
     .np-col-lg-4 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 33.333333%;
-        -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%
     }
     .np-col-lg-5 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 41.666667%;
-        -ms-flex: 0 0 41.666667%;
         flex: 0 0 41.666667%;
         max-width: 41.666667%
     }
     .np-col-lg-6 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 50%;
-        -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%
     }
     .np-col-lg-7 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 58.333333%;
-        -ms-flex: 0 0 58.333333%;
         flex: 0 0 58.333333%;
         max-width: 58.333333%
     }
     .np-col-lg-8 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 66.666667%;
-        -ms-flex: 0 0 66.666667%;
         flex: 0 0 66.666667%;
         max-width: 66.666667%
     }
     .np-col-lg-9 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 75%;
-        -ms-flex: 0 0 75%;
         flex: 0 0 75%;
         max-width: 75%
     }
     .np-col-lg-10 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 83.333333%;
-        -ms-flex: 0 0 83.333333%;
         flex: 0 0 83.333333%;
         max-width: 83.333333%
     }
     .np-col-lg-11 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 91.666667%;
-        -ms-flex: 0 0 91.666667%;
         flex: 0 0 91.666667%;
         max-width: 91.666667%
     }
     .np-col-lg-12 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         max-width: 100%
     }
@@ -931,103 +474,59 @@ svg {
 
 @media (min-width:1200px) {
     .np-col-xl {
-        -webkit-flex-basis: 0;
-        -ms-flex-preferred-size: 0;
         flex-basis: 0;
-        -webkit-box-flex: 1;
-        -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
         flex-grow: 1;
         max-width: 100%
     }
     .np-col-xl-auto {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
         flex: 0 0 auto;
         width: auto
     }
     .np-col-xl-1 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 8.333333%;
-        -ms-flex: 0 0 8.333333%;
         flex: 0 0 8.333333%;
         max-width: 8.333333%
     }
     .np-col-xl-2 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 16.666667%;
-        -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
         max-width: 16.666667%
     }
     .np-col-xl-3 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 25%;
-        -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%
     }
     .np-col-xl-4 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 33.333333%;
-        -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%
     }
     .np-col-xl-5 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 41.666667%;
-        -ms-flex: 0 0 41.666667%;
         flex: 0 0 41.666667%;
         max-width: 41.666667%
     }
     .np-col-xl-6 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 50%;
-        -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%
     }
     .np-col-xl-7 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 58.333333%;
-        -ms-flex: 0 0 58.333333%;
         flex: 0 0 58.333333%;
         max-width: 58.333333%
     }
     .np-col-xl-8 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 66.666667%;
-        -ms-flex: 0 0 66.666667%;
         flex: 0 0 66.666667%;
         max-width: 66.666667%
     }
     .np-col-xl-9 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 75%;
-        -ms-flex: 0 0 75%;
         flex: 0 0 75%;
         max-width: 75%
     }
     .np-col-xl-10 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 83.333333%;
-        -ms-flex: 0 0 83.333333%;
         flex: 0 0 83.333333%;
         max-width: 83.333333%
     }
     .np-col-xl-11 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 91.666667%;
-        -ms-flex: 0 0 91.666667%;
         flex: 0 0 91.666667%;
         max-width: 91.666667%
     }
     .np-col-xl-12 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         max-width: 100%
     }
@@ -1284,23 +783,19 @@ svg {
     border-color: #5bc0de
 }
 
-.np-input-group .np-btn,
-.np-input-group .np-btn-icon {
+.np-input-group .np-btn, .np-input-group .np-btn-icon {
     border: none;
     background-color: #ffffff;
 }
 
-.np-btn:disabled,
-.np-btn-icon:disabled {
+.np-btn:disabled, .np-btn-icon:disabled {
     opacity: 0.5;
     pointer-events: none;
 }
 
-.np-btn:hover,
-.np-btn-icon:hover {
+.np-btn:hover, .np-btn-icon:hover {
     background-color: #eeeeee;
 }
-
 
 .np-btn-primary:hover {
     color: #fff;
@@ -1329,15 +824,11 @@ svg {
     flex-wrap: wrap;
 }
 
-.np-btn-group .np-btn, 
-.np-btn-group .np-btn-sm, 
-.np-btn-group .np-btn-icon{
+.np-btn-group .np-btn, .np-btn-group .np-btn-sm, .np-btn-group .np-btn-icon {
     margin: 2px 5px 2px 0px;
 }
 
-.np-btn-group .np-btn:last-child, 
-.np-btn-group .np-btn-sm:last-child, 
-.np-btn-group .np-btn-icon:last-child{
+.np-btn-group .np-btn:last-child, .np-btn-group .np-btn-sm:last-child, .np-btn-group .np-btn-icon:last-child {
     margin-right: 0px;
 }
 
@@ -1419,7 +910,7 @@ svg {
 }
 
 .np-alert-detail {
-    flex: 1;
+    flex: 1 1 0%;
     padding: 5px;
 }
 
@@ -1427,7 +918,7 @@ svg {
     font-weight: bold;
 }
 
-.np-alert .np-btn-icon{
+.np-alert .np-btn-icon {
     color: inherit;
     background-color: transparent;
     border: none;
@@ -1493,29 +984,29 @@ svg {
     background-color: #ffffff;
     text-align: center;
     padding: 2px 5px;
-    border-radius: 5px;
+    border-radius: 2px;
     position: relative;
     margin: 0px 5px;
     color: #080707;
     white-space: nowrap;
 }
 
-.np-badge-success{
+.np-badge-success {
     color: #fff;
     background-color: #1e7e34;
 }
 
-.np-badge-danger{
+.np-badge-danger {
     color: #fff;
     background-color: #d9534f;
 }
 
-.np-badge-warning{
+.np-badge-warning {
     color: #fff;
     background-color: #d39e00;
 }
 
-.np-badge-info{
+.np-badge-info {
     color: #fff;
     background-color: #117a8b;
 }
@@ -1658,8 +1149,7 @@ svg {
     margin-bottom: 5px;
 }
 
-.np-table td,
-.np-table th {
+.np-table td, .np-table th {
     padding: 0px 5px;
     vertical-align: top;
     border-right: 1px solid #9e9e9e;
@@ -1668,8 +1158,7 @@ svg {
     line-height: 32px;
 }
 
-.np-table tr td:last-child,
-.np-table tr th:last-child {
+.np-table tr td:last-child, .np-table tr th:last-child {
     border-right: none;
 }
 
@@ -1756,16 +1245,7 @@ svg {
     padding: 2px;
 }
 
-.np-form-control.ng-touched.ng-invalid,
-.np-form-control.ng-dirty.ng-invalid,
-.ng-touched.ng-invalid:not(form) .np-switch,
-.ng-touched.ng-invalid:not(form) .np-overlay-open,
-.ng-touched.ng-invalid:not(form) .np-slider-input,
-.ng-touched.ng-invalid:not(form) .np-input-group,
-.ng-dirty.ng-invalid:not(form) .np-switch,
-.ng-dirty.ng-invalid:not(form) .np-overlay-open,
-.ng-dirty.ng-invalid:not(form) .np-slider-input,
-.ng-dirty.ng-invalid:not(form) .np-input-group {
+.np-form-control.ng-touched.ng-invalid, .np-form-control.ng-dirty.ng-invalid, .ng-touched.ng-invalid:not(form) .np-switch, .ng-touched.ng-invalid:not(form) .np-overlay-open, .ng-touched.ng-invalid:not(form) .np-slider-input, .ng-touched.ng-invalid:not(form) .np-input-group, .ng-dirty.ng-invalid:not(form) .np-switch, .ng-dirty.ng-invalid:not(form) .np-overlay-open, .ng-dirty.ng-invalid:not(form) .np-slider-input, .ng-dirty.ng-invalid:not(form) .np-input-group {
     border: 1px solid #d9534f !important;
 }
 

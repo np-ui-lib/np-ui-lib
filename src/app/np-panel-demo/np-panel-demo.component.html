@@ -125,7 +125,7 @@
     <np-tab title="Examples">
         <div class="np-container">
             <div class="np-row">
-                <div class="np-col-6">
+                <div class="np-col np-col-sm-12 np-col-md-6">
                     <np-panel [title]="title">
                         <p>
                             A paragraph is a series of related sentences developing a central idea, called the topic.
@@ -135,9 +135,9 @@
                         </p>
                     </np-panel>
                 </div>
-                <div class="np-col-6">
-                    <np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true" [iconCss]="'fa fa-home'"
-                        [styleClass]="'np-pn-success'" [disabled]="pnl2Disabled">
+                <div class="np-col np-col-sm-12 np-col-md-6">
+                    <np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true"
+                        [iconCss]="'fa fa-home'" [styleClass]="'np-pn-success'" [disabled]="pnl2Disabled">
                         <p>
                             A paragraph is a series of related sentences developing a central idea, called the topic.
                             Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
@@ -146,7 +146,7 @@
                         </p>
                     </np-panel>
                 </div>
-                <div class="np-col-12">
+                <div class="np-col np-col-12">
                     <np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true"
                         [styleClass]="'np-pn-danger'" [height]="200">
                         <p>
@@ -223,7 +223,7 @@
                         </p>
                     </np-panel>
                 </div>
-                <div class="np-col-12">
+                <div class="np-col np-col-12">
                     <button type="button" class="np-btn" (click)="togglePanel2Disabled()">Toggle panel 2
                         disabled</button>
                 </div>

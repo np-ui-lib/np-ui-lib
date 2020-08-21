@@ -11,14 +11,14 @@ export class DataService {
     }
 
     getAll() {
-        return this.httpClient.get('/getAll');
+        return this.httpClient.get('/getAllUsers');
     }
 
     getDataUsingLoadOptions(loadOptions) {
-        return this.httpClient.post('/getDataUsingLoadOptions', loadOptions);
+        return this.httpClient.post('/getAllUsers', loadOptions);
     }
 
     updateFirstName(keys) {
-        return this.httpClient.post('/updateFirstName', keys);
+        return this.httpClient.post('/updateUsers', keys);
     }
 }

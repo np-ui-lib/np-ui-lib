@@ -63,8 +63,7 @@
     background-color: #d39e00;
 }
 
-.np-date-picker-selected,
-.np-date-picker-day:hover {
+.np-date-picker-selected, .np-date-picker-day:hover {
     color: #fff;
     background-color: #007bff;
     cursor: pointer;
@@ -81,8 +80,7 @@
     right: 2px;
 }
 
-.np-date-picker-selected .np-tooltip-target:before,
-.np-date-picker-day:hover .np-tooltip-target:before {
+.np-date-picker-selected .np-tooltip-target:before, .np-date-picker-day:hover .np-tooltip-target:before {
     border-bottom-color: #fff;
 }
 

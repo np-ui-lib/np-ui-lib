@@ -10,8 +10,7 @@
     line-height: 2rem;
 }
 
-.np-treeview-collapse,
-.np-treeview-expand {
+.np-treeview-collapse, .np-treeview-expand {
     position: absolute;
     left: 0px;
     border: none;

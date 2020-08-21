@@ -3,7 +3,7 @@
 }
 
 .np-carousel-items {
-    flex: 1;
+    flex: 1 1 0%;
     overflow: hidden;
     margin: 0px 5px;
 }
@@ -32,7 +32,6 @@
     transition: background-color 0.6s ease;
 }
 
-.np-carousel-dot-active,
-.np-carousel-dot:hover {
+.np-carousel-dot-active, .np-carousel-dot:hover {
     background-color: #717171;
 }

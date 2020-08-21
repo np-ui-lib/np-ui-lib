@@ -13,7 +13,7 @@
     overflow: auto;
 }
 
-.np-card-image img{
+.np-card-image img {
     width: 100%;
     height: auto;
     vertical-align: middle;
@@ -29,18 +29,18 @@
     background-color: #f5f5f5;
 }
 
-.np-card-title{
+.np-card-title {
     font-size: x-large;
     font-weight: bold;
     padding: 2px 0px;
 }
 
-.np-card-subtitle{
+.np-card-subtitle {
     font-weight: bold;
     padding: 1px 0px;
 }
 
-.np-card-avatar{
+.np-card-avatar {
     float: left;
     padding-right: 10px;
 }
