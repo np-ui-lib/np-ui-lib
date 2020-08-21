@@ -2,7 +2,8 @@
     [attr.id]="inputId">
     <div class="np-input-group" *ngIf="!defaultOpen; else templatePortalContent">
         <input class="np-form-control" type="text" [value]="value | date: format" [placeholder]="placeholder"
-            (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="isDisabled">
+            [disabled]="isDisabled" [autofocus]="autoFocus" (click)="_open()" (keydown)="_onKeydown($event)"
+            (change)="_onInputChange($event)">
         <div class="np-input-group-append">
             <button class="np-btn-icon np-btn-clear" type="button" tabindex="-1" title="Clear" (click)="_clear()">
                 <svg class="np-icon" viewBox="0 0 24 24">
@@ -53,8 +54,8 @@
         <div class="np-date-picker-days">
             <div *ngFor="let day of days; let i = index;" class="np-date-picker-day" (click)="_selectDate(day)"
                 [ngClass]="{'np-date-picker-today': _checkIsToday(day), 'np-disabled' : _checkIsDateDisabled(currentYear,currentMonth,day), 'np-date-picker-selected': _checkIsSelected(day)}">
-                <div *ngIf="_getTooltip(currentYear,currentMonth,day); let label; else dayTemplate" np-tooltip
-                    [placement]="'bottom'" [np-tooltip]="label">
+                <div *ngIf="_getTooltip(currentYear,currentMonth,day); let label; else dayTemplate"
+                    [np-tooltip]="label">
                     {{day}}
                 </div>
                 <ng-template #dayTemplate>

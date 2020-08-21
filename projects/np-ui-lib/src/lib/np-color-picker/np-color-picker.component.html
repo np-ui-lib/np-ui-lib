@@ -2,9 +2,9 @@
     [attr.id]="inputId">
     <div *ngIf="!defaultOpen; else templatePortalContent"
         [ngClass]="{'np-input-group': true, 'np-input-hidden': hideColorInput}">
-        <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (click)="_open()"
-            (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="isDisabled" autocomplete="off"
-            maxlength="10">
+        <input class="np-form-control" type="text" autocomplete="off" maxlength="10" [disabled]="isDisabled"
+            [autofocus]="autoFocus" [value]="value" [placeholder]="placeholder" (click)="_open()"
+            (keydown)="_onKeydown($event)" (change)="_onInputChange($event)">
         <div class="np-input-group-append">
             <div class="np-input-color-block" (click)="_toggleColorPicker()"
                 [ngStyle]="{'background-color': innerValue}">

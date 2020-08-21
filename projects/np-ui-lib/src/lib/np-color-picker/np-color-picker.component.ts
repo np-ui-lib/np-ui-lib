@@ -25,9 +25,12 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   @Input() placeholder = '';
   @Input() hideColorInput: boolean;
   @Input() defaultOpen: boolean;
-  @Input() inputId = `np-color-picker_${NpColorPickerComponent.controlCount++}`;
-  @Input() styleClass: string;
   @Input() readonly: boolean;
+  @Input() autoFocus: boolean;
+  @Input() styleClass: string;
+  @Input() inputId = `np-color-picker_${NpColorPickerComponent.controlCount++}`;
+
+
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;

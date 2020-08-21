@@ -24,13 +24,14 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   static controlCount = 1;
 
   @Input() multiple: boolean;
-  @Input() readonly: boolean;
   @Input() extensions: string;
   @Input() accept: string;
   @Input() size: number;
   @Input() totalSize: number;
   @Input() maxFiles: number;
   @Input() uploadButtonLabel: string;
+  @Input() readonly: boolean;
+  @Input() autoFocus: boolean;
   @Input() styleClass: string;
   @Input() inputId = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
 

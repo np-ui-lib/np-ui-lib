@@ -84,6 +84,12 @@
                         <td>true</td>
                     </tr>
                     <tr>
+                        <td>autoFocus</td>
+                        <td>Set autofocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>styleClass</td>
                         <td>Set extra class on component</td>
                         <td>string</td>
@@ -124,7 +130,7 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Number box</legend>
-            <np-number-box [(ngModel)]="number1"></np-number-box>
+            <np-number-box [(ngModel)]="number1" [autoFocus]="true"></np-number-box>
             <button class="np-btn" (click)="setNumber1()">Set 100</button> value: {{number1}}
         </fieldset>
 

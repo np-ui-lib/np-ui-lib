@@ -130,6 +130,12 @@
                         <td>false</td>
                     </tr>
                     <tr>
+                        <td>autoFocus</td>
+                        <td>Set autofocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>styleClass</td>
                         <td>Set extra class on component</td>
                         <td>string</td>
@@ -179,7 +185,7 @@
         <fieldset>
             <legend>1. Default tags server side</legend>
             <np-tags [(ngModel)]="tags1" [searchResult]="searchResult1" [isServerSide]="true" [orderDir]="'asc'"
-                (onSearch)="onSearch1($event)">
+                [autoFocus]="true" (onSearch)="onSearch1($event)">
             </np-tags>
             <div>Selected value : {{tags1 | json}}</div>
         </fieldset>

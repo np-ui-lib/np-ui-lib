@@ -24,9 +24,6 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   static controlCount = 1;
 
   @Input() searchResult: BehaviorSubject<any[]>;
-  @Input() placeholder = '';
-  @Input() styleClass: string;
-  @Input() readonly: boolean;
   @Input() allowCreateNew: boolean;
   @Input() displayKey: string;
   @Input() itemTemplate: TemplateRef<any>;
@@ -34,6 +31,10 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   @Input() minSearchCharLimit: number;
   @Input() orderBy: string;
   @Input() orderDir: string;
+  @Input() placeholder = '';
+  @Input() readonly: boolean;
+  @Input() styleClass: string;
+  @Input() autoFocus: boolean;
   @Input() inputId = `np-auto-complete_${NpAutoCompleteComponent.controlCount++}`;
 
   @Output() onSearch: EventEmitter<any> = new EventEmitter();

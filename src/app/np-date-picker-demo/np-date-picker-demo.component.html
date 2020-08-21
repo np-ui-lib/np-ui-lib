@@ -122,6 +122,12 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>autoFocus</td>
+                        <td>Set autofocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>inputId</td>
                         <td>Set id attribute</td>
                         <td>string</td>
@@ -157,7 +163,7 @@
         <div>
             <fieldset>
                 <legend>1. basic datepicker</legend>
-                <np-date-picker [(ngModel)]="date1" [inputId]="'txtDate'">
+                <np-date-picker [(ngModel)]="date1" [inputId]="'txtDate'" [autoFocus]="true">
                 </np-date-picker>
                 <div>Selected Date : {{date1}}</div>
                 <div class="np-btn-group">

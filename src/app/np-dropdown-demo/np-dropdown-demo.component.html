@@ -97,6 +97,12 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>autoFocus</td>
+                        <td>Set autofocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>styleClass</td>
                         <td>Set extra class on component</td>
                         <td>string</td>
@@ -136,7 +142,7 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Basic dropdown with string items</legend>
-            <np-dropdown [(ngModel)]="dropdownVal1" [items]="data" [orderDir]="'asc'"></np-dropdown>
+            <np-dropdown [(ngModel)]="dropdownVal1" [items]="data" [orderDir]="'asc'" [autoFocus]="true"></np-dropdown>
             <div>Selected value: {{dropdownVal1}}</div>
             <button class="np-btn" (click)="changeValue()">Change value</button>
         </fieldset>

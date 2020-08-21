@@ -72,6 +72,12 @@
                         <td>1</td>
                     </tr>
                     <tr>
+                        <td>autoFocus</td>
+                        <td>Set autofocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>styleClass</td>
                         <td>Set extra class on component</td>
                         <td>string</td>
@@ -111,7 +117,7 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Basic slider</legend>
-            <np-slider [(ngModel)]="slider1"></np-slider>
+            <np-slider [(ngModel)]="slider1" [autoFocus]="true"></np-slider>
             Value: {{slider1}}
         </fieldset>
 

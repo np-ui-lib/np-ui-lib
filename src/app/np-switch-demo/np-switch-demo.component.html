@@ -66,6 +66,12 @@
                         <td>False</td>
                     </tr>
                     <tr>
+                        <td>autoFocus</td>
+                        <td>Set autofocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>styleClass</td>
                         <td>Set extra class on component</td>
                         <td>string</td>
@@ -108,7 +114,7 @@
         <div>
             <fieldset>
                 <legend>1. basic switch</legend>
-                <np-switch [(ngModel)]="switch1" [inputId]="'txtSwitch'"></np-switch>
+                <np-switch [(ngModel)]="switch1" [inputId]="'txtSwitch'" [autoFocus]="true"></np-switch>
                 <div>Selected Value : {{switch1}}</div>
                 <button class="np-btn" (click)="switch1 = !switch1">Toggle Value</button>
             </fieldset>

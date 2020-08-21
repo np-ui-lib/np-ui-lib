@@ -1,8 +1,8 @@
 <div [ngClass]="{ 'np-number-box': true, 'np-disabled': isDisabled , 'np-readonly': readonly }" [class]="styleClass"
     [attr.id]="inputId">
     <div class="np-input-group">
-        <input class="np-form-control" type="number" [value]="innerValue" [placeholder]="placeholder"
-            [disabled]="isDisabled" (change)="_onInputChange($event)" autocomplete="off">
+        <input class="np-form-control" type="number" autocomplete="off" [autofocus]="autoFocus" [value]="innerValue"
+            [placeholder]="placeholder" [disabled]="isDisabled" (change)="_onInputChange($event)">
         <div class="np-input-group-append" *ngIf="showControls">
             <button type="button" tabindex="-1" class="np-btn-icon np-number-plus" (mousedown)="_onMouseDownMinus()"
                 (mouseup)="_onMouseUpMinus()" (mouseleave)="_onMouseUpMinus()">

@@ -78,6 +78,12 @@
                         <td>false</td>
                     </tr>
                     <tr>
+                        <td>autoFocus</td>
+                        <td>Set autofocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>styleClass</td>
                         <td>Set extra class on component</td>
                         <td>string</td>
@@ -120,7 +126,7 @@
         <div>
             <fieldset>
                 <legend>1. basic colorpicker</legend>
-                <np-color-picker [(ngModel)]="color1" [inputId]="'txtColor'"></np-color-picker>
+                <np-color-picker [(ngModel)]="color1" [inputId]="'txtColor'" [autoFocus]="true"></np-color-picker>
                 <div>Selected value is: {{color1}}</div>
                 <button type="button" class="np-btn" (click)="color1 = '#ed5a0f'">Set color #ed5a0f</button>
             </fieldset>

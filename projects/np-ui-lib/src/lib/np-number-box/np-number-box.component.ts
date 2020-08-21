@@ -30,6 +30,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   @Input() format: string;
   @Input() showControls = true;
   @Input() readonly: boolean;
+  @Input() autoFocus: boolean;
   @Input() styleClass: string;
   @Input() inputId = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
 

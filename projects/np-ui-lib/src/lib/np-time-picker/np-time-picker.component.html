@@ -1,8 +1,9 @@
 <div [ngClass]="{ 'np-time-picker': true, 'np-disabled': isDisabled , 'np-readonly': readonly }" [class]="styleClass"
     [attr.id]="inputId">
     <div class="np-input-group" *ngIf="!defaultOpen; else templatePortalContent">
-        <input class="np-form-control" type="text" [value]="value" [placeholder]="placeholder" (click)="_open()"
-            (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" [disabled]="isDisabled" autocomplete="off">
+        <input class="np-form-control" type="text" autocomplete="off" [value]="value" [placeholder]="placeholder"
+            [autofocus]="autoFocus" [disabled]="isDisabled" (click)="_open()" (keydown)="_onKeydown($event)"
+            (change)="_onInputChange($event)">
         <div class="np-input-group-append">
             <button type="button" tabindex="-1" class="np-btn-icon np-btn-clear" title="Clear" (click)="_clear()">
                 <svg class="np-icon" viewBox="0 0 24 24">

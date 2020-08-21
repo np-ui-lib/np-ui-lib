@@ -32,9 +32,10 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() disableDates: Date[] = [];
   @Input() dateLabels: any[] = [];
   @Input() isStartMonthWithMonday = false;
+  @Input() readonly: boolean;
+  @Input() autoFocus: boolean;
   @Input() inputId = `np-date-picker_${NpDatePickerComponent.controlCount++}`;
   @Input() styleClass: string;
-  @Input() readonly: boolean;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 

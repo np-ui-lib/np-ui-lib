@@ -98,6 +98,12 @@
                         <td>Choose File/Choose Files</td>
                     </tr>
                     <tr>
+                        <td>autoFocus</td>
+                        <td>Set autofocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>styleClass</td>
                         <td>Set extra class on component</td>
                         <td>string</td>
@@ -141,7 +147,7 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Single file upload</legend>
-            <np-file-upload [(ngModel)]="fileUpload1"></np-file-upload>
+            <np-file-upload [(ngModel)]="fileUpload1" [autoFocus]="true"></np-file-upload>
         </fieldset>
 
         <fieldset>

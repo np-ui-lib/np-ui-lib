@@ -20,9 +20,11 @@ export class NpSwitchComponent implements ControlValueAccessor {
 
   @Input() trueLabelText: string;
   @Input() falseLabelText: string;
-  @Input() styleClass: string;
   @Input() readonly: boolean;
+  @Input() autoFocus: boolean;
+  @Input() styleClass: string;
   @Input() inputId = `np-switch_${NpSwitchComponent.controlCount++}`;
+
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   innerValue: boolean;

@@ -12,8 +12,8 @@
             </button>
         </div>
         <input class="np-form-control" type="text" autocomplete="off" [(ngModel)]="displayValue"
-            [placeholder]="placeholder" (click)="_onClick()" (keydown)="_onKeydown($event)" (input)="_onInput()"
-            [disabled]="isDisabled">
+            [placeholder]="placeholder" [disabled]="isDisabled" [autofocus]="autoFocus" (click)="_onClick()"
+            (keydown)="_onKeydown($event)" (input)="_onInput()">
         <div class="np-input-group-append">
             <div class="np-tag-loader" *ngIf="isLoading">
                 <svg class="np-icon" viewBox="0 0 24 24">

@@ -6,6 +6,7 @@
 ## 10.3.1  
 - Add tabindex="-1" for internal buttons and other controls to make proper tab flow in forms.  
 - Some CSS improvements  
+- Add autoFocus property to all input controls  
 
 ## 10.3.0  
 - Replace static px sizes with rem.  

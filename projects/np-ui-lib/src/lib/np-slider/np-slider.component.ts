@@ -22,6 +22,7 @@ export class NpSliderComponent implements OnInit {
   @Input() max = 100;
   @Input() step = 1;
   @Input() readonly: boolean;
+  @Input() autoFocus: boolean;
   @Input() styleClass: string;
   @Input() inputId = `np-slider_${NpSliderComponent.controlCount++}`;
 

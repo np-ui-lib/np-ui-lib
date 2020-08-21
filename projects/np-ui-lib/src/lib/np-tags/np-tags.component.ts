@@ -24,17 +24,18 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   static controlCount = 1;
 
   @Input() searchResult: BehaviorSubject<any[]>;
-  @Input() placeholder = '';
   @Input() isServerSide: boolean;
   @Input() allowCreateNew: boolean;
   @Input() displayKey: string;
   @Input() itemTemplate: TemplateRef<any>;
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
-  @Input() readonly: boolean;
   @Input() isTreeView: boolean;
   @Input() orderBy: string;
   @Input() orderDir: string;
+  @Input() placeholder = '';
+  @Input() readonly: boolean;
+  @Input() autoFocus: boolean;
   @Input() styleClass: string;
   @Input() inputId = `np-tags_${NpTagsComponent.controlCount++}`;
 
