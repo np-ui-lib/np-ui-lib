@@ -20,15 +20,18 @@ export class NpPanelMenuItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  _onClickMenuItem(item: NpMenuItem) {
-    this.onClickItem.emit(item);
+  _onClickMenuItem(menuItem: NpMenuItem) {
+    this.onClickItem.emit(menuItem);
   }
 
-  _isActive(item: NpMenuItem) {
-    return this.router.isActive(item.routerLink, false);
+  _isActive(menuItem: NpMenuItem) {
+    if (!menuItem.routerLink) {
+      return false;
+    }
+    return this.router.isActive(menuItem.routerLink, false);
   }
 
-  _onClickPanelMenu(item: NpMenuItem) {
-    item.isChildVisible = !item.isChildVisible;
+  _onClickPanelMenu(menuItem: NpMenuItem) {
+    menuItem.isChildVisible = !menuItem.isChildVisible;
   }
 }
