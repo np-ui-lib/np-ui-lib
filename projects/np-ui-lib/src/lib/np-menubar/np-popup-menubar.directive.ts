@@ -1,9 +1,10 @@
 import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, EventEmitter, Output, OnDestroy } from '@angular/core';
-import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
+import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpMenubarComponent } from './np-menubar.component';
 import { NpMenuItem } from './np-menu.model';
 import { Subscription } from 'rxjs';
+import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 
 @Directive({ selector: '[np-popup-menubar]' })
 export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
@@ -25,10 +26,9 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-mb-target`).trim();
-        const position: ConnectedPosition[] = this._getPosition();
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)
-            .withPositions(position);
+            .withPositions(TopBottomOverlayPositions);
         this.overlayRef = this.overlay.create({
             positionStrategy,
             hasBackdrop: true,
@@ -67,22 +67,5 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
         menubarRef.instance.items = this.items;
         menubarRef.instance.styleClass = this.styleClass;
         menubarRef.instance.onClickMenuItem = this.onClickMenuItem;
-    }
-
-    _getPosition(): ConnectedPosition[] {
-        return [
-            {
-                originX: 'start',
-                originY: 'bottom',
-                overlayX: 'start',
-                overlayY: 'top'
-            },
-            {
-                originX: 'start',
-                originY: 'top',
-                overlayX: 'start',
-                overlayY: 'bottom'
-            }
-        ];
     }
 }

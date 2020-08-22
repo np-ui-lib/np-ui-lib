@@ -1,7 +1,8 @@
 .np-slider {
-    height: 32px;
+    height: 2rem;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .np-slider-input {
@@ -19,27 +20,33 @@
     -webkit-appearance: none;
     appearance: none;
     width: 10px;
-    height: 30px;
+    height: 2rem;
     background: #007bff;
     border: 1px solid #0275d8;
     border-radius: 2px;
     cursor: pointer;
 }
 
-.np-slider-input::-moz-range-thumb {
+.np-slider-input::-moz-range-thumb, .np-slider-input::-ms-thumb {
     width: 10px;
-    height: 30px;
+    height: 2rem;
     background: #007bff;
     border: 1px solid #0275d8;
     border-radius: 2px;
     cursor: pointer;
 }
 
-.np-slider-input::-ms-thumb {
-    width: 10px;
-    height: 30px;
-    background: #007bff;
-    border: 1px solid #0275d8;
-    border-radius: 2px;
-    cursor: pointer;
+.np-slider:hover .np-slider-label {
+    display: block;
+}
+
+.np-slider-label {
+    background-color: #000000;
+    color: #ffffff;
+    height: 2rem;
+    padding: 5px;
+    display: none;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
 }

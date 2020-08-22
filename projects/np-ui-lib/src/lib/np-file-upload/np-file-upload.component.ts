@@ -156,7 +156,10 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   }
 
   _getFilesCountsText() {
-    return this.value && this.value.length > 1 ? `${this.value.length} files` : '';
+    if (!this.value) {
+      return '';
+    }
+    return this.value.length > 1 ? `${this.value.length} files` : '1 file';
   }
 
   _formatBytes(file: File, decimals = 2) {

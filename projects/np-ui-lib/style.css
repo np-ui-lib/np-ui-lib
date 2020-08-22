@@ -746,7 +746,8 @@ svg {
 }
 
 .np-btn-sm {
-    height: 1.5rem;
+    height: 1.2rem;
+    padding: 0px 5px;
 }
 
 .np-btn-block {

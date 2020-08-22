@@ -2,8 +2,9 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Afte
 import { Input, Output, EventEmitter, TemplateRef, ViewChild, ViewContainerRef, ElementRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
+import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { NpUtilityService } from '../np-utility/np-utility.service';
+import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 
 @Component({
   selector: 'np-dropdown',
@@ -58,23 +59,9 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   ngAfterViewInit(): void {
-    const position: ConnectedPosition[] = [
-      {
-        originX: 'start',
-        originY: 'bottom',
-        overlayX: 'start',
-        overlayY: 'top'
-      },
-      {
-        originX: 'start',
-        originY: 'top',
-        overlayX: 'start',
-        overlayY: 'bottom'
-      }
-    ];
     const positionStrategy = this.overlayPositionBuilder
       .flexibleConnectedTo(this.elementRef)
-      .withPositions(position);
+      .withPositions(TopBottomOverlayPositions);
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,

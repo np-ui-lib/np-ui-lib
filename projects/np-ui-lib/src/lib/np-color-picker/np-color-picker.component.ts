@@ -1,8 +1,9 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, } from '@angular/core';
 import { TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
+import { Overlay, OverlayRef, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
+import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 
 @Component({
   selector: 'np-color-picker',
@@ -64,23 +65,9 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     }
   }
   ngAfterViewInit() {
-    const position: ConnectedPosition[] = [
-      {
-        originX: 'start',
-        originY: 'bottom',
-        overlayX: 'start',
-        overlayY: 'top'
-      },
-      {
-        originX: 'start',
-        originY: 'top',
-        overlayX: 'start',
-        overlayY: 'bottom'
-      }
-    ];
     const positionStrategy = this.overlayPositionBuilder
       .flexibleConnectedTo(this.elementRef)
-      .withPositions(position);
+      .withPositions(TopBottomOverlayPositions);
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,

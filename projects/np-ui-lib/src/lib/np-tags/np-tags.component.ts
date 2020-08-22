@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, OnDestroy } from '@angular/core';
 import { ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
+import { Overlay, OverlayRef, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { NpUtilityService } from '../np-utility/np-utility.service';
+import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 
 @Component({
   selector: 'np-tags',
@@ -84,23 +85,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   ngAfterViewInit(): void {
-    const position: ConnectedPosition[] = [
-      {
-        originX: 'start',
-        originY: 'bottom',
-        overlayX: 'start',
-        overlayY: 'top'
-      },
-      {
-        originX: 'start',
-        originY: 'top',
-        overlayX: 'start',
-        overlayY: 'bottom'
-      }
-    ];
     const positionStrategy = this.overlayPositionBuilder
       .flexibleConnectedTo(this.elementRef)
-      .withPositions(position);
+      .withPositions(TopBottomOverlayPositions);
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,

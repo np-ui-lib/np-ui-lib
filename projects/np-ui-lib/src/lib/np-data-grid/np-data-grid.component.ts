@@ -3,9 +3,9 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnI
 import { ViewEncapsulation, ViewChild, ViewContainerRef, ElementRef, AfterContentInit, AfterViewInit } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { OverlayRef, ConnectedPosition, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
+import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { Column } from './models/column.model';
-import { Constants, DataTypes, FilterTypes, SortDirections } from './models/constants';
+import { Filters, DataTypes, FilterTypes, SortDirections } from './models/constants';
 import { DataSource } from './models/data-source.model';
 import { LoadOptions } from './models/load-options.model';
 import { Pager } from './models/pager.model';
@@ -16,6 +16,7 @@ import { NpODataService } from './services/np-odata.service';
 import { NpPagerService } from './services/np-pager.service';
 import { NpGridUtilityService } from './services/np-grid-utility.service';
 import { NpDialogComponent } from '../np-dialog/np-dialog.component';
+import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 
 @Component({
   selector: 'np-data-grid',
@@ -110,7 +111,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef) {
     this.sortColumnList = [];
-    this.filtersList = Constants.filters();
+    this.filtersList = Filters;
     this.filterColumnList = [];
     this.stateList = [];
     this.currentStateName = '';
@@ -139,23 +140,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   ngAfterViewInit() {
-    const position: ConnectedPosition[] = [
-      {
-        originX: 'start',
-        originY: 'bottom',
-        overlayX: 'start',
-        overlayY: 'top'
-      },
-      {
-        originX: 'start',
-        originY: 'top',
-        overlayX: 'start',
-        overlayY: 'bottom'
-      }
-    ];
     const positionStrategy = this.overlayPositionBuilder
       .flexibleConnectedTo(this.elementRef.nativeElement.querySelector('#btn-column-chooser'))
-      .withPositions(position);
+      .withPositions(TopBottomOverlayPositions);
     this.columnChooserOverlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
