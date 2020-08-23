@@ -91,7 +91,7 @@ section {
 nav {
     height: calc(100vh - 50px);
     overflow: auto;
-    width: 220px;
+    width: 225px;
 }
 
 .mobile-nav {
@@ -101,7 +101,6 @@ nav {
 }
 
 .my-nav {
-    width: 100% !important;
     border: none !important;
     padding: 10px 0px;
 }
@@ -124,7 +123,8 @@ article {
 
 footer {
     text-align: center;
-    background-color: #e0e0e0;
+    background-color: #000000;
+    color: #ffffff;
     padding: 2px;
     width: 100%;
     min-height: 25px;

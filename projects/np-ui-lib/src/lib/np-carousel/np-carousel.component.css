@@ -25,7 +25,7 @@
 .np-carousel-dot {
     cursor: pointer;
     width: 2rem;
-    height: 5px;
+    height: 3px;
     margin: 0 2px;
     background-color: #bbb;
     display: inline-block;

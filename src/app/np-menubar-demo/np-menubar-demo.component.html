@@ -22,6 +22,9 @@
                 <div>
                     <pre><code [innerText]="htmlPanelMenuText"></code></pre>
                 </div>
+                <p class="np-alert np-alert-danger">
+                    Set parent element's width attribute to set width of menu for vertical and panel menubar.
+                </p>
             </np-card-body>
         </np-card>
         <np-card>
@@ -162,7 +165,7 @@
         </np-card>
     </np-tab>
     <np-tab title="Examples">
-        <fieldset>
+        <fieldset style="width: 225px;">
             <legend>Vertical</legend>
             <np-menubar [items]="items" (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
         </fieldset>
@@ -173,7 +176,7 @@
                 (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
         </fieldset>
 
-        <fieldset>
+        <fieldset style="width: 225px;">
             <legend>Panel menu</legend>
             <np-menubar [items]="itemsPanelMenu" [isPanelMenu]="true" (onClickMenuItem)="onClickMenuItem($event)">
             </np-menubar>
