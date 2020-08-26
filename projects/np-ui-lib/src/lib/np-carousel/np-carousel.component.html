@@ -10,7 +10,7 @@
         </div>
         <div class="np-col-auto np-carousel-items">
             <div class="np-row np-no-gutters justify-content-around align-items-center">
-                <div class="np-col-auto np-carousel-item" *ngFor="let item of items;let i = index;"
+                <div class="np-col-auto np-carousel-item" *ngFor="let item of items;let i = index; trackBy: _trackBy;"
                     [ngClass]="{'np-carousel-active': _isActive(i)}">
                     <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
                         [ngTemplateOutletContext]="{item: item}">

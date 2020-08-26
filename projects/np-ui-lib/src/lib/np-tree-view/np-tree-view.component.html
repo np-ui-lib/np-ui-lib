@@ -4,7 +4,7 @@
 </div>
 
 <ng-template #treeViewTemplate let-items="items">
-    <div *ngFor="let item of items" class="np-treeview-node">
+    <div *ngFor="let item of items; trackBy: _trackBy;" class="np-treeview-node">
         <ng-container *ngIf="item.childItems">
             <button *ngIf="item.isExpanded" type="button" class="np-btn-icon np-treeview-collapse"
                 (click)="_collapse(item)" title="Collapse">

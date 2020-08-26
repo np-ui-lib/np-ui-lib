@@ -1,7 +1,6 @@
 import { Directive, Injector, Input, OnInit } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { valueToFormat, unmaskValue } from './np-mask.service';
-
+import { NpMaskService } from './np-mask.service';
 
 @Directive({
     selector: '[np-mask]',
@@ -15,22 +14,25 @@ export class NpMaskDirective implements OnInit {
 
     constructor(
         private injector: Injector,
+        private maskService: NpMaskService
     ) { }
 
     ngOnInit() {
-        this.control = this.injector.get(NgControl);
+        setTimeout(() => {
+            this.control = this.injector.get(NgControl);
 
-        if (!this.control || !this.control.valueAccessor) {
-            return;
-        }
+            if (!this.control || !this.control.valueAccessor) {
+                return;
+            }
 
-        const originalWriteVal = this.control.valueAccessor.writeValue.bind(this.control.valueAccessor);
-        this.control.valueAccessor.writeValue = (val: any) => originalWriteVal(this._maskValue(val));
+            const originalWriteVal = this.control.valueAccessor.writeValue.bind(this.control.valueAccessor);
+            this.control.valueAccessor.writeValue = (val: any) => originalWriteVal(this._maskValue(val));
 
-        const originalChange = (this.control.valueAccessor as any).onChange.bind(this.control.valueAccessor);
-        this.control.valueAccessor.registerOnChange((val: any) => originalChange(this._unmaskValue(val)));
+            const originalChange = (this.control.valueAccessor as any).onChange.bind(this.control.valueAccessor);
+            this.control.valueAccessor.registerOnChange((val: any) => originalChange(this._unmaskValue(val)));
 
-        this._setVal(this._maskValue(this.control.value));
+            this._setVal(this._maskValue(this.control.value));
+        }, 10);
     }
 
     private _maskValue(val: string): string {
@@ -43,7 +45,7 @@ export class NpMaskDirective implements OnInit {
         }
 
         const maskedVal = this.lastMaskedValue =
-            valueToFormat(
+            this.maskService.valueToFormat(
                 val,
                 this.mask, this.lastMaskedValue.length > val.length,
                 this.lastMaskedValue);
@@ -53,7 +55,7 @@ export class NpMaskDirective implements OnInit {
 
     private _unmaskValue(val: string): string {
         const maskedVal = this._maskValue(val);
-        const unmaskedVal = unmaskValue(maskedVal);
+        const unmaskedVal = this.maskService.unmaskValue(maskedVal);
 
         if (maskedVal !== val) {
             this._setVal(maskedVal);

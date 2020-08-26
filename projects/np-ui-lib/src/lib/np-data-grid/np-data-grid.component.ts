@@ -46,6 +46,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   @Input() enableStateStoring: boolean;
   @Input() noDataMessage = 'No Data Found.';
   @Input() showFilters = true;
+  @Input() dateFormat = 'dd/MM/yyyy';
   @Input() showSummary = false;
   @Input() summaryTemplate: TemplateRef<any>;
   @Input() allowColumnResize = false;
@@ -936,5 +937,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   _getColSpanForChildRow() {
     return this.visibleColumns.length + (this._allowRowSelection() ? 1 : 0) + 1;
+  }
+
+  _trackBy(index: number): number {
+    return index;
   }
 }

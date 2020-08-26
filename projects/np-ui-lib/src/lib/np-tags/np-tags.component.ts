@@ -319,4 +319,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       this._close();
     }
   }
+
+  _trackBy(index: number): number {
+    return index;
+  }
 }

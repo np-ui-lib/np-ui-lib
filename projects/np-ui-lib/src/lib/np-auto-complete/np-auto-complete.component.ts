@@ -201,4 +201,8 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       this._close();
     }
   }
+
+  _trackBy(index: number): number {
+    return index;
+  }
 }

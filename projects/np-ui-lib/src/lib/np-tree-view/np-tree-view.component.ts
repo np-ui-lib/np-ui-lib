@@ -255,4 +255,8 @@ export class NpTreeViewComponent implements OnChanges {
     this.selectionChange.emit(this.selection);
   }
 
+  _trackBy(index: number): number {
+    return index;
+  }
+
 }

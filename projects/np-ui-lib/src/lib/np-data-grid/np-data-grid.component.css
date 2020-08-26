@@ -138,6 +138,9 @@
     position: sticky;
     left: 0px;
     bottom: 0px;
+    padding: 0px 5px;
+    text-align: center;
+    line-height: 2rem;
 }
 
 .np-grid-summary {
@@ -148,12 +151,6 @@
     left: 0px;
     bottom: 0px;
     z-index: 3;
-}
-
-.np-grid-no-data {
-    padding: 0px 5px;
-    text-align: center;
-    height: 2rem;
 }
 
 .np-grid-checkbox {

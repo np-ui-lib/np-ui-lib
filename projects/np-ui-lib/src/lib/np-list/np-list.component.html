@@ -1,5 +1,5 @@
 <div [ngClass]="{ 'np-list': true }" [style.max-height.px]="height" [class]="styleClass" [attr.id]="inputId">
-    <ng-container *ngFor="let item of items | npOrderBy: orderBy: orderDir; let i = index;">
+    <ng-container *ngFor="let item of items | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
         <div class="np-list-item" [ngClass]="{'np-list-selected': _isSelected(item)}">
             <input *ngIf="allowSelection" type="checkbox" class="np-list-checkbox" [checked]="_isSelected(item)"
                 (change)="_onSelectItem(item,$event)">

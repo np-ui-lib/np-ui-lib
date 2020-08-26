@@ -26,7 +26,7 @@ export class NpMaskDemoComponent implements OnInit {
   selectedCard: any = this.creditCards[0];
   maskedValue1: string;
   maskedValue2: string;
-  maskedValue3: string;
+  maskedValue3 = '1111111111';
 
   constructor() { }
 

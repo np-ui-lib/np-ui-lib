@@ -26,7 +26,7 @@
 <ng-template #templatePortalContent>
     <div class="np-auto-complete-overlay">
         <div class="np-list np-auto-complete-list">
-            <ng-container *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index;">
+            <ng-container *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
                 <div class="np-list-item" (click)="_selectValue(item)">
                     <ng-container *ngIf="!itemTemplate; else customTemplate">
                         <span [innerHTML]="(displayKey ? item[displayKey] : item) | npHighLight : displayValue"></span>

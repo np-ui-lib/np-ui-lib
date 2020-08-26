@@ -125,4 +125,8 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChang
   select(page: number) {
     this._goToPage(page);
   }
+
+  _trackBy(index: number): number {
+    return index;
+  }
 }

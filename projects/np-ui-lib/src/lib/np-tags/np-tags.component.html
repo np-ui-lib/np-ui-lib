@@ -37,7 +37,7 @@
     <div class="np-tag-overlay">
         <ng-container *ngIf="!isTreeView">
             <div class="np-list">
-                <ng-container *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index;">
+                <ng-container *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
                     <div class="np-list-item" (click)="_selectValue(item)"
                         [ngClass]="{'np-tag-selected': _isSelected(item)}">
                         <ng-container *ngIf="!itemTemplate; else customTemplate">

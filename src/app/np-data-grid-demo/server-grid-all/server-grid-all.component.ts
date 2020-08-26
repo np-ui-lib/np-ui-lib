@@ -17,7 +17,6 @@ export class ServerGridAllComponent implements OnInit {
   isLoading = true;
 
   @ViewChild('actionButtonsTemplate', { static: true }) actionButtonsTemplate: TemplateRef<any>;
-  @ViewChild('birthDateColumnTemplate', { static: true }) birthDateColumnTemplate: TemplateRef<any>;
   @ViewChild('summaryTemplate', { static: true }) summaryTemplate: TemplateRef<any>;
 
   @ViewChild('serverSideGrid', { static: true }) serverSideGrid: NpDataGridComponent;
@@ -30,7 +29,7 @@ export class ServerGridAllComponent implements OnInit {
       new Column({ dataField: 'Id', visible: true, caption: 'Id', dataType: DataTypes.Number, sortEnable: true, filterEnable: true, onCellClick: this.cellClicked }),
       new Column({ dataField: 'FirstName', visible: true, caption: 'First Name', dataType: DataTypes.String, sortEnable: true, filterEnable: true }),
       new Column({ dataField: 'LastName', visible: true, caption: 'Last Name', dataType: DataTypes.String }),
-      new Column({ dataField: 'BirthDate', visible: true, caption: 'Birth Date', dataType: DataTypes.Date, sortEnable: true, filterEnable: true, cellTemplate: this.birthDateColumnTemplate }),
+      new Column({ dataField: 'BirthDate', visible: true, caption: 'Birth Date', dataType: DataTypes.Date, sortEnable: true, filterEnable: true }),
       new Column({ dataField: 'Age', visible: true, dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: 'np-text-danger', rightAlignText: true }),
       new Column({ dataField: 'Active', visible: true, caption: 'Is Active?', dataType: DataTypes.Boolean, filterEnable: true, }),
       new Column({ visible: true, cellTemplate: this.actionButtonsTemplate })];
@@ -90,7 +89,7 @@ export class ServerGridAllComponent implements OnInit {
       new Column({ dataField: 'Id', visible: true, width: 100, caption: 'Id', dataType: DataTypes.Number, sortEnable: true, filterEnable: true, onCellClick: this.cellClicked }),
       new Column({ dataField: 'FirstName', visible: true, width: 150, caption: 'First Name', dataType: DataTypes.String, sortEnable: true, filterEnable: true, sortDirection: SortDirections.Descending }),
       new Column({ dataField: 'LastName', visible: true, width: 150, caption: 'Last Name', dataType: DataTypes.String }),
-      new Column({ dataField: 'BirthDate', visible: true, width: 150, caption: 'Birth Date', dataType: DataTypes.Date, filterEnable: true, cellTemplate: this.birthDateColumnTemplate }),
+      new Column({ dataField: 'BirthDate', visible: true, width: 150, caption: 'Birth Date', dataType: DataTypes.Date, filterEnable: true }),
       new Column({ dataField: 'Age', visible: true, width: 100, dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: 'np-text-danger', filterValue: '50', filterOperator: FilterTypes.GreaterThan }),
       new Column({ dataField: 'Active', visible: true, width: 150, caption: 'Is Active?', dataType: DataTypes.Boolean, filterEnable: true, }),
       new Column({ visible: false, cellTemplate: this.actionButtonsTemplate })];

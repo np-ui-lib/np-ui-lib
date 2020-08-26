@@ -7,7 +7,7 @@
     <np-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiRowSelectEnable]="true"
         [title]="'Server side data grid'" [showColumnChooser]="true" [showToolBar]="true" [allowExport]="true"
         [enableStateStoring]="true" [showFilters]="showFilters" [showSummary]="true" [summaryTemplate]="summaryTemplate"
-        [allowColumnReorder]="true" [allowColumnResize]="true" [isServerOperations]="true" [pageSize]="5"
+        [allowColumnReorder]="true" [allowColumnResize]="true" [isServerOperations]="true" [pageSize]="5" [dateFormat]="'dd MMM yy'"
         (onLoadData)="onLoadData($event)" (onInit)="onInit()" (onAfterInit)="onAfterInit()">
     </np-data-grid>
 </div>
@@ -18,11 +18,6 @@
         <button class="np-btn" (click)="onActionClick(row,'Edit', $event)">Edit</button>
         <button class="np-btn" (click)="onActionClick(row,'Delete', $event)">Delete</button>
     </div>
-</ng-template>
-
-<!-- Template for birthdate column -->
-<ng-template #birthDateColumnTemplate let-row="row">
-    {{row.BirthDate | date:'dd/MM/yyyy'}}
 </ng-template>
 
 <!-- Template for summary column -->

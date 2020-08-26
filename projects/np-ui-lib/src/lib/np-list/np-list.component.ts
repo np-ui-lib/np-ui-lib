@@ -97,4 +97,8 @@ export class NpListComponent implements OnInit {
     this.selectedItems = items;
   }
 
+  _trackBy(index: number): number {
+    return index;
+  }
+
 }
