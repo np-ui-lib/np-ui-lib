@@ -21,7 +21,7 @@ export class NpTabsDemoComponent implements OnInit {
   @ViewChild('tabs2', { static: true }) tabs2: NpTabsComponent;
 
   count = 5;
-  isTab4Visible = true;
+  isTab4Available = true;
   toggleTab3Disabled = true;
 
   constructor() { }
@@ -47,7 +47,7 @@ export class NpTabsDemoComponent implements OnInit {
   }
 
   toggleTab4() {
-    this.isTab4Visible = !this.isTab4Visible;
+    this.isTab4Available = !this.isTab4Available;
   }
 
   ToggleTab3Disabled() {

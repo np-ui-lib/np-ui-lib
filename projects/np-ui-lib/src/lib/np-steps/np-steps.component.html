@@ -5,8 +5,9 @@
             'np-step-done' : step.completed,
             'np-step-error' : step.hasError }" (click)="_onClick(i)">
                 <ng-container *ngIf="!_isTemplate(step); else stepLabelTemp">
-                    <button type="button" class="np-step-number">{{i + 1}}</button>
-                    <span [innerHtml]="step.label"></span>
+                    <button *ngIf="!step.iconCss" type="button" class="np-step-number">{{i + 1}}</button>
+                    <i *ngIf="step.iconCss" [ngClass]="step.iconCss"></i>
+                    <span [innerHTML]="step.label"></span>
                 </ng-container>
                 <ng-template #stepLabelTemp [ngTemplateOutlet]="step.labelTemplate">
                 </ng-template>

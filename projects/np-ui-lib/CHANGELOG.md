@@ -7,6 +7,7 @@
 - Resolved client side filter issue for date
 - Add dateFormat property in data grid for formatting all dates in data grid
 - Add trackBy function for ngFor in data grid, treeview, list, tags, dropdown, autocomplete, carousel components
+- Add iconCss in steps component
 
 ## 10.3.1
 - Add tabindex="-1" for internal buttons and other controls to make proper tab flow in forms

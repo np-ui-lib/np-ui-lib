@@ -14,5 +14,6 @@ export class NpStepComponent extends CdkStep {
     static controlCount = 1;
 
     @Input() labelTemplate: TemplateRef<any>;
+    @Input() iconCss: string;
     @Input() inputId = `np-step_${NpStepComponent.controlCount++}`;
 }

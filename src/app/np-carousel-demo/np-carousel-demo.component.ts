@@ -25,8 +25,8 @@ export class NpCarouselDemoComponent implements OnInit {
   ];
 
   items2: any[];
-  visibleNum = 1;
-  scrollNum = 1;
+  visibleNum: number;
+  scrollNum: number;
 
   constructor() { }
 
@@ -43,6 +43,19 @@ export class NpCarouselDemoComponent implements OnInit {
         { name: 'Plan 8', id: 8 }
       ];
     }, 2000);
+
+    if (window.innerWidth <= 425) {
+      this.visibleNum = 1;
+      this.scrollNum = 1;
+    }
+    else if (window.innerWidth > 425 && window.innerWidth <= 768) {
+      this.visibleNum = 2;
+      this.scrollNum = 2;
+    }
+    else {
+      this.visibleNum = 3;
+      this.scrollNum = 3;
+    }
   }
 
   selectPage2() {

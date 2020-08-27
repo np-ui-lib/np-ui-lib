@@ -77,6 +77,15 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>iconCss</td>
+                        <td>
+                            Set CSS for icon like 'fa fa-home' <br>
+                            If icon is set then step number will not show.
+                        </td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>inputId</td>
                         <td>Set id attribute</td>
                         <td>string</td>
@@ -156,7 +165,7 @@
                         </div>
                     </div>
                 </np-step>
-                <np-step label="Upload Images" #photosStep [stepControl]="photos">
+                <np-step label="Upload Images" #photosStep [stepControl]="photos" [iconCss]="'fa fa-photo'">
                     <div [formGroup]="photos">
                         <h3>Upload Images</h3>
                         <br>

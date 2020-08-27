@@ -166,18 +166,13 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     const ctx2 = strip.getContext('2d');
     ctx2.rect(0, 0, 25, 170);
     const grd1 = ctx2.createLinearGradient(0, 0, 0, 170);
-    grd1.addColorStop(0, '#FF0000');
-    grd1.addColorStop(0.09, '#FF7F00');
-    grd1.addColorStop(0.18, '#FFFF00');
-    grd1.addColorStop(0.27, '#7FFF00');
-    grd1.addColorStop(0.36, '#00FF00');
-    grd1.addColorStop(0.45, '#00FF7F');
-    grd1.addColorStop(0.54, '#00FFFF');
-    grd1.addColorStop(0.63, '#007FFF');
-    grd1.addColorStop(0.72, '#0000FF');
-    grd1.addColorStop(0.81, '#7F00FF');
-    grd1.addColorStop(0.90, '#FF00FF');
-    grd1.addColorStop(1, '#FF007F');
+    grd1.addColorStop(0, 'rgba(255, 0, 0, 1)');
+    grd1.addColorStop(0.17, 'rgba(255, 255, 0, 1)');
+    grd1.addColorStop(0.34, 'rgba(0, 255, 0, 1)');
+    grd1.addColorStop(0.51, 'rgba(0, 255, 255, 1)');
+    grd1.addColorStop(0.68, 'rgba(0, 0, 255, 1)');
+    grd1.addColorStop(0.85, 'rgba(255, 0, 255, 1)');
+    grd1.addColorStop(1, 'rgba(255, 0, 0, 1)');
     ctx2.fillStyle = grd1;
     ctx2.fill();
   }
@@ -216,14 +211,19 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     this.value = this._getColorFromClickevent(e, '.np-color-picker-block');
   }
 
-  _fullColorHex(r: number, g: number, b: number) {
-    const red = this._rgbToHex(r);
-    const green = this._rgbToHex(g);
-    const blue = this._rgbToHex(b);
+  _rgbStringToHex(rgbStr: string) {
+    const rgbArray = rgbStr.split(',');
+    return this._rgbToHex(rgbArray[0], rgbArray[1], rgbArray[2]);
+  }
+
+  _rgbToHex(r: any, g: any, b: any) {
+    const red = this._convertToHex(r);
+    const green = this._convertToHex(g);
+    const blue = this._convertToHex(b);
     return `#${red}${green}${blue}`;
   }
 
-  _rgbToHex(rgb: number) {
+  _convertToHex(rgb: any) {
     let hex = Number(rgb).toString(16);
     if (hex.length < 2) {
       hex = `0${hex}`;
@@ -267,18 +267,22 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     return this._hexToRgb(this.value);
   }
 
-  _hexToRgb(hexColor: string) {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexColor);
-    const rgb = result ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16)
-    } : null;
-    return rgb ? `${rgb.r}, ${rgb.g}, ${rgb.b}` : '';
+  _hexToRgb(hex: string) {
+    if (!hex) {
+      return '';
+    }
+    const r = parseInt(hex.substring(1, 3), 16);
+    const g = parseInt(hex.substring(3, 5), 16);
+    const b = parseInt(hex.substring(5, 7), 16);
+    return `${r},${g},${b}`;
   }
 
   getSelectedRGB() {
     return this._hexToRgb(this.value);
+  }
+
+  setSelectedRGB(value: string) {
+    this.value = this._rgbStringToHex(value);
   }
 
   _clear() {
@@ -308,7 +312,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     const x = e.offsetX;
     const y = e.offsetY;
     const imageData = ctx2.getImageData(x, y, 1, 1).data;
-    return this._fullColorHex(imageData[0], imageData[1], imageData[2]);
+    return this._rgbToHex(imageData[0], imageData[1], imageData[2]);
   }
 
   _onKeydown(event: KeyboardEvent) {

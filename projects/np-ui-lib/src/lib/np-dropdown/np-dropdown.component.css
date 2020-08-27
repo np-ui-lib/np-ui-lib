@@ -4,6 +4,7 @@
     max-height: 300px;
     overflow: auto;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    border: 1px solid #9e9e9e;
 }
 
 .np-dropdown-overlay .np-list {
@@ -12,6 +13,7 @@
 
 .np-dropdown-overlay .np-list-item {
     cursor: pointer;
+    border: none;
 }
 
 .np-dropdown-selected {

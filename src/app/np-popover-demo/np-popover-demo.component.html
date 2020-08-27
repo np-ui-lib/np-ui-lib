@@ -118,25 +118,24 @@
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
-            <a np-popover [header]="'This is link A'" [body]="'Description of Link A.'">
-                <i class="fa fa-info"></i>
+            <a np-popover [header]="'Header content'" [body]="'Body content'">
+                <i class="fa fa-info-circle"></i>
             </a>
         </fieldset>
 
         <fieldset>
-            <a np-popover [header]="'This is link B'" [body]="'Description of Link B.'" [placement]="'right'"
-                [showOnClick]="true">Link B : Popover on click</a>
+            <a np-popover [header]="'Popover on click'" [body]="'This popover will be displayed on click event'"
+                [placement]="'right'" [showOnClick]="true">Popover on click</a>
         </fieldset>
 
         <fieldset>
             <a np-popover [header]="headerC" [body]="bodyC" [showOnClick]="true" [width]="250"
-                [styleClass]="'myClass'">Link
-                C : With [width] and [styleClass] attribute</a>
+                [styleClass]="'myClass'">With [width] and [styleClass] attribute</a>
             <ng-template #headerC>
-                This is link C
+                Others
             </ng-template>
             <ng-template #bodyC>
-                Description of Link C.
+                Set width of popover and add extra class to popover element
             </ng-template>
         </fieldset>
 

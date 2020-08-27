@@ -38,6 +38,11 @@
     background-color: #eeeeee;
 }
 
+.np-step-title i {
+    font-size: x-large;
+    padding-right: 10px;
+}
+
 .np-step-body {
     padding: 10px;
 }
