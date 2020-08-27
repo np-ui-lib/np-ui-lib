@@ -4,7 +4,7 @@
 ## Change log and decision tracker
 
 ## 10.3.2
-- Resolved client side filter issue for date
+- Resolved client side filter issue for date in data grid
 - Add dateFormat property in data grid for formatting all dates in data grid
 - Add trackBy function for ngFor in data grid, treeview, list, tags, dropdown, autocomplete, carousel components
 - Add iconCss in steps component
