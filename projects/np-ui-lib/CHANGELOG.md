@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 10.3.3
+- Resolved data grid state variable reference issue
+
 ## 10.3.2
 - Resolved client side filter issue for date in data grid
 - Add dateFormat property in data grid for formatting all dates in data grid

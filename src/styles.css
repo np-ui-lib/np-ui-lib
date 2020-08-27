@@ -150,7 +150,7 @@ pre {
 }
 
 .fa {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
 }
 
 .np-input-group-append .fa, .dashboard-card .fa {

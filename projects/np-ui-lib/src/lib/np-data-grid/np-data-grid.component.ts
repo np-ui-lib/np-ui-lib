@@ -159,19 +159,19 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   private subscribeDataSource() {
-    this.subscription = this.dataSource.subscribe((data: DataSource) => {
-      if (data === undefined || data === null) {
+    this.subscription = this.dataSource.subscribe((ds: DataSource) => {
+      if (ds === undefined || ds === null) {
         return;
       }
       if (this.isServerOperations) {
         // to export to csv, this change has all data
-        if (data.isAllPages) {
-          this.fileService.downloadCSVFile(data.data, this.visibleColumns);
+        if (ds.isAllPages) {
+          this.fileService.downloadCSVFile(ds.data, this.visibleColumns);
           return;
         }
-        this.currentViewData = data.data;
-        this.summaryData = data.summary;
-        this.totalRow = data.total;
+        this.currentViewData = ds.data;
+        this.summaryData = ds.summary;
+        this.totalRow = ds.total;
         if (this.isAllSelected) {
           for (const element of this.currentViewData) {
             if (this.selectedRowKeys.indexOf(element[this.keyColumnName]) === -1) {
@@ -182,10 +182,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
         this.pagerObj = this.pagerService.getPager(this.totalRow, this.pagerObj.currentPage, this.pageSize);
       }
       else {
-        const dataSource = new DataSource(data.data, data.data.length, data.summary);
-        this.dataSourceClone = dataSource;
-        this.totalRow = this.dataSourceClone.total;
-        this.summaryData = this.dataSourceClone.summary;
+        this.dataSourceClone = new DataSource(ds.data, ds.data.length, ds.summary);
+        this.totalRow = ds.data.length;
+        this.summaryData = ds.summary;
         this._getCurrentViewData(1);
       }
     });
@@ -711,14 +710,14 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * get column list
    */
   getColumns() {
-    return this._getColumnsArray();
+    return this._cloneColumns(this.columnsClone);
   }
 
   /**
    * set column list
    */
   setColumns(columns: Column[]) {
-    this.columnsClone = columns;
+    this.columnsClone = this._cloneColumns(columns);
     const currentFilterColumnList = [];
     for (const element of this.columnsClone) {
       if (element.filterOperator && element.filterValue && element.filterValue.toString().length > 0) {
@@ -747,7 +746,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _saveState() {
-    const columns = this._getColumnsArray();
+    const columns = this._cloneColumns(this.columnsClone);
     const currentStateName = this.currentStateName;
     for (const element of this.stateList) {
       if (element.name === currentStateName) {
@@ -776,7 +775,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     } else {
       this.nameAlreadyExistError = false;
     }
-    const columns = this._getColumnsArray();
+    const columns = this._cloneColumns(this.columnsClone);
     this.stateList.push(new State(name, columns));
     this.currentStateName = name;
     if (this.onStatesUpdate) {
@@ -820,9 +819,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
   }
 
-  private _getColumnsArray() {
+  private _cloneColumns(cols: Column[]) {
     const result = [];
-    for (const element of this.columnsClone) {
+    for (const element of cols) {
       result.push(new Column(element));
     }
     return result;
