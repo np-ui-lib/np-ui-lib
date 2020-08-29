@@ -1,5 +1,5 @@
 # np-ui-lib  
-## Native Angular UI Components and Design Framework
+Native Angular UI Components and Design Framework
 
 <p align="center">
   <img width="200px" height="200px" src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/logo.png">

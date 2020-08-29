@@ -20,7 +20,7 @@ export class NpBreadcrumbDemoComponent implements OnInit {
 
   items: NpBreadcrumbItem[] = [
     new NpBreadcrumbItem({ label: 'Galaxy' }),
-    new NpBreadcrumbItem({ label: 'Earth' }),
+    new NpBreadcrumbItem({ label: 'Earth', disabled: true }),
     new NpBreadcrumbItem({ label: 'Asia' }),
     new NpBreadcrumbItem({ label: 'India' }),
     new NpBreadcrumbItem({ label: 'Gujarat' }),

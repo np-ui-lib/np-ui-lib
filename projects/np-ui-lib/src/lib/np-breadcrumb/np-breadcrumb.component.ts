@@ -21,7 +21,7 @@ export class NpBreadcrumbComponent implements OnInit {
   }
 
   _onClick(item: NpBreadcrumbItem) {
-    if (this.onClick) {
+    if (this.onClick && !item.disabled) {
       this.onClick.emit(item);
     }
   }
