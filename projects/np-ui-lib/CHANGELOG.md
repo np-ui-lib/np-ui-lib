@@ -6,6 +6,8 @@
 ## 10.3.3
 - Resolved data grid state variable reference issue
 - Add disabled property in breadcrumb model
+- Rename horizontalTabs to verticalTabs in tab component
+- Add verticalSteps property to steps component
 
 ## 10.3.2
 - Resolved client side filter issue for date in data grid

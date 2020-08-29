@@ -1,5 +1,5 @@
-<div [ngClass]="{'np-tabs': true, 'np-tabs-horizontal':horizontalTabs}" [style.max-height.px]="height"
-    [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{'np-tabs': true, 'np-tabs-vertical':verticalTabs}" [style.max-height.px]="height" [class]="styleClass"
+    [attr.id]="inputId">
     <div class="np-tabs-header">
         <ng-container *ngFor="let tab of tabs">
             <div class="np-tab-title" (click)="_selectTab(tab)"

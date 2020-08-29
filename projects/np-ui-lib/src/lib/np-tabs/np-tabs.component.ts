@@ -14,7 +14,7 @@ export class NpTabsComponent implements AfterContentInit {
 
   @ContentChildren(NpTabComponent) tabs: QueryList<NpTabComponent>;
 
-  @Input() horizontalTabs: boolean;
+  @Input() verticalTabs: boolean;
   @Input() height: number;
   @Input() styleClass: string;
   @Input() inputId = `np-tabs_${NpTabsComponent.controlCount++}`;

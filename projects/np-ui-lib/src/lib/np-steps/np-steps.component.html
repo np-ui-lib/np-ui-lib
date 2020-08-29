@@ -1,4 +1,4 @@
-<div [ngClass]="{ 'np-steps' : true }" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{ 'np-steps' : true, 'np-steps-vertical': verticalSteps }" [class]="styleClass" [attr.id]="inputId">
     <div class="np-steps-header">
         <ng-container *ngFor="let step of steps; let i = index;">
             <div class="np-step-title" [ngClass]="{ 'np-step-active': selectedIndex === i, 

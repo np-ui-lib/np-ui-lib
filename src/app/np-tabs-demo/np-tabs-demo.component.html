@@ -31,8 +31,8 @@
                         <th>Default</th>
                     </tr>
                     <tr>
-                        <td>horizontalTabs</td>
-                        <td>Set tab horizontal or vertical</td>
+                        <td>verticalTabs</td>
+                        <td>Set vertical tabs</td>
                         <td>boolean</td>
                         <td>false</td>
                     </tr>
@@ -260,8 +260,8 @@
         </fieldset>
 
         <fieldset>
-            <legend>Horizontal tabs</legend>
-            <np-tabs (onTabChange)="onTabChange($event)" #tabs2 [horizontalTabs]="true" [height]="200">
+            <legend>Vertical tabs</legend>
+            <np-tabs (onTabChange)="onTabChange($event)" #tabs2 [verticalTabs]="true" [height]="200">
                 <np-tab [title]="'Tab1'">
                     <h1>
                         Tab 1 , Check console for isLoadFirstTime flag value.

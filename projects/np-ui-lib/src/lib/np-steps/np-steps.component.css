@@ -87,3 +87,18 @@
 .np-step-active .np-step-number {
     background-color: #007bff;
 }
+
+.np-steps-vertical {
+    display: flex;
+    flex-direction: row;
+}
+
+.np-steps-vertical .np-steps-header {
+    flex-direction: column;
+    border-right: 1px solid #9e9e9e;
+    border-bottom: none;
+}
+
+.np-steps-vertical .np-step-title {
+    margin: 0px;
+}
