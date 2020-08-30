@@ -29,7 +29,7 @@
     color: #ffffff;
 }
 
-.np-tag-overlay {
+.np-tags-overlay {
     background-color: #ffffff;
     min-width: 250px;
     max-height: 300px;
@@ -38,19 +38,19 @@
     border: 1px solid #9e9e9e;
 }
 
-.np-tag-overlay np-tree-view {
+.np-tags-overlay np-tree-view {
     width: 100%;
 }
 
-.np-tag-overlay .np-treeview {
+.np-tags-overlay .np-treeview {
     border: none;
 }
 
-.np-tag-overlay .np-list {
+.np-tags-overlay .np-list {
     border: none;
 }
 
-.np-tag-overlay .np-list-item {
+.np-tags-overlay .np-list-item {
     cursor: pointer;
     border: none;
 }

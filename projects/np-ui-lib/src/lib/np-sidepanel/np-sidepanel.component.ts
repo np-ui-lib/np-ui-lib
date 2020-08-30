@@ -65,7 +65,8 @@ export class NpSidepanelComponent implements OnInit {
         backdropClass: this.backDropClass,
         height: this.height,
         width: this.width,
-        scrollStrategy: this.overlay.scrollStrategies.block()
+        scrollStrategy: this.overlay.scrollStrategies.block(),
+        panelClass: 'np-sidepanel-overlay'
       });
       this.templatePortal = new TemplatePortal(
         this.templatePortalContent,

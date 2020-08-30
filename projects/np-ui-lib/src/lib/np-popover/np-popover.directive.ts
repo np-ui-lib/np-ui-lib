@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, TemplateRef, OnDestroy } from '@angular/core';
+import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, TemplateRef, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpPopoverComponent } from './np-popover.component';
@@ -12,11 +12,15 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
     @Input() placement: string;
     @Input() header: string | TemplateRef<any>;
     @Input() body: string | TemplateRef<any>;
-    @Input() showOnClick: boolean;
+    @Input() openOnClick: boolean;
     @Input() width: number;
+    @Input() closeOnClickOutside = true;
     @Input() backDropClass = 'np-popover-backdrop';
     @Input() hasBackDrop = true;
     @Input() styleClass: string;
+
+    @Output() onOpen: EventEmitter<any> = new EventEmitter();
+    @Output() onClose: EventEmitter<any> = new EventEmitter();
 
     private overlayRef: OverlayRef;
 
@@ -32,13 +36,17 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)
             .withPositions(position);
-        if (this.showOnClick) {
+        if (this.openOnClick) {
             this.overlayRef = this.overlay.create({
                 positionStrategy,
                 hasBackdrop: this.hasBackDrop,
                 backdropClass: this.backDropClass
             });
-            this.overlayRef.backdropClick().subscribe(() => this._hide());
+            this.overlayRef.backdropClick().subscribe(() => {
+                if (this.closeOnClickOutside) {
+                    this._close();
+                }
+            });
         } else {
             this.overlayRef = this.overlay.create({
                 positionStrategy
@@ -54,44 +62,46 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
 
     @HostListener('mouseenter')
     _showOnMouseEnter() {
-        if (this.showOnClick) {
+        if (this.openOnClick) {
             return;
         }
-        this._show();
+        this._open();
     }
 
     @HostListener('click')
-    _showOnClick() {
-        if (!this.showOnClick) {
+    _openOnClick() {
+        if (!this.openOnClick) {
             return;
         }
         if (this.overlayRef.hasAttached()) {
             this.overlayRef.detach();
         } else {
-            this._show();
+            this._open();
         }
     }
 
-    _show() {
+    _open() {
         const popoverPortal = new ComponentPortal(NpPopoverComponent);
         const popoverRef: ComponentRef<NpPopoverComponent> = this.overlayRef.attach(popoverPortal);
         popoverRef.instance.header = this.header;
         popoverRef.instance.body = this.body;
         popoverRef.instance.width = this.width;
         popoverRef.instance.styleClass = this.styleClass;
+        this.onOpen.emit();
     }
 
     @HostListener('mouseout')
     _hideOnMouseLeave() {
-        if (this.showOnClick) {
+        if (this.openOnClick) {
             return;
         }
-        this._hide();
+        this._close();
     }
 
-    _hide() {
+    _close() {
         if (this.overlayRef.hasAttached()) {
             this.overlayRef.detach();
+            this.onClose.emit();
         }
     }
 
@@ -147,11 +157,11 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
         return result;
     }
 
-    show() {
-        this._show();
+    open() {
+        this._open();
     }
 
     close() {
-        this._hide();
+        this._close();
     }
 }

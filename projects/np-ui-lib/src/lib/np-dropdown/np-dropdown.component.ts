@@ -65,7 +65,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: 'np-dd-backdrop',
+      backdropClass: 'np-dropdown-backdrop',
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
       panelClass: this.styleClass
     });

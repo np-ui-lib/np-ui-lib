@@ -8,6 +8,11 @@
 - Add disabled property in breadcrumb model
 - Rename horizontalTabs to verticalTabs in tab component
 - Add verticalSteps property to steps component
+- Rename showOnClick to openOnClick in popover
+- Rename show Api to open in popover
+- Add onOpen and onClose methods to popover
+- Add closeOnClickOutside in popover
+- backdrop CSS class name enhancements
 
 ## 10.3.2
 - Resolved client side filter issue for date in data grid

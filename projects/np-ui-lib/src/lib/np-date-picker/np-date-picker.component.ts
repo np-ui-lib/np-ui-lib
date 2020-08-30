@@ -106,7 +106,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: 'np-dp-backdrop',
+      backdropClass: 'np-date-picker-backdrop',
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
       panelClass: this.styleClass
     });

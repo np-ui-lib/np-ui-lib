@@ -20,18 +20,25 @@ export class NpPopoverDemoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showE() {
+  openStep2Popover() {
     this.myPopoverD.close();
-    this.myPopoverE.show();
+    this.myPopoverE.open();
   }
 
-  showF() {
+  openStep3Popover() {
     this.myPopoverE.close();
-    this.myPopoverF.show();
+    this.myPopoverF.open();
   }
 
-  closeF() {
+  closeStep3Popover() {
     this.myPopoverF.close();
   }
 
+  onOpen() {
+    console.log('Open popover');
+  }
+
+  onClose() {
+    console.log('Close popover');
+  }
 }

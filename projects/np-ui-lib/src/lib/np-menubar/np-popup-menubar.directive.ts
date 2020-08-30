@@ -32,7 +32,8 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
         this.overlayRef = this.overlay.create({
             positionStrategy,
             hasBackdrop: true,
-            backdropClass: 'np-mb-backdrop',
+            backdropClass: 'np-menubar-backdrop',
+            panelClass: 'np-menubar-overlay',
             scrollStrategy: this.overlay.scrollStrategies.reposition()
         });
         this.overlayRef.backdropClick().subscribe(() => this._close());

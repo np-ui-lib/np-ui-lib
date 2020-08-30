@@ -48,8 +48,8 @@
                         <td>bottom</td>
                     </tr>
                     <tr>
-                        <td>showOnClick</td>
-                        <td>Show popover on click of target</td>
+                        <td>openOnClick</td>
+                        <td>Open popover on click of target</td>
                         <td>boolean</td>
                         <td>false</td>
                     </tr>
@@ -66,10 +66,16 @@
                         <td>true</td>
                     </tr>
                     <tr>
+                        <td>closeOnClickOutside</td>
+                        <td>Close on outside click or not</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
                         <td>backDropClass</td>
                         <td>Set backdrop class</td>
                         <td>string</td>
-                        <td>np-pop-backdrop</td>
+                        <td>np-popover-backdrop</td>
                     </tr>
                     <tr>
                         <td>styleClass</td>
@@ -96,10 +102,10 @@
                     </tr>
                     <tr>
                         <td>
-                            show()
+                            open()
                         </td>
                         <td>
-                            Show popover
+                            Open popover
                         </td>
                         <td></td>
                     </tr>
@@ -115,21 +121,50 @@
                 </table>
             </np-card-body>
         </np-card>
+        <np-card>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Methods</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            onOpen()
+                        </td>
+                        <td>
+                            Callback on open
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            onClose()
+                        </td>
+                        <td>
+                            Callback on close
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
-            <a np-popover [header]="'Header content'" [body]="'Body content'">
+            <a np-popover [header]="'Header content'" [body]="'Body content'" (onOpen)="onOpen()" (onClose)="onClose()">
                 <i class="fa fa-info-circle"></i>
             </a>
         </fieldset>
 
         <fieldset>
             <a np-popover [header]="'Popover on click'" [body]="'This popover will be displayed on click event'"
-                [placement]="'right'" [showOnClick]="true">Popover on click</a>
+                [placement]="'right'" [openOnClick]="true">Popover on click</a>
         </fieldset>
 
         <fieldset>
-            <a np-popover [header]="headerC" [body]="bodyC" [showOnClick]="true" [width]="250"
+            <a np-popover [header]="headerC" [body]="bodyC" [openOnClick]="true" [width]="250"
                 [styleClass]="'myClass'">With [width] and [styleClass] attribute</a>
             <ng-template #headerC>
                 Others
@@ -142,24 +177,24 @@
         <fieldset>
             <legend>backDropClass and Api example</legend>
             <a np-popover #myPopoverD="NpPopoverDirective" [header]="'Step 1'" [body]="myPopoverDBody"
-                [showOnClick]="true" [backDropClass]="'myBackDrop'">Step 1</a>
+                [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 1</a>
             <ng-template #myPopoverDBody>
                 Description of Step 1. Click on Next button to start tour.
-                <button type="button" class="np-btn" (click)="showE()">Next</button>
+                <button type="button" class="np-btn" (click)="openStep2Popover()">Next</button>
             </ng-template>
             <br>
             <a np-popover #myPopoverE="NpPopoverDirective" [header]="'Step 2'" [body]="myPopoverEBody"
-                [showOnClick]="true" [backDropClass]="'myBackDrop'">Step 2</a>
+                [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 2</a>
             <ng-template #myPopoverEBody>
                 Description of Step 2. Read and Wait for Next button.
-                <button type="button" class="np-btn" (click)="showF()">Next</button>
+                <button type="button" class="np-btn" (click)="openStep3Popover()">Next</button>
             </ng-template>
             <br>
             <a np-popover #myPopoverF="NpPopoverDirective" [header]="'Step 3'" [body]="myPopoverFBody"
-                [showOnClick]="true" [backDropClass]="'myBackDrop'">Step 3</a>
+                [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 3</a>
             <ng-template #myPopoverFBody>
                 Description of Step 3. Click on Close button to end tour.
-                <button type="button" class="np-btn" (click)="closeF()">Close</button>
+                <button type="button" class="np-btn" (click)="closeStep3Popover()">Close</button>
             </ng-template>
         </fieldset>
     </np-tab>

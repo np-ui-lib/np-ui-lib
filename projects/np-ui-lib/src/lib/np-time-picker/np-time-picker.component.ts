@@ -68,7 +68,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: 'np-tp-backdrop',
+      backdropClass: 'np-time-picker-backdrop',
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
       panelClass: this.styleClass
     });

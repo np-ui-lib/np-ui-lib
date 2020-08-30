@@ -71,7 +71,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: 'np-cp-backdrop',
+      backdropClass: 'np-color-picker-backdrop',
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
       panelClass: this.styleClass
     });

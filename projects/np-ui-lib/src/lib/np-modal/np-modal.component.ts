@@ -15,7 +15,7 @@ export class NpModalComponent {
   @Input() height: number;
   @Input() width: number;
   @Input() closeOnClickOutside = true;
-  @Input() backDropClass = 'np-mod-backdrop';
+  @Input() backDropClass = 'np-modal-backdrop';
   @Input() hasBackDrop = true;
   @Input() styleClass: string;
   @Input() inputId = `np-modal_${NpModalComponent.controlCount++}`;
@@ -54,7 +54,7 @@ export class NpModalComponent {
         height: this.height,
         width: this.width,
         scrollStrategy: this.overlay.scrollStrategies.block(),
-        panelClass: 'np-mod-overlay'
+        panelClass: 'np-modal-overlay'
       });
       this.templatePortal = new TemplatePortal(
         this.templatePortalContent,

@@ -89,7 +89,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: 'np-ac-backdrop',
+      backdropClass: 'np-auto-complete-backdrop',
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
       panelClass: this.styleClass
     });

@@ -147,7 +147,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     this.columnChooserOverlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: 'np-dg-backdrop',
+      backdropClass: 'np-grid-backdrop',
       scrollStrategy: this.overlay.scrollStrategies.reposition()
     });
     this.columnChooserTemplatePortal = new TemplatePortal(

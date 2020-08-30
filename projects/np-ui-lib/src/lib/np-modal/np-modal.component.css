@@ -1,4 +1,4 @@
-.np-mod-overlay {
+.np-modal-overlay {
     margin: 5px;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
@@ -36,7 +36,7 @@
     min-height: 3rem;
 }
 
-.np-mod-backdrop {
+.np-modal-backdrop {
     background-color: #000000;
     opacity: 0.3 !important;
 }
