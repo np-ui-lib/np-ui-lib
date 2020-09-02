@@ -1,5 +1,5 @@
 <div [ngClass]="{'np-popover': true}" [style.width.px]="width" [class]="styleClass" [attr.id]="inputId">
-    <div class="np-popover-header">
+    <div class="np-popover-header" *ngIf="header">
         <ng-container *ngIf="!isHeaderTemplate">
             <div [innerHTML]="header"></div>
         </ng-container>

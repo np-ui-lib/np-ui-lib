@@ -42,6 +42,15 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>template</td>
+                        <td>
+                            Set template for each node
+                            <pre><code [innerText]="itemTemplateText"></code></pre>
+                        </td>
+                        <td>TemplateRef&lt;any&gt;</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>selection</td>
                         <td>Get/Set selected nodes</td>
                         <td>NpTreeViewItem[]</td>
@@ -257,14 +266,18 @@
         </fieldset>
 
         <fieldset>
-            <legend>Treeview multiple selection</legend>
-            <np-tree-view [items]="items3" #treeview3 [(selection)]="selection3" [selectionMode]="'multiple'">
+            <legend>Treeview multiple selection with template</legend>
+            <np-tree-view [items]="items3" #treeview3 [template]="nodeTemplate" [(selection)]="selection3"
+                [selectionMode]="'multiple'">
             </np-tree-view>
             <div>Selected value : {{selection3 | json}}</div>
             <div class="np-btn-group">
                 <button class="np-btn" (click)="selectAll()">Select All</button>
                 <button class="np-btn" (click)="deselectAll()">Deselect All</button>
             </div>
+            <ng-template #nodeTemplate let-item="item">
+                {{item.label}}, {{item.key}}
+            </ng-template>
         </fieldset>
     </np-tab>
 </np-tabs>

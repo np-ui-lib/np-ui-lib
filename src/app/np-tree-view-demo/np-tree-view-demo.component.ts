@@ -28,6 +28,9 @@ export class NpTreeViewDemoComponent implements OnInit {
   }),
   ...
 ];`;
+  itemTemplateText = `<ng-template #nodeTemplate let-item="item">
+  {{item.label}}, {{item.key}}
+</ng-template>`;
 
   @ViewChild('treeview', { static: true }) treeview: NpTreeViewComponent;
   @ViewChild('treeview2', { static: true }) treeview2: NpTreeViewComponent;

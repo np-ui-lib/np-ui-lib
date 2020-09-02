@@ -55,6 +55,7 @@ header {
 .header-menu-btn {
     cursor: pointer;
     color: #ffffff;
+    font-size: 1.5rem;
 }
 
 .header-menu-btn:hover {
@@ -116,7 +117,7 @@ article {
     color: red;
 }
 
-.content {
+.content-container {
     padding: 5px;
     flex: 1 1 0%;
 }
@@ -147,10 +148,6 @@ pre {
     color: white;
     padding: 10px;
     overflow: auto;
-}
-
-.fa {
-    font-size: 1.5rem !important;
 }
 
 .np-input-group-append .fa, .dashboard-card .fa {

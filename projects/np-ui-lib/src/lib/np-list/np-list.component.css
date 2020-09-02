@@ -11,5 +11,12 @@
     height: 1rem;
     width: 1rem;
     vertical-align: middle;
-    margin-right: 10px;
+    margin: 0.5rem;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.np-list-selectable {
+    padding-left: 2rem;
 }

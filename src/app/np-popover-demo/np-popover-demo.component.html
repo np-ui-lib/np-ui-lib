@@ -153,46 +153,70 @@
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
-            <a np-popover [header]="'Header content'" [body]="'Body content'" (onOpen)="onOpen()" (onClose)="onClose()">
+            <a np-popover [header]="'Header content'" [body]="'Body content'" [placement]="'right'" (onOpen)="onOpen()"
+                (onClose)="onClose()">
                 <i class="fa fa-info-circle"></i>
             </a>
         </fieldset>
 
         <fieldset>
-            <a np-popover [header]="'Popover on click'" [body]="'This popover will be displayed on click event'"
-                [placement]="'right'" [openOnClick]="true">Popover on click</a>
+            <a np-popover [body]="mailTemp" [openOnClick]="true">Popover on click</a>
+            <ng-template #mailTemp>
+                <div class="np-list">
+                    <div class="np-list-item">
+                        <b>Mail Subject</b><br>
+                        <i>From: abc@npui.com</i>
+                    </div>
+                    <div class="np-list-item">
+                        <b>Mail Subject</b><br>
+                        <i>From: abc@npui.com</i>
+                    </div>
+                    <div class="np-list-item">
+                        <b>Mail Subject</b><br>
+                        <i>From: abc@npui.com</i>
+                    </div>
+                    <div class="np-list-item">
+                        <b>Mail Subject</b><br>
+                        <i>From: abc@npui.com</i>
+                    </div>
+                    <div class="np-list-item">
+                        <b>Mail Subject</b><br>
+                        <i>From: abc@npui.com</i>
+                    </div>
+                </div>
+            </ng-template>
         </fieldset>
 
         <fieldset>
-            <a np-popover [header]="headerC" [body]="bodyC" [openOnClick]="true" [width]="250"
+            <a np-popover [header]="headerTemp" [body]="bodyTemp" [openOnClick]="true" [width]="250"
                 [styleClass]="'myClass'">With [width] and [styleClass] attribute</a>
-            <ng-template #headerC>
+            <ng-template #headerTemp>
                 Others
             </ng-template>
-            <ng-template #bodyC>
+            <ng-template #bodyTemp>
                 Set width of popover and add extra class to popover element
             </ng-template>
         </fieldset>
 
         <fieldset>
             <legend>backDropClass and Api example</legend>
-            <a np-popover #myPopoverD="NpPopoverDirective" [header]="'Step 1'" [body]="myPopoverDBody"
+            <a np-popover #myPopover1="NpPopoverDirective" [header]="'Step 1'" [body]="myPopover1Body"
                 [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 1</a>
-            <ng-template #myPopoverDBody>
+            <ng-template #myPopover1Body>
                 Description of Step 1. Click on Next button to start tour.
                 <button type="button" class="np-btn" (click)="openStep2Popover()">Next</button>
             </ng-template>
             <br>
-            <a np-popover #myPopoverE="NpPopoverDirective" [header]="'Step 2'" [body]="myPopoverEBody"
+            <a np-popover #myPopover2="NpPopoverDirective" [header]="'Step 2'" [body]="myPopover2Body"
                 [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 2</a>
-            <ng-template #myPopoverEBody>
+            <ng-template #myPopover2Body>
                 Description of Step 2. Read and Wait for Next button.
                 <button type="button" class="np-btn" (click)="openStep3Popover()">Next</button>
             </ng-template>
             <br>
-            <a np-popover #myPopoverF="NpPopoverDirective" [header]="'Step 3'" [body]="myPopoverFBody"
+            <a np-popover #myPopover3="NpPopoverDirective" [header]="'Step 3'" [body]="myPopover3Body"
                 [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 3</a>
-            <ng-template #myPopoverFBody>
+            <ng-template #myPopover3Body>
                 Description of Step 3. Click on Close button to end tour.
                 <button type="button" class="np-btn" (click)="closeStep3Popover()">Close</button>
             </ng-template>

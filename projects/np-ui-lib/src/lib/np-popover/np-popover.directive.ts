@@ -2,6 +2,7 @@ import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpPopoverComponent } from './np-popover.component';
+import { NpUtilityService } from '../np-utility/np-utility.service';
 
 @Directive({
     selector: '[np-popover]',
@@ -27,12 +28,13 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
     constructor(
         private overlay: Overlay,
         private overlayPositionBuilder: OverlayPositionBuilder,
-        private elementRef: ElementRef) {
+        private elementRef: ElementRef,
+        private utility: NpUtilityService) {
     }
 
     ngAfterViewInit(): void {
         this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-popover-target`).trim();
-        const position: ConnectedPosition[] = this._getPosition();
+        const position: ConnectedPosition[] = this.utility.getPosition(this.placement);
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)
             .withPositions(position);
@@ -103,58 +105,6 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
             this.overlayRef.detach();
             this.onClose.emit();
         }
-    }
-
-    _getPosition(): ConnectedPosition[] {
-        let result: ConnectedPosition[];
-        switch (this.placement) {
-            case 'left':
-                {
-                    result = [{
-                        originX: 'start',
-                        originY: 'center',
-                        overlayX: 'end',
-                        overlayY: 'center',
-                        offsetX: -5
-                    }];
-                    break;
-                }
-            case 'right':
-                {
-                    result = [{
-                        originX: 'end',
-                        originY: 'center',
-                        overlayX: 'start',
-                        overlayY: 'center',
-                        offsetX: 5
-                    }];
-                    break;
-                }
-            case 'top':
-                {
-                    result = [{
-                        originX: 'center',
-                        originY: 'top',
-                        overlayX: 'center',
-                        overlayY: 'bottom',
-                        offsetY: -5
-                    }];
-                    break;
-                }
-            case 'bottom':
-            default:
-                {
-                    result = [{
-                        originX: 'center',
-                        originY: 'bottom',
-                        overlayX: 'center',
-                        overlayY: 'top',
-                        offsetY: 5
-                    }];
-                    break;
-                }
-        }
-        return result;
     }
 
     open() {

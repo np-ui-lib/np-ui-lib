@@ -11,9 +11,9 @@ export class NpPopoverDemoComponent implements OnInit {
   importText = 'import { NpPopoverModule } from \'np-ui-lib\';';
   htmlText = `<a np-popover [header]="'Link header'" [body]="'Link Description.'">Link</a>`;
 
-  @ViewChild('myPopoverD') myPopoverD: NpPopoverDirective;
-  @ViewChild('myPopoverE') myPopoverE: NpPopoverDirective;
-  @ViewChild('myPopoverF') myPopoverF: NpPopoverDirective;
+  @ViewChild('myPopover1') myPopover1: NpPopoverDirective;
+  @ViewChild('myPopover2') myPopover2: NpPopoverDirective;
+  @ViewChild('myPopover3') myPopover3: NpPopoverDirective;
 
   constructor() { }
 
@@ -21,17 +21,17 @@ export class NpPopoverDemoComponent implements OnInit {
   }
 
   openStep2Popover() {
-    this.myPopoverD.close();
-    this.myPopoverE.open();
+    this.myPopover1.close();
+    this.myPopover2.open();
   }
 
   openStep3Popover() {
-    this.myPopoverE.close();
-    this.myPopoverF.open();
+    this.myPopover2.close();
+    this.myPopover3.open();
   }
 
   closeStep3Popover() {
-    this.myPopoverF.close();
+    this.myPopover3.close();
   }
 
   onOpen() {

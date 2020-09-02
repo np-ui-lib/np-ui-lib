@@ -1,6 +1,6 @@
 import {
   Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy,
-  OnChanges, SimpleChanges
+  OnChanges, SimpleChanges, TemplateRef
 } from '@angular/core';
 import { NpTreeViewItem } from './np-tree-view.model';
 
@@ -15,6 +15,7 @@ export class NpTreeViewComponent implements OnChanges {
   static controlCount = 1;
 
   @Input() items: NpTreeViewItem[];
+  @Input() template: TemplateRef<any>;
   /* Selection mode can be single or multiple */
   @Input() selectionMode: string;
   @Input() selection: any[];

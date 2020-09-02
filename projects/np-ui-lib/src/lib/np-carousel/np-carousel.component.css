@@ -32,6 +32,10 @@
     transition: background-color 0.6s ease;
 }
 
-.np-carousel-dot-active, .np-carousel-dot:hover {
+.np-carousel-dot-active {
+    background-color: #007bff;
+}
+
+.np-carousel-dot:hover {
     background-color: #717171;
 }

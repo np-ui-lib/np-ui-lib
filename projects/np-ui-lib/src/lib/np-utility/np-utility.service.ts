@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ConnectedPosition } from '@angular/cdk/overlay';
 @Injectable()
 export class NpUtilityService {
     isEqual(value: any, other: any) {
@@ -88,7 +89,6 @@ export class NpUtilityService {
         }
         return result;
     }
-
     private getMonth(month) {
         let result = 0;
         switch (month) {
@@ -139,6 +139,57 @@ export class NpUtilityService {
             case 'dec':
                 result = 11;
                 break;
+        }
+        return result;
+    }
+    getPosition(placement: string): ConnectedPosition[] {
+        let result: ConnectedPosition[];
+        switch (placement) {
+            case 'left':
+                {
+                    result = [{
+                        originX: 'start',
+                        originY: 'center',
+                        overlayX: 'end',
+                        overlayY: 'center',
+                        offsetX: -5
+                    }];
+                    break;
+                }
+            case 'right':
+                {
+                    result = [{
+                        originX: 'end',
+                        originY: 'center',
+                        overlayX: 'start',
+                        overlayY: 'center',
+                        offsetX: 5
+                    }];
+                    break;
+                }
+            case 'top':
+                {
+                    result = [{
+                        originX: 'center',
+                        originY: 'top',
+                        overlayX: 'center',
+                        overlayY: 'bottom',
+                        offsetY: -5
+                    }];
+                    break;
+                }
+            case 'bottom':
+            default:
+                {
+                    result = [{
+                        originX: 'center',
+                        originY: 'bottom',
+                        overlayX: 'center',
+                        overlayY: 'top',
+                        offsetY: 5
+                    }];
+                    break;
+                }
         }
         return result;
     }

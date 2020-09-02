@@ -50,7 +50,7 @@ export class NpListComponent implements OnInit {
   }
 
   _isSelected(item) {
-    return this._getSelectedIndexOfItem(item) > -1;
+    return this.allowSelection && this._getSelectedIndexOfItem(item) > -1;
   }
 
   _getSelectedIndexOfItem(item: any) {
