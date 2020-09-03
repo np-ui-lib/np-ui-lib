@@ -102,3 +102,24 @@
 .np-steps-vertical .np-step-title {
     margin: 0px;
 }
+
+.np-steps-vertical .np-step-done {
+    border-right: 2px solid #449d44;
+    border-bottom: none;
+    padding-right: 8px;
+    padding-top: 0px;
+}
+
+.np-steps-vertical .np-step-error {
+    border-right: 2px solid #c9302c;
+    border-bottom: none;
+    padding-right: 8px;
+    padding-top: 0px;
+}
+
+.np-steps-vertical .np-step-active {
+    border-right: 2px solid #007bff;
+    border-bottom: none;
+    padding-right: 8px;
+    padding-top: 0px;
+}

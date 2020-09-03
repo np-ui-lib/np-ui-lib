@@ -29,6 +29,7 @@ npm i np-ui-lib
 1.  Menubar
 1.  Breadcrumb
 1.  Data Grid
+1.  Paginator
 1.  Alert
 1.  Notification
 1.  Tooltip

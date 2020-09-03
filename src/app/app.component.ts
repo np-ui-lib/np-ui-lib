@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-menubar-demo', label: 'Menubar' }),
     new NpMenuItem({ routerLink: '/np-breadcrumb-demo', label: 'Breadcrumb' }),
     new NpMenuItem({ routerLink: '/np-data-grid-demo', label: 'Data Grid', items: this.dataGridItems }),
+    new NpMenuItem({ routerLink: '/np-paginator-demo', label: 'Paginator' }),
     new NpMenuItem({ routerLink: '/np-panel-demo', label: 'Panel' }),
     new NpMenuItem({ routerLink: '/np-accordion-demo', label: 'Accordion' }),
     new NpMenuItem({ routerLink: '/np-tabs-demo', label: 'Tabs' }),

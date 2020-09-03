@@ -147,6 +147,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-steps-demo/np-steps-demo.module').then(m => m.NpStepsDemoModule)
   },
   {
+    path: 'np-paginator-demo',
+    loadChildren: () => import('./np-paginator-demo/np-paginator-demo.module').then(m => m.NpPaginatorDemoModule)
+  },
+  {
     path: '',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

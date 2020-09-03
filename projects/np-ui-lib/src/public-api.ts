@@ -156,3 +156,7 @@ export * from './lib/np-steps/np-steps.module';
 export * from './lib/np-steps/np-steps.component';
 export * from './lib/np-steps/np-step.component';
 export * from './lib/np-steps/np-step-buttons.directive';
+
+/*Paginator */
+export * from './lib/np-paginator/np-paginator.module';
+export * from './lib/np-paginator/np-paginator.component';

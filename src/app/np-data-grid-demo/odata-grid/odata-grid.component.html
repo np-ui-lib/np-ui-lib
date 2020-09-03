@@ -14,13 +14,3 @@
     [enableStateStoring]="true" [showSummary]="true" [summaryTemplate]="summaryTemplate" [isServerOperations]="true"
     [isODataOperations]="true" (onLoadData)="onLoadData($event)">
 </np-data-grid>
-
-<!-- Template for birthdate column -->
-<ng-template #birthDateColumnTemplate let-row="row">
-    {{row.BirthDate | date:'dd/MM/yyyy'}}
-</ng-template>
-
-<!-- Template for summary column -->
-<ng-template #summaryTemplate let-summary="summary">
-    <span>Total:{{summary ? summary.totalCount : 0}}</span>
-</ng-template>

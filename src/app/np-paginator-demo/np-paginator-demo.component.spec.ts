@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NpAlertComponent } from './np-alert.component';
+import { NpPaginatorDemoComponent } from './np-paginator-demo.component';
 
-describe('NpAlertComponent', () => {
-  let component: NpAlertComponent;
-  let fixture: ComponentFixture<NpAlertComponent>;
+describe('NpPaginatorDemoComponent', () => {
+  let component: NpPaginatorDemoComponent;
+  let fixture: ComponentFixture<NpPaginatorDemoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NpAlertComponent ]
+      declarations: [ NpPaginatorDemoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NpAlertComponent);
+    fixture = TestBed.createComponent(NpPaginatorDemoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
