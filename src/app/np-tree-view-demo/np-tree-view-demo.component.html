@@ -42,9 +42,9 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>template</td>
+                        <td>itemTemplate</td>
                         <td>
-                            Set template for each node
+                            Set template for each item
                             <pre><code [innerText]="itemTemplateText"></code></pre>
                         </td>
                         <td>TemplateRef&lt;any&gt;</td>
@@ -267,7 +267,7 @@
 
         <fieldset>
             <legend>Treeview multiple selection with template</legend>
-            <np-tree-view [items]="items3" #treeview3 [template]="nodeTemplate" [(selection)]="selection3"
+            <np-tree-view [items]="items3" #treeview3 [itemTemplate]="itemTemplate" [(selection)]="selection3"
                 [selectionMode]="'multiple'">
             </np-tree-view>
             <div>Selected value : {{selection3 | json}}</div>
@@ -275,8 +275,8 @@
                 <button class="np-btn" (click)="selectAll()">Select All</button>
                 <button class="np-btn" (click)="deselectAll()">Deselect All</button>
             </div>
-            <ng-template #nodeTemplate let-item="item">
-                {{item.label}}, {{item.key}}
+            <ng-template #itemTemplate let-item="item">
+                ({{item.data.id}}) {{item.label}}
             </ng-template>
         </fieldset>
     </np-tab>

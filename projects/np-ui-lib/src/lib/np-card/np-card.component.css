@@ -1,7 +1,7 @@
 .np-card {
     background-color: #ffffff;
     overflow: hidden;
-    margin: 5px;
+    margin-bottom: 5px;
     border: 1px solid #9e9e9e;
     border-radius: 2px;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
@@ -20,7 +20,7 @@
 }
 
 .np-card-body {
-    padding: 10px;
+    margin: 10px;
     overflow: auto;
 }
 

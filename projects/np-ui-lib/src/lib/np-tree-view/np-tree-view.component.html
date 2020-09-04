@@ -25,10 +25,10 @@
             <input *ngIf="selectionMode" type="checkbox" class="np-treeview-checkbox" [checked]="_isSelected(item)"
                 [indeterminate]="item.partiallySelected" (change)="_changeSelection($event,item)">
             <span (click)="_onClick(item)">
-                <ng-container *ngIf="!template; else treeViewLabelTemp">
+                <ng-container *ngIf="!itemTemplate; else treeViewLabelTemp">
                     <i *ngIf="item.iconCss" [ngClass]="item.iconCss"></i>{{item.label}}
                 </ng-container>
-                <ng-template #treeViewLabelTemp [ngTemplateOutlet]="template"
+                <ng-template #treeViewLabelTemp [ngTemplateOutlet]="itemTemplate"
                     [ngTemplateOutletContext]="{ item: item }">
                 </ng-template>
             </span>

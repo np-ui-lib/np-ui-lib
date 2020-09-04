@@ -130,7 +130,10 @@
         <fieldset>
             <legend>Number box</legend>
             <np-number-box [(ngModel)]="number1" [autoFocus]="true"></np-number-box>
-            <button class="np-btn" (click)="setNumber1()">Set 100</button> value: {{number1}}
+            value: {{number1}}
+            <div class="np-btn-group">
+                <button class="np-btn" (click)="setNumber1()">Set 100</button>
+            </div>
         </fieldset>
 
         <fieldset>
@@ -148,7 +151,9 @@
             <div class="np-text-danger" *ngIf="number3Control.errors && number3Control.errors.max">
                 More then max value.
             </div>
-            <button class="np-btn" (click)="setNumber3()">Set 101</button>
+            <div class="np-btn-group">
+                <button class="np-btn" (click)="setNumber3()">Set 101</button>
+            </div>
         </fieldset>
 
         <fieldset>

@@ -13,8 +13,9 @@
 - Add onOpen and onClose methods to popover
 - Add closeOnClickOutside in popover
 - backdrop CSS class name enhancements
-- Add template property in treeview
-- Ad new paginator component
+- Add itemTemplate property in treeview
+- Add new paginator component
+- Replace datagrid paginator with new paginator component
 
 ## 10.3.2
 - Resolved client side filter issue for date in data grid

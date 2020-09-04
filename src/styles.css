@@ -9,11 +9,11 @@ body {
 }
 
 .myClass {
-    border: 1px solid blue !important;
+    border: 1px solid #007bff !important;
 }
 
 .myBackDrop {
-    background-color: blue;
+    background-color: #007bff;
     opacity: 0.3!important;
 }
 
@@ -43,23 +43,20 @@ body {
 }
 
 header {
-    background-color: #000000;
+    background-color: #007bff;
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
     z-index: 1000;
     height: 50px;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
 
 .header-menu-btn {
     cursor: pointer;
     color: #ffffff;
     font-size: 1.5rem;
-}
-
-.header-menu-btn:hover {
-    color: #007bff;
 }
 
 .header-menu-btn i {
@@ -124,11 +121,9 @@ article {
 
 footer {
     text-align: center;
-    background-color: #000000;
-    color: #ffffff;
-    padding: 2px;
+    background-color: #e1f5fe;
+    padding: 5px;
     width: 100%;
-    min-height: 25px;
 }
 
 .sub-header {

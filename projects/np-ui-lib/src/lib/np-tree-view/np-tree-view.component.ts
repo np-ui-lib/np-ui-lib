@@ -15,7 +15,7 @@ export class NpTreeViewComponent implements OnChanges {
   static controlCount = 1;
 
   @Input() items: NpTreeViewItem[];
-  @Input() template: TemplateRef<any>;
+  @Input() itemTemplate: TemplateRef<any>;
   /* Selection mode can be single or multiple */
   @Input() selectionMode: string;
   @Input() selection: any[];

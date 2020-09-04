@@ -8,15 +8,14 @@ import { Column } from './models/column.model';
 import { Filters, DataTypes, FilterTypes, SortDirections } from './models/constants';
 import { DataSource } from './models/data-source.model';
 import { LoadOptions } from './models/load-options.model';
-import { Pager } from './models/pager.model';
 import { State } from './models/state.model';
 import { NpFileService } from './services/np-file.service';
 import { NpFilterService } from './services/np-filter.service';
 import { NpODataService } from './services/np-odata.service';
-import { NpPagerService } from './services/np-pager.service';
 import { NpGridUtilityService } from './services/np-grid-utility.service';
 import { NpDialogComponent } from '../np-dialog/np-dialog.component';
 import { TopBottomOverlayPositions } from '../np-utility/np-constants';
+import { NpPaginatorComponent } from '../np-paginator/np-paginator.component';
 
 @Component({
   selector: 'np-data-grid',
@@ -72,12 +71,12 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   @ViewChild('saveNewStateModal') saveNewStateModal: NpDialogComponent;
   @ViewChild('editStateModal') editStateModal: NpDialogComponent;
   @ViewChild('deleteStateModal') deleteStateModal: NpDialogComponent;
+  @ViewChild('gridPaginator') gridPaginator: NpPaginatorComponent;
 
   columnsClone: Column[];
   dataSourceClone: DataSource;
   subscription: Subscription;
   currentViewData: any[];
-  pagerObj: Pager;
   totalRow = 0;
   filtersList: any[];
   sortColumnList: any[];
@@ -97,12 +96,12 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   summaryData: any;
   searchColumnsKeyword: string;
   nameAlreadyExistError = false;
+  isDataSourceInit = false;
 
   private columnChooserTemplatePortal: TemplatePortal<any>;
   private columnChooserOverlayRef: OverlayRef;
 
   constructor(
-    private pagerService: NpPagerService,
     private filterService: NpFilterService,
     private utilityService: NpGridUtilityService,
     private oDataService: NpODataService,
@@ -135,9 +134,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       this.keyColumnName = this.columnsClone[0].dataField;
     }
     this.subscribeDataSource();
-    if (this.isServerOperations) {
-      this._getCurrentViewData(1);
-    }
   }
 
   ngAfterViewInit() {
@@ -179,13 +175,13 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
             }
           }
         }
-        this.pagerObj = this.pagerService.getPager(this.totalRow, this.pagerObj.currentPage, this.pageSize);
       }
       else {
         this.dataSourceClone = new DataSource(ds.data, ds.data.length, ds.summary);
         this.totalRow = ds.data.length;
         this.summaryData = ds.summary;
-        this._getCurrentViewData(1);
+        this.isDataSourceInit = true;
+        this.gridPaginator.refresh();
       }
     });
   }
@@ -196,19 +192,12 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
   }
 
-  _getCurrentViewData(currentPageNumber: number) {
-    if (currentPageNumber === 0) {
-      currentPageNumber = 1;
-    }
-    if (this.pagerObj && this.pagerObj.totalPages > 0 && currentPageNumber > this.pagerObj.totalPages) {
-      currentPageNumber = this.pagerObj.totalPages;
-    }
-    this.pagerObj = this.pagerService.getPager(this.totalRow, currentPageNumber, this.pageSize);
+  onPageChange(options: any) {
     if (this.isServerOperations) {
       const loadOpt = new LoadOptions();
       if (this.isODataOperations) {
-        const top = this.pageSize;
-        const skip = (currentPageNumber - 1) * this.pageSize;
+        const top = options.pageSize;
+        const skip = (options.currentPage - 1) * options.pageSize;
         loadOpt.odataQuery = this.oDataService.buildQuery(top, skip, this.sortColumnList, this.filterColumnList);
         loadOpt.pageNumber = 0;
         loadOpt.pageSize = 0;
@@ -216,8 +205,8 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
         loadOpt.filterColumns = [];
         loadOpt.isAllPages = false;
       } else {
-        loadOpt.pageNumber = currentPageNumber;
-        loadOpt.pageSize = this.pageSize;
+        loadOpt.pageNumber = options.currentPage;
+        loadOpt.pageSize = options.pageSize;
         loadOpt.sortColumns = this.sortColumnList;
         loadOpt.filterColumns = this.filterColumnList;
         loadOpt.isAllPages = false;
@@ -225,7 +214,12 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       }
       this.onLoadData.emit(loadOpt);
     } else {
-      this.currentViewData = this.dataSourceClone.data.slice(this.pagerObj.startIndex, this.pagerObj.endIndex + 1);
+      if (!this.isDataSourceInit) {
+        return;
+      }
+      const start = (options.currentPage - 1) * options.pageSize;
+      const end = Math.min(start + options.pageSize - 1, this.totalRow - 1);
+      this.currentViewData = this.dataSourceClone.data.slice(start, end + 1);
     }
   }
 
@@ -243,10 +237,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       (element: Column) => { if (element.visible === true) { return element; } });
     this.isFilterAvailable = this.utilityService.custFilter(this.columnsClone,
       (element) => { if (element.filterEnable === true && element.visible === true) { return element; } }).length > 0;
-  }
-
-  _onPageSizeChange() {
-    this._getCurrentViewData(1);
   }
 
   _onCellClick($event: any, column: Column, data: any) {
@@ -286,7 +276,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     if (!this.isServerOperations) {
       this._sortDataSource();
     }
-    this._getCurrentViewData(1);
+    this.gridPaginator.loadPage(1);
   }
 
   _sortDataSource() {
@@ -321,7 +311,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
         this.dataSourceClone.data = this.utilityService.custSort(this.dataSourceClone.data, element.dataField, element.sortDirection);
       }
     }
-    this._getCurrentViewData(1);
+    this.gridPaginator.loadPage(1);
   }
 
   _resetDataSource() {
@@ -360,7 +350,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       this._filterDataSource();
       this._sortDataSource();
     }
-    this._getCurrentViewData(1);
+    this.gridPaginator.loadPage(1);
   }
 
   _filterDataSource() {
@@ -552,14 +542,13 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     this.isAllSelected = false;
     this.isOpenColumnChooser = false;
     this.currentStateName = '';
-    this.pagerObj = this.pagerService.getPager(0, 1, this.pageSize);
     this._closeColumnChooser();
     if (this.isServerOperations) {
-      this._getCurrentViewData(1);
+      this.gridPaginator.loadPage(1);
     }
     else {
       this._resetDataSource();
-      this._getCurrentViewData(1);
+      this.gridPaginator.loadPage(1);
     }
   }
 
@@ -626,7 +615,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * @param pageNumber page number
    */
   goToPage(pageNumber: number) {
-    this._getCurrentViewData(pageNumber);
+    this.gridPaginator.loadPage(pageNumber);
   }
 
   /**
@@ -661,14 +650,14 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * get total row count
    */
   getTotalRows() {
-    return this.pagerObj.totalItems;
+    return this.totalRow;
   }
 
   /**
    * get current page number
    */
   getCurrentPageNumber() {
-    return this.pagerObj.currentPage;
+    return this.gridPaginator.currentPage;
   }
 
   /**
@@ -682,7 +671,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    * get total pages number
    */
   getTotalPages() {
-    return this.pagerObj.totalPages;
+    return this.gridPaginator.totalPages;
   }
 
   /**
@@ -739,7 +728,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       this._filterDataSource();
       this._sortDataSource();
     }
-    this._getCurrentViewData(1);
+    this.gridPaginator.loadPage(1);
     this._setVisibleColumns();
     this.selectedRowKeys = [];
     this.openRowKeys = [];
@@ -850,7 +839,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _onRefresh() {
-    this._getCurrentViewData(this.pagerObj.currentPage);
+    this.gridPaginator.refresh();
   }
 
   _onResetColumns() {
@@ -874,7 +863,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
         loadOpt.isAllPages = true;
       } else {
         loadOpt.pageNumber = 1;
-        loadOpt.pageSize = this.pagerObj.totalItems;
+        loadOpt.pageSize = this.totalRow;
         loadOpt.sortColumns = this.sortColumnList;
         loadOpt.filterColumns = this.filterColumnList;
         loadOpt.isAllPages = true;
@@ -888,7 +877,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
         loadOpt.isAllPages = true;
       } else {
         loadOpt.pageNumber = 1;
-        loadOpt.pageSize = this.pagerObj.totalItems;
+        loadOpt.pageSize = this.totalRow;
         loadOpt.sortColumns = this.sortColumnList;
         loadOpt.filterColumns = this.filterColumnList;
         loadOpt.isAllPages = true;
@@ -904,7 +893,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    */
   removeAllSorting() {
     this._removeAllSorting();
-    this._getCurrentViewData(1);
+    this.gridPaginator.loadPage(1);
   }
 
   /**
@@ -912,7 +901,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
    */
   removeAllFilters() {
     this._removeAllFilters();
-    this._getCurrentViewData(1);
+    this.gridPaginator.loadPage(1);
   }
 
   _showAllColumns() {
@@ -924,10 +913,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   _clearColumnSearch() {
     this.searchColumnsKeyword = null;
-  }
-
-  _getCurrentPageStatistics() {
-    return `per page / ${this.pagerObj.startIndex >= 0 ? this.pagerObj.startIndex + 1 : 0} - ${this.pagerObj.endIndex + 1} of ${this.pagerObj.totalItems}`;
   }
 
   _allowRowSelection() {
