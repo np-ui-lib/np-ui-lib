@@ -60,6 +60,7 @@ export * from './lib/np-carousel/np-carousel.component';
 export * from './lib/np-tabs/np-tabs.module';
 export * from './lib/np-tabs/np-tabs.component';
 export * from './lib/np-tabs/np-tab.component';
+export * from './lib/np-tabs/np-tab-content.directive';
 
 /*Accordion */
 export * from './lib/np-accordion/np-accordion.module';

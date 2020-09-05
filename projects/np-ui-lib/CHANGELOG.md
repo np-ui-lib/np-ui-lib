@@ -16,6 +16,7 @@
 - Add itemTemplate property in treeview
 - Add new paginator component
 - Replace datagrid paginator with new paginator component
+- Add lazy loading in tabs
 
 ## 10.3.2
 - Resolved client side filter issue for date in data grid

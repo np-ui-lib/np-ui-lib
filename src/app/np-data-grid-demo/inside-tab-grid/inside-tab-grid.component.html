@@ -4,7 +4,9 @@
 
 <np-tabs title="Emplyee List" [height]="500">
     <np-tab [title]="'Employees'" [id]="'tabEmployees'">
-        <np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [pageSize]="20" [height]="440">
-        </np-data-grid>
+        <ng-template npTabContent>
+            <np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [pageSize]="20" [height]="440">
+            </np-data-grid>
+        </ng-template>
     </np-tab>
 </np-tabs>

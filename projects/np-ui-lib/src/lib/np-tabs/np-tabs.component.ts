@@ -19,6 +19,8 @@ export class NpTabsComponent implements AfterContentInit {
   @Input() styleClass: string;
   @Input() inputId = `np-tabs_${NpTabsComponent.controlCount++}`;
 
+  selected: NpTabComponent;
+
   @Output() onTabChange: EventEmitter<any> = new EventEmitter();
 
   ngAfterContentInit() {
@@ -30,10 +32,12 @@ export class NpTabsComponent implements AfterContentInit {
       if (tabs) {
         this.tabs.toArray().forEach(tab => tab.active = false);
         tabs[0].active = true;
+        this.selected = tabs[0];
         this.onTabChange.emit(tabs[0]);
         tabs[0].isLoadFirstTime = false;
       }
     } else {
+      this.selected = activeTabs[0];
       this.onTabChange.emit(activeTabs[0]);
       activeTabs[0].isLoadFirstTime = false;
     }
@@ -45,6 +49,7 @@ export class NpTabsComponent implements AfterContentInit {
     }
     this.tabs.toArray().forEach(element => { if (element.inputId !== tab.inputId) { element.active = false; } });
     tab.active = true;
+    this.selected = tab;
     this.onTabChange.emit(tab);
     tab.isLoadFirstTime = false;
   }
@@ -74,10 +79,6 @@ export class NpTabsComponent implements AfterContentInit {
   }
 
   getSelectedTab() {
-    const idx = this.getSelectedTabIndex();
-    if (idx === -1) {
-      return null;
-    }
-    return this.tabs.toArray()[idx];
+    return this.selected;
   }
 }

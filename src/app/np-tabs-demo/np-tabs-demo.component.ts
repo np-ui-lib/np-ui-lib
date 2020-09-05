@@ -16,6 +16,11 @@ export class NpTabsDemoComponent implements OnInit {
   </np-tab>
   ...
 </np-tabs>`;
+  htmlLazyLoadText = `<np-tab title="Home">
+  <ng-template npTabContent>
+    ...lazy load content
+  </ng-template
+</np-tab>`;
 
   @ViewChild('tabs', { static: true }) tabs: NpTabsComponent;
   @ViewChild('tabs2', { static: true }) tabs2: NpTabsComponent;
