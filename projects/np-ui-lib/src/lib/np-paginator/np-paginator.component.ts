@@ -21,13 +21,16 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
   @Output() onPageChange: EventEmitter<any> = new EventEmitter();
 
   totalPages: number;
+  startIndex: number;
+  endIndex: number;
   inited = false;
 
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes && changes.totalItems) {
-      this.totalPages = this.calculateTotalPages();
+      this.totalPages = this._calculateTotalPages();
+      this._setStartEndIndex();
       if (this.currentPage > this.totalPages) {
         this._applyChanges();
       }
@@ -68,7 +71,7 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
 
   _applyChanges() {
     if (this.inited) {
-      this.totalPages = this.calculateTotalPages();
+      this.totalPages = this._calculateTotalPages();
     }
     if (this.currentPage > 0 && this.pageSize > 0 && this.totalPages > 0) {
       if (this.currentPage < 1) {
@@ -78,6 +81,7 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
         this.currentPage = this.totalPages;
       }
       this.onPageChange.emit({ currentPage: this.currentPage, pageSize: this.pageSize });
+      this._setStartEndIndex();
     }
   }
 
@@ -89,8 +93,18 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
     this.onPageChange.emit({ currentPage: this.currentPage, pageSize: this.pageSize });
   }
 
-  private calculateTotalPages(): number {
+  private _calculateTotalPages(): number {
     const result = this.pageSize < 1 ? 1 : Math.ceil(this.totalItems / this.pageSize);
     return Math.max(result || 0, 1);
+  }
+
+  private _setStartEndIndex() {
+    if (this.totalItems === 0) {
+      this.startIndex = -1;
+      this.endIndex = -1;
+      return;
+    }
+    this.startIndex = (this.currentPage - 1) * this.pageSize;
+    this.endIndex = Math.min(this.startIndex + this.pageSize - 1, this.totalItems - 1);
   }
 }

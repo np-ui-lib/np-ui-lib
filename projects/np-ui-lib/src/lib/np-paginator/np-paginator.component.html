@@ -38,13 +38,16 @@
             </svg>
         </button>
     </div>
-    <div class="np-toolbar-spacer"></div>
+    <div class="np-paginator-spacer"></div>
+    <div class="np-paginator-item" *ngIf="showPageSize">
+        Items per page
+    </div>
     <div class="np-paginator-item" *ngIf="showPageSize">
         <input type="number" class="np-form-control np-paginator-page-size" [value]="pageSize" [min]="1" [max]="100"
             (change)="_onItemPerPageChange($event)">
     </div>
     <div class="np-paginator-item" *ngIf="showTotal">
-        Total: {{totalItems}}
+        {{startIndex + 1}}-{{endIndex + 1}} of {{totalItems}}
     </div>
     <div class="np-paginator-item">
         <button type="button" class="np-btn-icon np-paginator-refresh" title="Refresh" (click)="refresh()">
