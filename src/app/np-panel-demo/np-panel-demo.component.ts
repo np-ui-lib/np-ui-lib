@@ -13,6 +13,11 @@ export class NpPanelDemoComponent implements OnInit {
   htmlText = `<np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true" [styleClass]="'np-pn-danger'" [height]="200">
   Panel Body content...
 </np-panel>`;
+  lazyLoadText = `<np-panel [title]="'Details'">
+  <ng-template npPanelContent>
+  ...lazy load content
+  </ng-tempalte>
+</panel>`;
 
   title = 'What is paragraph?';
   pnl2Disabled = false;

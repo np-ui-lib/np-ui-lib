@@ -36,6 +36,7 @@ export * from './lib/np-auto-complete/np-auto-complete.component';
 /*Panel */
 export * from './lib/np-panel/np-panel.module';
 export * from './lib/np-panel/np-panel.component';
+export * from './lib/np-panel/np-panel-content.directive';
 
 /*Utility */
 export * from './lib/np-utility/np-utility.module';
@@ -66,6 +67,7 @@ export * from './lib/np-tabs/np-tab-content.directive';
 export * from './lib/np-accordion/np-accordion.module';
 export * from './lib/np-accordion/np-accordion.component';
 export * from './lib/np-accordion/np-accordion-item/np-accordion-item.component';
+export * from './lib/np-accordion/np-accordion-item/np-accordion-content.directive';
 
 /*Alert */
 export * from './lib/np-alert/np-alert.module';

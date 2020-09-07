@@ -9,7 +9,6 @@
             <ng-template *ngIf="isTitleTemplate" [ngTemplateOutlet]="title">
             </ng-template>
         </div>
-
         <div class="np-accordion-icons">
             <button *ngIf="isOpen" type="button" class="np-btn-icon np-accordion-collapse" title="Collapse"
                 (click)="_collapse()">
@@ -30,5 +29,6 @@
 
     <div class="np-accordion-body" *ngIf="isOpen">
         <ng-content></ng-content>
+        <ng-template [cdkPortalOutlet]="content"></ng-template>
     </div>
 </div>

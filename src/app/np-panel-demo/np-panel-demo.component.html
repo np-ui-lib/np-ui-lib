@@ -18,6 +18,10 @@
                 <div>
                     <pre><code [innerText]="htmlText"></code></pre>
                 </div>
+                <b>How to set lazy loading for panel?</b>
+                <div>
+                    <pre><code [innerText]="lazyLoadText"></code></pre>
+                </div>
             </np-card-body>
         </np-card>
         <np-card>
@@ -138,12 +142,15 @@
                 <div class="np-col np-col-sm-12 np-col-md-6">
                     <np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true"
                         [iconCss]="'fa fa-home'" [styleClass]="'np-pn-success'" [disabled]="pnl2Disabled">
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
+                        <ng-template npPanelContent>
+                            <p>
+                                A paragraph is a series of related sentences developing a central idea, called the
+                                topic.
+                                Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
+                                group of sentences that supports one central, unified idea. Paragraphs add
+                                one idea at a time to your broader argument.
+                            </p>
+                        </ng-template>
                     </np-panel>
                 </div>
                 <div class="np-col np-col-12">

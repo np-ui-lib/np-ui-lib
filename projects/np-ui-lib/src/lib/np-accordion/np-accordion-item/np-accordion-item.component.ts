@@ -1,4 +1,9 @@
-import { Component, Input, TemplateRef, ViewEncapsulation, ChangeDetectionStrategy, Output, EventEmitter, AfterContentInit } from '@angular/core';
+import {
+  Component, Input, TemplateRef, ViewEncapsulation, ChangeDetectionStrategy, Output,
+  EventEmitter, ContentChild, ViewChild, ViewContainerRef, OnInit
+} from '@angular/core';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { NpAccordionContent } from './np-accordion-content.directive';
 
 @Component({
   selector: 'np-accordion-item',
@@ -6,7 +11,7 @@ import { Component, Input, TemplateRef, ViewEncapsulation, ChangeDetectionStrate
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class NpAccordionItemComponent implements AfterContentInit {
+export class NpAccordionItemComponent implements OnInit {
   static controlCount = 1;
 
   @Input() title: string | TemplateRef<any>;
@@ -22,11 +27,23 @@ export class NpAccordionItemComponent implements AfterContentInit {
 
   isTitleTemplate: boolean;
 
-  constructor() { }
+  @ContentChild(NpAccordionContent, { read: TemplateRef, static: true }) _explicitContent: TemplateRef<any>;
+  private _contentPortal: TemplatePortal | null = null;
+  get content(): TemplatePortal | null {
+    return this._contentPortal;
+  }
 
-  ngAfterContentInit(): void {
+  constructor(private _viewContainerRef: ViewContainerRef) {
+  }
+
+  ngOnInit(): void {
     if (this.title instanceof TemplateRef) {
       this.isTitleTemplate = true;
+    }
+    if (this.isOpen) {
+      if (!this._contentPortal && this._explicitContent) {
+        this._contentPortal = new TemplatePortal(this._explicitContent, this._viewContainerRef);
+      }
     }
   }
 
@@ -35,6 +52,9 @@ export class NpAccordionItemComponent implements AfterContentInit {
       return;
     }
     this.isOpen = true;
+    if (!this._contentPortal && this._explicitContent) {
+      this._contentPortal = new TemplatePortal(this._explicitContent, this._viewContainerRef);
+    }
     this._onExpand.emit(this);
   }
 

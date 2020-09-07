@@ -18,6 +18,10 @@
                 <div>
                     <pre><code [innerText]="htmlText"></code></pre>
                 </div>
+                <b>How to set lazy loading for accordion?</b>
+                <div>
+                    <pre><code [innerText]="lazyLoadText"></code></pre>
+                </div>
             </np-card-body>
         </np-card>
         <np-card>
@@ -220,22 +224,33 @@
         <fieldset>
             <np-accordion [defaultOpenIndex]="1" [allowMultipleOpen]="allowMultipleOpen" #accordionDemo
                 (onExpand)="onExpand($event)" (onCollapse)="onCollapse($event)">
-                <np-accordion-item inputId="item1" [title]="'Paragraph 1'">
-                    <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
-                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
-                        sentences that supports one central, unified idea. Paragraphs add
-                        one idea at a time to your broader argument.
-                    </p>
+                <np-accordion-item inputId="item1" [title]="para1Header">
+                    <ng-template #para1Header>
+                        <i class="fa fa-home"></i>Paragraph 1
+                    </ng-template>
+                    <ng-template npAccordionContent>
+                        <p>
+                            A paragraph 1 is a series of related sentences developing a central idea, called the topic.
+                            Try
+                            to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group
+                            of
+                            sentences that supports one central, unified idea. Paragraphs add
+                            one idea at a time to your broader argument.
+                        </p>
+                    </ng-template>
                 </np-accordion-item>
 
                 <np-accordion-item inputId="item2" [title]="'Paragraph 2'" [disabled]="item2Disabled">
-                    <p>
-                        A paragraph is a series of related sentences developing a central idea, called the topic. Try to
-                        think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
-                        sentences that supports one central, unified idea. Paragraphs add
-                        one idea at a time to your broader argument.
-                    </p>
+                    <ng-template npAccordionContent>
+                        <p>
+                            A paragraph 2 is a series of related sentences developing a central idea, called the topic.
+                            Try
+                            to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group
+                            of
+                            sentences that supports one central, unified idea. Paragraphs add
+                            one idea at a time to your broader argument.
+                        </p>
+                    </ng-template>
                 </np-accordion-item>
 
                 <np-accordion-item inputId="item3" [title]="'Paragraph 3'" [height]="200">

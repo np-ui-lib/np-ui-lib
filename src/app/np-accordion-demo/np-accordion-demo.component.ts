@@ -18,6 +18,11 @@ export class NpAccordionDemoComponent implements OnInit {
   </np-accordion-item>
   ...
 </np-accordion>`;
+  lazyLoadText = `<np-accordion-item [title]="'Details'">
+  <ng-template npAccordionContent>
+  ...lazy load content
+  </ng-tempalte>
+</np-accordion-item>`;
 
   @ViewChild('accordionDemo', { static: true }) accordionDemo: NpAccordionComponent;
   allowMultipleOpen = false;
