@@ -34,15 +34,6 @@ export class NpTabsDemoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  loadTab4() {
-    this.tabs.selectTabByIndex(3);
-  }
-
-  loadTabById() {
-    this.tabs.selectTabById('tab2');
-
-  }
-
   onTabChange(tab) {
     console.log(`tab changed to ${tab.title}, is load first time : ${tab.isLoadFirstTime}`);
   }

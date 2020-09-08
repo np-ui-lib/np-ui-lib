@@ -1,14 +1,17 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef, OnInit, ViewChild, ViewContainerRef, ContentChild } from '@angular/core';
+import {
+    Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef, OnInit,
+    ViewChild, ViewContainerRef, ContentChild, OnDestroy
+} from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { NpTabContent } from './np-tab-content.directive';
 
 @Component({
     selector: 'np-tab',
-    template: '<ng-template><div [attr.id]="inputId"><ng-content></ng-content></div></ng-template>',
+    template: '<ng-template><ng-content></ng-content></ng-template>',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpTabComponent implements OnInit {
+export class NpTabComponent implements OnInit, OnDestroy {
     static controlCount = 1;
 
     @Input() title: string | TemplateRef<any>;
@@ -35,6 +38,12 @@ export class NpTabComponent implements OnInit {
             this.titleIsTemplate = true;
         }
         this._contentPortal = new TemplatePortal(this._explicitContent || this._implicitContent, this._viewContainerRef);
+    }
+
+    ngOnDestroy(): void {
+        if (this._contentPortal && this._contentPortal.isAttached) {
+            this._contentPortal.detach();
+        }
     }
 
     _isActive() {

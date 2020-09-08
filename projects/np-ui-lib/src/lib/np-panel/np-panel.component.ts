@@ -1,6 +1,6 @@
 import {
   Component, ViewEncapsulation, ChangeDetectionStrategy, Input, TemplateRef,
-  Output, EventEmitter, ElementRef, ContentChild, ViewContainerRef, OnInit
+  Output, EventEmitter, ElementRef, ContentChild, ViewContainerRef, OnInit, OnDestroy
 } from '@angular/core';
 import { NpPanelContent } from './np-panel-content.directive';
 import { TemplatePortal } from '@angular/cdk/portal';
@@ -12,7 +12,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpPanelComponent implements OnInit {
+export class NpPanelComponent implements OnInit, OnDestroy {
   static controlCount = 1;
 
   @Input() title: string | TemplateRef<any>;
@@ -92,5 +92,11 @@ export class NpPanelComponent implements OnInit {
       return;
     }
     this.el.nativeElement.remove();
+  }
+
+  ngOnDestroy(): void {
+    if (this._contentPortal && this._contentPortal.isAttached) {
+      this._contentPortal.detach();
+    }
   }
 }

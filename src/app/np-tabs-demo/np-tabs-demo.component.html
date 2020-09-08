@@ -269,10 +269,12 @@
                 </np-tabs>
 
                 <div class="np-btn-group">
-                    <button type="button" class="np-btn" (click)="loadTabById()">Open Tab 2 with Id</button>
+                    <button type="button" class="np-btn" (click)="tabs.selectTabById('tab2')">Open Tab 2 with
+                        Id</button>
                     <button type="button" class="np-btn" (click)="changeCount()">Change Title of Tab 2</button>
                     <button type="button" class="np-btn" (click)="ToggleTab3Disabled()">Toggle Tab 3 disabled</button>
-                    <button type="button" class="np-btn" (click)="loadTab4()">Open 4th Tab by index</button>
+                    <button type="button" class="np-btn" (click)="tabs.selectTabByIndex(3)">Open 4th Tab by
+                        index</button>
                     <button type="button" class="np-btn" (click)="toggleTab4()">Add/Remove Tab 4</button>
                 </div>
             </fieldset>

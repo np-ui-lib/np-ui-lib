@@ -2,7 +2,7 @@
     Progress
 </div>
 
-<np-tabs>
+<np-tabs (onTabChange)="onTabChange($event)">
     <np-tab title="Documentation">
         <np-card>
             <np-card-body>
@@ -62,7 +62,8 @@
                     <tr>
                         <td>styleClass</td>
                         <td>Set extra class on progress bar
-                            <br>Pre-defined classes are available like 'np-progress-success', 'np-progress-danger', 'np-progress-info',
+                            <br>Pre-defined classes are available like 'np-progress-success', 'np-progress-danger',
+                            'np-progress-info',
                             'np-progress-warning'
                         </td>
                         <td>string</td>
@@ -91,7 +92,8 @@
 
         <fieldset>
             <legend>Error + animated + height</legend>
-            <np-progress [value]="50" [styleClass]="'np-progress-danger'" [animated]="true" [showLabel]="false" [height]="5">
+            <np-progress [value]="50" [styleClass]="'np-progress-danger'" [animated]="true" [showLabel]="false"
+                [height]="5">
             </np-progress>
         </fieldset>
 

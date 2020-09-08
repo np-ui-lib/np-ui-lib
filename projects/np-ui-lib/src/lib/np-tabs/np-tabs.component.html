@@ -2,18 +2,18 @@
     [attr.id]="inputId">
     <div class="np-tabs-header">
         <ng-container *ngFor="let tab of tabs">
-            <div class="np-tab-title" (click)="_selectTab(tab)"
+            <a class="np-tab-title" [attr.id]="_getHeaderId(tab)" (click)="_selectTab(tab)"
                 [ngClass]="{ 'np-tab-active': tab.active, 'np-disabled': tab.disabled }">
                 <i *ngIf="tab.iconCss" [ngClass]="tab.iconCss"></i>
-                <ng-container *ngIf="!tab.titleIsTemplate">
-                    <div [innerHTML]="tab.title"></div>
-                </ng-container>
-                <ng-template *ngIf="tab.titleIsTemplate" [ngTemplateOutlet]="tab.title">
-                </ng-template>
-            </div>
+                <span *ngIf="!tab.titleIsTemplate" [innerHTML]="tab.title"></span>
+                <span *ngIf="tab.titleIsTemplate">
+                    <ng-template [ngTemplateOutlet]="tab.title">
+                    </ng-template>
+                </span>
+            </a>
         </ng-container>
     </div>
-    <div class="np-tab-body">
+    <div class="np-tab-body" [attr.id]="selected.inputId">
         <ng-template [cdkPortalOutlet]="selected.content"></ng-template>
     </div>
 </div>

@@ -1,14 +1,14 @@
 <div [ngClass]="{'np-accordion-item': true, 'np-disabled': disabled}" [style.max-height.px]="height"
     [class]="styleClass" [attr.id]="inputId">
     <div class="np-accordion-header">
-        <div class="np-accordion-title" (click)="_toggle()">
+        <a class="np-accordion-title" (click)="_toggle()">
             <i *ngIf="iconCss" [ngClass]="iconCss"></i>
             <ng-container *ngIf="!isTitleTemplate">
                 <div [innerHTML]="title"></div>
             </ng-container>
             <ng-template *ngIf="isTitleTemplate" [ngTemplateOutlet]="title">
             </ng-template>
-        </div>
+        </a>
         <div class="np-accordion-icons">
             <button *ngIf="isOpen" type="button" class="np-btn-icon np-accordion-collapse" title="Collapse"
                 (click)="_collapse()">

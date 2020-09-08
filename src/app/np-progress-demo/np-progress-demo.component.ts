@@ -10,20 +10,27 @@ export class NpProgressDemoComponent implements OnInit {
   importText = 'import { NpProgressModule } from \'np-ui-lib\';';
   htmlText = '<np-progress [value]="50"></np-progress>';
 
-  progressCount = 2;
+  progressCount: number;
 
   constructor() { }
 
   ngOnInit(): void {
-    const interval = setInterval(() => {
-      const progress = this.progressCount * 2;
-      if (progress > 100) {
-        this.progressCount = 100;
-        clearInterval(interval);
-      } else {
-        this.progressCount = progress;
-      }
-    }, 500);
+
+  }
+
+  onTabChange(tab) {
+    if (tab.title === 'Examples') {
+      this.progressCount = 2;
+      const interval = setInterval(() => {
+        const progress = this.progressCount * 2;
+        if (progress > 100) {
+          this.progressCount = 100;
+          clearInterval(interval);
+        } else {
+          this.progressCount = progress;
+        }
+      }, 500);
+    }
   }
 
 }

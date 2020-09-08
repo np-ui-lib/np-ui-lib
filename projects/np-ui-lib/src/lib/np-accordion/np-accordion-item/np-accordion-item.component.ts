@@ -1,6 +1,6 @@
 import {
   Component, Input, TemplateRef, ViewEncapsulation, ChangeDetectionStrategy, Output,
-  EventEmitter, ContentChild, ViewChild, ViewContainerRef, OnInit
+  EventEmitter, ContentChild, ViewContainerRef, OnInit, OnDestroy
 } from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { NpAccordionContent } from './np-accordion-content.directive';
@@ -11,7 +11,7 @@ import { NpAccordionContent } from './np-accordion-content.directive';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class NpAccordionItemComponent implements OnInit {
+export class NpAccordionItemComponent implements OnInit, OnDestroy {
   static controlCount = 1;
 
   @Input() title: string | TemplateRef<any>;
@@ -75,6 +75,12 @@ export class NpAccordionItemComponent implements OnInit {
       return;
     }
     this._expand();
+  }
+
+  ngOnDestroy(): void {
+    if (this._contentPortal && this._contentPortal.isAttached) {
+      this._contentPortal.detach();
+    }
   }
 
 }

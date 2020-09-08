@@ -81,4 +81,8 @@ export class NpTabsComponent implements AfterContentInit {
   getSelectedTab() {
     return this.selected;
   }
+
+  _getHeaderId(tab: NpTabComponent) {
+    return tab.inputId + '_title';
+  }
 }
