@@ -14,104 +14,25 @@
         </np-card>
         <np-card>
             <np-card-body>
-                <b>HTML</b>
+                <b>Inject NpModalService in component</b>
                 <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
+                    <pre><code [innerText]="serviceText"></code></pre>
                 </div>
+                <span class="np-text-info">Dialogs are using NpModalSercice to show overlays.
+                    <br>
+                    NpDialogComponent contains <b>type</b> and <b>message</b> properties which needs to pass in service.</span>
             </np-card-body>
         </np-card>
         <np-card>
             <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>message</td>
-                        <td>Message to display in dialog</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>type</td>
-                        <td>'alert' | 'prompt' | 'confirm'</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            open()
-                        </td>
-                        <td>
-                            Open modal
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            close()
-                        </td>
-                        <td>
-                            Close modal
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Methods</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onOkClick(string: value)
-                        </td>
-                        <td>
-                            Event to be called while ok button is clicked, <br>If type is prompt then value parameter
-                            returns textbox value, else value will be undefined.
-                        </td>
-                        <td>value</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onCancelClick()
-                        </td>
-                        <td>
-                            Event to be called while cancel button is clicked
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
+                <b>Component</b>
+                <div>
+                    <pre><code [innerHtml]="componentText"></code></pre>
+                </div>
             </np-card-body>
         </np-card>
     </np-tab>
     <np-tab title="Examples">
-        <np-dialog [type]="'alert'" [message]="'Saved successfully.'" #dialogAlert>
-        </np-dialog>
-        <np-dialog [type]="'prompt'" [message]="'Enter your name'" (onOkClick)="onPromptOkClick($event)"
-            (onCancelClick)="onCancelClick()" #dialogPrompt></np-dialog>
-        <np-dialog [type]="'confirm'" [message]="'Are you sure to delete?'" #dialogConfirm>
-        </np-dialog>
-
         <div class="np-btn-group">
             <button class="np-btn" (click)="openAlert()">Open Alert</button>
             <button class="np-btn" (click)="openPrompt()">Open Prompt</button>

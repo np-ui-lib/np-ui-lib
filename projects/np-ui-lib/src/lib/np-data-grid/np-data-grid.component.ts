@@ -16,6 +16,8 @@ import { NpGridUtilityService } from './services/np-grid-utility.service';
 import { NpDialogComponent } from '../np-dialog/np-dialog.component';
 import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 import { NpPaginatorComponent } from '../np-paginator/np-paginator.component';
+import { NpModalService } from '../np-modal/np-modal.service';
+import { NpModalConfig } from '../np-modal/np-modal.config';
 
 @Component({
   selector: 'np-data-grid',
@@ -68,9 +70,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   @Output() onServerExport: EventEmitter<LoadOptions> = new EventEmitter();
 
   @ViewChild('columnChooserTemplate') columnChooserTemplate: TemplateRef<any>;
-  @ViewChild('saveNewStateModal') saveNewStateModal: NpDialogComponent;
-  @ViewChild('editStateModal') editStateModal: NpDialogComponent;
-  @ViewChild('deleteStateModal') deleteStateModal: NpDialogComponent;
   @ViewChild('gridPaginator') gridPaginator: NpPaginatorComponent;
 
   columnsClone: Column[];
@@ -109,6 +108,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     public overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
+    private modalService: NpModalService,
     private elementRef: ElementRef) {
     this.sortColumnList = [];
     this.filtersList = Filters;
@@ -740,7 +740,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     for (const element of this.stateList) {
       if (element.name === currentStateName) {
         element.columns = columns;
-        this.editStateModal.open();
+        this.modalService.open(NpDialogComponent, null, { type: 'alert', message: 'Saved successfully.' });
       }
     }
     if (this.onStatesUpdate) {
@@ -749,11 +749,16 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _openDialogAddNewState() {
-    this.saveNewStateModal.open();
+    const promptAddNewState = this.modalService.open(NpDialogComponent,
+      null,
+      { type: 'prompt', message: 'Add New State' });
+    promptAddNewState.onClose.subscribe((data) => {
+      this._addState(data);
+    });
   }
 
   _addState(stateName: string) {
-    if (stateName && stateName.trim().length === 0) {
+    if (!stateName || stateName.trim().length === 0) {
       return;
     }
     const name = stateName.trim();
@@ -791,7 +796,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     if (this.onStatesUpdate) {
       this.onStatesUpdate.emit();
     }
-    this.deleteStateModal.open();
+    this.modalService.open(NpDialogComponent, null, { type: 'alert', message: 'Deleted successfully.' });
   }
 
   _loadState() {

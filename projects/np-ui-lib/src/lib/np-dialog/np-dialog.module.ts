@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NpDialogComponent } from './np-dialog.component';
-import { NpModalModule } from '../np-modal/np-modal.module';
 import { FormsModule } from '@angular/forms';
+import { NpModalModule } from '../np-modal/np-modal.module';
 
 @NgModule({
   declarations: [NpDialogComponent],

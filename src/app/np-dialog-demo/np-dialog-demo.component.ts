@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpDialogComponent } from 'np-ui-lib';
+import { Component, OnInit } from '@angular/core';
+import { NpModalService, NpDialogComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-dialog-demo',
@@ -8,40 +8,62 @@ import { NpDialogComponent } from 'np-ui-lib';
 })
 export class NpDialogDemoComponent implements OnInit {
 
-  importText = 'import { NpDialogModule } from \'np-ui-lib\';';
-  htmlText = `<np-dialog [type]="'alert'" [message]="'Saved successfully.'" (onOkClick)="onOkClick()" #dialogAlert>
-</np-dialog>`;
+  importText = `import { NpDialogModule } from 'np-ui-lib';
+import { NpModalModule } from 'np-ui-lib';`;
 
-  @ViewChild('dialogAlert', { static: true }) dialogAlert: NpDialogComponent;
-  @ViewChild('dialogPrompt', { static: true }) dialogPrompt: NpDialogComponent;
-  @ViewChild('dialogConfirm', { static: true }) dialogConfirm: NpDialogComponent;
+  serviceText = `constructor(private modalService: NpModalService) { }`;
 
-  constructor() { }
+  componentText = `<span class="np-text-success">// For alert dialog, pass type="alert"</span>
+this.modalService.open(NpDialogComponent, null, { type: 'alert', message: 'Saved successfully.' });
+
+<span class="np-text-success">// For prompt dialog, pass type="prompt"</span>
+const prompt = this.modalService.open(NpDialogComponent, null, { type: 'prompt', message: 'Enter your name' });
+prompt.onClose.subscribe((data) => {
+  <span class="np-text-success">// returns value in data, if ok button is clicked else undefined</span>
+  alert('Prompt value is ' + data);
+});
+
+<span class="np-text-success">// For confirm dialog, pass type="confirm"</span>
+const confirm = this.modalService.open(NpDialogComponent, null, { type: 'confirm', message: 'Are you sure to delete?' });
+confirm.onClose.subscribe((data) => {
+  <span class="np-text-success">// returns true in data, if ok button is clicked</span>
+  if (data === true) {
+    alert('Ok clicked');
+  } else {
+    alert('Cancel clicked');
+  }
+});
+    `;
+
+  constructor(private modalService: NpModalService) { }
 
   ngOnInit(): void {
   }
 
   openAlert() {
-    this.dialogAlert.open();
+    this.modalService.open(NpDialogComponent,
+      null, { type: 'alert', message: 'Saved successfully.' });
   }
 
   openPrompt() {
-    this.dialogPrompt.open();
+    const prompt = this.modalService.open(NpDialogComponent,
+      null, { type: 'prompt', message: 'Enter your name' });
+    prompt.onClose.subscribe((data) => {
+      // returns value in data, if ok button is clicked else undefined
+      alert('Prompt value is ' + data);
+    });
   }
 
   openConfirm() {
-    this.dialogConfirm.open();
-  }
-
-  onOkClick() {
-    alert('Ok button clicked.');
-  }
-
-  onCancelClick() {
-    alert('Cancel button clicked.');
-  }
-
-  onPromptOkClick(value: string) {
-    alert('Ok button clicked with value ' + value);
+    const confirm = this.modalService.open(NpDialogComponent,
+      null, { type: 'confirm', message: 'Are you sure to delete?' });
+    confirm.onClose.subscribe((data) => {
+      // returns true in data, if ok button is clicked
+      if (data === true) {
+        alert('Ok clicked');
+      } else {
+        alert('Cancel clicked');
+      }
+    });
   }
 }

@@ -11,7 +11,7 @@ import { NpAccordionItemComponent } from './np-accordion-item/np-accordion-item.
   templateUrl: './np-accordion.component.html',
   styleUrls: ['./np-accordion.component.css'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpAccordionComponent implements AfterContentInit, OnDestroy {
 

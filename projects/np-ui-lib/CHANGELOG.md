@@ -3,7 +3,7 @@
 
 ## Change log and decision tracker
 
-## 10.3.3
+## 10.4.0
 - Resolved data grid state variable reference issue
 - Add disabled property in breadcrumb model
 - Rename horizontalTabs to verticalTabs in tab component
@@ -17,6 +17,7 @@
 - Add new paginator component
 - Replace datagrid paginator with new paginator component
 - Add lazy loading in tabs, accordion, panel components
+- Recreate Modal and Dialog components
 
 ## 10.3.2
 - Resolved client side filter issue for date in data grid

@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NpModalComponent } from './np-modal.component';
-import { NpModalHeaderComponent } from './np-modal-header.component';
-import { NpModalFooterComponent } from './np-modal-footer.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
+import { NpModalContainerComponent } from './np-modal-container.component';
+import { NpModalService } from './np-modal.service';
 
 @NgModule({
-  declarations: [NpModalComponent,
-    NpModalHeaderComponent,
-    NpModalFooterComponent],
-  imports: [
-    CommonModule,
-    OverlayModule,
-    PortalModule
-  ],
-  exports: [NpModalComponent,
-    NpModalHeaderComponent,
-    NpModalFooterComponent]
+    declarations: [NpModalContainerComponent],
+    imports: [
+        CommonModule,
+        OverlayModule,
+        PortalModule
+    ],
+    exports: [NpModalContainerComponent],
+    providers: [NpModalService]
 })
 export class NpModalModule { }

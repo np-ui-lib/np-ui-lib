@@ -5,10 +5,11 @@ import { NpModalDemoRoutingModule } from './np-modal-demo-routing.module';
 import { NpModalDemoComponent } from './np-modal-demo.component';
 import { NpModalModule, NpDatePickerModule, NpTimePickerModule, NpSwitchModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NpModalDemoChildComponent } from './np-modal-demo-child/np-modal-demo-child.component';
 
 
 @NgModule({
-  declarations: [NpModalDemoComponent],
+  declarations: [NpModalDemoComponent, NpModalDemoChildComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

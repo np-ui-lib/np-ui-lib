@@ -136,111 +136,94 @@
     <np-tab title="Examples">
 
         <fieldset>
-            <np-modal #modalDemo [height]="250" [width]="500" [hasBackDrop]="false">
-                <np-modal-header>
-                    Header
-                </np-modal-header>
-                <div>
-                    <p>Modal content</p>
-                    <p>Modal content</p>
-                    <p>Modal content</p>
-                    <p>Modal content</p>
-                    <p>Modal content</p>
-                    <p>Modal content</p>
-                    <p>Modal content</p>
-                    <p>Modal content</p>
-                    <p>Modal content</p>
-                    <p>Modal content</p>
-                    <p>Modal content</p>
-                    <p>Modal content</p>
-                </div>
-                <np-modal-footer>
-                    <div class="np-btn-group">
-                        <button class="np-btn np-btn-primary" (click)="openModal2()">Open another modal with
-                            form</button>
-                        <button class="np-btn np-btn-danger" (click)="closeModal()">Close Modal</button>
-                    </div>
-                </np-modal-footer>
-            </np-modal>
-
+            <legend>string</legend>
             <div class="np-btn-group">
-                <button class="np-btn" (click)="openModal()">Open Modal</button>
-                <button class="np-btn" (click)="closeModal()">Close Modal</button>
+                <button class="np-btn" (click)="openModal1()">Open Modal</button>
             </div>
         </fieldset>
 
         <fieldset>
-            <np-modal #modalDemo2 (onOpen)="onOpenModal2()" (onClose)="onCloseModal2()" [closeOnClickOutside]="false">
-                <np-modal-header>
-                    Fill the details
-                </np-modal-header>
-                <div>
-                    <form [formGroup]="myForm">
-                        <div class="np-container">
-                            <div class="np-row">
-                                <div class="np-col-6">
-                                    <div class="np-form-group">
-                                        <div class="np-form-label np-required">First name:</div>
-                                        <input type="text" class="np-form-control" formControlName="firstName"
-                                            name="txtFirstName">
-                                    </div>
-                                </div>
-                                <div class="np-col-6">
-                                    <div class="np-form-group">
-                                        <div class="np-form-label np-required">Last name:</div>
-                                        <input type="text" class="np-form-control" formControlName="lastName"
-                                            name="txtLastName">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="np-row">
-                                <div class="np-col-6">
-                                    <div class="np-form-group">
-                                        <div class="np-form-label np-required">Birth date:</div>
-                                        <np-date-picker formControlName="birthDate" name="txtBirthDate">
-                                        </np-date-picker>
-                                    </div>
-                                </div>
-                                <div class="np-col-6">
-                                    <div class="np-form-group">
-                                        <div class="np-form-label np-required">Birth time:</div>
-                                        <np-time-picker formControlName="birthTime" name="txtBirthTime">
-                                        </np-time-picker>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="np-row">
-                                <div class="np-col-12">
-                                    <div class="np-form-group">
-                                        <div class="np-form-label np-required">Is Active:</div>
-                                        <np-switch formControlName="isActive" name="swIsActive">
-                                        </np-switch>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="np-row">
-                                <div class="np-col-12">
-                                    <div class="np-form-group">
-                                        <div class="np-form-label np-required">Description:</div>
-                                        <textarea class="np-form-control" rows="3" formControlName="description"
-                                            name="txtDescription"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <np-modal-footer>
-                    <div class="np-btn-group">
-                        <button type="submit" class="np-btn np-btn-primary" (click)="onSubmit()">Save</button>
-                        <button type="button" class="np-btn" (click)="reset()">Cancel</button>
+            <legend>Type&lt;any&gt;</legend>
+            <div class="np-btn-group">
+                <button class="np-btn" (click)="openModal2()">Open Modal</button>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>TemplateRef&lt;any&gt;</legend>
+            <ng-template #modal3>
+                <div class="np-modal">
+                    <div class="np-modal-header">
+                        Fill the details
                     </div>
-                </np-modal-footer>
-            </np-modal>
+                    <div class="np-modal-body">
+                        <form [formGroup]="myForm">
+                            <div class="np-container">
+                                <div class="np-row">
+                                    <div class="np-col-6">
+                                        <div class="np-form-group">
+                                            <div class="np-form-label np-required">First name:</div>
+                                            <input type="text" class="np-form-control" formControlName="firstName"
+                                                name="txtFirstName">
+                                        </div>
+                                    </div>
+                                    <div class="np-col-6">
+                                        <div class="np-form-group">
+                                            <div class="np-form-label np-required">Last name:</div>
+                                            <input type="text" class="np-form-control" formControlName="lastName"
+                                                name="txtLastName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="np-row">
+                                    <div class="np-col-6">
+                                        <div class="np-form-group">
+                                            <div class="np-form-label np-required">Birth date:</div>
+                                            <np-date-picker formControlName="birthDate" name="txtBirthDate">
+                                            </np-date-picker>
+                                        </div>
+                                    </div>
+                                    <div class="np-col-6">
+                                        <div class="np-form-group">
+                                            <div class="np-form-label np-required">Birth time:</div>
+                                            <np-time-picker formControlName="birthTime" name="txtBirthTime">
+                                            </np-time-picker>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="np-row">
+                                    <div class="np-col-12">
+                                        <div class="np-form-group">
+                                            <div class="np-form-label np-required">Is Active:</div>
+                                            <np-switch formControlName="isActive" name="swIsActive">
+                                            </np-switch>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="np-row">
+                                    <div class="np-col-12">
+                                        <div class="np-form-group">
+                                            <div class="np-form-label np-required">Description:</div>
+                                            <textarea class="np-form-control" rows="3" formControlName="description"
+                                                name="txtDescription"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="np-modal-footer">
+                        <div class="np-btn-group">
+                            <button type="submit" class="np-btn np-btn-primary" (click)="onSubmit()">Save</button>
+                            <button type="button" class="np-btn" (click)="reset()">Cancel</button>
+                            <button type="button" class="np-btn np-btn-danger" (click)="closeModal3()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
 
             <div class="np-btn-group">
-                <button class="np-btn" (click)="openModal2()">Open Modal 2</button>
-                <button class="np-btn" (click)="closeModal2()">Close Modal 2</button>
+                <button class="np-btn" (click)="openModal3()">Open Modal 2</button>
             </div>
         </fieldset>
 

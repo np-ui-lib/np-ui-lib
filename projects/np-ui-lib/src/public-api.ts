@@ -75,9 +75,10 @@ export * from './lib/np-alert/np-alert.component';
 
 /*Modal */
 export * from './lib/np-modal/np-modal.module';
-export * from './lib/np-modal/np-modal.component';
-export * from './lib/np-modal/np-modal-header.component';
-export * from './lib/np-modal/np-modal-footer.component';
+export * from './lib/np-modal/np-modal.config';
+export * from './lib/np-modal/np-modal.service';
+export * from './lib/np-modal/np-modal-container.component';
+export * from './lib/np-modal/np-modal-ref';
 
 /*Tags */
 export * from './lib/np-tags/np-tags.module';

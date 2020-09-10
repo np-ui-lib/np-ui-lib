@@ -15,6 +15,7 @@ import { NpGridUtilityService } from './services/np-grid-utility.service';
 import { NpDatePickerModule } from '../np-date-picker/np-date-picker.module';
 import { NpDialogModule } from '../np-dialog/np-dialog.module';
 import { NpPaginatorModule } from '../np-paginator/np-paginator.module';
+import { NpModalModule } from '../np-modal/np-modal.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NpPaginatorModule } from '../np-paginator/np-paginator.module';
     PortalModule,
     NpDatePickerModule,
     NpDialogModule,
+    NpModalModule,
     NpPaginatorModule
   ],
   exports: [

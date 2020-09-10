@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpModalComponent } from 'np-ui-lib';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NpModalService, NpModalConfig } from 'np-ui-lib';
+import { NpModalRef } from 'dist/np-ui-lib/lib/np-modal/np-modal-ref';
+import { NpModalDemoChildComponent } from './np-modal-demo-child/np-modal-demo-child.component';
 
 @Component({
   selector: 'app-np-modal-demo',
@@ -22,7 +24,11 @@ export class NpModalDemoComponent implements OnInit {
   </np-modal-footer>
 </np-modal>`;
 
-  constructor() { }
+  modal2Ref: NpModalRef;
+  @ViewChild('modal3', { static: true }) modal3: TemplateRef<any>;
+  modal3Ref: NpModalRef;
+
+  constructor(private modalService: NpModalService) { }
 
   firstName: string;
   lastName: string;
@@ -30,9 +36,6 @@ export class NpModalDemoComponent implements OnInit {
   birthTime: string;
   isActive = true;
   description: string;
-
-  @ViewChild('modalDemo', { static: true }) modalDemo: NpModalComponent;
-  @ViewChild('modalDemo2', { static: true }) modalDemo2: NpModalComponent;
 
   myForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
@@ -46,27 +49,28 @@ export class NpModalDemoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openModal() {
-    this.modalDemo.open();
-  }
-
-  closeModal() {
-    this.modalDemo.close();
+  openModal1() {
+    this.modalService.open('Basic modal with string content', null, null);
   }
 
   openModal2() {
-    this.modalDemo2.open();
+    const config = new NpModalConfig({ height: 400, width: 400, hasBackDrop: false });
+    this.modal2Ref = this.modalService.open(NpModalDemoChildComponent, config, null);
   }
 
-  closeModal2() {
-    this.modalDemo2.close();
+  openModal3() {
+    this.myForm.reset();
+    this.modal3Ref = this.modalService.open(this.modal3, null, null);
+    this.modal3Ref.onClose.subscribe(this.onCloseModal3);
   }
 
-  onOpenModal2() {
-    alert('Modal 2 open');
+  closeModal3() {
+    if (this.modal3Ref) {
+      this.modal3Ref.close();
+    }
   }
 
-  onCloseModal2() {
+  onCloseModal3() {
     alert('Modal 2 close');
   }
 
@@ -75,7 +79,7 @@ export class NpModalDemoComponent implements OnInit {
       this.markFormGroupTouched(this.myForm);
     }
     else {
-      this.closeModal2();
+      this.closeModal3();
     }
   }
 

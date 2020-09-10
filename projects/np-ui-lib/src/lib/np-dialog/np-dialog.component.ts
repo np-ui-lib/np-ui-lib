@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { NpModalComponent } from '../np-modal/np-modal.component';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { NpModalRef } from '../np-modal/np-modal-ref';
 
 @Component({
   selector: 'np-dialog',
@@ -9,45 +9,29 @@ import { NpModalComponent } from '../np-modal/np-modal.component';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpDialogComponent implements OnInit {
-  static controlCount = 1;
-
-  @Input() message: string;
-  /* type should be alert, prompt, or confirm */
-  @Input() type: string;
-  @Input() styleClass: string;
-  @Input() inputId = `np-dialog_${NpDialogComponent.controlCount++}`;
-  @Output() onOkClick: EventEmitter<any> = new EventEmitter();
-  @Output() onCancelClick: EventEmitter<any> = new EventEmitter();
-
   value: string;
+  type: string;
+  message: string;
 
-  @ViewChild('modal', { static: true }) modal: NpModalComponent;
-
-  constructor() { }
+  constructor(public ref: NpModalRef) { }
 
   ngOnInit(): void {
-    this.modal.inputId = this.inputId;
+    this.type = this.ref.data ? this.ref.data.type : 'alert';
+    this.message = this.ref.data ? this.ref.data.message : '';
+    this.ref.overlay.addPanelClass('np-dialog-overlay');
   }
 
   onOk() {
-    this.close();
     if (this.type === 'prompt') {
-      this.onOkClick.emit(this.value);
+      this.ref.close(this.value);
+    } else if (this.type === 'confirm') {
+      this.ref.close(true);
     } else {
-      this.onOkClick.emit();
+      this.ref.close();
     }
   }
 
   onCancel() {
-    this.close();
-    this.onCancelClick.emit();
-  }
-
-  open() {
-    this.modal.open();
-  }
-
-  close() {
-    this.modal.close();
+    this.ref.close();
   }
 }

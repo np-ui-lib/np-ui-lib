@@ -232,13 +232,6 @@
         (onPageChange)="onPageChange($event)"></np-paginator>
 </div>
 
-<ng-container *ngIf="enableStateStoring">
-    <np-dialog [type]="'prompt'" [message]="'Add New State'" (onOkClick)="_addState($event)" #saveNewStateModal>
-    </np-dialog>
-    <np-dialog [type]="'alert'" [message]="'Saved successfully.'" #editStateModal></np-dialog>
-    <np-dialog [type]="'alert'" [message]="'Deleted successfully.'" #deleteStateModal></np-dialog>
-</ng-container>
-
 <ng-template #columnChooserTemplate>
     <div class="np-column-chooser np-border">
         <div class="np-btn-group np-float-right">
