@@ -4,6 +4,7 @@ import { Injectable, Injector, TemplateRef, Type } from '@angular/core';
 import { NpModalRef } from './np-modal-ref';
 import { NpModalContainerComponent } from './np-modal-container.component';
 import { NpModalConfig } from './np-modal.config';
+import { NpDialogComponent } from '../np-dialog/np-dialog.component';
 
 @Injectable()
 export class NpModalService {
@@ -28,13 +29,17 @@ export class NpModalService {
             height: config.height,
             width: config.width,
             scrollStrategy: this.overlay.scrollStrategies.block(),
-            panelClass: config.panelClass
+            panelClass: content !== NpDialogComponent ? 'np-modal-overlay' : 'np-dialog-overlay'
         });
 
         const overlayRef = this.overlay.create(configs);
         const myOverlayRef = new NpModalRef(overlayRef, content, config, data);
         const portalInjector = this.createInjector(myOverlayRef, this.injector);
-        overlayRef.attach(new ComponentPortal(NpModalContainerComponent, null, portalInjector));
+        if (content !== NpDialogComponent) {
+            overlayRef.attach(new ComponentPortal(NpModalContainerComponent, null, portalInjector));
+        } else {
+            overlayRef.attach(new ComponentPortal(NpDialogComponent, null, portalInjector));
+        }
         return myOverlayRef;
     }
 

@@ -14,127 +14,77 @@
         </np-card>
         <np-card>
             <np-card-body>
-                <b>HTML</b>
+                <b>NpModalService</b>
+                <p>Inject NpModalService into constructor of component</p>
                 <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
+                    <pre><code [innerText]="serviceInjectText"></code></pre>
                 </div>
             </np-card-body>
         </np-card>
         <np-card>
             <np-card-body>
+                <b>How to open modal?</b>
+                <div>
+                    <pre><code [innerText]="modalOpenText"></code></pre>
+                </div>
+                <b>open(content: string | TemplateRef&lt;any&gt; | Type&lt;any&gt;, config: NpModalConfig, data: any):
+                    NpModalRef;</b>
+                <p>Here open method has 3 parameters, and this method return the overlay refrence object of class
+                    <b>NpModalRef</b></p>
                 <table class="np-table">
                     <tr>
-                        <th>Property</th>
+                        <th>Parameter</th>
                         <th>Description</th>
                         <th>Type</th>
-                        <th>Default</th>
                     </tr>
                     <tr>
-                        <td>height</td>
-                        <td>Set height, if pass as number then it will take it in px. Like '100%', '100px', 200</td>
-                        <td>string | number</td>
-                        <td></td>
+                        <td>content</td>
+                        <td>Pass content of modal
+                            <pre><code [innerText]="stringModalText"></code></pre>
+                            <pre><code [innerText]="templateModalText"></code></pre>
+                            <pre><code [innerHtml]="componentModalText"></code></pre>
+                        </td>
+                        <td>string | TemplateRef&lt;any&gt; | Type&lt;any&gt;</td>
                     </tr>
                     <tr>
-                        <td>width</td>
-                        <td>Set width, if pass as number then it will take it in px. Like '100%', '100px', 200</td>
-                        <td>string | number</td>
-                        <td></td>
+                        <td>config</td>
+                        <td>Pass modal config<br>
+                            Which has properties like <b>header, height, width, hasBackDrop, backDropClass,
+                                showCloseButton</b>.
+                            <pre><code [innerText]="configText"></code></pre>
+                        </td>
+                        <td>NpModalConfig</td>
                     </tr>
                     <tr>
-                        <td>closeOnClickOutside</td>
-                        <td>Close modal on outside click</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>hasBackDrop</td>
-                        <td>Show backdrop or not</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>backDropClass</td>
-                        <td>Set backdrop class</td>
-                        <td>string</td>
-                        <td>np-modal-backdrop</td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
+                        <td>data</td>
+                        <td>Pass data to modal</td>
+                        <td>any</td>
                     </tr>
                 </table>
             </np-card-body>
         </np-card>
         <np-card>
             <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            open()
-                        </td>
-                        <td>
-                            Open modal
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            close()
-                        </td>
-                        <td>
-                            Close modal
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
+                <b>How to subscribe onClose method of modal?</b>
+                <p><b>open</b> method returns overlay refrence object, which has property <b>onClose:
+                        Subject&lt;any&gt;</b></p>
+                <pre><code [innerText]="subscribeText"></code></pre>
             </np-card-body>
         </np-card>
         <np-card>
             <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Methods</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onOpen()
-                        </td>
-                        <td>
-                            Event to be called while modal is opening
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onClose()
-                        </td>
-                        <td>
-                            Event to be called while modal is closing
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
+                <b>How to access data and NpModalRef object in another component?</b>
+                <p>In another component, overlay refrence is injected using injector.</p>
+                <pre><code [innerText]="overlayRefText"></code></pre>
+                <p>Here <b>ref</b> object contains <b>data: any</b> and <b>close(data: any)</b> method. Which will close
+                    overlay.</p>
+                <p>Pass response data in close(data: any) method's parameter, which will be accessible where
+                    <b>onClose</b> is subscribed.
+                </p>
             </np-card-body>
         </np-card>
     </np-tab>
     <np-tab title="Examples">
-
         <fieldset>
             <legend>string</legend>
             <div class="np-btn-group">
@@ -143,89 +93,40 @@
         </fieldset>
 
         <fieldset>
-            <legend>Type&lt;any&gt;</legend>
+            <legend>TemplateRef&lt;any&gt;</legend>
+            <ng-template #modal2>
+                <p>A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.
+                    A paragraph
+                    consists of one or more sentences. Though not required by the syntax of any language, paragraphs are
+                    usually an
+                    expected part of formal writing, used to organize longer prose.</p>
+                <p>A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.
+                    A paragraph
+                    consists of one or more sentences. Though not required by the syntax of any language, paragraphs are
+                    usually an
+                    expected part of formal writing, used to organize longer prose.</p>
+                <p>A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.
+                    A paragraph
+                    consists of one or more sentences. Though not required by the syntax of any language, paragraphs are
+                    usually an
+                    expected part of formal writing, used to organize longer prose.</p>
+                <p>A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.
+                    A paragraph
+                    consists of one or more sentences. Though not required by the syntax of any language, paragraphs are
+                    usually an
+                    expected part of formal writing, used to organize longer prose.</p>
+            </ng-template>
+
             <div class="np-btn-group">
                 <button class="np-btn" (click)="openModal2()">Open Modal</button>
             </div>
         </fieldset>
 
         <fieldset>
-            <legend>TemplateRef&lt;any&gt;</legend>
-            <ng-template #modal3>
-                <div class="np-modal">
-                    <div class="np-modal-header">
-                        Fill the details
-                    </div>
-                    <div class="np-modal-body">
-                        <form [formGroup]="myForm">
-                            <div class="np-container">
-                                <div class="np-row">
-                                    <div class="np-col-6">
-                                        <div class="np-form-group">
-                                            <div class="np-form-label np-required">First name:</div>
-                                            <input type="text" class="np-form-control" formControlName="firstName"
-                                                name="txtFirstName">
-                                        </div>
-                                    </div>
-                                    <div class="np-col-6">
-                                        <div class="np-form-group">
-                                            <div class="np-form-label np-required">Last name:</div>
-                                            <input type="text" class="np-form-control" formControlName="lastName"
-                                                name="txtLastName">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="np-row">
-                                    <div class="np-col-6">
-                                        <div class="np-form-group">
-                                            <div class="np-form-label np-required">Birth date:</div>
-                                            <np-date-picker formControlName="birthDate" name="txtBirthDate">
-                                            </np-date-picker>
-                                        </div>
-                                    </div>
-                                    <div class="np-col-6">
-                                        <div class="np-form-group">
-                                            <div class="np-form-label np-required">Birth time:</div>
-                                            <np-time-picker formControlName="birthTime" name="txtBirthTime">
-                                            </np-time-picker>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="np-row">
-                                    <div class="np-col-12">
-                                        <div class="np-form-group">
-                                            <div class="np-form-label np-required">Is Active:</div>
-                                            <np-switch formControlName="isActive" name="swIsActive">
-                                            </np-switch>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="np-row">
-                                    <div class="np-col-12">
-                                        <div class="np-form-group">
-                                            <div class="np-form-label np-required">Description:</div>
-                                            <textarea class="np-form-control" rows="3" formControlName="description"
-                                                name="txtDescription"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="np-modal-footer">
-                        <div class="np-btn-group">
-                            <button type="submit" class="np-btn np-btn-primary" (click)="onSubmit()">Save</button>
-                            <button type="button" class="np-btn" (click)="reset()">Cancel</button>
-                            <button type="button" class="np-btn np-btn-danger" (click)="closeModal3()">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-
+            <legend>Type&lt;any&gt;</legend>
             <div class="np-btn-group">
-                <button class="np-btn" (click)="openModal3()">Open Modal 2</button>
+                <button class="np-btn" (click)="openModal3()">Open Modal</button>
             </div>
         </fieldset>
-
     </np-tab>
 </np-tabs>

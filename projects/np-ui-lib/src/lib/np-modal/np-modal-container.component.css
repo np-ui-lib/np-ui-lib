@@ -3,18 +3,6 @@
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
 
-.np-modal-container {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-}
-
-np-modal {
-    height: 100%;
-    width: 100%;
-    position: relative;
-}
-
 .np-modal {
     border: 1px solid #9e9e9e;
     border-radius: 2px;
@@ -23,6 +11,7 @@ np-modal {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .np-modal-header {
@@ -32,6 +21,7 @@ np-modal {
     min-height: 3rem;
     font-weight: bold;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -52,11 +42,4 @@ np-modal {
 .np-modal-backdrop {
     background-color: #000000;
     opacity: 0.3 !important;
-}
-
-.np-modal-close {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    margin: 10px;
 }

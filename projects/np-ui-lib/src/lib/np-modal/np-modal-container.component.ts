@@ -15,6 +15,7 @@ export class NpModalContainerComponent implements OnInit {
     content: string | TemplateRef<any> | Type<any>;
     context: any;
     showCloseButton: boolean;
+    header: string;
 
     constructor(private modalRef: NpModalRef) { }
 
@@ -32,6 +33,7 @@ export class NpModalContainerComponent implements OnInit {
         else {
             this.contentType = 'component';
         }
+        this.header = this.modalRef.config.header;
         this.showCloseButton = this.modalRef.config.showCloseButton;
     }
 

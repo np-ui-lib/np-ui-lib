@@ -4,13 +4,13 @@ export class NpModalConfig {
         this.backDropClass = item.backDropClass ? item.backDropClass : 'np-modal-backdrop';
         this.height = item.height;
         this.width = item.width;
-        this.panelClass = item.panelClass ? item.panelClass : 'np-modal-overlay';
         this.showCloseButton = item.showCloseButton === false ? false : true;
+        this.header = item.header;
     }
     public hasBackDrop: boolean;
     public backDropClass: string;
-    public height: number;
-    public width: number;
-    public panelClass: string;
+    public height: string | number;
+    public width: string | number;
     public showCloseButton: boolean;
+    public header: string;
 }

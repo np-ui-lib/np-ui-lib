@@ -182,53 +182,55 @@
         </np-card>
     </np-tab>
     <np-tab title="Examples">
-        <fieldset>
-            <legend>1. Default tags server side</legend>
-            <np-tags [(ngModel)]="tags1" [searchResult]="searchResult1" [isServerSide]="true" [orderDir]="'asc'"
-                [autoFocus]="true" (onSearch)="onSearch1($event)">
-            </np-tags>
-            <div>Selected value : {{tags1 | json}}</div>
-        </fieldset>
+        <ng-template npTabContent>
+            <fieldset>
+                <legend>1. Default tags server side</legend>
+                <np-tags [(ngModel)]="tags1" [searchResult]="searchResult1" [isServerSide]="true" [orderDir]="'asc'"
+                    [autoFocus]="true" (onSearch)="onSearch1($event)">
+                </np-tags>
+                <div>Selected value : {{tags1 | json}}</div>
+            </fieldset>
 
-        <fieldset>
-            <legend>2. Default tags client side + order by name + order direction descending</legend>
-            <np-tags [(ngModel)]="tags2" [displayKey]="'name'" [searchResult]="searchResult2" [orderBy]="'name'"
-                [orderDir]="'desc'">
-            </np-tags>
-            <div>Selected value : {{tags2 | json}}</div>
-        </fieldset>
+            <fieldset>
+                <legend>2. Default tags client side + order by name + order direction descending</legend>
+                <np-tags [(ngModel)]="tags2" [displayKey]="'name'" [searchResult]="searchResult2" [orderBy]="'name'"
+                    [orderDir]="'desc'">
+                </np-tags>
+                <div>Selected value : {{tags2 | json}}</div>
+            </fieldset>
 
-        <fieldset>
-            <legend>3. Create new tag server side</legend>
-            <np-tags [(ngModel)]="tags3" [searchResult]="searchResult3" [isServerSide]="true" [allowCreateNew]="true"
-                required="true" (onSearch)="onSearch3($event)">
-            </np-tags>
-            <div>Selected value : {{tags3 | json}}</div>
-        </fieldset>
+            <fieldset>
+                <legend>3. Create new tag server side</legend>
+                <np-tags [(ngModel)]="tags3" [searchResult]="searchResult3" [isServerSide]="true"
+                    [allowCreateNew]="true" required="true" (onSearch)="onSearch3($event)">
+                </np-tags>
+                <div>Selected value : {{tags3 | json}}</div>
+            </fieldset>
 
-        <fieldset>
-            <legend>4. Create new tag</legend>
-            <np-tags [(ngModel)]="tags4" [displayKey]="'name'" [searchResult]="searchResult4" [allowCreateNew]="true"
-                [itemTemplate]="itemTemplate">
-            </np-tags>
-            <div>Selected value : {{tags4 | json}}</div>
-            <ng-template #itemTemplate let-item="item">
-                <div>{{item.name}} ( {{item.vitamin}} )</div>
-            </ng-template>
-        </fieldset>
+            <fieldset>
+                <legend>4. Create new tag</legend>
+                <np-tags [(ngModel)]="tags4" [displayKey]="'name'" [searchResult]="searchResult4"
+                    [allowCreateNew]="true" [itemTemplate]="itemTemplate">
+                </np-tags>
+                <div>Selected value : {{tags4 | json}}</div>
+                <ng-template #itemTemplate let-item="item">
+                    <div>{{item.name}} ( {{item.vitamin}} )</div>
+                </ng-template>
+            </fieldset>
 
-        <fieldset>
-            <legend>5. required</legend>
-            <np-tags [(ngModel)]="tags5" [displayKey]="'name'" [searchResult]="searchResult5" [required]="true">
-            </np-tags>
-        </fieldset>
+            <fieldset>
+                <legend>5. required</legend>
+                <np-tags [(ngModel)]="tags5" [displayKey]="'name'" [searchResult]="searchResult5" [required]="true">
+                </np-tags>
+            </fieldset>
 
-        <fieldset>
-            <legend>6. Treeview inside tags</legend>
-            <np-tags [(ngModel)]="tags6" [displayKey]="'label'" [searchResult]="searchResult6" [isTreeView]="true"
-                [allowCreateNew]="true">
-            </np-tags>
-            Selected value: {{tags6 | json}}
-        </fieldset>
+            <fieldset>
+                <legend>6. Treeview inside tags</legend>
+                <np-tags [(ngModel)]="tags6" [displayKey]="'label'" [searchResult]="searchResult6" [isTreeView]="true"
+                    [allowCreateNew]="true">
+                </np-tags>
+                Selected value: {{tags6 | json}}
+            </fieldset>
+        </ng-template>
     </np-tab>
 </np-tabs>

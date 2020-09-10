@@ -13,12 +13,11 @@ export class NpDialogComponent implements OnInit {
   type: string;
   message: string;
 
-  constructor(public ref: NpModalRef) { }
+  constructor(private ref: NpModalRef) { }
 
   ngOnInit(): void {
     this.type = this.ref.data ? this.ref.data.type : 'alert';
     this.message = this.ref.data ? this.ref.data.message : '';
-    this.ref.overlay.addPanelClass('np-dialog-overlay');
   }
 
   onOk() {

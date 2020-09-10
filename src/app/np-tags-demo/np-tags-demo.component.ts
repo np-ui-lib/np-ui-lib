@@ -83,8 +83,8 @@ export class NpTagsDemoComponent implements OnInit {
 
   tags1: string[];
   tags2: any[] = [
-    { id: 1, name: 'Apple', vitamin: 'A, B1, B6' },
-    { id: 2, name: 'Banana', vitamin: 'A, B1, B6' }];
+    { id: 6, name: 'Strawberry', vitamin: 'iron, copper, B6' },
+    { id: 7, name: 'Watermelon', vitamin: ' A, B6 and C' }];
   tags3: string[];
   tags4: any[];
   tags5: any[];
