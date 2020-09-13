@@ -1,4 +1,4 @@
-<div [ngClass]="{ 'np-treeview': true }" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="'np-treeview'" [class]="styleClass" [attr.id]="inputId">
     <ng-container *ngTemplateOutlet="treeViewTemplate; context: { items: items }">
     </ng-container>
 </div>
@@ -26,7 +26,7 @@
                 [indeterminate]="item.partiallySelected" (change)="_changeSelection($event,item)">
             <span (click)="_onClick(item)">
                 <ng-container *ngIf="!itemTemplate; else treeViewLabelTemp">
-                    <i *ngIf="item.iconCss" [ngClass]="item.iconCss"></i>{{item.label}}
+                    <i *ngIf="item.iconCss" [class]="item.iconCss"></i>{{item.label}}
                 </ng-container>
                 <ng-template #treeViewLabelTemp [ngTemplateOutlet]="itemTemplate"
                     [ngTemplateOutletContext]="{ item: item }">

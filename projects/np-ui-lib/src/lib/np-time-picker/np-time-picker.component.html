@@ -1,4 +1,4 @@
-<div [ngClass]="{ 'np-time-picker': true, 'np-disabled': isDisabled , 'np-readonly': readonly }" [class]="styleClass"
+<div [ngClass]="{'np-time-picker': true, 'np-disabled': isDisabled , 'np-readonly': readonly}" [class]="styleClass"
     [attr.id]="inputId">
     <div class="np-input-group" *ngIf="!defaultOpen; else templatePortalContent">
         <input class="np-form-control" type="text" autocomplete="off" [value]="value" [placeholder]="placeholder"

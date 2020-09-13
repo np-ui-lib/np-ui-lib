@@ -1,4 +1,4 @@
-<div [ngClass]="{'np-progress' : true}" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="'np-progress'" [class]="styleClass" [attr.id]="inputId">
     <div class="np-progress-container" [style.height.px]="height">
         <div *ngIf="!indeterminate" class="np-progress-bar" [style.width.%]="value"
             [ngClass]="{'np-progress-striped': striped, 'np-progress-animated': animated}">

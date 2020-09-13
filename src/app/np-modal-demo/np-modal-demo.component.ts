@@ -35,7 +35,14 @@ refrence.onClose.subscribe((data) => { ... // do something on modal close });`;
   }
 
   openModal2() {
-    const config = new NpModalConfig({ height: 400, width: 400, hasBackDrop: false, header: 'What is paragraph?' });
+    const config = new NpModalConfig({
+      height: 400,
+      width: 400,
+      hasBackDrop: false,
+      header: 'What is paragraph?',
+      inputId: 'templateModal',
+      styleClass: 'myClass'
+    });
     this.modalService.open(this.modal2, config, null);
   }
 

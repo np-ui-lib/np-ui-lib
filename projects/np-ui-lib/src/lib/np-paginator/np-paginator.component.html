@@ -1,7 +1,7 @@
-<div [ngClass]="{'np-paginator': true}" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="'np-paginator'" [class]="styleClass" [attr.id]="inputId">
     <div class="np-paginator-item">
         <button type="button" class="np-btn-icon np-paginator-first" title="First page"
-            [ngClass]="{'np-disabled':currentPage === 1}" (click)="_loadPage(1)">
+            [ngClass]="{'np-disabled': currentPage === 1}" (click)="_loadPage(1)">
             <svg class="np-icon" viewBox="0 0 24 24">
                 <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"></path>
             </svg>
@@ -9,7 +9,7 @@
     </div>
     <div class="np-paginator-item">
         <button type="button" class="np-btn-icon np-paginator-prev" title="Previous page"
-            [ngClass]="{'np-disabled':currentPage === 1}" (click)="_loadPage(currentPage - 1)">
+            [ngClass]="{'np-disabled': currentPage === 1}" (click)="_loadPage(currentPage - 1)">
             <svg class="np-icon" viewBox="0 0 24 24">
                 <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
             </svg>
@@ -24,7 +24,7 @@
     </div>
     <div class="np-paginator-item">
         <button type="button" title="Next page" class="np-btn-icon np-paginator-next"
-            [ngClass]="{'np-disabled':currentPage === totalPages}" (click)="_loadPage(currentPage + 1)">
+            [ngClass]="{'np-disabled': currentPage === totalPages}" (click)="_loadPage(currentPage + 1)">
             <svg class="np-icon" viewBox="0 0 24 24">
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
             </svg>
@@ -32,7 +32,7 @@
     </div>
     <div class="np-paginator-item">
         <button type="button" title="Last page" class="np-btn-icon np-paginator-last"
-            [ngClass]="{'np-disabled':currentPage === totalPages}" (click)="_loadPage(totalPages)">
+            [ngClass]="{'np-disabled': currentPage === totalPages}" (click)="_loadPage(totalPages)">
             <svg class="np-icon" viewBox="0 0 24 24">
                 <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"></path>
             </svg>

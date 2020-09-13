@@ -1,12 +1,12 @@
-<div [ngClass]="{ 'np-steps' : true, 'np-steps-vertical': verticalSteps }" [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{'np-steps': true, 'np-steps-vertical': verticalSteps}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-steps-header">
         <ng-container *ngFor="let step of steps; let i = index;">
-            <div class="np-step-title" [ngClass]="{ 'np-step-active': selectedIndex === i, 
-            'np-step-done' : step.completed,
-            'np-step-error' : step.hasError }" (click)="_onClick(i)">
+            <div class="np-step-title" [ngClass]="{'np-step-active': selectedIndex === i, 
+            'np-step-done': step.completed,
+            'np-step-error': step.hasError}" (click)="_onClick(i)">
                 <ng-container *ngIf="!_isTemplate(step); else stepLabelTemp">
                     <button *ngIf="!step.iconCss" type="button" class="np-step-number">{{i + 1}}</button>
-                    <i *ngIf="step.iconCss" [ngClass]="step.iconCss"></i>
+                    <i *ngIf="step.iconCss" [class]="step.iconCss"></i>
                     <span [innerHTML]="step.label"></span>
                 </ng-container>
                 <ng-template #stepLabelTemp [ngTemplateOutlet]="step.labelTemplate">

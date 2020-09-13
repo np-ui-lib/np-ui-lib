@@ -32,7 +32,7 @@
     </div>
 </header>
 <section>
-    <nav *ngIf="showMenu" [ngClass]="{'mobile-nav' : isMobileView}">
+    <nav *ngIf="showMenu" [ngClass]="{'mobile-nav': isMobileView}">
         <np-menubar [items]="menuItems" [isPanelMenu]="true" (onClickMenuItem)="onClickMenuItem($event)"
             styleClass="my-nav">
         </np-menubar>

@@ -1,7 +1,7 @@
 <ng-container *ngIf="item.visible">
     <ng-container *ngIf="item.items">
         <div class="np-menu-item" (click)="_onClickPanelMenu(item)">
-            <a class="np-menu-link" [ngClass]="{ 'np-menu-active-parent': _isActive(item) }">
+            <a class="np-menu-link" [ngClass]="{'np-menu-active-parent': _isActive(item)}">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
                 <div class="np-menu-text" [innerHTML]="item.label"></div>
                 <div class="np-menu-icon">

@@ -1,4 +1,4 @@
-<div [ngClass]="{ 'np-color-picker': true, 'np-disabled': isDisabled , 'np-readonly': readonly }" [class]="styleClass"
+<div [ngClass]="{'np-color-picker': true, 'np-disabled': isDisabled , 'np-readonly': readonly}" [class]="styleClass"
     [attr.id]="inputId">
     <div *ngIf="!defaultOpen; else templatePortalContent"
         [ngClass]="{'np-input-group': true, 'np-input-hidden': hideColorInput}">

@@ -1,4 +1,4 @@
-<div [ngClass]="{ 'np-auto-complete':true, 'np-disabled': isDisabled , 'np-readonly': readonly }" [class]="styleClass"
+<div [ngClass]="{'np-auto-complete': true, 'np-disabled': isDisabled , 'np-readonly': readonly}" [class]="styleClass"
     [attr.id]="inputId">
     <div class="np-input-group">
         <input class="np-form-control" type="text" autocomplete="off" [(ngModel)]="displayValue"

@@ -1,7 +1,7 @@
 <div [ngClass]="{'np-menubar': true, 
 'np-menubar-horizontal': orientation === 'horizontal',
 'np-menubar-vertical': orientation === 'vertical',
-'np-menubar-panel': isPanelMenu }" [class]="styleClass" [attr.id]="inputId">
+'np-menubar-panel': isPanelMenu}" [class]="styleClass" [attr.id]="inputId">
     <ng-container *ngIf="!isPanelMenu">
         <ng-container *ngFor="let item of items">
             <np-menu-item [item]="item" [orientation]="orientation" (onClickItem)="_onClickMenuItem($event)">

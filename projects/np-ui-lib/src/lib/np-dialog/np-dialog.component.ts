@@ -9,28 +9,38 @@ import { NpModalRef } from '../np-modal/np-modal-ref';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpDialogComponent implements OnInit {
+  static controlCount = 1;
+
   value: string;
   type: string;
   message: string;
+  styleClass: string;
+  inputId = `np-modal_${NpDialogComponent.controlCount++}`;
 
-  constructor(private ref: NpModalRef) { }
+  constructor(private modalRef: NpModalRef) { }
 
   ngOnInit(): void {
-    this.type = this.ref.data ? this.ref.data.type : 'alert';
-    this.message = this.ref.data ? this.ref.data.message : '';
+    this.type = this.modalRef.data ? this.modalRef.data.type : 'alert';
+    this.message = this.modalRef.data ? this.modalRef.data.message : '';
+    if (this.modalRef.config.inputId) {
+      this.inputId = this.modalRef.config.inputId;
+    }
+    if (this.modalRef.config.styleClass) {
+      this.styleClass = this.modalRef.config.styleClass;
+    }
   }
 
   onOk() {
     if (this.type === 'prompt') {
-      this.ref.close(this.value);
+      this.modalRef.close(this.value);
     } else if (this.type === 'confirm') {
-      this.ref.close(true);
+      this.modalRef.close(true);
     } else {
-      this.ref.close();
+      this.modalRef.close();
     }
   }
 
   onCancel() {
-    this.ref.close();
+    this.modalRef.close();
   }
 }

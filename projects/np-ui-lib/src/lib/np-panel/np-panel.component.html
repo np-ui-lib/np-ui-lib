@@ -1,8 +1,8 @@
-<div [ngClass]="{'np-panel': true, 'np-panel-zoom':isZoom, 'np-disabled': disabled}" [style.max-height.px]="height"
+<div [ngClass]="{'np-panel': true, 'np-panel-zoom': isZoom, 'np-disabled': disabled}" [style.max-height.px]="height"
     [class]="styleClass" [attr.id]="inputId">
     <div class="np-panel-header">
         <a class="np-panel-title">
-            <i *ngIf="iconCss" [ngClass]="iconCss"></i>
+            <i *ngIf="iconCss" [class]="iconCss"></i>
             <ng-container *ngIf="!isTitleTemplate">
                 <div [innerHTML]="title"></div>
             </ng-container>

@@ -3,6 +3,10 @@
 
 ## Change log and decision tracker
 
+## 10.4.1
+- Resolved minor bugs
+- Add inputId and styleClass in modal and dialog
+
 ## 10.4.0
 - Resolved data grid state variable reference issue
 - Add disabled property in breadcrumb model

@@ -1,4 +1,4 @@
-<div class="np-modal">
+<div [ngClass]="'np-modal'" [class]="styleClass" [attr.id]="inputId">
     <div class="np-modal-header">
         <a class="np-modal-title" [innerHtml]="header"></a>
         <button *ngIf="showCloseButton" type="button" class="np-btn-icon np-modal-close" (click)="close()">

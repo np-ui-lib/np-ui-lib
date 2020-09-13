@@ -22,7 +22,7 @@ export class NpModalService {
         if (!config) {
             config = new NpModalConfig({});
         }
-        const configs = new OverlayConfig({
+        const overlayConfig = new OverlayConfig({
             positionStrategy,
             hasBackdrop: config.hasBackDrop,
             backdropClass: config.backDropClass,
@@ -32,7 +32,7 @@ export class NpModalService {
             panelClass: content !== NpDialogComponent ? 'np-modal-overlay' : 'np-dialog-overlay'
         });
 
-        const overlayRef = this.overlay.create(configs);
+        const overlayRef = this.overlay.create(overlayConfig);
         const myOverlayRef = new NpModalRef(overlayRef, content, config, data);
         const portalInjector = this.createInjector(myOverlayRef, this.injector);
         if (content !== NpDialogComponent) {

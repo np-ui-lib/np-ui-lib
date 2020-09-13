@@ -43,6 +43,7 @@
 .np-time-picker-select {
     width: 45px;
     margin: 0px 2px;
+    outline: none;
 }
 
 .np-time-picker-select option {

@@ -1,4 +1,4 @@
-<div [ngClass]="{'np-grid': true}" [style.max-height.px]="height" [style.max-width.px]="width" [class]="styleClass"
+<div [ngClass]="'np-grid'" [style.max-height.px]="height" [style.max-width.px]="width" [class]="styleClass"
     [attr.id]="inputId">
     <div *ngIf="title" class="np-grid-title" [innerHTML]="title">
     </div>
@@ -193,7 +193,7 @@
                             </td>
                             <td *ngFor="let column of visibleColumns; let j = index; trackBy: _trackBy;"
                                 [class]="column.styleClass"
-                                [ngClass]="{'np-text-right' : column.rightAlignText,'np-grid-sticky-left': column.stickyColumnLeft,'np-grid-sticky-right':column.stickyColumnRight}"
+                                [ngClass]="{'np-text-right': column.rightAlignText, 'np-grid-sticky-left': column.stickyColumnLeft, 'np-grid-sticky-right': column.stickyColumnRight}"
                                 (click)="_onCellClick($event, column, data)">
                                 <ng-container *ngIf="!column.cellTemplate; else customTemplate;">
                                     <ng-container *ngIf="column.dataType === dataTypes.Date">
