@@ -27,8 +27,9 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() showNowButton = false;
   @Input() hideSeconds = false;
   @Input() placeholder = '';
-  @Input() readonly: boolean;
+  @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-time-picker_${NpTimePickerComponent.controlCount++}`;
 
@@ -245,7 +246,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _open() {
-    if (this.defaultOpen === true || this.isDisabled || this.readonly) {
+    if (this.defaultOpen === true || this.isDisabled || this.readOnly) {
       return;
     }
     this.isOpen = true;
@@ -328,7 +329,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _clear() {
-    if (this.isDisabled || this.readonly) {
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = null;

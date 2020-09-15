@@ -23,14 +23,15 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Validator, Form
 export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   static controlCount = 1;
 
-  @Input() placeholder = '';
   @Input() steps = 1;
   @Input() min: number;
   @Input() max: number;
   @Input() format: string;
   @Input() showControls = true;
-  @Input() readonly: boolean;
+  @Input() placeholder = '';
+  @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
 
@@ -74,14 +75,14 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   }
 
   _add() {
-    if (this.isDisabled || this.readonly) {
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = this.value + this.steps;
   }
 
   _minus() {
-    if (this.isDisabled || this.readonly) {
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = this.value - this.steps;

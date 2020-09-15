@@ -25,7 +25,7 @@ export class DataGridDocComponent implements OnInit {
   importColumnText = `import { Column } from \'np-ui-lib\';`;
   celltemplateText = `<ng-template #activeColumnTemplate let-row="row">
   <np-switch [(ngModel)]="row.Active" trueLabelText="Yes" falseLabelText="No"
-  [readonly]="true"></np-switch>
+  [readOnly]="true"></np-switch>
 </ng-template>`;
   cellClickEventText = `onCellClick(event, column, data) {
   alert('Column: ' + column.dataField + ' , rowKey:' + data.Id);

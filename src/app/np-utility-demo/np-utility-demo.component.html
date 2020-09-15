@@ -98,7 +98,7 @@
                         <div class="np-form-label np-required">First name:</div>
                         <div class="np-input-group">
                             <input type="text" class="np-form-control" [(ngModel)]="firstName" required
-                                name="txtFirstName" #txtFirstName="ngModel">
+                                name="txtFirstName" #txtFirstName="ngModel" tabindex="1">
                             <div class="np-input-group-append">
                                 <i class="np-icon fa fa-user"></i>
                             </div>
@@ -114,7 +114,7 @@
                         <div class="np-form-label np-required">Last name:</div>
                         <div class="np-input-group">
                             <input type="text" class="np-form-control" [(ngModel)]="lastName" required
-                                name="txtLastName" #txtLastName="ngModel">
+                                name="txtLastName" #txtLastName="ngModel" tabindex="5">
                             <div class="np-input-group-append">
                                 <i class="np-icon fa fa-lock"></i>
                             </div>
@@ -130,7 +130,8 @@
                 <div class="np-col-6">
                     <div class="np-form-group">
                         <div class="np-form-label np-required">Birth date:</div>
-                        <np-date-picker [(ngModel)]="birthDate" name="txtBirthDate" required #txtBirthDate="ngModel">
+                        <np-date-picker [(ngModel)]="birthDate" name="txtBirthDate" required #txtBirthDate="ngModel"
+                            [tabIndex]="2">
                         </np-date-picker>
                         <div class="np-form-text np-text-danger"
                             *ngIf="txtBirthDate.control.touched && txtBirthDate.control.errors?.required">Birth date is
@@ -142,7 +143,7 @@
                     <div class="np-form-group">
                         <div class="np-form-label np-required">Birth time:</div>
                         <np-time-picker [(ngModel)]="birthTime" name="birthTime" [required]="true"
-                            #txtbirthTime="ngModel"></np-time-picker>
+                            #txtbirthTime="ngModel" [tabIndex]="6"></np-time-picker>
                         <div class="np-form-text np-text-danger"
                             *ngIf="txtbirthTime.control.touched && txtbirthTime.control.errors?.required">Birth time is
                             required.
@@ -154,13 +155,15 @@
                 <div class="np-col-6">
                     <div class="np-form-group">
                         <div class="np-form-label np-required">Is Active:</div>
-                        <np-switch [(ngModel)]="isActive" name="swIsActive" [required]="true"></np-switch>
+                        <np-switch [(ngModel)]="isActive" name="swIsActive" [required]="true" [tabIndex]="3">
+                        </np-switch>
                     </div>
                 </div>
                 <div class="np-col-6">
                     <div class="np-form-group">
                         <div class="np-form-label np-required">Upload Photo:</div>
-                        <np-file-upload [(ngModel)]="photo" name="photo" [required]="true" #fpPhoto="ngModel">
+                        <np-file-upload [(ngModel)]="photo" name="photo" [required]="true" #fpPhoto="ngModel"
+                            [tabIndex]="7">
                         </np-file-upload>
                         <div class="np-form-text np-text-danger"
                             *ngIf="fpPhoto.control.touched && fpPhoto.control.errors?.required">Photo is required.
@@ -172,8 +175,8 @@
                 <div class="np-col-12">
                     <div class="np-form-group">
                         <div class="np-form-label">Description:</div>
-                        <textarea class="np-form-control" rows="3" [(ngModel)]="description"
-                            name="txtDescription"></textarea>
+                        <textarea class="np-form-control" rows="4" [(ngModel)]="description" name="txtDescription"
+                            tabindex="4"></textarea>
                     </div>
                 </div>
             </div>

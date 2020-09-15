@@ -28,7 +28,6 @@
 .np-modal-body {
     padding: 10px;
     background-color: #ffffff;
-    flex: 1 1 0%;
     overflow: auto;
 }
 

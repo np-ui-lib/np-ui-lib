@@ -35,8 +35,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Input() orderBy: string;
   @Input() orderDir: string;
   @Input() placeholder = '';
-  @Input() readonly: boolean;
+  @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-tags_${NpTagsComponent.controlCount++}`;
 
@@ -147,7 +148,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _onInput() {
-    if (this.isDisabled || this.readonly || !this.isServerSide) {
+    if (this.isDisabled || this.readOnly || !this.isServerSide) {
       return;
     }
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
@@ -177,7 +178,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _onClick() {
-    if (this.isServerSide || this.isDisabled || this.readonly) {
+    if (this.isServerSide || this.isDisabled || this.readOnly) {
       return;
     }
     if (!this.overlayRef.hasAttached()) {
@@ -305,7 +306,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   clear() {
-    if (this.isDisabled || this.readonly) {
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = null;

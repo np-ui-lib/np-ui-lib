@@ -2,19 +2,28 @@
     height: 100%;
 }
 
+.np-carousel-container {
+    width: 100%;
+    padding: 0px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .np-carousel-items {
-    flex: 1 1 0%;
-    overflow: hidden;
-    margin: 0px 5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .np-carousel-item {
     display: none;
+    padding: 5px;
 }
 
 .np-carousel-active {
     display: block;
-    margin: 5px;
 }
 
 .np-carousel-nav {

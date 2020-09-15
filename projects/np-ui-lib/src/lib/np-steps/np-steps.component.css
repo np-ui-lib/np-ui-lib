@@ -1,6 +1,7 @@
 .np-steps {
     border: 1px solid #9e9e9e;
     background-color: #ffffff;
+    overflow: hidden;
 }
 
 .np-steps-header {
@@ -45,6 +46,7 @@
 
 .np-step-body {
     padding: 10px;
+    overflow: auto;
 }
 
 .np-step-done {

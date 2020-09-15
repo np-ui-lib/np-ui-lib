@@ -11,7 +11,11 @@ export class NpModalRef {
         public content: string | TemplateRef<any> | Type<any>,
         public config: NpModalConfig,
         public data: any) {
-        overlay.backdropClick().subscribe(() => this._close(null));
+        overlay.backdropClick().subscribe(() => {
+            if (config.closeOnClickOutside === true) {
+                this._close(null);
+            }
+        });
     }
 
     close(data?: any) {

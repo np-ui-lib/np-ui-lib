@@ -33,9 +33,10 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   @Input() orderBy: string;
   @Input() orderDir: string;
   @Input() placeholder = '';
-  @Input() readonly: boolean;
-  @Input() styleClass: string;
+  @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
+  @Input() tabIndex: number;
+  @Input() styleClass: string;
   @Input() inputId = `np-auto-complete_${NpAutoCompleteComponent.controlCount++}`;
 
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
@@ -151,19 +152,20 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   }
 
   _clear() {
-    if (this.isDisabled || this.readonly) {
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = null;
     this.options = null;
   }
 
-  _onInput() {
-    if (this.isDisabled || this.readonly) {
+  _onInput($event) {
+    const searchKeyword = $event.target.value;
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
-      if (this.displayValue === undefined || this.displayValue === null || this.displayValue.length < this.minSearchCharLimit) {
+      if (searchKeyword === undefined || searchKeyword === null || searchKeyword.length < this.minSearchCharLimit) {
         return;
       }
     }
@@ -172,7 +174,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       clearTimeout(this.searchTimeout);
     }
     this.searchTimeout = setTimeout(() => {
-      this.onSearch.emit(this.displayValue);
+      this.onSearch.emit(searchKeyword);
     }, 1000);
   }
 

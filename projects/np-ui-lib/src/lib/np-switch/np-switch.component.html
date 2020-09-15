@@ -1,8 +1,8 @@
-<div [ngClass]="{'np-switch': true, 'np-disabled': isDisabled , 'np-readonly': readonly}" [class]="styleClass"
+<div [ngClass]="{'np-switch': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
     [attr.id]="inputId">
     <label (change)="_onClickSwitch($event)">
         <input class="np-switch-input" type="checkbox" [checked]="innerValue" [disabled]="isDisabled"
-            [autofocus]="autoFocus">
+            [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly">
         <div class="np-switch-label" [ngClass]="{'np-switch-danger': value === false}">
             <span [innerHTML]="falseLabelText ? falseLabelText:'False'"></span>
         </div>

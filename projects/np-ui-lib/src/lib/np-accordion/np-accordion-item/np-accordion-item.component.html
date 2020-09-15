@@ -3,9 +3,7 @@
     <div class="np-accordion-header">
         <a class="np-accordion-title" (click)="_toggle()">
             <i *ngIf="iconCss" [class]="iconCss"></i>
-            <ng-container *ngIf="!isTitleTemplate">
-                <div [innerHTML]="title"></div>
-            </ng-container>
+            <span *ngIf="!isTitleTemplate" [innerHTML]="title"></span>
             <ng-template *ngIf="isTitleTemplate" [ngTemplateOutlet]="title">
             </ng-template>
         </a>

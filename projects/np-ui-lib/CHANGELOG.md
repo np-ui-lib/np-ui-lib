@@ -5,7 +5,9 @@
 
 ## 10.4.1
 - Resolved minor bugs
-- Add inputId and styleClass in modal and dialog
+- Add closeOnClickOutside, inputId and styleClass in modal and dialog
+- Add tabIndex property to all input components
+- Rename readonly to readOnly, O in uppercase
 
 ## 10.4.0
 - Resolved data grid state variable reference issue

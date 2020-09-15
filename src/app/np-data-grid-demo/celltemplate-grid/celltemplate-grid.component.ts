@@ -10,7 +10,7 @@ import { DataService } from '../data.service';
 export class CelltemplateGridComponent implements OnInit {
 
   htmlText = `<ng-template #activeColumnTemplate let-row="row">
-  <np-switch [(ngModel)]="row.Active" trueLabelText="Yes" falseLabelText="No" [readonly]="true"></np-switch>
+  <np-switch [(ngModel)]="row.Active" trueLabelText="Yes" falseLabelText="No" [readOnly]="true"></np-switch>
 </ng-template>`;
   templateText = `@ViewChild('actionButtonsTemplate', { static: true }) actionButtonsTemplate: TemplateRef<any>;`;
   columnText = `new Column({ dataField: 'Active', visible: true, caption: 'Is Active?', 

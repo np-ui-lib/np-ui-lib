@@ -36,12 +36,9 @@
     cursor: pointer;
 }
 
-.np-slider:hover .np-slider-label {
-    display: block;
-}
-
 .np-slider-label {
     background-color: #000000;
+    border-radius: 2px;
     color: #ffffff;
     height: 2rem;
     padding: 5px;
@@ -49,4 +46,8 @@
     position: absolute;
     top: 2rem;
     left: 50%;
+}
+
+.np-slider:hover .np-slider-label {
+    display: block;
 }

@@ -36,24 +36,6 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>disabled</td>
-                        <td>Set disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>readonly</td>
-                        <td>Set readonly</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>required</td>
-                        <td>Set required</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
                         <td>trueLabelText</td>
                         <td>Set text for label for true side. Pass plaintext or HTML as string</td>
                         <td>string</td>
@@ -66,10 +48,34 @@
                         <td>False</td>
                     </tr>
                     <tr>
+                        <td>disabled</td>
+                        <td>Set disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>required</td>
+                        <td>Set required</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>readOnly</td>
+                        <td>Set readonly</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>autoFocus</td>
                         <td>Set autofocus</td>
                         <td>boolean</td>
                         <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>tabIndex</td>
+                        <td>Set tabindex attribute</td>
+                        <td>number</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>styleClass</td>
@@ -133,7 +139,7 @@
                 <legend>3. disabled and readonly</legend>
                 <np-switch [(ngModel)]="switch3" disabled></np-switch>
                 <br>
-                <np-switch [(ngModel)]="switch3" [readonly]="true"></np-switch>
+                <np-switch [(ngModel)]="switch3" [readOnly]="true"></np-switch>
             </fieldset>
         </div>
 

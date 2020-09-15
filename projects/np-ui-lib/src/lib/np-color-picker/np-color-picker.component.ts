@@ -23,11 +23,12 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   static controlCount = 1;
 
   @Input() colors: string[];
-  @Input() placeholder = '';
   @Input() hideColorInput: boolean;
   @Input() defaultOpen: boolean;
-  @Input() readonly: boolean;
+  @Input() placeholder = '';
+  @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-color-picker_${NpColorPickerComponent.controlCount++}`;
 
@@ -131,7 +132,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _open() {
-    if (this.defaultOpen === true || this.isDisabled || this.readonly) {
+    if (this.defaultOpen === true || this.isDisabled || this.readOnly) {
       return;
     }
     this.isOpen = true;
@@ -286,7 +287,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _clear() {
-    if (this.isDisabled || this.readonly) {
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = null;

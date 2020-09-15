@@ -22,6 +22,9 @@ export class NpModalService {
         if (!config) {
             config = new NpModalConfig({});
         }
+        if (content === NpDialogComponent) {
+            config.closeOnClickOutside = false;
+        }
         const overlayConfig = new OverlayConfig({
             positionStrategy,
             hasBackdrop: config.hasBackDrop,

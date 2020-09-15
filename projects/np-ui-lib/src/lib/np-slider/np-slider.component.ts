@@ -21,8 +21,9 @@ export class NpSliderComponent implements OnInit {
   @Input() min = 0;
   @Input() max = 100;
   @Input() step = 1;
-  @Input() readonly: boolean;
+  @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-slider_${NpSliderComponent.controlCount++}`;
 
@@ -70,7 +71,7 @@ export class NpSliderComponent implements OnInit {
   }
 
   _onChange($event) {
-    if (this.isDisabled || this.readonly) {
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = $event.target.value;

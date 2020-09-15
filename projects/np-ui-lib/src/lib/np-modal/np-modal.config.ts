@@ -8,6 +8,7 @@ export class NpModalConfig {
         this.header = item.header;
         this.inputId = item.inputId;
         this.styleClass = item.styleClass;
+        this.closeOnClickOutside = item.closeOnClickOutside === false ? false : true;
     }
     public hasBackDrop: boolean;
     public backDropClass: string;
@@ -17,4 +18,5 @@ export class NpModalConfig {
     public header: string;
     public inputId: string;
     public styleClass: string;
+    public closeOnClickOutside: boolean;
 }

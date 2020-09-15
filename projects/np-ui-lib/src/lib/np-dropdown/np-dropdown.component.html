@@ -1,9 +1,9 @@
-<div [ngClass]="{'np-dropdown': true, 'np-disabled': isDisabled , 'np-readonly': readonly}" [class]="styleClass"
+<div [ngClass]="{'np-dropdown': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
     [attr.id]="inputId">
     <div class="np-input-group">
-        <input class="np-form-control" autocomplete="off" type="text" [disabled]="isDisabled" [autofocus]="autoFocus"
-            readonly [(ngModel)]="displayValue" [placeholder]="placeholder" (click)="_open()"
-            (keydown)="_onKeydown($event)">
+        <input class="np-form-control" autocomplete="off" type="text" readonly [disabled]="isDisabled"
+            [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex" [(ngModel)]="displayValue" [placeholder]="placeholder"
+            (click)="_open()" (keydown)="_onKeydown($event)">
         <div class="np-input-group-append">
             <button type="button" tabindex="-1" class="np-btn-icon np-btn-clear" title="Clear" (click)="_clear()">
                 <svg class="np-icon" viewBox="0 0 24 24">
@@ -17,7 +17,8 @@
     <ng-template #templatePortalContent>
         <div class="np-dropdown-overlay">
             <div class="np-list np-dropdown-list">
-                <div class="np-list-item" *ngFor="let item of items | npOrderBy: orderBy : orderDir ; let i = index; trackBy: _trackBy;"
+                <div class="np-list-item"
+                    *ngFor="let item of items | npOrderBy: orderBy : orderDir ; let i = index; trackBy: _trackBy;"
                     [ngClass]="{'np-dropdown-selected': _isSelected(item)}" (click)="_selectValue(item)">
                     <ng-container *ngIf="!itemTemplate; else customTemplate">
                         <span [innerHTML]="displayKey ? item[displayKey] : item"></span>

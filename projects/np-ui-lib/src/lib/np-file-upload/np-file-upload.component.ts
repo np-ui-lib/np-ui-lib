@@ -30,8 +30,9 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Input() totalSize: number;
   @Input() maxFiles: number;
   @Input() uploadButtonLabel: string;
-  @Input() readonly: boolean;
+  @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
 
@@ -76,7 +77,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   }
 
   _clear() {
-    if (this.isDisabled || this.readonly) {
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = null;
@@ -84,7 +85,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   }
 
   _onFileSelected($event) {
-    if (this.isDisabled || this.readonly) {
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = $event.target.files;

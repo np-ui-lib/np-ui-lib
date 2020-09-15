@@ -4,6 +4,7 @@
     border: 1px solid #9e9e9e;
     border-radius: 2px;
     background-color: #ffffff;
+    overflow: hidden;
 }
 
 .np-tabs-header {

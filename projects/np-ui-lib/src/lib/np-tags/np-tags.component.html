@@ -1,4 +1,4 @@
-<div [ngClass]="{'np-tags': true, 'np-disabled': isDisabled , 'np-readonly': readonly}" [class]="styleClass"
+<div [ngClass]="{'np-tags': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
     [attr.id]="inputId">
     <div class="np-input-group">
         <div *ngFor="let tag of innerValue" class="np-tag">
@@ -12,8 +12,8 @@
             </button>
         </div>
         <input class="np-form-control" type="text" autocomplete="off" [(ngModel)]="displayValue"
-            [placeholder]="placeholder" [disabled]="isDisabled" [autofocus]="autoFocus" (click)="_onClick()"
-            (keydown)="_onKeydown($event)" (input)="_onInput()">
+            [placeholder]="placeholder" [disabled]="isDisabled" [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex"
+            [readonly]="readOnly" (click)="_onClick()" (keydown)="_onKeydown($event)" (input)="_onInput()">
         <div class="np-input-group-append">
             <div class="np-tag-loader" *ngIf="isLoading">
                 <svg class="np-icon" viewBox="0 0 24 24">
@@ -37,7 +37,8 @@
     <div class="np-tags-overlay">
         <ng-container *ngIf="!isTreeView">
             <div class="np-list">
-                <ng-container *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
+                <ng-container
+                    *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
                     <div class="np-list-item" (click)="_selectValue(item)"
                         [ngClass]="{'np-tag-selected': _isSelected(item)}">
                         <ng-container *ngIf="!itemTemplate; else customTemplate">

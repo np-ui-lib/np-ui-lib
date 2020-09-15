@@ -36,24 +36,6 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>disabled</td>
-                        <td>Set disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>readonly</td>
-                        <td>Set readonly</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>required</td>
-                        <td>Set required</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
                         <td>min</td>
                         <td>Set minimum limit for slider</td>
                         <td>number</td>
@@ -72,10 +54,34 @@
                         <td>1</td>
                     </tr>
                     <tr>
+                        <td>disabled</td>
+                        <td>Set disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>required</td>
+                        <td>Set required</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>readOnly</td>
+                        <td>Set readonly</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>autoFocus</td>
                         <td>Set autofocus</td>
                         <td>boolean</td>
                         <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>tabIndex</td>
+                        <td>Set tabindex attribute</td>
+                        <td>number</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>styleClass</td>
@@ -92,7 +98,6 @@
                 </table>
             </np-card-body>
         </np-card>
-
         <np-card>
             <np-card-body>
                 <table class="np-table">
@@ -143,6 +148,11 @@
         <fieldset>
             <legend>disabled</legend>
             <np-slider [(ngModel)]="slider5" disabled></np-slider>
+        </fieldset>
+
+        <fieldset>
+            <legend>readonly</legend>
+            <np-slider [(ngModel)]="slider5" [readOnly]="true"></np-slider>
         </fieldset>
     </np-tab>
 </np-tabs>

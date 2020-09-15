@@ -664,7 +664,7 @@ svg {
     border: 1px solid #9e9e9e;
     border-radius: 2px;
     width: 100%;
-    min-height: 2rem;
+    height: 2rem;
     outline: none;
 }
 
@@ -919,7 +919,7 @@ svg {
 }
 
 .np-alert-detail {
-    flex: 1 1 0%;
+    flex: 1 1 auto;
     padding: 5px;
 }
 
@@ -983,6 +983,14 @@ svg {
 
 .np-float-none {
     float: none !important;
+}
+
+.np-text-left {
+    text-align: left;
+}
+
+.np-text-center {
+    text-align: center;
 }
 
 .np-text-right {

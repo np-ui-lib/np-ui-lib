@@ -20,8 +20,9 @@ export class NpSwitchComponent implements ControlValueAccessor {
 
   @Input() trueLabelText: string;
   @Input() falseLabelText: string;
-  @Input() readonly: boolean;
+  @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-switch_${NpSwitchComponent.controlCount++}`;
 
@@ -64,7 +65,7 @@ export class NpSwitchComponent implements ControlValueAccessor {
   }
 
   _onClickSwitch($event) {
-    if (this.isDisabled || this.readonly) {
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = $event.target.checked;

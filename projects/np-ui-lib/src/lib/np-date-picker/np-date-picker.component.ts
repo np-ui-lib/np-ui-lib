@@ -27,14 +27,15 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() maxDate: Date;
   @Input() format = 'dd/MM/yyyy';
   @Input() defaultOpen = false;
-  @Input() placeholder = '';
   @Input() showTodayButton = false;
   @Input() disableWeekDays: string[] = [];
   @Input() disableDates: Date[] = [];
   @Input() dateLabels: any[] = [];
   @Input() isStartMonthWithMonday = false;
-  @Input() readonly: boolean;
+  @Input() placeholder = '';
+  @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-date-picker_${NpDatePickerComponent.controlCount++}`;
 
@@ -267,7 +268,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   _selectDate(day: number) {
     if (day === null ||
       this._checkIsDateDisabled(this.currentYear, this.currentMonth, day) ||
-      this.isDisabled || this.readonly) {
+      this.isDisabled || this.readOnly) {
       return;
     }
     const date = new Date(this.currentYear, this.currentMonth, day);
@@ -280,7 +281,8 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this._calculateDays();
   }
 
-  _selectYear() {
+  _changeYear($event) {
+    this.currentYear = Number($event.target.value);
     this._setMonths();
     this._calculateDays();
   }
@@ -294,7 +296,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _open() {
-    if (this.defaultOpen === true || this.isDisabled || this.readonly) {
+    if (this.defaultOpen === true || this.isDisabled || this.readOnly) {
       return;
     }
     this.isOpen = true;
@@ -330,7 +332,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _clear() {
-    if (this.isDisabled || this.readonly) {
+    if (this.isDisabled || this.readOnly) {
       return;
     }
     this._setSelectedDate(null);

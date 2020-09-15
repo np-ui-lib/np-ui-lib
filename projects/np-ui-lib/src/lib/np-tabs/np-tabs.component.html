@@ -6,10 +6,8 @@
                 [ngClass]="{'np-tab-active': tab.active, 'np-disabled': tab.disabled}">
                 <i *ngIf="tab.iconCss" [class]="tab.iconCss"></i>
                 <span *ngIf="!tab.titleIsTemplate" [innerHTML]="tab.title"></span>
-                <span *ngIf="tab.titleIsTemplate">
-                    <ng-template [ngTemplateOutlet]="tab.title">
-                    </ng-template>
-                </span>
+                <ng-template *ngIf="tab.titleIsTemplate" [ngTemplateOutlet]="tab.title">
+                </ng-template>
             </a>
         </ng-container>
     </div>
