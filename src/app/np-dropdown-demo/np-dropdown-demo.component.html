@@ -168,8 +168,10 @@
         </fieldset>
 
         <fieldset>
-            <legend>disabled</legend>
+            <legend>disabled and readOnly</legend>
             <np-dropdown [(ngModel)]="dropdownVal4" [items]="data" [disabled]="true"></np-dropdown>
+            <br>
+            <np-dropdown [(ngModel)]="dropdownVal4" [items]="data" [readOnly]="true"></np-dropdown>
         </fieldset>
 
         <fieldset>

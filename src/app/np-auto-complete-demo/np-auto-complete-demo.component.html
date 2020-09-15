@@ -183,9 +183,13 @@
         </fieldset>
 
         <fieldset>
-            <legend>2. disabled</legend>
+            <legend>2. disabled and readOnly</legend>
             <np-auto-complete [(ngModel)]="auto2" [searchResult]="searchResult2" (onSearch)="onSearch2($event)"
                 disabled>
+            </np-auto-complete>
+            <br>
+            <np-auto-complete [(ngModel)]="auto2" [searchResult]="searchResult2" (onSearch)="onSearch2($event)"
+                [readOnly]="true">
             </np-auto-complete>
         </fieldset>
 

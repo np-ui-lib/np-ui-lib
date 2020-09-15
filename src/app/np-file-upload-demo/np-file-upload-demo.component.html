@@ -167,8 +167,10 @@
         </fieldset>
 
         <fieldset>
-            <legend>disabled</legend>
+            <legend>disabled and readOnly</legend>
             <np-file-upload [(ngModel)]="fileUpload4" disabled></np-file-upload>
+            <br>
+            <np-file-upload [(ngModel)]="fileUpload4" [readOnly]="true"></np-file-upload>
         </fieldset>
 
         <fieldset>

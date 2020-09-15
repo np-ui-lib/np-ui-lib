@@ -159,13 +159,13 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
     this.options = null;
   }
 
-  _onInput($event) {
-    const searchKeyword = $event.target.value;
+  _onInput($event: any) {
+    this.displayValue = $event.target.value;
     if (this.isDisabled || this.readOnly) {
       return;
     }
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
-      if (searchKeyword === undefined || searchKeyword === null || searchKeyword.length < this.minSearchCharLimit) {
+      if (this.displayValue === undefined || this.displayValue === null || this.displayValue.length < this.minSearchCharLimit) {
         return;
       }
     }
@@ -174,7 +174,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       clearTimeout(this.searchTimeout);
     }
     this.searchTimeout = setTimeout(() => {
-      this.onSearch.emit(searchKeyword);
+      this.onSearch.emit(this.displayValue);
     }, 1000);
   }
 
@@ -206,5 +206,9 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
 
   _trackBy(index: number): number {
     return index;
+  }
+
+  _getDisplayValue() {
+    return this.displayValue || '';
   }
 }

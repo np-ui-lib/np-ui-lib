@@ -87,15 +87,19 @@ export class NpTagsDemoComponent implements OnInit {
     { id: 7, name: 'Watermelon', vitamin: ' A, B6 and C' }];
   tags3: string[];
   tags4: any[];
-  tags5: any[];
-  tags6 = [{ label: 'Item 4', key: 'Item 4' }, { label: 'Item 1.1.1', key: 'Item 1.1.1' }];
+  tags6: any[];
+  tags5: any[] = [
+    { id: 6, name: 'Strawberry', vitamin: 'iron, copper, B6' },
+    { id: 7, name: 'Watermelon', vitamin: ' A, B6 and C' }];
+  tags7 = [{ label: 'Item 4', key: 'Item 4' }, { label: 'Item 1.1.1', key: 'Item 1.1.1' }];
 
   searchResult1: BehaviorSubject<string[]> = new BehaviorSubject(null);
   searchResult2: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
   searchResult3: BehaviorSubject<string[]> = new BehaviorSubject(null);
-  searchResult6: BehaviorSubject<NpTreeViewItem[]> = new BehaviorSubject(this.treeViewItems);
   searchResult4: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
   searchResult5: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
+  searchResult6: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
+  searchResult7: BehaviorSubject<NpTreeViewItem[]> = new BehaviorSubject(this.treeViewItems);
 
   onSearch1(keyword: string) {
     setTimeout(() => {

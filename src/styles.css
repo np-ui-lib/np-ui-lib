@@ -148,3 +148,9 @@ pre {
 .np-input-group-append .fa, .dashboard-card .fa {
     font-size: 20px;
 }
+
+fieldset {
+    border: 1px solid #9e9e9e;
+    padding: 10px;
+    margin-bottom: 10px;
+}

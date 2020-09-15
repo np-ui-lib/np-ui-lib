@@ -2,7 +2,7 @@
     [attr.id]="inputId">
     <div class="np-input-group">
         <div *ngFor="let tag of innerValue" class="np-tag">
-            <div [innerHTML]="_getDisplayValue(tag)"></div>
+            <div [innerHTML]="_getValueFromTag(tag)"></div>
             <button title="Remove" tabindex="-1" class="np-tag-remove" (click)="_removeTag(tag)">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path
@@ -11,9 +11,9 @@
                 </svg>
             </button>
         </div>
-        <input class="np-form-control" type="text" autocomplete="off" [(ngModel)]="displayValue"
-            [placeholder]="placeholder" [disabled]="isDisabled" [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex"
-            [readonly]="readOnly" (click)="_onClick()" (keydown)="_onKeydown($event)" (input)="_onInput()">
+        <input class="np-form-control" type="text" autocomplete="off" [placeholder]="placeholder"
+            [value]="_getDisplayValue()" [disabled]="isDisabled" [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex"
+            [readonly]="readOnly" (click)="_onClick()" (input)="_onInput($event)" (keydown)="_onKeydown($event)">
         <div class="np-input-group-append">
             <div class="np-tag-loader" *ngIf="isLoading">
                 <svg class="np-icon" viewBox="0 0 24 24">

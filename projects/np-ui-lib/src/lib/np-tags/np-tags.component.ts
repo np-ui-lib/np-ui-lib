@@ -147,7 +147,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     this.elementRef.nativeElement.querySelector('input').focus();
   }
 
-  _onInput() {
+  _onInput($event: any) {
+    this.displayValue = $event.target.value;
     if (this.isDisabled || this.readOnly || !this.isServerSide) {
       return;
     }
@@ -231,7 +232,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     return false;
   }
 
-  _getDisplayValue(val: any) {
+  _getValueFromTag(val: any) {
     return this.displayKey ? val[this.displayKey] : val;
   }
 
@@ -323,5 +324,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
 
   _trackBy(index: number): number {
     return index;
+  }
+
+  _getDisplayValue() {
+    return this.displayValue || '';
   }
 }

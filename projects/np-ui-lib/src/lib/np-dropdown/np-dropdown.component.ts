@@ -170,4 +170,8 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   _trackBy(index: number): number {
     return index;
   }
+
+  _getDisplayValue() {
+    return this.displayValue || '';
+  }
 }
