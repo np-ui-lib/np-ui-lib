@@ -5,7 +5,7 @@
         <input class="np-form-control" type="text" autocomplete="off" maxlength="10" [disabled]="isDisabled"
             [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly" [value]="value"
             [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)"
-            (change)="_onInputChange($event)">
+            (change)="_onInputChange($event)" (blur)="_onBlur()">
         <div class="np-input-group-append">
             <div class="np-input-color-block" (click)="_toggleColorPicker()"
                 [ngStyle]="{'background-color': innerValue}">

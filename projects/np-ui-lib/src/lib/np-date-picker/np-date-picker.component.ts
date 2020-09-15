@@ -314,7 +314,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     }
     this.isOpen = false;
     this.overlayRef.detach();
-    this.onTouchedCallback();
     this.elementRef.nativeElement.querySelector('input').focus();
   }
 
@@ -430,5 +429,9 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this.value = date;
     this._resetVariables();
     this._calculateDays();
+  }
+
+  _onBlur() {
+    this.onTouchedCallback();
   }
 }

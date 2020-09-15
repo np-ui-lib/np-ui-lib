@@ -178,5 +178,8 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 
+  _onBlur() {
+    this.onTouchedCallback();
+  }
 }
 

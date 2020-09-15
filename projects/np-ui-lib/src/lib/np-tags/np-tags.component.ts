@@ -143,7 +143,6 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   _close() {
     this.displayValue = null;
     this.overlayRef.detach();
-    this.onTouchedCallback();
     this.elementRef.nativeElement.querySelector('input').focus();
   }
 
@@ -328,5 +327,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
 
   _getDisplayValue() {
     return this.displayValue || '';
+  }
+
+  _onBlur() {
+    this.onTouchedCallback();
   }
 }

@@ -147,7 +147,6 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       this.displayValue = null;
     }
     this.overlayRef.detach();
-    this.onTouchedCallback();
     this.elementRef.nativeElement.querySelector('input').focus();
   }
 
@@ -210,5 +209,9 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
 
   _getDisplayValue() {
     return this.displayValue || '';
+  }
+
+  _onBlur() {
+    this.onTouchedCallback();
   }
 }

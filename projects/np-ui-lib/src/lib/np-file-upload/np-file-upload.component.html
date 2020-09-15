@@ -4,7 +4,7 @@
         <label class="np-file-label" tabindex="auto">
             <input type="file" class="np-file-input" [attr.accept]="accept" [attr.autofocus]="autoFocus"
                 [attr.tabindex]="tabIndex" [readonly]="readOnly" [disabled]="isDisabled" [multiple]="multiple"
-                #fileUploadInput (change)="_onFileSelected($event)">
+                #fileUploadInput (change)="_onFileSelected($event)" (blur)="_onBlur()">
             <span
                 class="np-file-btn">{{ uploadButtonLabel ? uploadButtonLabel : (multiple ? "Choose Files" : "Choose File")}}</span>
             <span class="np-file-counts" [innerText]="_getFilesCountsText()"></span>

@@ -22,16 +22,25 @@
     width: 10px;
     height: 2rem;
     background: #007bff;
-    border: 1px solid #0275d8;
+    border: 1px solid #007bff;
     border-radius: 2px;
     cursor: pointer;
 }
 
-.np-slider-input::-moz-range-thumb, .np-slider-input::-ms-thumb {
+.np-slider-input::-moz-range-thumb {
     width: 10px;
     height: 2rem;
     background: #007bff;
-    border: 1px solid #0275d8;
+    border: 1px solid #007bff;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.np-slider-input::-ms-thumb {
+    width: 10px;
+    height: 2rem;
+    background: #007bff;
+    border: 1px solid #007bff;
     border-radius: 2px;
     cursor: pointer;
 }

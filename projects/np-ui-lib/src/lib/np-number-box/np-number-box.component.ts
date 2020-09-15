@@ -162,4 +162,8 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
       .replace(/\./g, '\\.');
     return new RegExp('^' + format + '$', 'g');
   }
+
+  _onBlur() {
+    this.onTouchedCallback();
+  }
 }

@@ -180,7 +180,7 @@
 
 .np-sort-ascending, .np-sort-descending, .np-sort-toggle, .np-child-collapse, .np-child-expand {
     border: none;
-    background: transparent;
+    background-color: transparent;
     margin: 0px;
     padding: 0px;
     height: 2rem;

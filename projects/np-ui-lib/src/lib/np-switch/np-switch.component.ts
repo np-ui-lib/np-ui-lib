@@ -70,4 +70,8 @@ export class NpSwitchComponent implements ControlValueAccessor {
     }
     this.value = $event.target.checked;
   }
+
+  _onBlur() {
+    this.onTouchedCallback();
+  }
 }

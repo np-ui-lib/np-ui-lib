@@ -2,7 +2,7 @@
     [attr.id]="inputId">
     <label (change)="_onClickSwitch($event)">
         <input class="np-switch-input" type="checkbox" [checked]="innerValue" [disabled]="isDisabled"
-            [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly">
+            [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly" (blur)="_onBlur()">
         <div class="np-switch-label" [ngClass]="{'np-switch-danger': value === false}">
             <span [innerHTML]="falseLabelText ? falseLabelText:'False'"></span>
         </div>

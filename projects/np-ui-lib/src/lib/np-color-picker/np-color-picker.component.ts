@@ -153,7 +153,6 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     this.isShowCursorDiv = false;
     this.isOpen = false;
     this.overlayRef.detach();
-    this.onTouchedCallback();
     this.elementRef.nativeElement.querySelector('input').focus();
   }
 
@@ -320,5 +319,9 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     if (event.key === 'Tab') {
       this._close();
     }
+  }
+
+  _onBlur() {
+    this.onTouchedCallback();
   }
 }

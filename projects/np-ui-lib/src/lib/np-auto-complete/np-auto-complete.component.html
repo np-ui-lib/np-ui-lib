@@ -3,7 +3,7 @@
     <div class="np-input-group">
         <input class="np-form-control" type="text" autocomplete="off" [value]="_getDisplayValue()"
             [placeholder]="placeholder" [disabled]="isDisabled" [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex"
-            [readonly]="readOnly" (input)="_onInput($event)" (keydown)="_onKeydown($event)">
+            [readonly]="readOnly" (input)="_onInput($event)" (keydown)="_onKeydown($event)" (blur)="_onBlur()">
         <div class="np-input-group-append">
             <div class="np-auto-complete-loader" *ngIf="isLoading">
                 <svg class="np-icon" viewBox="0 0 24 24">

@@ -77,4 +77,7 @@ export class NpSliderComponent implements OnInit {
     this.value = $event.target.value;
   }
 
+  _onBlur() {
+    this.onTouchedCallback();
+  }
 }

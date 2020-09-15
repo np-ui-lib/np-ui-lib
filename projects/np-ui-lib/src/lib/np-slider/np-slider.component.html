@@ -2,6 +2,6 @@
     [attr.id]="inputId">
     <input class="np-slider-input" type="range" [min]="min" [max]="max" [step]="step" [value]="innerValue"
         [disabled]="isDisabled" [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly"
-        (change)="_onChange($event)">
+        (change)="_onChange($event)" (blur)="_onBlur()">
     <label class="np-slider-label">{{value}}</label>
 </div>

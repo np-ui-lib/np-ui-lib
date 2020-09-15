@@ -117,7 +117,6 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
       this.displayValue = null;
     }
     this.overlayRef.detach();
-    this.onTouchedCallback();
     this.elementRef.nativeElement.querySelector('input').focus();
   }
 
@@ -173,5 +172,9 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
 
   _getDisplayValue() {
     return this.displayValue || '';
+  }
+
+  _onBlur() {
+    this.onTouchedCallback();
   }
 }

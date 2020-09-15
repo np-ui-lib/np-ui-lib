@@ -261,7 +261,6 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     }
     this.isOpen = false;
     this.overlayRef.detach();
-    this.onTouchedCallback();
     this.elementRef.nativeElement.querySelector('input').focus();
   }
 
@@ -370,5 +369,9 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     }
     this.value = isValid ? time : null;
     this._extractValues();
+  }
+
+  _onBlur() {
+    this.onTouchedCallback();
   }
 }
