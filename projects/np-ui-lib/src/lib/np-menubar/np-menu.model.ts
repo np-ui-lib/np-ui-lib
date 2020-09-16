@@ -13,6 +13,7 @@ export class NpMenuItem {
         this.iconCss = item.iconCss;
         this.isChildVisible = false;
         this.visible = item.visible === false ? false : true;
+        this.isHeader = item.isHeader === true ? true : false;
     }
     public label: string;
     public items: NpMenuItem[];
@@ -24,6 +25,7 @@ export class NpMenuItem {
     public queryParamsHandling: QueryParamsHandling;
     public iconCss: string;
     public visible: boolean;
+    public isHeader: boolean;
     isChildVisible: boolean;
     x: number;
     y: number;

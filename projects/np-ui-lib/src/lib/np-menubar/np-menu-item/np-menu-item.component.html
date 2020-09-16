@@ -1,5 +1,8 @@
 <ng-container *ngIf="item.visible">
-    <ng-container *ngIf="item.items">
+    <ng-container *ngIf="item.isHeader">
+        <div class="np-menu-header" [innerHTML]="item.label"></div>
+    </ng-container>
+    <ng-container *ngIf="item.items && !item.isHeader">
         <div class="np-menu-item" (mouseenter)="_onMouseEnter($event,item)" (mouseleave)="_onMouseLeave(item)">
             <a class="np-menu-link" [ngClass]="{'np-menu-active': item.routerLink && _isActive(item)}">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
@@ -26,7 +29,7 @@
             </ng-container>
         </div>
     </ng-container>
-    <ng-container *ngIf="!item.items">
+    <ng-container *ngIf="!item.items && !item.isHeader">
         <div class="np-menu-item">
             <a class="np-menu-link" *ngIf="item.routerLink" [routerLink]="item.routerLink"
                 [queryParams]="item.queryParams" [fragment]="item.fragment"

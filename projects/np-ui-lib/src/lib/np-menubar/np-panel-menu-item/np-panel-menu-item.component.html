@@ -1,5 +1,8 @@
 <ng-container *ngIf="item.visible">
-    <ng-container *ngIf="item.items">
+    <ng-container *ngIf="item.isHeader">
+        <div class="np-menu-header" [innerHTML]="item.label"></div>
+    </ng-container>
+    <ng-container *ngIf="item.items && !item.isHeader">
         <div class="np-menu-item" (click)="_onClickPanelMenu(item)">
             <a class="np-menu-link" [ngClass]="{'np-menu-active-parent': _isActive(item)}">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
@@ -25,7 +28,7 @@
             </div>
         </ng-container>
     </ng-container>
-    <ng-container *ngIf="!item.items">
+    <ng-container *ngIf="!item.items && !item.isHeader">
         <div class="np-menu-item">
             <a class="np-menu-link" *ngIf="item.routerLink" [routerLink]="item.routerLink"
                 [queryParams]="item.queryParams" [fragment]="item.fragment"

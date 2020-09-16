@@ -177,7 +177,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     }
   }
 
-  _onClick() {
+  _open() {
     if (this.isServerSide || this.isDisabled || this.readOnly) {
       return;
     }

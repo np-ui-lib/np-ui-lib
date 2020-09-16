@@ -77,3 +77,14 @@
     font-size: x-large;
     padding-right: 5px;
 }
+
+.np-menu-header {
+    align-items: center;
+    color: #000;
+    display: flex;
+    min-height: 2.5rem;
+    min-width: 100px;
+    padding: 5px 10px;
+    font-weight: bold;
+    background-color: #eee;
+}

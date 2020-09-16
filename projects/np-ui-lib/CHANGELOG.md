@@ -9,6 +9,7 @@
 - Add tabIndex property to all input components
 - Rename readonly to readOnly, O in uppercase
 - Call onTouchedCallback on blur event of every input component
+- Add isHeader property in menu item
 
 ## 10.4.0
 - Resolved data grid state variable reference issue
