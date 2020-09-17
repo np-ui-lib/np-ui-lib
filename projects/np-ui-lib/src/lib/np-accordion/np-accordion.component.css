@@ -1,5 +1,6 @@
 .np-accordion-item {
     border: 1px solid #9e9e9e;
+    border-radius: 2px;
     background-color: #ffffff;
     margin-bottom: 1px;
     overflow: hidden;

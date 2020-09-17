@@ -32,12 +32,12 @@
 .np-card-title {
     font-size: x-large;
     font-weight: bold;
-    padding: 2px 0px;
+    padding-bottom: 5px;
 }
 
 .np-card-subtitle {
     font-weight: bold;
-    padding: 1px 0px;
+    padding-bottom: 5px;
 }
 
 .np-card-avatar {

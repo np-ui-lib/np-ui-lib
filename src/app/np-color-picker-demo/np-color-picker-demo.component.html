@@ -162,7 +162,7 @@
         <ng-template npTabContent>
             <div>
                 <fieldset>
-                    <legend>1. basic colorpicker</legend>
+                    <legend>Basic colorpicker</legend>
                     <np-color-picker [(ngModel)]="color1" [inputId]="'txtColor'" [autoFocus]="true"></np-color-picker>
                     <div>Selected value is: {{color1}}</div>
                     <button type="button" class="np-btn" (click)="color1 = '#ed5a0f'">Set color #ed5a0f</button>
@@ -171,7 +171,7 @@
 
             <div>
                 <fieldset>
-                    <legend>2. disabled and readonly</legend>
+                    <legend>disabled and readonly</legend>
                     <np-color-picker [(ngModel)]="color2" disabled></np-color-picker>
                     <br>
                     <np-color-picker [(ngModel)]="color2" [readOnly]="true"></np-color-picker>
@@ -181,7 +181,7 @@
             <div>
                 <form #form="ngForm">
                     <fieldset>
-                        <legend>3. required</legend>
+                        <legend>required</legend>
                         <np-color-picker [(ngModel)]="color3" required #validations="ngModel" name="colorPicker3">
                         </np-color-picker>
                         <div *ngIf="validations.control.touched && validations.control.errors?.required"
@@ -196,7 +196,7 @@
 
             <div>
                 <fieldset>
-                    <legend>4. defaultOpen</legend>
+                    <legend>defaultOpen</legend>
                     <np-color-picker [(ngModel)]="color4" [defaultOpen]="true" #validations4="ngModel"
                         [disabled]="color4Disabled" [required]="color4Required">
                     </np-color-picker>
@@ -215,7 +215,7 @@
 
             <div>
                 <fieldset>
-                    <legend>5. Pre-defined colors in picker</legend>
+                    <legend>Pre-defined colors in picker</legend>
                     <np-color-picker [(ngModel)]="color5" [colors]="existingColors5">
                     </np-color-picker>
                 </fieldset>
@@ -223,7 +223,7 @@
 
             <div>
                 <fieldset>
-                    <legend>6. placeholder</legend>
+                    <legend>placeholder</legend>
                     <np-color-picker [(ngModel)]="color6" [placeholder]="'Select font color'">
                     </np-color-picker>
                 </fieldset>
@@ -231,7 +231,7 @@
 
             <div>
                 <fieldset>
-                    <legend>7. hideColorInput</legend>
+                    <legend>hideColorInput</legend>
                     <np-color-picker [(ngModel)]="color7" [hideColorInput]="true">
                     </np-color-picker>
                 </fieldset>
@@ -239,7 +239,7 @@
 
             <div>
                 <fieldset>
-                    <legend>9. styleClass</legend>
+                    <legend>styleClass</legend>
                     <np-color-picker [(ngModel)]="color8" [styleClass]="'myClass'">
                     </np-color-picker>
                 </fieldset>
@@ -247,7 +247,7 @@
 
             <div>
                 <fieldset>
-                    <legend>9. No pre-defined colors</legend>
+                    <legend>No pre-defined colors</legend>
                     <np-color-picker [(ngModel)]="color9" [colors]="[]">
                     </np-color-picker>
                 </fieldset>
@@ -255,7 +255,7 @@
 
             <div>
                 <fieldset>
-                    <legend>10. onChange</legend>
+                    <legend>onChange</legend>
                     <np-color-picker [(ngModel)]="color10" (onChange)="onChangeColor($event)">
                     </np-color-picker>
                 </fieldset>

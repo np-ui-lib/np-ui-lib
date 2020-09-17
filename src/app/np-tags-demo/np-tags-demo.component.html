@@ -190,7 +190,7 @@
     <np-tab title="Examples">
         <ng-template npTabContent>
             <fieldset>
-                <legend>1. Default tags server side</legend>
+                <legend>Default tags server side</legend>
                 <np-tags [(ngModel)]="tags1" [searchResult]="searchResult1" [isServerSide]="true" [orderDir]="'asc'"
                     [autoFocus]="true" (onSearch)="onSearch1($event)">
                 </np-tags>
@@ -198,7 +198,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>2. Default tags client side + order by name + order direction descending</legend>
+                <legend>Default tags client side + order by name + order direction descending</legend>
                 <np-tags [(ngModel)]="tags2" [displayKey]="'name'" [searchResult]="searchResult2" [orderBy]="'name'"
                     [orderDir]="'desc'">
                 </np-tags>
@@ -206,7 +206,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>3. Create new tag server side and required</legend>
+                <legend>Create new tag server side and required</legend>
                 <np-tags [(ngModel)]="tags3" [searchResult]="searchResult3" [isServerSide]="true"
                     [allowCreateNew]="true" required (onSearch)="onSearch3($event)">
                 </np-tags>
@@ -214,7 +214,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>4. Create new tag with displayKey</legend>
+                <legend>Create new tag with displayKey</legend>
                 <np-tags [(ngModel)]="tags4" [displayKey]="'name'" [searchResult]="searchResult4"
                     [allowCreateNew]="true" [itemTemplate]="itemTemplate">
                 </np-tags>
@@ -225,7 +225,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>5. disabled and ReadOnly</legend>
+                <legend>disabled and ReadOnly</legend>
                 <np-tags [(ngModel)]="tags5" [displayKey]="'name'" [searchResult]="searchResult5" disabled>
                 </np-tags>
                 <br>
@@ -234,13 +234,13 @@
             </fieldset>
 
             <fieldset>
-                <legend>6. required</legend>
+                <legend>required</legend>
                 <np-tags [(ngModel)]="tags6" [displayKey]="'name'" [searchResult]="searchResult6" [required]="true">
                 </np-tags>
             </fieldset>
 
             <fieldset>
-                <legend>7. Treeview inside tags</legend>
+                <legend>Treeview inside tags</legend>
                 <np-tags [(ngModel)]="tags7" [displayKey]="'label'" [searchResult]="searchResult7" [isTreeView]="true"
                     [allowCreateNew]="true">
                 </np-tags>

@@ -159,18 +159,26 @@
             </np-carousel>
 
             <ng-template #itemTemplate2 let-item="item">
-                <np-card [width]="200">
+                <np-card [width]="250" styleClass="pricing-table">
                     <np-card-body>
-                        <div
-                            style="text-align: center; background-color: black;color: white; padding: 10px 20px;font-size: 22px;">
+                        <div class="np-text-center"
+                            style="background-color: black;color: white; padding: 10px 20px;font-size: 26px;">
                             {{item.name}}</div>
-                        <div style="text-align: center; padding: 10px 20px;font-size: 26px;">${{item.id * 100}}/mo
+                        <div class="price-label np-text-center" style="padding: 10px 20px;font-size: 24px;">
+                            ${{item.id * 100}}/mo
                         </div>
-                        <div style="text-align: center; padding: 10px 20px;">{{item.id * 10}} GB Storage</div>
-                        <div style="text-align: center; padding: 10px 20px;">{{item.id * 10}} Emails</div>
-                        <div style="text-align: center; padding: 10px 20px;">{{item.id * 10}} Domains</div>
-                        <div style="text-align: center;">
-                            <button class="np-btn np-btn-primary">Select</button>
+                        <div class="np-list">
+                            <div class="np-list-item np-text-center">{{item.id * 10}}GB
+                                Storage</div>
+                            <div class="np-list-item np-text-center">{{item.id * 10}} Emails
+                            </div>
+                            <div class="np-list-item np-text-center">{{item.id * 1}}
+                                Domains</div>
+                            <div class="np-list-item np-text-center">{{item.id * 100}}GB
+                                Bandwidth</div>
+                        </div>
+                        <div class="price-actions np-text-center">
+                            <button class="np-btn np-btn-primary">SELECT</button>
                         </div>
                     </np-card-body>
                 </np-card>

@@ -18,10 +18,14 @@
                 <div>
                     <pre><code [innerText]="htmlText"></code></pre>
                 </div>
-                <p class="np-alert np-alert-danger"><b>Note:</b>&nbsp;np-card-header, np-card-image, np-card-footer are
-                    optional and can be placed in any order.</p>
-                <p class="np-alert np-alert-info"><b>np-card-title,
-                        np-card-subtitle</b>&nbsp;and&nbsp;<b>np-card-avatar</b>&nbsp;CSS classes are also available.
+                <p class="np-alert np-alert-info">
+                    np-card-header, np-card-image, np-card-body, np-card-footer components can be used in any order.
+                </p>
+                <p class="np-alert np-alert-info">
+                    <span>
+                        Use CSS classes like&nbsp;<b>.np-card-title, .np-card-subtitle, .np-card-avatar</b>&nbsp;in
+                        header.
+                    </span>
                 </p>
             </np-card-body>
         </np-card>
@@ -63,7 +67,7 @@
                     <np-card [styleClass]="'overview-1'">
                         <np-card-body>
                             <div class="overview-header">Active</div>
-                            <div class="overview-number np-text-right">78%</div>
+                            <div class="overview-number">78%</div>
                         </np-card-body>
                     </np-card>
                 </div>
@@ -71,7 +75,7 @@
                     <np-card [styleClass]="'overview-2'">
                         <np-card-body>
                             <div class="overview-header">In Active</div>
-                            <div class="overview-number np-text-right">10%</div>
+                            <div class="overview-number">10%</div>
                         </np-card-body>
                     </np-card>
                 </div>
@@ -79,7 +83,7 @@
                     <np-card [styleClass]="'overview-3'">
                         <np-card-body>
                             <div class="overview-header">Pending</div>
-                            <div class="overview-number np-text-right">5%</div>
+                            <div class="overview-number">5%</div>
                         </np-card-body>
                     </np-card>
                 </div>
@@ -87,7 +91,7 @@
                     <np-card [styleClass]="'overview-4'">
                         <np-card-body>
                             <div class="overview-header">Approved</div>
-                            <div class="overview-number np-text-right">95%</div>
+                            <div class="overview-number">95%</div>
                         </np-card-body>
                     </np-card>
                 </div>
@@ -114,18 +118,12 @@
                             <h2>What is Lorem Ipsum?</h2>
                             <div>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has
-                                been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                                took a
-                                galley of type and scrambled it to make a type specimen book. It has
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. It has
                                 survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining
-                                essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                                sheets
-                                containing Lorem Ipsum passages, and more
-                                recently with desktop publishing software like Aldus PageMaker including versions of
-                                Lorem
-                                Ipsum.
+                                remaining essentially unchanged. It was popularised in the 1960s with the release of
+                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </div>
                         </np-card-body>
                         <np-card-footer>
@@ -135,16 +133,40 @@
                 </div>
                 <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6 np-col-xl-6">
                     <np-card [styleClass]="'myClass'" [width]="300">
+                        <np-card-image>
+                            <img class="np-responsive-img" src="../../assets/images/img_avatar.png">
+                        </np-card-image>
                         <np-card-body>
-                            <h2>What is paragraph?</h2>
-                            <div>
-                                A paragraph is a series of related sentences developing a central idea, called the
-                                topic.
-                                Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                                group of sentences that supports one central, unified idea. Paragraphs add
-                                one idea at a time to your broader argument.
-                            </div>
+                            <div class="np-card-title">John Doe</div>
+                            <div class="np-card-subtitle">Software Engineer</div>
                         </np-card-body>
+                    </np-card>
+                </div>
+            </div>
+            <div class="np-row">
+                <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6 np-col-xl-6">
+                    <np-card [width]="300">
+                        <np-card-image>
+                            <img class="np-responsive-img" style="background-color: #f5f5f5;"
+                                src="../../assets/images/lenovo-laptop.png">
+                        </np-card-image>
+                        <np-card-body>
+                            <div class="np-card-title">
+                                Lenovo Laptop
+                            </div>
+                            <div class="np-card-subtitle">
+                                Lenovo Ideapad 10th Gen Intel Core i7
+                            </div>
+                            <ul>
+                                <li>Reliable entry-level 35.56cms (14) laptop</li>
+                                <li>Cutting-edge Intel Core processors</li>
+                                <li>Great for everyday use</li>
+                            </ul>
+                            <div class="np-card-title np-text-center">$1500</div>
+                        </np-card-body>
+                        <np-card-footer>
+                            <button class="np-btn np-btn-block np-btn-primary">ADD TO CART</button>
+                        </np-card-footer>
                     </np-card>
                 </div>
             </div>

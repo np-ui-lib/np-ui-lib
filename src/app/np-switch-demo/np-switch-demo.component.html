@@ -119,7 +119,7 @@
 
         <div>
             <fieldset>
-                <legend>1. basic switch</legend>
+                <legend>Basic switch</legend>
                 <np-switch [(ngModel)]="switch1" [inputId]="'txtSwitch'" [autoFocus]="true"></np-switch>
                 <div>Selected Value : {{switch1}}</div>
                 <button class="np-btn" (click)="switch1 = !switch1">Toggle Value</button>
@@ -128,7 +128,7 @@
 
         <div>
             <fieldset>
-                <legend>2. default value to false</legend>
+                <legend>default value to false</legend>
                 <np-switch [(ngModel)]="switch2"></np-switch>
                 <div>Selected Value : {{switch2}}</div>
             </fieldset>
@@ -136,7 +136,7 @@
 
         <div>
             <fieldset>
-                <legend>3. disabled and readonly</legend>
+                <legend>disabled and readonly</legend>
                 <np-switch [(ngModel)]="switch3" disabled></np-switch>
                 <br>
                 <np-switch [(ngModel)]="switch3" [readOnly]="true"></np-switch>
@@ -145,14 +145,14 @@
 
         <div>
             <fieldset>
-                <legend>4. required</legend>
+                <legend>required</legend>
                 <np-switch [(ngModel)]="switch4" required></np-switch>
             </fieldset>
         </div>
 
         <div>
             <fieldset>
-                <legend>5 trueLabelText and falseLabelText as string</legend>
+                <legend>trueLabelText and falseLabelText as string</legend>
                 <np-switch [(ngModel)]="switch5" [falseLabelText]="'No'" [trueLabelText]="'Yes'"></np-switch>
                 <div>Selected Value : {{switch5}}</div>
             </fieldset>
@@ -160,7 +160,7 @@
 
         <div>
             <fieldset>
-                <legend>6 trueLabelText and falseLabelText as html string</legend>
+                <legend>trueLabelText and falseLabelText as html string</legend>
                 <np-switch [(ngModel)]="switch6" [falseLabelText]="'<a>OFF</a>'" [trueLabelText]="'<a>ON</a>'">
                 </np-switch>
                 <div>Selected Value : {{switch6}}</div>
@@ -169,14 +169,14 @@
 
         <div>
             <fieldset>
-                <legend>7. styleClass</legend>
+                <legend>styleClass</legend>
                 <np-switch [(ngModel)]="switch7" [styleClass]="'myClass'"></np-switch>
             </fieldset>
         </div>
 
         <div>
             <fieldset>
-                <legend>8. onChange</legend>
+                <legend>onChange</legend>
                 <np-switch [(ngModel)]="switch8" (onChange)="onChangeSwitch8($event)"></np-switch>
             </fieldset>
         </div>

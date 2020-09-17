@@ -17,31 +17,6 @@ body {
     opacity: 0.3!important;
 }
 
-.overview-1 {
-    background-color: #f8ebcb !important;
-}
-
-.overview-2 {
-    background-color: #ffe5dc !important;
-}
-
-.overview-3 {
-    background-color: #EEE9FA !important;
-}
-
-.overview-4 {
-    background-color: #e3f8f1 !important;
-}
-
-.overview-header {
-    font-size: 20px;
-}
-
-.overview-number {
-    font-size: 26px;
-    font-weight: bolder;
-}
-
 header {
     background-color: #007bff;
     position: fixed;
@@ -151,6 +126,62 @@ pre {
 
 fieldset {
     border: 1px solid #9e9e9e;
+    border-radius: 2px;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+.overview-1 {
+    background-color: #1e7e34 !important;
+    color: white;
+    border: none !important;
+}
+
+.overview-2 {
+    background-color: #d9534f !important;
+    color: white;
+    border: none !important;
+}
+
+.overview-3 {
+    background-color: #117a8b !important;
+    color: white;
+    border: none !important;
+}
+
+.overview-4 {
+    background-color: #d39e00 !important;
+    color: white;
+    border: none !important;
+}
+
+.overview-header {
+    font-size: 1.25rem;
+}
+
+.overview-number {
+    font-size: 2rem;
+    font-weight: bolder;
+    float: right;
+}
+
+.pricing-table .np-card-body {
+    margin: 0px;
+}
+
+.pricing-table .np-list {
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.pricing-table .np-list-item:hover {
+    background-color: #ffffff;
+}
+
+.price-label {
+    background-color: #eee;
+}
+
+.price-actions {
+    margin: 10px;
 }
