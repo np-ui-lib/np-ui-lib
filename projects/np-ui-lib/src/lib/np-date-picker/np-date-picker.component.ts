@@ -410,8 +410,12 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _onKeydown(event: KeyboardEvent) {
-    if (event.key === 'Tab') {
+    if (event.key === 'Tab' || event.key === 'Escape') {
       this._close();
+    }
+    if (event.key === 'ArrowDown') {
+      this._open();
+      event.preventDefault();
     }
   }
 

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpFileUploadDemoRoutingModule } from './np-file-upload-demo-routing.module';
 import { NpFileUploadDemoComponent } from './np-file-upload-demo.component';
-import { NpFileUploadModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
+import { NpFileUploadModule, NpCardModule, NpTabsModule, NpAlertModule } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
 
@@ -15,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     NpFileUploadDemoRoutingModule,
     NpFileUploadModule,
     NpTabsModule,
-    NpCardModule
+    NpCardModule,
+    NpAlertModule
   ]
 })
 export class NpFileUploadDemoModule { }

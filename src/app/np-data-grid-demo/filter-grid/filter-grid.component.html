@@ -14,7 +14,9 @@
 </np-data-grid>
 
 <div class="sub-header">Server Side Filering</div>
-<p class="np-alert np-alert-info">Options:<code>{{currentLoadOptions | json}}</code></p>
+<np-alert type="info">
+    Options:<code>{{currentLoadOptions | json}}</code>
+</np-alert>
 <np-data-grid [columns]="gridColumns" [dataSource]="serverGridDataSource" [isServerOperations]="true"
     (onLoadData)="onLoadDataServerGrid($event)" [showFilters]="showFilters">
 </np-data-grid>

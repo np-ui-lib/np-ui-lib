@@ -168,18 +168,17 @@
                 </colgroup>
                 <tbody>
                     <ng-container *ngFor="let data of currentViewData; let i = index; trackBy: _trackBy;">
-                        <tr id="row_{{i}}" [ngClass]="{'np-grid-selected': _isSelected(data[keyColumnName])}"
+                        <tr id="row_{{i}}" [ngClass]="{'np-grid-selected': _isSelected(data)}"
                             (click)="_rowClick($event,data)">
                             <td *ngIf="enableMasterChild">
-                                <button *ngIf="!_isOpenChild(data[keyColumnName]); else collapseRowButton" type="button"
-                                    class="np-child-expand" (click)="_onClickExpandRow(data[keyColumnName])">
+                                <button *ngIf="!_isOpenChild(data); else collapseRowButton" type="button"
+                                    class="np-child-expand" (click)="_onClickExpandRow(data)">
                                     <svg class="np-icon" viewBox="0 0 24 24">
                                         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                         <path d="M0 0h24v24H0z" fill="none" /></svg>
                                 </button>
                                 <ng-template #collapseRowButton>
-                                    <button type="button" class="np-child-collapse"
-                                        (click)="_onClickCollapseRow(data[keyColumnName])">
+                                    <button type="button" class="np-child-collapse" (click)="_onClickCollapseRow(data)">
                                         <svg class="np-icon" viewBox="0 0 24 24">
                                             <path d="M19 13H5v-2h14v2z" />
                                             <path d="M0 0h24v24H0z" fill="none" /></svg>
@@ -187,9 +186,8 @@
                                 </ng-template>
                             </td>
                             <td *ngIf="_allowRowSelection()">
-                                <input type="checkbox" class="np-grid-checkbox"
-                                    [checked]="_isSelected(data[keyColumnName])"
-                                    (change)="_onClickSelectRow(data[keyColumnName],$event)">
+                                <input type="checkbox" class="np-grid-checkbox" [checked]="_isSelected(data)"
+                                    (change)="_onClickSelectRow(data,$event)">
                             </td>
                             <td *ngFor="let column of visibleColumns; let j = index; trackBy: _trackBy;"
                                 [class]="column.styleClass"
@@ -208,7 +206,7 @@
                                 </ng-template>
                             </td>
                         </tr>
-                        <ng-container *ngIf="_isOpenChild(data[keyColumnName])">
+                        <ng-container *ngIf="_isOpenChild(data)">
                             <tr id="row_{{i}}_child" class="np-child-row">
                                 <td [attr.colspan]="_getColSpanForChildRow()">
                                     <ng-container *ngTemplateOutlet="masterDetailTemplate; context: { row: data }">

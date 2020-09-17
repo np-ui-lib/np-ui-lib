@@ -30,4 +30,8 @@ export class NpFileUploadDemoComponent implements OnInit {
   onChange($event) {
     alert('change event occurs.');
   }
+
+  SetNullValue() {
+    this.fileUpload1 = null;
+  }
 }

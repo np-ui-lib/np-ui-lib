@@ -5,9 +5,9 @@
 <p>To set OData operations in data grid, set <b>[isODataOperations]</b> to "true" in grid defination</p>
 <p>Only support OData v4.</p>
 
-<p class="np-alert np-alert-success">
+<np-alert type="info">
     <b>OData Query :</b> {{odataQuery}}
-</p>
+</np-alert>
 
 <np-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiColumnSortEnable]="true"
     [title]="'OData backend V4'" [showColumnChooser]="true" [showToolBar]="true" [allowExport]="true"

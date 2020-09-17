@@ -1,8 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { NpMenuItem } from 'np-ui-lib';
-import { Router, NavigationEnd } from '@angular/router';
-import { DatePipe } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +10,6 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   title = 'np-ui-package';
   year = new Date().getFullYear();
-  downloads = 0;
 
   dataGridItems = [
     new NpMenuItem({ routerLink: '/np-data-grid-demo/data-grid-doc', label: 'Documentation' }),
@@ -83,19 +80,28 @@ export class AppComponent implements OnInit {
 
   showMenu: boolean;
   isMobileView: boolean;
+  isHomePage: boolean;
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.setMenubarOnResize();
   }
 
-  constructor(private router: Router, private http: HttpClient, public datepipe: DatePipe) {
+  constructor(private router: Router) {
     this.setMenubarOnResize();
-    this.getNPMDownloads();
   }
 
   ngOnInit(): void {
     this.router.events.subscribe((ev: any) => {
+      if (ev instanceof NavigationStart) {
+        if (ev.url === '/how-to-add') {
+          this.showMenu = false;
+          this.isHomePage = true;
+        } else {
+          this.showMenu = true;
+          this.isHomePage = false;
+        }
+      }
       if (ev instanceof NavigationEnd) {
         document.querySelector('.main-container').scrollTo(0, 0);
       }
@@ -113,6 +119,9 @@ export class AppComponent implements OnInit {
   }
 
   setMenubarOnResize() {
+    if (this.isHomePage) {
+      return;
+    }
     if (window.innerWidth <= 992) {
       this.showMenu = false;
       this.isMobileView = true;
@@ -120,18 +129,6 @@ export class AppComponent implements OnInit {
       this.showMenu = true;
       this.isMobileView = false;
     }
-  }
-
-  getNPMDownloads() {
-    const today = this.datepipe.transform(new Date(), 'yyyy-MM-dd');
-    const url = `https://api.npmjs.org/downloads/point/2020-03-21:${today}/np-ui-lib`;
-
-    this.http.get<any>(url)
-      .subscribe((result: any) => {
-        if (result) {
-          this.downloads = result.downloads;
-        }
-      });
   }
 
 }

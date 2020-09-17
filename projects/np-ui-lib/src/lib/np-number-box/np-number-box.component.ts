@@ -88,16 +88,16 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     this.value = this.value - this.steps;
   }
 
-  _onMouseDownAdd() {
+  _onMouseDownPlus() {
     const that = this;
     this._clearTimeout();
     this.timeout = setTimeout(() => {
-      that._onMouseDownAdd();
+      that._onMouseDownPlus();
     }, 200);
     that._add();
   }
 
-  _onMouseUpAdd() {
+  _onMouseUpPlus() {
     this._clearTimeout();
   }
 

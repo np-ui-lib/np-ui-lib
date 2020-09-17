@@ -21,8 +21,9 @@
     <li><b>odataQuery</b> (If <b>isODataOperations</b> is set to "true", then oDataQuery will be passed here.)</li>
     <li><b>isAllPages</b> (This will be used for server side export to CSV functionality, default value is "false")</li>
 </ul>
-
-<p class="np-alert np-alert-info">Options:<code>{{currentLoadOptions | json}}</code></p>
+<np-alert type="info">
+    Options:<code>{{currentLoadOptions | json}}</code>
+</np-alert>
 <np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [isServerOperations]="true"
     (onLoadData)="onLoadData($event)">
 </np-data-grid>

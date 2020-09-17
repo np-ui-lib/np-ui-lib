@@ -37,8 +37,3 @@
     padding: 10px;
     min-height: 3rem;
 }
-
-.np-modal-backdrop {
-    background-color: #000000;
-    opacity: 0.3 !important;
-}

@@ -720,7 +720,7 @@ svg {
 }
 
 .np-btn {
-    height: 2rem;
+    line-height: 2rem;
     min-width: 50px;
     padding: 0px 10px;
     margin: 0px;
@@ -730,6 +730,8 @@ svg {
     border-radius: 2px;
     outline: none;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 .np-btn-icon {
@@ -743,10 +745,12 @@ svg {
     border-radius: 2px;
     outline: none;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 .np-btn-sm {
-    height: 1.2rem;
+    line-height: 1.2rem;
     padding: 0px 5px;
 }
 
@@ -835,10 +839,12 @@ svg {
 
 .np-btn-icon-right {
     padding-left: 5px;
+    vertical-align: middle;
 }
 
 .np-btn-icon-left {
     padding-right: 5px;
+    vertical-align: middle;
 }
 
 .np-border-0 {
@@ -1269,4 +1275,9 @@ svg {
 
 .ng-touched.ng-invalid:not(form) .np-input-group .np-icon {
     color: #d9534f;
+}
+
+.np-modal-backdrop {
+    background-color: #000000;
+    opacity: 0.3 !important;
 }

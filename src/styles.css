@@ -118,6 +118,7 @@ pre {
     color: white;
     padding: 10px;
     overflow: auto;
+    border-radius: 2px;
 }
 
 .np-input-group-append .fa, .dashboard-card .fa {

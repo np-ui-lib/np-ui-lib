@@ -10,6 +10,8 @@
 - Rename readonly to readOnly, O in uppercase
 - Call onTouchedCallback on blur event of every input component
 - Add isHeader property in menu item
+- Slider change value label on input event
+- Add Tab, Escape, ArrowDown key support for input controls for overlay
 
 ## 10.4.0
 - Resolved data grid state variable reference issue

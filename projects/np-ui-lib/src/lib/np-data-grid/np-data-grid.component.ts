@@ -367,7 +367,8 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     this.filterColumnList = [];
   }
 
-  _onClickExpandRow(keyValue: any) {
+  _onClickExpandRow(data: any) {
+    const keyValue = data[this.keyColumnName];
     if (this.expandRowOnClick === true) {
       return;
     }
@@ -383,7 +384,8 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
   }
 
-  _onClickCollapseRow(keyValue: any) {
+  _onClickCollapseRow(data: any) {
+    const keyValue = data[this.keyColumnName];
     if (this.expandRowOnClick === true) {
       return;
     }
@@ -436,7 +438,8 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
   }
 
-  _onClickSelectRow(keyValue: any, event: any) {
+  _onClickSelectRow(data: any, event: any) {
+    const keyValue = data[this.keyColumnName];
     if (this.selectRowOnClick === true) {
       return;
     }
@@ -471,11 +474,13 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
   }
 
-  _isSelected(keyValue: any) {
+  _isSelected(data: any) {
+    const keyValue = data[this.keyColumnName];
     return this.selectedRowKeys.indexOf(keyValue) > -1;
   }
 
-  _isOpenChild(keyValue: any) {
+  _isOpenChild(data: any) {
+    const keyValue = data[this.keyColumnName];
     if (!this.enableMasterChild) {
       return false;
     }

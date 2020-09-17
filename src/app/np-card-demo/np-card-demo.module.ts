@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpCardDemoRoutingModule } from './np-card-demo-routing.module';
 import { NpCardDemoComponent } from './np-card-demo.component';
-import { NpCardModule, NpTabsModule } from 'np-ui-lib';
+import { NpCardModule, NpTabsModule, NpAlertModule } from 'np-ui-lib';
 
 @NgModule({
   declarations: [NpCardDemoComponent],
@@ -11,7 +11,8 @@ import { NpCardModule, NpTabsModule } from 'np-ui-lib';
     CommonModule,
     NpCardDemoRoutingModule,
     NpCardModule,
-    NpTabsModule
+    NpTabsModule,
+    NpAlertModule
   ]
 })
 export class NpCardDemoModule { }

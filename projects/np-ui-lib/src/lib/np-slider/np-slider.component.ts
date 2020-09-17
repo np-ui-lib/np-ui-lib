@@ -29,6 +29,7 @@ export class NpSliderComponent implements OnInit {
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
+  lable: number;
   innerValue: number;
   isDisabled = false;
   private onChangeCallback: (_: any) => void = () => { };
@@ -46,6 +47,7 @@ export class NpSliderComponent implements OnInit {
   set value(v: number) {
     if (v !== this.innerValue) {
       this.innerValue = v;
+      this.lable = v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
       this.onChange.emit(v);
@@ -55,6 +57,7 @@ export class NpSliderComponent implements OnInit {
   writeValue(v: number): void {
     if (v !== this.innerValue) {
       this.innerValue = v;
+      this.lable = v;
     }
   }
 
@@ -75,6 +78,13 @@ export class NpSliderComponent implements OnInit {
       return;
     }
     this.value = $event.target.value;
+  }
+
+  _onInput($event) {
+    if (this.isDisabled || this.readOnly) {
+      return;
+    }
+    this.lable = $event.target.value;
   }
 
   _onBlur() {

@@ -15,7 +15,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    min-height: 2.5rem;
+    min-height: 2.25rem;
     min-width: 100px;
     padding: 5px 10px;
     outline: none;
@@ -82,7 +82,7 @@
     align-items: center;
     color: #000;
     display: flex;
-    min-height: 2.5rem;
+    min-height: 2.25rem;
     min-width: 100px;
     padding: 5px 10px;
     font-weight: bold;

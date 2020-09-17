@@ -4,58 +4,68 @@
 
 <np-tabs>
     <np-tab title="Documentation">
-        <np-card><np-card-body>
-            <b>Module to import</b>
-            <div>
-                <pre><code [innerText]="importText"></code></pre>
-            </div>
-        </np-card-body></np-card>
-        <np-card><np-card-body>
-            <b>HTML</b>
-            <div>
-                <pre><code [innerText]="htmlText"></code></pre>
-            </div>
-            <p class="np-alert np-alert-danger">Add above line in your main application module's template file app.component.html
-                only once.
-            </p>
-        </np-card-body></np-card>
-        <np-card><np-card-body>
-            <b>Import service and class from np-ui-lib in any component</b>
-            <div>
-                <code [innerHTML]="importServiceAndClass"></code>
-            </div>
-            <br>
-            <div>
-                <code [innerHTML]="createServiceObject"></code>
-            </div>
-            <br>
-            <b>How to show notification from any component?</b>
-            <div>
-                <code [innerHTML]="methodText"></code>
-            </div>
-            <p>Where <b>type</b> can be 'success' | 'danger' | 'info' | 'warning'</p>
-            <p>Also set <b>autoCloseTimeout</b> property for closing notification automatically. Default time is 10000
-                ms</p>
-            <p>Set <b>header</b> to show header in notification, which is type of string</p>
-        </np-card-body></np-card>
-        <np-card><np-card-body>
-            <table class="np-table">
-                <tr>
-                    <th>Api</th>
-                    <th>Description</th>
-                    <th>Parameters</th>
-                </tr>
-                <tr>
-                    <td>
-                        closeAll()
-                    </td>
-                    <td>
-                        Close all notifications
-                    </td>
-                    <td></td>
-                </tr>
-            </table>
-        </np-card-body></np-card>
+        <np-card>
+            <np-card-body>
+                <b>Module to import</b>
+                <div>
+                    <pre><code [innerText]="importText"></code></pre>
+                </div>
+            </np-card-body>
+        </np-card>
+        <np-card>
+            <np-card-body>
+                <b>HTML</b>
+                <div>
+                    <pre><code [innerText]="htmlText"></code></pre>
+                </div>
+                <np-alert type="info">
+                    Add above line in your main application module's template file app.component.html
+                    only once.
+                </np-alert>
+            </np-card-body>
+        </np-card>
+        <np-card>
+            <np-card-body>
+                <b>Import service and class from np-ui-lib in any component</b>
+                <div>
+                    <code [innerHTML]="importServiceAndClass"></code>
+                </div>
+                <br>
+                <div>
+                    <code [innerHTML]="createServiceObject"></code>
+                </div>
+                <br>
+                <b>How to show notification from any component?</b>
+                <div>
+                    <code [innerHTML]="methodText"></code>
+                </div>
+                <p>Where <b>type</b> can be 'success' | 'danger' | 'info' | 'warning'</p>
+                <p>Also set <b>autoCloseTimeout</b> property for closing notification automatically. Default time is
+                    10000
+                    ms</p>
+                <p>Set <b>header</b> to show header in notification, which is type of string</p>
+            </np-card-body>
+        </np-card>
+        <np-card>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Api</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            closeAll()
+                        </td>
+                        <td>
+                            Close all notifications
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
     </np-tab>
     <np-tab title="Examples">
         <fieldset>

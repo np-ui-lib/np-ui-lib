@@ -123,9 +123,9 @@
                     </tr>
                 </table>
 
-                <div class="np-text-info">
+                <np-alert type="info">
                     There are four control validations for extensions, size, totalSize, maxFiles.
-                </div>
+                </np-alert>
             </np-card-body>
         </np-card>
 
@@ -154,6 +154,9 @@
         <fieldset>
             <legend>Single file upload</legend>
             <np-file-upload [(ngModel)]="fileUpload1" [autoFocus]="true"></np-file-upload>
+            <div class="np-btn-group">
+                <button class="np-btn" (click)="SetNullValue()">Set null</button>
+            </div>
         </fieldset>
 
         <fieldset>
