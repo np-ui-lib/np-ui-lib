@@ -1,6 +1,4 @@
-<div class="sub-header">
-    Tabs
-</div>
+<h2> Tabs</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -190,9 +188,9 @@
                 <np-tabs #tabs [height]="200">
                     <np-tab [title]="'Tab1'">
                         <ng-template npTabContent>
-                            <h1>
+                            <h3>
                                 Tab 1
-                            </h1>
+                            </h3>
                             <p>
                                 A paragraph is a series of related sentences developing a central idea, called the
                                 topic.
@@ -207,9 +205,9 @@
                             Tab2<span class='np-badge'>{{count}}</span>
                         </ng-template>
                         <ng-template npTabContent>
-                            <h1>
+                            <h3>
                                 Tab 2
-                            </h1>
+                            </h3>
                             <p>
                                 A paragraph is a series of related sentences developing a central idea, called the
                                 topic.
@@ -220,9 +218,9 @@
                         </ng-template>
                     </np-tab>
                     <np-tab [title]="'Tab3'" [disabled]="toggleTab3Disabled">
-                        <h1>
+                        <h3>
                             Tab 3
-                        </h1>
+                        </h3>
                         <p>
                             A paragraph is a series of related sentences developing a central idea, called the topic.
                             Try to
@@ -232,9 +230,9 @@
                         </p>
                     </np-tab>
                     <np-tab [title]="'Tab4'" *ngIf="isTab4Available">
-                        <h1>
+                        <h3>
                             Tab 4
-                        </h1>
+                        </h3>
                         <p>
                             A first paragraph is a series of related sentences developing a central idea, called the
                             topic.
@@ -283,13 +281,13 @@
                 <legend>Vertical tabs</legend>
                 <np-tabs (onTabChange)="onTabChange($event)" #tabs2 [verticalTabs]="true" [height]="200">
                     <np-tab [title]="'Tab1'">
-                        <h1>
+                        <h3>
                             Tab 1 , Check console for isLoadFirstTime flag value.
-                        </h1>
-                        <h1>
+                        </h3>
+                        <h4>
                             This isLoadFirstTime flag is used to know tab is open for first time. This helps in loading
                             data from cache.
-                        </h1>
+                        </h4>
                         <p>
                             A paragraph is a series of related sentences developing a central idea, called the topic.
                             Try to
@@ -299,13 +297,13 @@
                         </p>
                     </np-tab>
                     <np-tab [title]="'Tab2'" [active]="true">
-                        <h1>
+                        <h3>
                             Tab 2 , Check console for isLoadFirstTime flag value
-                        </h1>
-                        <h1>
+                        </h3>
+                        <h4>
                             This isLoadFirstTime flag is used to know tab is open for first time. This helps in loading
                             data from cache.
-                        </h1>
+                        </h4>
                         <p>
                             A first paragraph is a series of related sentences developing a central idea, called the
                             topic.

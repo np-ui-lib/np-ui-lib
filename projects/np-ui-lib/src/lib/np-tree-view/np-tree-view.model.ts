@@ -1,7 +1,7 @@
 export class NpTreeViewItem {
     constructor(item: any) {
         this.label = item.label;
-        this.key = item.key;
+        this.id = item.id;
         this.childItems = item.childItems;
         this.isExpanded = item.isExpanded;
         this.data = item.data;
@@ -9,7 +9,7 @@ export class NpTreeViewItem {
     }
 
     label: string;
-    key: any;
+    id: any;
     isExpanded: boolean;
     childItems: NpTreeViewItem[];
     data: any;

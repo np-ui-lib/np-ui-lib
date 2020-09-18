@@ -114,22 +114,26 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
 
   ngAfterContentInit() {
     this.hours = [];
+    const hoursList = [];
     if (this.is24Hours) {
       this.pattern = new RegExp('^([0-9]|0[0-9]|1[0-9]|2[0-3]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9])$');
       for (let i = 0; i < 24; i++) {
-        this.hours.push(i);
+        hoursList.push(i);
       }
     }
     else {
       this.pattern = new RegExp('^(1[0-1]|0?[1-9]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9]) ?(AM|PM)$');
       for (let i = 0; i < 12; i++) {
-        this.hours.push(i);
+        hoursList.push(i);
       }
     }
+    this.hours = hoursList;
+    const minuteAndSeconds = [];
     for (let i = 0; i < 60; i++) {
-      this.minutes.push(i);
-      this.seconds.push(i);
+      minuteAndSeconds.push(i);
     }
+    this.minutes = minuteAndSeconds;
+    this.seconds = minuteAndSeconds;
   }
 
   _minusHour() {

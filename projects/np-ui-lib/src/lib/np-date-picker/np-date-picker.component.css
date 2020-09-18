@@ -1,10 +1,9 @@
 .np-date-picker-overlay {
     background-color: #ffffff;
-    width: min-content;
-    min-width: 236px;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
     border: 1px solid #9e9e9e;
     border-radius: 2px;
+    width: fit-content;
 }
 
 .np-overlay-open {
@@ -61,6 +60,7 @@
 
 .np-date-picker-today {
     background-color: #d39e00;
+    border-radius: 2px;
 }
 
 .np-date-picker-selected, .np-date-picker-day:hover {

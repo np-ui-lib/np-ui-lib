@@ -47,20 +47,24 @@
             </button>
         </div>
         <div class="np-weekdays">
-            <ng-container *ngFor="let weekDay of weekDays;let i = index;">
+            <ng-container *ngFor="let weekDay of weekDays">
                 <div class="np-dp-weekday" [innerHTML]="weekDay"></div>
             </ng-container>
         </div>
         <div class="np-date-picker-days">
-            <div *ngFor="let day of days; let i = index;" class="np-date-picker-day" (click)="_selectDate(day)"
-                [ngClass]="{'np-date-picker-today': _checkIsToday(day), 'np-disabled': _checkIsDateDisabled(currentYear,currentMonth,day), 'np-date-picker-selected': _checkIsSelected(day)}">
-                <div *ngIf="_getTooltip(currentYear,currentMonth,day); let label; else dayTemplate"
-                    [np-tooltip]="label">
-                    {{day}}
-                </div>
-                <ng-template #dayTemplate>
-                    {{day}}
-                </ng-template>
+            <div *ngFor="let week of currentMonthDates">
+                <ng-container *ngFor="let day of week">
+                    <div (click)="_selectDate(day)" class="np-date-picker-day"
+                        [ngClass]="{'np-date-picker-today': _checkIsToday(day), 'np-disabled': _checkIsDateDisabled(currentYear,currentMonth,day), 'np-date-picker-selected': _checkIsSelected(day)}">
+                        <div *ngIf="_getTooltip(currentYear,currentMonth,day); let label; else dayTemplate"
+                            [np-tooltip]="label">
+                            {{day}}
+                        </div>
+                        <ng-template #dayTemplate>
+                            {{day}}
+                        </ng-template>
+                    </div>
+                </ng-container>
             </div>
         </div>
         <div class="np-date-picker-footer">

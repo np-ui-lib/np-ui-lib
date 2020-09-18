@@ -47,7 +47,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   monthsList: any[];
   months: any[];
   years: number[] = [];
-  days: number[] = [];
+  currentMonthDates: any;
   selectedDay: number;
   selectedMonth: number;
   selectedYear: number;
@@ -193,29 +193,32 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _calculateDays() {
-    this.days = [];
+    const weeks = [];
+    weeks[0] = [];
     const daysInMonth = this._daysInCurrentMonth();
-    const firstWeekDayOfMonth = new Date(
-      this.currentYear,
-      this.currentMonth,
-      1
-    ).getDay();
+    const firstWeekDayOfMonth = new Date(this.currentYear, this.currentMonth, 1).getDay();
     // push extra values up to week days match to start date if month
     for (let index = 0; index < firstWeekDayOfMonth; index++) {
-      this.days.push(null);
+      weeks[0].push(null);
     }
     if (this.isStartMonthWithMonday) {
       // if start with monday then
       if (firstWeekDayOfMonth === 0) {
-        this.days.push(null, null, null, null, null, null);
+        weeks[0].push(null, null, null, null, null, null);
       } else {
-        this.days.pop();
+        weeks[0].pop();
       }
     }
+    let j = 0;
     // push all dates in month
     for (let index = 1; index <= daysInMonth; index++) {
-      this.days.push(index);
+      if (weeks[j].length === 7) {
+        j++;
+        weeks[j] = [];
+      }
+      weeks[j].push(index);
     }
+    this.currentMonthDates = weeks;
   }
 
   _daysInCurrentMonth() {

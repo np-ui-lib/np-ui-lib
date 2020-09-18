@@ -84,7 +84,10 @@ export class NpTreeViewComponent implements OnChanges {
     this.onClick.emit(item);
   }
 
-  _changeSelection(event, item: NpTreeViewItem) {
+  _changeSelection(event: any, item: NpTreeViewItem) {
+    if (!item.id) {
+      throw new Error('NpTreeViewItem.id must be defined for selection');
+    }
     if (event.target.checked) {
       this._selectNode(item);
     } else {
@@ -166,8 +169,7 @@ export class NpTreeViewComponent implements OnChanges {
     if (this.selectionMode && this.selection) {
       for (let i = 0; i < this.selection.length; i++) {
         const selectedItem = this.selection[i];
-        const isEqual = (selectedItem.key && selectedItem.key === item.key) || selectedItem === item;
-        if (isEqual) {
+        if (selectedItem.id === item.id) {
           index = i;
           break;
         }
@@ -187,6 +189,9 @@ export class NpTreeViewComponent implements OnChanges {
   }
 
   _syncSelection(item: NpTreeViewItem) {
+    if (!item.id) {
+      throw new Error('NpTreeViewItem.id must be defined for selection');
+    }
     if (item.childItems && item.childItems.length) {
       for (const child of item.childItems) {
         this._syncSelection(child);
@@ -239,6 +244,9 @@ export class NpTreeViewComponent implements OnChanges {
   }
 
   _selectAll(item: NpTreeViewItem) {
+    if (!item.id) {
+      throw new Error('NpTreeViewItem.id must be defined for selection');
+    }
     this.selection.push(item);
     if (item.childItems) {
       item.childItems.forEach(element => {

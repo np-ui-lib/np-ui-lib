@@ -14,14 +14,14 @@ export class NpTreeViewDemoComponent implements OnInit {
   modelText = `items: NpTreeViewItem[] = [
   new NpTreeViewItem({
     label: 'Item 1',
-    key: 'Item 1',
+    id: 'Item 1',
     childItems: [
       new NpTreeViewItem({
-        label: 'Item 1.1', key: 'Item 1.1', childItems: [
-          new NpTreeViewItem({ label: 'Item 1.1.1', key: 'Item 1.1.1' }),
-          new NpTreeViewItem({ label: 'Item 1.1.2', key: 'Item 1.1.2' }),
-          new NpTreeViewItem({ label: 'Item 1.1.3', key: 'Item 1.1.3' }),
-          new NpTreeViewItem({ label: 'Item 1.1.4', key: 'Item 1.1.4' }),
+        label: 'Item 1.1', id: 'Item 1.1', childItems: [
+          new NpTreeViewItem({ label: 'Item 1.1.1', id: 'Item 1.1.1' }),
+          new NpTreeViewItem({ label: 'Item 1.1.2', id: 'Item 1.1.2' }),
+          new NpTreeViewItem({ label: 'Item 1.1.3', id: 'Item 1.1.3' }),
+          new NpTreeViewItem({ label: 'Item 1.1.4', id: 'Item 1.1.4' }),
         ]
       })
     ]
@@ -76,81 +76,81 @@ export class NpTreeViewDemoComponent implements OnInit {
 
   items2: NpTreeViewItem[] = [
     new NpTreeViewItem({
-      label: 'Item 1',
+      label: 'Item 1', id: 'Item 1', data: { num: '1' },
       childItems: [
         new NpTreeViewItem({
-          label: 'Item 1.1', childItems: [
-            new NpTreeViewItem({ label: 'Item 1.1.1' }),
-            new NpTreeViewItem({ label: 'Item 1.1.2' }),
-            new NpTreeViewItem({ label: 'Item 1.1.3' }),
-            new NpTreeViewItem({ label: 'Item 1.1.4' }),
+          label: 'Item 1.1', id: 'Item 1.1', data: { num: '1.1' }, childItems: [
+            new NpTreeViewItem({ label: 'Item 1.1.1', id: 'Item 1.1.1', data: { num: '1.1.1' } }),
+            new NpTreeViewItem({ label: 'Item 1.1.2', id: 'Item 1.1.2', data: { num: '1.1.2' } }),
+            new NpTreeViewItem({ label: 'Item 1.1.3', id: 'Item 1.1.3', data: { num: '1.1.3' } }),
+            new NpTreeViewItem({ label: 'Item 1.1.4', id: 'Item 1.1.4', data: { num: '1.1.4' } }),
           ]
         }),
-        new NpTreeViewItem({ label: 'Item 1.2' }),
-        new NpTreeViewItem({ label: 'Item 1.3' }),
-        new NpTreeViewItem({ label: 'Item 1.4' }),
+        new NpTreeViewItem({ label: 'Item 1.2', id: 'Item 1.2', data: { num: '1.2' } }),
+        new NpTreeViewItem({ label: 'Item 1.3', id: 'Item 1.3', data: { num: '1.3' } }),
+        new NpTreeViewItem({ label: 'Item 1.4', id: 'Item 1.4', data: { num: '1.4' } }),
       ]
     }),
     new NpTreeViewItem({
-      label: 'Item 2',
+      label: 'Item 2', id: 'Item 2', data: { num: '2' },
       childItems: [
         new NpTreeViewItem({
-          label: 'Item 2.1', childItems: [
-            new NpTreeViewItem({ label: 'Item 2.1.1' }),
-            new NpTreeViewItem({ label: 'Item 2.1.2' }),
-            new NpTreeViewItem({ label: 'Item 2.1.3' }),
-            new NpTreeViewItem({ label: 'Item 2.1.4' }),
+          label: 'Item 2.1', id: 'Item 2.1', data: { num: '2.1' }, childItems: [
+            new NpTreeViewItem({ label: 'Item 2.1.1', id: 'Item 2.1.1', data: { num: '2.2.1' } }),
+            new NpTreeViewItem({ label: 'Item 2.1.2', id: 'Item 2.1.2', data: { num: '2.2.2' } }),
+            new NpTreeViewItem({ label: 'Item 2.1.3', id: 'Item 2.1.3', data: { num: '2.2.3' } }),
+            new NpTreeViewItem({ label: 'Item 2.1.4', id: 'Item 2.1.4', data: { num: '2.2.4' } }),
           ]
         }),
-        new NpTreeViewItem({ label: 'Item 2.2' }),
-        new NpTreeViewItem({ label: 'Item 2.3' }),
-        new NpTreeViewItem({ label: 'Item 2.4' }),
+        new NpTreeViewItem({ label: 'Item 2.2', id: 'Item 2.2', data: { num: '2.2' } }),
+        new NpTreeViewItem({ label: 'Item 2.3', id: 'Item 2.3', data: { num: '2.3' } }),
+        new NpTreeViewItem({ label: 'Item 2.4', id: 'Item 2.4', data: { num: '2.4' } }),
       ]
     }),
-    new NpTreeViewItem({ label: 'Item 3', childItems: [] }),
-    new NpTreeViewItem({ label: 'Item 4' }),
-    new NpTreeViewItem({ label: 'Item 5' }),
+    new NpTreeViewItem({ label: 'Item 3', id: 'Item 3', data: { num: '3' }, childItems: [] }),
+    new NpTreeViewItem({ label: 'Item 4', id: 'Item 4', data: { num: '4' } }),
+    new NpTreeViewItem({ label: 'Item 5', id: 'Item 5', data: { num: '5' } }),
   ];
   selection2: [];
 
   items3: NpTreeViewItem[] = [
     new NpTreeViewItem({
-      label: 'Item 1', key: 'Item 1', data: { id: '1' },
+      label: 'Item 1', id: 'Item 1', data: { num: '1' },
       childItems: [
         new NpTreeViewItem({
-          label: 'Item 1.1', key: 'Item 1.1', data: { id: '1.1' }, childItems: [
-            new NpTreeViewItem({ label: 'Item 1.1.1', key: 'Item 1.1.1', data: { id: '1.1.1' } }),
-            new NpTreeViewItem({ label: 'Item 1.1.2', key: 'Item 1.1.2', data: { id: '1.1.2' } }),
-            new NpTreeViewItem({ label: 'Item 1.1.3', key: 'Item 1.1.3', data: { id: '1.1.3' } }),
-            new NpTreeViewItem({ label: 'Item 1.1.4', key: 'Item 1.1.4', data: { id: '1.1.4' } }),
+          label: 'Item 1.1', id: 'Item 1.1', data: { num: '1.1' }, childItems: [
+            new NpTreeViewItem({ label: 'Item 1.1.1', id: 'Item 1.1.1', data: { num: '1.1.1' } }),
+            new NpTreeViewItem({ label: 'Item 1.1.2', id: 'Item 1.1.2', data: { num: '1.1.2' } }),
+            new NpTreeViewItem({ label: 'Item 1.1.3', id: 'Item 1.1.3', data: { num: '1.1.3' } }),
+            new NpTreeViewItem({ label: 'Item 1.1.4', id: 'Item 1.1.4', data: { num: '1.1.4' } }),
           ]
         }),
-        new NpTreeViewItem({ label: 'Item 1.2', key: 'Item 1.2', data: { id: '1.2' } }),
-        new NpTreeViewItem({ label: 'Item 1.3', key: 'Item 1.3', data: { id: '1.3' } }),
-        new NpTreeViewItem({ label: 'Item 1.4', key: 'Item 1.4', data: { id: '1.4' } }),
+        new NpTreeViewItem({ label: 'Item 1.2', id: 'Item 1.2', data: { num: '1.2' } }),
+        new NpTreeViewItem({ label: 'Item 1.3', id: 'Item 1.3', data: { num: '1.3' } }),
+        new NpTreeViewItem({ label: 'Item 1.4', id: 'Item 1.4', data: { num: '1.4' } }),
       ]
     }),
     new NpTreeViewItem({
-      label: 'Item 2', key: 'Item 2', data: { id: '2' },
+      label: 'Item 2', id: 'Item 2', data: { num: '2' },
       childItems: [
         new NpTreeViewItem({
-          label: 'Item 2.1', key: 'Item 2.1', data: { id: '2.1' }, childItems: [
-            new NpTreeViewItem({ label: 'Item 2.1.1', key: 'Item 2.1.1', data: { id: '2.2.1' } }),
-            new NpTreeViewItem({ label: 'Item 2.1.2', key: 'Item 2.1.2', data: { id: '2.2.2' } }),
-            new NpTreeViewItem({ label: 'Item 2.1.3', key: 'Item 2.1.3', data: { id: '2.2.3' } }),
-            new NpTreeViewItem({ label: 'Item 2.1.4', key: 'Item 2.1.4', data: { id: '2.2.4' } }),
+          label: 'Item 2.1', id: 'Item 2.1', data: { num: '2.1' }, childItems: [
+            new NpTreeViewItem({ label: 'Item 2.1.1', id: 'Item 2.1.1', data: { num: '2.2.1' } }),
+            new NpTreeViewItem({ label: 'Item 2.1.2', id: 'Item 2.1.2', data: { num: '2.2.2' } }),
+            new NpTreeViewItem({ label: 'Item 2.1.3', id: 'Item 2.1.3', data: { num: '2.2.3' } }),
+            new NpTreeViewItem({ label: 'Item 2.1.4', id: 'Item 2.1.4', data: { num: '2.2.4' } }),
           ]
         }),
-        new NpTreeViewItem({ label: 'Item 2.2', key: 'Item 2.2', data: { id: '2.2' } }),
-        new NpTreeViewItem({ label: 'Item 2.3', key: 'Item 2.3', data: { id: '2.3' } }),
-        new NpTreeViewItem({ label: 'Item 2.4', key: 'Item 2.4', data: { id: '2.4' } }),
+        new NpTreeViewItem({ label: 'Item 2.2', id: 'Item 2.2', data: { num: '2.2' } }),
+        new NpTreeViewItem({ label: 'Item 2.3', id: 'Item 2.3', data: { num: '2.3' } }),
+        new NpTreeViewItem({ label: 'Item 2.4', id: 'Item 2.4', data: { num: '2.4' } }),
       ]
     }),
-    new NpTreeViewItem({ label: 'Item 3', key: 'Item 3', data: { id: '3' }, childItems: [] }),
-    new NpTreeViewItem({ label: 'Item 4', key: 'Item 4', data: { id: '4' } }),
-    new NpTreeViewItem({ label: 'Item 5', key: 'Item 5', data: { id: '5' } }),
+    new NpTreeViewItem({ label: 'Item 3', id: 'Item 3', data: { num: '3' }, childItems: [] }),
+    new NpTreeViewItem({ label: 'Item 4', id: 'Item 4', data: { num: '4' } }),
+    new NpTreeViewItem({ label: 'Item 5', id: 'Item 5', data: { num: '5' } }),
   ];
-  selection3 = [{ label: 'Item 4', key: 'Item 4', data: { id: '4' } }, { label: 'Item 1.1.1', key: 'Item 1.1.1', data: { id: '1.1.1' } }];
+  selection3 = [{ label: 'Item 4', id: 'Item 4', data: { num: '4' } }, { label: 'Item 1.1.1', id: 'Item 1.1.1', data: { num: '1.1.1' } }];
 
   constructor() { }
 

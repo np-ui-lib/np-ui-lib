@@ -12,6 +12,8 @@
 - Add isHeader property in menu item
 - Slider change value label on input event
 - Add Tab, Escape, ArrowDown key support for input controls for overlay
+- Rename key to id in NpTreeViewItem
+- Add typography css for header tags
 
 ## 10.4.0
 - Resolved data grid state variable reference issue

@@ -1,6 +1,4 @@
-<div class="sub-header">
-    Popover
-</div>
+<h2> Popover</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -160,7 +158,10 @@
         </fieldset>
 
         <fieldset>
-            <a np-popover [body]="mailTemp" [openOnClick]="true">Popover on click</a>
+            <button class="np-btn" np-popover [body]="mailTemp" [openOnClick]="true">
+                <i class="fa fa-envelope"></i>
+                <span class="np-badge">5</span>
+            </button>
             <ng-template #mailTemp>
                 <div class="np-list">
                     <div class="np-list-item">

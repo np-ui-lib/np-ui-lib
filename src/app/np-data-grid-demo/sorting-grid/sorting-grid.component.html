@@ -1,6 +1,4 @@
-<div class="sub-header">
-    Sorting example
-</div>
+<h2> Sorting example</h2>
 <p>
     To add sorting in data grid set <b>sortEnable</b> to "true" in column definations.
 </p>
@@ -8,14 +6,14 @@
     To set multi column sort enable:
     <np-switch [(ngModel)]="multiColumnSortEnable"></np-switch>
 </span>
-<div class="sub-header">
+<h2>
     Client side sorting
-</div>
+</h2>
 <np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [multiColumnSortEnable]="multiColumnSortEnable">
 </np-data-grid>
-<div class="sub-header">
+<h2>
     Server side sorting
-</div>
+</h2>
 <np-alert type="info">
     Options: <code>{{currentLoadOptions | json}}</code>
 </np-alert>
