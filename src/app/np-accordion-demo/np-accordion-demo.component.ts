@@ -3,8 +3,7 @@ import { NpAccordionComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-accordion-demo',
-  templateUrl: './np-accordion-demo.component.html',
-  styleUrls: ['./np-accordion-demo.component.css']
+  templateUrl: './np-accordion-demo.component.html'
 })
 export class NpAccordionDemoComponent implements OnInit {
 

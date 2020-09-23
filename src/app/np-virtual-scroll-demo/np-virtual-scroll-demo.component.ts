@@ -3,8 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-np-virtual-scroll-demo',
-  templateUrl: './np-virtual-scroll-demo.component.html',
-  styleUrls: ['./np-virtual-scroll-demo.component.css']
+  templateUrl: './np-virtual-scroll-demo.component.html'
 })
 export class NpVirtualScrollDemoComponent implements OnInit {
 

@@ -3,8 +3,7 @@ import { NpCarouselComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-carousel-demo',
-  templateUrl: './np-carousel-demo.component.html',
-  styleUrls: ['./np-carousel-demo.component.css']
+  templateUrl: './np-carousel-demo.component.html'
 })
 export class NpCarouselDemoComponent implements OnInit {
 

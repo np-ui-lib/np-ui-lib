@@ -3,8 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-np-utility-demo',
-  templateUrl: './np-utility-demo.component.html',
-  styleUrls: ['./np-utility-demo.component.css']
+  templateUrl: './np-utility-demo.component.html'
 })
 export class NpUtilityDemoComponent implements OnInit {
 

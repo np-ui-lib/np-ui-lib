@@ -3,8 +3,7 @@ import { NpBreadcrumbItem } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-breadcrumb-demo',
-  templateUrl: './np-breadcrumb-demo.component.html',
-  styleUrls: ['./np-breadcrumb-demo.component.css']
+  templateUrl: './np-breadcrumb-demo.component.html'
 })
 export class NpBreadcrumbDemoComponent implements OnInit {
 

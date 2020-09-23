@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-date-picker-demo',
-  templateUrl: './np-date-picker-demo.component.html',
-  styleUrls: ['./np-date-picker-demo.component.css']
+  templateUrl: './np-date-picker-demo.component.html'
 })
 export class NpDatePickerDemoComponent implements OnInit {
 

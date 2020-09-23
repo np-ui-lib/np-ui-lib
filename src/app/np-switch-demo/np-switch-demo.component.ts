@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-switch-demo',
-  templateUrl: './np-switch-demo.component.html',
-  styleUrls: ['./np-switch-demo.component.css']
+  templateUrl: './np-switch-demo.component.html'
 })
 export class NpSwitchDemoComponent implements OnInit {
 

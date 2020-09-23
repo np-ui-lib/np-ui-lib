@@ -4,8 +4,7 @@ import { NpSidepanelComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-sidepanel-demo',
-  templateUrl: './np-sidepanel-demo.component.html',
-  styleUrls: ['./np-sidepanel-demo.component.css']
+  templateUrl: './np-sidepanel-demo.component.html'
 })
 export class NpSidepanelDemoComponent implements OnInit {
 

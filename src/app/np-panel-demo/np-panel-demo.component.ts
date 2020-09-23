@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-panel-demo',
-  templateUrl: './np-panel-demo.component.html',
-  styleUrls: ['./np-panel-demo.component.css']
+  templateUrl: './np-panel-demo.component.html'
 })
 export class NpPanelDemoComponent implements OnInit {
 

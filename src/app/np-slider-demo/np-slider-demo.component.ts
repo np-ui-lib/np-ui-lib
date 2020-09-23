@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-slider-demo',
-  templateUrl: './np-slider-demo.component.html',
-  styleUrls: ['./np-slider-demo.component.css']
+  templateUrl: './np-slider-demo.component.html'
 })
 export class NpSliderDemoComponent implements OnInit {
 

@@ -3,8 +3,7 @@ import { NpPopoverDirective } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-popover-demo',
-  templateUrl: './np-popover-demo.component.html',
-  styleUrls: ['./np-popover-demo.component.css']
+  templateUrl: './np-popover-demo.component.html'
 })
 export class NpPopoverDemoComponent implements OnInit {
 

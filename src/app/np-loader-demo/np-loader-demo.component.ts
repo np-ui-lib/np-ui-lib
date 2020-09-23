@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-loader-demo',
-  templateUrl: './np-loader-demo.component.html',
-  styleUrls: ['./np-loader-demo.component.css']
+  templateUrl: './np-loader-demo.component.html'
 })
 export class NpLoaderDemoComponent implements OnInit {
 

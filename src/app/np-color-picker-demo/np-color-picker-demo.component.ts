@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-color-picker-demo',
-  templateUrl: './np-color-picker-demo.component.html',
-  styleUrls: ['./np-color-picker-demo.component.css']
+  templateUrl: './np-color-picker-demo.component.html'
 })
 export class NpColorPickerDemoComponent implements OnInit {
 

@@ -3,8 +3,7 @@ import { NpListComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-list-demo',
-  templateUrl: './np-list-demo.component.html',
-  styleUrls: ['./np-list-demo.component.css']
+  templateUrl: './np-list-demo.component.html'
 })
 export class NpListDemoComponent implements OnInit {
 

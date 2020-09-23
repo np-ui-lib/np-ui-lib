@@ -4,8 +4,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   title = 'np-ui-package';
@@ -93,8 +92,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.events.subscribe((ev: any) => {
-      if (ev instanceof NavigationStart) {
-        if (ev.url === '/how-to-add') {
+      if (ev instanceof NavigationStart && !this.isMobileView) {
+        if (ev.url === '' || ev.url === '/' || ev.url === '/how-to-add') {
           this.showMenu = false;
           this.isHomePage = true;
         } else {

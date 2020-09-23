@@ -24,11 +24,11 @@
 
 <!-- Template for child section -->
 <ng-template #masterChildTemplate let-row="row">
-    <span><b>Name:</b>{{row.FirstName}} {{row.LastName}}</span>
+    <span><b>Name: </b>{{row.FirstName}} {{row.LastName}}</span>
     <br>
-    <span><b>Age:</b>{{row.Age}} years</span>
+    <span><b>Age: </b>{{row.Age}} years</span>
     <br>
-    <span><b>Birth Date:</b>{{row.BirthDate | date:'dd/MM/yyyy'}}</span>
+    <span><b>Birth Date: </b>{{row.BirthDate | date:'dd/MM/yyyy'}}</span>
 </ng-template>
 
 <!-- Template for summary section -->

@@ -4,8 +4,7 @@ import { NpTreeViewItem } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-tags-demo',
-  templateUrl: './np-tags-demo.component.html',
-  styleUrls: ['./np-tags-demo.component.css']
+  templateUrl: './np-tags-demo.component.html'
 })
 export class NpTagsDemoComponent implements OnInit {
 
@@ -44,41 +43,41 @@ export class NpTagsDemoComponent implements OnInit {
   treeViewItems: NpTreeViewItem[] = [
     new NpTreeViewItem({
       label: 'Item 1',
-      key: 'Item 1',
+      id: 'Item 1',
       childItems: [
         new NpTreeViewItem({
-          label: 'Item 1.1', key: 'Item 1.1', childItems: [
-            new NpTreeViewItem({ label: 'Item 1.1.1', key: 'Item 1.1.1' }),
-            new NpTreeViewItem({ label: 'Item 1.1.2', key: 'Item 1.1.2' }),
-            new NpTreeViewItem({ label: 'Item 1.1.3', key: 'Item 1.1.3' }),
-            new NpTreeViewItem({ label: 'Item 1.1.4', key: 'Item 1.1.4' }),
+          label: 'Item 1.1', id: 'Item 1.1', childItems: [
+            new NpTreeViewItem({ label: 'Item 1.1.1', id: 'Item 1.1.1' }),
+            new NpTreeViewItem({ label: 'Item 1.1.2', id: 'Item 1.1.2' }),
+            new NpTreeViewItem({ label: 'Item 1.1.3', id: 'Item 1.1.3' }),
+            new NpTreeViewItem({ label: 'Item 1.1.4', id: 'Item 1.1.4' }),
           ]
         }),
-        new NpTreeViewItem({ label: 'Item 1.2', key: 'Item 1.2' }),
-        new NpTreeViewItem({ label: 'Item 1.3', key: 'Item 1.3' }),
-        new NpTreeViewItem({ label: 'Item 1.4', key: 'Item 1.4' }),
+        new NpTreeViewItem({ label: 'Item 1.2', id: 'Item 1.2' }),
+        new NpTreeViewItem({ label: 'Item 1.3', id: 'Item 1.3' }),
+        new NpTreeViewItem({ label: 'Item 1.4', id: 'Item 1.4' }),
       ]
     }),
     new NpTreeViewItem({
       label: 'Item 2',
-      key: 'Item 2',
+      id: 'Item 2',
       childItems: [
         new NpTreeViewItem({
-          label: 'Item 2.1', key: 'Item 2.1', childItems: [
-            new NpTreeViewItem({ label: 'Item 2.1.1', key: 'Item 2.1.1' }),
-            new NpTreeViewItem({ label: 'Item 2.1.2', key: 'Item 2.1.2' }),
-            new NpTreeViewItem({ label: 'Item 2.1.3', key: 'Item 2.1.3' }),
-            new NpTreeViewItem({ label: 'Item 2.1.4', key: 'Item 2.1.4' }),
+          label: 'Item 2.1', id: 'Item 2.1', childItems: [
+            new NpTreeViewItem({ label: 'Item 2.1.1', id: 'Item 2.1.1' }),
+            new NpTreeViewItem({ label: 'Item 2.1.2', id: 'Item 2.1.2' }),
+            new NpTreeViewItem({ label: 'Item 2.1.3', id: 'Item 2.1.3' }),
+            new NpTreeViewItem({ label: 'Item 2.1.4', id: 'Item 2.1.4' }),
           ]
         }),
-        new NpTreeViewItem({ label: 'Item 2.2', key: 'Item 2.2' }),
-        new NpTreeViewItem({ label: 'Item 2.3', key: 'Item 2.3' }),
-        new NpTreeViewItem({ label: 'Item 2.4', key: 'Item 2.4' }),
+        new NpTreeViewItem({ label: 'Item 2.2', id: 'Item 2.2' }),
+        new NpTreeViewItem({ label: 'Item 2.3', id: 'Item 2.3' }),
+        new NpTreeViewItem({ label: 'Item 2.4', id: 'Item 2.4' }),
       ]
     }),
-    new NpTreeViewItem({ label: 'Item 3', key: 'Item 3', childItems: [] }),
-    new NpTreeViewItem({ label: 'Item 4', key: 'Item 4' }),
-    new NpTreeViewItem({ label: 'Item 5', key: 'Item 5' }),
+    new NpTreeViewItem({ label: 'Item 3', id: 'Item 3', childItems: [] }),
+    new NpTreeViewItem({ label: 'Item 4', id: 'Item 4' }),
+    new NpTreeViewItem({ label: 'Item 5', id: 'Item 5' }),
   ];
 
   tags1: string[];
@@ -91,7 +90,7 @@ export class NpTagsDemoComponent implements OnInit {
   tags5: any[] = [
     { id: 6, name: 'Strawberry', vitamin: 'iron, copper, B6' },
     { id: 7, name: 'Watermelon', vitamin: ' A, B6 and C' }];
-  tags7 = [{ label: 'Item 4', key: 'Item 4' }, { label: 'Item 1.1.1', key: 'Item 1.1.1' }];
+  tags7 = [{ label: 'Item 4', id: 'Item 4' }, { label: 'Item 1.1.1', id: 'Item 1.1.1' }];
 
   searchResult1: BehaviorSubject<string[]> = new BehaviorSubject(null);
   searchResult2: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);

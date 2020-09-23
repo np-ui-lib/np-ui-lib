@@ -3,8 +3,7 @@ import { NpModalService, NpDialogComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-dialog-demo',
-  templateUrl: './np-dialog-demo.component.html',
-  styleUrls: ['./np-dialog-demo.component.css']
+  templateUrl: './np-dialog-demo.component.html'
 })
 export class NpDialogDemoComponent implements OnInit {
 

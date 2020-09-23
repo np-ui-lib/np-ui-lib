@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-blockui-demo',
-  templateUrl: './np-blockui-demo.component.html',
-  styleUrls: ['./np-blockui-demo.component.css']
+  templateUrl: './np-blockui-demo.component.html'
 })
 export class NpBlockuiDemoComponent implements OnInit {
 

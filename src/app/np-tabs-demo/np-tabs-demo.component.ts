@@ -3,8 +3,7 @@ import { NpTabsComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-tabs-demo',
-  templateUrl: './np-tabs-demo.component.html',
-  styleUrls: ['./np-tabs-demo.component.css']
+  templateUrl: './np-tabs-demo.component.html'
 })
 export class NpTabsDemoComponent implements OnInit {
 

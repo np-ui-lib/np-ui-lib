@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-progress-demo',
-  templateUrl: './np-progress-demo.component.html',
-  styleUrls: ['./np-progress-demo.component.css']
+  templateUrl: './np-progress-demo.component.html'
 })
 export class NpProgressDemoComponent implements OnInit {
 

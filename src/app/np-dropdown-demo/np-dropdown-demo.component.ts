@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-dropdown-demo',
-  templateUrl: './np-dropdown-demo.component.html',
-  styleUrls: ['./np-dropdown-demo.component.css']
+  templateUrl: './np-dropdown-demo.component.html'
 })
 export class NpDropdownDemoComponent implements OnInit {
 

@@ -4,8 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-np-paginator-demo',
-  templateUrl: './np-paginator-demo.component.html',
-  styleUrls: ['./np-paginator-demo.component.css']
+  templateUrl: './np-paginator-demo.component.html'
 })
 export class NpPaginatorDemoComponent implements OnInit {
 

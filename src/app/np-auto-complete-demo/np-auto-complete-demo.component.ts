@@ -3,8 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-np-auto-complete-demo',
-  templateUrl: './np-auto-complete-demo.component.html',
-  styleUrls: ['./np-auto-complete-demo.component.css']
+  templateUrl: './np-auto-complete-demo.component.html'
 })
 export class NpAutoCompleteDemoComponent implements OnInit {
 

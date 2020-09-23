@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-mask-demo',
-  templateUrl: './np-mask-demo.component.html',
-  styleUrls: ['./np-mask-demo.component.css']
+  templateUrl: './np-mask-demo.component.html'
 })
 export class NpMaskDemoComponent implements OnInit {
 

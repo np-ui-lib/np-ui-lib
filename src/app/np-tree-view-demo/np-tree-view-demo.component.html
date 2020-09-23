@@ -280,7 +280,7 @@
                 <button class="np-btn" (click)="deselectAll()">Deselect All</button>
             </div>
             <ng-template #itemTemplate let-item="item">
-                ({{item.data.num}}) {{item.label}}
+                ({{item.data.index}}) {{item.label}}
             </ng-template>
         </fieldset>
     </np-tab>

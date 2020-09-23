@@ -3,8 +3,7 @@ import { NpNotificationsService, NpNotification } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-notifications-demo',
-  templateUrl: './np-notifications-demo.component.html',
-  styleUrls: ['./np-notifications-demo.component.css']
+  templateUrl: './np-notifications-demo.component.html'
 })
 export class NpNotificationsDemoComponent implements OnInit {
 

@@ -3,8 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-np-steps-demo',
-  templateUrl: './np-steps-demo.component.html',
-  styleUrls: ['./np-steps-demo.component.css']
+  templateUrl: './np-steps-demo.component.html'
 })
 export class NpStepsDemoComponent implements OnInit {
 

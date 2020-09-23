@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-data-grid-doc',
-  templateUrl: './data-grid-doc.component.html',
-  styleUrls: ['./data-grid-doc.component.css']
+  templateUrl: './data-grid-doc.component.html'
 })
 export class DataGridDocComponent implements OnInit {
 
@@ -16,8 +15,8 @@ export class DataGridDocComponent implements OnInit {
   ...
 ]`;
   childRowText = `<ng-template #masterDetailTemplate let-row="row">
-  <span><b>Name:</b>{{row.FirstName}} {{row.LastName}}</span>
-  <span><b>Birth Date:</b>{{row.BirthDate | date:'dd/MM/yyyy'}}</span>
+  <span><b>Name: </b>{{row.FirstName}} {{row.LastName}}</span>
+  <span><b>Birth Date: </b>{{row.BirthDate | date:'dd/MM/yyyy'}}</span>
 </ng-template>`;
   summaryTempText = `<ng-template #summaryTemplate let-summary="summary">
   <span>Total:{{summary ? summary.totalCount : 0}}</span>

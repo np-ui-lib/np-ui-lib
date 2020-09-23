@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-file-upload-demo',
-  templateUrl: './np-file-upload-demo.component.html',
-  styleUrls: ['./np-file-upload-demo.component.css']
+  templateUrl: './np-file-upload-demo.component.html'
 })
 export class NpFileUploadDemoComponent implements OnInit {
 

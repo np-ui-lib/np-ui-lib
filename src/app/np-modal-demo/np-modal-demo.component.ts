@@ -4,8 +4,7 @@ import { NpModalDemoChildComponent } from './np-modal-demo-child/np-modal-demo-c
 
 @Component({
   selector: 'app-np-modal-demo',
-  templateUrl: './np-modal-demo.component.html',
-  styleUrls: ['./np-modal-demo.component.css']
+  templateUrl: './np-modal-demo.component.html'
 })
 export class NpModalDemoComponent implements OnInit {
 

@@ -3,8 +3,7 @@ import { NpMenuItem } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-menubar-demo',
-  templateUrl: './np-menubar-demo.component.html',
-  styleUrls: ['./np-menubar-demo.component.css']
+  templateUrl: './np-menubar-demo.component.html'
 })
 export class NpMenubarDemoComponent implements OnInit {
 

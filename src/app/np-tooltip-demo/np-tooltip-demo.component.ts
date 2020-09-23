@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-tooltip-demo',
-  templateUrl: './np-tooltip-demo.component.html',
-  styleUrls: ['./np-tooltip-demo.component.css']
+  templateUrl: './np-tooltip-demo.component.html'
 })
 export class NpTooltipDemoComponent implements OnInit {
 

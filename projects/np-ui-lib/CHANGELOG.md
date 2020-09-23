@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 10.4.2
+- Minor improvements
+
 ## 10.4.1
 - Resolved minor bugs
 - Add closeOnClickOutside, inputId and styleClass in modal and dialog

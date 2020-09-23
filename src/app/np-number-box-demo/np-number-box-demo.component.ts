@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-np-number-box-demo',
-  templateUrl: './np-number-box-demo.component.html',
-  styleUrls: ['./np-number-box-demo.component.css']
+  templateUrl: './np-number-box-demo.component.html'
 })
 export class NpNumberBoxDemoComponent implements OnInit {
 

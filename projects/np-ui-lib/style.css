@@ -1183,7 +1183,7 @@ svg {
     border-right: 1px solid #9e9e9e;
     border-bottom: 1px solid #9e9e9e;
     text-align: left;
-    line-height: 32px;
+    line-height: 2rem;
 }
 
 .np-table tr td:last-child, .np-table tr th:last-child {
@@ -1315,4 +1315,12 @@ h5 {
 
 h6 {
     font-size: 1rem;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-margin {
+    margin: 0 !important;
 }
