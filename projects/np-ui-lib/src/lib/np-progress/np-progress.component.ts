@@ -19,7 +19,7 @@ export class NpProgressComponent {
   @Input() height: number;
   @Input() inputId = `np-progress_${NpProgressComponent.controlCount++}`;
 
-  getTooltipText() {
+  getTextValue() {
     return `${this.value}%`;
   }
 

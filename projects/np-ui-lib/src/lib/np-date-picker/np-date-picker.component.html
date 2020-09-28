@@ -1,9 +1,10 @@
-<div [ngClass]="{'np-date-picker': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
-    [attr.id]="inputId">
+<div [ngClass]="{'np-date-picker': true, 'np-disabled': isDisabled , 'np-readonly': readOnly, 'np-focus': focused}"
+    [class]="styleClass" [attr.id]="inputId">
     <div class="np-input-group" *ngIf="!defaultOpen; else templatePortalContent">
         <input class="np-form-control" type="text" [value]="value | date: format" [placeholder]="placeholder"
             [disabled]="isDisabled" [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly"
-            (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" (blur)="_onBlur()">
+            (click)="_open()" (keydown)="_onKeydown($event)" (change)="_onInputChange($event)" (blur)="_onBlur()"
+            (focus)="_onFocus()">
         <div class="np-input-group-append">
             <button class="np-btn-icon np-btn-clear" type="button" tabindex="-1" title="Clear" (click)="_clear()">
                 <svg class="np-icon" viewBox="0 0 24 24">

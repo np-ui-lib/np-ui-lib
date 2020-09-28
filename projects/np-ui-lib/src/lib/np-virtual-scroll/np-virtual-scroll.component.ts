@@ -10,6 +10,7 @@ import { Component, Input, Output, EventEmitter, TemplateRef, ViewEncapsulation,
 export class NpVirtualScrollComponent {
   static controlCount = 1;
 
+  @Input() header: string;
   @Input() data: any[];
   @Input() pageSize: number;
   @Input() itemHeight: number;

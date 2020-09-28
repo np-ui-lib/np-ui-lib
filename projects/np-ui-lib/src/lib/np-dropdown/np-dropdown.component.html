@@ -16,8 +16,8 @@
     </div>
     <ng-template #templatePortalContent>
         <div class="np-dropdown-overlay">
-            <div class="np-list np-dropdown-list">
-                <div class="np-list-item"
+            <ul role="listbox" class="np-list">
+                <li role="option" class="np-list-item"
                     *ngFor="let item of items | npOrderBy: orderBy : orderDir ; let i = index; trackBy: _trackBy;"
                     [ngClass]="{'np-dropdown-selected': _isSelected(item)}" (click)="_selectValue(item)">
                     <ng-container *ngIf="!itemTemplate; else customTemplate">
@@ -26,8 +26,8 @@
                     <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
                         [ngTemplateOutletContext]="{item: item}">
                     </ng-template>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
     </ng-template>
 </div>

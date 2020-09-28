@@ -53,6 +53,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   isLoading = false;
   innerValue: any[];
   isDisabled = false;
+  focused = false;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -333,7 +334,12 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     return this.displayValue || '';
   }
 
+  _onFocus() {
+    this.focused = true;
+  }
+
   _onBlur() {
+    this.focused = false;
     this.onTouchedCallback();
   }
 }

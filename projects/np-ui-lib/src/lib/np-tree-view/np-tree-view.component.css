@@ -2,6 +2,9 @@
     border: 1px solid #9e9e9e;
     border-radius: 2px;
     background-color: #ffffff;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 .np-treeview-node {
@@ -10,7 +13,7 @@
     line-height: 2rem;
 }
 
-.np-treeview-collapse, .np-treeview-expand {
+.np-treeview-expand, .np-treeview-collapse {
     position: absolute;
     left: 0px;
     border: none;

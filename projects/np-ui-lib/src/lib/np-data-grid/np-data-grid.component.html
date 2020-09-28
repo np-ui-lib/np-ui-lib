@@ -72,7 +72,7 @@
     </div>
     <div class="np-grid-container">
         <div class="np-grid-thead">
-            <table>
+            <table role="grid">
                 <colgroup>
                     <col *ngIf="enableMasterChild" style="width: 2.5rem;">
                     <col *ngIf="_allowRowSelection()" style="width: 2.5rem;">
@@ -160,7 +160,7 @@
             </table>
         </div>
         <div class="np-grid-tbody">
-            <table>
+            <table role="grid">
                 <colgroup>
                     <col *ngIf="enableMasterChild" style="width: 2.5rem;">
                     <col *ngIf="_allowRowSelection()" style="width: 2.5rem;">

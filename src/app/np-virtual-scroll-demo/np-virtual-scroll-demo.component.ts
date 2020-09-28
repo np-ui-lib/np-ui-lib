@@ -31,7 +31,7 @@ loadData(event) {
   allData: any[];
 
   constructor() {
-    this.pageSize = 50;
+    this.pageSize = 5;
     this.allData = Array.from({ length: 1000 }).map((_, i) => `Item #${i + 1}`);
     this.data = Array.from<string>({ length: 1000 });
   }

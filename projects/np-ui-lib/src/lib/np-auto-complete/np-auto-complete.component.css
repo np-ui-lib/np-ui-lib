@@ -1,8 +1,5 @@
 .np-auto-complete-loader {
     animation: spin 2s linear infinite;
-    height: 2rem;
-    width: 2rem;
-    padding: 2px;
 }
 
 .np-auto-complete-overlay {

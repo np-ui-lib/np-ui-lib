@@ -5,6 +5,9 @@
 
 ## 10.4.2
 - Minor improvements
+- Add accessibility attributes
+- Add header in list and virtual scroll
+- Resolved virtual scroll height issue
 
 ## 10.4.1
 - Resolved minor bugs

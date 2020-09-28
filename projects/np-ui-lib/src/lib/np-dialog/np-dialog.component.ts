@@ -17,7 +17,7 @@ export class NpDialogComponent implements OnInit {
   styleClass: string;
   inputId = `np-modal_${NpDialogComponent.controlCount++}`;
 
-  constructor(private modalRef: NpModalRef) { }
+  constructor(public modalRef: NpModalRef) { }
 
   ngOnInit(): void {
     this.type = this.modalRef.data ? this.modalRef.data.type : 'alert';

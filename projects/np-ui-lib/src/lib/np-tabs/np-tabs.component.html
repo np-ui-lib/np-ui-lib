@@ -1,9 +1,10 @@
-<div [ngClass]="{'np-tabs': true, 'np-tabs-vertical': verticalTabs}" [style.max-height.px]="height" [class]="styleClass"
-    [attr.id]="inputId">
+<div role="tablist" [ngClass]="{'np-tabs': true, 'np-tabs-vertical': verticalTabs}" [style.max-height.px]="height"
+    [class]="styleClass" [attr.id]="inputId">
     <div class="np-tabs-header">
         <ng-container *ngFor="let tab of tabs">
-            <a class="np-tab-title" [attr.id]="_getHeaderId(tab)" (click)="_selectTab(tab)"
-                [ngClass]="{'np-tab-active': tab.active, 'np-disabled': tab.disabled}">
+            <a role="tab" class="np-tab-title" [attr.id]="_getHeaderId(tab)"
+                [ngClass]="{'np-tab-active': tab.active, 'np-disabled': tab.disabled}"
+                [attr.tabindex]="tab.disabled ? '-1' : '0'" (click)="_selectTab(tab)" (keydown.enter)="_selectTab(tab)">
                 <i *ngIf="tab.iconCss" [class]="tab.iconCss"></i>
                 <span *ngIf="!tab.titleIsTemplate" [innerHTML]="tab.title"></span>
                 <ng-template *ngIf="tab.titleIsTemplate" [ngTemplateOutlet]="tab.title">
@@ -11,7 +12,7 @@
             </a>
         </ng-container>
     </div>
-    <div class="np-tab-body" [attr.id]="selected.inputId">
+    <div role="presentation" class="np-tab-body" [attr.id]="selected.inputId">
         <ng-template [cdkPortalOutlet]="selected.content"></ng-template>
     </div>
 </div>

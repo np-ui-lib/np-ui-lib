@@ -4,7 +4,8 @@
     </ng-container>
     <ng-container *ngIf="item.items && !item.isHeader">
         <div class="np-menu-item" (mouseenter)="_onMouseEnter($event,item)" (mouseleave)="_onMouseLeave(item)">
-            <a class="np-menu-link" [ngClass]="{'np-menu-active': item.routerLink && _isActive(item)}">
+            <a role="menu" class="np-menu-link" tabindex="0"
+                [ngClass]="{'np-menu-active': item.routerLink && _isActive(item)}">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
                 <div class="np-menu-text" [innerHTML]="item.label"></div>
                 <div class="np-menu-icon">
@@ -31,19 +32,20 @@
     </ng-container>
     <ng-container *ngIf="!item.items && !item.isHeader">
         <div class="np-menu-item">
-            <a class="np-menu-link" *ngIf="item.routerLink" [routerLink]="item.routerLink"
+            <a role="menuitem" class="np-menu-link" tabindex="0" *ngIf="item.routerLink" [routerLink]="item.routerLink"
                 [queryParams]="item.queryParams" [fragment]="item.fragment"
                 [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-menu-active'"
                 (click)="_onClickMenuItem(item)">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
                 <div class="np-menu-text" [innerHTML]="item.label"></div>
             </a>
-            <a class="np-menu-link" *ngIf="item.url" [href]="item.url" [target]="item.target"
-                (click)="_onClickMenuItem(item)">
+            <a role="menuitem" class="np-menu-link" tabindex="0" *ngIf="item.url" [href]="item.url"
+                [target]="item.target" (click)="_onClickMenuItem(item)">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
                 <div class="np-menu-text" [innerHTML]="item.label"></div>
             </a>
-            <a class="np-menu-link" *ngIf="!item.routerLink && !item.url" (click)="_onClickMenuItem(item)">
+            <a role="menuitem" class="np-menu-link" tabindex="0" *ngIf="!item.routerLink && !item.url"
+                (click)="_onClickMenuItem(item)">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
                 <div class="np-menu-text" [innerHTML]="item.label"></div>
             </a>

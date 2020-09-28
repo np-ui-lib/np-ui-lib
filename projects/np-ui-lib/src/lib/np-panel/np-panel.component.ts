@@ -38,7 +38,8 @@ export class NpPanelComponent implements OnInit, OnDestroy {
     return this._contentPortal;
   }
 
-  constructor(private _viewContainerRef: ViewContainerRef,
+  constructor(
+    private _viewContainerRef: ViewContainerRef,
     private el: ElementRef) {
   }
 
@@ -53,8 +54,13 @@ export class NpPanelComponent implements OnInit, OnDestroy {
     }
   }
 
-  _expand() {
+  _toggle() {
     if (this.disabled) {
+      return;
+    }
+    if (this.isOpen) {
+      this.isOpen = false;
+      this.onCollapse.emit(this);
       return;
     }
     this.isOpen = true;
@@ -64,27 +70,18 @@ export class NpPanelComponent implements OnInit, OnDestroy {
     this.onExpand.emit(this);
   }
 
-  _collapse() {
+  _toggleZoom() {
     if (this.disabled) {
       return;
     }
-    this.isOpen = false;
-    this.onCollapse.emit(this);
-  }
-
-  _zoomIn() {
-    if (this.disabled) {
+    if (this.isZoom) {
+      this.isZoom = false;
       return;
     }
-    this._expand();
+    if (!this.isOpen) {
+      this._toggle();
+    }
     this.isZoom = true;
-  }
-
-  _zoomOut() {
-    if (this.disabled) {
-      return;
-    }
-    this.isZoom = false;
   }
 
   _close() {
@@ -98,5 +95,9 @@ export class NpPanelComponent implements OnInit, OnDestroy {
     if (this._contentPortal && this._contentPortal.isAttached) {
       this._contentPortal.detach();
     }
+  }
+
+  _getTitleId() {
+    return this.inputId + '_title';
   }
 }

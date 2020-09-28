@@ -1,11 +1,12 @@
-<div [ngClass]="{'np-steps': true, 'np-steps-vertical': verticalSteps}" [class]="styleClass" [attr.id]="inputId">
+ <div role="tablist" [ngClass]="{'np-steps': true, 'np-steps-vertical': verticalSteps}" [class]="styleClass"
+    [attr.id]="inputId">
     <div class="np-steps-header">
         <ng-container *ngFor="let step of steps; let i = index;">
-            <a class="np-step-title" [ngClass]="{'np-step-active': selectedIndex === i, 
-            'np-step-done': step.completed,
-            'np-step-error': step.hasError}" (click)="_onClick(i)">
+            <a role="tab" class="np-step-title" [ngClass]="{'np-step-active': selectedIndex === i, 
+            'np-step-done': step.completed,'np-step-error': step.hasError}"
+                [attr.tabindex]="step.disabled ? '-1' : '0'" (click)="_onClick(i)" (keydown.enter)="_onClick(i)">
                 <ng-container *ngIf="!_isTemplate(step); else stepLabelTemp">
-                    <button *ngIf="!step.iconCss" type="button" class="np-step-number">{{i + 1}}</button>
+                    <button tabindex="-1" *ngIf="!step.iconCss" type="button" class="np-step-number">{{i + 1}}</button>
                     <i *ngIf="step.iconCss" [class]="step.iconCss"></i>
                     <span [innerHTML]="step.label"></span>
                 </ng-container>
@@ -15,7 +16,7 @@
         </ng-container>
     </div>
 
-    <div class="np-step-body">
+    <div role="presentation" class="np-step-body">
         <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
     </div>
 </div>

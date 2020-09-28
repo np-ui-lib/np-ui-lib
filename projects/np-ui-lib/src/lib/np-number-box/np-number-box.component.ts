@@ -39,6 +39,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
 
   innerValue: number;
   isDisabled = false;
+  focused = false;
   private timeout: any;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
@@ -163,7 +164,12 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     return new RegExp('^' + format + '$', 'g');
   }
 
+  _onFocus() {
+    this.focused = true;
+  }
+
   _onBlur() {
+    this.focused = false;
     this.onTouchedCallback();
   }
 }

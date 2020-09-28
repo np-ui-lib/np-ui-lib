@@ -28,6 +28,12 @@
                         <th>Default</th>
                     </tr>
                     <tr>
+                        <td>header</td>
+                        <td>Header of list as plain text or html string</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>items</td>
                         <td>Array of items</td>
                         <td>any[]</td>
@@ -189,8 +195,8 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Basic list with height</legend>
-            <np-list [items]="items" [itemTemplate]="list1Template" [height]="200" [orderBy]="'name'"
-                [orderDir]="'asc'">
+            <np-list [items]="items" [itemTemplate]="list1Template" [height]="200" [orderBy]="'name'" [orderDir]="'asc'"
+                [header]="'Employee List'">
             </np-list>
 
             <ng-template let-item="item" #list1Template>

@@ -1,11 +1,14 @@
-<div [ngClass]="'np-list'" [style.max-height.px]="height" [class]="styleClass" [attr.id]="inputId">
-    <ng-container *ngFor="let item of items | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
-        <div class="np-list-item"
-            [ngClass]="{'np-list-selectable': allowSelection, 'np-list-selected': _isSelected(item)}">
-            <input *ngIf="allowSelection" type="checkbox" class="np-list-checkbox" [checked]="_isSelected(item)"
-                (change)="_onSelectItem(item,$event)">
-            <ng-container *ngTemplateOutlet="itemTemplate;context:{ item: item }">
-            </ng-container>
-        </div>
-    </ng-container>
+<div [ngClass]="'np-list-wrapper'" [style.max-height.px]="height" [class]="styleClass" [attr.id]="inputId">
+    <div *ngIf="header" class="np-list-header" [innerHTML]="header" [attr.id]="inputId + '-title'"></div>
+    <ul role="listbox" class="np-list" [attr.aria-labelledby]="inputId + '-title'">
+        <ng-container *ngFor="let item of items | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
+            <li role="option" class="np-list-item"
+                [ngClass]="{'np-list-selectable': allowSelection, 'np-list-selected': _isSelected(item)}">
+                <input *ngIf="allowSelection" type="checkbox" class="np-list-checkbox" tabindex="0"
+                    [checked]="_isSelected(item)" (change)="_onSelectItem(item,$event)">
+                <ng-container *ngTemplateOutlet="itemTemplate;context:{ item: item }">
+                </ng-container>
+            </li>
+        </ng-container>
+    </ul>
 </div>

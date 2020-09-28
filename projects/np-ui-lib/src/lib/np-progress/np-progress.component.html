@@ -1,8 +1,8 @@
-<div [ngClass]="'np-progress'" [class]="styleClass" [attr.id]="inputId">
+<div role="progressbar" [ngClass]="'np-progress'" [class]="styleClass" [attr.id]="inputId" [attr.aria-valuenow]="value">
     <div class="np-progress-container" [style.height.px]="height">
         <div *ngIf="!indeterminate" class="np-progress-bar" [style.width.%]="value"
             [ngClass]="{'np-progress-striped': striped, 'np-progress-animated': animated}">
-            <span *ngIf="showLabel">{{getTooltipText()}}</span>
+            <span *ngIf="showLabel">{{getTextValue()}}</span>
         </div>
         <div *ngIf="indeterminate" class="np-progress-bar np-progress-indeterminate">
         </div>

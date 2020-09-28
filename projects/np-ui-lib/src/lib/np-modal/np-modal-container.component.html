@@ -1,6 +1,8 @@
-<div [ngClass]="'np-modal'" [class]="styleClass" [attr.id]="inputId">
+<div role="dialog" [ngClass]="'np-modal'" [class]="styleClass" [attr.id]="inputId"
+    [attr.aria-labelledby]="inputId + '-title'" [attr.aria-describedby]="inputId + '-body'"
+    [attr.aria-modal]="modalRef.config.hasBackDrop">
     <div class="np-modal-header">
-        <a class="np-modal-title" [innerHtml]="header"></a>
+        <a class="np-modal-title" [innerHtml]="header" [attr.id]="inputId + '-title'"></a>
         <button *ngIf="showCloseButton" type="button" class="np-btn-icon np-modal-close" (click)="close()">
             <svg class="np-icon" viewBox="0 0 24 24">
                 <path
@@ -9,7 +11,7 @@
             </svg>
         </button>
     </div>
-    <div class="np-modal-body">
+    <div class="np-modal-body" [attr.id]="inputId + '-body'">
         <ng-container [ngSwitch]="contentType">
             <ng-container *ngSwitchCase="'string'">
                 <div [innerHTML]="content"></div>

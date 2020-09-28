@@ -13,7 +13,6 @@
     width: 100%;
     height: 10px;
     vertical-align: middle;
-    outline: none;
 }
 
 .np-slider-input::-webkit-slider-thumb {

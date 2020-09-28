@@ -51,6 +51,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   displayValue: string;
   searchTimeout: any;
   isLoading = false;
+  focused = false;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -211,7 +212,12 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
     return this.displayValue || '';
   }
 
+  _onFocus() {
+    this.focused = true;
+  }
+
   _onBlur() {
+    this.focused = false;
     this.onTouchedCallback();
   }
 }

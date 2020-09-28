@@ -15,7 +15,6 @@
     border: 0;
     visibility: inherit;
     clip: rect(0 0 0 0);
-    outline: none;
 }
 
 .np-switch-label {

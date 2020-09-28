@@ -38,14 +38,14 @@ export class NpTreeViewComponent implements OnChanges {
     }
   }
 
-  _expand(item: NpTreeViewItem) {
+  _toggle(item: NpTreeViewItem) {
+    if (item.isExpanded) {
+      item.isExpanded = false;
+      this.onCollapse.emit(item);
+      return;
+    }
     item.isExpanded = true;
     this.onExpand.emit(item);
-  }
-
-  _collapse(item: NpTreeViewItem) {
-    item.isExpanded = false;
-    this.onCollapse.emit(item);
   }
 
   expandAll() {

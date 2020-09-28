@@ -11,6 +11,7 @@ import { NpUtilityService } from '../np-utility/np-utility.service';
 export class NpListComponent implements OnInit {
   static controlCount = 1;
 
+  @Input() header: string;
   @Input() items: any[];
   @Input() itemTemplate: TemplateRef<any>;
   @Input() allowSelection = false;

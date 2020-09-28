@@ -19,7 +19,7 @@ export class NpModalContainerComponent implements OnInit {
     styleClass: string;
     inputId = `np-modal_${NpModalContainerComponent.controlCount++}`;
 
-    constructor(private modalRef: NpModalRef) { }
+    constructor(public modalRef: NpModalRef) { }
 
     ngOnInit() {
         this.content = this.modalRef.content;

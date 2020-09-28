@@ -1,29 +1,28 @@
-<div [ngClass]="'np-treeview'" [class]="styleClass" [attr.id]="inputId">
+<ul role="tree" [ngClass]="'np-treeview'" [class]="styleClass" [attr.id]="inputId">
     <ng-container *ngTemplateOutlet="treeViewTemplate; context: { items: items }">
     </ng-container>
-</div>
+</ul>
 
 <ng-template #treeViewTemplate let-items="items">
-    <div *ngFor="let item of items; trackBy: _trackBy;" class="np-treeview-node">
+    <li *ngFor="let item of items; trackBy: _trackBy;" role="treeitem" class="np-treeview-node">
         <ng-container *ngIf="item.childItems">
-            <button *ngIf="item.isExpanded" type="button" class="np-btn-icon np-treeview-collapse"
-                (click)="_collapse(item)" title="Collapse">
-                <svg class="np-icon" viewBox="0 0 24 24">
+            <button type="button" tabindex="0" class="np-btn-icon" (click)="_toggle(item)"
+                [ngClass]="{'np-treeview-expand': !item.isExpanded, 'np-treeview-collapse': item.isExpanded}"
+                [attr.title]="item.isExpanded ? 'Collapse': 'Expand'">
+                <svg *ngIf="item.isExpanded" class="np-icon" viewBox="0 0 24 24">
                     <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
                     <path d="M0 0h24v24H0z" fill="none" />`
                 </svg>
-            </button>
-            <button *ngIf="!item.isExpanded" type="button" class="np-btn-icon np-treeview-expand"
-                (click)="_expand(item)" title="Expand">
-                <svg class="np-icon" viewBox="0 0 24 24">
+                <svg *ngIf="!item.isExpanded" class="np-icon" viewBox="0 0 24 24">
                     <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
                     <path d="M0 0h24v24H0z" fill="none" />
                 </svg>
             </button>
         </ng-container>
         <div class="np-treeview-label">
-            <input *ngIf="selectionMode" type="checkbox" class="np-treeview-checkbox" [checked]="_isSelected(item)"
-                [indeterminate]="item.partiallySelected" (change)="_changeSelection($event,item)">
+            <input *ngIf="selectionMode" type="checkbox" class="np-treeview-checkbox" tabindex="0"
+                [checked]="_isSelected(item)" [indeterminate]="item.partiallySelected"
+                (change)="_changeSelection($event,item)">
             <span (click)="_onClick(item)">
                 <ng-container *ngIf="!itemTemplate; else treeViewLabelTemp">
                     <i *ngIf="item.iconCss" [class]="item.iconCss"></i>{{item.label}}
@@ -37,5 +36,5 @@
             <ng-container *ngTemplateOutlet="treeViewTemplate; context: { items: item.childItems }">
             </ng-container>
         </ng-container>
-    </div>
+    </li>
 </ng-template>
