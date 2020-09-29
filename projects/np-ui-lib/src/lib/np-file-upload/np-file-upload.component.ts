@@ -42,7 +42,6 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
 
   innerValue: FileList;
   isDisabled = false;
-  focused = false;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
@@ -179,12 +178,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 
-  _onFocus() {
-    this.focused = true;
-  }
-
   _onBlur() {
-    this.focused = false;
     this.onTouchedCallback();
   }
 }

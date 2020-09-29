@@ -1,6 +1,4 @@
-@import "~@angular/cdk/overlay-prebuilt.css";
-@import "./../dist/np-ui-lib/style.css";
-@import "./../node_modules/font-awesome/css/font-awesome.css";
+
 body {
     margin: 0px;
     padding: 0px;

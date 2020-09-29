@@ -48,7 +48,6 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   pattern: any;
   innerValue: string;
   isDisabled = false;
-  focused = false;
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
   private onChangeCallback: (_: any) => void = () => { };
@@ -380,12 +379,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     this._extractValues();
   }
 
-  _onFocus() {
-    this.focused = true;
-  }
-
   _onBlur() {
-    this.focused = false;
     this.onTouchedCallback();
   }
 }

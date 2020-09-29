@@ -32,7 +32,6 @@ export class NpSliderComponent implements OnInit {
   lable: number;
   innerValue: number;
   isDisabled = false;
-  focused = false;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
@@ -90,12 +89,7 @@ export class NpSliderComponent implements OnInit {
     this.lable = $event.target.value;
   }
 
-  _onFocus() {
-    this.focused = true;
-  }
-
   _onBlur() {
-    this.focused = false;
     this.onTouchedCallback();
   }
 

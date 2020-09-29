@@ -30,7 +30,6 @@ export class NpSwitchComponent implements ControlValueAccessor {
 
   innerValue: boolean;
   isDisabled = false;
-  focused = false;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
@@ -72,12 +71,7 @@ export class NpSwitchComponent implements ControlValueAccessor {
     this.value = $event.target.checked;
   }
 
-  _onFocus() {
-    this.focused = true;
-  }
-
   _onBlur() {
-    this.focused = false;
     this.onTouchedCallback();
   }
 }

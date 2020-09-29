@@ -1,8 +1,8 @@
-<div [ngClass]="{'np-slider': true, 'np-disabled': isDisabled , 'np-readonly': readOnly, 'np-focus': focused}"
-    [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{'np-slider': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
+    [attr.id]="inputId">
     <input class="np-slider-input" type="range" [min]="min" [max]="max" [step]="step" [value]="innerValue"
         [disabled]="isDisabled" [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly"
         [attr.aria-valuenow]="value" [attr.aria-valuemin]="min" [attr.aria-valuemax]="max" (change)="_onChange($event)"
-        (keydown)="_onKeyDown($event)" (input)="_onInput($event)" (blur)="_onBlur()" (focus)="_onFocus()">
+        (keydown)="_onKeyDown($event)" (input)="_onInput($event)" (blur)="_onBlur()">
     <label class="np-slider-label">{{lable}}</label>
 </div>

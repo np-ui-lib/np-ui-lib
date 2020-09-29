@@ -12,7 +12,7 @@ export class NpNotificationsDemoComponent implements OnInit {
   importServiceAndClass = `import { NpNotificationsService, NpNotification } from 'np-ui-lib'; `;
   createServiceObject = `constructor(private notificationsService: NpNotificationsService) { }`;
   methodText = `var msg = new NpNotification({ type: "success", message: "This is success message content." });
-    <br>this.notificationsService.show(msg);`;
+this.notificationsService.show(msg);`;
 
   constructor(private notificationsService: NpNotificationsService) { }
 

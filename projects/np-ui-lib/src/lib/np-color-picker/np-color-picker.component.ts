@@ -52,7 +52,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   isShowCursorDiv = false;
   innerValue: string;
   isDisabled = false;
-  focused = false;
+
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
   private onChangeCallback: (_: any) => void = () => { };
@@ -326,12 +326,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     }
   }
 
-  _onFocus() {
-    this.focused = true;
-  }
-
   _onBlur() {
-    this.focused = false;
     this.onTouchedCallback();
   }
 }

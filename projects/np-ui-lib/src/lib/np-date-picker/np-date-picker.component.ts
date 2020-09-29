@@ -61,7 +61,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   isOpen = false;
   innerValue: Date;
   isDisabled = false;
-  focused = false;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -439,12 +438,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this._calculateDays();
   }
 
-  _onFocus() {
-    this.focused = true;
-  }
-
   _onBlur() {
-    this.focused = false;
     this.onTouchedCallback();
   }
 }
