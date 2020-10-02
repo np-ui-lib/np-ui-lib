@@ -162,7 +162,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       if (this.isServerOperations) {
         // to export to csv, this change has all data
         if (ds.isAllPages) {
-          this.fileService.downloadCSVFile(ds.data, this.visibleColumns);
+          this.fileService.downloadCSVFile(ds.data, this.visibleColumns, this.dateFormat);
           return;
         }
         this.currentViewData = ds.data;
@@ -489,7 +489,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   _rowClick(event: any, data: any) {
     if (this.masterDetailTemplate && this.expandRowOnClick) {
-      if (this._isOpenChild(data[this.keyColumnName])) {
+      if (this._isOpenChild(data)) {
         this._collapseRow(data[this.keyColumnName]);
       } else {
         this._expandRow(data[this.keyColumnName]);
@@ -894,7 +894,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       }
       this.onLoadData.emit(loadOpt);
     } else {
-      this.fileService.downloadCSVFile(this.dataSourceClone.data, this.visibleColumns);
+      this.fileService.downloadCSVFile(this.dataSourceClone.data, this.visibleColumns, this.dateFormat);
     }
   }
 

@@ -48,16 +48,9 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   months: any[];
   years: number[] = [];
   currentMonthDates: any;
-  selectedDay: number;
-  selectedMonth: number;
-  selectedYear: number;
-  currentDay: number;
   currentMonth: number;
   currentYear: number;
   today: Date;
-  todayDate: number;
-  todayMonth: number;
-  todayYear: number;
   isOpen = false;
   innerValue: Date;
   isDisabled = false;
@@ -88,16 +81,8 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
       { key: 10, value: 'November' },
       { key: 11, value: 'December' }
     ];
-
     this.today = new Date();
     this.today.setHours(0, 0, 0, 0);
-    this.todayDate = this.today.getDate();
-    this.todayMonth = this.today.getMonth();
-    this.todayYear = this.today.getFullYear();
-
-    this.weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-
-    this._setMonths();
   }
 
   ngAfterViewInit(): void {
@@ -137,8 +122,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
       if (this._checkIsFullDateDisabled(v)) {
         this.value = null;
       }
-      this._resetVariables();
-      this._calculateDays();
     }
   }
 
@@ -157,6 +140,11 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   ngAfterContentInit() {
     if (this.isStartMonthWithMonday) {
       this.weekDays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+    } else {
+      this.weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+    }
+    if (this.defaultOpen) {
+      this._resetVariables();
     }
   }
 
@@ -170,16 +158,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
       }
     }
 
-    if (this.value) {
-      this.selectedDay = this.value.getDate();
-      this.selectedMonth = this.value.getMonth();
-      this.selectedYear = this.value.getFullYear();
-    } else {
-      this.selectedDay = null;
-      this.selectedMonth = null;
-      this.selectedYear = null;
-    }
-
     let currentDate = this.value && this.value.toString() !== 'Invalid Date' ? this.value : this.today;
     if (this.minDate && currentDate < this.minDate) {
       currentDate = this.minDate;
@@ -187,38 +165,60 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     if (this.maxDate && currentDate > this.maxDate) {
       currentDate = this.maxDate;
     }
-    this.currentDay = currentDate.getDate();
     this.currentMonth = currentDate.getMonth();
     this.currentYear = currentDate.getFullYear();
+
+    this._calculateDays();
   }
 
   _calculateDays() {
     const weeks = [];
     weeks[0] = [];
-    const daysInMonth = this._daysInCurrentMonth();
+    const daysInMonth = this._getCurrentMonthData();
     const firstWeekDayOfMonth = new Date(this.currentYear, this.currentMonth, 1).getDay();
     // push extra values up to week days match to start date if month
     for (let index = 0; index < firstWeekDayOfMonth; index++) {
-      weeks[0].push(null);
+      weeks[0].push({ disabled: true });
     }
     if (this.isStartMonthWithMonday) {
       // if start with monday then
       if (firstWeekDayOfMonth === 0) {
-        weeks[0].push(null, null, null, null, null, null);
+        weeks[0].push({ disabled: true }, { disabled: true }, { disabled: true }, { disabled: true },
+          { disabled: true }, { disabled: true });
       } else {
         weeks[0].pop();
       }
     }
     let j = 0;
     // push all dates in month
-    for (let index = 1; index <= daysInMonth; index++) {
+    daysInMonth.forEach(element => {
       if (weeks[j].length === 7) {
         j++;
         weeks[j] = [];
       }
-      weeks[j].push(index);
-    }
+      weeks[j].push(element);
+    });
     this.currentMonthDates = weeks;
+  }
+
+  _getCurrentMonthData() {
+    const data = [];
+    const totalDaysInMonth = this._daysInCurrentMonth();
+    for (let i = 1; i <= totalDaysInMonth; i++) {
+      const date = new Date(this.currentYear, this.currentMonth, i);
+      const dateStr = date.toDateString();
+      const todayStr = this.today ? this.today.toDateString() : '';
+      const selectedStr = this.value ? this.value.toDateString() : '';
+      data.push({
+        date,
+        day: i,
+        disabled: this._checkIsFullDateDisabled(date),
+        today: dateStr === todayStr,
+        seleced: dateStr === selectedStr,
+        toolTip: this._getTooltip(date)
+      });
+    }
+    return data;
   }
 
   _daysInCurrentMonth() {
@@ -250,7 +250,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     if (this.currentMonth === 0) {
       this.currentMonth = 11;
       this.currentYear = this.currentYear - 1;
-      this._setMonths();
     } else {
       this.currentMonth = this.currentMonth - 1;
     }
@@ -261,20 +260,16 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     if (this.currentMonth === 11) {
       this.currentMonth = 0;
       this.currentYear = this.currentYear + 1;
-      this._setMonths();
     } else {
       this.currentMonth = this.currentMonth + 1;
     }
     this._calculateDays();
   }
 
-  _selectDate(day: number) {
-    if (day === null ||
-      this._checkIsDateDisabled(this.currentYear, this.currentMonth, day) ||
-      this.isDisabled || this.readOnly) {
+  _selectDate(date: Date) {
+    if (date === null || this._checkIsFullDateDisabled(date) || this.isDisabled || this.readOnly) {
       return;
     }
-    const date = new Date(this.currentYear, this.currentMonth, day);
     this._setSelectedDate(date);
     this._close();
   }
@@ -286,7 +281,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
 
   _changeYear($event) {
     this.currentYear = Number($event.target.value);
-    this._setMonths();
     this._calculateDays();
   }
 
@@ -304,7 +298,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     }
     this.isOpen = true;
     this._resetVariables();
-    this._calculateDays();
 
     if (!this.overlayRef.hasAttached()) {
       this.overlayRef.attach(this.templatePortal);
@@ -318,10 +311,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this.isOpen = false;
     this.overlayRef.detach();
     this.elementRef.nativeElement.querySelector('input').focus();
-  }
-
-  _setMonths() {
-    this.months = this.monthsList;
   }
 
   _setToday() {
@@ -342,16 +331,8 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this._close();
   }
 
-  _checkIsDateDisabled(year: number, month: number, day: number) {
-    if (day) {
-      return this._checkIsFullDateDisabled(new Date(year, month, day));
-    }
-    return true;
-  }
-
-  _getTooltip(year: number, month: number, day: number) {
-    if (day && this.dateLabels && this.dateLabels.length > 0) {
-      const currentDate = new Date(year, month, day);
+  _getTooltip(currentDate: Date) {
+    if (currentDate && this.dateLabels && this.dateLabels.length > 0) {
       const dateLabel: any = this.dateLabels.find((item) => {
         return item.date.toDateString() === currentDate.toDateString();
       });
@@ -378,27 +359,9 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     if (this._checkIsWeekDayDisabled(date.getDay())) {
       return true;
     }
-    return (
-      this.disableDates.findIndex((item) => {
-        return item.toDateString() === date.toDateString();
-      }) > -1
-    );
-  }
-
-  _checkIsToday(day: number) {
-    return (
-      day === this.todayDate &&
-      this.currentMonth === this.todayMonth &&
-      this.currentYear === this.todayYear
-    );
-  }
-
-  _checkIsSelected(day: number) {
-    return (
-      day === this.selectedDay &&
-      this.currentMonth === this.selectedMonth &&
-      this.currentYear === this.selectedYear
-    );
+    return (this.disableDates.findIndex((item) => {
+      return item.toDateString() === date.toDateString();
+    }) > -1);
   }
 
   _setSelectedDate(date: Date) {
@@ -435,7 +398,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     }
     this.value = date;
     this._resetVariables();
-    this._calculateDays();
   }
 
   _onBlur() {

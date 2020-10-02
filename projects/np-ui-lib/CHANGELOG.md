@@ -8,6 +8,13 @@
 - Add accessibility attributes
 - Add header in list and virtual scroll
 - Resolved virtual scroll height issue
+- Rename virtual scroll data proerpty to items
+- Add showFileSize in file upload
+- Add remove file button in file upload
+- Change ngModel type to File[] in file upload
+- apply date format in export to csv in data grid 
+- Resolved datagrid master child expand collapse issue when expandRowOnClick is true
+- Add scrollToIndex and scrollToOffset apis in virtual scroll
 
 ## 10.4.1
 - Resolved minor bugs

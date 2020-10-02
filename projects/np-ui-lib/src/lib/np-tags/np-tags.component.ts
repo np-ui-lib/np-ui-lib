@@ -305,7 +305,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     }
   }
 
-  clear() {
+  _clear() {
     if (this.isDisabled || this.readOnly) {
       return;
     }

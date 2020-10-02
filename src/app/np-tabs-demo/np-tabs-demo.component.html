@@ -115,7 +115,29 @@
                 <b>&lt;np-tabs&gt;</b>
                 <table class="np-table">
                     <tr>
-                        <th>Apis</th>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            onTabChange(tab: NpTabComponent)
+                        </td>
+                        <td>
+                            Callback event on change of tab<br>
+                            <b>isLoadFirstTime</b> property of tab is used here to add lazy loading in tabs
+                        </td>
+                        <td>tab: NpTabComponent</td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
+        <np-card>
+            <np-card-body>
+                <b>&lt;np-tabs&gt;</b>
+                <table class="np-table">
+                    <tr>
+                        <th>Api</th>
                         <th>Description</th>
                         <th>Parameters</th>
                     </tr>
@@ -154,28 +176,6 @@
                             Get selected tab
                         </td>
                         <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>&lt;np-tabs&gt;</b>
-                <table class="np-table">
-                    <tr>
-                        <th>Methods</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onTabChange(tab: NpTabComponent)
-                        </td>
-                        <td>
-                            Callback event on change of tab<br>
-                            <b>isLoadFirstTime</b> property of tab is used here to add lazy loading in tabs
-                        </td>
-                        <td>tab: NpTabComponent</td>
                     </tr>
                 </table>
             </np-card-body>

@@ -5,7 +5,7 @@ import { NpUtilityDemoRoutingModule } from './np-utility-demo-routing.module';
 import { NpUtilityDemoComponent } from './np-utility-demo.component';
 import {
   NpUtilityModule, NpHightLightPipe, NpDatePickerModule, NpTimePickerModule, NpSwitchModule,
-  NpFileUploadModule
+  NpFileUploadModule, NpCardModule
 } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
@@ -19,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     NpDatePickerModule,
     NpTimePickerModule,
     NpSwitchModule,
-    NpFileUploadModule
+    NpFileUploadModule,
+    NpCardModule
   ],
   providers: [NpHightLightPipe]
 })

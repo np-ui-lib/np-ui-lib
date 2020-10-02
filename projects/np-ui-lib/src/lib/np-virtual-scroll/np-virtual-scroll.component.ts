@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter, TemplateRef, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { Component, Input, Output, EventEmitter, TemplateRef, ViewEncapsulation, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'np-virtual-scroll',
@@ -11,7 +12,7 @@ export class NpVirtualScrollComponent {
   static controlCount = 1;
 
   @Input() header: string;
-  @Input() data: any[];
+  @Input() items: any[];
   @Input() pageSize: number;
   @Input() itemHeight: number;
   @Input() template: TemplateRef<any>;
@@ -21,6 +22,8 @@ export class NpVirtualScrollComponent {
   @Output() loadData: EventEmitter<any> = new EventEmitter();
 
   loadedPages: number[] = [];
+
+  @ViewChild(CdkVirtualScrollViewport) viewPort: CdkVirtualScrollViewport;
 
   constructor() { }
 
@@ -36,7 +39,7 @@ export class NpVirtualScrollComponent {
       range.push(page - 1);
     }
     range.push(page);
-    if (page !== (Math.ceil(this.data.length / this.pageSize) - 1)) {
+    if (page !== (Math.ceil(this.items.length / this.pageSize) - 1)) {
       range.push(page + 1);
     }
 
@@ -48,5 +51,13 @@ export class NpVirtualScrollComponent {
       this.loadData.emit({ first: this.pageSize * page, rows: this.pageSize });
       this.loadedPages.push(page);
     }
+  }
+
+  scrollToIndex(idx: number) {
+    this.viewPort.scrollToIndex(idx);
+  }
+
+  scrollToOffset(offset: number) {
+    this.viewPort.scrollToOffset(offset);
   }
 }

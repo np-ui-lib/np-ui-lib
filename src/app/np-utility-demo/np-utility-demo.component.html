@@ -1,197 +1,222 @@
 <h2> Other Utilities</h2>
 
-<fieldset>
-    <legend>Button group</legend>
-    <div class="np-btn-group">
-        <button class="np-btn">Normal</button>
-        <button class="np-btn np-btn-primary">Primary</button>
-        <button class="np-btn np-btn-success">Success<i class="fa fa-save np-btn-icon-right"></i></button>
-        <button class="np-btn np-btn-danger"><i class="fa fa-trash np-btn-icon-left"></i>Error</button>
-        <button class="np-btn np-btn-warning">Warning</button>
-        <button class="np-btn np-btn-info">Info</button>
-    </div>
-
-    <div class="np-btn-group">
-        <button class="np-btn np-btn-sm">Normal</button>
-        <button class="np-btn np-btn-primary np-btn-sm">Primary</button>
-        <button class="np-btn np-btn-success np-btn-sm">Success</button>
-        <button class="np-btn np-btn-danger np-btn-sm">Error</button>
-        <button class="np-btn np-btn-warning np-btn-sm">Warning</button>
-        <button class="np-btn np-btn-info np-btn-sm">Info</button>
-    </div>
-
-    <div class="np-btn-group">
-        <button type="button" class="np-btn-icon np-btn-success">
-            <i class="fa fa-bars"></i>
-        </button>
-        <button type="button" class="np-btn-icon np-btn-danger">
-            <i class="fa fa-home"></i>
-        </button>
-        <button type="button" class="np-btn-icon">
-            <i class="fa fa-camera"></i>
-        </button>
-        <button type="button" class="np-btn-icon">
-            <i class="fa fa-automobile"></i>
-        </button>
-        <button type="button" class="np-btn-icon">
-            <i class="fa fa-bell"></i>
-        </button>
-    </div>
-</fieldset>
-
-<fieldset>
-    <legend>Badges</legend>
-
-    <span class="np-badge np-badge-success">Active</span>
-    <span class="np-badge np-badge-danger">Deleted</span>
-    <span class="np-badge np-badge-info">Checking</span>
-
-    <div class="np-btn-group">
-        <button class="np-btn">Normal<span class="np-badge">5</span></button>
-        <button class="np-btn np-btn-primary">Primary<span class="np-badge">200</span></button>
-        <button class="np-btn np-btn-success">Success<span class="np-badge np-badge-danger">99+</span></button>
-        <button class="np-btn np-btn-danger">Error<span class="np-badge np-badge-warning">999+</span></button>
-        <button class="np-btn np-btn-warning">Warning<span class="np-badge np-badge-info">New</span></button>
-        <button class="np-btn np-btn-info">Info<span class="np-badge np-badge-success">10</span></button>
-    </div>
-</fieldset>
-
-<fieldset>
-    <legend>List CSS</legend>
-    <div class="np-row">
-        <div class="np-col-6">
-            <div class="np-list-wrapper">
-                <div class="np-list-header">
-                    List
-                </div>
-                <div class="np-list">
-                    <div class="np-list-item">A</div>
-                    <div class="np-list-item">B</div>
-                    <div class="np-list-item">C</div>
-                    <div class="np-list-item">D</div>
-                    <div class="np-list-item">E</div>
-                </div>
-            </div>
-        </div>
-        <div class="np-col-6">
-            <div class="np-list-wrapper">
-                <div class="np-list-header">
-                    List Striped
-                </div>
-                <div class="np-list np-list-striped">
-                    <div class="np-list-item">A</div>
-                    <div class="np-list-item">B</div>
-                    <div class="np-list-item">C</div>
-                    <div class="np-list-item">D</div>
-                    <div class="np-list-item">E</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</fieldset>
-
-<fieldset>
-    <legend>Template-Driven Form</legend>
-    <form #myForm="ngForm">
-        <div class="np-container">
-            <div class="np-row">
-                <div class="np-col-6">
-                    <div class="np-form-group">
-                        <div class="np-form-label np-required">First name:</div>
-                        <div class="np-input-group">
-                            <input type="text" class="np-form-control" [(ngModel)]="firstName" required
-                                name="txtFirstName" #txtFirstName="ngModel" tabindex="1">
-                            <div class="np-input-group-append">
-                                <i class="np-icon fa fa-user"></i>
-                            </div>
-                        </div>
-                        <div class="np-form-text np-text-danger"
-                            *ngIf="txtFirstName.control.touched && txtFirstName.control.errors?.required">First name is
-                            required.
-                        </div>
-                    </div>
-                </div>
-                <div class="np-col-6">
-                    <div class="np-form-group">
-                        <div class="np-form-label np-required">Last name:</div>
-                        <div class="np-input-group">
-                            <input type="text" class="np-form-control" [(ngModel)]="lastName" required
-                                name="txtLastName" #txtLastName="ngModel" tabindex="5">
-                            <div class="np-input-group-append">
-                                <i class="np-icon fa fa-lock"></i>
-                            </div>
-                        </div>
-                        <div class="np-form-text np-text-danger"
-                            *ngIf="txtLastName.control.touched && txtLastName.control.errors?.required">Last name is
-                            required.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="np-row">
-                <div class="np-col-6">
-                    <div class="np-form-group">
-                        <div class="np-form-label np-required">Birth date:</div>
-                        <np-date-picker [(ngModel)]="birthDate" name="txtBirthDate" required #txtBirthDate="ngModel"
-                            [tabIndex]="2">
-                        </np-date-picker>
-                        <div class="np-form-text np-text-danger"
-                            *ngIf="txtBirthDate.control.touched && txtBirthDate.control.errors?.required">Birth date is
-                            required.
-                        </div>
-                    </div>
-                </div>
-                <div class="np-col-6">
-                    <div class="np-form-group">
-                        <div class="np-form-label np-required">Birth time:</div>
-                        <np-time-picker [(ngModel)]="birthTime" name="birthTime" [required]="true"
-                            #txtbirthTime="ngModel" [tabIndex]="6"></np-time-picker>
-                        <div class="np-form-text np-text-danger"
-                            *ngIf="txtbirthTime.control.touched && txtbirthTime.control.errors?.required">Birth time is
-                            required.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="np-row">
-                <div class="np-col-6">
-                    <div class="np-form-group">
-                        <div class="np-form-label np-required">Is Active:</div>
-                        <np-switch [(ngModel)]="isActive" name="swIsActive" [required]="true" [tabIndex]="3">
-                        </np-switch>
-                    </div>
-                </div>
-                <div class="np-col-6">
-                    <div class="np-form-group">
-                        <div class="np-form-label np-required">Upload Photo:</div>
-                        <np-file-upload [(ngModel)]="photo" name="photo" [required]="true" #fpPhoto="ngModel"
-                            [tabIndex]="7">
-                        </np-file-upload>
-                        <div class="np-form-text np-text-danger"
-                            *ngIf="fpPhoto.control.touched && fpPhoto.control.errors?.required">Photo is required.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="np-row">
-                <div class="np-col-12">
-                    <div class="np-form-group">
-                        <div class="np-form-label">Description:</div>
-                        <textarea class="np-form-control" rows="4" [(ngModel)]="description" name="txtDescription"
-                            tabindex="4"></textarea>
-                    </div>
-                </div>
-            </div>
+<np-card>
+    <np-card-body>
+        <fieldset>
+            <legend>Button group</legend>
             <div class="np-btn-group">
-                <button type="submit" class="np-btn np-btn-primary" [disabled]="myForm.invalid">Save</button>
-                <button type="button" class="np-btn" (click)="myForm.resetForm({})">Cancel</button>
+                <button class="np-btn">Normal</button>
+                <button class="np-btn np-btn-primary">Primary</button>
+                <button class="np-btn np-btn-success">Success<i class="fa fa-save np-btn-icon-right"></i></button>
+                <button class="np-btn np-btn-danger"><i class="fa fa-trash np-btn-icon-left"></i>Error</button>
+                <button class="np-btn np-btn-warning">Warning</button>
+                <button class="np-btn np-btn-info">Info</button>
             </div>
-        </div>
-    </form>
-</fieldset>
 
-<fieldset>
-    <legend>How to Highlight Text?</legend>
-    <pre><code>{{highlightTextCode}}</code></pre>
-    <p [innerHTML]="text | npHighLight: 'paragraph'"></p>
-</fieldset>
+            <div class="np-btn-group">
+                <button class="np-btn np-btn-sm">Normal</button>
+                <button class="np-btn np-btn-primary np-btn-sm">Primary</button>
+                <button class="np-btn np-btn-success np-btn-sm">Success</button>
+                <button class="np-btn np-btn-danger np-btn-sm">Error</button>
+                <button class="np-btn np-btn-warning np-btn-sm">Warning</button>
+                <button class="np-btn np-btn-info np-btn-sm">Info</button>
+            </div>
+
+            <div class="np-btn-group">
+                <button type="button" class="np-btn-icon np-btn-success">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <button type="button" class="np-btn-icon np-btn-danger">
+                    <i class="fa fa-home"></i>
+                </button>
+                <button type="button" class="np-btn-icon">
+                    <i class="fa fa-camera"></i>
+                </button>
+                <button type="button" class="np-btn-icon">
+                    <i class="fa fa-automobile"></i>
+                </button>
+                <button type="button" class="np-btn-icon">
+                    <i class="fa fa-bell"></i>
+                </button>
+            </div>
+        </fieldset>
+    </np-card-body>
+</np-card>
+
+<np-card>
+    <np-card-body>
+        <fieldset>
+            <legend>Badges</legend>
+
+            <span class="np-badge np-badge-success">Active</span>
+            <span class="np-badge np-badge-danger">Deleted</span>
+            <span class="np-badge np-badge-info">Checking</span>
+
+            <div class="np-btn-group">
+                <button class="np-btn">Normal<span class="np-badge">5</span></button>
+                <button class="np-btn np-btn-primary">Primary<span class="np-badge">200</span></button>
+                <button class="np-btn np-btn-success">Success<span class="np-badge np-badge-danger">99+</span></button>
+                <button class="np-btn np-btn-danger">Error<span class="np-badge np-badge-warning">999+</span></button>
+                <button class="np-btn np-btn-warning">Warning<span class="np-badge np-badge-info">New</span></button>
+                <button class="np-btn np-btn-info">Info<span class="np-badge np-badge-success">10</span></button>
+            </div>
+        </fieldset>
+    </np-card-body>
+</np-card>
+
+<np-card>
+    <np-card-body>
+        <fieldset>
+            <legend>List CSS</legend>
+            <div class="np-row">
+                <div class="np-col-6">
+                    <div class="np-list-wrapper">
+                        <div class="np-list-header">
+                            List
+                        </div>
+                        <div class="np-list">
+                            <div class="np-list-item">A</div>
+                            <div class="np-list-item">B</div>
+                            <div class="np-list-item">C</div>
+                            <div class="np-list-item">D</div>
+                            <div class="np-list-item">E</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="np-col-6">
+                    <div class="np-list-wrapper">
+                        <div class="np-list-header">
+                            List Striped
+                        </div>
+                        <div class="np-list np-list-striped">
+                            <div class="np-list-item">A</div>
+                            <div class="np-list-item">B</div>
+                            <div class="np-list-item">C</div>
+                            <div class="np-list-item">D</div>
+                            <div class="np-list-item">E</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </np-card-body>
+</np-card>
+
+<np-card>
+    <np-card-body>
+        <fieldset>
+            <legend>Template-Driven Form</legend>
+            <form #myForm="ngForm">
+                <div class="np-container">
+                    <div class="np-row">
+                        <div class="np-col-6">
+                            <div class="np-form-group">
+                                <div class="np-form-label np-required">First name:</div>
+                                <div class="np-input-group">
+                                    <input type="text" class="np-form-control" [(ngModel)]="firstName" required
+                                        name="txtFirstName" #txtFirstName="ngModel" tabindex="1">
+                                    <div class="np-input-group-append">
+                                        <i class="np-icon fa fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="np-form-text np-text-danger"
+                                    *ngIf="txtFirstName.control.touched && txtFirstName.control.errors?.required">First
+                                    name is
+                                    required.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="np-col-6">
+                            <div class="np-form-group">
+                                <div class="np-form-label np-required">Last name:</div>
+                                <div class="np-input-group">
+                                    <input type="text" class="np-form-control" [(ngModel)]="lastName" required
+                                        name="txtLastName" #txtLastName="ngModel" tabindex="5">
+                                    <div class="np-input-group-append">
+                                        <i class="np-icon fa fa-lock"></i>
+                                    </div>
+                                </div>
+                                <div class="np-form-text np-text-danger"
+                                    *ngIf="txtLastName.control.touched && txtLastName.control.errors?.required">Last
+                                    name is
+                                    required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="np-row">
+                        <div class="np-col-6">
+                            <div class="np-form-group">
+                                <div class="np-form-label np-required">Birth date:</div>
+                                <np-date-picker [(ngModel)]="birthDate" name="txtBirthDate" required
+                                    #txtBirthDate="ngModel" [tabIndex]="2">
+                                </np-date-picker>
+                                <div class="np-form-text np-text-danger"
+                                    *ngIf="txtBirthDate.control.touched && txtBirthDate.control.errors?.required">Birth
+                                    date is
+                                    required.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="np-col-6">
+                            <div class="np-form-group">
+                                <div class="np-form-label np-required">Birth time:</div>
+                                <np-time-picker [(ngModel)]="birthTime" name="birthTime" [required]="true"
+                                    #txtbirthTime="ngModel" [tabIndex]="6"></np-time-picker>
+                                <div class="np-form-text np-text-danger"
+                                    *ngIf="txtbirthTime.control.touched && txtbirthTime.control.errors?.required">Birth
+                                    time is
+                                    required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="np-row">
+                        <div class="np-col-6">
+                            <div class="np-form-group">
+                                <div class="np-form-label np-required">Is Active:</div>
+                                <np-switch [(ngModel)]="isActive" name="swIsActive" [required]="true" [tabIndex]="3">
+                                </np-switch>
+                            </div>
+                        </div>
+                        <div class="np-col-6">
+                            <div class="np-form-group">
+                                <div class="np-form-label np-required">Upload Photo:</div>
+                                <np-file-upload [(ngModel)]="photo" name="photo" [required]="true" #fpPhoto="ngModel"
+                                    [tabIndex]="7">
+                                </np-file-upload>
+                                <div class="np-form-text np-text-danger"
+                                    *ngIf="fpPhoto.control.touched && fpPhoto.control.errors?.required">Photo is
+                                    required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="np-row">
+                        <div class="np-col-12">
+                            <div class="np-form-group">
+                                <div class="np-form-label">Description:</div>
+                                <textarea class="np-form-control" rows="4" [(ngModel)]="description"
+                                    name="txtDescription" tabindex="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="np-btn-group">
+                        <button type="submit" class="np-btn np-btn-primary" [disabled]="myForm.invalid">Save</button>
+                        <button type="button" class="np-btn" (click)="myForm.resetForm({})">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </fieldset>
+    </np-card-body>
+</np-card>
+
+<np-card>
+    <np-card-body>
+        <fieldset>
+            <legend>How to Highlight Text?</legend>
+            <pre><code>{{highlightTextCode}}</code></pre>
+            <p [innerHTML]="text | npHighLight: 'paragraph'"></p>
+        </fieldset>
+    </np-card-body>
+</np-card>

@@ -1078,7 +1078,7 @@ svg {
 }
 
 .np-hightlight {
-    font-weight: bold;
+    background-color: #ffff00;
 }
 
 .np-overflow-auto {

@@ -21,8 +21,8 @@
     </div>
 </div>
 <ul *ngIf="value && value.length > 0" role="listbox" class="np-list np-file-upload-list">
-    <li role="option" class="np-list-item" *ngFor="let file of value">
-        <span>
+    <li role="option" class="np-list-item" *ngFor="let file of value; let i = index;">
+        <span class="np-file-name">
             <svg viewBox="0 0 24 24" class="np-icon">
                 <path d="M0 0h24v24H0V0z" fill="none" />
                 <path
@@ -30,6 +30,13 @@
             </svg>
             {{file.name}}
         </span>
-        <span [innerHTML]="_formatBytes(file)"></span>
+        <span *ngIf="showFileSize" [innerHTML]="_formatBytes(file)"></span>
+        <button type="button" tabindex="-1" class="np-file-remove-btn" title="Remove" (click)="_remove(i)">
+            <svg class="np-icon" viewBox="0 0 24 24">
+                <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
+        </button>
     </li>
 </ul>

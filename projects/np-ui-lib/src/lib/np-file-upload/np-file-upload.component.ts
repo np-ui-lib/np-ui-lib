@@ -30,26 +30,27 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Input() totalSize: number;
   @Input() maxFiles: number;
   @Input() uploadButtonLabel: string;
+  @Input() showFileSize = true;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
 
-  @Output() onChange: EventEmitter<any> = new EventEmitter();
+  @Output() onChange: EventEmitter<File[]> = new EventEmitter();
 
   @ViewChild('fileUploadInput') fileUploadInput: ElementRef;
 
-  innerValue: FileList;
+  innerValue: File[];
   isDisabled = false;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
-  get value(): FileList {
+  get value(): File[] {
     return this.innerValue ? this.innerValue : null;
   }
 
-  set value(v: FileList) {
+  set value(v: File[]) {
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.onChangeCallback(v);
@@ -58,7 +59,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     }
   }
 
-  writeValue(v: any): void {
+  writeValue(v: File[]): void {
     if (v !== this.innerValue) {
       this.innerValue = v;
     }
@@ -81,19 +82,29 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
       return;
     }
     this.value = null;
-    this.fileUploadInput.nativeElement.value = '';
   }
 
   _onFileSelected($event) {
     if (this.isDisabled || this.readOnly) {
       return;
     }
-    this.value = $event.target.files;
+    if (this.multiple) {
+      const newFiles = Array.from<File>($event.target.files);
+      if (newFiles.length > 0) {
+        if (this.value && this.value.length > 0) {
+          this.value = this.value.concat(newFiles);
+        } else {
+          this.value = newFiles;
+        }
+      }
+    } else {
+      this.value = Array.from<File>($event.target.files);
+    }
+    this.fileUploadInput.nativeElement.value = '';
   }
 
   validate(control: FormControl) {
-    const value = control.value ? Array.from<any>(control.value) : [];
-
+    const value = control.value || [];
     let isInValidExtension = false;
     if (this.extensions) {
       const exts = this.extensions.split(',');
@@ -152,15 +163,11 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     }
   }
 
-  clear() {
-    this._clear();
-  }
-
   _getFilesCountsText() {
-    if (!this.value || this.value === null || this.value.length === 0) {
-      return '';
+    if (this.value && this.value.length > 0) {
+      return this.value.length === 1 ? '1 file' : `${this.value.length} files`;
     }
-    return this.value.length === 1 ? '1 file' : `${this.value.length} files`;
+    return '';
   }
 
   _formatBytes(file: File, decimals = 2) {
@@ -180,6 +187,10 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
 
   _onBlur() {
     this.onTouchedCallback();
+  }
+
+  _remove(idx: number) {
+    this.value = this.value.filter((element, index) => index !== idx);
   }
 }
 

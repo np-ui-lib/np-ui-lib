@@ -35,7 +35,7 @@
             <input type="number" tabindex="-1" class="np-form-control np-date-picker-years" [value]="currentYear"
                 (change)="_changeYear($event)" required>
             <select class="np-form-control np-date-picker-months" tabindex="-1" (change)="_selectMonth($event)">
-                <option *ngFor="let month of months" [value]="month.key" [text]="month.value"
+                <option *ngFor="let month of monthsList" [value]="month.key" [text]="month.value"
                     [selected]="month.key === currentMonth">
                 </option>
             </select>
@@ -53,15 +53,14 @@
         </div>
         <div class="np-date-picker-days">
             <div *ngFor="let week of currentMonthDates">
-                <ng-container *ngFor="let day of week">
-                    <div (click)="_selectDate(day)" class="np-date-picker-day"
-                        [ngClass]="{'np-date-picker-today': _checkIsToday(day), 'np-disabled': _checkIsDateDisabled(currentYear,currentMonth,day), 'np-date-picker-selected': _checkIsSelected(day)}">
-                        <div *ngIf="_getTooltip(currentYear,currentMonth,day); let label; else dayTemplate"
-                            [np-tooltip]="label">
-                            {{day}}
+                <ng-container *ngFor="let item of week">
+                    <div (click)="_selectDate(item.date)" class="np-date-picker-day"
+                        [ngClass]="{'np-date-picker-today': item.today, 'np-disabled': item.disabled, 'np-date-picker-selected': item.seleced}">
+                        <div *ngIf="item.toolTip; else dayTemplate" [np-tooltip]="item.toolTip">
+                            {{item.day}}
                         </div>
                         <ng-template #dayTemplate>
-                            {{day}}
+                            {{item.day}}
                         </ng-template>
                     </div>
                 </ng-container>

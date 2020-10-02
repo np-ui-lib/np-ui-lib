@@ -34,7 +34,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>data</td>
+                        <td>items</td>
                         <td>Array of items</td>
                         <td>any[]</td>
                         <td></td>
@@ -95,6 +95,39 @@
         </np-card>
         <np-card>
             <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Api</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            scrollToIndex(idx: number)
+                        </td>
+                        <td>
+                            Scroll to given index, index start with 0.
+                        </td>
+                        <td>
+                            idx: number
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            scrollToOffset(offset: number)
+                        </td>
+                        <td>
+                            Scroll to given offset, offset is in px. <br> Use +offset to scroll down. Use -offset to scroll up.
+                        </td>
+                        <td>
+                            offset: number
+                        </td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
+        <np-card>
+            <np-card-body>
                 <b>How to use loadData method?</b>
                 <pre><code>{{loadDataText}}</code></pre>
             </np-card-body>
@@ -104,12 +137,18 @@
         <ng-template npTabContent>
             <fieldset>
                 <legend>Basic</legend>
-                <np-virtual-scroll [data]="data" [pageSize]="pageSize" [itemHeight]="50" [template]="itemTemplate"
-                    (loadData)="loadData($event)" header="New Products">
+                <np-virtual-scroll #virtualScroll [items]="data" [pageSize]="pageSize" [itemHeight]="50"
+                    [template]="itemTemplate" (loadData)="loadData($event)" header="New Products">
                 </np-virtual-scroll>
                 <ng-template #itemTemplate let-item="item">
                     {{item}}
                 </ng-template>
+
+                <div class="np-btn-group">
+                    <button type="button" class="np-btn" (click)="scrollTo11Item()">Go to 11th Item</button>
+                    <button type="button" class="np-btn" (click)="scrollOffsetDown()">Scroll offset 1000px down</button>
+                    <button type="button" class="np-btn" (click)="scrollOffsetUp()">Scroll offset 1000px up</button>
+                </div>
             </fieldset>
         </ng-template>
     </np-tab>

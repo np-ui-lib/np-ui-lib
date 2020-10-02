@@ -16,7 +16,6 @@
         </div>
     </np-card-body>
 </np-card>
-
 <np-card>
     <np-card-body>
         <np-tabs>
@@ -227,7 +226,6 @@
                     </tr>
                 </table>
             </np-tab>
-
             <np-tab title="Column">
                 <pre><code>{{importColumnText}}</code></pre>
                 <table class="np-table">
@@ -354,7 +352,6 @@
                     </tr>
                 </table>
             </np-tab>
-
             <np-tab title="DataSource">
                 <pre><code>{{importDataSourceText}}</code></pre>
                 <table class="np-table">
@@ -399,7 +396,107 @@
                     </tr>
                 </table>
             </np-tab>
-
+            <np-tab title="Methods">
+                <table class="np-table">
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            onLoadData(options : loadOptions)
+                        </td>
+                        <td>
+                            Callback to data load, import loadOptions from 'np-ui-lib' package
+                            <br>
+                            loadOptions has properties like 'pageNumber', 'pageSize', 'sortColumns', 'filterColumns'
+                            <br>
+                            'odataQuery', and 'isAllPages'
+                            <br>
+                            <b>sortColumns :</b> Array of sort columns
+                            <pre><code>{{sortColText}}</code></pre>
+                            <b>filterColumns :</b> Array of filter columns
+                            <pre><code>{{filterColText}}</code></pre>
+                            <b>odataQuery :</b> If <b>isODataOperations</b> is set to true, then OData query will be
+                            pass to
+                            <br> loadOptions.
+                        </td>
+                        <td>options : loadOptions</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            onInit()
+                        </td>
+                        <td>
+                            Callback event for component init
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            onAfterInit()
+                        </td>
+                        <td>
+                            Callback event for component after init
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            onRowClick(event)
+                        </td>
+                        <td>
+                            Callback event for row click
+                            <br>
+                            <b>event.data</b> contains the data of clicked row
+                        </td>
+                        <td>event</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            onSelect(event)
+                        </td>
+                        <td>
+                            Callback event for row select
+                            <br>
+                            <b>event.data</b> contains the all selected row keys
+                        </td>
+                        <td>event</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            onDeselect(event)
+                        </td>
+                        <td>
+                            Callback event for row deselect
+                            <br>
+                            <b>event.data</b> contains the all deselected row keys
+                        </td>
+                        <td>event</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            onStatesUpdate()
+                        </td>
+                        <td>
+                            Callback event when add/edit/delete any state in state management
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            onServerExport(options : loadOptions)
+                        </td>
+                        <td>
+                            Callback event on export data on server side,
+                            <br>
+                            here <b>isAllPages</b> flage will be true in loadOptions
+                        </td>
+                        <td>options : loadOptions</td>
+                    </tr>
+                </table>
+            </np-tab>
             <np-tab title="Apis">
                 <table class="np-table">
                     <tr>
@@ -634,108 +731,6 @@
                             <br>import State from 'np-ui-lib' package
                         </td>
                         <td>states: State[]</td>
-                    </tr>
-                </table>
-            </np-tab>
-
-            <np-tab title="Methods">
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onLoadData(options : loadOptions)
-                        </td>
-                        <td>
-                            Callback to data load, import loadOptions from 'np-ui-lib' package
-                            <br>
-                            loadOptions has properties like 'pageNumber', 'pageSize', 'sortColumns', 'filterColumns'
-                            <br>
-                            'odataQuery', and 'isAllPages'
-                            <br>
-                            <b>sortColumns :</b> Array of sort columns
-                            <pre><code>{{sortColText}}</code></pre>
-                            <b>filterColumns :</b> Array of filter columns
-                            <pre><code>{{filterColText}}</code></pre>
-                            <b>odataQuery :</b> If <b>isODataOperations</b> is set to true, then OData query will be
-                            pass to
-                            <br> loadOptions.
-                        </td>
-                        <td>options : loadOptions</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onInit()
-                        </td>
-                        <td>
-                            Callback event for component init
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onAfterInit()
-                        </td>
-                        <td>
-                            Callback event for component after init
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onRowClick(event)
-                        </td>
-                        <td>
-                            Callback event for row click
-                            <br>
-                            <b>event.data</b> contains the data of clicked row
-                        </td>
-                        <td>event</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onSelect(event)
-                        </td>
-                        <td>
-                            Callback event for row select
-                            <br>
-                            <b>event.data</b> contains the all selected row keys
-                        </td>
-                        <td>event</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onDeselect(event)
-                        </td>
-                        <td>
-                            Callback event for row deselect
-                            <br>
-                            <b>event.data</b> contains the all deselected row keys
-                        </td>
-                        <td>event</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onStatesUpdate()
-                        </td>
-                        <td>
-                            Callback event when add/edit/delete any state in state management
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onServerExport(options : loadOptions)
-                        </td>
-                        <td>
-                            Callback event on export data on server side,
-                            <br>
-                            here <b>isAllPages</b> flage will be true in loadOptions
-                        </td>
-                        <td>options : loadOptions</td>
                     </tr>
                 </table>
             </np-tab>

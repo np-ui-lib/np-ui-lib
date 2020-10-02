@@ -32,10 +32,18 @@ export class NpDatePickerDemoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.disableDates7.push(new Date());
+    const today = new Date();
+    const tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+    this.disableDates7.push(today);
+    this.disableDates7.push(tomorrow);
     this.dateLabels12.push({
-      date: new Date(),
+      date: today,
       label: 'Today'
+    });
+    this.dateLabels12.push({
+      date: tomorrow,
+      label: 'Tomorrow'
     });
   }
 

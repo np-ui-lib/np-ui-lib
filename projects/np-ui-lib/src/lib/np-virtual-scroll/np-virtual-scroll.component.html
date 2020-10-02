@@ -3,7 +3,7 @@
     <div role="listbox" [ngClass]="'np-virtual-scroll'" [attr.aria-labelledby]="inputId + '-title'">
         <cdk-virtual-scroll-viewport [itemSize]="itemHeight" (scrolledIndexChange)="_onScrollIndexChange($event)"
             [style.height.px]="pageSize * itemHeight">
-            <div *cdkVirtualFor="let item of data" role="option" class="np-virtual-scroll-item"
+            <div *cdkVirtualFor="let item of items" role="option" class="np-virtual-scroll-item"
                 [style.height.px]="itemHeight">
                 <ng-container *ngIf="!item; else customTemplate">
                     Loading...
