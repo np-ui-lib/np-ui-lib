@@ -264,7 +264,7 @@ export class NpCalendarComponent implements AfterContentInit {
     if (this.events) {
       for (let i = 0; i < this.events.length; i++) {
         const element = this.events[i];
-        if (element.startDate === event.startDate && element.title === event.title) {
+        if (element.startDate === event.startDate && element.endDate === event.endDate && element.title === event.title) {
           index = i;
           break;
         }

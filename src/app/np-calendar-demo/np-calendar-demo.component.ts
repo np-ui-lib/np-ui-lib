@@ -7,11 +7,21 @@ import { NpCalendarComponent, NpCalendarEvent, NpDialogComponent, NpModalService
 })
 export class NpCalendarDemoComponent implements OnInit {
 
+  importText = `import { NpCalendarModule } from \'np-ui-lib\';`;
+  htmlText = `<np-calendar></np-calendar>`;
+
   @ViewChild('myCalendar', { static: true }) myCalendar: NpCalendarComponent;
   @ViewChild('myCalendar2', { static: true }) myCalendar2: NpCalendarComponent;
 
   disabledDates = [];
   disableWeekDays = ['Sunday', 'Saturday'];
+  eventTemplateStr = `<ng-template #eventTemplate let-event="event">
+  <div [np-tooltip]="event.title" class="np-calendar-event" 
+      [style.background-color]="event.backgroundColor"
+      [style.color]="event.fontColor" (click)="onClickEvent(event)">
+      {{event.startDate.toTimeString().substring(0,5)}}
+      {{event.title}}</div>
+</ng-template>`;
 
   constructor(private modalService: NpModalService) { }
 
