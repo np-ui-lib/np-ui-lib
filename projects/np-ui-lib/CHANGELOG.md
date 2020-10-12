@@ -3,6 +3,11 @@
 
 ## Change log and decision tracker
 
+## 10.4.5
+- Add new calendar component
+- Resolved issue for disabled weekdays for start from monday
+- Add context property to tooltip and popover components
+
 ## 10.4.2
 - Minor improvements
 - Add accessibility attributes

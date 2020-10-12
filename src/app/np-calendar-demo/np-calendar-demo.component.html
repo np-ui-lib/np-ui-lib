@@ -1,0 +1,22 @@
+<h2> Calendar</h2>
+
+<np-tabs>
+    <np-tab title="Documentation">
+
+    </np-tab>
+    <np-tab title="Basic Example">
+        <np-calendar #myCalendar [disableDates]="disabledDates" (onClickDate)="onClickDate($event)"
+            (onClickEvent)="onClickEvent($event)" (onLoadMonth)="onLoadMonth($event)"></np-calendar>
+    </np-tab>
+    <np-tab title="Example with event template">
+        <np-calendar #myCalendar2 [disableWeekDays]="disableWeekDays" [isStartMonthWithMonday]="true"
+            [eventTemplate]="eventTemplate" (onClickDate)="onClickDate2($event)" (onClickEvent)="onClickEvent2($event)"
+            (onLoadMonth)="onLoadMonth2($event)"></np-calendar>
+        <ng-template #eventTemplate let-event="event">
+            <div [np-tooltip]="event.title" class="np-calendar-event" [style.background-color]="event.backgroundColor"
+                [style.color]="event.fontColor" (click)="onClickEvent2(event)">
+                {{event.startDate.toTimeString().substring(0,5)}}
+                {{event.title}}</div>
+        </ng-template>
+    </np-tab>
+</np-tabs>

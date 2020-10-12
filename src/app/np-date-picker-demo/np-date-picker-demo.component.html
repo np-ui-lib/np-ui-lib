@@ -163,7 +163,7 @@
         </np-card>
     </np-tab>
 
-    <np-tab title="Example" id="tabExample">
+    <np-tab title="Examples" id="tabExample">
         <ng-template npTabContent>
             <div>
                 <fieldset>
@@ -278,7 +278,8 @@
             <div>
                 <fieldset>
                     <legend>isStartMonthWithMonday</legend>
-                    <np-date-picker [(ngModel)]="date11" [isStartMonthWithMonday]="true"></np-date-picker>
+                    <np-date-picker [(ngModel)]="date11" [isStartMonthWithMonday]="true" [disableWeekDays]="['Su']">
+                    </np-date-picker>
                 </fieldset>
             </div>
 

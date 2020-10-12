@@ -32,7 +32,6 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   @Input() styleClass: string;
   @Input() inputId = `np-color-picker_${NpColorPickerComponent.controlCount++}`;
 
-
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;

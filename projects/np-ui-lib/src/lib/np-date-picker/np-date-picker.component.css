@@ -30,12 +30,12 @@
     border: none;
 }
 
-.np-weekdays {
+.np-date-picker-weekdays {
     background-color: #f5f5f5;
     padding: 5px;
 }
 
-.np-dp-weekday {
+.np-date-picker-weekday {
     font-weight: bold;
     line-height: 2rem;
     width: 2rem;

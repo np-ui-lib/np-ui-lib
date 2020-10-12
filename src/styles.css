@@ -181,3 +181,7 @@ fieldset {
     padding: 10px;
     text-align: center;
 }
+
+.mail-popover .np-popover-body{
+    padding: 0px;
+}

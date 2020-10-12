@@ -2,6 +2,6 @@
     <ng-container *ngIf="!isTemplate">
         <div [innerHTML]="tooltip"></div>
     </ng-container>
-    <ng-template *ngIf="isTemplate" [ngTemplateOutlet]="tooltip">
+    <ng-template *ngIf="isTemplate" [ngTemplateOutlet]="tooltip" [ngTemplateOutletContext]="context">
     </ng-template>
 </div>

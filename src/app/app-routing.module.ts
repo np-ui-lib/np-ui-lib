@@ -151,6 +151,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-paginator-demo/np-paginator-demo.module').then(m => m.NpPaginatorDemoModule)
   },
   {
+    path: 'np-calendar-demo',
+    loadChildren: () => import('./np-calendar-demo/np-calendar-demo.module').then(m => m.NpCalendarDemoModule)
+  },
+  {
     path: '**',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

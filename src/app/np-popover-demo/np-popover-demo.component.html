@@ -40,6 +40,12 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>context</td>
+                        <td>Pass data to template. Context will be avaialable in both header and bodt templates.</td>
+                        <td>any</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>placement</td>
                         <td>Set popover position from 'left' | 'right' | 'top' | 'bottom'</td>
                         <td>string</td>
@@ -158,7 +164,7 @@
         </fieldset>
 
         <fieldset>
-            <button class="np-btn" np-popover [body]="mailTemp" [openOnClick]="true">
+            <button class="np-btn" np-popover [body]="mailTemp" [openOnClick]="true" [styleClass]="'mail-popover'">
                 <i class="fa fa-envelope"></i>
                 <span class="np-badge">5</span>
             </button>
@@ -189,13 +195,13 @@
         </fieldset>
 
         <fieldset>
-            <a np-popover [header]="headerTemp" [body]="bodyTemp" [openOnClick]="true" [width]="250"
-                [styleClass]="'myClass'">With [width] and [styleClass] attribute</a>
-            <ng-template #headerTemp>
-                Others
+            <a np-popover [header]="headerTemp" [body]="bodyTemp" [context]="{count: 5}" [openOnClick]="true"
+                [width]="250" [styleClass]="'myClass'">With [width] and [styleClass] attribute</a>
+            <ng-template #headerTemp let-count="count">
+                Others, Count pass in context is {{count}}.
             </ng-template>
-            <ng-template #bodyTemp>
-                Set width of popover and add extra class to popover element
+            <ng-template #bodyTemp let-count="count">
+                Set width of popover and add extra class to popover element, Count pass in context is {{count}}.
             </ng-template>
         </fieldset>
 

@@ -1,6 +1,6 @@
 {
     "name": "np-ui-lib",
-    "version": "10.4.2",
+    "version": "10.4.5",
     "author": {
         "name": "nilav patel",
         "email": "nilavpatel1992@gmail.com",
@@ -61,6 +61,7 @@
         "Virtual Scroll",
         "Dialog",
         "Steps",
-        "Paginator"
+        "Paginator",
+        "Calendar"
     ]
 }

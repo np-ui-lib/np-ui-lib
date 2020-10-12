@@ -11,7 +11,7 @@
         </ng-container>
         <ng-container *ngFor="let item of items;  let i = index;">
             <li role="option" class="np-breadcrumb-item" [attr.tabindex]="item.disabled ? '-1' : '0'">
-                <a (click)="_onClick(item)" [ngClass]="{'np-disabled': item.disabled}">{{item.label}}</a>
+                <a (click)="_onClick(item)" [ngClass]="{'np-disabled': item.disabled}" [innerHTML]="item.label"></a>
             </li>
         </ng-container>
     </ul>

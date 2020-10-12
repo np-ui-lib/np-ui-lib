@@ -11,6 +11,7 @@ export class NpTooltipComponent implements OnInit {
 
   @Input() tooltip: string | TemplateRef<any>;
   @Input() styleClass: string;
+  @Input() context: any;
   @Input() inputId = `np-tooltip_${NpTooltipComponent.controlCount++}`;
 
   isTemplate: boolean;

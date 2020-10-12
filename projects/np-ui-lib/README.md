@@ -51,6 +51,7 @@ npm i np-ui-lib
 1.  Sidepanel
 1.  Grid Layout
 1.  Masking
+1.  Calendar
 
 ### Import css to your application:
 ````css

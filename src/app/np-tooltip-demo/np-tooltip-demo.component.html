@@ -34,6 +34,12 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>context</td>
+                        <td>Pass data to template</td>
+                        <td>any</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>placement</td>
                         <td>Set tooltip position from 'left' | 'right' | 'top' | 'bottom'</td>
                         <td>string</td>
@@ -76,10 +82,10 @@
         </p>
 
         <p>
-            <span [np-tooltip]="tooltipTop" [placement]="'top'">
+            <span [np-tooltip]="tooltipTop" [placement]="'top'" [context]="{count: 5}">
                 Hover me for top tooltip, with ng-template.
-                <ng-template #tooltipTop>
-                    <u>This is top tooltip</u>
+                <ng-template #tooltipTop let-count="count">
+                    <u>This is top tooltip. Count pass in context is {{count}}</u>
                 </ng-template>
             </span>
         </p>

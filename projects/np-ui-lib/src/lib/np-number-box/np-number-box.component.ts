@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Validator, FormControl } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Validator } from '@angular/forms';
 
 @Component({
   selector: 'np-number-box',
@@ -128,7 +128,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     }
   }
 
-  validate(control: FormControl) {
+  validate() {
     if (this.min !== undefined && this.value < this.min) {
       return {
         min: {
@@ -159,7 +159,8 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     const format = this.format
       .replace(/[^#\.\,]/g, '')
       .replace(/#/g, '\\d')
-      .replace(/\./g, '\\.');
+      .replace(/\./g, '\\.')
+      .replace(/\,/g, '\\,');
     return new RegExp('^' + format + '$', 'g');
   }
 

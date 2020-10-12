@@ -47,13 +47,14 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   monthsList: any[];
   months: any[];
   years: number[] = [];
-  currentMonthDates: any;
+  currentMonthWeeks: any;
   currentMonth: number;
   currentYear: number;
   today: Date;
   isOpen = false;
   innerValue: Date;
   isDisabled = false;
+  originalWeekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -198,7 +199,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
       }
       weeks[j].push(element);
     });
-    this.currentMonthDates = weeks;
+    this.currentMonthWeeks = weeks;
   }
 
   _getCurrentMonthData() {
@@ -206,15 +207,12 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     const totalDaysInMonth = this._daysInCurrentMonth();
     for (let i = 1; i <= totalDaysInMonth; i++) {
       const date = new Date(this.currentYear, this.currentMonth, i);
-      const dateStr = date.toDateString();
-      const todayStr = this.today ? this.today.toDateString() : '';
-      const selectedStr = this.value ? this.value.toDateString() : '';
       data.push({
         date,
         day: i,
         disabled: this._checkIsFullDateDisabled(date),
-        today: dateStr === todayStr,
-        seleced: dateStr === selectedStr,
+        today: this._compareDate(this.today, date),
+        seleced: this._compareDate(this.value, date),
         toolTip: this._getTooltip(date)
       });
     }
@@ -334,7 +332,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   _getTooltip(currentDate: Date) {
     if (currentDate && this.dateLabels && this.dateLabels.length > 0) {
       const dateLabel: any = this.dateLabels.find((item) => {
-        return item.date.toDateString() === currentDate.toDateString();
+        return this._compareDate(item.date, currentDate);
       });
       return dateLabel ? dateLabel.label : null;
     }
@@ -342,7 +340,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _checkIsWeekDayDisabled(index: number) {
-    const day = this.weekDays[index];
+    const day = this.originalWeekDays[index];
     return this.disableWeekDays.indexOf(day) > -1;
   }
 
@@ -360,7 +358,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
       return true;
     }
     return (this.disableDates.findIndex((item) => {
-      return item.toDateString() === date.toDateString();
+      return this._compareDate(item, date);
     }) > -1);
   }
 
@@ -402,5 +400,17 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
 
   _onBlur() {
     this.onTouchedCallback();
+  }
+
+  _compareDate(dateA: Date, dateB: Date) {
+    if (!dateA || !dateB) {
+      return false;
+    }
+    if (dateA.getFullYear() === dateB.getFullYear() &&
+      dateA.getMonth() === dateB.getMonth() &&
+      dateA.getDate() === dateB.getDate()) {
+      return true;
+    }
+    return false;
   }
 }

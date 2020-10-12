@@ -13,6 +13,7 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
     @Input() placement: string;
     @Input() header: string | TemplateRef<any>;
     @Input() body: string | TemplateRef<any>;
+    @Input() context: any;
     @Input() openOnClick: boolean;
     @Input() width: number;
     @Input() closeOnClickOutside = true;
@@ -87,6 +88,7 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
         const popoverRef: ComponentRef<NpPopoverComponent> = this.overlayRef.attach(popoverPortal);
         popoverRef.instance.header = this.header;
         popoverRef.instance.body = this.body;
+        popoverRef.instance.context = this.context;
         popoverRef.instance.width = this.width;
         popoverRef.instance.styleClass = this.styleClass;
         this.onOpen.emit();

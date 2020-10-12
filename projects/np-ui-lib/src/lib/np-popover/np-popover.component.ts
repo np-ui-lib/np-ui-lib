@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ContentChild, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'np-popover',
@@ -14,6 +14,7 @@ export class NpPopoverComponent implements OnInit {
   @Input() body: string | TemplateRef<any>;
   @Input() width: number;
   @Input() styleClass: string;
+  @Input() context: any;
   @Input() inputId = `np-popover_${NpPopoverComponent.controlCount++}`;
 
   isHeaderTemplate: boolean;

@@ -164,3 +164,8 @@ export * from './lib/np-steps/np-step-buttons.directive';
 /*Paginator */
 export * from './lib/np-paginator/np-paginator.module';
 export * from './lib/np-paginator/np-paginator.component';
+
+/*Date Picker */
+export * from './lib/np-calendar/np-calendar.module';
+export * from './lib/np-calendar/np-calendar.component';
+export * from './lib/np-calendar/np-calendar-event.model';

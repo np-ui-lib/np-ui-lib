@@ -72,6 +72,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-popover-demo', label: 'Popover' }),
     new NpMenuItem({ isHeader: true, label: 'Other' }),
     new NpMenuItem({ routerLink: '/np-progress-demo', label: 'Progress' }),
+    new NpMenuItem({ routerLink: '/np-calendar-demo', label: 'Calendar' }),
     new NpMenuItem({ routerLink: '/np-grid-layout-demo', label: 'Grid Layout' }),
     new NpMenuItem({ routerLink: '/np-mask-demo', label: 'Masking' }),
     new NpMenuItem({ routerLink: '/np-utility-demo', label: 'Other Utility' })

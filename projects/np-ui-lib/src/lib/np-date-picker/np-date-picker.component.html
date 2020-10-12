@@ -46,13 +46,13 @@
                 </svg>
             </button>
         </div>
-        <div class="np-weekdays">
+        <div class="np-date-picker-weekdays">
             <ng-container *ngFor="let weekDay of weekDays">
-                <div class="np-dp-weekday" [innerHTML]="weekDay"></div>
+                <div class="np-date-picker-weekday" [innerHTML]="weekDay"></div>
             </ng-container>
         </div>
         <div class="np-date-picker-days">
-            <div *ngFor="let week of currentMonthDates">
+            <div *ngFor="let week of currentMonthWeeks">
                 <ng-container *ngFor="let item of week">
                     <div (click)="_selectDate(item.date)" class="np-date-picker-day"
                         [ngClass]="{'np-date-picker-today': item.today, 'np-disabled': item.disabled, 'np-date-picker-selected': item.seleced}">
