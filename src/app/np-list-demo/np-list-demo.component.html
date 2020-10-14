@@ -98,6 +98,15 @@
                     </tr>
                     <tr>
                         <td>
+                            onClick(item: any)
+                        </td>
+                        <td>
+                            Callback to click event on node
+                        </td>
+                        <td>item : any</td>
+                    </tr>
+                    <tr>
+                        <td>
                             onSelect(item: any)
                         </td>
                         <td>
@@ -196,7 +205,7 @@
         <fieldset>
             <legend>Basic list with height</legend>
             <np-list [items]="items" [itemTemplate]="list1Template" [height]="200" [orderBy]="'name'" [orderDir]="'asc'"
-                [header]="'Employee List'">
+                [header]="'Employee List'" (onClick)="onClick($event)">
             </np-list>
 
             <ng-template let-item="item" #list1Template>

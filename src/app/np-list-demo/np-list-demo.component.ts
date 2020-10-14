@@ -99,4 +99,8 @@ export class NpListDemoComponent implements OnInit {
   deselectItemByIndex() {
     this.list2.deselectItemByIndex(0);
   }
+
+  onClick($event) {
+    alert($event.id);
+  }
 }

@@ -16,11 +16,9 @@ export class NpCalendarDemoComponent implements OnInit {
   disabledDates = [];
   disableWeekDays = ['Sunday', 'Saturday'];
   eventTemplateStr = `<ng-template #eventTemplate let-event="event">
-  <div [np-tooltip]="event.title" class="np-calendar-event" 
-      [style.background-color]="event.backgroundColor"
-      [style.color]="event.fontColor" (click)="onClickEvent(event)">
-      {{event.startDate.toTimeString().substring(0,5)}}
-      {{event.title}}</div>
+  <div [np-tooltip]="event.title">
+      {{event.startDate.toTimeString().substring(0,5)}} {{event.title}}
+  </div>
 </ng-template>`;
 
   constructor(private modalService: NpModalService) { }
@@ -31,11 +29,27 @@ export class NpCalendarDemoComponent implements OnInit {
     const date5 = new Date();
     date5.setDate(2);
     this.disabledDates = [date4, date5];
+
+    const date1 = new Date();
+    date1.setHours(1);
+    const date2 = new Date();
+    date2.setHours(2);
+    const date3 = new Date();
+    date3.setHours(24);
+    const events = [
+      new NpCalendarEvent({ startDate: date1, description: 'Meeting with client' }),
+      new NpCalendarEvent({
+        startDate: date2, description: 'Retrospective Meeting with scrum team of np-ui-lib project',
+        backgroundColor: '#1e7e34', fontColor: 'black'
+      }),
+      new NpCalendarEvent({ startDate: date3, description: 'Weekly sync up meeting on skype' })
+    ];
+    this.myCalendar.addEvents(events);
   }
 
   onClickDate(date: Date) {
     const prompt = this.modalService.open(NpDialogComponent,
-      null, { type: 'prompt', message: 'Add event description' });
+      null, { type: 'prompt', message: 'Add Event Title' });
     prompt.onClose.subscribe((data) => {
       if (data && data.length > 0) {
         this.myCalendar.addEvents([new NpCalendarEvent({ startDate: date, description: data })]);
@@ -55,26 +69,11 @@ export class NpCalendarDemoComponent implements OnInit {
 
   onLoadMonth($event) {
     console.log(JSON.stringify($event));
-    const date1 = new Date();
-    date1.setHours(1);
-    const date2 = new Date();
-    date2.setHours(2);
-    const date3 = new Date();
-    date3.setHours(24);
-    const events = [
-      new NpCalendarEvent({ startDate: date1, description: 'Meeting with client' }),
-      new NpCalendarEvent({
-        startDate: date2, description: 'Retrospective Meeting with scrum team of np-ui-lib project',
-        backgroundColor: '#1e7e34', fontColor: 'black'
-      }),
-      new NpCalendarEvent({ startDate: date3, description: 'Weekly sync up meeting on skype' })
-    ];
-    this.myCalendar.addEvents(events);
   }
 
   onClickDate2(date: Date) {
     const prompt = this.modalService.open(NpDialogComponent,
-      null, { type: 'prompt', message: 'Add event description' });
+      null, { type: 'prompt', message: 'Add Event Title' });
     prompt.onClose.subscribe((data) => {
       if (data && data.length > 0) {
         this.myCalendar2.addEvents([new NpCalendarEvent({ startDate: date, description: data })]);

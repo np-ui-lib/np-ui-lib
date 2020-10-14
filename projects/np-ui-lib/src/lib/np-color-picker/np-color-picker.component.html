@@ -32,7 +32,7 @@
         <div class="np-color-picker-header">
             <div class="np-selected-color-block" [ngStyle]="{'background-color': innerValue}"></div>
             <div>
-                <div><b>HEX: </b><span>{{innerValue}}</span></div>
+                <div><b>HEX: </b><span [innerHTML]="innerValue"></span></div>
                 <div><b>RGB: </b><span [innerText]="_currentHexToRGB()"></span></div>
             </div>
         </div>

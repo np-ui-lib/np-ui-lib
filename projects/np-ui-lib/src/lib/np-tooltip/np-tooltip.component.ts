@@ -10,8 +10,9 @@ export class NpTooltipComponent implements OnInit {
   static controlCount = 1;
 
   @Input() tooltip: string | TemplateRef<any>;
-  @Input() styleClass: string;
   @Input() context: any;
+  @Input() width: number;
+  @Input() styleClass: string;
   @Input() inputId = `np-tooltip_${NpTooltipComponent.controlCount++}`;
 
   isTemplate: boolean;

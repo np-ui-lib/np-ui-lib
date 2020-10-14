@@ -2,7 +2,7 @@
     <div class="np-progress-container" [style.height.px]="height">
         <div *ngIf="!indeterminate" class="np-progress-bar" [style.width.%]="value"
             [ngClass]="{'np-progress-striped': striped, 'np-progress-animated': animated}">
-            <span *ngIf="showLabel">{{getTextValue()}}</span>
+            <span *ngIf="showLabel" [innerHTML]="getTextValue()"></span>
         </div>
         <div *ngIf="indeterminate" class="np-progress-bar np-progress-indeterminate">
         </div>

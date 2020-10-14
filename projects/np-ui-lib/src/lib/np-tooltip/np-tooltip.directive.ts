@@ -10,6 +10,7 @@ export class NpTooltipDirective implements AfterViewInit, OnDestroy {
     @Input('np-tooltip') text: string | TemplateRef<any>;
     @Input() placement: string;
     @Input() context: any;
+    @Input() width: number;
     @Input() styleClass: string;
     @Input() tooltipOnFocus = false;
 
@@ -62,6 +63,7 @@ export class NpTooltipDirective implements AfterViewInit, OnDestroy {
         const tooltipRef: ComponentRef<NpTooltipComponent> = this.overlayRef.attach(tooltipPortal);
         tooltipRef.instance.tooltip = this.text;
         tooltipRef.instance.context = this.context;
+        tooltipRef.instance.width = this.width;
         tooltipRef.instance.styleClass = this.styleClass;
     }
 

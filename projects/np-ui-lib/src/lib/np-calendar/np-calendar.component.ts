@@ -16,6 +16,7 @@ export class NpCalendarComponent implements AfterContentInit {
   @Input() isStartMonthWithMonday = false;
   @Input() eventTemplate: TemplateRef<any>;
   @Input() styleClass: string;
+  @Input() resetEventsOnLoad = false;
   @Input() inputId = `np-calendar_${NpCalendarComponent.controlCount++}`;
 
   @Output() onLoadMonth: EventEmitter<any> = new EventEmitter();
@@ -230,7 +231,8 @@ export class NpCalendarComponent implements AfterContentInit {
     }
   }
 
-  _onClickEvent(event: NpCalendarEvent) {
+  _onClickEvent($domEvent: any, event: NpCalendarEvent) {
+    $domEvent.stopPropagation();
     if (this._checkIsFullDateDisabled(event.startDate)) { return; }
     if (this.onClickEvent) {
       this.onClickEvent.emit(event);
@@ -274,7 +276,9 @@ export class NpCalendarComponent implements AfterContentInit {
   }
 
   _onLoad() {
-    this.events = [];
+    if (this.resetEventsOnLoad) {
+      this.events = [];
+    }
     if (this.onLoadMonth) {
       this.onLoadMonth.emit({ month: this.currentMonth, year: this.currentYear });
     }

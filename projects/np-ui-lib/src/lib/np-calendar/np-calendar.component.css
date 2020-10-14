@@ -59,15 +59,16 @@
 .np-calendar-day {
     min-height: 100px;
     position: relative;
+    cursor: pointer;
 }
 
 .np-calendar-day-label {
     padding: 5px;
+    direction: rtl;
 }
 
 .np-calendar-today {
-    border: 2px solid #007bff;
-    border-radius: 2px;
+    background-color: #f0f8ff;
 }
 
 .np-calendar-events {

@@ -3,10 +3,12 @@
 
 ## Change log and decision tracker
 
-## 10.4.5
+## 10.4.3
 - Add new calendar component
-- Resolved issue for disabled weekdays for start from monday
+- Resolved issue for disabled weekdays for start from monday in date picker
 - Add context property to tooltip and popover components
+- Add width property for tooltip
+- Add onClick on list item
 
 ## 10.4.2
 - Minor improvements

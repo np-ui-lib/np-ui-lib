@@ -54,20 +54,20 @@
             <tr *ngFor="let week of currentMonthWeeks">
                 <td *ngFor="let item of week">
                     <div class="np-calendar-day"
-                        [ngClass]="{'np-calendar-today': item.today, 'np-disabled': item.disabled}">
-                        <div class="np-calendar-day-label" (click)="_onClickDate(item.date)">
-                            {{item.day}}
-                        </div>
+                        [ngClass]="{'np-calendar-today': item.today, 'np-disabled': item.disabled}"
+                        (click)="_onClickDate(item.date)">
+                        <span class="np-calendar-day-label" [innerHTML]="item.day"></span>
                         <div class="np-calendar-events">
                             <ng-container *ngFor="let eve of item.events">
-                                <div *ngIf="!eventTemplate; else customTemplate;" class="np-calendar-event"
-                                    [style.background-color]="eve.backgroundColor" [style.color]="eve.fontColor"
-                                    [innerHTML]="eve.title" [title]="eve.title"
-                                    (click)="_onClickEvent(eve)">
+                                <div class="np-calendar-event" [style.background-color]="eve.backgroundColor"
+                                    [style.color]="eve.fontColor" (click)="_onClickEvent($event,eve)">
+                                    <div *ngIf="!eventTemplate; else customTemplate;" [innerHTML]="eve.title"
+                                        [title]="eve.title">
+                                    </div>
+                                    <ng-template #customTemplate [ngTemplateOutlet]="eventTemplate"
+                                        [ngTemplateOutletContext]="{event: eve}">
+                                    </ng-template>
                                 </div>
-                                <ng-template #customTemplate [ngTemplateOutlet]="eventTemplate"
-                                    [ngTemplateOutletContext]="{event: eve}">
-                                </ng-template>
                             </ng-container>
                         </div>
                     </div>

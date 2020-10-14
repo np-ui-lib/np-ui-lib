@@ -21,6 +21,7 @@ export class NpListComponent implements OnInit {
   @Input() styleClass: string;
   @Input() inputId = `np-list_${NpListComponent.controlCount++}`;
 
+  @Output() onClick: EventEmitter<any> = new EventEmitter();
   @Output() onSelect: EventEmitter<any> = new EventEmitter();
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
 
@@ -100,6 +101,10 @@ export class NpListComponent implements OnInit {
 
   _trackBy(index: number): number {
     return index;
+  }
+
+  _onClick(item: any) {
+    this.onClick.emit(item);
   }
 
 }

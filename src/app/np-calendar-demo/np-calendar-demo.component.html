@@ -46,6 +46,14 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>resetEventsOnLoad</td>
+                        <td>Reset events on load new month, useful for lazy loading.
+                            <br>If fetching events on loading each month then set this property true
+                        </td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>eventTemplate</td>
                         <td>Event template, here event variable is type of NpCalendarEvent
                             <br>
@@ -135,7 +143,7 @@
                             <br>
                             For lazy loading fill event in onLoadMonth() method of calendar component.
                         </td>
-                        <td></td>
+                        <td>events: NpCalendarEvent[]</td>
                     </tr>
                     <tr>
                         <td>
@@ -146,7 +154,7 @@
                             <br>
                             Events will be filtered based on startDate, endDate and title.
                         </td>
-                        <td></td>
+                        <td>events: NpCalendarEvent[]</td>
                     </tr>
                 </table>
             </np-card-body>
@@ -207,13 +215,12 @@
     </np-tab>
     <np-tab title="Example with event template">
         <np-calendar #myCalendar2 [disableWeekDays]="disableWeekDays" [isStartMonthWithMonday]="true"
-            [eventTemplate]="eventTemplate" (onClickDate)="onClickDate2($event)" (onClickEvent)="onClickEvent2($event)"
-            (onLoadMonth)="onLoadMonth2($event)"></np-calendar>
+            [resetEventsOnLoad]="true" [eventTemplate]="eventTemplate" (onClickDate)="onClickDate2($event)"
+            (onClickEvent)="onClickEvent2($event)" (onLoadMonth)="onLoadMonth2($event)"></np-calendar>
         <ng-template #eventTemplate let-event="event">
-            <div [np-tooltip]="event.title" class="np-calendar-event" [style.background-color]="event.backgroundColor"
-                [style.color]="event.fontColor" (click)="onClickEvent2(event)">
-                {{event.startDate.toTimeString().substring(0,5)}}
-                {{event.title}}</div>
+            <div [np-tooltip]="event.title">
+                {{event.startDate.toTimeString().substring(0,5)}} {{event.title}}
+            </div>
         </ng-template>
     </np-tab>
 </np-tabs>

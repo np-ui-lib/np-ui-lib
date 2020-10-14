@@ -6,8 +6,10 @@
                 [ngClass]="{'np-list-selectable': allowSelection, 'np-list-selected': _isSelected(item)}">
                 <input *ngIf="allowSelection" type="checkbox" class="np-list-checkbox" tabindex="0"
                     [checked]="_isSelected(item)" (change)="_onSelectItem(item,$event)">
-                <ng-container *ngTemplateOutlet="itemTemplate;context:{ item: item }">
-                </ng-container>
+                <div class="np-list-item-content" (click)="_onClick(item)">
+                    <ng-container *ngTemplateOutlet="itemTemplate;context:{ item: item }">
+                    </ng-container>
+                </div>
             </li>
         </ng-container>
     </ul>
