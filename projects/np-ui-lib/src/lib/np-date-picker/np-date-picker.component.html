@@ -56,10 +56,10 @@
                 <ng-container *ngFor="let item of week">
                     <div (click)="_selectDate(item.date)" class="np-date-picker-day"
                         [ngClass]="{'np-date-picker-today': item.today, 'np-disabled': item.disabled, 'np-date-picker-selected': item.seleced}">
-                        <span *ngIf="item.toolTip; else dayTemplate" [np-tooltip]="item.toolTip" [innerHTML]="item.day">
-                        </span>
+                        <div *ngIf="item.toolTip; else dayTemplate" [np-tooltip]="item.toolTip" [innerHTML]="item.day">
+                        </div>
                         <ng-template #dayTemplate>
-                            <span [innerHTML]="item.day"></span>
+                            <div [innerHTML]="item.day"></div>
                         </ng-template>
                     </div>
                 </ng-container>

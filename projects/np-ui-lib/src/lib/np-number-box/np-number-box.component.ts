@@ -26,7 +26,9 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   @Input() steps = 1;
   @Input() min: number;
   @Input() max: number;
-  @Input() format: string;
+  @Input() pattern: string;
+  @Input() prefixLabel: string;
+  @Input() suffixLabel: string;
   @Input() showControls = true;
   @Input() placeholder = '';
   @Input() readOnly: boolean;
@@ -124,7 +126,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     if (isNaN(parseFloat(event.target.value))) {
       this.value = null;
     } else {
-      this.value = event.target.value;
+      this.value = Number(event.target.value);
     }
   }
 
@@ -143,25 +145,16 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
         },
       };
     }
-    if (this.format) {
-      const regex = this._createValidationRegEx();
+    if (this.pattern) {
+      const regex = new RegExp(this.pattern);
       if (this.value && !regex.test(this.value.toString())) {
         return {
-          format: {
+          pattern: {
             valid: false,
           },
         };
       }
     }
-  }
-
-  _createValidationRegEx() {
-    const format = this.format
-      .replace(/[^#\.\,]/g, '')
-      .replace(/#/g, '\\d')
-      .replace(/\./g, '\\.')
-      .replace(/\,/g, '\\,');
-    return new RegExp('^' + format + '$', 'g');
   }
 
   _onBlur() {

@@ -3,12 +3,14 @@
 
 ## Change log and decision tracker
 
-## 10.4.3
+## 10.5.0
 - Add new calendar component
 - Resolved issue for disabled weekdays for start from monday in date picker
 - Add context property to tooltip and popover components
 - Add width property for tooltip
 - Add onClick on list item
+- Remove format from number box and add pattern for regex
+- Add prefixLabel, suffixLabel in number box
 
 ## 10.4.2
 - Minor improvements

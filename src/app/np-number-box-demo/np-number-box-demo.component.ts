@@ -17,6 +17,7 @@ export class NpNumberBoxDemoComponent implements OnInit {
   number6: number;
   number7: number;
   number8: number;
+  number9: number;
 
   constructor() { }
 
