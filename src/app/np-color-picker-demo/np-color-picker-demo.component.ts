@@ -14,8 +14,6 @@ export class NpColorPickerDemoComponent implements OnInit {
   color4Disabled = false;
   color5: string;
   existingColors5 = ['#FFFFFF', '#C0C0C0', '#808080', '#000000'];
-  color6: string;
-  color7: string;
   color8: string;
   color9: string;
   color10: string;

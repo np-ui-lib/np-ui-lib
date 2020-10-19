@@ -22,10 +22,10 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 export class NpColorPickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
   static controlCount = 1;
 
+  /* forma can be 'hex' or 'rgb' */
+  @Input() format = 'hex';
   @Input() colors: string[];
-  @Input() hideColorInput: boolean;
   @Input() defaultOpen: boolean;
-  @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -51,6 +51,10 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   isShowCursorDiv = false;
   innerValue: string;
   isDisabled = false;
+  currentHex = '';
+  currentR: number;
+  currentG: number;
+  currentB: number;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -101,6 +105,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
       this.onChangeCallback(v);
       this.onTouchedCallback();
       this.onChange.emit(v);
+      this._setCurrentValues(v);
     }
   }
 
@@ -108,6 +113,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.stripColor = v;
+      this._setCurrentValues(v);
     }
   }
 
@@ -203,32 +209,43 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _clickStripeColor(e: any) {
-    this.stripColor = this._getColorFromClickevent(e, '.np-color-picker-strip');
+    const imageData = this._getColorFromClickevent(e, '.np-color-picker-strip');
+    this.stripColor = this.format === 'rgb'
+      ? `rgb(${imageData[0]},${imageData[1]},${imageData[2]})`
+      : this._rgbToHex(imageData[0], imageData[1], imageData[2]);
     this._updateBlockCanvas();
   }
 
   _clickBlockColor(e: any) {
-    this.value = this._getColorFromClickevent(e, '.np-color-picker-block');
-  }
-
-  _rgbStringToHex(rgbStr: string) {
-    const rgbArray = rgbStr.split(',');
-    return this._rgbToHex(rgbArray[0], rgbArray[1], rgbArray[2]);
+    const imageData = this._getColorFromClickevent(e, '.np-color-picker-block');
+    this.value = this.format === 'rgb'
+      ? `rgb(${imageData[0]},${imageData[1]},${imageData[2]})`
+      : this._rgbToHex(imageData[0], imageData[1], imageData[2]);
   }
 
   _rgbToHex(r: any, g: any, b: any) {
-    const red = this._convertToHex(r);
-    const green = this._convertToHex(g);
-    const blue = this._convertToHex(b);
+    const red = this._convertNumberToHex(r);
+    const green = this._convertNumberToHex(g);
+    const blue = this._convertNumberToHex(b);
     return `#${red}${green}${blue}`;
   }
 
-  _convertToHex(rgb: any) {
-    let hex = Number(rgb).toString(16);
+  _convertNumberToHex(num: any) {
+    let hex = Number(num).toString(16);
     if (hex.length < 2) {
       hex = `0${hex}`;
     }
     return hex;
+  }
+
+  _hexToRgb(hex: string) {
+    if (!hex) {
+      return null;
+    }
+    const r = parseInt(hex.substring(1, 3), 16);
+    const g = parseInt(hex.substring(3, 5), 16);
+    const b = parseInt(hex.substring(5, 7), 16);
+    return { r, g, b };
   }
 
   _onMouseLeaveStrip() {
@@ -243,14 +260,20 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     this.isShowCursorDiv = true;
     this.xColorCursor = `${e.pageX}px`;
     this.yColorCursor = `${e.pageY}px`;
-    this.currentCursorColor = this._getColorFromClickevent(e, '.np-color-picker-strip');
+    const imageData = this._getColorFromClickevent(e, '.np-color-picker-strip');
+    this.currentCursorColor = this.format === 'rgb'
+      ? `rgb(${imageData[0]},${imageData[1]},${imageData[2]})`
+      : this._rgbToHex(imageData[0], imageData[1], imageData[2]);
   }
 
   _onMouseOverBlock(e: any) {
     this.isShowCursorDiv = true;
     this.xColorCursor = `${e.pageX}px`;
     this.yColorCursor = `${e.pageY}px`;
-    this.currentCursorColor = this._getColorFromClickevent(e, '.np-color-picker-block');
+    const imageData = this._getColorFromClickevent(e, '.np-color-picker-block');
+    this.currentCursorColor = this.format === 'rgb'
+      ? `rgb(${imageData[0]},${imageData[1]},${imageData[2]})`
+      : this._rgbToHex(imageData[0], imageData[1], imageData[2]);
   }
 
   _onClickColorBlock(color: string) {
@@ -258,31 +281,14 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
       this.value = null;
       return;
     }
-    this.value = color;
-    this.stripColor = color;
-    this._updateBlockCanvas();
-  }
-
-  _currentHexToRGB() {
-    return this._hexToRgb(this.value);
-  }
-
-  _hexToRgb(hex: string) {
-    if (!hex) {
-      return '';
+    if (this.format === 'hex') {
+      this.value = color;
+    } else {
+      const rgb = this._hexToRgb(color);
+      this.value = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
     }
-    const r = parseInt(hex.substring(1, 3), 16);
-    const g = parseInt(hex.substring(3, 5), 16);
-    const b = parseInt(hex.substring(5, 7), 16);
-    return `${r},${g},${b}`;
-  }
-
-  getSelectedRGB() {
-    return this._hexToRgb(this.value);
-  }
-
-  setSelectedRGB(value: string) {
-    this.value = this._rgbStringToHex(value);
+    this.stripColor = this.value;
+    this._updateBlockCanvas();
   }
 
   _clear() {
@@ -291,14 +297,6 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     }
     this.value = null;
     this._close();
-  }
-
-  _onInputChange(event: { target: { value: string; }; }) {
-    if (event.target.value && event.target.value.charAt(0) !== '#') {
-      this.value = `#${event.target.value}`;
-    } else {
-      this.value = event.target.value;
-    }
   }
 
   _getColorFromClickevent(e: any, clickedElement: string) {
@@ -311,8 +309,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     const ctx2 = strip.getContext('2d');
     const x = e.offsetX;
     const y = e.offsetY;
-    const imageData = ctx2.getImageData(x, y, 1, 1).data;
-    return this._rgbToHex(imageData[0], imageData[1], imageData[2]);
+    return ctx2.getImageData(x, y, 1, 1).data;
   }
 
   _onKeydown(event: KeyboardEvent) {
@@ -327,5 +324,72 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
 
   _onBlur() {
     this.onTouchedCallback();
+  }
+
+  _onChangeHex(event) {
+    let val = event.target.value;
+    if (val && val.charAt(0) !== '#') {
+      val = `#${event.target.value}`;
+    }
+    if (this.format === 'hex') {
+      this.value = val;
+    } else {
+      const rgb = this._hexToRgb(val);
+      this.value = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+    }
+    this._updateBlockCanvas();
+  }
+
+  _onChangeR(event) {
+    if (this.format === 'hex') {
+      this.value = this._rgbToHex(event.target.value, this.currentG, this.currentB);
+    } else {
+      this.value = `rgb(${event.target.value},${this.currentG},${this.currentB})`;
+    }
+    this._updateBlockCanvas();
+  }
+
+  _onChangeG(event) {
+    if (this.format === 'hex') {
+      this.value = this._rgbToHex(this.currentR, event.target.value, this.currentB);
+    } else {
+      this.value = `rgb(${this.currentR},${event.target.value},${this.currentB})`;
+    }
+    this._updateBlockCanvas();
+  }
+
+  _onChangeB(event) {
+    if (this.format === 'hex') {
+      this.value = this._rgbToHex(this.currentR, this.currentG, event.target.value);
+    } else {
+      this.value = `rgb(${this.currentR},${this.currentG},${event.target.value})`;
+    }
+    this._updateBlockCanvas();
+  }
+
+  _setCurrentValues(val: string) {
+    if (!val) {
+      this.currentHex = '';
+      this.currentR = null;
+      this.currentG = null;
+      this.currentB = null;
+      return;
+    }
+    if (this.format === 'hex') {
+      this.currentHex = val;
+      const rgb = this._hexToRgb(val);
+      if (rgb) {
+        this.currentR = rgb.r;
+        this.currentG = rgb.g;
+        this.currentB = rgb.b;
+      }
+    } else {
+      const rgb = val.replace('rgb', '').replace('(', '').replace(')', '').replace(' ', '');
+      const rgbAray = rgb.split(',');
+      this.currentR = Number(rgbAray[0]);
+      this.currentG = Number(rgbAray[1]);
+      this.currentB = Number(rgbAray[2]);
+      this.currentHex = this._rgbToHex(this.currentR, this.currentG, this.currentB);
+    }
   }
 }

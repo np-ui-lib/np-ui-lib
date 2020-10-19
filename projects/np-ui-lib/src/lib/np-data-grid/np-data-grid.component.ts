@@ -45,6 +45,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   @Input() showColumnChooser: boolean;
   @Input() title = '';
   @Input() enableStateStoring: boolean;
+  @Input() isReadOnlyStates = false;
   @Input() noDataMessage = 'No Data Found.';
   @Input() showFilters = true;
   @Input() dateFormat = 'dd/MM/yyyy';
@@ -810,11 +811,18 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       this.reset();
       return;
     }
+    this.loadStateByName(currentStateName);
+  }
+
+  loadStateByName(stateName: string) {
     const state = this.stateList.filter((element: State) => {
-      if (element.name === currentStateName) { return element; }
+      if (element.name === stateName) { return element; }
     });
     if (state && state.length > 0) {
+      this.currentStateName = stateName;
       this.setColumns(state[0].columns);
+    } else {
+      throw new Error('Datagrid state not found');
     }
   }
 

@@ -11,6 +11,9 @@
 - Add onClick on list item
 - Remove format from number box and add pattern for regex
 - Add prefixLabel, suffixLabel in number box
+- Remove hideColorInput, placeholder, getSelectedRGB, setSelectedRGB from color picker
+- Add format in color picker
+- Add loadStateByName and isReadOnlyStates in datagrid
 
 ## 10.4.2
 - Minor improvements

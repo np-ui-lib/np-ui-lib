@@ -1281,11 +1281,11 @@ svg {
     padding: 2px;
 }
 
-.np-form-control.ng-touched.ng-invalid, .np-form-control.ng-dirty.ng-invalid, .ng-touched.ng-invalid:not(form) .np-switch, .ng-touched.ng-invalid:not(form) .np-overlay-open, .ng-touched.ng-invalid:not(form) .np-slider-input, .ng-touched.ng-invalid:not(form) .np-input-group, .ng-dirty.ng-invalid:not(form) .np-switch, .ng-dirty.ng-invalid:not(form) .np-overlay-open, .ng-dirty.ng-invalid:not(form) .np-slider-input, .ng-dirty.ng-invalid:not(form) .np-input-group {
+.np-form-control.ng-touched.ng-invalid, .np-form-control.ng-dirty.ng-invalid, .ng-touched.ng-invalid:not(form) .np-switch, .ng-touched.ng-invalid:not(form) .np-overlay-open, .ng-touched.ng-invalid:not(form) .np-slider-input, .ng-touched.ng-invalid:not(form) .np-input-group, .ng-touched.ng-invalid:not(form) .np-color-picker-input-group, .ng-dirty.ng-invalid:not(form) .np-switch, .ng-dirty.ng-invalid:not(form) .np-overlay-open, .ng-dirty.ng-invalid:not(form) .np-slider-input, .ng-dirty.ng-invalid:not(form) .np-input-group, .ng-dirty.ng-invalid:not(form) .np-color-picker-input-group {
     border: 1px solid #d9534f !important;
 }
 
-.ng-touched.ng-invalid:not(form) .np-input-group .np-icon {
+.ng-touched.ng-invalid:not(form) .np-input-group .np-icon, .ng-dirty.ng-invalid:not(form) .np-input-group .np-nicon, .ng-touched.ng-invalid:not(form) .np-color-picker-input-group .np-icon, .ng-dirty.ng-invalid:not(form) .np-color-picker-input-group .np-nicon {
     color: #d9534f;
 }
 

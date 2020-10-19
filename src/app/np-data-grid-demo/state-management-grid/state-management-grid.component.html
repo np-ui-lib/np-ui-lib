@@ -1,6 +1,15 @@
 <h2> State management example</h2>
 
+<p>
+    Set <b>isReadOnlyStates</b> to true, for removing add/edit/delete states.
+    <np-switch [(ngModel)]="isReadOnlyStates"></np-switch>
+</p>
+
+<p>
+    <button class="np-btn" (click)="loadStateByName()">Load state by Api</button>
+</p>
+
 <np-data-grid #stateManagementGrid [columns]="gridColumns" [dataSource]="gridDataSource" [showToolBar]="true"
-    [enableStateStoring]="true" [showToolBar]="true" [showColumnChooser]="true" (onInit)="onInitDataGrid()"
-    (onStatesUpdate)="onStatesUpdate()">
+    [enableStateStoring]="true" [showToolBar]="true" [showColumnChooser]="true" [isReadOnlyStates]="isReadOnlyStates"
+    (onInit)="onInitDataGrid()" (onStatesUpdate)="onStatesUpdate()">
 </np-data-grid>

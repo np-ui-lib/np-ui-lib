@@ -42,7 +42,7 @@
                     </option>
                 </select>
             </div>
-            <div *ngIf="currentStateName.length > 0" class="np-grid-toolbar-item">
+            <div *ngIf="currentStateName.length > 0 && !isReadOnlyStates" class="np-grid-toolbar-item">
                 <button type="button" class="np-btn-icon np-grid-state-save" title="Save state" (click)="_saveState()">
                     <svg class="np-icon" viewBox="0 0 24 24">
                         <path
@@ -50,7 +50,7 @@
                     </svg>
                 </button>
             </div>
-            <div *ngIf="currentStateName.length > 0" class="np-grid-toolbar-item">
+            <div *ngIf="currentStateName.length > 0 && !isReadOnlyStates" class="np-grid-toolbar-item">
                 <button type="button" class="np-btn-icon np-grid-state-delete" title="Delete state"
                     (click)="_deleteState()">
                     <svg class="np-icon" viewBox="0 0 24 24">
@@ -60,7 +60,7 @@
                 </button>
             </div>
             <div class="np-grid-toolbar-item">
-                <button type="button" class="np-btn-icon np-grid-state-add" title="Add state"
+                <button *ngIf="!isReadOnlyStates" type="button" class="np-btn-icon np-grid-state-add" title="Add state"
                     (click)="_openDialogAddNewState()">
                     <svg class="np-icon" viewBox="0 0 24 24">
                         <path

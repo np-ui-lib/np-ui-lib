@@ -10,6 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 export class StateManagementGridComponent implements OnInit {
 
   gridColumns: any[];
+  isReadOnlyStates = false;
   gridDataSource: BehaviorSubject<DataSource> = new BehaviorSubject(null);
   @ViewChild('stateManagementGrid', { static: true }) stateManagementGrid: NpDataGridComponent;
 
@@ -52,6 +53,10 @@ export class StateManagementGridComponent implements OnInit {
       const state = new State('Age more than 40', columns);
       this.stateManagementGrid.setAllState([state]);
     }
+  }
+
+  loadStateByName() {
+    this.stateManagementGrid.loadStateByName('Age more than 40');
   }
 
 }

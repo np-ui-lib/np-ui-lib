@@ -152,6 +152,12 @@
                         <td>false</td>
                     </tr>
                     <tr>
+                        <td>isReadOnlyStates</td>
+                        <td>Remove add/edit/delete state functionality</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>showFilters</td>
                         <td>Show filters row, must be set to true for showing filters row in grid</td>
                         <td>boolean</td>
@@ -731,6 +737,15 @@
                             <br>import State from 'np-ui-lib' package
                         </td>
                         <td>states: State[]</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            loadStateByName(stateName: string)
+                        </td>
+                        <td>
+                            Set state by name
+                        </td>
+                        <td>stateName: string</td>
                     </tr>
                 </table>
             </np-tab>

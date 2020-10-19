@@ -1,20 +1,29 @@
+.np-color-picker {
+    position: relative;
+}
+
+.np-color-picker-input-group {
+    display: flex;
+    border: 1px solid #9e9e9e;
+    border-radius: 2px;
+    width: 6rem;
+}
+
+.np-color-picker .np-btn-icon {
+    border: none;
+    background-color: #ffffff;
+}
+
+.np-color-picker .np-btn-icon:hover {
+    background-color: #eeeeee;
+}
+
 .np-input-color-block {
-    height: 100%;
     width: 2rem;
 }
 
 .np-input-hidden {
     width: 98px;
-}
-
-.np-input-hidden .np-form-control {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    visibility: inherit;
-    clip: rect(0 0 0 0);
 }
 
 .np-color-picker-overlay {
@@ -32,13 +41,11 @@
 .np-color-picker-header {
     padding: 5px;
     background-color: #f5f5f5;
-    display: flex;
 }
 
 .np-selected-color-block {
-    height: 3rem;
     width: 3rem;
-    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .np-current-color-block {
@@ -81,4 +88,38 @@
     background-color: #f5f5f5;
     display: flex;
     justify-content: space-around;
+}
+
+.np-color-picker-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+    visibility: inherit;
+    clip: rect(0 0 0 0);
+}
+
+.np-hex-input {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+}
+
+.np-hex-input input {
+    width: 100px;
+    border: 1px solid #9e9e9e;
+    border-radius: 2px;
+}
+
+.np-rgb-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.np-rgb-input input {
+    width: 50px;
+    border: 1px solid #9e9e9e;
+    border-radius: 2px;
 }

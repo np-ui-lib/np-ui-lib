@@ -34,6 +34,12 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>format</td>
+                        <td>Set color format 'hex' or 'rgb'</td>
+                        <td>string</td>
+                        <td>hex</td>
+                    </tr>
+                    <tr>
                         <td>defaultOpen</td>
                         <td>Set default open</td>
                         <td>boolean</td>
@@ -41,20 +47,8 @@
                     </tr>
                     <tr>
                         <td>colors</td>
-                        <td>List of predefined colors</td>
+                        <td>List of predefined colors, list must be in hex format</td>
                         <td>string[]</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>hideColorInput</td>
-                        <td>Hide input box from component</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>placeholder</td>
-                        <td>Set placeholder</td>
-                        <td>string</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -123,37 +117,6 @@
                 </table>
             </np-card-body>
         </np-card>
-
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            getSelectedRGB()
-                        </td>
-                        <td>
-                            Get selected color in RGB format.
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            setSelectedRGB(value: string)
-                        </td>
-                        <td>
-                            Set selected color in RGB format,
-                            value needs to be in RR,GG,BB format.
-                        </td>
-                        <td>string</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
     </np-tab>
 
     <np-tab title="Examples" id="tabExample">
@@ -179,8 +142,8 @@
             <div>
                 <form #form="ngForm">
                     <fieldset>
-                        <legend>required</legend>
-                        <np-color-picker [(ngModel)]="color3" required #validations="ngModel" name="colorPicker3">
+                        <legend>required and format 'rgb'</legend>
+                        <np-color-picker [(ngModel)]="color3" format="rgb" required #validations="ngModel" name="colorPicker3">
                         </np-color-picker>
                         <div *ngIf="validations.control.touched && validations.control.errors?.required"
                             class="np-text-danger">
@@ -215,22 +178,6 @@
                 <fieldset>
                     <legend>Pre-defined colors in picker</legend>
                     <np-color-picker [(ngModel)]="color5" [colors]="existingColors5">
-                    </np-color-picker>
-                </fieldset>
-            </div>
-
-            <div>
-                <fieldset>
-                    <legend>placeholder</legend>
-                    <np-color-picker [(ngModel)]="color6" [placeholder]="'Select font color'">
-                    </np-color-picker>
-                </fieldset>
-            </div>
-
-            <div>
-                <fieldset>
-                    <legend>hideColorInput</legend>
-                    <np-color-picker [(ngModel)]="color7" [hideColorInput]="true">
                     </np-color-picker>
                 </fieldset>
             </div>
