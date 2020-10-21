@@ -3,6 +3,10 @@
 
 ## Change log and decision tracker
 
+## 10.5.1
+- Add rgb and hex predefined colors list in color picker
+- Add parameters to onStatesUpdate in datagrid
+
 ## 10.5.0
 - Add new calendar component
 - Resolved issue for disabled weekdays for start from monday in date picker

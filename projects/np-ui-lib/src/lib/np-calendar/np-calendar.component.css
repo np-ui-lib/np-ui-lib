@@ -22,7 +22,7 @@
     flex: 1 1 auto;
 }
 
-.np-calendar-years, .np-calendar-months {
+.np-calendar-years-input, .np-calendar-months-select {
     width: 100px;
 }
 
@@ -69,6 +69,10 @@
 
 .np-calendar-today {
     background-color: #f0f8ff;
+}
+
+.np-calendar-today .np-calendar-day-label{
+    font-weight: bold;
 }
 
 .np-calendar-events {

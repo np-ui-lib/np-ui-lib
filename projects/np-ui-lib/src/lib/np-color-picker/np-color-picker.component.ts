@@ -63,10 +63,19 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
 
   ngAfterContentInit() {
     if (!this.colors) {
-      this.colors = ['#FF0000', '#FF7F00', '#FFFF00', '#7FFF00', '#00FF00', '#00FF7F', '#00FFFF', '#007FFF', '#0000FF',
-        '#7F00FF', '#FF00FF', '#FF007F', '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4',
-        '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548',
-        '#9e9e9e', '#607d8b', '#000000'];
+      if (this.format === 'hex') {
+        this.colors = ['#FF0000', '#FF7F00', '#FFFF00', '#7FFF00', '#00FF00', '#00FF7F', '#00FFFF', '#007FFF', '#0000FF',
+          '#7F00FF', '#FF00FF', '#FF007F', '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4',
+          '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548',
+          '#9e9e9e', '#607d8b', '#000000'];
+      } else {
+        this.colors = ['rgb(255,0,0)', 'rgb(255,127,0)', 'rgb(255,255,0)', 'rgb(127,255,0)', 'rgb(0,255,0)', 'rgb(0,255,127)',
+          'rgb(0,255,255)', 'rgb(0,127,255)', 'rgb(0,0,255)', 'rgb(127,0,255)', 'rgb(255,0,255)', 'rgb(255,0,127)',
+          'rgb(244,67,54)', 'rgb(244,67,54)', 'rgb(156,39,176)', 'rgb(103,58,183)', 'rgb(63,81,181)', 'rgb(33,150,243)',
+          'rgb(3,169,244)', 'rgb(0,188,212)', 'rgb(0,150,136)', 'rgb(76,175,80)', 'rgb(139,195,74)', 'rgb(205,220,57)',
+          'rgb(255,235,59)', 'rgb(255,193,7)', 'rgb(255,152,0)', 'rgb(255,87,34)', 'rgb(121,85,72)', 'rgb(158,158,158)',
+          'rgb(96,125,139)', 'rgb(0,0,0)'];
+      }
     }
   }
   ngAfterViewInit() {
@@ -159,7 +168,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     this.isShowCursorDiv = false;
     this.isOpen = false;
     this.overlayRef.detach();
-    this.elementRef.nativeElement.querySelector('input').focus();
+    this.elementRef.nativeElement.querySelector('.np-color-picker-input').focus();
   }
 
   _updateStripCanvas() {
@@ -192,7 +201,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     }
     const ctx1 = block.getContext('2d');
 
-    ctx1.fillStyle = this.stripColor ? this.stripColor : (this.value ? this.value : '#FF0000');
+    ctx1.fillStyle = this.stripColor ? this.stripColor : (this.value ? this.value : 'rgb(255,0,0)');
     ctx1.fillRect(0, 0, 170, 170);
 
     const grdWhite = ctx1.createLinearGradient(0, 0, 170, 0);
@@ -277,16 +286,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   }
 
   _onClickColorBlock(color: string) {
-    if (color === undefined || color === null) {
-      this.value = null;
-      return;
-    }
-    if (this.format === 'hex') {
-      this.value = color;
-    } else {
-      const rgb = this._hexToRgb(color);
-      this.value = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
-    }
+    this.value = color;
     this.stripColor = this.value;
     this._updateBlockCanvas();
   }

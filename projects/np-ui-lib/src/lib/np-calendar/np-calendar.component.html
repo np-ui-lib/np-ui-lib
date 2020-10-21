@@ -1,7 +1,8 @@
 <div [ngClass]="'np-calendar'" [class]="styleClass" [attr.id]="inputId">
     <div class="np-calendar-header">
         <div class="np-calendar-header-item">
-            <button class="np-btn-icon" type="button" tabindex="-1" title="Refresh" (click)="refresh()">
+            <button class="np-btn-icon np-calendar-refresh-btn" type="button" tabindex="-1" title="Refresh"
+                (click)="refresh()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path
                         d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
@@ -11,13 +12,12 @@
         </div>
         <div class="np-calendar-header-item">
             <button class="np-btn np-calendar-today-btn" type="button" tabindex="-1" title="Today"
-                (click)="_loadCurrentMonth()">
-                Today
-            </button>
+                (click)="_loadCurrentMonth()">Today</button>
         </div>
         <div class="np-calendar-header-spacer"></div>
         <div class="np-calendar-header-item">
-            <button class="np-btn-icon" type="button" tabindex="-1" title="Previous" (click)="_prevMonth()">
+            <button class="np-btn-icon np-calendar-prev-btn" type="button" tabindex="-1" title="Previous"
+                (click)="_prevMonth()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     <path fill="none" d="M0 0h24v24H0V0z" />
@@ -25,18 +25,19 @@
             </button>
         </div>
         <div class="np-calendar-header-item">
-            <input type="number" tabindex="-1" class="np-form-control np-calendar-years" [value]="currentYear"
+            <input type="number" tabindex="-1" class="np-form-control np-calendar-years-input" [value]="currentYear"
                 (change)="_changeYear($event)" required>
         </div>
         <div class="np-calendar-header-item">
-            <select class="np-form-control np-calendar-months" tabindex="-1" (change)="_selectMonth($event)">
+            <select class="np-form-control np-calendar-months-select" tabindex="-1" (change)="_selectMonth($event)">
                 <option *ngFor="let month of monthsList" [value]="month.key" [text]="month.value"
                     [selected]="month.key === currentMonth">
                 </option>
             </select>
         </div>
         <div class="np-calendar-header-item">
-            <button class="np-btn-icon" type="button" tabindex="-1" title="Next" (click)="_nextMonth()">
+            <button class="np-btn-icon np-calendar-next-btn" type="button" tabindex="-1" title="Next"
+                (click)="_nextMonth()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
                     <path fill="none" d="M0 0h24v24H0V0z" />
@@ -53,7 +54,8 @@
         <tbody>
             <tr *ngFor="let week of currentMonthWeeks">
                 <td *ngFor="let item of week">
-                    <div class="np-calendar-day"
+                    <div *ngIf="!item.day" class="np-calendar-day"></div>
+                    <div *ngIf="item.day" class="np-calendar-day np-day-{{item.day}}"
                         [ngClass]="{'np-calendar-today': item.today, 'np-disabled': item.disabled}"
                         (click)="_onClickDate(item.date)">
                         <span class="np-calendar-day-label" [innerHTML]="item.day"></span>

@@ -60,24 +60,24 @@
             </button>
         </div>
         <div class="np-time-picker-controls">
-            <select class="np-time-picker-select" tabindex="-1" title="Hour" (change)="_changeTime($event, 'hour')"
-                size="4">
+            <select class="np-time-picker-select np-time-picker-hour" tabindex="-1" title="Hour"
+                (change)="_changeTime($event, 'hour')" size="4">
                 <option *ngFor="let hour of hours" [value]="hour" [text]="hour" [selected]="hour === selectedHour">
                 </option>
             </select>
-            <select class="np-time-picker-select" tabindex="-1" title="Minute" (change)="_changeTime($event, 'minute')"
-                size="4">
+            <select class="np-time-picker-select np-time-picker-minute" tabindex="-1" title="Minute"
+                (change)="_changeTime($event, 'minute')" size="4">
                 <option *ngFor="let minute of minutes" tabindex="-1" [value]="minute" [text]="minute"
                     [selected]="minute === selectedMinute">
                 </option>
             </select>
-            <select *ngIf="hideSeconds === false" class="np-time-picker-select" tabindex="-1" title="Second"
-                (change)="_changeTime($event, 'second')" size="4">
+            <select *ngIf="hideSeconds === false" class="np-time-picker-select np-time-picker-second" tabindex="-1"
+                title="Second" (change)="_changeTime($event, 'second')" size="4">
                 <option *ngFor="let second of seconds" [value]="second" [text]="second"
                     [selected]="second === selectedSecond">
                 </option>
             </select>
-            <select *ngIf="is24Hours === false" class="np-time-picker-select" tabindex="-1"
+            <select *ngIf="is24Hours === false" class="np-time-picker-select np-time-picker-ampm" tabindex="-1"
                 (change)="_changeTime($event, 'AMPM')" size="2">
                 <option value="AM" [selected]="'AM' === selectedAMPM">AM</option>
                 <option value="PM" [selected]="'PM' === selectedAMPM">PM</option>

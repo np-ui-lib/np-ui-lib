@@ -743,14 +743,16 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   _saveState() {
     const columns = this._cloneColumns(this.columnsClone);
     const currentStateName = this.currentStateName;
+    let editedState;
     for (const element of this.stateList) {
       if (element.name === currentStateName) {
         element.columns = columns;
+        editedState = element;
         this.modalService.open(NpDialogComponent, null, { type: 'alert', message: 'Saved successfully.' });
       }
     }
     if (this.onStatesUpdate) {
-      this.onStatesUpdate.emit();
+      this.onStatesUpdate.emit({ action: 'edit', state: editedState });
     }
   }
 
@@ -776,19 +778,23 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       this.nameAlreadyExistError = false;
     }
     const columns = this._cloneColumns(this.columnsClone);
-    this.stateList.push(new State(name, columns));
+    const newState = new State(name, columns);
+    this.stateList.push(newState);
     this.currentStateName = name;
     if (this.onStatesUpdate) {
-      this.onStatesUpdate.emit();
+      this.onStatesUpdate.emit({ action: 'add', state: newState });
     }
   }
 
   _deleteState() {
     const currentStateName = this.currentStateName;
     const list = [];
+    let deletedState;
     for (const element of this.stateList) {
       if (element.name !== currentStateName) {
         list.push(element);
+      } else {
+        deletedState = element;
       }
     }
     this.stateList = list;
@@ -800,7 +806,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
     this._loadState();
     if (this.onStatesUpdate) {
-      this.onStatesUpdate.emit();
+      this.onStatesUpdate.emit({ action: 'delete', state: deletedState });
     }
     this.modalService.open(NpDialogComponent, null, { type: 'alert', message: 'Deleted successfully.' });
   }

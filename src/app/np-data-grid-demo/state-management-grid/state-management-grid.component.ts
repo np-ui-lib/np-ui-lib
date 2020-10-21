@@ -33,7 +33,8 @@ export class StateManagementGridComponent implements OnInit {
     });
   }
 
-  onStatesUpdate() {
+  onStatesUpdate(event) {
+    console.log(event);
     localStorage.setItem('statemanagementgrid', JSON.stringify(this.stateManagementGrid.getAllState()));
   }
 

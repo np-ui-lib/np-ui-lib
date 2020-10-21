@@ -26,13 +26,17 @@
     <div class="np-color-picker-overlay" [ngClass]="{'np-overlay-open': defaultOpen}">
         <div class="np-color-picker-header">
             <div class="np-hex-input">
-                <label>HEX</label><input type="text" [value]="currentHex" (change)="_onChangeHex($event)">
+                <label>HEX</label><input type="text" class="np-color-hex-input" [value]="currentHex"
+                    (change)="_onChangeHex($event)">
                 <div class="np-selected-color-block" [ngStyle]="{'background-color': innerValue}"></div>
             </div>
             <div class="np-rgb-input">
-                <label>R</label><input type="number" min="0" max="255" [value]="currentR" (change)="_onChangeR($event)">
-                <label>G</label><input type="number" min="0" max="255" [value]="currentG" (change)="_onChangeG($event)">
-                <label>B</label><input type="number" min="0" max="255" [value]="currentB" (change)="_onChangeB($event)">
+                <label>R</label><input type="number" class="np-color-r-input" min="0" max="255" [value]="currentR"
+                    (change)="_onChangeR($event)">
+                <label>G</label><input type="number" class="np-color-g-input" min="0" max="255" [value]="currentG"
+                    (change)="_onChangeG($event)">
+                <label>B</label><input type="number" class="np-color-b-input" min="0" max="255" [value]="currentB"
+                    (change)="_onChangeB($event)">
             </div>
         </div>
         <div class="np-color-canvases">
