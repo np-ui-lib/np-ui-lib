@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 10.5.2
+- Add getCurrentStateName Api to data grid
+
 ## 10.5.1
 - Add rgb and hex predefined colors list in color picker
 - Add parameters to onStatesUpdate in datagrid

@@ -832,6 +832,10 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
   }
 
+  getCurrentStateName(){
+    return this.currentStateName;
+  }
+
   private _cloneColumns(cols: Column[]) {
     const result = [];
     for (const element of cols) {

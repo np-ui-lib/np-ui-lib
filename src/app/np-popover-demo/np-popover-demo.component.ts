@@ -9,6 +9,10 @@ export class NpPopoverDemoComponent implements OnInit {
 
   importText = 'import { NpPopoverModule } from \'np-ui-lib\';';
   htmlText = `<a np-popover [header]="'Link header'" [body]="'Link Description.'">Link</a>`;
+  contextText = `<a np-popover [header]="headerTemp" [body]="bodyTemp" [context]="{count: 5}">Context Sample</a>
+<ng-template #headerTemp let-count="count">
+  Count pass in context is {{count}}.
+</ng-template>`;
 
   @ViewChild('myPopover1') myPopover1: NpPopoverDirective;
   @ViewChild('myPopover2') myPopover2: NpPopoverDirective;
