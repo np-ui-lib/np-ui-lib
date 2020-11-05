@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -29,6 +29,8 @@ export class NpSliderComponent implements OnInit {
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
+  @ViewChild('control') inputViewChild: ElementRef;
+  
   lable: number;
   innerValue: number;
   isDisabled = false;
@@ -98,5 +100,9 @@ export class NpSliderComponent implements OnInit {
       $event.preventDefault();
       return;
     }
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 }

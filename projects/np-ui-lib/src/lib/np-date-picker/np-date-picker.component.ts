@@ -42,6 +42,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+  @ViewChild('control') inputViewChild: ElementRef;
 
   weekDays: string[];
   monthsList: any[];
@@ -308,7 +309,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     }
     this.isOpen = false;
     this.overlayRef.detach();
-    this.elementRef.nativeElement.querySelector('input').focus();
+    this.inputViewChild.nativeElement.focus();
   }
 
   _setToday() {
@@ -412,5 +413,9 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
       return true;
     }
     return false;
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 }

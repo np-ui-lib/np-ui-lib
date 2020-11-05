@@ -1,8 +1,8 @@
 <div [ngClass]="{'np-dropdown': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
     [attr.id]="inputId">
     <div class="np-input-group">
-        <input class="np-form-control" autocomplete="off" type="text" readonly [disabled]="isDisabled"
-            [attr.autofocus]="autoFocus" [attr.tabindex]="tabIndex" [value]="_getDisplayValue()"
+        <input #control class="np-form-control" autocomplete="off" type="text" readonly [disabled]="isDisabled"
+            [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex" [value]="_getDisplayValue()"
             [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" (blur)="_onBlur()">
         <div class="np-input-group-append">
             <button type="button" tabindex="-1" class="np-btn-icon np-btn-clear" title="Clear" (click)="_clear()">

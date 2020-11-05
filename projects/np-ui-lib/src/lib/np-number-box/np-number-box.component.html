@@ -2,7 +2,7 @@
     [attr.id]="inputId">
     <div class="np-input-group">
         <label *ngIf="prefixLabel" class="np-number-prefix-label" [innerHTML]="prefixLabel"></label>
-        <input class="np-form-control" type="number" autocomplete="off" [attr.autofocus]="autoFocus"
+        <input #control class="np-form-control" type="number" autocomplete="off" [npAutoFocus]="autoFocus"
             [attr.tabindex]="tabIndex" [readonly]="readOnly" [value]="innerValue" [placeholder]="placeholder"
             [attr.aria-valumin]="min" [attr.aria-valuemax]="max" [disabled]="isDisabled"
             (change)="_onInputChange($event)" (blur)="_onBlur()">

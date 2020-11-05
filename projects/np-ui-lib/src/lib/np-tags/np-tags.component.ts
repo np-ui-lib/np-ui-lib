@@ -45,6 +45,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+  @ViewChild('control') inputViewChild: ElementRef;
 
   subscription: Subscription;
   options: any[];
@@ -143,7 +144,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   _close() {
     this.displayValue = null;
     this.overlayRef.detach();
-    this.elementRef.nativeElement.querySelector('input').focus();
+    this.inputViewChild.nativeElement.focus();
   }
 
   _onInput($event: any) {
@@ -335,5 +336,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
 
   _onBlur() {
     this.onTouchedCallback();
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 }

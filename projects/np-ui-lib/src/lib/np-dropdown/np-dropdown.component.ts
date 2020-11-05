@@ -38,6 +38,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+  @ViewChild('control') inputViewChild: ElementRef;
 
   displayValue: string;
   innerValue: any;
@@ -117,7 +118,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
       this.displayValue = null;
     }
     this.overlayRef.detach();
-    this.elementRef.nativeElement.querySelector('input').focus();
+    this.inputViewChild.nativeElement.focus();
   }
 
   _clear() {
@@ -180,5 +181,9 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
 
   _onBlur() {
     this.onTouchedCallback();
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 }

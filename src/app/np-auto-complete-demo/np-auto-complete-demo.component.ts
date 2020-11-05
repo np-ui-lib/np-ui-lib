@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { NpAutoCompleteComponent } from 'np-ui-lib';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -17,6 +18,8 @@ export class NpAutoCompleteDemoComponent implements OnInit {
     ...Search data
     this.searchResult.next(searchData);
 }`;
+
+  @ViewChild('input1', { static: true }) input1: NpAutoCompleteComponent;
 
   constructor() { }
 
@@ -158,5 +161,13 @@ export class NpAutoCompleteDemoComponent implements OnInit {
       const searchData = this.dataFull.filter((element) => { if (element.name.indexOf(keyword) > -1) { return element; } });
       this.searchResult11.next(searchData);
     }, 1000);
+  }
+
+  onTabChange($event) {
+    if ($event.title === 'Examples') {
+      setTimeout(() => {
+        this.input1.focus();
+      }, 500);
+    }
   }
 }

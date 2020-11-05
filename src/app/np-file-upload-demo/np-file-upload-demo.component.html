@@ -153,11 +153,31 @@
                 </table>
             </np-card-body>
         </np-card>
+        <np-card>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Api</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            focus()
+                        </td>
+                        <td>
+                            Set focus on control. If not setting focus properly then use timeout of 500ms.
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
             <legend>Single file upload</legend>
-            <np-file-upload [(ngModel)]="fileUpload1" [autoFocus]="true" [showFileSize]="false"></np-file-upload>
+            <np-file-upload [(ngModel)]="fileUpload1" [showFileSize]="false"></np-file-upload>
             <div class="np-btn-group">
                 <button class="np-btn" (click)="SetNullValue()">Set null</button>
             </div>

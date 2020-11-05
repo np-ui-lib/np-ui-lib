@@ -2,7 +2,7 @@
     [attr.id]="inputId">
     <div class="np-input-group">
         <label class="np-file-label" tabindex="auto">
-            <input type="file" class="np-file-input" [attr.accept]="accept" [attr.autofocus]="autoFocus"
+            <input #control type="file" class="np-file-input" [attr.accept]="accept" [npAutoFocus]="autoFocus"
                 [attr.tabindex]="tabIndex" [readonly]="readOnly" [disabled]="isDisabled" [multiple]="multiple"
                 #fileUploadInput (change)="_onFileSelected($event)" (blur)="_onBlur()">
             <span

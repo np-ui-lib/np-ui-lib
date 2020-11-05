@@ -1,6 +1,6 @@
 <h2> Switch</h2>
 
-<np-tabs>
+<np-tabs (onTabChange)="onTabChange($event)">
     <np-tab title="Documentation">
         <np-card>
             <np-card-body>
@@ -111,6 +111,27 @@
                 </table>
             </np-card-body>
         </np-card>
+
+        <np-card>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Api</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            focus()
+                        </td>
+                        <td>
+                            Set focus on control. If not setting focus properly then use timeout of 500ms.
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
     </np-tab>
 
     <np-tab title="Examples" id="tabExample">
@@ -118,7 +139,7 @@
         <div>
             <fieldset>
                 <legend>Basic switch</legend>
-                <np-switch [(ngModel)]="switch1" [inputId]="'txtSwitch'" [autoFocus]="true"></np-switch>
+                <np-switch #switchControl [(ngModel)]="switch1" [inputId]="'txtSwitch'"></np-switch>
                 <div>Selected Value : {{switch1}}</div>
                 <button class="np-btn" (click)="switch1 = !switch1">Toggle Value</button>
             </fieldset>

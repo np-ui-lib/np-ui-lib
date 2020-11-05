@@ -43,6 +43,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+  @ViewChild('control') inputViewChild: ElementRef;
 
   innerValue: any;
   isDisabled = false;
@@ -147,7 +148,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       this.displayValue = null;
     }
     this.overlayRef.detach();
-    this.elementRef.nativeElement.querySelector('input').focus();
+    this.inputViewChild.nativeElement.focus();
   }
 
   _clear() {
@@ -213,5 +214,9 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
 
   _onBlur() {
     this.onTouchedCallback();
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 }

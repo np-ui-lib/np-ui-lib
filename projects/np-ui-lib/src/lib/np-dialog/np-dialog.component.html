@@ -1,7 +1,8 @@
 <div role="dialog" [ngClass]="'np-dialog'" [class]="styleClass" [attr.id]="inputId"
     [attr.aria-modal]="modalRef.config.hasBackDrop">
     <div class="np-dialog-message" [innerHTML]="message"></div>
-    <input *ngIf="type === 'prompt'" type="text" class="np-form-control np-dialog-input" [(ngModel)]="value">
+    <input *ngIf="type === 'prompt'" type="text" class="np-form-control np-dialog-input" [(ngModel)]="value"
+        [npAutoFocus]="true">
     <div class="np-btn-group np-dialog-btns">
         <button class="np-btn np-btn-primary np-dialog-ok" (click)="onOk()">Ok</button>
         <button *ngIf="type !== 'alert'" class="np-btn np-btn-danger np-dialog-cancel"

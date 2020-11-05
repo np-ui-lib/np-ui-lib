@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy, forwardRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, ElementRef, ViewChild } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Validator } from '@angular/forms';
 
 @Component({
@@ -38,6 +38,8 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   @Input() inputId = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
+
+  @ViewChild('control') inputViewChild: ElementRef;
 
   innerValue: number;
   isDisabled = false;
@@ -159,5 +161,9 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
 
   _onBlur() {
     this.onTouchedCallback();
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 }

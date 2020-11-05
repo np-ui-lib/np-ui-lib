@@ -149,11 +149,31 @@
                 </table>
             </np-card-body>
         </np-card>
+        <np-card>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Api</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            focus()
+                        </td>
+                        <td>
+                            Set focus on control. If not setting focus properly then use timeout of 500ms.
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
             <legend>Number box</legend>
-            <np-number-box [(ngModel)]="number1" [autoFocus]="true"></np-number-box>
+            <np-number-box [(ngModel)]="number1"></np-number-box>
             value: {{number1}}
             <div class="np-btn-group">
                 <button class="np-btn" (click)="setNumber1()">Set 100</button>

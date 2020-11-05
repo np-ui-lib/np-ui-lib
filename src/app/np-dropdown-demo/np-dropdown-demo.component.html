@@ -142,11 +142,31 @@
                 </table>
             </np-card-body>
         </np-card>
+        <np-card>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Api</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            focus()
+                        </td>
+                        <td>
+                            Set focus on control. If not setting focus properly then use timeout of 500ms.
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
             <legend>Basic dropdown with string items</legend>
-            <np-dropdown [(ngModel)]="dropdownVal1" [items]="data" [orderDir]="'asc'" [autoFocus]="true"></np-dropdown>
+            <np-dropdown [(ngModel)]="dropdownVal1" [items]="data" [orderDir]="'asc'"></np-dropdown>
             <div>Selected value: {{dropdownVal1}}</div>
             <button class="np-btn" (click)="changeValue()">Change value</button>
         </fieldset>

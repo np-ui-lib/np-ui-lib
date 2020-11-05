@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpSidepanelDemoRoutingModule } from './np-sidepanel-demo-routing.module';
 import { NpSidepanelDemoComponent } from './np-sidepanel-demo.component';
-import { NpDatePickerModule, NpTimePickerModule, NpSwitchModule, NpSidepanelModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
+import { NpDatePickerModule, NpTimePickerModule, NpSwitchModule, NpSidepanelModule, NpCardModule, NpTabsModule, NpUtilityModule } from 'np-ui-lib';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -17,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NpSwitchModule,
     ReactiveFormsModule,
     NpCardModule,
-    NpTabsModule
+    NpTabsModule,
+    NpUtilityModule
   ]
 })
 export class NpSidepanelDemoModule { }

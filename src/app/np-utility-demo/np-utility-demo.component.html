@@ -114,7 +114,7 @@
                                 <div class="np-form-label np-required">First name:</div>
                                 <div class="np-input-group">
                                     <input type="text" class="np-form-control" [(ngModel)]="firstName" required
-                                        name="txtFirstName" #txtFirstName="ngModel" tabindex="1">
+                                        name="txtFirstName" [npAutoFocus]="true" #txtFirstName="ngModel" tabindex="1">
                                     <div class="np-input-group-append">
                                         <i class="np-icon fa fa-user"></i>
                                     </div>
@@ -217,6 +217,16 @@
             <legend>How to Highlight Text?</legend>
             <pre><code>{{highlightTextCode}}</code></pre>
             <p [innerHTML]="text | npHighLight: 'paragraph'"></p>
+        </fieldset>
+    </np-card-body>
+</np-card>
+
+<np-card>
+    <np-card-body>
+        <fieldset>
+            <legend>Add autofocus to input control</legend>
+            <p>npAutoFocus directive is available in NpUtilityModule.</p>
+            <pre><code>{{autofocusTextCode}}</code></pre>
         </fieldset>
     </np-card-body>
 </np-card>

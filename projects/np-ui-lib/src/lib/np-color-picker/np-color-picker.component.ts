@@ -35,6 +35,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+  @ViewChild('control') inputViewChild: ElementRef;
 
   constructor(
     public overlay: Overlay,
@@ -168,7 +169,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     this.isShowCursorDiv = false;
     this.isOpen = false;
     this.overlayRef.detach();
-    this.elementRef.nativeElement.querySelector('.np-color-picker-input').focus();
+    this.inputViewChild.nativeElement.focus();
   }
 
   _updateStripCanvas() {
@@ -391,5 +392,9 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
       this.currentB = Number(rgbAray[2]);
       this.currentHex = this._rgbToHex(this.currentR, this.currentG, this.currentB);
     }
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 }

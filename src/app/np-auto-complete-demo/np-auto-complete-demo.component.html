@@ -1,6 +1,6 @@
 <h2> Auto Complete</h2>
 
-<np-tabs>
+<np-tabs (onTabChange)="onTabChange($event)">
     <np-tab title="Documentation">
         <np-card>
             <np-card-body>
@@ -170,12 +170,31 @@
                 </table>
             </np-card-body>
         </np-card>
+        <np-card>
+            <np-card-body>
+                <table class="np-table">
+                    <tr>
+                        <th>Api</th>
+                        <th>Description</th>
+                        <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            focus()
+                        </td>
+                        <td>
+                            Set focus on control. If not setting focus properly then use timeout of 500ms.
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
             <legend>Default auto complete</legend>
-            <np-auto-complete [(ngModel)]="auto1" [searchResult]="searchResult1" [autoFocus]="true"
-                (onSearch)="onSearch1($event)">
+            <np-auto-complete #input1 [(ngModel)]="auto1" [searchResult]="searchResult1" (onSearch)="onSearch1($event)">
             </np-auto-complete>
             <div>Selected value : {{auto1}}</div>
         </fieldset>

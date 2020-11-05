@@ -1,8 +1,8 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 
-@Directive({ selector: '[indeterminate]' })
+@Directive({ selector: '[npIndeterminate]' })
 export class NpIndeterminateDirective {
-    @Input()
+    @Input('npIndeterminate')
     set indeterminate(value: boolean) {
         this.elem.nativeElement.indeterminate = value;
     }

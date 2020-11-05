@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -27,6 +27,8 @@ export class NpSwitchComponent implements ControlValueAccessor {
   @Input() inputId = `np-switch_${NpSwitchComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
+
+  @ViewChild('control') inputViewChild: ElementRef;
 
   innerValue: boolean;
   isDisabled = false;
@@ -73,5 +75,9 @@ export class NpSwitchComponent implements ControlValueAccessor {
 
   _onBlur() {
     this.onTouchedCallback();
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 }

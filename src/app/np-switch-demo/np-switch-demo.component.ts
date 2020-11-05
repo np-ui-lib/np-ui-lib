@@ -1,4 +1,6 @@
+import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { NpSwitchComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-switch-demo',
@@ -18,6 +20,8 @@ export class NpSwitchDemoComponent implements OnInit {
   importText = 'import { NpSwitchModule } from \'np-ui-lib\';';
   htmlText = '<np-switch [(ngModel)]="value"></np-switch>';
 
+  @ViewChild('switchControl', { static: true }) switchControl: NpSwitchComponent;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -25,5 +29,13 @@ export class NpSwitchDemoComponent implements OnInit {
 
   onChangeSwitch8(value) {
     alert(value);
+  }
+
+  onTabChange($event) {
+    if ($event.title === 'Examples') {
+      setTimeout(() => {
+        this.switchControl.focus();
+      }, 500);
+    }
   }
 }

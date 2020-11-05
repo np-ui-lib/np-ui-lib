@@ -21,7 +21,7 @@
         </ng-container>
         <div class="np-treeview-label">
             <input *ngIf="selectionMode" type="checkbox" class="np-treeview-checkbox" tabindex="0"
-                [checked]="_isSelected(item)" [indeterminate]="item.partiallySelected"
+                [checked]="_isSelected(item)" [npIndeterminate]="item.partiallySelected"
                 (change)="_changeSelection($event,item)">
             <span (click)="_onClick(item)">
                 <ng-container *ngIf="!itemTemplate; else treeViewLabelTemp">

@@ -40,7 +40,8 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Output() onChange: EventEmitter<File[]> = new EventEmitter();
 
   @ViewChild('fileUploadInput') fileUploadInput: ElementRef;
-
+  @ViewChild('control') inputViewChild: ElementRef;
+  
   innerValue: File[];
   isDisabled = false;
   private onChangeCallback: (_: any) => void = () => { };
@@ -191,6 +192,10 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
 
   _remove(idx: number) {
     this.value = this.value.filter((element, index) => index !== idx);
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 }
 
