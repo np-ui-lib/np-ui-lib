@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component, Input, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Output,
+  EventEmitter, ElementRef, ViewChild
+} from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -15,7 +18,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ]
 })
-export class NpSliderComponent implements OnInit {
+export class NpSliderComponent {
   static controlCount = 1;
 
   @Input() min = 0;
@@ -37,13 +40,9 @@ export class NpSliderComponent implements OnInit {
   innerValue: number;
   isDisabled = false;
   focused = false;
+  style: any;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   get value(): number {
     return this.innerValue;
@@ -63,6 +62,7 @@ export class NpSliderComponent implements OnInit {
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.lable = v;
+      this._setLeftPosition(v);
     }
   }
 
@@ -92,6 +92,7 @@ export class NpSliderComponent implements OnInit {
       return;
     }
     this.lable = $event.target.value;
+    this._setLeftPosition(this.lable);
   }
 
   _onKeyDown($event) {
@@ -101,7 +102,7 @@ export class NpSliderComponent implements OnInit {
     }
   }
 
-    _onBlur($event) {
+  _onBlur($event) {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
@@ -114,5 +115,10 @@ export class NpSliderComponent implements OnInit {
 
   focus() {
     this.inputViewChild.nativeElement.focus();
+  }
+
+  _setLeftPosition(value: number) {
+    const val = ((value - this.min) * 100) / (this.max - this.min);
+    this.style = val < 50 ? { left: `${val}%` } : { right: `${100 - val}%` };
   }
 }
