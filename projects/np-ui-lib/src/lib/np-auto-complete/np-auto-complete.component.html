@@ -1,9 +1,10 @@
 <div [ngClass]="{'np-auto-complete': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
     [attr.id]="inputId">
-    <div class="np-input-group">
+    <div class="np-input-group" [ngClass]="{'np-focused': focused}">
         <input #control class="np-form-control" type="text" autocomplete="off" [value]="_getDisplayValue()"
             [placeholder]="placeholder" [disabled]="isDisabled" [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex"
-            [readonly]="readOnly" (input)="_onInput($event)" (keydown)="_onKeydown($event)" (blur)="_onBlur()">
+            [readonly]="readOnly" (input)="_onInput($event)" (keydown)="_onKeydown($event)" (blur)="_onBlur($event)"
+            (focus)="_onFocus($event)">
         <div class="np-input-group-append">
             <div class="np-auto-complete-loader" *ngIf="isLoading">
                 <svg class="np-icon" viewBox="0 0 24 24">

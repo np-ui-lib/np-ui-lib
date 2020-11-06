@@ -34,6 +34,8 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() inputId = `np-time-picker_${NpTimePickerComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
+  @Output() onFocus: EventEmitter<any> = new EventEmitter();
+  @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
   @ViewChild('control') inputViewChild: ElementRef;
@@ -49,6 +51,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   pattern: any;
   innerValue: string;
   isDisabled = false;
+  focused = false;
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
   private onChangeCallback: (_: any) => void = () => { };
@@ -380,8 +383,15 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     this._extractValues();
   }
 
-  _onBlur() {
+    _onBlur($event) {
+    this.focused = false;
     this.onTouchedCallback();
+    this.onBlur.emit($event);
+  }
+
+  _onFocus($event) {
+    this.focused = true;
+    this.onFocus.emit($event);
   }
 
   focus() {

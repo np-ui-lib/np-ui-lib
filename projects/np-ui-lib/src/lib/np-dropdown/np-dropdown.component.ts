@@ -36,6 +36,8 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   @Input() inputId = `np-dropdown_${NpDropdownComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
+  @Output() onFocus: EventEmitter<any> = new EventEmitter();
+  @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
   @ViewChild('control') inputViewChild: ElementRef;
@@ -43,6 +45,8 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   displayValue: string;
   innerValue: any;
   isDisabled = false;
+  focused = false;
+
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
   private onChangeCallback: (_: any) => void = () => { };
@@ -179,8 +183,15 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     return this.displayValue || '';
   }
 
-  _onBlur() {
+    _onBlur($event) {
+    this.focused = false;
     this.onTouchedCallback();
+    this.onBlur.emit($event);
+  }
+
+  _onFocus($event) {
+    this.focused = true;
+    this.onFocus.emit($event);
   }
 
   focus() {

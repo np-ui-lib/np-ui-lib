@@ -27,11 +27,14 @@ export class NpSwitchComponent implements ControlValueAccessor {
   @Input() inputId = `np-switch_${NpSwitchComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
+  @Output() onFocus: EventEmitter<any> = new EventEmitter();
+  @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('control') inputViewChild: ElementRef;
 
   innerValue: boolean;
   isDisabled = false;
+  focused = false;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
@@ -73,8 +76,15 @@ export class NpSwitchComponent implements ControlValueAccessor {
     this.value = $event.target.checked;
   }
 
-  _onBlur() {
+    _onBlur($event) {
+    this.focused = false;
     this.onTouchedCallback();
+    this.onBlur.emit($event);
+  }
+
+  _onFocus($event) {
+    this.focused = true;
+    this.onFocus.emit($event);
   }
 
   focus() {

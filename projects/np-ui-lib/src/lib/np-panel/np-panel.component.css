@@ -3,7 +3,6 @@
     border-radius: 2px;
     background-color: #ffffff;
     margin-bottom: 5px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -29,8 +28,11 @@
     padding-right: 5px;
 }
 
+.np-panel-icons {
+    display: flex;
+}
+
 .np-panel-icons .np-btn-icon {
-    display: inline-block;
     border: none;
 }
 

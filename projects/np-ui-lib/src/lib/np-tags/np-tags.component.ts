@@ -43,6 +43,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
+  @Output() onFocus: EventEmitter<any> = new EventEmitter();
+  @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
   @ViewChild('control') inputViewChild: ElementRef;
@@ -54,7 +56,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   isLoading = false;
   innerValue: any[];
   isDisabled = false;
-
+  focused = false;
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
   private onChangeCallback: (_: any) => void = () => { };
@@ -334,8 +336,15 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     return this.displayValue || '';
   }
 
-  _onBlur() {
+    _onBlur($event) {
+    this.focused = false;
     this.onTouchedCallback();
+    this.onBlur.emit($event);
+  }
+
+  _onFocus($event) {
+    this.focused = true;
+    this.onFocus.emit($event);
   }
 
   focus() {

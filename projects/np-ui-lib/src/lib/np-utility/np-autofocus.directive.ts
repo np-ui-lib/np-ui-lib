@@ -9,7 +9,7 @@ export class NpAutoFocusDirective {
         if (value) {
             setTimeout(() => {
                 this.el.nativeElement.focus();
-            }, 500);
+            }, 100);
         }
     }
     constructor(private el: ElementRef) {

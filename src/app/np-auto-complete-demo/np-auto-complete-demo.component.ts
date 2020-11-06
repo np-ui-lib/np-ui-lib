@@ -167,7 +167,7 @@ export class NpAutoCompleteDemoComponent implements OnInit {
     if ($event.title === 'Examples') {
       setTimeout(() => {
         this.input1.focus();
-      }, 500);
+      }, 100);
     }
   }
 }

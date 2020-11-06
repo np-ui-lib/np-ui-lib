@@ -1,6 +1,9 @@
 <ng-container *ngIf="item.visible">
     <ng-container *ngIf="item.isHeader">
-        <div class="np-menu-header" [innerHTML]="item.label"></div>
+        <div class="np-menu-header">
+            <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
+            <div class="np-menu-text" [innerHTML]="item.label"></div>
+        </div>
     </ng-container>
     <ng-container *ngIf="item.items && !item.isHeader">
         <div class="np-menu-item" (mouseenter)="_onMouseEnter($event,item)" (mouseleave)="_onMouseLeave(item)">

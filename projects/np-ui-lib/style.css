@@ -1218,6 +1218,7 @@ svg {
     flex-direction: column;
     overflow: hidden;
     border: 1px solid #9e9e9e;
+    border-radius: 2px;
 }
 
 .np-list {
@@ -1331,4 +1332,30 @@ h6 {
 
 .no-margin {
     margin: 0 !important;
+}
+
+.np-color-hex-input:focus, .np-color-r-input:focus, .np-color-g-input:focus, .np-color-b-input:focus, .np-btn:focus, .np-btn-icon:focus, .np-tab-title:focus, .np-step-title:focus, .np-treeview-checkbox:focus, .np-list-checkbox:focus, .np-grid-checkbox:focus, .np-form-control:focus, .np-input-group:focus-within, .np-time-picker-select:focus, .np-menu-link:focus, .np-focused {
+    box-shadow: 0 0 0 0.2rem #a6d5fa;
+    z-index: 5;
+    border-radius: 2px;
+}
+
+.np-btn-success:focus {
+    box-shadow: 0 0 0 0.2rem #4eb766 !important;
+}
+
+.np-btn-warning:focus {
+    box-shadow: 0 0 0 0.2rem #fbdc7f !important;
+}
+
+.np-btn-danger:focus {
+    box-shadow: 0 0 0 0.2rem #e9969e !important;
+}
+
+.np-btn-info:focus {
+    box-shadow: 0 0 0 0.2rem #87ccd7 !important;
+}
+
+.np-input-group .np-btn-icon:focus, .np-input-group .np-form-control:focus {
+    box-shadow: none !important;
 }

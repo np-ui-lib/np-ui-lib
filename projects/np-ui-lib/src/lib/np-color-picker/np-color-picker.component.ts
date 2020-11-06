@@ -33,6 +33,8 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   @Input() inputId = `np-color-picker_${NpColorPickerComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
+  @Output() onFocus: EventEmitter<any> = new EventEmitter();
+  @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
   @ViewChild('control') inputViewChild: ElementRef;
@@ -56,6 +58,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   currentR: number;
   currentG: number;
   currentB: number;
+  focused = false;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -323,10 +326,6 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     }
   }
 
-  _onBlur() {
-    this.onTouchedCallback();
-  }
-
   _onChangeHex(event) {
     let val = event.target.value;
     if (val && val.charAt(0) !== '#') {
@@ -392,6 +391,17 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
       this.currentB = Number(rgbAray[2]);
       this.currentHex = this._rgbToHex(this.currentR, this.currentG, this.currentB);
     }
+  }
+
+  _onBlur($event) {
+    this.focused = false;
+    this.onTouchedCallback();
+    this.onBlur.emit($event);
+  }
+
+  _onFocus($event) {
+    this.focused = true;
+    this.onFocus.emit($event);
   }
 
   focus() {

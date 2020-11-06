@@ -38,11 +38,14 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   @Input() inputId = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
+  @Output() onFocus: EventEmitter<any> = new EventEmitter();
+  @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('control') inputViewChild: ElementRef;
 
   innerValue: number;
   isDisabled = false;
+  focused = false;
   private timeout: any;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
@@ -103,6 +106,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
 
   _onMouseUpPlus() {
     this._clearTimeout();
+    this.inputViewChild.nativeElement.focus();
   }
 
   _onMouseDownMinus() {
@@ -116,6 +120,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
 
   _onMouseUpMinus() {
     this._clearTimeout();
+    this.inputViewChild.nativeElement.focus();
   }
 
   _clearTimeout() {
@@ -159,8 +164,15 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     }
   }
 
-  _onBlur() {
+    _onBlur($event) {
+    this.focused = false;
     this.onTouchedCallback();
+    this.onBlur.emit($event);
+  }
+
+  _onFocus($event) {
+    this.focused = true;
+    this.onFocus.emit($event);
   }
 
   focus() {

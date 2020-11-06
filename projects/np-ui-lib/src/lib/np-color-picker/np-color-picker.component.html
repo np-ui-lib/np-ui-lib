@@ -1,9 +1,10 @@
 <div [ngClass]="{'np-color-picker': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
     [attr.id]="inputId">
-    <div class="np-color-picker-input-group" *ngIf="!defaultOpen; else templatePortalContent">
+    <div class="np-color-picker-input-group" *ngIf="!defaultOpen; else templatePortalContent"
+        [ngClass]="{'np-focused': focused}">
         <input #control class="np-color-picker-input" [disabled]="isDisabled" [npAutoFocus]="autoFocus"
             [attr.tabindex]="tabIndex" [readonly]="readOnly" [value]="value" (keydown)="_onKeydown($event)"
-            (blur)="_onBlur()">
+            (blur)="_onBlur($event)" (focus)="_onFocus($event)">
         <div class="np-input-color-block" (click)="_toggleColorPicker()" [ngStyle]="{'background-color': innerValue}">
         </div>
         <button type="button" tabindex="-1" class="np-btn-icon np-btn-clear" title="Clear" (click)="_clear()">

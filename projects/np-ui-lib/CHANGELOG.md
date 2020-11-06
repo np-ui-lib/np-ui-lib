@@ -5,6 +5,11 @@
 
 ## 10.5.2
 - Add getCurrentStateName Api to data grid
+- Add new directive npAutoFocus
+- Add npAutoFocus in all input controls
+- Add iconCss in header type menu item
+- Add onFocus and onBlur methods to input controls
+- Add outline css to focused element
 
 ## 10.5.1
 - Add rgb and hex predefined colors list in color picker

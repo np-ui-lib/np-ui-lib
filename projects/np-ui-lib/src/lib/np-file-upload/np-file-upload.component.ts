@@ -38,12 +38,15 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Input() inputId = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<File[]> = new EventEmitter();
+  @Output() onFocus: EventEmitter<any> = new EventEmitter();
+  @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('fileUploadInput') fileUploadInput: ElementRef;
   @ViewChild('control') inputViewChild: ElementRef;
-  
+
   innerValue: File[];
   isDisabled = false;
+  focused = false;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
@@ -186,12 +189,19 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 
-  _onBlur() {
-    this.onTouchedCallback();
-  }
-
   _remove(idx: number) {
     this.value = this.value.filter((element, index) => index !== idx);
+  }
+
+    _onBlur($event) {
+    this.focused = false;
+    this.onTouchedCallback();
+    this.onBlur.emit($event);
+  }
+
+  _onFocus($event) {
+    this.focused = true;
+    this.onFocus.emit($event);
   }
 
   focus() {

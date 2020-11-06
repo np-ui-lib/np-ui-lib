@@ -9,6 +9,16 @@
     position: relative;
 }
 
+.np-menu-header {
+    font-weight: bold;
+    background-color: #eeeeee;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    min-height: 2.25rem;
+    padding: 5px 10px;
+}
+
 .np-menu-link {
     color: #000000;
     text-decoration: none;
@@ -22,6 +32,11 @@
 
 .np-menu-link:hover {
     color: #007bff;
+}
+
+.np-menu-header i, .np-menu-link i {
+    font-size: x-large;
+    padding-right: 5px;
 }
 
 .np-menu-text {
@@ -70,20 +85,4 @@
 .np-menubar-panel .np-submenu {
     background-color: #e0e0e0;
     padding-left: 10px;
-}
-
-.np-menu-item i {
-    font-size: x-large;
-    padding-right: 5px;
-}
-
-.np-menu-header {
-    align-items: center;
-    color: #000;
-    display: flex;
-    min-height: 2.25rem;
-    min-width: 100px;
-    padding: 5px 10px;
-    font-weight: bold;
-    background-color: #eeeeee;
 }

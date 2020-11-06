@@ -3,6 +3,7 @@
     flex-direction: column;
     overflow: hidden;
     border: 1px solid #9e9e9e;
+    border-radius: 2px;
 }
 
 .np-virtual-scroll-item {

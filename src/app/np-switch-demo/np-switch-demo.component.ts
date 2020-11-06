@@ -35,7 +35,7 @@ export class NpSwitchDemoComponent implements OnInit {
     if ($event.title === 'Examples') {
       setTimeout(() => {
         this.switchControl.focus();
-      }, 500);
+      }, 100);
     }
   }
 }

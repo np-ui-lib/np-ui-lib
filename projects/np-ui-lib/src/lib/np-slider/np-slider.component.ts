@@ -28,12 +28,15 @@ export class NpSliderComponent implements OnInit {
   @Input() inputId = `np-slider_${NpSliderComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
+  @Output() onFocus: EventEmitter<any> = new EventEmitter();
+  @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('control') inputViewChild: ElementRef;
-  
+
   lable: number;
   innerValue: number;
   isDisabled = false;
+  focused = false;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
@@ -91,15 +94,22 @@ export class NpSliderComponent implements OnInit {
     this.lable = $event.target.value;
   }
 
-  _onBlur() {
-    this.onTouchedCallback();
-  }
-
   _onKeyDown($event) {
     if (this.readOnly) {
       $event.preventDefault();
       return;
     }
+  }
+
+    _onBlur($event) {
+    this.focused = false;
+    this.onTouchedCallback();
+    this.onBlur.emit($event);
+  }
+
+  _onFocus($event) {
+    this.focused = true;
+    this.onFocus.emit($event);
   }
 
   focus() {

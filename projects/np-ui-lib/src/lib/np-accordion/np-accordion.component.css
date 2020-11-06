@@ -3,7 +3,6 @@
     border-radius: 2px;
     background-color: #ffffff;
     margin-bottom: 1px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
 }

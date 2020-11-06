@@ -40,6 +40,8 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() inputId = `np-date-picker_${NpDatePickerComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
+  @Output() onFocus: EventEmitter<any> = new EventEmitter();
+  @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
   @ViewChild('control') inputViewChild: ElementRef;
@@ -56,6 +58,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   innerValue: Date;
   isDisabled = false;
   originalWeekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+  focused = false;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -399,10 +402,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this._resetVariables();
   }
 
-  _onBlur() {
-    this.onTouchedCallback();
-  }
-
   _compareDate(dateA: Date, dateB: Date) {
     if (!dateA || !dateB) {
       return false;
@@ -413,6 +412,17 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
       return true;
     }
     return false;
+  }
+
+    _onBlur($event) {
+    this.focused = false;
+    this.onTouchedCallback();
+    this.onBlur.emit($event);
+  }
+
+  _onFocus($event) {
+    this.focused = true;
+    this.onFocus.emit($event);
   }
 
   focus() {
