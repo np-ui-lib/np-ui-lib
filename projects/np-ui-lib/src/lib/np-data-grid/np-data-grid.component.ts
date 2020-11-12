@@ -17,7 +17,6 @@ import { NpDialogComponent } from '../np-dialog/np-dialog.component';
 import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 import { NpPaginatorComponent } from '../np-paginator/np-paginator.component';
 import { NpModalService } from '../np-modal/np-modal.service';
-import { NpModalConfig } from '../np-modal/np-modal.config';
 
 @Component({
   selector: 'np-data-grid',
@@ -193,7 +192,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
   }
 
-  onPageChange(options: any) {
+  _onPageChange(options: any) {
     if (this.isServerOperations) {
       const loadOpt = new LoadOptions();
       if (this.isODataOperations) {
@@ -832,7 +831,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
   }
 
-  getCurrentStateName(){
+  getCurrentStateName() {
     return this.currentStateName;
   }
 

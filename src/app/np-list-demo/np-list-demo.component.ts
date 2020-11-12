@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NpListComponent } from 'np-ui-lib';
 
@@ -7,7 +8,7 @@ import { NpListComponent } from 'np-ui-lib';
 })
 export class NpListDemoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   importText = 'import { NpListModule } from \'np-ui-lib\';';
   htmlText = `<np-list [items]="items" [itemTemplate]="listTemplate">
@@ -16,6 +17,26 @@ export class NpListDemoComponent implements OnInit {
 <ng-template let-item="item" #listTemplate>
   Name: {{item.name}},<br> Age: {{item.age}}
 </ng-template>`;
+
+  serverSideHtmlText = `<np-list [items]="serverData" [showTiles]="true" [itemTemplate]="TileTemplate"
+  [isServerOperations]="true" [totalItems]="serverDataCount" [pageSize]="10" (onPageChange)="onLoadData($event)">
+</np-list>
+
+<ng-template let-item="item" #TileTemplate>
+  Name: {{item.ProductName}},<br> Unit price: {{item.UnitPrice}},<br> In stock: {{item.UnitsInStock}}
+</ng-template>`;
+
+  serverSideCtrlText = `onLoadData(options) {
+  const skip = (options.currentPage - 1) * options.pageSize;
+  const take = options.pageSize;
+  this.http.get(url)
+  .subscribe((data: any) => {
+    if (data && data.value) {
+      this.serverData = data.value;
+      this.serverDataCount = data['@odata.count'];
+    }
+  });
+}`;
 
   @ViewChild('list2', { static: true }) list2: NpListComponent;
 
@@ -61,6 +82,8 @@ export class NpListDemoComponent implements OnInit {
     { id: 39, name: 'Pedro', age: 31 },
     { id: 40, name: 'Janete', age: 36 }
   ];
+  tilesViewTotal2 = 0;
+  tilesView2: any[];
 
   ngOnInit(): void {
   }
@@ -69,8 +92,8 @@ export class NpListDemoComponent implements OnInit {
     alert(JSON.stringify(this.list2.getSelectedItems()));
   }
 
-  setSelectedItems() {
-    this.list2.setSelectedItems([
+  selectItems() {
+    this.list2.selectItems([
       { id: 1, name: 'Maria', age: 28 },
       { id: 2, name: 'Karl', age: 6 },
       { id: 3, name: 'Jose', age: 41 }]);
@@ -102,5 +125,17 @@ export class NpListDemoComponent implements OnInit {
 
   onClick($event) {
     alert($event.id);
+  }
+
+  onLoadData(options) {
+    const skip = (options.currentPage - 1) * options.pageSize;
+    const take = options.pageSize;
+    this.http.get(`https://services.odata.org/V4/Northwind/Northwind.svc/Products?$top=${take}&$skip=${skip}&$count=true`)
+      .subscribe((data: any) => {
+        if (data && data.value) {
+          this.tilesView2 = data.value;
+          this.tilesViewTotal2 = data['@odata.count'];
+        }
+      });
   }
 }

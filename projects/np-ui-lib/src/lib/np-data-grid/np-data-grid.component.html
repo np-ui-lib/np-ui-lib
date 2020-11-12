@@ -224,7 +224,8 @@
         </div>
     </div>
     <np-paginator #gridPaginator [pageSize]="pageSize" [totalItems]="totalRow" styleClass="np-grid-pagination"
-        (onPageChange)="onPageChange($event)"></np-paginator>
+        (onPageChange)="_onPageChange($event)">
+    </np-paginator>
 </div>
 
 <ng-template #columnChooserTemplate>

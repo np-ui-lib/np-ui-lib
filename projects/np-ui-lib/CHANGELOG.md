@@ -3,6 +3,11 @@
 
 ## Change log and decision tracker
 
+## 10.5.3
+- Add tiles view in list component
+- Add paginator component in tiles view and add related properties, methods and Apis
+- Rename api setSelectedItems to selectItems in list component
+
 ## 10.5.2
 - Add getCurrentStateName Api to data grid
 - Add new directive npAutoFocus

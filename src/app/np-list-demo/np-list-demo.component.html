@@ -16,6 +16,10 @@
                 <div>
                     <pre><code [innerText]="htmlText"></code></pre>
                 </div>
+                <b>For server side operation</b>
+                <div>
+                    <pre><code [innerText]="serverSideHtmlText"></code></pre>
+                </div>
             </np-card-body>
         </np-card>
         <np-card>
@@ -74,6 +78,36 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>showTiles</td>
+                        <td>Show list as tiles</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>columnSize</td>
+                        <td>Set column size for tiles view, based on grid layout system</td>
+                        <td>number</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>isServerOperations</td>
+                        <td>Set true if fetching data from server</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>pageSize</td>
+                        <td>Set pagesize for server side operation</td>
+                        <td>number</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>totalItems</td>
+                        <td>Set total items for list, update it when fetching data in <b>onPageChange</b> method</td>
+                        <td>number</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
                         <td>styleClass</td>
                         <td>Add extra class to component</td>
                         <td>string</td>
@@ -95,6 +129,20 @@
                         <th>Method</th>
                         <th>Description</th>
                         <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            onPageChange(options: any)
+                        </td>
+                        <td>
+                            Callback event on page change. Fetch total items count from server and update
+                            <b>totalItems</b>.<br>
+                            Fetch data based on options and assign to <b>items</b>.
+                            <div>
+                                <pre><code [innerText]="serverSideCtrlText"></code></pre>
+                            </div>
+                        </td>
+                        <td>&#123;"currentPage":1,"pageSize":10&#125;</td>
                     </tr>
                     <tr>
                         <td>
@@ -133,6 +181,16 @@
                         <th>Api</th>
                         <th>Description</th>
                         <th>Parameters</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            refresh()
+                        </td>
+                        <td>
+                            Refresh data by calling method <b>onPageChange</b> again. Only used for server side
+                            operations.
+                        </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>
@@ -190,7 +248,7 @@
                     </tr>
                     <tr>
                         <td>
-                            setSelectedItems(items: any[])
+                            selectItems(items: any[])
                         </td>
                         <td>
                             Select items
@@ -226,7 +284,7 @@
 
             <div class="np-btn-group">
                 <button type="button" class="np-btn" (click)="getSelectedItems()">Get selected items</button>
-                <button type="button" class="np-btn" (click)="setSelectedItems()">Set selected items</button>
+                <button type="button" class="np-btn" (click)="selectItems()">Set selected items</button>
                 <button type="button" class="np-btn" (click)="selectAll()">Select All</button>
                 <button type="button" class="np-btn" (click)="clear()">Clear</button>
                 <button type="button" class="np-btn" (click)="selectItem()">Select 1st item by item</button>
@@ -234,6 +292,29 @@
                 <button type="button" class="np-btn" (click)="selectItemByIndex()">Select 1st item by index</button>
                 <button type="button" class="np-btn" (click)="deselectItemByIndex()">Deselect 1st item by index</button>
             </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Tiles view</legend>
+            <np-list [items]="items" [showTiles]="true" [itemTemplate]="TileTemplate" [height]="300"
+                [header]="'Employee List'" (onClick)="onClick($event)">
+            </np-list>
+
+            <ng-template let-item="item" #TileTemplate>
+                Id: {{item.id}},<br> Name: {{item.name}},<br> Age: {{item.age}}
+            </ng-template>
+        </fieldset>
+
+        <fieldset>
+            <legend>Tiles view with server side data</legend>
+            <np-list [items]="tilesView2" [showTiles]="true" [itemTemplate]="TileTemplate2" [allowSelection]="true"
+                [height]="300" [header]="'Product List'" [isServerOperations]="true" [totalItems]="tilesViewTotal2"
+                [pageSize]="10" (onPageChange)="onLoadData($event)">
+            </np-list>
+
+            <ng-template let-item="item" #TileTemplate2>
+                Name: {{item.ProductName}},<br> Unit price: {{item.UnitPrice}},<br> In stock: {{item.UnitsInStock}}
+            </ng-template>
         </fieldset>
     </np-tab>
 </np-tabs>

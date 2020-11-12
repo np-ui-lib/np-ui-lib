@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation, Input, TemplateRef, Output, EventEmitter, ViewChild, SimpleChanges } from '@angular/core';
+import { NpPaginatorComponent } from '../np-paginator/np-paginator.component';
 import { NpUtilityService } from '../np-utility/np-utility.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { NpUtilityService } from '../np-utility/np-utility.service';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpListComponent implements OnInit {
+export class NpListComponent {
   static controlCount = 1;
 
   @Input() header: string;
@@ -18,19 +19,24 @@ export class NpListComponent implements OnInit {
   @Input() height: number;
   @Input() orderBy: string;
   @Input() orderDir: string;
+  @Input() showTiles = false;
+  @Input() columnSize = 4;
+  @Input() isServerOperations = false;
+  @Input() pageSize = 10;
+  @Input() totalItems = 0;
   @Input() styleClass: string;
   @Input() inputId = `np-list_${NpListComponent.controlCount++}`;
+
+  @ViewChild('listPaginator') listPaginator: NpPaginatorComponent;
 
   @Output() onClick: EventEmitter<any> = new EventEmitter();
   @Output() onSelect: EventEmitter<any> = new EventEmitter();
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
+  @Output() onPageChange: EventEmitter<any> = new EventEmitter();
 
   selectedItems: any[] = [];
 
   constructor(private utility: NpUtilityService) { }
-
-  ngOnInit(): void {
-  }
 
   clear() {
     this.selectedItems = [];
@@ -95,7 +101,7 @@ export class NpListComponent implements OnInit {
     this.deselectItem(item);
   }
 
-  setSelectedItems(items: any[]) {
+  selectItems(items: any[]) {
     this.selectedItems = items;
   }
 
@@ -107,4 +113,15 @@ export class NpListComponent implements OnInit {
     this.onClick.emit(item);
   }
 
+  _onPageChange(options: any) {
+    this.onPageChange.emit(options);
+  }
+
+  refresh() {
+    this.listPaginator.refresh();
+  }
+
+  loadPage(page: number) {
+    this.listPaginator.loadPage(page);
+  }
 }
