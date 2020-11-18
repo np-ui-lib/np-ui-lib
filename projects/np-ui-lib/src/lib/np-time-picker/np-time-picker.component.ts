@@ -119,14 +119,13 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   ngAfterContentInit() {
     this.hours = [];
     const hoursList = [];
+    this.pattern = new RegExp(this._getRegEx());
     if (this.is24Hours) {
-      this.pattern = new RegExp('^([0-9]|0[0-9]|1[0-9]|2[0-3]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9])$');
       for (let i = 0; i < 24; i++) {
         hoursList.push(i);
       }
     }
     else {
-      this.pattern = new RegExp('^(1[0-1]|0?[1-9]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9]) ?(AM|PM)$');
       for (let i = 0; i < 12; i++) {
         hoursList.push(i);
       }
@@ -215,9 +214,9 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
 
   _setValue() {
     if (this.is24Hours) {
-      this.value = `${(this.selectedHour ? this.selectedHour : 0)}:${(this.selectedMinute ? this.selectedMinute : 0)}:${(this.hideSeconds ? 0 : (this.selectedSecond ? this.selectedSecond : 0))}`;
+      this.value = `${(this.selectedHour ? this.selectedHour : 0)}:${(this.selectedMinute ? this.selectedMinute : 0)}${(this.hideSeconds ? '' : ':' + (this.selectedSecond ? this.selectedSecond : 0))}`;
     } else {
-      this.value = `${(this.selectedHour ? this.selectedHour : 0)}:${(this.selectedMinute ? this.selectedMinute : 0)}:${(this.hideSeconds ? 0 : (this.selectedSecond ? this.selectedSecond : 0))} ${this.selectedAMPM}`;
+      this.value = `${(this.selectedHour ? this.selectedHour : 0)}:${(this.selectedMinute ? this.selectedMinute : 0)}${(this.hideSeconds ? '' : ':' + (this.selectedSecond ? this.selectedSecond : 0))} ${this.selectedAMPM}`;
     }
   }
 
@@ -282,14 +281,18 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
       const timeArray24 = result24.split(':');
       this.selectedHour = Number(timeArray24[0]);
       this.selectedMinute = Number(timeArray24[1]);
-      this.selectedSecond = Number(timeArray24[2]);
+      if (!this.hideSeconds) {
+        this.selectedSecond = Number(timeArray24[2]);
+      }
     } else {
       const result = this.value.split(' ');
       this.selectedAMPM = result[1].toLowerCase() === 'am' ? 'AM' : 'PM';
       const timeArray = result[0].split(':');
       this.selectedHour = Number(timeArray[0]);
       this.selectedMinute = Number(timeArray[1]);
-      this.selectedSecond = Number(timeArray[2]);
+      if (!this.hideSeconds) {
+        this.selectedSecond = Number(timeArray[2]);
+      }
     }
 
     let isChanged = false;
@@ -312,7 +315,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
 
   _selectNowTime() {
     const today = new Date();
-    let nowTime = `${today.getHours()}:${today.getMinutes()}:${(this.hideSeconds ? 0 : today.getSeconds())}`;
+    let nowTime = `${today.getHours()}:${today.getMinutes()}${(this.hideSeconds ? '' : ':' + today.getSeconds())}`;
     if (!this.is24Hours) {
       nowTime = this.timeConvert24to12(nowTime);
     }
@@ -368,14 +371,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   _onInputChange($event) {
     let time = $event.target.value.trim();
     time = time.toUpperCase();
-    let isValid = true;
-    if (this.is24Hours) {
-      const regex = new RegExp('^([0-9]|0[0-9]|1[0-9]|2[0-3]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9])$');
-      isValid = regex.test(time);
-    } else {
-      const regex = new RegExp('^(1[0-1]|0?[1-9]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9]) ?(AM|PM)$');
-      isValid = regex.test(time);
-    }
+    const isValid = this.pattern.test(time);
     if (!isValid) {
       $event.target.value = '';
     }
@@ -383,7 +379,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     this._extractValues();
   }
 
-    _onBlur($event) {
+  _onBlur($event) {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
@@ -396,5 +392,21 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
 
   focus() {
     this.inputViewChild.nativeElement.focus();
+  }
+
+  _getRegEx() {
+    if (this.is24Hours) {
+      if (this.hideSeconds) {
+        return '^([0-9]|0[0-9]|1[0-9]|2[0-3]):([0-9]|0[0-9]|[0-5][0-9])$';
+      } else {
+        return '^([0-9]|0[0-9]|1[0-9]|2[0-3]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9])$';
+      }
+    } else {
+      if (this.hideSeconds) {
+        return '^(1[0-1]|0?[1-9]):([0-9]|0[0-9]|[0-5][0-9]) ?(AM|PM)$';
+      } else {
+        return '^(1[0-1]|0?[1-9]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9]) ?(AM|PM)$';
+      }
+    }
   }
 }
