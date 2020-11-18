@@ -26,35 +26,28 @@ export class NpListComponent {
   @Input() totalItems = 0;
   @Input() styleClass: string;
   @Input() inputId = `np-list_${NpListComponent.controlCount++}`;
-
-  @ViewChild('listPaginator') listPaginator: NpPaginatorComponent;
+  @Input() selection: any[];
+  @Output() selectionChange: EventEmitter<any> = new EventEmitter();
 
   @Output() onClick: EventEmitter<any> = new EventEmitter();
   @Output() onSelect: EventEmitter<any> = new EventEmitter();
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
   @Output() onPageChange: EventEmitter<any> = new EventEmitter();
 
-  selectedItems: any[] = [];
+  @ViewChild('listPaginator') listPaginator: NpPaginatorComponent;
 
   constructor(private utility: NpUtilityService) { }
 
-  clear() {
-    this.selectedItems = [];
-  }
-
-  getSelectedItems() {
-    return this.selectedItems;
-  }
-
   _onSelectItem(item: any, event: any) {
     if (event.target.checked) {
-      this.selectedItems.push(item);
+      this.selection.push(item);
       this.onSelect.emit(item);
     } else {
-      const idx = this.selectedItems.indexOf(item);
-      this.selectedItems.splice(idx, 1);
+      const idx = this.selection.indexOf(item);
+      this.selection.splice(idx, 1);
       this.onDeselect.emit(item);
     }
+    this.selectionChange.emit(this.selection);
   }
 
   _isSelected(item) {
@@ -63,7 +56,7 @@ export class NpListComponent {
 
   _getSelectedIndexOfItem(item: any) {
     const that = this;
-    return this.selectedItems.findIndex((element) => {
+    return this.selection.findIndex((element) => {
       if (that.utility.isEqual(element, item)) {
         return item;
       }
@@ -75,34 +68,13 @@ export class NpListComponent {
     this.items.forEach((element) => {
       items.push(element);
     });
-    this.selectedItems = items;
+    this.selection = items;
+    this.selectionChange.emit(this.selection);
   }
 
-  selectItem(item: any) {
-    if (!this._isSelected(item)) {
-      this.selectedItems.push(item);
-    }
-  }
-
-  selectItemByIndex(idx: number) {
-    const item = this.items[idx];
-    this.selectItem(item);
-  }
-
-  deselectItem(item: any) {
-    const idx = this._getSelectedIndexOfItem(item);
-    if (idx > -1) {
-      this.selectedItems.splice(idx, 1);
-    }
-  }
-
-  deselectItemByIndex(idx: number) {
-    const item = this.items[idx];
-    this.deselectItem(item);
-  }
-
-  selectItems(items: any[]) {
-    this.selectedItems = items;
+  deselectAll() {
+    this.selection = [];
+    this.selectionChange.emit(this.selection);
   }
 
   _trackBy(index: number): number {

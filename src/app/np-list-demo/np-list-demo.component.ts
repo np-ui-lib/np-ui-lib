@@ -38,6 +38,8 @@ export class NpListDemoComponent implements OnInit {
   });
 }`;
 
+  selection1 = [];
+  selection2 = [];
   @ViewChild('list2', { static: true }) list2: NpListComponent;
 
   items: any[] = [
@@ -89,38 +91,22 @@ export class NpListDemoComponent implements OnInit {
   }
 
   getSelectedItems() {
-    alert(JSON.stringify(this.list2.getSelectedItems()));
+    alert(JSON.stringify(this.selection1));
   }
 
   selectItems() {
-    this.list2.selectItems([
+    this.selection1 = [
       { id: 1, name: 'Maria', age: 28 },
       { id: 2, name: 'Karl', age: 6 },
-      { id: 3, name: 'Jose', age: 41 }]);
+      { id: 3, name: 'Jose', age: 41 }];
   }
 
-  clear() {
-    this.list2.clear();
+  deselectAll() {
+    this.list2.deselectAll();
   }
 
   selectAll() {
     this.list2.selectAll();
-  }
-
-  selectItem() {
-    this.list2.selectItem({ id: 1, name: 'Maria', age: 28 });
-  }
-
-  selectItemByIndex() {
-    this.list2.selectItemByIndex(0);
-  }
-
-  deselectItem() {
-    this.list2.deselectItem({ id: 1, name: 'Maria', age: 28 });
-  }
-
-  deselectItemByIndex() {
-    this.list2.deselectItemByIndex(0);
   }
 
   onClick($event) {

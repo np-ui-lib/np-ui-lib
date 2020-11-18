@@ -404,11 +404,11 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     if (event.target.checked) {
       this._selectAll();
     } else {
-      this._deSelectAll();
+      this._deselectAll();
     }
   }
 
-  _deSelectAll() {
+  _deselectAll() {
     const selectedRows = this.selectedRowKeys;
     this.selectedRowKeys = [];
     this.isAllSelected = false;
@@ -535,6 +535,19 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     return this.selectedRowKeys;
   }
 
+  selectRowByKey(key) {
+    if (this.selectedRowKeys.indexOf(key) === -1) {
+      this.selectedRowKeys.push(key);
+    }
+  }
+
+  deselectRowByKey(key) {
+    const idx = this.selectedRowKeys.indexOf(key);
+    if (idx >= 0) {
+      this.selectedRowKeys.splice(idx, 1);
+    }
+  }
+
   /**
    * reset all
    */
@@ -567,8 +580,8 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   /**
    * de select all rows
    */
-  deSelectAll() {
-    this._deSelectAll();
+  deselectAll() {
+    this._deselectAll();
   }
 
   /**

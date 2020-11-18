@@ -5,8 +5,11 @@
 
 ## 10.5.3
 - Add tiles view in list component
-- Add paginator component in tiles view and add related properties, methods and Apis
-- Rename api setSelectedItems to selectItems in list component
+- Add paginator component in list component and add related properties, methods and apis
+- Add selection property in list component
+- Remove apis selectItem, selectItemByIndex, deselectItem, deselectItemByIndex, setSelectedItems from list component
+- Rename clear to deselectAll api in list component
+- Add selectRowByKey, deselectRowByKey apis to datagrid component
 
 ## 10.5.2
 - Add getCurrentStateName Api to data grid

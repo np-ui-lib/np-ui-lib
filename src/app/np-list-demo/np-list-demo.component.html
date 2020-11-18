@@ -56,6 +56,12 @@
                         <td>false</td>
                     </tr>
                     <tr>
+                        <td>selection</td>
+                        <td>Get/Set selected items</td>
+                        <td>any[]</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>height</td>
                         <td>Set height of list in px</td>
                         <td>number</td>
@@ -194,42 +200,6 @@
                     </tr>
                     <tr>
                         <td>
-                            selectItem(item:any)
-                        </td>
-                        <td>
-                            Select item
-                        </td>
-                        <td>item: any</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            selectItemByIndex(idx:number)
-                        </td>
-                        <td>
-                            Select item by index, start with 0
-                        </td>
-                        <td>idx: number</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            deselectItem(item:any)
-                        </td>
-                        <td>
-                            Deselect item
-                        </td>
-                        <td>item: any</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            deselectItemByIndex(idx:number)
-                        </td>
-                        <td>
-                            Deselect item by index, start with 0
-                        </td>
-                        <td>idx: number</td>
-                    </tr>
-                    <tr>
-                        <td>
                             selectAll()
                         </td>
                         <td>
@@ -239,21 +209,12 @@
                     </tr>
                     <tr>
                         <td>
-                            clear()
+                            deselectAll()
                         </td>
                         <td>
                             Clear all selected items
                         </td>
                         <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            selectItems(items: any[])
-                        </td>
-                        <td>
-                            Select items
-                        </td>
-                        <td>items: any[]</td>
                     </tr>
                 </table>
             </np-card-body>
@@ -275,7 +236,7 @@
             <legend>List with selection</legend>
 
             <np-list [items]="items" [itemTemplate]="list2Template" [allowSelection]="true" [height]="200"
-                [styleClass]="'myClass'" #list2>
+                [(selection)]="selection1" [styleClass]="'myClass'" #list2>
             </np-list>
 
             <ng-template let-item="item" #list2Template>
@@ -286,11 +247,7 @@
                 <button type="button" class="np-btn" (click)="getSelectedItems()">Get selected items</button>
                 <button type="button" class="np-btn" (click)="selectItems()">Set selected items</button>
                 <button type="button" class="np-btn" (click)="selectAll()">Select All</button>
-                <button type="button" class="np-btn" (click)="clear()">Clear</button>
-                <button type="button" class="np-btn" (click)="selectItem()">Select 1st item by item</button>
-                <button type="button" class="np-btn" (click)="deselectItem()">Deselect 1st item by item</button>
-                <button type="button" class="np-btn" (click)="selectItemByIndex()">Select 1st item by index</button>
-                <button type="button" class="np-btn" (click)="deselectItemByIndex()">Deselect 1st item by index</button>
+                <button type="button" class="np-btn" (click)="deselectAll()">Deselect all</button>
             </div>
         </fieldset>
 
@@ -308,8 +265,8 @@
         <fieldset>
             <legend>Tiles view with server side data</legend>
             <np-list [items]="tilesView2" [showTiles]="true" [itemTemplate]="TileTemplate2" [allowSelection]="true"
-                [height]="300" [header]="'Product List'" [isServerOperations]="true" [totalItems]="tilesViewTotal2"
-                [pageSize]="10" (onPageChange)="onLoadData($event)">
+                [selection]="selection2" [height]="300" [header]="'Product List'" [isServerOperations]="true"
+                [totalItems]="tilesViewTotal2" [pageSize]="10" (onPageChange)="onLoadData($event)">
             </np-list>
 
             <ng-template let-item="item" #TileTemplate2>

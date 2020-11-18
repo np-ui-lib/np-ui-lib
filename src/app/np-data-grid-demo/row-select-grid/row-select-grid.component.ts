@@ -52,8 +52,8 @@ export class RowSelectGridComponent implements OnInit {
     alert(selectedRows);
   }
 
-  deSelectAll() {
-    this.multiSelectGrid.deSelectAll();
+  deselectAll() {
+    this.multiSelectGrid.deselectAll();
   }
 
   selectAll() {
