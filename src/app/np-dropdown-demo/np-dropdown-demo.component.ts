@@ -39,8 +39,9 @@ export class NpDropdownDemoComponent implements OnInit {
   dropdownVal3: string;
   dropdownVal4 = 'Mango';
   dropdownVal5: any;
-  dropdownVal6 = 'Mango';
+  dropdownVal6: any;
   dropdownVal7 = 'Mango';
+  dropdownVal8 = 3;
 
   ngOnInit(): void {
   }

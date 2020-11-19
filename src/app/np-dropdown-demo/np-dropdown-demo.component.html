@@ -47,6 +47,14 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>valueKey</td>
+                        <td>If <b>items</b> is type of any[], then set property name which needs to be value in
+                            dropdown.
+                        </td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>itemTemplate</td>
                         <td>Set template for item. Use var let-item="item" in template to access item.
                             <pre><code>{{templateText}}</code></pre>
@@ -183,35 +191,42 @@
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
-            <legend>Basic dropdown with string items</legend>
+            <legend>items : string[] + orderDir</legend>
             <np-dropdown [(ngModel)]="dropdownVal1" [items]="data" [orderDir]="'asc'"></np-dropdown>
             <div>Selected value: {{dropdownVal1}}</div>
             <button class="np-btn" (click)="changeValue()">Change value</button>
         </fieldset>
 
         <fieldset>
-            <legend>Basic dropdown with custom type items + order by name + order direction descending</legend>
+            <legend>items : any[] + displayKey + orderBy + orderDir</legend>
             <np-dropdown [(ngModel)]="dropdownVal2" [items]="dataFull" [displayKey]="'name'" [orderBy]="'name'"
                 [orderDir]="'desc'"></np-dropdown>
             <div>Selected value: {{dropdownVal2 | json}}</div>
         </fieldset>
 
         <fieldset>
-            <legend>required</legend>
+            <legend>items : any[] + displayKey + valueKey</legend>
+            <np-dropdown [(ngModel)]="dropdownVal8" [items]="dataFull" [displayKey]="'name'" [valueKey]="'id'">
+            </np-dropdown>
+            <div>Selected value: {{dropdownVal8}}</div>
+        </fieldset>
+
+        <fieldset>
+            <legend>required + placeholder</legend>
             <np-dropdown [(ngModel)]="dropdownVal3" [items]="data" [required]="true"
                 [placeholder]="'Select from dropdown'">
             </np-dropdown>
         </fieldset>
 
         <fieldset>
-            <legend>disabled and readOnly</legend>
+            <legend>disabled + readOnly</legend>
             <np-dropdown [(ngModel)]="dropdownVal4" [items]="data" [disabled]="true"></np-dropdown>
             <br>
             <np-dropdown [(ngModel)]="dropdownVal4" [items]="data" [readOnly]="true"></np-dropdown>
         </fieldset>
 
         <fieldset>
-            <legend>Item template</legend>
+            <legend>itemTemplate + displayKey</legend>
             <np-dropdown [(ngModel)]="dropdownVal5" [items]="dataFull" [displayKey]="'name'"
                 [itemTemplate]="itemTemplate">
             </np-dropdown>
@@ -222,12 +237,14 @@
         </fieldset>
 
         <fieldset>
-            <legend>On Change event</legend>
-            <np-dropdown [(ngModel)]="dropdownVal6" [items]="data" (onChange)="onChange($event)"></np-dropdown>
+            <legend>onChange</legend>
+            <np-dropdown [(ngModel)]="dropdownVal6" [valueKey]="'id'" [displayKey]="'name'" [items]="dataFull"
+                (onChange)="onChange($event)">
+            </np-dropdown>
         </fieldset>
 
         <fieldset>
-            <legend>Style class</legend>
+            <legend>styleClass</legend>
             <np-dropdown [(ngModel)]="dropdownVal7" [items]="data" [styleClass]="'myClass'"></np-dropdown>
         </fieldset>
     </np-tab>
