@@ -25,9 +25,10 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   static controlCount = 1;
 
   @Input() searchResult: BehaviorSubject<any[]>;
-  @Input() allowCreateNew: boolean;
-  @Input() displayKey: string;
+  @Input() forceToSelect = false;
+  @Input() valueKey: string;
   @Input() itemTemplate: TemplateRef<any>;
+  @Input() searchDelay = 1000;
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
   @Input() orderBy: string;
@@ -47,11 +48,11 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
   @ViewChild('control') inputViewChild: ElementRef;
 
+  searchKeyword: string;
   innerValue: any;
   isDisabled = false;
   subscription: Subscription;
   options: any[];
-  displayValue: string;
   searchTimeout: any;
   isLoading = false;
   focused = false;
@@ -118,7 +119,6 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   set value(v: any) {
     if (v !== this.innerValue) {
       this.innerValue = v;
-      this.displayValue = this.displayKey && v ? v[this.displayKey] : v;
       this.onChangeCallback(v);
       this.onTouchedCallback();
       this.onChange.emit(v);
@@ -128,7 +128,6 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   writeValue(v: any): void {
     if (v !== this.innerValue) {
       this.innerValue = v;
-      this.displayValue = this.displayKey && v ? v[this.displayKey] : v;
     }
   }
 
@@ -144,12 +143,11 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
     this.isDisabled = isDisabled;
   }
 
+  _getDisplayValue() {
+    return this.innerValue || '';
+  }
+
   _close() {
-    if (this.value) {
-      this.displayValue = this.displayKey && this.value ? this.value[this.displayKey] : this.value;
-    } else {
-      this.displayValue = null;
-    }
     this.overlayRef.detach();
     this.inputViewChild.nativeElement.focus();
   }
@@ -163,12 +161,15 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   }
 
   _onInput($event: any) {
-    this.displayValue = $event.target.value;
+    const value = $event.target.value;
     if (this.isDisabled || this.readOnly) {
       return;
     }
+    if (!this.forceToSelect) {
+      this.value = value;
+    }
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
-      if (this.displayValue === undefined || this.displayValue === null || this.displayValue.length < this.minSearchCharLimit) {
+      if (value === undefined || value === null || value.length < this.minSearchCharLimit) {
         return;
       }
     }
@@ -177,28 +178,42 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       clearTimeout(this.searchTimeout);
     }
     this.searchTimeout = setTimeout(() => {
-      this.onSearch.emit(this.displayValue);
-    }, 1000);
+      this.searchKeyword = value;
+      this.onSearch.emit(value);
+    }, this.searchDelay);
+  }
+
+  _onInputChange($event) {
+    if (this.forceToSelect && this.searchResult.value) {
+      let valid = false;
+      const value = $event.target.value;
+      if (this.valueKey) {
+        for (const item of this.searchResult.value) {
+          if (item[this.valueKey] === value) {
+            valid = true;
+            break;
+          }
+        }
+      } else {
+        for (const item of this.searchResult.value) {
+          if (item === value) {
+            valid = true;
+            break;
+          }
+        }
+      }
+      if (!valid) {
+        this.value = null;
+        this.inputViewChild.nativeElement.value = '';
+      } else {
+        this.value = value;
+      }
+    }
   }
 
   _selectValue(val: any) {
-    this.value = val;
+    this.value = this.valueKey ? val[this.valueKey] : val;
     this._close();
-  }
-
-  _createNewTag() {
-    if (this.options === undefined || this.options === null) {
-      this.options = [];
-    }
-    if (this.displayKey) {
-      const newObj = {};
-      newObj[this.displayKey] = this.displayValue;
-      this.options.push(newObj);
-      this._selectValue(newObj);
-    } else {
-      this.options.push(this.displayValue);
-      this._selectValue(this.displayValue);
-    }
   }
 
   _onKeydown(event: KeyboardEvent) {
@@ -211,11 +226,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
     return index;
   }
 
-  _getDisplayValue() {
-    return this.displayValue || '';
-  }
-
-    _onBlur($event) {
+  _onBlur($event) {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);

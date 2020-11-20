@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpTimePickerDemoComponent implements OnInit {
 
-  timePicker1 = '10:0:0 AM';
-  timePicker2 = '10:0:0';
-  timePicker3 = '10:0:0 AM';
+  timePicker1 = '10:00:00 AM';
+  timePicker2 = '10:00:00';
+  timePicker3 = '10:00:00 AM';
   timePicker4: string;
   timePicker5: string;
   timePicker5Disable = false;

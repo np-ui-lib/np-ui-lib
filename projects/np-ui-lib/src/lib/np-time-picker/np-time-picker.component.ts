@@ -214,10 +214,22 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
 
   _setValue() {
     if (this.is24Hours) {
-      this.value = `${(this.selectedHour ? this.selectedHour : 0)}:${(this.selectedMinute ? this.selectedMinute : 0)}${(this.hideSeconds ? '' : ':' + (this.selectedSecond ? this.selectedSecond : 0))}`;
+      this.value = `${this._getHours()}:${this._getMinutes()}${this._getSeconds()}`;
     } else {
-      this.value = `${(this.selectedHour ? this.selectedHour : 0)}:${(this.selectedMinute ? this.selectedMinute : 0)}${(this.hideSeconds ? '' : ':' + (this.selectedSecond ? this.selectedSecond : 0))} ${this.selectedAMPM}`;
+      this.value = `${this._getHours()}:${this._getMinutes()}${this._getSeconds()} ${this.selectedAMPM}`;
     }
+  }
+
+  _getHours() {
+    return this.selectedHour ? this.selectedHour.toString().padStart(2, '0') : '00';
+  }
+
+  _getMinutes() {
+    return this.selectedMinute ? this.selectedMinute.toString().padStart(2, '0') : '00';
+  }
+
+  _getSeconds() {
+    return this.hideSeconds ? '' : ':' + (this.selectedSecond ? this.selectedSecond.toString().padStart(2, '0') : '00');
   }
 
   private timeConvert12to24(time: string) {
@@ -241,7 +253,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     const hour24 = Number(values[0]);
     const hour12 = hour24 % 12 || 12;
     const ampm = (hour24 < 12 || hour24 === 24) ? 'AM' : 'PM';
-    return `${hour12}:${values[1]}:${values[2]} ${ampm}`;
+    return `${hour12.toString().padStart(2, '0')}:${values[1].toString().padStart(2, '0')}:${values[2].toString().padStart(2, '0')} ${ampm}`;
   }
 
   _toggleTimePicker() {
@@ -315,7 +327,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
 
   _selectNowTime() {
     const today = new Date();
-    let nowTime = `${today.getHours()}:${today.getMinutes()}${(this.hideSeconds ? '' : ':' + today.getSeconds())}`;
+    let nowTime = `${today.getHours().toString().padStart(2, '0')}:${today.getMinutes().toString().padStart(2, '0')}${(this.hideSeconds ? '' : ':' + today.getSeconds().toString().padStart(2, '0'))}`;
     if (!this.is24Hours) {
       nowTime = this.timeConvert24to12(nowTime);
     }
@@ -397,15 +409,15 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   _getRegEx() {
     if (this.is24Hours) {
       if (this.hideSeconds) {
-        return '^([0-9]|0[0-9]|1[0-9]|2[0-3]):([0-9]|0[0-9]|[0-5][0-9])$';
+        return '^(0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9])$';
       } else {
-        return '^([0-9]|0[0-9]|1[0-9]|2[0-3]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9])$';
+        return '^(0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9]):(0[0-9]|[0-5][0-9])$';
       }
     } else {
       if (this.hideSeconds) {
-        return '^(1[0-1]|0?[1-9]):([0-9]|0[0-9]|[0-5][0-9]) ?(AM|PM)$';
+        return '^(0[0-9]|1[0-1]):(0[0-9]|[0-5][0-9]) ?(AM|PM)$';
       } else {
-        return '^(1[0-1]|0?[1-9]):([0-9]|0[0-9]|[0-5][0-9]):([0-9]|0[0-9]|[0-5][0-9]) ?(AM|PM)$';
+        return '^(0[0-9]|1[0-1]):(0[0-9]|[0-5][0-9]):(0[0-9]|[0-5][0-9]) ?(AM|PM)$';
       }
     }
   }

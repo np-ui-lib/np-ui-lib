@@ -77,7 +77,7 @@ export class NpAutoCompleteDemoComponent implements OnInit {
   auto7: any;
   searchResult7: BehaviorSubject<any[]> = new BehaviorSubject(null);
 
-  auto8: any = { name: 'Maria', id: 1, age: 28 };
+  auto8: any = 'Maria';
   searchResult8: BehaviorSubject<any[]> = new BehaviorSubject(null);
   @ViewChild('itemTemplateRef', { static: true }) itemTemplateRef: TemplateRef<any>;
 
@@ -89,6 +89,9 @@ export class NpAutoCompleteDemoComponent implements OnInit {
 
   auto11: any;
   searchResult11: BehaviorSubject<any[]> = new BehaviorSubject(null);
+
+  auto12: any;
+  searchResult12: BehaviorSubject<any[]> = new BehaviorSubject(null);
 
   ngOnInit(): void {
   }
@@ -160,6 +163,12 @@ export class NpAutoCompleteDemoComponent implements OnInit {
     setTimeout(() => {
       const searchData = this.dataFull.filter((element) => { if (element.name.indexOf(keyword) > -1) { return element; } });
       this.searchResult11.next(searchData);
+    }, 1000);
+  }
+  onSearch12(keyword: string) {
+    setTimeout(() => {
+      const searchData = this.dataFull.filter((element) => { if (element.name.indexOf(keyword) > -1) { return element; } });
+      this.searchResult12.next(searchData);
     }, 1000);
   }
 

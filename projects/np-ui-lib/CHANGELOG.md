@@ -10,6 +10,9 @@
 - Remove apis selectItem, selectItemByIndex, deselectItem, deselectItemByIndex, setSelectedItems from list component
 - Rename clear to deselectAll api in list component
 - Add selectRowByKey, deselectRowByKey apis to datagrid component
+- Add valueKey in dropdown
+- Recreate auto complete component, check documentation for details
+- Resolved time issue when seconds are hidden and padStart 0 for all numbers in time picker component
 
 ## 10.5.2
 - Add getCurrentStateName Api to data grid

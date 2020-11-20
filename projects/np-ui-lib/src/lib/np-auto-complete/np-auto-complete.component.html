@@ -3,8 +3,8 @@
     <div class="np-input-group" [ngClass]="{'np-focused': focused}">
         <input #control class="np-form-control" type="text" autocomplete="off" [value]="_getDisplayValue()"
             [placeholder]="placeholder" [disabled]="isDisabled" [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex"
-            [readonly]="readOnly" (input)="_onInput($event)" (keydown)="_onKeydown($event)" (blur)="_onBlur($event)"
-            (focus)="_onFocus($event)">
+            [readonly]="readOnly" (input)="_onInput($event)" (change)="_onInputChange($event)"
+            (keydown)="_onKeydown($event)" (blur)="_onBlur($event)" (focus)="_onFocus($event)">
         <div class="np-input-group-append">
             <div class="np-auto-complete-loader" *ngIf="isLoading">
                 <svg class="np-icon" viewBox="0 0 24 24">
@@ -31,18 +31,15 @@
                 *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
                 <li role="option" class="np-list-item" (click)="_selectValue(item)">
                     <ng-container *ngIf="!itemTemplate; else customTemplate">
-                        <span [innerHTML]="(displayKey ? item[displayKey] : item) | npHighLight : displayValue"></span>
+                        <span [innerHTML]="(valueKey ? item[valueKey] : item) | npHighLight : searchKeyword"></span>
                     </ng-container>
                     <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
-                        [ngTemplateOutletContext]="{item: item, keyword: displayValue}">
+                        [ngTemplateOutletContext]="{item: item, keyword: searchKeyword}">
                     </ng-template>
                 </li>
             </ng-container>
             <li *ngIf="options && options.length===0" role="option" class="np-list-item np-disabled">
                 <b>No Result Found.</b>
-            </li>
-            <li *ngIf="allowCreateNew && displayValue" role="option" class="np-list-item" (click)="_createNewTag()">
-                <b>Create New</b>
             </li>
         </ul>
     </div>
