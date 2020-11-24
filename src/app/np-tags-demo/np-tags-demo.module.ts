@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpTagsDemoRoutingModule } from './np-tags-demo-routing.module';
 import { NpTagsDemoComponent } from './np-tags-demo.component';
-import { NpTagsModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
+import { NpTagsModule, NpTabsModule, NpCardModule, NpAlertModule } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
 
@@ -15,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     NpTagsDemoRoutingModule,
     NpTagsModule,
     NpTabsModule,
-    NpCardModule
+    NpCardModule,
+    NpAlertModule
   ]
 })
 export class NpTagsDemoModule { }

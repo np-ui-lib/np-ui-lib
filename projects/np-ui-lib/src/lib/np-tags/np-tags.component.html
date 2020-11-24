@@ -1,7 +1,7 @@
 <div [ngClass]="{'np-tags': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
     [attr.id]="inputId">
     <div class="np-input-group" [ngClass]="{'np-focused': focused}">
-        <div *ngFor="let tag of innerValue" class="np-tag">
+        <div *ngFor="let tag of selected" class="np-tag">
             <div [innerHTML]="_getValueFromTag(tag)"></div>
             <button title="Remove" tabindex="-1" class="np-tag-remove" (click)="_removeTag(tag)">
                 <svg class="np-icon" viewBox="0 0 24 24">
@@ -36,31 +36,23 @@
 
 <ng-template #templatePortalContent>
     <div class="np-tags-overlay">
-        <ng-container *ngIf="!isTreeView">
-            <ul role="listbox" class="np-list">
-                <ng-container
-                    *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
-                    <li role="option" class="np-list-item" (click)="_selectValue(item)"
-                        [ngClass]="{'np-tag-selected': _isSelected(item)}">
-                        <ng-container *ngIf="!itemTemplate; else customTemplate">
-                            <span [innerHTML]="(displayKey ? item[displayKey] : item ) | npHighLight : displayValue">
-                            </span>
-                        </ng-container>
-                        <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
-                            [ngTemplateOutletContext]="{item: item, keyword: displayValue}">
-                        </ng-template>
-                    </li>
-                </ng-container>
-                <li role="option" *ngIf="options && options.length===0" class="np-list-item np-disabled">
-                    <b>No Result Found.</b>
+        <ul role="listbox" class="np-list">
+            <ng-container
+                *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
+                <li role="option" class="np-list-item" (click)="_selectValue(item)"
+                    [ngClass]="{'np-tag-selected': _isSelected(item)}">
+                    <ng-container *ngIf="!itemTemplate; else customTemplate">
+                        <span [innerHTML]="(displayKey ? item[displayKey] : item ) | npHighLight : displayValue">
+                        </span>
+                    </ng-container>
+                    <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
+                        [ngTemplateOutletContext]="{item: item, keyword: displayValue}">
+                    </ng-template>
                 </li>
-                <li role="option" *ngIf="allowCreateNew && displayValue" class="np-list-item" (click)="_createNewTag()">
-                    <b>Create New</b>
-                </li>
-            </ul>
-        </ng-container>
-        <ng-container *ngIf="isTreeView">
-            <np-tree-view [items]="options" [selectionMode]="'multiple'" [(selection)]="value"></np-tree-view>
-        </ng-container>
+            </ng-container>
+            <li role="option" *ngIf="options && options.length===0" class="np-list-item np-disabled">
+                <b>No Result Found.</b>
+            </li>
+        </ul>
     </div>
 </ng-template>

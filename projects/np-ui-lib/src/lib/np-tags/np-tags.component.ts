@@ -24,14 +24,16 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit, OnDestroy {
   static controlCount = 1;
 
+  @Input() displayKey: string;
+  @Input() valueKey: string;
   @Input() searchResult: BehaviorSubject<any[]>;
   @Input() isServerSide: boolean;
-  @Input() allowCreateNew: boolean;
-  @Input() displayKey: string;
+  @Input() forceToSelect: boolean;
   @Input() itemTemplate: TemplateRef<any>;
+  @Input() searchDelay = 1000;
   @Input() maxResultLimit: number;
   @Input() minSearchCharLimit: number;
-  @Input() isTreeView: boolean;
+  @Input() maxSelectLimit: number;
   @Input() orderBy: string;
   @Input() orderDir: string;
   @Input() placeholder = '';
@@ -49,6 +51,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
   @ViewChild('control') inputViewChild: ElementRef;
 
+  selected: any[];
   subscription: Subscription;
   options: any[];
   displayValue: string;
@@ -128,6 +131,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   writeValue(v: any): void {
     if (v !== this.innerValue) {
       this.innerValue = v;
+      this.selected = Object.assign([], v);
     }
   }
 
@@ -150,7 +154,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _onInput($event: any) {
-    this.displayValue = $event.target.value;
+    this.displayValue = $event.target.value.trim();
     if (this.isDisabled || this.readOnly || !this.isServerSide) {
       return;
     }
@@ -165,7 +169,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     }
     this.searchTimeout = setTimeout(() => {
       this.onSearch.emit(this.displayValue);
-    }, 1000);
+    }, this.searchDelay);
   }
 
   _selectValue(val: any) {
@@ -173,10 +177,16 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       this._removeTag(val);
       return;
     }
+    if (this.maxSelectLimit > 0 && this.value && this.value.length === this.maxSelectLimit) {
+      return;
+    }
+    const currentVal = this.valueKey ? val[this.valueKey] : val;
     if (!this.value) {
-      this.value = [val];
+      this.value = [currentVal];
+      this.selected = [val];
     } else {
-      this.value.push(val);
+      this.value.push(currentVal);
+      this.selected.push(val);
     }
   }
 
@@ -190,6 +200,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _createNewTag() {
+    if (this.maxSelectLimit > 0 && this.value && this.value.length === this.maxSelectLimit) {
+      return;
+    }
     if (this._isAlreadyCreated()) {
       return;
     }
@@ -200,6 +213,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       let newObj;
       newObj = {};
       newObj[this.displayKey] = this.displayValue;
+      if (this.valueKey) {
+        newObj[this.valueKey] = this.displayValue;
+      }
       this.options.push(newObj);
       this._selectValue(newObj);
     } else {
@@ -216,9 +232,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     if (this.displayKey) {
       const tag = {};
       tag[this.displayKey] = this.displayValue;
-      const that = this;
       const idx = this.innerValue.findIndex((element) => {
-        if (that.utility.isEqual(element, tag)) {
+        if (this.utility.isEqual(element, tag)) {
           return tag;
         }
       });
@@ -239,73 +254,39 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _removeTag(tag: any) {
-    if (this.displayKey) {
-      const that = this;
-      const idx = this.innerValue.findIndex((element) => {
-        if (that.utility.isEqual(element, tag)) {
+    let idx = null;
+    if (this.valueKey) {
+      idx = this.value.findIndex((element) => {
+        if (element === tag[this.valueKey]) {
           return tag;
         }
       });
-      if (idx > -1) {
-        this.innerValue.splice(idx, 1);
-      }
-      return;
     } else {
-      const idx = this.innerValue.indexOf(tag);
-      if (idx > -1) {
-        this.innerValue.splice(idx, 1);
-      }
+      idx = this.value.findIndex((element) => {
+        if (this.utility.isEqual(element, tag)) {
+          return tag;
+        }
+      });
+    }
+    if (idx > -1) {
+      this.value.splice(idx, 1);
+      this.selected.splice(idx, 1);
     }
   }
 
   _isSelected(tag: any) {
-    if (!this.innerValue || this.innerValue.length === 0) {
+    if (!this.selected) {
       return false;
     }
-    if (this.displayKey) {
-      const that = this;
-      const idx = this.innerValue.findIndex((element) => {
-        if (that.utility.isEqual(element, tag)) {
-          return tag;
-        }
-      });
-      if (idx > -1) {
-        return true;
+    const idx = this.selected.findIndex((element) => {
+      if (this.utility.isEqual(element, tag)) {
+        return tag;
       }
-    } else {
-      const idx = this.innerValue.indexOf(tag);
-      if (idx > -1) {
-        return true;
-      }
+    });
+    if (idx > -1) {
+      return true;
     }
     return false;
-  }
-
-  _onSelectNode(item) {
-    if (item.items) {
-      item.items.forEach(element => {
-        this._onSelectNode(element);
-      });
-    } else {
-      if (this._isSelected(item)) {
-        return;
-      }
-      if (!this.value) {
-        this.value = [item];
-      } else {
-        this.value.push(item);
-      }
-    }
-  }
-
-  _onDeselectNode(item) {
-    if (item.items) {
-      item.items.forEach(element => {
-        this._onDeselectNode(element);
-      });
-    } else {
-      this._removeTag(item);
-    }
   }
 
   _clear() {
@@ -313,6 +294,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       return;
     }
     this.value = null;
+    this.selected = null;
     if (this.isServerSide) {
       this.options = null;
     }
@@ -326,6 +308,19 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       this._open();
       event.preventDefault();
     }
+    if (event.key === 'Backspace' && this.value && this.value.length > 0
+      && (this.displayValue === undefined || this.displayValue === null || this.displayValue.length === 0)) {
+      if (this.value.length > 1) {
+        this.value.pop();
+        this.selected.pop();
+      } else {
+        this.value = null;
+        this.selected = null;
+      }
+    }
+    if (event.key === 'Enter' && !this.forceToSelect && this.displayValue && this.displayValue.length > 0) {
+      this._createNewTag();
+    }
   }
 
   _trackBy(index: number): number {
@@ -336,7 +331,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     return this.displayValue || '';
   }
 
-    _onBlur($event) {
+  _onBlur($event) {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);

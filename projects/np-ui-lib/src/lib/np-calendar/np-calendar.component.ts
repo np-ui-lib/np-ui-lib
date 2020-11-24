@@ -194,7 +194,7 @@ export class NpCalendarComponent implements AfterContentInit {
   }
 
   _changeYear($event) {
-    this.currentYear = Number($event.target.value);
+    this.currentYear = Number($event.target.value.trim());
     this._calculateDays();
     this._onLoad();
   }

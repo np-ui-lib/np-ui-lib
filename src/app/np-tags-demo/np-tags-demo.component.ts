@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { NpTreeViewItem } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-tags-demo',
@@ -40,65 +39,28 @@ export class NpTagsDemoComponent implements OnInit {
     { id: 15, name: 'Lychee', vitamin: 'C, B' },
     { id: 16, name: 'Papaya', vitamin: 'C and fiber' }
   ];
-  treeViewItems: NpTreeViewItem[] = [
-    new NpTreeViewItem({
-      label: 'Item 1',
-      id: 'Item 1',
-      childItems: [
-        new NpTreeViewItem({
-          label: 'Item 1.1', id: 'Item 1.1', childItems: [
-            new NpTreeViewItem({ label: 'Item 1.1.1', id: 'Item 1.1.1' }),
-            new NpTreeViewItem({ label: 'Item 1.1.2', id: 'Item 1.1.2' }),
-            new NpTreeViewItem({ label: 'Item 1.1.3', id: 'Item 1.1.3' }),
-            new NpTreeViewItem({ label: 'Item 1.1.4', id: 'Item 1.1.4' }),
-          ]
-        }),
-        new NpTreeViewItem({ label: 'Item 1.2', id: 'Item 1.2' }),
-        new NpTreeViewItem({ label: 'Item 1.3', id: 'Item 1.3' }),
-        new NpTreeViewItem({ label: 'Item 1.4', id: 'Item 1.4' }),
-      ]
-    }),
-    new NpTreeViewItem({
-      label: 'Item 2',
-      id: 'Item 2',
-      childItems: [
-        new NpTreeViewItem({
-          label: 'Item 2.1', id: 'Item 2.1', childItems: [
-            new NpTreeViewItem({ label: 'Item 2.1.1', id: 'Item 2.1.1' }),
-            new NpTreeViewItem({ label: 'Item 2.1.2', id: 'Item 2.1.2' }),
-            new NpTreeViewItem({ label: 'Item 2.1.3', id: 'Item 2.1.3' }),
-            new NpTreeViewItem({ label: 'Item 2.1.4', id: 'Item 2.1.4' }),
-          ]
-        }),
-        new NpTreeViewItem({ label: 'Item 2.2', id: 'Item 2.2' }),
-        new NpTreeViewItem({ label: 'Item 2.3', id: 'Item 2.3' }),
-        new NpTreeViewItem({ label: 'Item 2.4', id: 'Item 2.4' }),
-      ]
-    }),
-    new NpTreeViewItem({ label: 'Item 3', id: 'Item 3', childItems: [] }),
-    new NpTreeViewItem({ label: 'Item 4', id: 'Item 4' }),
-    new NpTreeViewItem({ label: 'Item 5', id: 'Item 5' }),
-  ];
 
   tags1: string[];
   tags2: any[] = [
     { id: 6, name: 'Strawberry', vitamin: 'iron, copper, B6' },
     { id: 7, name: 'Watermelon', vitamin: ' A, B6 and C' }];
+  tags8: any[];
   tags3: string[];
   tags4: any[];
-  tags6: any[];
   tags5: any[] = [
     { id: 6, name: 'Strawberry', vitamin: 'iron, copper, B6' },
     { id: 7, name: 'Watermelon', vitamin: ' A, B6 and C' }];
-  tags7 = [{ label: 'Item 4', id: 'Item 4' }, { label: 'Item 1.1.1', id: 'Item 1.1.1' }];
+  tags6: any[];
+  tags7: any[];
 
   searchResult1: BehaviorSubject<string[]> = new BehaviorSubject(null);
   searchResult2: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
+  searchResult8: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
   searchResult3: BehaviorSubject<string[]> = new BehaviorSubject(null);
   searchResult4: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
   searchResult5: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
   searchResult6: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
-  searchResult7: BehaviorSubject<NpTreeViewItem[]> = new BehaviorSubject(this.treeViewItems);
+  searchResult7: BehaviorSubject<string[]> = new BehaviorSubject(null);
 
   onSearch1(keyword: string) {
     setTimeout(() => {
@@ -115,6 +77,15 @@ export class NpTagsDemoComponent implements OnInit {
         if (element.toLowerCase().indexOf(keyword.toLowerCase()) > -1) { return element; }
       });
       this.searchResult3.next(searchData);
+    }, 1000);
+  }
+
+  onSearch7(keyword: string) {
+    setTimeout(() => {
+      const searchData = this.dataFull.filter((element) => {
+        if (element.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1) { return element; }
+      });
+      this.searchResult7.next(searchData);
     }, 1000);
   }
 

@@ -41,7 +41,14 @@
                     </tr>
                     <tr>
                         <td>displayKey</td>
-                        <td>If <b>items</b> is type of any[], then set property name which needs to display in tags
+                        <td>If <b>items</b> is type of any[], then set property name which needs to display
+                        </td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>valueKey</td>
+                        <td>If <b>items</b> is type of any[], then set property name which needs to be selected as value
                         </td>
                         <td>string</td>
                         <td></td>
@@ -71,8 +78,8 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>allowCreateNew</td>
-                        <td>Allow to create new item</td>
+                        <td>forceToSelect</td>
+                        <td>Allow to create new item, enter key will create new tag if set to true</td>
                         <td>boolean</td>
                         <td>false</td>
                     </tr>
@@ -89,6 +96,12 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>maxSelectLimit</td>
+                        <td>Maximum tags to select</td>
+                        <td>number</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>isServerSide</td>
                         <td>If fetching items from server then set this to true, so on input change it will call
                             <b>onSearch</b> method</td>
@@ -96,12 +109,10 @@
                         <td>false</td>
                     </tr>
                     <tr>
-                        <td>isTreeView</td>
-                        <td>If showing items as treeview in overlay, then set to true. <b>searchResult</b> should be in
-                            tree
-                            view component structure</td>
-                        <td>boolean</td>
-                        <td>false</td>
+                        <td>searchDelay</td>
+                        <td>Set delay in search, in miliseconds</td>
+                        <td>number</td>
+                        <td>1000</td>
                     </tr>
                     <tr>
                         <td>placeholder</td>
@@ -152,6 +163,10 @@
                         <td></td>
                     </tr>
                 </table>
+                <np-alert type="info">
+                    Press Enter to create new tag(Only if forceToSelect is false), press Backspace to remove last
+                    selected tag.
+                </np-alert>
             </np-card-body>
         </np-card>
         <np-card>
@@ -226,7 +241,7 @@
     <np-tab title="Examples">
         <ng-template npTabContent>
             <fieldset>
-                <legend>Default tags server side</legend>
+                <legend>searchResult as string[] + isServerSide + orderDir + onSearch</legend>
                 <np-tags [(ngModel)]="tags1" [searchResult]="searchResult1" [isServerSide]="true" [orderDir]="'asc'"
                     (onSearch)="onSearch1($event)">
                 </np-tags>
@@ -234,7 +249,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>Default tags client side + order by name + order direction descending</legend>
+                <legend>searchResult as any[] + displayKey + orderBy + orderDir</legend>
                 <np-tags [(ngModel)]="tags2" [displayKey]="'name'" [searchResult]="searchResult2" [orderBy]="'name'"
                     [orderDir]="'desc'">
                 </np-tags>
@@ -242,17 +257,24 @@
             </fieldset>
 
             <fieldset>
-                <legend>Create new tag server side and required</legend>
-                <np-tags [(ngModel)]="tags3" [searchResult]="searchResult3" [isServerSide]="true"
-                    [allowCreateNew]="true" required (onSearch)="onSearch3($event)">
+                <legend>searchResult as any[] + displayKey + valueKey</legend>
+                <np-tags [(ngModel)]="tags8" [displayKey]="'name'" [searchResult]="searchResult8" [valueKey]="'id'">
+                </np-tags>
+                <div>Selected value : {{tags8 | json}}</div>
+            </fieldset>
+
+            <fieldset>
+                <legend>forceToSelect</legend>
+                <np-tags [(ngModel)]="tags3" [searchResult]="searchResult3" [isServerSide]="true" [forceToSelect]="true"
+                    (onSearch)="onSearch3($event)">
                 </np-tags>
                 <div>Selected value : {{tags3 | json}}</div>
             </fieldset>
 
             <fieldset>
-                <legend>Create new tag with displayKey</legend>
+                <legend>displayKey + itemTemplate</legend>
                 <np-tags [(ngModel)]="tags4" [displayKey]="'name'" [searchResult]="searchResult4"
-                    [allowCreateNew]="true" [itemTemplate]="itemTemplate">
+                    [itemTemplate]="itemTemplate">
                 </np-tags>
                 <div>Selected value : {{tags4 | json}}</div>
                 <ng-template #itemTemplate let-item="item">
@@ -276,13 +298,11 @@
             </fieldset>
 
             <fieldset>
-                <legend>Treeview inside tags</legend>
-                <np-tags [(ngModel)]="tags7" [displayKey]="'label'" [searchResult]="searchResult7" [isTreeView]="true"
-                    [allowCreateNew]="true">
+                <legend>maxResultLimit + minSearchCharLimit + maxSelectLimit</legend>
+                <np-tags [(ngModel)]="tags7" [isServerSide]="true" [displayKey]="'name'" [searchResult]="searchResult7"
+                    [maxResultLimit]="3" [minSearchCharLimit]="3" [maxSelectLimit]="3" (onSearch)="onSearch7($event)">
                 </np-tags>
-                Selected value: {{tags6 | json}}
             </fieldset>
-
         </ng-template>
     </np-tab>
 </np-tabs>

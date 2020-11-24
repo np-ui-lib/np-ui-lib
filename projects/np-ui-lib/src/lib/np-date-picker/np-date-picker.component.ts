@@ -282,7 +282,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _changeYear($event) {
-    this.currentYear = Number($event.target.value);
+    this.currentYear = Number($event.target.value.trim());
     this._calculateDays();
   }
 
@@ -388,7 +388,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   }
 
   _onInputChange($event) {
-    const date = this.utility.ReverseFormatDate($event.target.value, this.format);
+    const date = this.utility.ReverseFormatDate($event.target.value.trim(), this.format);
     if (date === 'Invalid Date') {
       $event.target.value = '';
       this.value = null;

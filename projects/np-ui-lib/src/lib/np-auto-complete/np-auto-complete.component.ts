@@ -161,13 +161,10 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   }
 
   _onInput($event: any) {
-    const value = $event.target.value;
     if (this.isDisabled || this.readOnly) {
       return;
     }
-    if (!this.forceToSelect) {
-      this.value = value;
-    }
+    const value = $event.target.value.trim();
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
       if (value === undefined || value === null || value.length < this.minSearchCharLimit) {
         return;
@@ -184,9 +181,12 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   }
 
   _onInputChange($event) {
+    const value = $event.target.value.trim();
+    if (!this.forceToSelect) {
+      this.value = value;
+    }
     if (this.forceToSelect && this.searchResult.value) {
       let valid = false;
-      const value = $event.target.value;
       if (this.valueKey) {
         for (const item of this.searchResult.value) {
           if (item[this.valueKey] === value) {

@@ -120,7 +120,7 @@ export class NpAutoCompleteDemoComponent implements OnInit {
       this.searchResult4.next(searchData);
     }, 1000);
   }
-  onChnage4(event) {
+  onChange4(event) {
     alert(event);
   }
   onSearch5(keyword: string) {

@@ -4,6 +4,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { TopBottomOverlayPositions } from '../np-utility/np-constants';
+import { NpUtilityService } from '../np-utility/np-utility.service';
 
 @Component({
   selector: 'np-dropdown',
@@ -56,7 +57,8 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     public overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private utility: NpUtilityService
   ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -106,17 +108,17 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   _setSelectedOption() {
     let selected: any;
     if (this.valueKey) {
-      for (let i = 0; i < this.items.length; i++) {
-        if (this.items[i][this.valueKey] === this.value) {
-          selected = this.items[i];
+      for (const item of this.items) {
+        if (item[this.valueKey] === this.value) {
+          selected = item;
           break;
         }
       }
     }
     else {
-      for (let i = 0; i < this.items.length; i++) {
-        if (this.items[i] === this.value) {
-          selected = this.items[i];
+      for (const item of this.items) {
+        if (item === this.value) {
+          selected = item;
           break;
         }
       }
@@ -168,6 +170,9 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   _isSelected(item: any) {
+    if (this.displayKey || this.valueKey) {
+      return this.utility.isEqual(this.selected, item);
+    }
     return this.selected === item;
   }
 
