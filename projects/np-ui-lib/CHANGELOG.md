@@ -3,7 +3,7 @@
 
 ## Change log and decision tracker
 
-## 10.5.3
+## 10.6.0
 - Add tiles view in list component
 - Add paginator component in list component and add related properties, methods and apis
 - Add selection property in list component
@@ -13,6 +13,8 @@
 - Add valueKey in dropdown
 - Recreate auto complete component, check documentation for details
 - Resolved time issue when seconds are hidden and padStart 0 for all numbers in time picker component
+- Recreate tags component, check documentation for details
+- Add valueKey proerpty in list component
 
 ## 10.5.2
 - Add getCurrentStateName Api to data grid

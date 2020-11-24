@@ -16,6 +16,7 @@ export class NpListComponent {
   @Input() items: any[];
   @Input() itemTemplate: TemplateRef<any>;
   @Input() allowSelection = false;
+  @Input() valueKey: string;
   @Input() height: number;
   @Input() orderBy: string;
   @Input() orderDir: string;
@@ -40,8 +41,13 @@ export class NpListComponent {
 
   _onSelectItem(item: any, event: any) {
     if (event.target.checked) {
-      this.selection.push(item);
-      this.onSelect.emit(item);
+      if (this.valueKey) {
+        this.selection.push(item[this.valueKey]);
+        this.onSelect.emit(item[this.valueKey]);
+      } else {
+        this.selection.push(item);
+        this.onSelect.emit(item);
+      }
     } else {
       const idx = this.selection.indexOf(item);
       this.selection.splice(idx, 1);
@@ -56,6 +62,13 @@ export class NpListComponent {
 
   _getSelectedIndexOfItem(item: any) {
     const that = this;
+    if (this.valueKey) {
+      return this.selection.findIndex((element) => {
+        if (element === item[this.valueKey]) {
+          return item;
+        }
+      });
+    }
     return this.selection.findIndex((element) => {
       if (that.utility.isEqual(element, item)) {
         return item;
@@ -66,7 +79,11 @@ export class NpListComponent {
   selectAll() {
     const items = [];
     this.items.forEach((element) => {
-      items.push(element);
+      if (this.valueKey) {
+        items.push(element[this.valueKey]);
+      } else {
+        items.push(element);
+      }
     });
     this.selection = items;
     this.selectionChange.emit(this.selection);

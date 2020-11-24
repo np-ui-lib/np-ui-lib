@@ -56,6 +56,12 @@
                         <td>false</td>
                     </tr>
                     <tr>
+                        <td>valueKey</td>
+                        <td>Set Unique key property name of the item</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>selection</td>
                         <td>Get/Set selected items</td>
                         <td>any[]</td>
@@ -263,12 +269,13 @@
         </fieldset>
 
         <fieldset>
-            <legend>Tiles view with server side data</legend>
+            <legend>Tiles view with server side data with valueKey</legend>
             <np-list [items]="tilesView2" [showTiles]="true" [itemTemplate]="TileTemplate2" [allowSelection]="true"
                 [selection]="selection2" [height]="300" [header]="'Product List'" [isServerOperations]="true"
-                [totalItems]="tilesViewTotal2" [pageSize]="10" (onPageChange)="onLoadData($event)">
+                [totalItems]="tilesViewTotal2" [pageSize]="10" [valueKey]="'ProductID'"
+                (onPageChange)="onLoadData($event)">
             </np-list>
-
+            <p>Selected: {{selection2 | json}}</p>
             <ng-template let-item="item" #TileTemplate2>
                 Name: {{item.ProductName}},<br> Unit price: {{item.UnitPrice}},<br> In stock: {{item.UnitsInStock}}
             </ng-template>
