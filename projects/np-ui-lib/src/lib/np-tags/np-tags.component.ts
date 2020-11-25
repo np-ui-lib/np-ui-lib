@@ -187,6 +187,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     } else {
       this.value.push(currentVal);
       this.selected.push(val);
+      this.onChangeCallback(this.value);
+      this.onChange.emit(this.value);
     }
   }
 
@@ -269,8 +271,15 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       });
     }
     if (idx > -1) {
-      this.value.splice(idx, 1);
-      this.selected.splice(idx, 1);
+      if (this.value.length === 1) {
+        this.value = null;
+        this.selected = null;
+      } else {
+        this.value.splice(idx, 1);
+        this.selected.splice(idx, 1);
+        this.onChangeCallback(this.value);
+        this.onChange.emit(this.value);
+      }
     }
   }
 
@@ -313,6 +322,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       if (this.value.length > 1) {
         this.value.pop();
         this.selected.pop();
+        this.onChangeCallback(this.value);
+        this.onChange.emit(this.value);
       } else {
         this.value = null;
         this.selected = null;

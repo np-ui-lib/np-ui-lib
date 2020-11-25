@@ -27,7 +27,7 @@
                 </div>
                 <b>open(content: string | TemplateRef&lt;any&gt; | Type&lt;any&gt;, config: NpModalConfig, data: any):
                     NpModalRef;</b>
-                <p>Here open method has 3 parameters, and this method return the overlay refrence object of class
+                <p>Here open method has 3 parameters, and this method return the overlay reference object of class
                     <b>NpModalRef</b></p>
                 <table class="np-table">
                     <tr>
@@ -40,7 +40,7 @@
                         <td>Pass content of modal
                             <pre><code [innerText]="stringModalText"></code></pre>
                             <pre><code [innerText]="templateModalText"></code></pre>
-                            <pre><code [innerHtml]="componentModalText"></code></pre>
+                            <pre><code [innerHTML]="componentModalText"></code></pre>
                         </td>
                         <td>string | TemplateRef&lt;any&gt; | Type&lt;any&gt;</td>
                     </tr>
@@ -99,7 +99,7 @@
                                     <td>string</td>
                                 </tr>
                             </table>
-                            <pre><code [innerText]="configText"></code></pre>
+                            <pre><code [innerHTML]="configText"></code></pre>
                         </td>
                         <td>NpModalConfig</td>
                     </tr>
@@ -114,21 +114,23 @@
         <np-card>
             <np-card-body>
                 <b>How to subscribe onClose method of modal?</b>
-                <p><b>open</b> method returns overlay refrence object, which has property <b>onClose:
+                <p><b>open</b> method returns overlay reference object, which has property <b>onClose:
                         Subject&lt;any&gt;</b></p>
-                <pre><code [innerText]="subscribeText"></code></pre>
+                <pre><code [innerHTML]="subscribeText"></code></pre>
             </np-card-body>
         </np-card>
         <np-card>
             <np-card-body>
                 <b>How to access data and NpModalRef object in another component?</b>
-                <p>In another component, overlay refrence is injected using injector.</p>
-                <pre><code [innerText]="overlayRefText"></code></pre>
+                <p>In another component, overlay reference is injected using injector.</p>
+                <pre><code [innerHTML]="overlayRefText"></code></pre>
                 <p>Here <b>ref</b> object contains <b>data: any</b> and <b>close(data: any)</b> method. Which will close
                     overlay.</p>
                 <p>Pass response data in close(data: any) method's parameter, which will be accessible where
                     <b>onClose</b> is subscribed.
                 </p>
+                <p>Use overlay reference's <b>close()</b> method to close modal from another component.</p>
+                <pre><code [innerHTML]="closeText"></code></pre>
             </np-card-body>
         </np-card>
     </np-tab>

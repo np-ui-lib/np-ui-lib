@@ -304,6 +304,13 @@
                     [maxResultLimit]="3" [minSearchCharLimit]="3" [maxSelectLimit]="3" (onSearch)="onSearch7($event)">
                 </np-tags>
             </fieldset>
+
+            <fieldset>
+                <legend>onChange</legend>
+                <np-tags [(ngModel)]="tags9" [displayKey]="'name'" [searchResult]="searchResult9"
+                    (onChange)="onChange9($event)">
+                </np-tags>
+            </fieldset>
         </ng-template>
     </np-tab>
 </np-tabs>

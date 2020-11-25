@@ -52,6 +52,7 @@ export class NpTagsDemoComponent implements OnInit {
     { id: 7, name: 'Watermelon', vitamin: ' A, B6 and C' }];
   tags6: any[];
   tags7: any[];
+  tags9: any[];
 
   searchResult1: BehaviorSubject<string[]> = new BehaviorSubject(null);
   searchResult2: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
@@ -61,6 +62,7 @@ export class NpTagsDemoComponent implements OnInit {
   searchResult5: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
   searchResult6: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
   searchResult7: BehaviorSubject<string[]> = new BehaviorSubject(null);
+  searchResult9: BehaviorSubject<string[]> = new BehaviorSubject(this.dataFull);
 
   onSearch1(keyword: string) {
     setTimeout(() => {
@@ -92,6 +94,10 @@ export class NpTagsDemoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onChange9($event) {
+    alert(JSON.stringify($event));
   }
 
 }
