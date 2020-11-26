@@ -155,6 +155,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-calendar-demo/np-calendar-demo.module').then(m => m.NpCalendarDemoModule)
   },
   {
+    path: 'np-checkbox-demo',
+    loadChildren: () => import('./np-checkbox-demo/np-checkbox-demo.module').then(m => m.NpCheckboxDemoModule)
+  },
+  {
     path: '**',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

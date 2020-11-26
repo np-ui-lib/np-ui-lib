@@ -62,6 +62,7 @@
         "Dialog",
         "Steps",
         "Paginator",
-        "Calendar"
+        "Calendar",
+        "Checkbox"
     ]
 }

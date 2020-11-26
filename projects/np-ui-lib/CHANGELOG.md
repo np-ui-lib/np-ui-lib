@@ -15,6 +15,7 @@
 - Resolved time issue when seconds are hidden and padStart 0 for all numbers in time picker component
 - Recreate tags component, check documentation for details
 - Add valueKey proerpty in list component
+- Add new checkbox component
 
 ## 10.5.2
 - Add getCurrentStateName Api to data grid

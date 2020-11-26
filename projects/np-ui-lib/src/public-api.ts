@@ -170,3 +170,8 @@ export * from './lib/np-paginator/np-paginator.component';
 export * from './lib/np-calendar/np-calendar.module';
 export * from './lib/np-calendar/np-calendar.component';
 export * from './lib/np-calendar/np-calendar-event.model';
+
+/*Paginator */
+export * from './lib/np-checkbox/np-checkbox.module';
+export * from './lib/np-checkbox/np-checkbox.component';
+export * from './lib/np-checkbox/np-checkbox-group.component';

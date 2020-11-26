@@ -1,4 +1,4 @@
-<h2> Accordion</h2>
+<h2>Accordion</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -205,7 +205,7 @@
                     </p>
                 </np-accordion-item>
 
-                <np-accordion-item [title]="'Title B'" [isOpen]="false" [iconCss]="'fa fa-home'">
+                <np-accordion-item [title]="'Title B'" [isOpen]="false">
                     <p>
                         Content B
                     </p>
@@ -238,7 +238,8 @@
                     </ng-template>
                 </np-accordion-item>
 
-                <np-accordion-item inputId="item2" [title]="'Paragraph 2'" [disabled]="item2Disabled">
+                <np-accordion-item inputId="item2" [title]="'Paragraph 2'" [disabled]="item2Disabled"
+                    [iconCss]="'fa fa-bars'">
                     <ng-template npAccordionContent>
                         <p>
                             A paragraph 2 is a series of related sentences developing a central idea, called the topic.
@@ -251,7 +252,7 @@
                     </ng-template>
                 </np-accordion-item>
 
-                <np-accordion-item inputId="item3" [title]="'Paragraph 3'" [height]="200">
+                <np-accordion-item inputId="item3" [title]="'Paragraph 3'" [height]="200" [iconCss]="'fa fa-table'">
                     <np-accordion>
                         <np-accordion-item [title]="'Paragraph 3.1'">
                             <p>

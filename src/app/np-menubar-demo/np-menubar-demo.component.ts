@@ -40,10 +40,10 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: 'Menu 1.3', url: '/menu1.3' }),
       ]
     }),
-    new NpMenuItem({ label: 'Menubar router link', routerLink: '/np-menubar-demo' }),
-    new NpMenuItem({ label: 'Menu 3 click' }),
+    new NpMenuItem({ label: 'Menubar router link', iconCss: 'fa fa-bars', routerLink: '/np-menubar-demo' }),
+    new NpMenuItem({ label: 'Menu 3 click', iconCss: 'fa fa-user' }),
     new NpMenuItem({
-      label: 'Menu 4',
+      label: 'Menu 4', iconCss: 'fa fa-clipboard',
       items: [
         new NpMenuItem({
           label: 'Menu 4.1',
@@ -63,8 +63,8 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: 'Menu 4.3', url: '/menu4.3' }),
       ]
     }),
-    new NpMenuItem({ label: 'Data grid', routerLink: '/np-data-grid-demo/data-grid-doc' }),
-    new NpMenuItem({ label: 'Menu 6', url: '/menu6' })
+    new NpMenuItem({ label: 'Data grid', iconCss: 'fa fa-table', routerLink: '/np-data-grid-demo/data-grid-doc' }),
+    new NpMenuItem({ label: 'Menu 6', iconCss: 'fa fa-bluetooth', url: '/menu6' })
   ];
 
   itemsHorizontal: NpMenuItem[] = [

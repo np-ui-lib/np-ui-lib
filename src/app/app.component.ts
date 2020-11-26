@@ -43,6 +43,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-number-box-demo', label: 'Number Box' }),
     new NpMenuItem({ routerLink: '/np-file-upload-demo', label: 'File Upload' }),
     new NpMenuItem({ routerLink: '/np-slider-demo', label: 'Slider' }),
+    new NpMenuItem({ routerLink: '/np-checkbox-demo', label: 'Checkbox' }),
     new NpMenuItem({ isHeader: true, label: 'Menu' }),
     new NpMenuItem({ routerLink: '/np-menubar-demo', label: 'Menubar' }),
     new NpMenuItem({ routerLink: '/np-breadcrumb-demo', label: 'Breadcrumb' }),

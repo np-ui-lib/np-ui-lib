@@ -1,4 +1,4 @@
-<h2>Number Box</h2>
+<h2>Checkbox</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -16,10 +16,15 @@
                 <div>
                     <pre><code [innerText]="htmlText"></code></pre>
                 </div>
+                <b>Checkbox Group</b>
+                <div>
+                    <pre><code [innerText]="groupHtmlText"></code></pre>
+                </div>
             </np-card-body>
         </np-card>
         <np-card>
             <np-card-body>
+                <b>np-checkbox</b>
                 <table class="np-table">
                     <tr>
                         <th>Property</th>
@@ -30,55 +35,19 @@
                     <tr>
                         <td>ngModel</td>
                         <td>Value</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>min</td>
-                        <td>Set minimum limit</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>max</td>
-                        <td>Set maximum limit</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>steps</td>
-                        <td>Set steps</td>
-                        <td>number</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>pattern</td>
-                        <td>Set number pattern as regex string</td>
                         <td>string</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>showControls</td>
-                        <td>Show plus and minus control buttons</td>
+                        <td>label</td>
+                        <td>Set display label</td>
+                        <td>plain text | html string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>indeterminate</td>
+                        <td>Set indeterminate, when any value set to model indeterminate becomes false.</td>
                         <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>prefixLabel</td>
-                        <td>Set prefix string</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>suffixLabel</td>
-                        <td>Set suffix string</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>placeholder</td>
-                        <td>Set placeholder</td>
-                        <td>string</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -124,9 +93,6 @@
                         <td></td>
                     </tr>
                 </table>
-                <np-alert type="info">
-                    There are three control validations for min, max, pattern.
-                </np-alert>
             </np-card-body>
         </np-card>
         <np-card>
@@ -187,73 +153,92 @@
                 </table>
             </np-card-body>
         </np-card>
+        <np-card>
+            <np-card-body>
+                <b>np-checkbox-group</b>
+                <table class="np-table">
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                    </tr>
+                    <tr>
+                        <td>orientation</td>
+                        <td>Set orientation of group as 'horizontal' | 'vertical'</td>
+                        <td>string</td>
+                        <td>horizontal</td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
-            <legend>Number box</legend>
-            <np-number-box [(ngModel)]="number1"></np-number-box>
-            value: {{number1}}
-            <div class="np-btn-group">
-                <button class="np-btn" (click)="setNumber1()">Set 100</button>
-            </div>
+            <legend>Basic + tabIndex</legend>
+            <np-checkbox [(ngModel)]="check1" [tabIndex]="1"></np-checkbox>
+            <div>Value: {{check1 | json}}</div>
         </fieldset>
 
         <fieldset>
-            <legend>Number box with steps</legend>
-            <np-number-box [(ngModel)]="number2" [steps]="0.5"></np-number-box>
+            <legend>disabled</legend>
+            <np-checkbox [(ngModel)]="check2" [disabled]="true"></np-checkbox>
         </fieldset>
 
         <fieldset>
-            <legend>Number box with min as 0 & max as 100</legend>
-            <np-number-box [(ngModel)]="number3" [steps]="5" [min]="0" [max]="100" #number3Control="ngModel">
-            </np-number-box>
-            <div class="np-text-danger" *ngIf="number3Control.errors && number3Control.errors.min">
-                Less then min value.
-            </div>
-            <div class="np-text-danger" *ngIf="number3Control.errors && number3Control.errors.max">
-                More then max value.
-            </div>
-            <div class="np-btn-group">
-                <button class="np-btn" (click)="setNumber3()">Set 101</button>
-            </div>
+            <legend>readOnly</legend>
+            <np-checkbox [(ngModel)]="check3" [readOnly]="true"></np-checkbox>
         </fieldset>
 
         <fieldset>
             <legend>required</legend>
-            <np-number-box [(ngModel)]="number4" required></np-number-box>
+            <np-checkbox [(ngModel)]="check4" required></np-checkbox>
+            <button class="np-btn" (click)="check4 = null">Set null</button>
         </fieldset>
 
         <fieldset>
-            <legend>disabled and readOnly</legend>
-            <np-number-box [(ngModel)]="number5" disabled></np-number-box>
-            <np-number-box [(ngModel)]="number5" [readOnly]="true"></np-number-box>
+            <legend>label</legend>
+            <np-checkbox [label]="'Agree with terms and condition'"></np-checkbox>
         </fieldset>
 
         <fieldset>
-            <legend>pattern</legend>
-            <np-number-box [(ngModel)]="number6" pattern="^(\d{0,5}\.)?\d{0,2}$" placeholder="99999.99"
-                #number6Control="ngModel">
-            </np-number-box>
-            <div class="np-text-danger" *ngIf="number6Control.errors && number6Control.errors.pattern">
-                Invalid number.
-            </div>
-            value: {{number6}}
+            <legend>indeterminate</legend>
+            <np-checkbox [indeterminate]="(fruit1 || fruit2 || fruit3) && !(fruit1 && fruit2 && fruit3)"
+                [(ngModel)]="fruit1 && fruit2 && fruit3" [label]="'All'" (onChange)="onChangeFruit($event)">
+            </np-checkbox>
+            <np-checkbox-group>
+                <np-checkbox [(ngModel)]="fruit1" label="Apple"></np-checkbox>
+                <np-checkbox [(ngModel)]="fruit2" label="Mango"></np-checkbox>
+                <np-checkbox [(ngModel)]="fruit3" label="Banana"></np-checkbox>
+            </np-checkbox-group>
+        </fieldset>
+
+        <fieldset>
+            <legend>styleClass</legend>
+            <np-checkbox [styleClass]="'myClass'"></np-checkbox>
         </fieldset>
 
         <fieldset>
             <legend>onChange</legend>
-            <np-number-box [(ngModel)]="number7" (onChange)="onChangeNumber7($event)"></np-number-box>
+            <np-checkbox (onChange)="_onChange($event)"></np-checkbox>
         </fieldset>
 
         <fieldset>
-            <legend>Set showControls to false, and suffixLabel</legend>
-            <np-number-box [(ngModel)]="number8" [showControls]=false [suffixLabel]="'.00'" pattern="^\d*$">
-            </np-number-box>
+            <legend>Checkbox group horizontal</legend>
+            <np-checkbox-group>
+                <np-checkbox label="Apple"></np-checkbox>
+                <np-checkbox label="Mango"></np-checkbox>
+                <np-checkbox label="Banana"></np-checkbox>
+            </np-checkbox-group>
         </fieldset>
 
         <fieldset>
-            <legend>prefixLabel</legend>
-            <np-number-box [(ngModel)]="number9" [prefixLabel]="'$'"></np-number-box>
+            <legend>Checkbox group vertical</legend>
+            <np-checkbox-group orientation="vertical">
+                <np-checkbox label="Apple"></np-checkbox>
+                <np-checkbox label="Mango"></np-checkbox>
+                <np-checkbox label="Banana"></np-checkbox>
+            </np-checkbox-group>
         </fieldset>
     </np-tab>
 </np-tabs>
