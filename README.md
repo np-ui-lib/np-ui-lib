@@ -23,10 +23,11 @@ npm i np-ui-lib
 1.  Dropdown
 1.  Auto Complete
 1.  Tags
-1.  Number box
+1.  Number Box
 1.  File Upload
 1.  Slider
 1.  Checkbox
+2.  Radio Button
 1.  Menubar
 1.  Breadcrumb
 1.  Data Grid

@@ -63,6 +63,7 @@
         "Steps",
         "Paginator",
         "Calendar",
-        "Checkbox"
+        "Checkbox",
+        "Radio Button"
     ]
 }

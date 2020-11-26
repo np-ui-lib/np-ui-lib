@@ -159,6 +159,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-checkbox-demo/np-checkbox-demo.module').then(m => m.NpCheckboxDemoModule)
   },
   {
+    path: 'np-radio-button-demo',
+    loadChildren: () => import('./np-radio-button-demo/np-radio-button-demo.module').then(m => m.NpRadioButtonDemoModule)
+  },
+  {
     path: '**',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

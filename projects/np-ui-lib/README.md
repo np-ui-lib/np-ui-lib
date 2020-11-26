@@ -27,6 +27,7 @@ npm i np-ui-lib
 1.  File Upload
 1.  Slider
 1.  Checkbox
+1.  Radio Button
 1.  Menubar
 1.  Breadcrumb
 1.  Data Grid

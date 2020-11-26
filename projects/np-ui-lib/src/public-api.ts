@@ -170,7 +170,12 @@ export * from './lib/np-calendar/np-calendar.module';
 export * from './lib/np-calendar/np-calendar.component';
 export * from './lib/np-calendar/np-calendar-event.model';
 
-/*Paginator */
+/*Checkbox */
 export * from './lib/np-checkbox/np-checkbox.module';
 export * from './lib/np-checkbox/np-checkbox.component';
 export * from './lib/np-checkbox/np-checkbox-group.component';
+
+/*Radio button */
+export * from './lib/np-radio-button/np-radio-button.module';
+export * from './lib/np-radio-button/np-radio-button.component';
+export * from './lib/np-radio-button/np-radio-group.component';

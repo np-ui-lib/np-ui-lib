@@ -1,0 +1,17 @@
+<fieldset>
+    <legend>Radio group horizontal</legend>
+    <np-radio-group>
+        <np-radio-button label="Male" value="Male" [(ngModel)]="gender"></np-radio-button>
+        <np-radio-button label="Female" value="Female" [(ngModel)]="gender"></np-radio-button>
+    </np-radio-group>
+    <div>Selected: {{gender}}</div>
+</fieldset>
+
+<fieldset>
+    <legend>Radio group vertical</legend>
+    <np-radio-group orientation="vertical">
+        <np-radio-button label="Male" value="1" [(ngModel)]="gender2"></np-radio-button>
+        <np-radio-button label="Female" value="2" [(ngModel)]="gender2"></np-radio-button>
+    </np-radio-group>
+    <div>Selected: {{gender2}}</div>
+</fieldset>

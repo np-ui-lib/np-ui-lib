@@ -1,17 +1,16 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
-    selector: 'np-checkbox-group',
-    templateUrl: './np-checkbox-group.component.html',
-    styleUrls: ['./np-checkbox.component.css'],
+    selector: 'np-radio-group',
+    templateUrl: './np-radio-group.component.html',
+    styleUrls: ['./np-radio-button.component.css'],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpCheckboxGroupComponent {
+export class NpRadioGroupComponent {
     static controlCount = 1;
 
     // Orientation can be 'horizontal' or 'vertical'
     @Input() orientation = 'horizontal';
-    @Input() inputId = `np-checkbox-group_${NpCheckboxGroupComponent.controlCount++}`;
-
+    @Input() inputId = `np-radio-group_${NpRadioGroupComponent.controlCount++}`;
 }
