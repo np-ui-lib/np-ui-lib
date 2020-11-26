@@ -397,11 +397,11 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     this.openRowKeys.splice(idx, 1);
   }
 
-  _onClickSelectAll(event: any) {
+  _onClickSelectAll(checked: boolean) {
     if (this.singleRowSelectEnable) {
       return;
     }
-    if (event.target.checked) {
+    if (checked) {
       this._selectAll();
     } else {
       this._deselectAll();
@@ -438,38 +438,36 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
   }
 
-  _onClickSelectRow(data: any, event: any) {
+  _onClickSelectRow(checked: boolean, data: any) {
     const keyValue = data[this.keyColumnName];
     if (this.selectRowOnClick === true) {
       return;
     }
-    this._selectRow(keyValue, event);
+    this._selectRow(keyValue, checked);
   }
 
-  _selectRow(keyValue: any, event: any) {
+  _selectRow(keyValue: any, checked: boolean) {
     if (this.singleRowSelectEnable) {
       this.selectedRowKeys = [];
-      if (event.target.checked) {
+      if (checked) {
         this.selectedRowKeys.push(keyValue);
       }
     } else {
-      if (event.target.checked) {
+      if (checked) {
         this.selectedRowKeys.push(keyValue);
       } else {
         const idx = this.selectedRowKeys.indexOf(keyValue);
         this.selectedRowKeys.splice(idx, 1);
       }
     }
-    if (event.target.checked) {
+    if (checked) {
       if (this.onSelect !== undefined) {
-        event.data = keyValue;
-        this.onSelect.emit(event);
+        this.onSelect.emit(keyValue);
       }
     } else {
       this.isAllSelected = false;
       if (this.onDeselect !== undefined) {
-        event.data = keyValue;
-        this.onDeselect.emit(event);
+        this.onDeselect.emit(keyValue);
       }
     }
   }
@@ -497,9 +495,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
     if ((this.singleRowSelectEnable || this.multiRowSelectEnable) && this.selectRowOnClick) {
       if (this._isSelected(data[this.keyColumnName])) {
-        this._selectRow(data[this.keyColumnName], { target: { checked: false } });
+        this._selectRow(data[this.keyColumnName], false);
       } else {
-        this._selectRow(data[this.keyColumnName], { target: { checked: true } });
+        this._selectRow(data[this.keyColumnName], true);
       }
     }
     if (this.onRowClick) {
@@ -508,7 +506,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
   }
 
-  _onColumnChoosing(col: Column) {
+  _onColumnChoosing(checked: boolean, col: Column) {
     col.visible = !col.visible;
     this._setVisibleColumns();
   }
@@ -965,5 +963,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   _trackBy(index: number): number {
     return index;
+  }
+
+  _checkIndeterminate() {
+    return !this.isAllSelected && this.selectedRowKeys && this.selectedRowKeys.length > 0;
   }
 }

@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input } from '@angular/core';
 })
 export class NpAutoFocusDirective {
     @Input('npAutoFocus')
-    set indeterminate(value: boolean) {
+    set autofocus(value: boolean) {
         if (value) {
             setTimeout(() => {
                 this.el.nativeElement.focus();

@@ -39,8 +39,8 @@ export class NpListComponent {
 
   constructor(private utility: NpUtilityService) { }
 
-  _onSelectItem(item: any, event: any) {
-    if (event.target.checked) {
+  _onSelectItem(checked: any, item: any) {
+    if (checked) {
       if (this.valueKey) {
         this.selection.push(item[this.valueKey]);
         this.onSelect.emit(item[this.valueKey]);

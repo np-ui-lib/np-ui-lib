@@ -10,7 +10,12 @@
 .np-treeview-node {
     padding-left: 2rem;
     position: relative;
-    line-height: 2rem;
+}
+
+.np-treeview-label {
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
 }
 
 .np-treeview-expand, .np-treeview-collapse {
@@ -20,23 +25,22 @@
     background-color: transparent;
 }
 
-.np-treeview-checkbox {
-    cursor: pointer;
-    height: 1rem;
-    width: 1rem;
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-.np-treeview-label {
-    padding-left: 5px;
-}
-
 .np-treeview-label:hover {
     background-color: #f5f5f5;
 }
 
 .np-treeview-label i {
     font-size: inherit;
-    padding-right: 5px;
+    padding: 5px;
+}
+
+.np-treeview-checkbox {
+    position: absolute !important;
+    left: 0px;
+    top: 0px;
+}
+
+.np-treeview-selection {
+    padding-left: 2rem;
+    position: relative;
 }

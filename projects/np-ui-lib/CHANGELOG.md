@@ -16,6 +16,7 @@
 - Recreate tags component, check documentation for details
 - Add valueKey proerpty in list component
 - Add new checkbox component
+- Change onSelect and onDeselect parameters in datagrid
 
 ## 10.5.2
 - Add getCurrentStateName Api to data grid

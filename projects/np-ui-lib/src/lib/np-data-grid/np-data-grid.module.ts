@@ -16,6 +16,7 @@ import { NpDatePickerModule } from '../np-date-picker/np-date-picker.module';
 import { NpDialogModule } from '../np-dialog/np-dialog.module';
 import { NpPaginatorModule } from '../np-paginator/np-paginator.module';
 import { NpModalModule } from '../np-modal/np-modal.module';
+import { NpCheckboxModule } from '../np-checkbox/np-checkbox.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NpModalModule } from '../np-modal/np-modal.module';
     NpDatePickerModule,
     NpDialogModule,
     NpModalModule,
-    NpPaginatorModule
+    NpPaginatorModule,
+    NpCheckboxModule
   ],
   exports: [
     NpDataGridComponent

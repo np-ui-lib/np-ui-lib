@@ -5,8 +5,8 @@
             <ng-container *ngFor="let item of items | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
                 <li role="option" class="np-list-item"
                     [ngClass]="{'np-list-selectable': allowSelection, 'np-list-selected': _isSelected(item)}">
-                    <input *ngIf="allowSelection" type="checkbox" class="np-list-checkbox" tabindex="0"
-                        [checked]="_isSelected(item)" (change)="_onSelectItem(item,$event)">
+                    <np-checkbox *ngIf="allowSelection" [ngModel]="_isSelected(item)" styleClass="np-list-checkbox"
+                        (onChange)="_onSelectItem($event,item)"></np-checkbox>
                     <div class="np-list-item-content" (click)="_onClick(item)">
                         <ng-container *ngTemplateOutlet="itemTemplate;context:{ item: item }">
                         </ng-container>
@@ -23,8 +23,8 @@
                     <div class="np-col np-col-{{columnSize}}">
                         <div class="np-tiles-item"
                             [ngClass]="{'np-tiles-selectable': allowSelection, 'np-tile-selected': _isSelected(item)}">
-                            <input *ngIf="allowSelection" type="checkbox" class="np-tiles-checkbox" tabindex="0"
-                                [checked]="_isSelected(item)" (change)="_onSelectItem(item,$event)">
+                            <np-checkbox *ngIf="allowSelection" [ngModel]="_isSelected(item)"
+                                styleClass="np-tiles-checkbox" (onChange)="_onSelectItem($event,item)"></np-checkbox>
                             <div class="np-tiles-item-content" (click)="_onClick(item)">
                                 <ng-container *ngTemplateOutlet="itemTemplate;context:{ item: item }">
                                 </ng-container>

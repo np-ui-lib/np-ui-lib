@@ -7,12 +7,7 @@
 }
 
 .np-list-checkbox {
-    cursor: pointer;
-    height: 1rem;
-    width: 1rem;
-    vertical-align: middle;
-    margin: 0.5rem;
-    position: absolute;
+    position: absolute !important;
     top: 0px;
     left: 0px;
 }
@@ -38,14 +33,9 @@
 }
 
 .np-tiles-checkbox {
-    cursor: pointer;
-    height: 1rem;
-    width: 1rem;
-    vertical-align: middle;
-    margin: 1rem;
-    position: absolute;
-    top: 0px;
-    left: 0px;
+    position: absolute !important;
+    top: 0.5rem;
+    left: 0.5rem;
 }
 
 .np-list-pagination {

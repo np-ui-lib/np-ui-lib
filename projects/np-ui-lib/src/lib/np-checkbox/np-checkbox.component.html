@@ -3,8 +3,8 @@
     <label class="np-checkbox-label">
         <input type="checkbox" #control class="np-checkbox-input" [checked]="innerValue" [disabled]="isDisabled"
             [readonly]="readOnly" [attr.tabindex]="tabIndex" [npAutoFocus]="autoFocus" (change)="_onChange($event)"
-            [indeterminate]="indeterminate"
-            (blur)="_onBlur($event)" (focus)="_onFocus($event)" (keydown)="_onKeyDown($event)">
+            [indeterminate]="indeterminate" (blur)="_onBlur($event)" (focus)="_onFocus($event)"
+            (keydown)="_onKeyDown($event)">
         <span class="np-checkbox-checkmark">
             <svg *ngIf="innerValue" viewBox="0 0 24 24" class="np-checkbox-icon">
                 <path d="M0 0h24v24H0z" fill="none" />

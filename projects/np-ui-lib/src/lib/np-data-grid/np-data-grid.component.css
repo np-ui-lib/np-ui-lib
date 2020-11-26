@@ -157,14 +157,6 @@
     z-index: 3;
 }
 
-.np-grid-checkbox {
-    cursor: pointer;
-    height: 1rem;
-    width: 1rem;
-    vertical-align: middle;
-    margin: 5px;
-}
-
 .np-grid-tbody tr:hover td {
     background-color: #eeeeee;
 }

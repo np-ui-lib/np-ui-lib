@@ -19,10 +19,10 @@
                 </svg>
             </button>
         </ng-container>
-        <div class="np-treeview-label">
-            <input *ngIf="selectionMode" type="checkbox" class="np-treeview-checkbox" tabindex="0"
-                [checked]="_isSelected(item)" [npIndeterminate]="item.partiallySelected"
-                (change)="_changeSelection($event,item)">
+        <div class="np-treeview-label" [ngClass]="{'np-treeview-selection': selectionMode}">
+            <np-checkbox *ngIf="selectionMode" [ngModel]="_isSelected(item)" styleClass="np-treeview-checkbox"
+                [indeterminate]="item.partiallySelected" (onChange)="_changeSelection($event,item)">
+            </np-checkbox>
             <span (click)="_onClick(item)">
                 <ng-container *ngIf="!itemTemplate; else treeViewLabelTemp">
                     <i *ngIf="item.iconCss" [class]="item.iconCss"></i>{{item.label}}

@@ -84,17 +84,17 @@ export class NpTreeViewComponent implements OnChanges {
     this.onClick.emit(item);
   }
 
-  _changeSelection(event: any, item: NpTreeViewItem) {
+  _changeSelection(checked: any, item: NpTreeViewItem) {
     if (!item.id) {
       throw new Error('NpTreeViewItem.id must be defined for selection');
     }
-    if (event.target.checked) {
+    if (checked) {
       this._selectNode(item);
     } else {
       this._deselectNode(item);
     }
     this._syncSelectionForAll();
-    if (event.target.checked) {
+    if (checked) {
       this.onSelect.emit(item);
     } else {
       this.onDeselect.emit(item);
