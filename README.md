@@ -16,6 +16,7 @@ Native Angular UI Components and Design Framework
 npm i np-ui-lib
 ````
 ### List of components:
+1.  Input Text
 1.  Date Picker
 1.  Time Picker
 1.  Color Picker

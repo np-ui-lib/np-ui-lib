@@ -179,3 +179,7 @@ export * from './lib/np-checkbox/np-checkbox-group.component';
 export * from './lib/np-radio-button/np-radio-button.module';
 export * from './lib/np-radio-button/np-radio-button.component';
 export * from './lib/np-radio-button/np-radio-group.component';
+
+/*Input Text */
+export * from './lib/np-input-text/np-input-text.module';
+export * from './lib/np-input-text/np-input-text.component';

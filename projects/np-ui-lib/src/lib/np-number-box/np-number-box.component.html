@@ -1,12 +1,12 @@
 <div [ngClass]="{'np-number-box': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
     [attr.id]="inputId">
     <div class="np-input-group" [ngClass]="{'np-focused': focused}">
-        <label *ngIf="prefixLabel" class="np-number-prefix-label" [innerHTML]="prefixLabel"></label>
+        <label *ngIf="prefixLabel" class="np-prefix-label" [innerHTML]="prefixLabel"></label>
         <input #control class="np-form-control" type="number" autocomplete="off" [npAutoFocus]="autoFocus"
             [attr.tabindex]="tabIndex" [readonly]="readOnly" [value]="innerValue" [placeholder]="placeholder"
             [attr.aria-valumin]="min" [attr.aria-valuemax]="max" [disabled]="isDisabled"
             (change)="_onInputChange($event)" (blur)="_onBlur($event)" (focus)="_onFocus($event)">
-        <label *ngIf="suffixLabel" class="np-number-suffix-label" [innerHTML]="suffixLabel"></label>
+        <label *ngIf="suffixLabel" class="np-prefix-label" [innerHTML]="suffixLabel"></label>
         <div class="np-input-group-append" *ngIf="showControls">
             <button type="button" tabindex="-1" class="np-btn-icon np-number-minus" (mousedown)="_onMouseDownMinus()"
                 (mouseup)="_onMouseUpMinus()" (mouseleave)="_onMouseUpMinus()">

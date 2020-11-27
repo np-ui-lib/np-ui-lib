@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
   menuItems = [
     new NpMenuItem({ routerLink: '/how-to-add', label: 'Get Started' }),
     new NpMenuItem({ isHeader: true, label: 'Input' }),
+    new NpMenuItem({ routerLink: '/np-input-text-demo', label: 'Input Text' }),
     new NpMenuItem({ routerLink: '/np-date-picker-demo', label: 'Date Picker' }),
     new NpMenuItem({ routerLink: '/np-time-picker-demo', label: 'Time Picker' }),
     new NpMenuItem({ routerLink: '/np-color-picker-demo', label: 'Color Picker' }),

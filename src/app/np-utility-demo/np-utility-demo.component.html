@@ -112,34 +112,23 @@
                         <div class="np-col-6">
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">First name:</div>
-                                <div class="np-input-group">
-                                    <input type="text" class="np-form-control" [(ngModel)]="firstName" required
-                                        name="txtFirstName" [npAutoFocus]="true" #txtFirstName="ngModel" tabindex="1">
-                                    <div class="np-input-group-append">
-                                        <i class="np-icon fa fa-user"></i>
-                                    </div>
-                                </div>
+                                <np-input-text [(ngModel)]="firstName" required #txtFirstName="ngModel"
+                                    name="txtFirstName" [tabIndex]="1" [autoFocus]="true"
+                                    [suffixLabel]="'<i class=\'fa fa-user\'></i>'"></np-input-text>
                                 <div class="np-form-text np-text-danger"
                                     *ngIf="txtFirstName.control.touched && txtFirstName.control.errors?.required">First
-                                    name is
-                                    required.
+                                    First name is required.
                                 </div>
                             </div>
                         </div>
                         <div class="np-col-6">
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Last name:</div>
-                                <div class="np-input-group">
-                                    <input type="text" class="np-form-control" [(ngModel)]="lastName" required
-                                        name="txtLastName" #txtLastName="ngModel" tabindex="5">
-                                    <div class="np-input-group-append">
-                                        <i class="np-icon fa fa-lock"></i>
-                                    </div>
-                                </div>
+                                <np-input-text [(ngModel)]="lastName" required #txtLastName="ngModel" name="txtLastName"
+                                    [suffixLabel]="'<i class=\'fa fa-user\'></i>'" [tabIndex]="5"></np-input-text>
                                 <div class="np-form-text np-text-danger"
                                     *ngIf="txtLastName.control.touched && txtLastName.control.errors?.required">Last
-                                    name is
-                                    required.
+                                    Last name is required.
                                 </div>
                             </div>
                         </div>

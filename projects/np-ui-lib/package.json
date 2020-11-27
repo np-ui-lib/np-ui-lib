@@ -64,6 +64,7 @@
         "Paginator",
         "Calendar",
         "Checkbox",
-        "Radio Button"
+        "Radio Button",
+        "Input Text"
     ]
 }

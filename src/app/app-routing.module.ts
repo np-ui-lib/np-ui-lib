@@ -163,6 +163,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-radio-button-demo/np-radio-button-demo.module').then(m => m.NpRadioButtonDemoModule)
   },
   {
+    path: 'np-input-text-demo',
+    loadChildren: () => import('./np-input-text-demo/np-input-text-demo.module').then(m => m.NpInputTextDemoModule)
+  },
+  {
     path: '**',
     redirectTo: 'how-to-add',
     pathMatch: 'full'
