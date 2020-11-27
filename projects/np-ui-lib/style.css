@@ -1282,7 +1282,11 @@ svg {
     padding: 2px;
 }
 
-.np-form-control.ng-touched.ng-invalid, .np-form-control.ng-dirty.ng-invalid, .ng-touched.ng-invalid:not(form) .np-switch, .ng-touched.ng-invalid:not(form) .np-overlay-open, .ng-touched.ng-invalid:not(form) .np-slider-input, .ng-touched.ng-invalid:not(form) .np-input-group, .ng-touched.ng-invalid:not(form) .np-color-picker-input-group, .ng-touched.ng-invalid:not(form) .np-checkbox-checkmark, .ng-dirty.ng-invalid:not(form) .np-switch, .ng-dirty.ng-invalid:not(form) .np-overlay-open, .ng-dirty.ng-invalid:not(form) .np-slider-input, .ng-dirty.ng-invalid:not(form) .np-input-group, .ng-dirty.ng-invalid:not(form) .np-color-picker-input-group, .ng-dirty.ng-invalid:not(form) .np-checkbox-checkmark {
+.np-form-control.ng-touched.ng-invalid, .ng-touched.ng-invalid:not(form) .np-switch, .ng-touched.ng-invalid:not(form) .np-overlay-open, .ng-touched.ng-invalid:not(form) .np-slider-input, .ng-touched.ng-invalid:not(form) .np-input-group, .ng-touched.ng-invalid:not(form) .np-color-picker-input-group, .ng-touched.ng-invalid:not(form) .np-checkbox-checkmark, .ng-touched.ng-invalid:not(form) .np-radio-outer-circle {
+    border: 1px solid #d9534f !important;
+}
+
+.np-form-control.ng-dirty.ng-invalid, .ng-dirty.ng-invalid:not(form) .np-switch, .ng-dirty.ng-invalid:not(form) .np-overlay-open, .ng-dirty.ng-invalid:not(form) .np-slider-input, .ng-dirty.ng-invalid:not(form) .np-input-group, .ng-dirty.ng-invalid:not(form) .np-color-picker-input-group, .ng-dirty.ng-invalid:not(form) .np-checkbox-checkmark, .ng-dirty.ng-invalid:not(form) .np-radio-outer-circle {
     border: 1px solid #d9534f !important;
 }
 

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NpRadioButtonDemoRoutingModule } from './np-radio-button-demo-routing.module';
 import { NpRadioButtonDemoComponent } from './np-radio-button-demo.component';
 import { FormsModule } from '@angular/forms';
-import { NpRadioButtonModule } from 'np-ui-lib';
+import { NpCardModule, NpRadioButtonModule, NpTabsModule } from 'np-ui-lib';
 
 @NgModule({
   declarations: [NpRadioButtonDemoComponent],
@@ -12,7 +12,9 @@ import { NpRadioButtonModule } from 'np-ui-lib';
     CommonModule,
     NpRadioButtonDemoRoutingModule,
     FormsModule,
-    NpRadioButtonModule
+    NpRadioButtonModule,
+    NpTabsModule,
+    NpCardModule
   ]
 })
 export class NpRadioButtonDemoModule { }
