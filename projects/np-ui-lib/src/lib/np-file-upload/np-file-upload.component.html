@@ -9,7 +9,7 @@
                 class="np-file-btn">{{ uploadButtonLabel ? uploadButtonLabel : (multiple ? "Choose Files" : "Choose File")}}</span>
             <span class="np-file-counts" [innerText]="_getFilesCountsText()"></span>
         </label>
-        <div class="np-input-group-append">
+        <div class="np-input-group-append" *ngIf="value && value.length > 0">
             <button type="button" tabindex="-1" class="np-btn-icon np-btn-clear" title="Clear" (click)="_clear()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path

@@ -298,17 +298,6 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     return false;
   }
 
-  _clear() {
-    if (this.isDisabled || this.readOnly) {
-      return;
-    }
-    this.value = null;
-    this.selected = null;
-    if (this.isServerSide) {
-      this.options = null;
-    }
-  }
-
   _onKeydown(event: KeyboardEvent) {
     if (event.key === 'Tab' || event.key === 'Escape') {
       this._close();

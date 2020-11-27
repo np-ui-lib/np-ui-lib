@@ -152,14 +152,6 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
     this.inputViewChild.nativeElement.focus();
   }
 
-  _clear() {
-    if (this.isDisabled || this.readOnly) {
-      return;
-    }
-    this.value = null;
-    this.options = null;
-  }
-
   _onInput($event: any) {
     if (this.isDisabled || this.readOnly) {
       return;

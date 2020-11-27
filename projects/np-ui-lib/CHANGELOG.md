@@ -17,6 +17,8 @@
 - Add valueKey proerpty in list component
 - Add new checkbox component
 - Change onSelect and onDeselect parameters in datagrid
+- Add new radio button component
+- Remove clear button from datepicker, timepicker, colorpicker, autocomplete, tags
 
 ## 10.5.2
 - Add getCurrentStateName Api to data grid
