@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NpTagsDemoComponent } from './np-tags-demo.component';
 
-
 const routes: Routes = [
   {
     path: '',

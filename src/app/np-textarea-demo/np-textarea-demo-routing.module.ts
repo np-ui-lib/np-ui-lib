@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NpTimePickerDemoComponent } from './np-time-picker-demo.component';
+import { NpTextareaDemoComponent } from './np-textarea-demo.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: NpTimePickerDemoComponent
+    component: NpTextareaDemoComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class NpTimePickerDemoRoutingModule { }
+export class NpTextareaDemoRoutingModule { }

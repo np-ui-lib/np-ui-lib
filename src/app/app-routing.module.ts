@@ -167,6 +167,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-input-text-demo/np-input-text-demo.module').then(m => m.NpInputTextDemoModule)
   },
   {
+    path: 'np-textarea-demo',
+    loadChildren: () => import('./np-textarea-demo/np-textarea-demo.module').then(m => m.NpTextareaDemoModule)
+  },
+  {
     path: '**',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

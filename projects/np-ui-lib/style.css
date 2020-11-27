@@ -672,6 +672,19 @@ svg {
     height: 2rem;
 }
 
+.np-textarea {
+    display: inline-block;
+}
+
+.np-textarea-control {
+    display: block;
+    padding: 5px;
+    margin: 0px;
+    background-color: #ffffff;
+    border: 1px solid #9e9e9e;
+    border-radius: 2px;
+}
+
 @media (max-width:767px) {
     .np-hidden-sm {
         display: none!important
@@ -1282,11 +1295,11 @@ svg {
     padding: 2px;
 }
 
-.np-form-control.ng-touched.ng-invalid, .ng-touched.ng-invalid:not(form) .np-switch, .ng-touched.ng-invalid:not(form) .np-overlay-open, .ng-touched.ng-invalid:not(form) .np-slider-input, .ng-touched.ng-invalid:not(form) .np-input-group, .ng-touched.ng-invalid:not(form) .np-color-picker-input-group, .ng-touched.ng-invalid:not(form) .np-checkbox-checkmark, .ng-touched.ng-invalid:not(form) .np-radio-outer-circle {
+.np-form-control.ng-touched.ng-invalid, .ng-touched.ng-invalid:not(form) .np-switch, .ng-touched.ng-invalid:not(form) .np-overlay-open, .ng-touched.ng-invalid:not(form) .np-slider-input, .ng-touched.ng-invalid:not(form) .np-input-group, .ng-touched.ng-invalid:not(form) .np-color-picker-input-group, .ng-touched.ng-invalid:not(form) .np-checkbox-checkmark, .ng-touched.ng-invalid:not(form) .np-radio-outer-circle, .ng-touched.ng-invalid:not(form) .np-textarea-control {
     border: 1px solid #d9534f !important;
 }
 
-.np-form-control.ng-dirty.ng-invalid, .ng-dirty.ng-invalid:not(form) .np-switch, .ng-dirty.ng-invalid:not(form) .np-overlay-open, .ng-dirty.ng-invalid:not(form) .np-slider-input, .ng-dirty.ng-invalid:not(form) .np-input-group, .ng-dirty.ng-invalid:not(form) .np-color-picker-input-group, .ng-dirty.ng-invalid:not(form) .np-checkbox-checkmark, .ng-dirty.ng-invalid:not(form) .np-radio-outer-circle {
+.np-form-control.ng-dirty.ng-invalid, .ng-dirty.ng-invalid:not(form) .np-switch, .ng-dirty.ng-invalid:not(form) .np-overlay-open, .ng-dirty.ng-invalid:not(form) .np-slider-input, .ng-dirty.ng-invalid:not(form) .np-input-group, .ng-dirty.ng-invalid:not(form) .np-color-picker-input-group, .ng-dirty.ng-invalid:not(form) .np-checkbox-checkmark, .ng-dirty.ng-invalid:not(form) .np-radio-outer-circle, .ng-dirty.ng-invalid:not(form) .np-textarea-control {
     border: 1px solid #d9534f !important;
 }
 

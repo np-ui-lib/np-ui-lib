@@ -65,6 +65,7 @@
         "Calendar",
         "Checkbox",
         "Radio Button",
-        "Input Text"
+        "Input Text",
+        "Textarea"
     ]
 }

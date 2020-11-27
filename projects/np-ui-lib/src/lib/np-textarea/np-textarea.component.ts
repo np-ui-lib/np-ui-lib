@@ -2,37 +2,36 @@ import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, forwardRe
 import { ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
 
 @Component({
-  selector: 'np-input-text',
-  templateUrl: './np-input-text.component.html',
+  selector: 'np-textarea',
+  templateUrl: './np-textarea.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => NpInputTextComponent),
+      useExisting: forwardRef(() => NpTextareaComponent),
       multi: true
     },
     {
       provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => NpInputTextComponent),
+      useExisting: forwardRef(() => NpTextareaComponent),
       multi: true,
     }
   ]
 })
-export class NpInputTextComponent implements ControlValueAccessor, Validator {
+export class NpTextareaComponent implements ControlValueAccessor, Validator {
   static controlCount = 1;
 
+  @Input() rows: number;
+  @Input() cols: number;
   @Input() minLength: number;
   @Input() maxLength: number;
-  @Input() pattern: string;
-  @Input() prefixLabel: string;
-  @Input() suffixLabel: string;
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-input-text_${NpInputTextComponent.controlCount++}`;
+  @Input() inputId = `np-textarea_${NpTextareaComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
@@ -94,16 +93,6 @@ export class NpInputTextComponent implements ControlValueAccessor, Validator {
           valid: false,
         },
       };
-    }
-    if (this.pattern) {
-      const regex = new RegExp(this.pattern);
-      if (this.value && !regex.test(this.value.toString())) {
-        return {
-          pattern: {
-            valid: false,
-          },
-        };
-      }
     }
   }
 

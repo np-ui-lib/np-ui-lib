@@ -20,6 +20,7 @@
 - Add new radio button component
 - Remove clear button from datepicker, timepicker, colorpicker, autocomplete, tags
 - Add new input text component
+- Add new textarea component
 
 ## 10.5.2
 - Add getCurrentStateName Api to data grid

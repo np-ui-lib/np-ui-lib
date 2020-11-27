@@ -183,3 +183,7 @@ export * from './lib/np-radio-button/np-radio-group.component';
 /*Input Text */
 export * from './lib/np-input-text/np-input-text.module';
 export * from './lib/np-input-text/np-input-text.component';
+
+/*Input Text */
+export * from './lib/np-textarea/np-textarea.module';
+export * from './lib/np-textarea/np-textarea.component';
