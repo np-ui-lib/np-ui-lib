@@ -154,6 +154,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _onInput($event: any) {
+    if (!$event.target.value) {
+      return;
+    }
     this.displayValue = $event.target.value.trim();
     if (this.isDisabled || this.readOnly || !this.isServerSide) {
       return;
@@ -167,8 +170,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     if (this.searchTimeout) {
       clearTimeout(this.searchTimeout);
     }
+    const searchKeyword = this.displayValue;
     this.searchTimeout = setTimeout(() => {
-      this.onSearch.emit(this.displayValue);
+      this.onSearch.emit(searchKeyword);
     }, this.searchDelay);
   }
 
@@ -205,9 +209,6 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     if (this.maxSelectLimit > 0 && this.value && this.value.length === this.maxSelectLimit) {
       return;
     }
-    if (this._isAlreadyCreated()) {
-      return;
-    }
     if (this.options === undefined || this.options === null) {
       this.options = [];
     }
@@ -227,49 +228,16 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     this.displayValue = null;
   }
 
-  _isAlreadyCreated() {
-    if (!this.innerValue) {
-      return false;
-    }
-    if (this.displayKey) {
-      const tag = {};
-      tag[this.displayKey] = this.displayValue;
-      const idx = this.innerValue.findIndex((element) => {
-        if (this.utility.isEqual(element, tag)) {
-          return tag;
-        }
-      });
-      if (idx > -1) {
-        return true;
-      }
-    } else {
-      const idx = this.innerValue.indexOf(this.displayValue);
-      if (idx > -1) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   _getValueFromTag(val: any) {
     return this.displayKey ? val[this.displayKey] : val;
   }
 
   _removeTag(tag: any) {
-    let idx = null;
-    if (this.valueKey) {
-      idx = this.value.findIndex((element) => {
-        if (element === tag[this.valueKey]) {
-          return tag;
-        }
-      });
-    } else {
-      idx = this.value.findIndex((element) => {
-        if (this.utility.isEqual(element, tag)) {
-          return tag;
-        }
-      });
-    }
+    const idx = this.selected.findIndex((element) => {
+      if (this.utility.isEqual(element, tag)) {
+        return tag;
+      }
+    });
     if (idx > -1) {
       if (this.value.length === 1) {
         this.value = null;

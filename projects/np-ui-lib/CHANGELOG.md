@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 10.6.1
+- Resolved issue in object compare utility for tags and dropdown
+
 ## 10.6.0
 - Add tiles view in list component
 - Add paginator component in list component and add related properties, methods and apis

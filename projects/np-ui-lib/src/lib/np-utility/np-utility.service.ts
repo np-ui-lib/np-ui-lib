@@ -2,37 +2,21 @@ import { Injectable } from '@angular/core';
 import { ConnectedPosition } from '@angular/cdk/overlay';
 @Injectable()
 export class NpUtilityService {
-    isEqual(value: any, other: any) {
-        const type = Object.prototype.toString.call(value);
-        if (type !== Object.prototype.toString.call(other)) { return false; }
-        if (['[object Array]', '[object Object]'].indexOf(type) < 0) { return false; }
-        const valueLen = type === '[object Array]' ? value.length : Object.keys(value).length;
-        const otherLen = type === '[object Array]' ? other.length : Object.keys(other).length;
-        if (valueLen !== otherLen) { return false; }
-        const compare = (item1: any, item2: any) => {
-            const itemType = Object.prototype.toString.call(item1);
-            if (['[object Array]', '[object Object]'].indexOf(itemType) >= 0) {
-                if (!this.isEqual(item1, item2)) { return false; }
-            }
-            else {
-                if (itemType !== Object.prototype.toString.call(item2)) { return false; }
-                if (itemType === '[object Function]') {
-                    if (item1.toString() !== item2.toString()) { return false; }
-                } else {
-                    if (item1 !== item2) { return false; }
-                }
-            }
-        };
-        if (type === '[object Array]') {
-            for (let i = 0; i < valueLen; i++) {
-                if (compare(value[i], other[i]) === false) { return false; }
-            }
-        } else {
-            for (const key in value) {
-                if (value.hasOwnProperty(key)) {
-                    if (compare(value[key], other[key]) === false) { return false; }
-                }
-            }
+    isEqual(x: any, y: any) {
+        if (x === y) { return true; }
+        if (!(x instanceof Object) || !(y instanceof Object)) { return false; }
+        if (x.constructor !== y.constructor) { return false; }
+
+        for (const p in x) {
+            if (!x.hasOwnProperty(p)) { continue; }
+            if (!y.hasOwnProperty(p)) { return false; }
+            if (x[p] === y[p]) { continue; }
+            if (typeof (x[p]) !== 'object') { return false; }
+            if (!this.isEqual(x[p], y[p])) { return false; }
+        }
+
+        for (const p in y) {
+            if (y.hasOwnProperty(p) && !x.hasOwnProperty(p)) { return false; }
         }
         return true;
     }
