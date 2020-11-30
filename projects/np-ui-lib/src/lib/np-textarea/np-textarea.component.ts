@@ -24,6 +24,7 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
 
   @Input() rows: number;
   @Input() cols: number;
+  @Input() resize = true;
   @Input() minLength: number;
   @Input() maxLength: number;
   @Input() placeholder = '';

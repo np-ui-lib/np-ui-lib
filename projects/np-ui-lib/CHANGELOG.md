@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 10.6.2
+- Add resize property to textarea
+
 ## 10.6.1
 - Resolved issue in object compare utility for tags and dropdown
 

@@ -20,7 +20,6 @@
         </np-card>
         <np-card>
             <np-card-body>
-                <b>np-radio-button</b>
                 <table class="np-table">
                     <tr>
                         <th>Property</th>
@@ -45,6 +44,12 @@
                         <td>Set cols attribute</td>
                         <td>number</td>
                         <td></td>
+                    </tr>
+                    <tr>
+                        <td>resize</td>
+                        <td>Set resize attribute</td>
+                        <td>boolean</td>
+                        <td>true</td>
                     </tr>
                     <tr>
                         <td>minLength</td>
@@ -204,8 +209,8 @@
             </fieldset>
 
             <fieldset>
-                <legend>placeholder</legend>
-                <np-textarea [placeholder]="'Enter your name'"></np-textarea>
+                <legend>placeholder and no resize</legend>
+                <np-textarea [placeholder]="'Enter your address'" [resize]="false"></np-textarea>
             </fieldset>
 
             <fieldset>

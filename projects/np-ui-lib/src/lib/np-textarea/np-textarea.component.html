@@ -2,7 +2,7 @@
     [class]="styleClass" [attr.id]="inputId">
     <textarea #control class="np-textarea-control" [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex"
         [readonly]="readOnly" [value]="innerValue || ''" [placeholder]="placeholder" [attr.minlength]="minLength"
-        [attr.rows]="rows" [attr.cols]="cols" [attr.maxlength]="maxLength" [disabled]="isDisabled"
-        (blur)="_onBlur($event)" (focus)="_onFocus($event)" (change)="_onInputChange($event)">
+        [attr.rows]="rows" [attr.cols]="cols" [style.resize]="resize ? 'both' : 'none'" [attr.maxlength]="maxLength"
+        [disabled]="isDisabled" (blur)="_onBlur($event)" (focus)="_onFocus($event)" (change)="_onInputChange($event)">
         </textarea>
 </div>
