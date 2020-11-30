@@ -26,4 +26,12 @@ export class NpStepsComponent extends CdkStepper {
   _isTemplate(step: NpStepComponent) {
     return step.labelTemplate instanceof TemplateRef;
   }
+
+  _getTitleId(step: any) {
+    return step.inputId + '_title';
+  }
+
+  _getBodyId(step: any) {
+    return step.inputId + '_body';
+  }
 }

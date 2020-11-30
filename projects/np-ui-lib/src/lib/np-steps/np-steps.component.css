@@ -31,8 +31,9 @@
     min-width: 70px;
     cursor: pointer;
     z-index: 1;
-    background-color: #f5f5f5;
     font-weight: bold;
+    border: none;
+    background-color: #f5f5f5;
 }
 
 .np-step-title:hover {
@@ -75,6 +76,7 @@
     margin-right: 10px;
     border: none;
     color: #ffffff;
+    padding: 5px;
 }
 
 .np-step-done .np-step-number {

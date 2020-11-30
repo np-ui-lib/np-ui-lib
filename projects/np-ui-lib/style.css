@@ -1351,7 +1351,7 @@ h6 {
     margin: 0 !important;
 }
 
-.np-color-hex-input:focus, .np-color-r-input:focus, .np-color-g-input:focus, .np-color-b-input:focus, .np-btn:focus, .np-btn-icon:focus, .np-tab-title:focus, .np-step-title:focus, .np-form-control:focus, .np-input-group:focus-within, .np-time-picker-select:focus, .np-menu-link:focus, .np-focused {
+.np-color-hex-input:focus, .np-color-r-input:focus, .np-color-g-input:focus, .np-color-b-input:focus, .np-btn:focus, .np-btn-icon:focus, .np-tab-title:focus, .np-step-title:focus, .np-form-control:focus, .np-input-group:focus-within, .np-time-picker-select:focus, .np-menu-link:focus, .np-focused, .np-accordion-title:focus, .np-panel-title:focus {
     box-shadow: 0 0 0 0.2rem #a6d5fa;
     z-index: 5;
     border-radius: 2px;

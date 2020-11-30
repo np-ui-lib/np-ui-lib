@@ -1,12 +1,14 @@
 <div [ngClass]="{'np-panel': true, 'np-panel-zoom': isZoom, 'np-disabled': disabled}" [style.max-height.px]="height"
     [class]="styleClass" [attr.id]="inputId">
     <div class="np-panel-header">
-        <a class="np-panel-title" [attr.id]="_getTitleId()">
+        <button class="np-panel-title" [attr.tabindex]="disabled || !allowToMinimize ? '-1' : '0'" [attr.id]="_getTitleId()"
+            (click)="_toggle()" [attr.aria-controls]="_getBodyId()" [attr.aria-expanded]="isOpen"
+            [attr.aria-disabled]="disabled">
             <i *ngIf="iconCss" [class]="iconCss"></i>
             <span *ngIf="!isTitleTemplate" [innerHTML]="title"></span>
             <ng-template *ngIf="isTitleTemplate" [ngTemplateOutlet]="title">
             </ng-template>
-        </a>
+        </button>
         <div class="np-panel-icons">
             <button [attr.tabindex]="disabled ? '-1' : '0'" *ngIf="allowToMinimize && !isZoom" type="button"
                 class="np-btn-icon" [ngClass]="{'np-panel-expand': !isOpen, 'np-panel-collapse': isOpen}"
@@ -45,7 +47,8 @@
             </button>
         </div>
     </div>
-    <div class="np-panel-body" *ngIf="isOpen" role="region" [attr.aria-labelledby]="_getTitleId()">
+    <div class="np-panel-body" *ngIf="isOpen" role="region" [attr.aria-labelledby]="_getTitleId()"
+        [attr.id]="_getBodyId()">
         <ng-content></ng-content>
         <ng-template [cdkPortalOutlet]="content"></ng-template>
     </div>

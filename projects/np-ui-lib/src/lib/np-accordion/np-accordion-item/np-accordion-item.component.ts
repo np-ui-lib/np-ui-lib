@@ -87,4 +87,8 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
     return this.inputId + '_title';
   }
 
+  _getBodyId() {
+    return this.inputId + '_body';
+  }
+
 }

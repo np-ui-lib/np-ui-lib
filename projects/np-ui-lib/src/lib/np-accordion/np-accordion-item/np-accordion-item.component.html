@@ -1,12 +1,14 @@
 <div [ngClass]="{'np-accordion-item': true, 'np-disabled': disabled}" [style.max-height.px]="height"
     [class]="styleClass" [attr.id]="inputId">
     <div class="np-accordion-header">
-        <a role="tab" class="np-accordion-title" (click)="_toggle()" [attr.id]="_getTitleId()">
+        <button class="np-accordion-title" (click)="_toggle()" [attr.id]="_getTitleId()"
+            [attr.tabindex]="disabled ? '-1' : '0'" [attr.aria-expanded]="isOpen" [attr.aria-controls]="_getBodyId() "
+            [attr.aria-disabled]="disabled">
             <i *ngIf="iconCss" [class]="iconCss"></i>
             <span *ngIf="!isTitleTemplate" [innerHTML]="title"></span>
             <ng-template *ngIf="isTitleTemplate" [ngTemplateOutlet]="title">
             </ng-template>
-        </a>
+        </button>
         <div class="np-accordion-icons">
             <button [attr.tabindex]="disabled ? '-1' : '0'" type="button" class="np-btn-icon"
                 [ngClass]="{'np-accordion-expand': !isOpen, 'np-accordion-collapse': isOpen}"
@@ -23,7 +25,8 @@
         </div>
     </div>
 
-    <div class="np-accordion-body" *ngIf="isOpen" role="region" [attr.aria-labelledby]="_getTitleId()">
+    <div class="np-accordion-body" *ngIf="isOpen" role="region" [attr.id]="_getBodyId()"
+        [attr.aria-labelledby]="_getTitleId()">
         <ng-content></ng-content>
         <ng-template [cdkPortalOutlet]="content"></ng-template>
     </div>

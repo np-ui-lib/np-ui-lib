@@ -55,7 +55,7 @@ export class NpPanelComponent implements OnInit, OnDestroy {
   }
 
   _toggle() {
-    if (this.disabled) {
+    if (this.disabled || !this.allowToMinimize || this.isZoom) {
       return;
     }
     if (this.isOpen) {
@@ -99,5 +99,9 @@ export class NpPanelComponent implements OnInit, OnDestroy {
 
   _getTitleId() {
     return this.inputId + '_title';
+  }
+
+  _getBodyId() {
+    return this.inputId + '_body';
   }
 }

@@ -82,7 +82,11 @@ export class NpTabsComponent implements AfterContentInit {
     return this.selected;
   }
 
-  _getHeaderId(tab: NpTabComponent) {
+  _getTitleId(tab: NpTabComponent) {
     return tab.inputId + '_title';
+  }
+
+  _getBodyId(tab: NpTabComponent) {
+    return tab.inputId + '_body';
   }
 }
