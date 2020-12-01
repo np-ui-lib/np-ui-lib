@@ -11,6 +11,7 @@ import { NpModalRef } from '../np-modal/np-modal-ref';
 export class NpDialogComponent implements OnInit {
   static controlCount = 1;
 
+  title: string;
   value: string;
   type: string;
   message: string;
@@ -21,6 +22,7 @@ export class NpDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.type = this.modalRef.data ? this.modalRef.data.type : 'alert';
+    this.title = this.type === 'alert' ? 'Alert' : this.type === 'confirm' ? 'Confirm' : 'Prompt';
     this.message = this.modalRef.data ? this.modalRef.data.message : '';
     if (this.modalRef.config.inputId) {
       this.inputId = this.modalRef.config.inputId;

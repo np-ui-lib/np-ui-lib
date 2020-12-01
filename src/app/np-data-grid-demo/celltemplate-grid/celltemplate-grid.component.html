@@ -23,8 +23,8 @@
 <!-- Template for action buttons column -->
 <ng-template #actionButtonsTemplate let-row="row">
     <div class="np-btn-group">
-        <button class="np-btn" (click)="onActionClick(row,'Edit', $event)">Edit</button>
-        <button class="np-btn" (click)="onActionClick(row,'Delete', $event)">Delete</button>
+        <button class="np-btn np-btn-primary" (click)="onActionClick(row,'Edit', $event)">Edit</button>
+        <button class="np-btn np-btn-danger" (click)="onActionClick(row,'Delete', $event)">Delete</button>
     </div>
 </ng-template>
 
@@ -35,7 +35,8 @@
 
 <!-- Template for active column -->
 <ng-template #activeColumnTemplate let-row="row">
-    <np-switch [(ngModel)]="row.Active" trueLabelText="Yes" falseLabelText="No" [readOnly]="true"></np-switch>
+    <span class="np-badge np-badge-success" *ngIf="row.Active">true</span>
+    <span class="np-badge np-badge-danger" *ngIf="!row.Active">false</span>
 </ng-template>
 
 <!-- Template for avatar column -->

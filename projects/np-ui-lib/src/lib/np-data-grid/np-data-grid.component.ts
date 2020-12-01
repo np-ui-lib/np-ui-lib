@@ -494,7 +494,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       }
     }
     if ((this.singleRowSelectEnable || this.multiRowSelectEnable) && this.selectRowOnClick) {
-      if (this._isSelected(data[this.keyColumnName])) {
+      if (this._isSelected(data)) {
         this._selectRow(data[this.keyColumnName], false);
       } else {
         this._selectRow(data[this.keyColumnName], true);
@@ -507,7 +507,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _onColumnChoosing(checked: boolean, col: Column) {
-    col.visible = !col.visible;
+    col.visible = checked;
     this._setVisibleColumns();
   }
 
@@ -967,5 +967,11 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   _checkIndeterminate() {
     return !this.isAllSelected && this.selectedRowKeys && this.selectedRowKeys.length > 0;
+  }
+
+  _onClickCheckbox($event) {
+    if (this.selectRowOnClick) {
+      $event.preventDefault();
+    }
   }
 }

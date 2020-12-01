@@ -23,3 +23,8 @@
 .np-dialog-message {
     padding-bottom: 10px;
 }
+
+.np-dialog-title {
+    font-weight: bold;
+    padding: 5px 0px;
+}

@@ -28,7 +28,6 @@ export class RowSelectGridComponent implements OnInit {
       new Column({ dataField: 'Active', visible: true, caption: 'Is Active?', dataType: DataTypes.Boolean })];
 
     this.dataService.getAll().subscribe((data: any) => {
-
       const dataSource = new DataSource(data, 0, { totalCount: 10000 });
       this.gridDataSource.next(dataSource);
     });

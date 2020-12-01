@@ -116,7 +116,7 @@
                                     name="txtFirstName" [tabIndex]="1" [autoFocus]="true"
                                     [suffixLabel]="'<i class=\'fa fa-user\'></i>'"></np-input-text>
                                 <div class="np-form-text np-text-danger"
-                                    *ngIf="txtFirstName.control.touched && txtFirstName.control.errors?.required">First
+                                    *ngIf="txtFirstName.control.touched && txtFirstName.control.errors?.required">
                                     First name is required.
                                 </div>
                             </div>
@@ -125,9 +125,9 @@
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Last name:</div>
                                 <np-input-text [(ngModel)]="lastName" required #txtLastName="ngModel" name="txtLastName"
-                                    [suffixLabel]="'<i class=\'fa fa-user\'></i>'" [tabIndex]="5"></np-input-text>
+                                    [suffixLabel]="'<i class=\'fa fa-user\'></i>'" [tabIndex]="2"></np-input-text>
                                 <div class="np-form-text np-text-danger"
-                                    *ngIf="txtLastName.control.touched && txtLastName.control.errors?.required">Last
+                                    *ngIf="txtLastName.control.touched && txtLastName.control.errors?.required">
                                     Last name is required.
                                 </div>
                             </div>
@@ -138,12 +138,11 @@
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Birth date:</div>
                                 <np-date-picker [(ngModel)]="birthDate" name="txtBirthDate" required
-                                    #txtBirthDate="ngModel" [tabIndex]="2">
+                                    #txtBirthDate="ngModel" [tabIndex]="3">
                                 </np-date-picker>
                                 <div class="np-form-text np-text-danger"
-                                    *ngIf="txtBirthDate.control.touched && txtBirthDate.control.errors?.required">Birth
-                                    date is
-                                    required.
+                                    *ngIf="txtBirthDate.control.touched && txtBirthDate.control.errors?.required">
+                                    Birth date is required.
                                 </div>
                             </div>
                         </div>
@@ -151,11 +150,10 @@
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Birth time:</div>
                                 <np-time-picker [(ngModel)]="birthTime" name="birthTime" [required]="true"
-                                    #txtbirthTime="ngModel" [tabIndex]="6"></np-time-picker>
+                                    #txtbirthTime="ngModel" [tabIndex]="4"></np-time-picker>
                                 <div class="np-form-text np-text-danger"
-                                    *ngIf="txtbirthTime.control.touched && txtbirthTime.control.errors?.required">Birth
-                                    time is
-                                    required.
+                                    *ngIf="txtbirthTime.control.touched && txtbirthTime.control.errors?.required">
+                                    Birth time is required.
                                 </div>
                             </div>
                         </div>
@@ -164,7 +162,7 @@
                         <div class="np-col-6">
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Is Active:</div>
-                                <np-switch [(ngModel)]="isActive" name="swIsActive" [required]="true" [tabIndex]="3">
+                                <np-switch [(ngModel)]="isActive" name="swIsActive" [required]="true" [tabIndex]="5">
                                 </np-switch>
                             </div>
                         </div>
@@ -172,11 +170,11 @@
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Upload Photo:</div>
                                 <np-file-upload [(ngModel)]="photo" name="photo" [required]="true" #fpPhoto="ngModel"
-                                    [tabIndex]="7">
+                                    [tabIndex]="6">
                                 </np-file-upload>
                                 <div class="np-form-text np-text-danger"
-                                    *ngIf="fpPhoto.control.touched && fpPhoto.control.errors?.required">Photo is
-                                    required.
+                                    *ngIf="fpPhoto.control.touched && fpPhoto.control.errors?.required">
+                                    Photo is required.
                                 </div>
                             </div>
                         </div>
@@ -185,8 +183,12 @@
                         <div class="np-col-12">
                             <div class="np-form-group">
                                 <div class="np-form-label">Description:</div>
-                                <textarea class="np-form-control" rows="4" [(ngModel)]="description"
-                                    name="txtDescription" tabindex="4"></textarea>
+                                <np-textarea rows="4" cols="50" [(ngModel)]="description" [tabIndex]="7" name="description"
+                                    [required]="true" #txtDescription="ngModel"></np-textarea>
+                                <div class="np-form-text np-text-danger"
+                                    *ngIf="txtDescription.control.touched && txtDescription.control.errors?.required">
+                                    Description is required.
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -83,8 +83,8 @@
                         <th *ngIf="enableMasterChild"></th>
                         <th *ngIf="_allowRowSelection()">
                             <np-checkbox *ngIf="multiRowSelectEnable" [(ngModel)]="isAllSelected"
-                                [indeterminate]="_checkIndeterminate()"
-                                (onChange)="_onClickSelectAll($event)"></np-checkbox>
+                                [indeterminate]="_checkIndeterminate()" (onChange)="_onClickSelectAll($event)">
+                            </np-checkbox>
                         </th>
                         <th *ngFor="let column of visibleColumns; let k = index; trackBy: _trackBy;"
                             [ngClass]="{'np-grid-sticky-left': column.stickyColumnLeft, 'np-grid-sticky-right': column.stickyColumnRight}">
@@ -183,7 +183,7 @@
                                 </ng-template>
                             </td>
                             <td *ngIf="_allowRowSelection()">
-                                <np-checkbox [ngModel]="_isSelected(data)" (onChange)="_onClickSelectRow($event,data)">
+                                <np-checkbox [ngModel]="_isSelected(data)" (onChange)="_onClickSelectRow($event,data)" (click)="_onClickCheckbox($event)">
                                 </np-checkbox>
                             </td>
                             <td *ngFor="let column of visibleColumns; let j = index; trackBy: _trackBy;"
@@ -271,7 +271,7 @@
             <div *ngFor="let column of columnsClone | searchColumnsPipe : searchColumnsKeyword; trackBy: _trackBy;"
                 class="np-grid-columns-item" cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".np-grid-columns">
                 <label>
-                    <np-checkbox [(ngModel)]="column.visible" label="column.caption"
+                    <np-checkbox [(ngModel)]="column.visible" [label]="column.caption"
                         (onChange)="_onColumnChoosing($event,column)"></np-checkbox>
                 </label>
                 <div cdkDragHandle class="np-grid-drag-handle" *ngIf="allowColumnReorder">
