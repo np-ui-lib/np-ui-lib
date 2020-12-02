@@ -183,7 +183,8 @@
                                 </ng-template>
                             </td>
                             <td *ngIf="_allowRowSelection()">
-                                <np-checkbox [ngModel]="_isSelected(data)" (onChange)="_onClickSelectRow($event,data)" (click)="_onClickCheckbox($event)">
+                                <np-checkbox [ngModel]="_isSelected(data)" (onChange)="_onClickSelectRow($event,data)"
+                                    (click)="_onClickCheckbox($event)">
                                 </np-checkbox>
                             </td>
                             <td *ngFor="let column of visibleColumns; let j = index; trackBy: _trackBy;"

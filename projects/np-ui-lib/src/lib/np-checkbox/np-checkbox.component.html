@@ -1,4 +1,4 @@
-<div role="checkbox" aria-checked="innerValue"
+<div role="checkbox" [attr.aria-checked]="indeterminate ? 'mixed' : innerValue"
     [ngClass]="{'np-checkbox': true, 'np-disabled': isDisabled , 'np-readonly': readOnly, 'np-focused': focused}"
     [class]="styleClass" [attr.id]="inputId">
     <label class="np-checkbox-label">

@@ -1,4 +1,5 @@
-<div [ngClass]="'np-carousel'" [class]="styleClass" [attr.id]="inputId">
+<div role="region" [attr.aria-live]="isPolite ? 'polite' : 'off'" [ngClass]="'np-carousel'" [class]="styleClass"
+    [attr.id]="inputId">
     <div class="np-carousel-container">
         <button *ngIf="showNavigationArrows" type="button" title="Previous" tabindex="0"
             class="np-btn-icon np-carousel-prev" (click)="_minusSlides()">

@@ -44,3 +44,9 @@
     padding-left: 2rem;
     position: relative;
 }
+
+.np-treeview-sub {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}

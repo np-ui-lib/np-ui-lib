@@ -4,7 +4,8 @@
 </ul>
 
 <ng-template #treeViewTemplate let-items="items">
-    <li *ngFor="let item of items; trackBy: _trackBy;" role="treeitem" class="np-treeview-node">
+    <li *ngFor="let item of items; trackBy: _trackBy;" role="treeitem" class="np-treeview-node"
+        [attr.aria-expanded]="item.isExpanded">
         <ng-container *ngIf="item.childItems">
             <button type="button" tabindex="0" class="np-btn-icon" (click)="_toggle(item)"
                 [ngClass]="{'np-treeview-expand': !item.isExpanded, 'np-treeview-collapse': item.isExpanded}"
@@ -32,9 +33,9 @@
                 </ng-template>
             </span>
         </div>
-        <ng-container *ngIf="item.childItems && item.isExpanded">
+        <ul role="group" class="np-treeview-sub" *ngIf="item.childItems && item.isExpanded">
             <ng-container *ngTemplateOutlet="treeViewTemplate; context: { items: item.childItems }">
             </ng-container>
-        </ng-container>
+        </ul>
     </li>
 </ng-template>

@@ -3,7 +3,7 @@
     <ng-container *ngIf="!showTiles">
         <ul role="listbox" class="np-list" [attr.aria-labelledby]="inputId + '-title'">
             <ng-container *ngFor="let item of items | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
-                <li role="option" class="np-list-item"
+                <li role="option" class="np-list-item" [attr.aria-selected]="_isSelected(item)"
                     [ngClass]="{'np-list-selectable': allowSelection, 'np-list-selected': _isSelected(item)}">
                     <np-checkbox *ngIf="allowSelection" [ngModel]="_isSelected(item)" styleClass="np-list-checkbox"
                         (onChange)="_onSelectItem($event,item)"></np-checkbox>

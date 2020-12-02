@@ -30,10 +30,12 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChang
   interval: any;
   startIdx: number;
   endIdx: number;
+  isPolite = false;
 
   ngOnDestroy(): void {
     if (this.autoPlay) {
       clearInterval(this.interval);
+      this.isPolite = true;
     }
   }
 
@@ -78,6 +80,7 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChang
     this.interval = setInterval(() => {
       this._plusSlides();
     }, this.autoPlayInterval);
+    this.isPolite = false;
   }
 
   _goToPage(page: number) {
@@ -113,6 +116,7 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChang
   pause() {
     if (this.autoPlay) {
       clearInterval(this.interval);
+      this.isPolite = true;
     }
   }
 

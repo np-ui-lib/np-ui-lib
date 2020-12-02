@@ -1,14 +1,15 @@
 <ng-container *ngIf="item.visible">
     <ng-container *ngIf="item.isHeader">
-        <div class="np-menu-header">
+        <li role="none" class="np-menu-header">
             <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
             <div class="np-menu-text" [innerHTML]="item.label"></div>
-        </div>
+        </li>
     </ng-container>
     <ng-container *ngIf="item.items && !item.isHeader">
-        <div class="np-menu-item" (mouseenter)="_onMouseEnter($event,item)" (mouseleave)="_onMouseLeave(item)">
-            <a role="menu" class="np-menu-link" tabindex="0"
-                [ngClass]="{'np-menu-active': item.routerLink && _isActive(item)}">
+        <li role="none" class="np-menu-item" (mouseenter)="_onMouseEnter($event,item)"
+            (mouseleave)="_onMouseLeave(item)">
+            <a role="menuitem" aria-haspopup="true" [attr.aria-expanded]="item.isChildVisible" class="np-menu-link"
+                tabindex="0" [ngClass]="{'np-menu-active': item.routerLink && _isActive(item)}">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
                 <div class="np-menu-text" [innerHTML]="item.label"></div>
                 <div class="np-menu-icon">
@@ -23,18 +24,18 @@
                 </div>
             </a>
             <ng-container *ngIf="item.isChildVisible">
-                <div class="np-submenu" [style.top.px]="item.y" [style.left.px]="item.x">
+                <ul role="menu" class="np-submenu" [style.top.px]="item.y" [style.left.px]="item.x">
                     <ng-container *ngFor="let child of item.items">
                         <np-menu-item [item]="child" [orientation]="'vertical'"
                             (onClickItem)="_onClickMenuItem($event)">
                         </np-menu-item>
                     </ng-container>
-                </div>
+                </ul>
             </ng-container>
-        </div>
+        </li>
     </ng-container>
     <ng-container *ngIf="!item.items && !item.isHeader">
-        <div class="np-menu-item">
+        <li role="none" class="np-menu-item">
             <a role="menuitem" class="np-menu-link" tabindex="0" *ngIf="item.routerLink" [routerLink]="item.routerLink"
                 [queryParams]="item.queryParams" [fragment]="item.fragment"
                 [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-menu-active'"
@@ -52,6 +53,6 @@
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
                 <div class="np-menu-text" [innerHTML]="item.label"></div>
             </a>
-        </div>
+        </li>
     </ng-container>
 </ng-container>

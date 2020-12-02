@@ -13,7 +13,7 @@ export class NpMenubarComponent implements AfterContentInit, OnDestroy {
   static controlCount = 1;
 
   @Input() items: NpMenuItem[];
-  @Input() orientation = 'vertical';
+  @Input() orientation;
   @Input() isPanelMenu: boolean;
   @Input() styleClass: string;
   @Input() inputId = `np-menubar_${NpMenubarComponent.controlCount++}`;
@@ -34,6 +34,9 @@ export class NpMenubarComponent implements AfterContentInit, OnDestroy {
           }
         });
       });
+      this.orientation = this.orientation ? this.orientation : 'vertical';
+    } else {
+      this.orientation = null;
     }
   }
 

@@ -18,7 +18,7 @@ export class NpLoaderDirective implements OnChanges, OnInit {
 
     ngOnInit(): void {
         const loader = this.renderer.createElement('div');
-        this.renderer.setAttribute(loader, 'role', 'alert');
+        this.renderer.setAttribute(loader, 'role', 'progressbar');
         this.renderer.setAttribute(loader, 'aria-busy', 'true');
         this.renderer.addClass(loader, 'np-loader');
         this.renderer.setStyle(loader, 'width', `${this.diameter}px`);

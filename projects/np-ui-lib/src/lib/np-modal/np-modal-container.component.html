@@ -1,6 +1,6 @@
 <div role="dialog" [ngClass]="'np-modal'" [class]="styleClass" [attr.id]="inputId"
     [attr.aria-labelledby]="inputId + '-title'" [attr.aria-describedby]="inputId + '-body'"
-    [attr.aria-modal]="modalRef.config.hasBackDrop">
+    [attr.aria-modal]="modalRef.config.hasBackDrop ? 'true' : null">
     <div class="np-modal-header">
         <a class="np-modal-title" [innerHTML]="header" [attr.id]="inputId + '-title'"></a>
         <button *ngIf="showCloseButton" type="button" class="np-btn-icon np-modal-close" (click)="close()">
