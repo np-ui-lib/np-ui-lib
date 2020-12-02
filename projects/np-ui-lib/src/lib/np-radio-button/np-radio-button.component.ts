@@ -22,7 +22,7 @@ export class NpRadioButtonComponent implements ControlValueAccessor {
   @Input() value: any;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex: number;
+  @Input() tabIndex = 0;
   @Input() styleClass: string;
   @Input() inputId = `np-radio-button_${NpRadioButtonComponent.controlCount++}`;
 
@@ -49,7 +49,6 @@ export class NpRadioButtonComponent implements ControlValueAccessor {
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.onChangeCallback(v);
-      this.onTouchedCallback();
       this.onChange.emit(v);
     }
   }
@@ -91,8 +90,8 @@ export class NpRadioButtonComponent implements ControlValueAccessor {
     return this.value === this.currentValue;
   }
 
-  _onKeyDown(event) {
-    if (this.readOnly || this.isDisabled) {
+  _onKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Space' && (this.readOnly || this.isDisabled)) {
       event.preventDefault();
     }
   }

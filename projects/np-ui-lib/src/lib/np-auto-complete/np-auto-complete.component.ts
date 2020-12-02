@@ -36,7 +36,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex: number;
+  @Input() tabIndex = 0;
   @Input() styleClass: string;
   @Input() inputId = `np-auto-complete_${NpAutoCompleteComponent.controlCount++}`;
 
@@ -120,7 +120,6 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.onChangeCallback(v);
-      this.onTouchedCallback();
       this.onChange.emit(v);
     }
   }

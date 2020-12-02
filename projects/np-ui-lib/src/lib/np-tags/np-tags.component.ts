@@ -39,7 +39,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex: number;
+  @Input() tabIndex = 0;
   @Input() styleClass: string;
   @Input() inputId = `np-tags_${NpTagsComponent.controlCount++}`;
 
@@ -123,7 +123,6 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.onChangeCallback(v);
-      this.onTouchedCallback();
       this.onChange.emit(v);
     }
   }

@@ -218,8 +218,10 @@
         <fieldset>
             <legend>styleClass</legend>
             <np-radio-group>
-                <np-radio-button label="Male" value="1" [styleClass]="'myClass'"></np-radio-button>
-                <np-radio-button label="Female" value="2" [styleClass]="'myClass'"></np-radio-button>
+                <np-radio-button label="Male" value="1" [(ngModel)]="gender6" [styleClass]="'myClass'">
+                </np-radio-button>
+                <np-radio-button label="Female" value="2" [(ngModel)]="gender6" [styleClass]="'myClass'">
+                </np-radio-button>
             </np-radio-group>
         </fieldset>
         <fieldset>

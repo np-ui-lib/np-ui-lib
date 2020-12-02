@@ -28,7 +28,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   @Input() defaultOpen: boolean;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex: number;
+  @Input() tabIndex = 0;
   @Input() styleClass: string;
   @Input() inputId = `np-color-picker_${NpColorPickerComponent.controlCount++}`;
 
@@ -115,10 +115,9 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.stripColor = v;
-      this.onChangeCallback(v);
-      this.onTouchedCallback();
-      this.onChange.emit(v);
       this._setCurrentValues(v);
+      this.onChangeCallback(v);
+      this.onChange.emit(v);
     }
   }
 

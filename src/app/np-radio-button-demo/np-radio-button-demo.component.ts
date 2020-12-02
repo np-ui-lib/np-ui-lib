@@ -18,6 +18,7 @@ export class NpRadioButtonDemoComponent implements OnInit {
   gender3 = '1';
   genderReq: number;
   gender5: number;
+  gender6: number;
 
   constructor() { }
 

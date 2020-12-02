@@ -33,7 +33,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Input() showFileSize = true;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex: number;
+  @Input() tabIndex = 0;
   @Input() styleClass: string;
   @Input() inputId = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
 
@@ -58,7 +58,6 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.onChangeCallback(v);
-      this.onTouchedCallback();
       this.onChange.emit(v);
     }
   }

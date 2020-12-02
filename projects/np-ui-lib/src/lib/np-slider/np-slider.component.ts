@@ -26,7 +26,7 @@ export class NpSliderComponent {
   @Input() step = 1;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex: number;
+  @Input() tabIndex = 0;
   @Input() styleClass: string;
   @Input() inputId = `np-slider_${NpSliderComponent.controlCount++}`;
 
@@ -53,7 +53,6 @@ export class NpSliderComponent {
       this.innerValue = v;
       this.lable = v;
       this.onChangeCallback(v);
-      this.onTouchedCallback();
       this.onChange.emit(v);
     }
   }

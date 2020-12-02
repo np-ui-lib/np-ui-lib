@@ -32,7 +32,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex: number;
+  @Input() tabIndex = 0;
   @Input() styleClass: string;
   @Input() inputId = `np-dropdown_${NpDropdownComponent.controlCount++}`;
 
@@ -93,7 +93,6 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.onChangeCallback(v);
-      this.onTouchedCallback();
       this.onChange.emit(v);
     }
   }

@@ -22,7 +22,7 @@ export class NpCheckboxComponent implements ControlValueAccessor {
   @Input() indeterminate: boolean;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex: number;
+  @Input() tabIndex = 0;
   @Input() styleClass: string;
   @Input() inputId = `np-checkbox_${NpCheckboxComponent.controlCount++}`;
 
@@ -50,7 +50,6 @@ export class NpCheckboxComponent implements ControlValueAccessor {
       this.innerValue = v;
       this.indeterminate = false;
       this.onChangeCallback(v);
-      this.onTouchedCallback();
       this.onChange.emit(v);
     }
   }
@@ -92,8 +91,8 @@ export class NpCheckboxComponent implements ControlValueAccessor {
     this.value = event.target.checked;
   }
 
-  _onKeyDown(event) {
-    if (this.readOnly || this.isDisabled) {
+  _onKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Space' && (this.readOnly || this.isDisabled)) {
       event.preventDefault();
     }
   }

@@ -35,7 +35,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex: number;
+  @Input() tabIndex = 0;
   @Input() styleClass: string;
   @Input() inputId = `np-date-picker_${NpDatePickerComponent.controlCount++}`;
 
@@ -116,7 +116,6 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.onChangeCallback(v);
-      this.onTouchedCallback();
       this.onChange.emit(v);
     }
   }

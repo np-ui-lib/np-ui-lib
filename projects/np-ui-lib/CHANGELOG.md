@@ -6,6 +6,7 @@
 ## 10.6.2
 - Add resize property to textarea
 - Resolved row selection issues in data grid
+- Set default tabIndex as 0 for all input controls
 
 ## 10.6.1
 - Resolved issue in object compare utility for tags and dropdown
