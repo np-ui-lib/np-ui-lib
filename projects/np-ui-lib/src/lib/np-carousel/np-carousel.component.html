@@ -1,5 +1,4 @@
-<div role="region" [attr.aria-live]="isPolite ? 'polite' : 'off'" [ngClass]="'np-carousel'" [class]="styleClass"
-    [attr.id]="inputId">
+<div [ngClass]="'np-carousel'" [class]="styleClass" [attr.id]="inputId">
     <div class="np-carousel-container">
         <button *ngIf="showNavigationArrows" type="button" title="Previous" tabindex="0"
             class="np-btn-icon np-carousel-prev" (click)="_minusSlides()">
@@ -8,8 +7,9 @@
                 <path fill="none" d="M0 0h24v24H0V0z" />
             </svg>
         </button>
-        <div class="np-carousel-items">
-            <div class="np-carousel-item" *ngFor="let item of items;let i = index; trackBy: _trackBy;"
+        <div class="np-carousel-items" [attr.aria-live]="isPolite ? 'polite' : 'off'">
+            <div *ngFor="let item of items;let i = index; trackBy: _trackBy;" role="group" aria-roledescription="slide"
+                [attr.aria-label]="(i+1) + ' of ' + items.length" class="np-carousel-item"
                 [ngClass]="{'np-carousel-active': _isActive(i)}">
                 <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}">
                 </ng-template>

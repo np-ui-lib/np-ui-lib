@@ -26,7 +26,7 @@ export class NpSliderComponent {
   @Input() step = 1;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex = 0;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-slider_${NpSliderComponent.controlCount++}`;
 

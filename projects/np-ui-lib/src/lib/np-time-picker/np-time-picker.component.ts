@@ -29,7 +29,7 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex = 0;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-time-picker_${NpTimePickerComponent.controlCount++}`;
 

@@ -1,6 +1,6 @@
 <div *ngIf="messageService" [ngClass]="'np-notifications'" [class]="styleClass" [attr.id]="inputId">
     <ng-container *ngFor="let msg of messageService.messages.reverse()">
-        <div role="alert" class="np-alert" [attr.id]="msg.id" [ngClass]="{'np-alert-success': msg.type==='success',
+        <div role="alert" aria-live="assertive" aria-atomic="true" class="np-alert" [attr.id]="msg.id" [ngClass]="{'np-alert-success': msg.type==='success',
                 'np-alert-danger': msg.type ==='error',
                 'np-alert-warning': msg.type ==='warning',
                 'np-alert-info': msg.type ==='info'}">

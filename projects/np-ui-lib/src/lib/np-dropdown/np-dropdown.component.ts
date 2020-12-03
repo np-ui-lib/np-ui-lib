@@ -32,7 +32,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex = 0;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-dropdown_${NpDropdownComponent.controlCount++}`;
 
@@ -47,6 +47,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   innerValue: any;
   isDisabled = false;
   focused = false;
+  isOpen = false;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -140,6 +141,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   _close() {
     this.overlayRef.detach();
     this.inputViewChild.nativeElement.focus();
+    this.isOpen = false;
   }
 
   _clear() {
@@ -165,6 +167,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     }
     if (!this.overlayRef.hasAttached()) {
       this.overlayRef.attach(this.templatePortal);
+      this.isOpen = false;
     }
   }
 

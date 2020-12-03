@@ -36,7 +36,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex = 0;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-auto-complete_${NpAutoCompleteComponent.controlCount++}`;
 
@@ -56,6 +56,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   searchTimeout: any;
   isLoading = false;
   focused = false;
+  isOpen = false;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -83,6 +84,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       if (data) {
         if (!this.overlayRef.hasAttached()) {
           this.overlayRef.attach(this.templatePortal);
+          this.isOpen = true;
         }
       }
     });
@@ -149,6 +151,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   _close() {
     this.overlayRef.detach();
     this.inputViewChild.nativeElement.focus();
+    this.isOpen = false;
   }
 
   _onInput($event: any) {

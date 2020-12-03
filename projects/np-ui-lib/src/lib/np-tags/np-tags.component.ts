@@ -39,7 +39,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex = 0;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-tags_${NpTagsComponent.controlCount++}`;
 
@@ -60,6 +60,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   innerValue: any[];
   isDisabled = false;
   focused = false;
+
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
   private onChangeCallback: (_: any) => void = () => { };

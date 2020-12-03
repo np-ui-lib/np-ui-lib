@@ -1,7 +1,7 @@
 <div [ngClass]="'np-breadcrumb'" [class]="styleClass" [attr.id]="inputId">
-    <ul role="listbox" class="np-breadcrumb-items">
+    <ul class="np-breadcrumb-items">
         <ng-container *ngIf="showIcon">
-            <li role="option" class="np-breadcrumb-item">
+            <li class="np-breadcrumb-item">
                 <i *ngIf="iconCss" [class]="iconCss"></i>
                 <svg *ngIf="!iconCss" class="np-icon" viewBox="0 0 24 24">
                     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
@@ -10,7 +10,7 @@
             </li>
         </ng-container>
         <ng-container *ngFor="let item of items;  let i = index;">
-            <li role="option" class="np-breadcrumb-item" [attr.tabindex]="item.disabled ? '-1' : '0'">
+            <li class="np-breadcrumb-item" [attr.tabindex]="item.disabled ? '-1' : '0'">
                 <a (click)="_onClick(item)" [ngClass]="{'np-disabled': item.disabled}" [innerHTML]="item.label"></a>
             </li>
         </ng-container>

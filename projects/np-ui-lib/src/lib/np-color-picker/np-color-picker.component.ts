@@ -28,7 +28,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   @Input() defaultOpen: boolean;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex = 0;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-color-picker_${NpColorPickerComponent.controlCount++}`;
 

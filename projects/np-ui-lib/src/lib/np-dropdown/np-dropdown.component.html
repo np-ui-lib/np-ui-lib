@@ -1,11 +1,12 @@
 <div [ngClass]="{'np-dropdown': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
     [attr.id]="inputId">
-    <div class="np-input-group" [ngClass]="{'np-focused': focused}">
+    <div role="combobox" aria-haspopup="listbox" [attr.aria-expanded]="isOpen" [attr.aria-owns]="inputId + '_listbox'"
+        class="np-input-group" [ngClass]="{'np-focused': focused}">
         <input #control class="np-form-control" autocomplete="off" type="text" readonly [disabled]="isDisabled"
             [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex" [value]="_getDisplayValue()"
-            [placeholder]="placeholder" (click)="_open()" (keydown)="_onKeydown($event)" (blur)="_onBlur($event)"
-            (focus)="_onFocus($event)">
-        <div class="np-input-group-append" *ngIf="innerValue">
+            [placeholder]="placeholder" [attr.id]="inputId + '_input'" (click)="_open()" (keydown)="_onKeydown($event)"
+            (blur)="_onBlur($event)" (focus)="_onFocus($event)">
+        <div *ngIf="innerValue" class="np-input-group-append">
             <button type="button" tabindex="-1" class="np-btn-icon np-btn-clear" title="Clear" (click)="_clear()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path
@@ -16,19 +17,16 @@
         </div>
     </div>
     <ng-template #templatePortalContent>
-        <div class="np-dropdown-overlay">
-            <ul role="listbox" class="np-list">
-                <li role="option" class="np-list-item"
-                    *ngFor="let item of items | npOrderBy: orderBy : orderDir ; let i = index; trackBy: _trackBy;"
-                    [ngClass]="{'np-dropdown-selected': _isSelected(item)}" (click)="_selectValue(item)">
-                    <ng-container *ngIf="!itemTemplate; else customTemplate">
-                        <span [innerHTML]="displayKey ? item[displayKey] : item"></span>
-                    </ng-container>
-                    <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
-                        [ngTemplateOutletContext]="{item: item}">
-                    </ng-template>
-                </li>
-            </ul>
-        </div>
+        <ul role="listbox" class="np-dropdown-overlay np-list" [attr.id]="inputId + '_listbox'">
+            <li *ngFor="let item of items | npOrderBy: orderBy : orderDir ; let i = index; trackBy: _trackBy;"
+                role="option" class="np-list-item" [ngClass]="{'np-dropdown-selected': _isSelected(item)}"
+                (click)="_selectValue(item)">
+                <ng-container *ngIf="!itemTemplate; else customTemplate">
+                    <span [innerHTML]="displayKey ? item[displayKey] : item"></span>
+                </ng-container>
+                <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}">
+                </ng-template>
+            </li>
+        </ul>
     </ng-template>
 </div>

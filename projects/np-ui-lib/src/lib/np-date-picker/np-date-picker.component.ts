@@ -35,7 +35,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex = 0;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-date-picker_${NpDatePickerComponent.controlCount++}`;
 

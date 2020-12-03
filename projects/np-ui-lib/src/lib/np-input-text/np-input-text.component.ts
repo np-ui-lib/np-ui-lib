@@ -30,7 +30,7 @@ export class NpInputTextComponent implements ControlValueAccessor, Validator {
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
-  @Input() tabIndex = 0;
+  @Input() tabIndex: number;
   @Input() styleClass: string;
   @Input() inputId = `np-input-text_${NpInputTextComponent.controlCount++}`;
 

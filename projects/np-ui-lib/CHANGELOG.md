@@ -3,6 +3,10 @@
 
 ## Change log and decision tracker
 
+## 10.6.3
+- Remove default tabIndex as 0 for all input controls
+- WAI-ARIA support
+
 ## 10.6.2
 - Add resize property to textarea
 - Resolved row selection issues in data grid
