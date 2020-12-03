@@ -13,12 +13,13 @@ export class NpRadioButtonDemoComponent implements OnInit {
   <np-radio-button label="Female" value="2" [(ngModel)]="gender"></np-radio-button>
 </np-radio-group>`;
 
-  gender: string;
+  gender1: string;
   gender2 = '1';
   gender3 = '1';
-  genderReq: number;
+  gender4 = '1';
   gender5: number;
   gender6: number;
+  gender7: number;
 
   constructor() { }
 

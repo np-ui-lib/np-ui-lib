@@ -6,6 +6,7 @@
 ## 10.6.3
 - Remove default tabIndex as 0 for all input controls
 - WAI-ARIA support
+- add name property to radio button for grouping them
 
 ## 10.6.2
 - Add resize property to textarea

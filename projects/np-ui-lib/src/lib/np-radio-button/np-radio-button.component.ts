@@ -20,6 +20,7 @@ export class NpRadioButtonComponent implements ControlValueAccessor {
 
   @Input() label: string;
   @Input() value: any;
+  @Input() name: string;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;

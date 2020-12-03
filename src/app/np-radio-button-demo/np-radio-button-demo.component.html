@@ -1,5 +1,4 @@
 <h2>Radio Button</h2>
-
 <np-tabs>
     <np-tab title="Documentation">
         <np-card>
@@ -47,6 +46,12 @@
                     <tr>
                         <td>value</td>
                         <td>Set value for that radio button</td>
+                        <td>any</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>Set name attribute</td>
                         <td>any</td>
                         <td></td>
                     </tr>
@@ -183,53 +188,53 @@
         <fieldset>
             <legend>Radio group horizontal</legend>
             <np-radio-group>
-                <np-radio-button label="Male" value="Male" [(ngModel)]="gender"></np-radio-button>
-                <np-radio-button label="Female" value="Female" [(ngModel)]="gender"></np-radio-button>
+                <np-radio-button name="gender1" label="Male" value="Male" [(ngModel)]="gender1"></np-radio-button>
+                <np-radio-button name="gender1" label="Female" value="Female" [(ngModel)]="gender1"></np-radio-button>
             </np-radio-group>
             <div>Selected: {{gender}}</div>
         </fieldset>
         <fieldset>
             <legend>Radio group vertical</legend>
             <np-radio-group orientation="vertical">
-                <np-radio-button label="Male" value="1" [(ngModel)]="gender2"></np-radio-button>
-                <np-radio-button label="Female" value="2" [(ngModel)]="gender2"></np-radio-button>
+                <np-radio-button name="gender2" label="Male" value="1" [(ngModel)]="gender2"></np-radio-button>
+                <np-radio-button name="gender2" label="Female" value="2" [(ngModel)]="gender2"></np-radio-button>
             </np-radio-group>
             <div>Selected: {{gender2}}</div>
         </fieldset>
         <fieldset>
             <legend>disabled and readonly</legend>
             <np-radio-group>
-                <np-radio-button label="Male" value="1" [(ngModel)]="gender3" [disabled]="true"></np-radio-button>
-                <np-radio-button label="Female" value="2" [(ngModel)]="gender3" [disabled]="true"></np-radio-button>
+                <np-radio-button name="gender3" label="Male" value="1" [(ngModel)]="gender3" [disabled]="true"></np-radio-button>
+                <np-radio-button name="gender3" label="Female" value="2" [(ngModel)]="gender3" [disabled]="true"></np-radio-button>
             </np-radio-group>
             <np-radio-group>
-                <np-radio-button label="Male" value="1" [(ngModel)]="gender3" [readOnly]="true"></np-radio-button>
-                <np-radio-button label="Female" value="2" [(ngModel)]="gender3" [readOnly]="true"></np-radio-button>
+                <np-radio-button name="gender4" label="Male" value="1" [(ngModel)]="gender4" [readOnly]="true"></np-radio-button>
+                <np-radio-button name="gender4" label="Female" value="2" [(ngModel)]="gender4" [readOnly]="true"></np-radio-button>
             </np-radio-group>
         </fieldset>
         <fieldset>
             <legend>required</legend>
             <np-radio-group>
-                <np-radio-button label="Male" value="1" [(ngModel)]="genderReq" required></np-radio-button>
-                <np-radio-button label="Female" value="2" [(ngModel)]="genderReq" required></np-radio-button>
+                <np-radio-button name="gender5" label="Male" value="1" [(ngModel)]="gender5" required></np-radio-button>
+                <np-radio-button name="gender5" label="Female" value="2" [(ngModel)]="gender5" required></np-radio-button>
             </np-radio-group>
             <button class="np-btn" (click)="genderReq = null">Set null</button>
         </fieldset>
         <fieldset>
             <legend>styleClass</legend>
             <np-radio-group>
-                <np-radio-button label="Male" value="1" [(ngModel)]="gender6" [styleClass]="'myClass'">
+                <np-radio-button name="gender6" label="Male" value="1" [(ngModel)]="gender6" [styleClass]="'myClass'">
                 </np-radio-button>
-                <np-radio-button label="Female" value="2" [(ngModel)]="gender6" [styleClass]="'myClass'">
+                <np-radio-button name="gender6" label="Female" value="2" [(ngModel)]="gender6" [styleClass]="'myClass'">
                 </np-radio-button>
             </np-radio-group>
         </fieldset>
         <fieldset>
             <legend>onChange</legend>
             <np-radio-group>
-                <np-radio-button label="Male" value="1" [(ngModel)]="gender5" (onChange)="onChange($event)">
+                <np-radio-button name="gender7" label="Male" value="1" [(ngModel)]="gender7" (onChange)="onChange($event)">
                 </np-radio-button>
-                <np-radio-button label="Female" value="2" [(ngModel)]="gender5" (onChange)="onChange($event)">
+                <np-radio-button name="gender7" label="Female" value="2" [(ngModel)]="gender7" (onChange)="onChange($event)">
                 </np-radio-button>
             </np-radio-group>
         </fieldset>
