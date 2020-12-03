@@ -1,32 +1,25 @@
-<div [ngClass]="{'np-accordion-item': true, 'np-disabled': disabled}" [style.max-height.px]="height"
-    [class]="styleClass" [attr.id]="inputId">
+<div [ngClass]="{'np-accordion-item': true, 'np-disabled': disabled}" [style.max-height.px]="height" [class]="styleClass" [attr.id]="inputId">
     <div class="np-accordion-header">
-        <button class="np-accordion-title" (click)="_toggle()" [attr.id]="_getTitleId()"
-            [attr.tabindex]="disabled ? '-1' : '0'" [attr.aria-expanded]="isOpen" [attr.aria-controls]="_getBodyId() "
-            [attr.aria-disabled]="disabled">
+        <button class="np-accordion-title" (click)="_toggle()" [attr.id]="_getTitleId()" [attr.tabindex]="disabled ? '-1' : '0'" [attr.aria-expanded]="isOpen" [attr.aria-controls]="_getBodyId() " [attr.aria-disabled]="disabled">
             <i *ngIf="iconCss" [class]="iconCss"></i>
             <span *ngIf="!isTitleTemplate" [innerHTML]="title"></span>
             <ng-template *ngIf="isTitleTemplate" [ngTemplateOutlet]="title">
             </ng-template>
         </button>
         <div class="np-accordion-icons">
-            <button [attr.tabindex]="disabled ? '-1' : '0'" type="button" class="np-btn-icon"
-                [ngClass]="{'np-accordion-expand': !isOpen, 'np-accordion-collapse': isOpen}"
-                [attr.title]="isOpen ? 'Collapse' : 'Expand'" (click)="_toggle()">
-                <svg *ngIf="isOpen" class="np-icon" viewBox="0 0 24 24">
-                    <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
-                    <path d="M0 0h24v24H0z" fill="none" />
+            <button class="np-btn-icon" type="button" [attr.tabindex]="disabled ? '-1' : '0'" [ngClass]="{'np-accordion-expand': !isOpen, 'np-accordion-collapse': isOpen}" [attr.title]="isOpen ? 'Collapse' : 'Expand'" (click)="_toggle()">
+                <svg class="np-icon" *ngIf="isOpen" viewBox="0 0 24 24">
+                    <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
                 </svg>
-                <svg *ngIf="!isOpen" class="np-icon" viewBox="0 0 24 24">
-                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-                    <path d="M0 0h24v24H0z" fill="none" />
+                <svg class="np-icon" *ngIf="!isOpen" viewBox="0 0 24 24">
+                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
                 </svg>
             </button>
         </div>
     </div>
-
-    <div class="np-accordion-body" *ngIf="isOpen" role="region" [attr.id]="_getBodyId()"
-        [attr.aria-labelledby]="_getTitleId()">
+    <div class="np-accordion-body" role="region" *ngIf="isOpen" [attr.id]="_getBodyId()" [attr.aria-labelledby]="_getTitleId()">
         <ng-content></ng-content>
         <ng-template [cdkPortalOutlet]="content"></ng-template>
     </div>

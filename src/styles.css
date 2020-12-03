@@ -65,7 +65,7 @@ nav {
 
 .my-nav {
     border: none !important;
-    padding: 10px 0px;
+    padding: 10px 0px !important;
 }
 
 article {
@@ -182,6 +182,6 @@ fieldset {
     text-align: center;
 }
 
-.mail-popover .np-popover-body{
+.mail-popover .np-popover-body {
     padding: 0px;
 }

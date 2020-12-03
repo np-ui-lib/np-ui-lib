@@ -1,11 +1,7 @@
-<div [ngClass]="{'np-input-text': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
-    [attr.id]="inputId">
+<div [ngClass]="{'np-input-text': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass" [attr.id]="inputId">
     <div class="np-input-group" [ngClass]="{'np-focused': focused}">
-        <label *ngIf="prefixLabel" class="np-prefix-label" [innerHTML]="prefixLabel"></label>
-        <input #control class="np-form-control" type="text" autocomplete="off" [npAutoFocus]="autoFocus"
-            [attr.tabindex]="tabIndex" [readonly]="readOnly" [value]="innerValue || ''" [placeholder]="placeholder"
-            [attr.minlength]="minLength" [attr.maxlength]="maxLength" [disabled]="isDisabled" (blur)="_onBlur($event)"
-            (focus)="_onFocus($event)" (change)="_onInputChange($event)">
-        <label *ngIf="suffixLabel" class="np-prefix-label" [innerHTML]="suffixLabel"></label>
+        <label class="np-prefix-label" *ngIf="prefixLabel" [innerHTML]="prefixLabel"></label>
+        <input class="np-form-control" type="text" #control autocomplete="off" [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly" [value]="innerValue || ''" [placeholder]="placeholder" [attr.minlength]="minLength" [attr.maxlength]="maxLength" [disabled]="isDisabled" (blur)="_onBlur($event)" (focus)="_onFocus($event)" (change)="_onInputChange($event)">
+        <label class="np-prefix-label" *ngIf="suffixLabel" [innerHTML]="suffixLabel"></label>
     </div>
 </div>

@@ -3,8 +3,7 @@
     'np-menubar-vertical': orientation === 'vertical',
     'np-menubar-panel': isPanelMenu}" [class]="styleClass" [attr.id]="inputId">
     <ng-container *ngIf="!isPanelMenu">
-        <np-menu-item *ngFor="let item of items" [item]="item" [orientation]="orientation"
-            (onClickItem)="_onClickMenuItem($event)">
+        <np-menu-item *ngFor="let item of items" [item]="item" [orientation]="orientation" (onClickItem)="_onClickMenuItem($event)">
         </np-menu-item>
     </ng-container>
     <ng-container *ngIf="isPanelMenu">

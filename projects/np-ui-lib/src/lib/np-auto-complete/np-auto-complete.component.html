@@ -1,36 +1,28 @@
-<div [ngClass]="{'np-auto-complete': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass"
-    [attr.id]="inputId">
-    <div role="combobox" aria-haspopup="listbox" [attr.aria-expanded]="isOpen" [attr.aria-owns]="inputId + '_listbox'"
-        class="np-input-group" [ngClass]="{'np-focused': focused}">
-        <input #control class="np-form-control" type="text" autocomplete="off" [value]="_getDisplayValue()"
-            [placeholder]="placeholder" [disabled]="isDisabled" [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex"
-            [readonly]="readOnly" (input)="_onInput($event)" (change)="_onInputChange($event)"
-            (keydown)="_onKeydown($event)" (blur)="_onBlur($event)" (focus)="_onFocus($event)">
+<div [ngClass]="{'np-auto-complete': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass" [attr.id]="inputId">
+    <div class="np-input-group" role="combobox" aria-haspopup="listbox" [attr.aria-expanded]="isOpen" [attr.aria-owns]="inputId + '_listbox'" [ngClass]="{'np-focused': focused}">
+        <input class="np-form-control" type="text" #control autocomplete="off" [value]="_getDisplayValue()" [placeholder]="placeholder" [disabled]="isDisabled" [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly" (input)="_onInput($event)" (change)="_onInputChange($event)" (keydown)="_onKeydown($event)" (blur)="_onBlur($event)" (focus)="_onFocus($event)">
         <div class="np-input-group-append">
             <div class="np-auto-complete-loader" *ngIf="isLoading">
                 <svg class="np-icon" viewBox="0 0 24 24">
-                    <path
-                        d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" />
-                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
                 </svg>
             </div>
         </div>
     </div>
 </div>
-
-<ng-template #templatePortalContent>
-    <ul role="listbox" class="np-auto-complete-overlay np-list" [attr.id]="inputId + '_listbox'">
+<ng-template #templatePortalContent="">
+    <ul class="np-auto-complete-overlay np-list" role="listbox" [attr.id]="inputId + '_listbox'">
         <ng-container *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
-            <li role="option" class="np-list-item" (click)="_selectValue(item)">
+            <li class="np-list-item" role="option" (click)="_selectValue(item)">
                 <ng-container *ngIf="!itemTemplate; else customTemplate">
                     <span [innerHTML]="(valueKey ? item[valueKey] : item) | npHighLight : searchKeyword"></span>
                 </ng-container>
-                <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate"
-                    [ngTemplateOutletContext]="{item: item, keyword: searchKeyword}">
+                <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item, keyword: searchKeyword}">
                 </ng-template>
             </li>
         </ng-container>
-        <li *ngIf="options && options.length===0" role="option" class="np-list-item np-disabled">
+        <li class="np-list-item np-disabled" role="option" *ngIf="options && options.length===0">
             <b>No Result Found.</b>
         </li>
     </ul>

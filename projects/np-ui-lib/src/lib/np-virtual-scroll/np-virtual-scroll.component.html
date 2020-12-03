@@ -1,10 +1,8 @@
 <div class="np-virtual-scroll-wrapper" [class]="styleClass" [attr.id]="inputId">
-    <div *ngIf="header" class="np-virtual-scroll-header" [innerHTML]="header" [attr.id]="inputId + '-title'"></div>
+    <div class="np-virtual-scroll-header" *ngIf="header" [innerHTML]="header" [attr.id]="inputId + '-title'"></div>
     <div role="listbox" [ngClass]="'np-virtual-scroll'" [attr.aria-labelledby]="inputId + '-title'">
-        <cdk-virtual-scroll-viewport [itemSize]="itemHeight" (scrolledIndexChange)="_onScrollIndexChange($event)"
-            [style.height.px]="pageSize * itemHeight">
-            <div *cdkVirtualFor="let item of items" role="option" class="np-virtual-scroll-item"
-                [style.height.px]="itemHeight">
+        <cdk-virtual-scroll-viewport [itemSize]="itemHeight" (scrolledIndexChange)="_onScrollIndexChange($event)" [style.height.px]="pageSize * itemHeight">
+            <div class="np-virtual-scroll-item" role="option" *cdkVirtualFor="let item of items" [style.height.px]="itemHeight">
                 <ng-container *ngIf="!item; else customTemplate">
                     Loading...
                 </ng-container>

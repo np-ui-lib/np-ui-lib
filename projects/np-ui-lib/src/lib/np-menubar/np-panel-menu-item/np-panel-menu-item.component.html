@@ -1,29 +1,28 @@
 <ng-container *ngIf="item.visible">
     <ng-container *ngIf="item.isHeader">
-        <li role="none" class="np-menu-header">
+        <li class="np-menu-header" role="none">
             <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
             <div class="np-menu-text" [innerHTML]="item.label"></div>
         </li>
     </ng-container>
     <ng-container *ngIf="item.items && !item.isHeader">
-        <li role="none" class="np-menu-item">
-            <a role="menuitem" class="np-menu-link" tabindex="0" [ngClass]="{'np-menu-active-parent': _isActive(item)}"
-                (click)="_onClickPanelMenu(item)">
+        <li class="np-menu-item" role="none">
+            <a class="np-menu-link" role="menuitem" tabindex="0" [ngClass]="{'np-menu-active-parent': _isActive(item)}" (click)="_onClickPanelMenu(item)">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
                 <div class="np-menu-text" [innerHTML]="item.label"></div>
                 <div class="np-menu-icon">
                     <svg class="np-icon" *ngIf="!item.isChildVisible">
-                        <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
+                        <path d="M0 0h24v24H0z" fill="none"></path>
                     </svg>
                     <svg class="np-icon" viewBox="0 0 24 24" *ngIf="item.isChildVisible">
-                        <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
-                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path>
+                        <path d="M0 0h24v24H0z" fill="none"></path>
                     </svg>
                 </div>
             </a>
             <ng-container *ngIf="item.isChildVisible">
-                <ul role="menu" class="np-submenu" [style.top.px]="item.y" [style.left.px]="item.x">
+                <ul class="np-submenu" role="menu" [style.top.px]="item.y" [style.left.px]="item.x">
                     <ng-container *ngFor="let child of item.items">
                         <np-panel-menu-item [item]="child" (onClickItem)="_onClickMenuItem($event)">
                         </np-panel-menu-item>
@@ -33,21 +32,16 @@
         </li>
     </ng-container>
     <ng-container *ngIf="!item.items && !item.isHeader">
-        <li role="none" class="np-menu-item">
-            <a role="menuitem" class="np-menu-link" tabindex="0" *ngIf="item.routerLink" [routerLink]="item.routerLink"
-                [queryParams]="item.queryParams" [fragment]="item.fragment"
-                [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-menu-active'"
-                (click)="_onClickMenuItem(item)">
+        <li class="np-menu-item" role="none">
+            <a class="np-menu-link" role="menuitem" tabindex="0" *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-menu-active'" (click)="_onClickMenuItem(item)">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
                 <div class="np-menu-text" [innerHTML]="item.label"></div>
             </a>
-            <a role="menuitem" class="np-menu-link" tabindex="0" *ngIf="item.url" [href]="item.url"
-                [target]="item.target" (click)="_onClickMenuItem(item)">
+            <a class="np-menu-link" role="menuitem" tabindex="0" *ngIf="item.url" [href]="item.url" [target]="item.target" (click)="_onClickMenuItem(item)">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
                 <div class="np-menu-text" [innerHTML]="item.label"></div>
             </a>
-            <a role="menuitem" class="np-menu-link" tabindex="0" *ngIf="!item.routerLink && !item.url"
-                (click)="_onClickMenuItem(item)">
+            <a class="np-menu-link" role="menuitem" tabindex="0" *ngIf="!item.routerLink && !item.url" (click)="_onClickMenuItem(item)">
                 <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
                 <div class="np-menu-text" [innerHTML]="item.label"></div>
             </a>

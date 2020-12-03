@@ -1,13 +1,10 @@
-<div role="dialog" [ngClass]="'np-modal'" [class]="styleClass" [attr.id]="inputId"
-    [attr.aria-labelledby]="inputId + '-title'" [attr.aria-describedby]="inputId + '-body'"
-    [attr.aria-modal]="modalRef.config.hasBackDrop ? 'true' : null">
+<div role="dialog" [ngClass]="'np-modal'" [class]="styleClass" [attr.id]="inputId" [attr.aria-labelledby]="inputId + '-title'" [attr.aria-describedby]="inputId + '-body'" [attr.aria-modal]="modalRef.config.hasBackDrop ? 'true' : null">
     <div class="np-modal-header">
         <a class="np-modal-title" [innerHTML]="header" [attr.id]="inputId + '-title'"></a>
-        <button *ngIf="showCloseButton" type="button" class="np-btn-icon np-modal-close" (click)="close()">
+        <button class="np-btn-icon np-modal-close" type="button" *ngIf="showCloseButton" (click)="close()">
             <svg class="np-icon" viewBox="0 0 24 24">
-                <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                <path d="M0 0h24v24H0z" fill="none"></path>
             </svg>
         </button>
     </div>
