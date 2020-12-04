@@ -1,0 +1,49 @@
+@mixin np-accordion-style {
+  .np-accordion-item {
+    border: 1px solid $border-color;
+    border-radius: 2px;
+    background-color: #ffffff;
+    margin-bottom: 1px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .np-accordion-header {
+    background-color: $background-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 2rem;
+    padding-left: 10px;
+  }
+
+  .np-accordion-title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    font-weight: 700;
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+  }
+
+  .np-accordion-icons .np-btn-icon {
+    display: inline-block;
+    border: none;
+  }
+
+  .np-accordion-body {
+    padding: 10px;
+    overflow: auto;
+    border-top: 1px solid $border-color;
+  }
+
+  .np-accordion-title i {
+    font-size: large;
+    padding-right: 10px;
+  }
+}

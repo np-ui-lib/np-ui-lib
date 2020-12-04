@@ -1,0 +1,49 @@
+@mixin np-sidepanel-style {
+    .np-sidepanel {
+        background-color: #ffffff;
+        border: 1px solid $border-color;
+        border-radius: 2px;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .np-sidepanel-backdrop {
+        background-color: #000000;
+        opacity: 0.3 !important;
+    }
+
+    .np-sidepanel-close {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        z-index: 1;
+        border: none;
+    }
+
+    .np-sidepanel-header {
+        background-color: $background-color;
+        border-bottom: 1px solid $border-color;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        min-height: 3rem;
+        font-weight: bold;
+    }
+
+    .np-sidepanel-footer {
+        background-color: $background-color;
+        border-top: 1px solid $border-color;
+        padding: 10px;
+        min-height: 3rem;
+    }
+
+    .np-sidepanel-body {
+        padding: 10px;
+        overflow: auto;
+        height: 100%;
+    }
+}

@@ -1,0 +1,14 @@
+@mixin np-tooltip-style {
+    .np-tooltip {
+        padding: 5px;
+        background-color: #000000;
+        color: #ffffff;
+        min-height: 1.5rem;
+        border: 1px solid #000000;
+        border-radius: 2px;
+    }
+
+    .np-tooltip-target {
+        cursor: pointer;
+    }
+}

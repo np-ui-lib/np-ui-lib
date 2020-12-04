@@ -9,7 +9,6 @@ import { NpUtilityService } from '../np-utility/np-utility.service';
 @Component({
   selector: 'np-dropdown',
   templateUrl: './np-dropdown.component.html',
-  styleUrls: ['./np-dropdown.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [

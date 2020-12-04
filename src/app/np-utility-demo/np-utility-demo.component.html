@@ -183,7 +183,7 @@
                         <div class="np-col-12">
                             <div class="np-form-group">
                                 <div class="np-form-label">Description:</div>
-                                <np-textarea rows="4" cols="50" [(ngModel)]="description" [tabIndex]="7" name="description"
+                                <np-textarea [rows]="4" [cols]="50" [(ngModel)]="description" [tabIndex]="7" name="description"
                                     [required]="true" #txtDescription="ngModel"></np-textarea>
                                 <div class="np-form-text np-text-danger"
                                     *ngIf="txtDescription.control.touched && txtDescription.control.errors?.required">

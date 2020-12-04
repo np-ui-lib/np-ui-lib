@@ -10,7 +10,6 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 @Component({
   selector: 'np-tags',
   templateUrl: './np-tags.component.html',
-  styleUrls: ['./np-tags.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [

@@ -5,7 +5,6 @@ import { NpNotification } from './np-notification.model';
 @Component({
   selector: 'np-notifications',
   templateUrl: './np-notifications.component.html',
-  styleUrls: ['./np-notifications.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

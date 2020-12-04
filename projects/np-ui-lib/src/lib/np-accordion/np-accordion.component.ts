@@ -9,7 +9,6 @@ import { NpAccordionItemComponent } from './np-accordion-item/np-accordion-item.
 @Component({
   selector: 'np-accordion',
   templateUrl: './np-accordion.component.html',
-  styleUrls: ['./np-accordion.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

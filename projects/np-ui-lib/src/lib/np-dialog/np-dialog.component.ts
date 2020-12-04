@@ -4,7 +4,6 @@ import { NpModalRef } from '../np-modal/np-modal-ref';
 @Component({
   selector: 'np-dialog',
   templateUrl: './np-dialog.component.html',
-  styleUrls: ['./np-dialog.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

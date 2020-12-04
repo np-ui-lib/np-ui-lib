@@ -7,7 +7,6 @@ import { NpTreeViewItem } from './np-tree-view.model';
 @Component({
   selector: 'np-tree-view',
   templateUrl: './np-tree-view.component.html',
-  styleUrls: ['./np-tree-view.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

@@ -4,7 +4,6 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl, NG_VALIDATORS, Va
 @Component({
   selector: 'np-file-upload',
   templateUrl: './np-file-upload.component.html',
-  styleUrls: ['./np-file-upload.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [

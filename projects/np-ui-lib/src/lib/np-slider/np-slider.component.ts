@@ -7,7 +7,6 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'np-slider',
   templateUrl: './np-slider.component.html',
-  styleUrls: ['./np-slider.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [

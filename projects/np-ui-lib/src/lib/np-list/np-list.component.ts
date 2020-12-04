@@ -5,7 +5,6 @@ import { NpUtilityService } from '../np-utility/np-utility.service';
 @Component({
   selector: 'np-list',
   templateUrl: './np-list.component.html',
-  styleUrls: ['./np-list.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

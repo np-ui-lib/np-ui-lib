@@ -3,7 +3,6 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@a
 @Component({
     selector: 'np-checkbox-group',
     templateUrl: './np-checkbox-group.component.html',
-    styleUrls: ['./np-checkbox.component.css'],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.Default
 })

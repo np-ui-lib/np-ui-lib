@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'np-menubar',
   templateUrl: './np-menubar.component.html',
-  styleUrls: ['./np-menubar.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

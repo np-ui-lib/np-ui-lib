@@ -21,7 +21,6 @@ import { NpModalService } from '../np-modal/np-modal.service';
 @Component({
   selector: 'np-data-grid',
   templateUrl: 'np-data-grid.component.html',
-  styleUrls: ['np-data-grid.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

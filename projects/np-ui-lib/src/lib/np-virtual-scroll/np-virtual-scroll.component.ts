@@ -4,7 +4,6 @@ import { Component, Input, Output, EventEmitter, TemplateRef, ViewEncapsulation,
 @Component({
   selector: 'np-virtual-scroll',
   templateUrl: './np-virtual-scroll.component.html',
-  styleUrls: ['./np-virtual-scroll.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

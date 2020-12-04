@@ -9,7 +9,6 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 @Component({
   selector: 'np-date-picker',
   templateUrl: './np-date-picker.component.html',
-  styleUrls: ['./np-date-picker.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [

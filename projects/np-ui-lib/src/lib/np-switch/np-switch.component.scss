@@ -1,0 +1,41 @@
+@mixin np-switch-style {
+    .np-switch {
+        width: 100px;
+        user-select: none;
+        border: 1px solid $border-color;
+        border-radius: 2px;
+        background-color: $background-color;
+    }
+
+    .np-switch-input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        border: 0;
+        visibility: inherit;
+        clip: rect(0 0 0 0);
+    }
+
+    .np-switch-label {
+        cursor: pointer;
+        line-height: 2rem;
+        margin: 0;
+        padding: 0 5px;
+        text-align: center;
+        width: 49px;
+        display: inline-block;
+        color: inherit;
+    }
+
+    .np-switch-danger {
+        color: #ffffff;
+        background-color: #d9534f;
+    }
+
+    .np-switch-success {
+        color: #ffffff;
+        background-color: #1e7e34;
+    }
+}

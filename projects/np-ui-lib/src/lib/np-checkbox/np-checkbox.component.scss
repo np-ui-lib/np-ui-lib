@@ -1,0 +1,56 @@
+@mixin np-checkbox-style {
+    .np-checkbox {
+        position: relative;
+        display: inline-block;
+        margin: 0.5rem;
+    }
+
+    .np-checkbox-input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .np-checkbox-label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .np-checkbox-checkmark {
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        border: 1px solid $border-color;
+        border-radius: 2px;
+    }
+
+    .np-checkbox-input {
+        &:checked ~ .np-checkbox-checkmark,
+        &:indeterminate ~ .np-checkbox-checkmark {
+            background-color: $primary-color;
+            border: none;
+        }
+    }
+
+    .np-checkbox-text {
+        padding-left: 10px;
+    }
+
+    .np-checkbox-group {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .np-checkbox-group-vertical {
+        flex-direction: column !important;
+    }
+
+    .np-checkbox-icon {
+        height: 1rem;
+        width: 1rem;
+        color: #ffffff;
+    }
+}

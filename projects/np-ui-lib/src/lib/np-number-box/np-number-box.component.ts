@@ -4,7 +4,6 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Validator } fro
 @Component({
   selector: 'np-number-box',
   templateUrl: './np-number-box.component.html',
-  styleUrls: ['./np-number-box.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [

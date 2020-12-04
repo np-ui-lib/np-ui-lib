@@ -4,7 +4,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'np-checkbox',
   templateUrl: './np-checkbox.component.html',
-  styleUrls: ['./np-checkbox.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [

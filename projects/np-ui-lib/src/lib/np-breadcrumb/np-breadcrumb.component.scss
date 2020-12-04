@@ -1,0 +1,35 @@
+@mixin np-breadcrumb-style {
+    .np-breadcrumb {
+        border: 1px solid $border-color;
+        border-radius: 2px;
+        background-color: #ffffff;
+        padding: 5px 10px;
+    }
+
+    .np-breadcrumb-items {
+        margin: 0;
+        padding: 0;
+    }
+
+    .np-breadcrumb-item {
+        display: inline-block;
+        vertical-align: middle;
+
+        a {
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        + .np-breadcrumb-item::before {
+            display: inline-block;
+            content: "/";
+            padding: 0px 10px;
+            font-weight: bold;
+        }
+
+        i {
+            font-size: large;
+            padding-right: 10px;
+        }
+    }
+}

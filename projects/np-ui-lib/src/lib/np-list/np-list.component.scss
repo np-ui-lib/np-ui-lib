@@ -1,0 +1,50 @@
+@mixin np-list-style {
+    .np-list-selected {
+        background-color: $selected-color;
+    }
+
+    .np-list-checkbox {
+        position: absolute !important;
+        top: 0px;
+        left: 0px;
+    }
+
+    .np-list-selectable {
+        padding-left: 2rem;
+    }
+
+    .np-tiles {
+        overflow: auto;
+    }
+
+    .np-tiles-item {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border: 1px solid $border-color;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .np-tiles-selectable {
+        padding-left: 2rem;
+    }
+
+    .np-tiles-checkbox {
+        position: absolute !important;
+        top: 0.5rem;
+        left: 0.5rem;
+    }
+
+    .np-list-pagination {
+        border-bottom: none !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+
+    @media (max-width: 991px) {
+        .np-tiles-selectable {
+            padding-top: 2rem;
+            padding-left: 0.5rem;
+        }
+    }
+}

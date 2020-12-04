@@ -4,7 +4,6 @@ import { NpCalendarEvent } from './np-calendar-event.model';
 @Component({
   selector: 'np-calendar',
   templateUrl: './np-calendar.component.html',
-  styleUrls: ['./np-calendar.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

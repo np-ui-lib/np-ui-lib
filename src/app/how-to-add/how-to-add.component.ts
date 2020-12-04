@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HowToAddComponent implements OnInit {
 
-  importCss = `"styles": [
-    "node_modules/@angular/cdk/overlay-prebuilt.css",
-    "node_modules/np-ui-lib/style.css",
-    ...
-],`;
+  customSCSS = `@import "np-ui-lib/styles/theme.scss";
+$primary-color: #4caf50;
+$background-color: #EDF7ED;
+$selected-color: #C9E7C9;
+$border-color: #112611;
+@include theme;`;
 
   constructor() { }
 

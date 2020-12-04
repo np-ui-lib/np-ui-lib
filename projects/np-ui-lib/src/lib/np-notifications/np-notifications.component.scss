@@ -1,0 +1,18 @@
+@mixin np-notifications-style {
+    .np-notifications {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        max-width: 350px;
+        z-index: 1002;
+        margin: 5px;
+    }
+
+    .np-alert-close-all {
+        position: absolute;
+        left: -35px;
+        bottom: 5px;
+        border: none;
+        background-color: transparent;
+    }
+}

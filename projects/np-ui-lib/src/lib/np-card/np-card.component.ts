@@ -3,7 +3,6 @@ import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy } 
 @Component({
   selector: 'np-card',
   templateUrl: './np-card.component.html',
-  styleUrls: ['./np-card.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

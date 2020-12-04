@@ -4,7 +4,7 @@ import { NpBreadcrumbItem } from './np-breadcrumb.model';
 @Component({
   selector: 'np-breadcrumb',
   templateUrl: './np-breadcrumb.component.html',
-  styleUrls: ['./np-breadcrumb.component.css']
+  styleUrls: ['./np-breadcrumb.component.scss']
 })
 export class NpBreadcrumbComponent implements OnInit {
   static controlCount = 1;

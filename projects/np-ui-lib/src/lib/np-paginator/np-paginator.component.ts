@@ -3,7 +3,6 @@ import { Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation, Chan
 @Component({
   selector: 'np-paginator',
   templateUrl: './np-paginator.component.html',
-  styleUrls: ['./np-paginator.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

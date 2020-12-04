@@ -3,6 +3,10 @@
 
 ## Change log and decision tracker
 
+## 10.7.0
+- Add scss insted of css
+- Add theming and 2 default themes
+
 ## 10.6.3
 - Remove default tabIndex as 0 for all input controls
 - WAI-ARIA support

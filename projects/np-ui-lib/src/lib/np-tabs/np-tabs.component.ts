@@ -5,7 +5,6 @@ import { NpTabComponent } from './np-tab.component';
 @Component({
   selector: 'np-tabs',
   templateUrl: './np-tabs.component.html',
-  styleUrls: ['./np-tabs.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

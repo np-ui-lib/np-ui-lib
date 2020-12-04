@@ -4,7 +4,6 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 @Component({
   selector: 'np-switch',
   templateUrl: './np-switch.component.html',
-  styleUrls: ['./np-switch.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [

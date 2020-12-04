@@ -8,7 +8,6 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 @Component({
   selector: 'np-color-picker',
   templateUrl: 'np-color-picker.component.html',
-  styleUrls: ['np-color-picker.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
@@ -71,7 +70,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
         this.colors = ['#FF0000', '#FF7F00', '#FFFF00', '#7FFF00', '#00FF00', '#00FF7F', '#00FFFF', '#007FFF', '#0000FF',
           '#7F00FF', '#FF00FF', '#FF007F', '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4',
           '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548',
-          '#9e9e9e', '#607d8b', '#000000'];
+          '$border-color', '#607d8b', '#000000'];
       } else {
         this.colors = ['rgb(255,0,0)', 'rgb(255,127,0)', 'rgb(255,255,0)', 'rgb(127,255,0)', 'rgb(0,255,0)', 'rgb(0,255,127)',
           'rgb(0,255,255)', 'rgb(0,127,255)', 'rgb(0,0,255)', 'rgb(127,0,255)', 'rgb(255,0,255)', 'rgb(255,0,127)',

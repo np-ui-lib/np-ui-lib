@@ -5,7 +5,6 @@ import { NpStepComponent } from './np-step.component';
 @Component({
   selector: 'np-steps',
   templateUrl: './np-steps.component.html',
-  styleUrls: ['./np-steps.component.css'],
   providers: [
     { provide: CdkStepper, useExisting: NpStepsComponent }
   ],

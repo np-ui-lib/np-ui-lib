@@ -8,7 +8,6 @@ import { TemplatePortal } from '@angular/cdk/portal';
 @Component({
   selector: 'np-panel',
   templateUrl: './np-panel.component.html',
-  styleUrls: ['./np-panel.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

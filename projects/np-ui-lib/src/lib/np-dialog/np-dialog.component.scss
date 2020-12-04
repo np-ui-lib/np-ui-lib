@@ -1,0 +1,32 @@
+@mixin np-dialog-style {
+    .np-dialog-overlay {
+        margin: 5px;
+        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    }
+
+    .np-dialog {
+        min-height: 150px;
+        min-width: 250px;
+        position: relative;
+        border: 1px solid $border-color;
+        border-radius: 2px;
+        background-color: #ffffff;
+        padding: 10px;
+    }
+
+    .np-dialog-btns {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        margin: 10px;
+    }
+
+    .np-dialog-message {
+        padding-bottom: 10px;
+    }
+
+    .np-dialog-title {
+        font-weight: bold;
+        padding: 5px 0px;
+    }
+}

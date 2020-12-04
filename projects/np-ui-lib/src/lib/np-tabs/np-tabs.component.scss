@@ -1,0 +1,71 @@
+@mixin np-tabs-style {
+    .np-tabs {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid $border-color;
+        border-radius: 2px;
+        background-color: #ffffff;
+    }
+
+    .np-tabs-header {
+        margin: 0px;
+        padding: 0px;
+        border-bottom: 1px solid $border-color;
+        background-color: $background-color;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .np-tab-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 70px;
+        min-height: 2rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        margin: 0px;
+        padding: 0px 10px;
+        font-weight: bold;
+        color: inherit;
+
+        &:hover {
+            background-color: $selected-color;
+        }
+    }
+
+    .np-tab-active {
+        color: $primary-color;
+        border-bottom: 2px solid $primary-color;
+        padding-top: 2px;
+    }
+
+    .np-tab-body {
+        padding: 10px;
+        overflow: auto;
+    }
+
+    .np-tabs-vertical {
+        flex-direction: row !important;
+
+        .np-tabs-header {
+            border-bottom: none;
+            border-right: 1px solid $border-color;
+            flex-direction: column !important;
+        }
+
+        .np-tab-active {
+            border-right: 2px solid $primary-color;
+            border-bottom: none;
+            padding-right: 8px;
+            padding-top: 0px;
+        }
+    }
+
+    .np-tab-title i {
+        font-size: large;
+        padding-right: 10px;
+    }
+}

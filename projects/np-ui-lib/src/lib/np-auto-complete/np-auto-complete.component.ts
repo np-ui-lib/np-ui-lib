@@ -9,7 +9,6 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 @Component({
   selector: 'np-auto-complete',
   templateUrl: './np-auto-complete.component.html',
-  styleUrls: ['./np-auto-complete.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [

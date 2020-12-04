@@ -3,7 +3,6 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@a
 @Component({
     selector: 'np-radio-group',
     templateUrl: './np-radio-group.component.html',
-    styleUrls: ['./np-radio-button.component.css'],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.Default
 })

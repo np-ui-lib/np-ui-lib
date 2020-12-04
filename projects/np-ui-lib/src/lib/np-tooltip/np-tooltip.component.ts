@@ -2,7 +2,6 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
 
 @Component({
   templateUrl: './np-tooltip.component.html',
-  styleUrls: ['./np-tooltip.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

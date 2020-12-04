@@ -1,0 +1,21 @@
+@mixin np-auto-complete-style {
+    .np-auto-complete-loader {
+        animation: spin 2s linear infinite;
+    }
+
+    .np-auto-complete-overlay {
+        background-color: #ffffff;
+        min-width: 250px;
+        max-height: 300px;
+        overflow: auto;
+        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+        border: 1px solid $border-color;
+        border-radius: 2px;
+        border: none;
+
+        .np-list-item {
+            cursor: pointer;
+            border: none;
+        }
+    }
+}

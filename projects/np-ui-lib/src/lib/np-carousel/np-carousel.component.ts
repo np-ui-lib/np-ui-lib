@@ -6,7 +6,6 @@ import {
 @Component({
   selector: 'np-carousel',
   templateUrl: './np-carousel.component.html',
-  styleUrls: ['./np-carousel.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

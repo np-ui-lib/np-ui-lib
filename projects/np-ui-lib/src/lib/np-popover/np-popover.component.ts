@@ -3,7 +3,6 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, Input, T
 @Component({
   selector: 'np-popover',
   templateUrl: './np-popover.component.html',
-  styleUrls: ['./np-popover.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

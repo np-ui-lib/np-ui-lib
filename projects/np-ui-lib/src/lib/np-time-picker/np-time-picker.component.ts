@@ -8,7 +8,6 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 @Component({
   selector: 'np-time-picker',
   templateUrl: 'np-time-picker.component.html',
-  styleUrls: ['np-time-picker.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [

@@ -5,7 +5,6 @@ import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overla
 @Component({
   selector: 'np-sidepanel',
   templateUrl: './np-sidepanel.component.html',
-  styleUrls: ['./np-sidepanel.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })

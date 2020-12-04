@@ -3,7 +3,6 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@a
 @Component({
   selector: 'np-progress',
   templateUrl: './np-progress.component.html',
-  styleUrls: ['./np-progress.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
