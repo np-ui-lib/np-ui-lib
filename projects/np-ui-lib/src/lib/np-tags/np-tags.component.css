@@ -1,6 +1,6 @@
 .np-tag {
     margin: 2px 0px 0px 2px;
-    color: #fff;
+    color: #ffffff;
     background-color: #007bff;
     display: flex;
     align-items: center;
@@ -50,9 +50,5 @@
 }
 
 .np-tag-selected {
-    background-color: #e0e0e0;
-}
-
-.np-tag-selected:hover {
-    background-color: #bdbdbd !important;
+    background-color: #eeeeee;
 }

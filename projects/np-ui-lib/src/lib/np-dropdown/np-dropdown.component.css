@@ -15,9 +15,5 @@
 }
 
 .np-dropdown-selected {
-    background-color: #e0e0e0;
-}
-
-.np-dropdown-selected:hover {
-    background-color: #bdbdbd !important;
+    background-color: #eeeeee;
 }

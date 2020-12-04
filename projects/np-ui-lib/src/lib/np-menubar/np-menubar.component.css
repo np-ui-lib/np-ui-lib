@@ -15,7 +15,7 @@
 .np-menu-header {
     font-weight: bold;
     background-color: #eeeeee;
-    color: #000000;
+    color: inherit;
     display: inline-flex;
     align-items: center;
     min-height: 2.25rem;
@@ -24,7 +24,7 @@
 }
 
 .np-menu-link {
-    color: #000000;
+    color: inherit;
     text-decoration: none;
     cursor: pointer;
     display: inline-flex;
@@ -94,6 +94,6 @@
 }
 
 .np-menubar-panel .np-submenu {
-    background-color: #e0e0e0;
+    background-color: #eeeeee;
     padding-left: 10px;
 }

@@ -52,7 +52,7 @@
                     <tr>
                         <td>name</td>
                         <td>Set name attribute</td>
-                        <td>any</td>
+                        <td>string</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -191,7 +191,7 @@
                 <np-radio-button name="gender1" label="Male" value="Male" [(ngModel)]="gender1"></np-radio-button>
                 <np-radio-button name="gender1" label="Female" value="Female" [(ngModel)]="gender1"></np-radio-button>
             </np-radio-group>
-            <div>Selected: {{gender}}</div>
+            <div>Selected: {{gender1}}</div>
         </fieldset>
         <fieldset>
             <legend>Radio group vertical</legend>
@@ -218,7 +218,7 @@
                 <np-radio-button name="gender5" label="Male" value="1" [(ngModel)]="gender5" required></np-radio-button>
                 <np-radio-button name="gender5" label="Female" value="2" [(ngModel)]="gender5" required></np-radio-button>
             </np-radio-group>
-            <button class="np-btn" (click)="genderReq = null">Set null</button>
+            <button class="np-btn" (click)="gender5 = null">Set null</button>
         </fieldset>
         <fieldset>
             <legend>styleClass</legend>

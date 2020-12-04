@@ -27,6 +27,7 @@
     background: none;
     margin: 0;
     padding: 0;
+    color: inherit;
 }
 
 .np-panel-title i {

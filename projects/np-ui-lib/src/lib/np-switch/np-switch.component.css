@@ -25,14 +25,15 @@
     text-align: center;
     width: 49px;
     display: inline-block;
+    color: inherit;
 }
 
 .np-switch-danger {
-    color: #fff;
+    color: #ffffff;
     background-color: #d9534f;
 }
 
 .np-switch-success {
-    color: #fff;
+    color: #ffffff;
     background-color: #1e7e34;
 }

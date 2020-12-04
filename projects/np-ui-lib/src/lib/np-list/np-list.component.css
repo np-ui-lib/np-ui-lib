@@ -1,9 +1,5 @@
 .np-list-selected {
-    background-color: #e0e0e0;
-}
-
-.np-list-selected:hover {
-    background-color: #bdbdbd !important;
+    background-color: #eeeeee;
 }
 
 .np-list-checkbox {

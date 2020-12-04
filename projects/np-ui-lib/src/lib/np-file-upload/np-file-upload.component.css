@@ -54,6 +54,7 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    color: inherit;
 }
 
 .np-file-name {

@@ -92,7 +92,7 @@ export class NpRadioButtonComponent implements ControlValueAccessor {
   }
 
   _onKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Space' && (this.readOnly || this.isDisabled)) {
+    if ((event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'ArrowDown') && (this.readOnly || this.isDisabled)) {
       event.preventDefault();
     }
   }

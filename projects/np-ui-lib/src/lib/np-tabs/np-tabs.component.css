@@ -28,6 +28,7 @@
     margin: 0px;
     padding: 0px 10px;
     font-weight: bold;
+    color: inherit;
 }
 
 .np-tab-title:hover {

@@ -162,11 +162,7 @@
 }
 
 .np-grid-selected td {
-    background-color: #e0e0e0;
-}
-
-.np-grid-tbody .np-grid-selected:hover td {
-    background-color: #bdbdbd;
+    background-color: #eeeeee;
 }
 
 .np-grid-toggle-child {
@@ -182,6 +178,7 @@
     width: 2rem;
     vertical-align: middle;
     cursor: pointer;
+    color: inherit;
 }
 
 .np-child-row {

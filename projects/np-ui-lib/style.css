@@ -24,6 +24,7 @@ svg {
     vertical-align: middle;
     height: 1.5rem;
     width: 1.5rem;
+    color: inherit;
 }
 
 .np-row {
@@ -743,11 +744,11 @@ svg {
     margin: 0px;
     text-align: center;
     background-color: #f5f5f5;
+    color: inherit;
     border: 1px solid #9e9e9e;
     border-radius: 2px;
     cursor: pointer;
     text-decoration: none;
-    color: black;
 }
 
 .np-btn-icon {
@@ -757,11 +758,11 @@ svg {
     margin: 0px;
     text-align: center;
     background-color: #f5f5f5;
+    color: inherit;
     border: 1px solid #9e9e9e;
     border-radius: 2px;
     cursor: pointer;
     text-decoration: none;
-    color: black;
 }
 
 .np-btn-sm {
@@ -774,31 +775,31 @@ svg {
 }
 
 .np-btn-primary {
-    color: #fff;
+    color: #ffffff;
     background-color: #007bff;
     border-color: #0275d8
 }
 
 .np-btn-success {
-    color: #fff;
+    color: #ffffff;
     background-color: #1e7e34;
     border-color: #5cb85c
 }
 
 .np-btn-danger {
-    color: #fff;
+    color: #ffffff;
     background-color: #d9534f;
     border-color: #d9534f
 }
 
 .np-btn-warning {
-    color: #fff;
+    color: #ffffff;
     background-color: #d39e00;
     border-color: #f0ad4e
 }
 
 .np-btn-info {
-    color: #fff;
+    color: #ffffff;
     background-color: #117a8b;
     border-color: #5bc0de
 }
@@ -818,7 +819,7 @@ svg {
 }
 
 .np-btn-primary:hover {
-    color: #fff;
+    color: #ffffff;
     background-color: #025aa5;
 }
 
@@ -949,7 +950,6 @@ svg {
 }
 
 .np-alert .np-btn-icon {
-    color: inherit;
     background-color: transparent;
     border: none;
 }
@@ -1030,22 +1030,22 @@ svg {
 }
 
 .np-badge-success {
-    color: #fff;
+    color: #ffffff;
     background-color: #1e7e34;
 }
 
 .np-badge-danger {
-    color: #fff;
+    color: #ffffff;
     background-color: #d9534f;
 }
 
 .np-badge-warning {
-    color: #fff;
+    color: #ffffff;
     background-color: #d39e00;
 }
 
 .np-badge-info {
-    color: #fff;
+    color: #ffffff;
     background-color: #117a8b;
 }
 
