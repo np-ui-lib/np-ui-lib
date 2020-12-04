@@ -15,6 +15,10 @@
     background-color: #ffffff;
 }
 
+.np-color-picker .np-btn-icon:focus {
+    box-shadow: none;
+}
+
 .np-color-picker .np-btn-icon:hover {
     background-color: #eeeeee;
 }
