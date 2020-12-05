@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "buildlib":"ng build np-ui-lib --watch"
+    "copy-assets": "node copy-assets.js",
+    "build:lib": "ng build np-ui-lib --watch",
+    "build:lib:prod": "ng build np-ui-lib --prod"
   },
   "private": true,
   "dependencies": {

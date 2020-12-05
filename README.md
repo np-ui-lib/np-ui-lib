@@ -66,12 +66,13 @@ npm i np-ui-lib
 ### [Code for all examples here](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)
 ### [Release Notes](https://github.com/NilavPatel/np-ui-package/tree/master/projects/np-ui-lib/CHANGELOG.md)
 
-### To Run this example project
+### How to Run this project?
 ````
 Run this command in console, which will create dist folder for library.
 $ ng build np-ui-lib --watch
-
-Then run below command in another console.
+Then run below command in new console to copy all scss files.
+$ npm run copy-assets
+Then run below command in new console.
 $ ng serve
 ````
 
