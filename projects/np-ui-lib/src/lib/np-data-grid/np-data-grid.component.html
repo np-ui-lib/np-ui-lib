@@ -3,14 +3,14 @@
     </div>
     <div class="np-grid-toolbar" *ngIf="showToolBar">
         <div class="np-grid-toolbar-item" *ngIf="showColumnChooser">
-            <button class="np-btn-icon np-column-chooser-btn" id="btn-column-chooser" type="button" title="Column chooser" (click)="_openColumnChooser()">
+            <button class="np-btn-icon np-column-chooser-btn" id="btn-column-chooser" type="button" (click)="_openColumnChooser()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M4 5v13h17V5H4zm10 2v9h-3V7h3zM6 7h3v9H6V7zm13 9h-3V7h3v9z"></path>
                 </svg>
             </button>
         </div>
         <div class="np-grid-toolbar-item" *ngIf="isFilterAvailable">
-            <button class="np-btn-icon np-toggle-filter-btn" type="button" title="Toggle filters" (click)="showFilters = !showFilters">
+            <button class="np-btn-icon np-toggle-filter-btn" type="button" (click)="showFilters = !showFilters">
                 <svg class="np-icon" *ngIf="!showFilters" viewBox="0 0 24 24">
                     <path d="M15,19.88C15.04,20.18 14.94,20.5 14.71,20.71C14.32,21.1 13.69,21.1 13.3,20.71L9.29,16.7C9.06,16.47 8.96,16.16 9,15.87V10.75L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L15,10.75V19.88M7.04,5L11,10.06V15.58L13,17.58V10.05L16.96,5H7.04Z"></path>
                 </svg>
@@ -20,7 +20,7 @@
             </button>
         </div>
         <div class="np-grid-toolbar-item" *ngIf="allowExport">
-            <button class="np-btn-icon np-grid-export-btn" type="button" title="Export" (click)="_exportToFile()">
+            <button class="np-btn-icon np-grid-export-btn" type="button" (click)="_exportToFile()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"></path>
                 </svg>
@@ -36,21 +36,21 @@
                 </select>
             </div>
             <div class="np-grid-toolbar-item" *ngIf="currentStateName.length > 0 && !isReadOnlyStates">
-                <button class="np-btn-icon np-grid-state-save" type="button" title="Save state" (click)="_saveState()">
+                <button class="np-btn-icon np-grid-state-save" type="button" (click)="_saveState()">
                     <svg class="np-icon" viewBox="0 0 24 24">
                         <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6z"></path>
                     </svg>
                 </button>
             </div>
             <div class="np-grid-toolbar-item" *ngIf="currentStateName.length > 0 && !isReadOnlyStates">
-                <button class="np-btn-icon np-grid-state-delete" type="button" title="Delete state" (click)="_deleteState()">
+                <button class="np-btn-icon np-grid-state-delete" type="button" (click)="_deleteState()">
                     <svg class="np-icon" viewBox="0 0 24 24">
                         <path d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"></path>
                     </svg>
                 </button>
             </div>
             <div class="np-grid-toolbar-item">
-                <button class="np-btn-icon np-grid-state-add" type="button" title="Add state" *ngIf="!isReadOnlyStates" (click)="_openDialogAddNewState()">
+                <button class="np-btn-icon np-grid-state-add" type="button" *ngIf="!isReadOnlyStates" (click)="_openDialogAddNewState()">
                     <svg class="np-icon" viewBox="0 0 24 24">
                         <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-8-2h2v-4h4v-2h-4V7h-2v4H7v2h4z"></path>
                     </svg>
@@ -192,19 +192,19 @@
 <ng-template #columnChooserTemplate="">
     <div class="np-column-chooser np-border">
         <div class="np-btn-group np-float-right">
-            <button class="np-btn-icon np-grid-show-all" type="button" title="Show all columns" (click)="_showAllColumns()">
+            <button class="np-btn-icon np-grid-show-all" type="button" (click)="_showAllColumns()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path>
                 </svg>
             </button>
-            <button class="np-btn-icon np-grid-reset" type="button" title="Reset all" (click)="_onResetColumns()">
+            <button class="np-btn-icon np-grid-reset" type="button" (click)="_onResetColumns()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"></path>
                     <path d="M0 0h24v24H0z" fill="none"></path>
                 </svg>
             </button>
-            <button class="np-btn-icon np-grid-close" type="button" title="Close" (click)="_closeColumnChooser()">
+            <button class="np-btn-icon np-grid-close" type="button" (click)="_closeColumnChooser()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
                     <path d="M0 0h24v24H0z" fill="none"></path>
@@ -213,7 +213,7 @@
         </div>
         <div class="np-grid-search">
             <input class="np-form-control np-grid-search-input" type="text" placeholder="Search Columns..." [(ngModel)]="searchColumnsKeyword">
-            <button class="np-btn-icon np-float-right np-grid-clear" type="button" title="Clear" (click)="_clearColumnSearch()">
+            <button class="np-btn-icon np-float-right np-grid-clear" type="button" (click)="_clearColumnSearch()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
                     <path d="M0 0h24v24H0z" fill="none"></path>

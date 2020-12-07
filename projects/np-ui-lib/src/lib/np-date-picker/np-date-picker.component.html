@@ -14,7 +14,7 @@
 <ng-template #templatePortalContent="">
     <div class="np-date-picker-overlay" [ngClass]="{'np-overlay-open': defaultOpen}">
         <div class="np-date-picker-header">
-            <button class="np-btn-icon" type="button" title="Previous" tabindex="-1" (click)="_prevMonth()">
+            <button class="np-btn-icon" type="button" tabindex="-1" (click)="_prevMonth()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"></path>
                     <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -25,7 +25,7 @@
                 <option *ngFor="let month of monthsList" [value]="month.key" [text]="month.value" [selected]="month.key === currentMonth">
                 </option>
             </select>
-            <button class="np-btn-icon" type="button" title="Next" tabindex="-1" (click)="_nextMonth()">
+            <button class="np-btn-icon" type="button" tabindex="-1" (click)="_nextMonth()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"></path>
                     <path fill="none" d="M0 0h24v24H0V0z"></path>
