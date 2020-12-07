@@ -2,6 +2,7 @@ import { QueryParamsHandling } from '@angular/router';
 
 export class NpMenuItem {
     constructor(item: any) {
+        this.id = item.id;
         this.label = item.label;
         this.items = item.items;
         this.url = item.url;
@@ -15,6 +16,7 @@ export class NpMenuItem {
         this.visible = item.visible === false ? false : true;
         this.isHeader = item.isHeader === true ? true : false;
     }
+    public id: string;
     public label: string;
     public items: NpMenuItem[];
     public url: string;

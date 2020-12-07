@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-var sass = require('node-sass');
 
 const copyAssetsSync = function (src, dest) {
     const exists = fs.existsSync(src);

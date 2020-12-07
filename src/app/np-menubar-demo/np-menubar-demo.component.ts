@@ -26,7 +26,7 @@ export class NpMenubarDemoComponent implements OnInit {
 
   items: NpMenuItem[] = [
     new NpMenuItem({
-      label: 'Menu 1', url: '/menu1', iconCss: 'fa fa-home',
+      label: 'Menu 1', url: '/menu1', iconCss: 'fa fa-home', id: "menu1",
       items: [
         new NpMenuItem({
           label: 'Menu 1.1', iconCss: 'fa fa-phone',
@@ -40,7 +40,7 @@ export class NpMenubarDemoComponent implements OnInit {
         new NpMenuItem({ label: 'Menu 1.3', url: '/menu1.3' }),
       ]
     }),
-    new NpMenuItem({ label: 'Menubar router link', iconCss: 'fa fa-bars', routerLink: '/np-menubar-demo' }),
+    new NpMenuItem({ label: 'Menubar router link', iconCss: 'fa fa-bars', routerLink: '/np-menubar-demo', id: "menu-demo" }),
     new NpMenuItem({ label: 'Menu 3 click', iconCss: 'fa fa-user' }),
     new NpMenuItem({
       label: 'Menu 4', iconCss: 'fa fa-clipboard',

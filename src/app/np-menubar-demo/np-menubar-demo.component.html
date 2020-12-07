@@ -99,6 +99,12 @@
                         <th>Default</th>
                     </tr>
                     <tr>
+                        <td>id</td>
+                        <td>Set id attribute on menu link</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>label</td>
                         <td>Set label to display</td>
                         <td>string</td>
@@ -176,8 +182,7 @@
 
         <fieldset>
             <legend>Horizontal</legend>
-            <np-menubar [items]="itemsHorizontal" [orientation]="'horizontal'" [styleClass]="'myClass'"
-                (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
+            <np-menubar [items]="itemsHorizontal" [orientation]="'horizontal'" [styleClass]="'myClass'" (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
         </fieldset>
 
         <fieldset style="width: 225px;">
@@ -188,8 +193,7 @@
 
         <fieldset>
             <legend>Popup menu</legend>
-            <button type="button" class="np-btn-icon" np-popup-menubar [items]="itemsPopupMenubar"
-                (onClickMenuItem)="onClickMenuItem($event)">
+            <button class="np-btn-icon" type="button" np-popup-menubar [items]="itemsPopupMenubar" (onClickMenuItem)="onClickMenuItem($event)">
                 <i class="fa fa-bars"></i>
             </button>
         </fieldset>

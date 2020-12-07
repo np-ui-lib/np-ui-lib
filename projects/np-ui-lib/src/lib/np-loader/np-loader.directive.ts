@@ -5,7 +5,7 @@ export class NpLoaderDirective implements OnChanges, OnInit {
 
     @Input('np-loader') show: boolean;
     @Input() diameter = 32;
-    @Input() strokeWidth = 2;
+    @Input() strokeWidth = 4;
     @Input() loadingText: string;
 
     loaderEle: any;

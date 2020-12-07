@@ -3,6 +3,11 @@
 
 ## Change log and decision tracker
 
+## 10.7.1
+- Resolved SCSS compilation issue
+- Add id to menu item model
+- Change default stroke width for loader to 4px
+
 ## 10.7.0
 - Add scss insted of css
 - Add theming and 2 default themes
