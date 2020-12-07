@@ -1,5 +1,3 @@
-@use 'sass:color';
-
 @import "~@angular/cdk/overlay-prebuilt.css";
 @import "dist/np-ui-lib/styles/default-theme.scss";
 
@@ -16,7 +14,7 @@ body {
     height: 100%;
     width: 100%;
     background: #c9d6ff;
-    background: linear-gradient(to right, #ffffff, color.scale($primary-color, $alpha: -90%));
+    background: linear-gradient(to right, #ffffff, rgba($primary-color, 0.1));
 }
 
 header {
@@ -98,7 +96,7 @@ article {
 
 footer {
     text-align: center;
-    background-color: color.scale($primary-color, $alpha: -50%);
+    background-color: rgba($primary-color, 0.5);
     padding: 5px;
     width: 100%;
 }

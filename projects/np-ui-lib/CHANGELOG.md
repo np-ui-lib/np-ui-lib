@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 10.7.2
+- Resolved SCSS copilation issue
+
 ## 10.7.1
 - Resolved SCSS compilation issue
 - Add id to menu item model
