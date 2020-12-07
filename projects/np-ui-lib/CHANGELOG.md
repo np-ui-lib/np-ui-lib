@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 10.7.4
+- Add id to breadcrumb menu item
+
 ## 10.7.3
 - Resolved color picker pre defined color issue
 
