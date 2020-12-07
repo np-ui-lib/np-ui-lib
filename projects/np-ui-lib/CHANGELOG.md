@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 10.7.3
+- Resolved color picker pre defined color issue
+
 ## 10.7.2
 - Resolved SCSS copilation issue
 
