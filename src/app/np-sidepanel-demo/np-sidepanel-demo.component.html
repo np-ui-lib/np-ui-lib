@@ -134,18 +134,18 @@
     </np-tab>
     <np-tab title="Examples">
         <div class="np-btn-group">
-            <button type="button" class="np-btn" (click)="openLeft()">Open left</button>
+            <button class="np-btn" type="button" (click)="openLeft()">Open left</button>
 
-            <button type="button" class="np-btn" (click)="openRight()">Open right</button>
+            <button class="np-btn" type="button" (click)="openRight()">Open right</button>
 
-            <button type="button" class="np-btn" (click)="openTop()">Open top</button>
+            <button class="np-btn" type="button" (click)="openTop()">Open top</button>
 
-            <button type="button" class="np-btn" (click)="openBottom()">Open bottom</button>
+            <button class="np-btn" type="button" (click)="openBottom()">Open bottom</button>
         </div>
 
         <np-sidepanel #sidePanelLeft [height]="'100%'" [closeOnClickOutside]="false">
             <np-sidepanel-header>
-                <p>Left sidepanel example</p>
+                <h4>Left sidepanel example</h4>
             </np-sidepanel-header>
             <form [formGroup]="myForm">
                 <div class="np-container">
@@ -153,15 +153,13 @@
                         <div class="np-col-6">
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">First name:</div>
-                                <input type="text" class="np-form-control" formControlName="firstName"
-                                    name="txtFirstName" [npAutoFocus]="true">
+                                <input class="np-form-control" name="txtFirstName" type="text" formControlName="firstName" [npAutoFocus]="true">
                             </div>
                         </div>
                         <div class="np-col-6">
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Last name:</div>
-                                <input type="text" class="np-form-control" formControlName="lastName"
-                                    name="txtLastName">
+                                <input class="np-form-control" name="txtLastName" type="text" formControlName="lastName">
                             </div>
                         </div>
                     </div>
@@ -169,14 +167,14 @@
                         <div class="np-col-6">
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Birth date:</div>
-                                <np-date-picker formControlName="birthDate" name="txtBirthDate">
+                                <np-date-picker name="txtBirthDate" formControlName="birthDate">
                                 </np-date-picker>
                             </div>
                         </div>
                         <div class="np-col-6">
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Birth time:</div>
-                                <np-time-picker formControlName="birthTime" name="txtBirthTime">
+                                <np-time-picker name="txtBirthTime" formControlName="birthTime">
                                 </np-time-picker>
                             </div>
                         </div>
@@ -185,7 +183,7 @@
                         <div class="np-col-12">
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Is Active:</div>
-                                <np-switch formControlName="isActive" name="swIsActive"></np-switch>
+                                <np-switch name="swIsActive" formControlName="isActive"></np-switch>
                             </div>
                         </div>
                     </div>
@@ -193,8 +191,7 @@
                         <div class="np-col-12">
                             <div class="np-form-group">
                                 <div class="np-form-label np-required">Description:</div>
-                                <textarea class="np-form-control" rows="3" formControlName="description"
-                                    name="txtDescription"></textarea>
+                                <textarea class="np-form-control" name="txtDescription" rows="3" formControlName="description"></textarea>
                             </div>
                         </div>
                     </div>
@@ -202,20 +199,19 @@
             </form>
             <np-sidepanel-footer>
                 <div class="np-btn-group">
-                    <button type="button" class="np-btn np-btn-primary" (click)="onSubmit()">Save</button>
-                    <button type="button" class="np-btn" (click)="closeLeft()">Close</button>
+                    <button class="np-btn np-btn-primary" type="button" (click)="onSubmit()">Save</button>
+                    <button class="np-btn" type="button" (click)="closeLeft()">Close</button>
                 </div>
             </np-sidepanel-footer>
         </np-sidepanel>
 
-        <np-sidepanel #sidePanelRight [right]="'0'" [height]="'100%'" [width]="'200px'" [styleClass]="'myClass'"
-            [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">
-            <h1>Right sidepanel example</h1>
+        <np-sidepanel #sidePanelRight [right]="'0'" [height]="'100%'" [width]="'200px'" [styleClass]="'myClass'" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">
+            <h4>Right sidepanel example</h4>
         </np-sidepanel>
 
         <np-sidepanel #sidePanelTop [top]="'0'" [width]="'100%'" [height]="'200px'" [showCloseIcon]="false">
             <np-sidepanel-header>
-                Top sidepanel header
+                <h4>Top sidepanel header</h4>
             </np-sidepanel-header>
             <p>A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.
                 A paragraph
@@ -238,12 +234,11 @@
                 usually an
                 expected part of formal writing, used to organize longer prose.</p>
             <np-sidepanel-footer>
-                Top sidepanel footer
+                <h4>Top sidepanel footer</h4>
             </np-sidepanel-footer>
         </np-sidepanel>
 
-        <np-sidepanel #sidePanelBottom [bottom]="'0'" [width]="'100%'" [height]="'200px'" [showCloseIcon]="true"
-            [hasBackDrop]="false">
+        <np-sidepanel #sidePanelBottom [bottom]="'0'" [width]="'100%'" [height]="'200px'" [showCloseIcon]="true" [hasBackDrop]="false">
             <h1>Bottom sidepanel example</h1>
         </np-sidepanel>
     </np-tab>

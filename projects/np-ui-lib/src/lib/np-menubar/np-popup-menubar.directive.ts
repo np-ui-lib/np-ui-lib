@@ -25,7 +25,7 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit(): void {
-        this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-mb-target`).trim();
+        this.elementRef.nativeElement.className = (`${this.elementRef.nativeElement.className} np-menubar-target`).trim();
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)
             .withPositions(TopBottomOverlayPositions);

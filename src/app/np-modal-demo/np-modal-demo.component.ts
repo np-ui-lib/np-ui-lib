@@ -32,7 +32,7 @@ reference.close() <span class="np-text-success">// use this method to close moda
 
   openModal1() {
     this.modalService.open(`A paragraph is a series of sentences that are organized and coherent,
-     and are all related to a single topic.`, new NpModalConfig({ header: 'Modal Header' }), null);
+     and are all related to a single topic.`, new NpModalConfig({ header: '<h4>Modal Header</h4>' }), null);
   }
 
   openModal2() {
@@ -40,7 +40,7 @@ reference.close() <span class="np-text-success">// use this method to close moda
       height: 400,
       width: 400,
       hasBackDrop: false,
-      header: 'What is paragraph?',
+      header: '<h4>What is paragraph?</h4>',
       inputId: 'templateModal',
       styleClass: 'myClass'
     });
@@ -48,7 +48,7 @@ reference.close() <span class="np-text-success">// use this method to close moda
   }
 
   openModal3() {
-    const modalRef = this.modalService.open(NpModalDemoChildComponent, new NpModalConfig({ header: 'Personal Details' }), null);
+    const modalRef = this.modalService.open(NpModalDemoChildComponent, new NpModalConfig({ header: '<h4>Personal Details</h4>' }), null);
     modalRef.onClose.subscribe(this.onCloseModal3);
   }
 
