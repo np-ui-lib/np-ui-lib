@@ -12,8 +12,13 @@
         </div>
         <div class="np-toolbar-spacer"></div>
         <div class="np-toolbar-item">
-            <a class="logo-link" title="Go to github repository" target="_blank"
-                href="https://github.com/NilavPatel/np-ui-package">
+            <select (change)="onChangeLang($event)">
+                <option value="EN" selected>EN</option>
+                <option value="FR">Fr</option>
+            </select>
+        </div>
+        <div class="np-toolbar-item">
+            <a class="logo-link" href="https://github.com/NilavPatel/np-ui-package" title="Go to github repository" target="_blank">
                 <i class="fa fa-github"></i>
             </a>
         </div>
@@ -21,8 +26,7 @@
 </header>
 <section>
     <nav *ngIf="showMenu" [ngClass]="{'mobile-nav': isMobileView}">
-        <np-menubar [items]="menuItems" [isPanelMenu]="true" (onClickMenuItem)="onClickMenuItem($event)"
-            styleClass="my-nav">
+        <np-menubar [items]="menuItems" [isPanelMenu]="true" (onClickMenuItem)="onClickMenuItem($event)" styleClass="my-nav">
         </np-menubar>
     </nav>
     <article class="main-container">

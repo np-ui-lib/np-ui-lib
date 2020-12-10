@@ -17,6 +17,7 @@ import { NpDialogComponent } from '../np-dialog/np-dialog.component';
 import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 import { NpPaginatorComponent } from '../np-paginator/np-paginator.component';
 import { NpModalService } from '../np-modal/np-modal.service';
+import { NpTranslationsService } from '../np-translations/np-translations.service';
 
 @Component({
   selector: 'np-data-grid',
@@ -44,7 +45,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   @Input() title = '';
   @Input() enableStateStoring: boolean;
   @Input() isReadOnlyStates = false;
-  @Input() noDataMessage = 'No Data Found.';
+  @Input() noDataMessage;
   @Input() showFilters = true;
   @Input() dateFormat = 'dd/MM/yyyy';
   @Input() showSummary = false;
@@ -108,6 +109,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private modalService: NpModalService,
+    private translationsService: NpTranslationsService,
     private elementRef: ElementRef) {
     this.sortColumnList = [];
     this.filtersList = Filters;
@@ -757,7 +759,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       if (element.name === currentStateName) {
         element.columns = columns;
         editedState = element;
-        this.modalService.open(NpDialogComponent, null, { type: 'alert', message: 'Saved successfully.' });
+        this.modalService.open(NpDialogComponent, null, { type: 'alert', message: this.translationsService.translate('Saved_Successfully') });
       }
     }
     if (this.onStatesUpdate) {
@@ -768,7 +770,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   _openDialogAddNewState() {
     const promptAddNewState = this.modalService.open(NpDialogComponent,
       null,
-      { type: 'prompt', message: 'Add New State' });
+      { type: 'prompt', message: this.translationsService.translate('Add_New_State') });
     promptAddNewState.onClose.subscribe((data) => {
       this._addState(data);
     });
@@ -817,7 +819,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     if (this.onStatesUpdate) {
       this.onStatesUpdate.emit({ action: 'delete', state: deletedState });
     }
-    this.modalService.open(NpDialogComponent, null, { type: 'alert', message: 'Deleted successfully.' });
+    this.modalService.open(NpDialogComponent, null, { type: 'alert', message: this.translationsService.translate('Deleted_Successfully') });
   }
 
   _loadState() {

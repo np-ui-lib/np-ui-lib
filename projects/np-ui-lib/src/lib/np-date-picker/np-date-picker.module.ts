@@ -5,6 +5,7 @@ import { NpTooltipModule } from '../np-tooltip/np-tooltip.module';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
 import { NpUtilityModule } from '../np-utility/np-utility.module';
+import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
 
 @NgModule({
   declarations: [NpDatePickerComponent],
@@ -13,7 +14,8 @@ import { NpUtilityModule } from '../np-utility/np-utility.module';
     OverlayModule,
     PortalModule,
     NpTooltipModule,
-    NpUtilityModule
+    NpUtilityModule,
+    NpTranslationsModule
   ],
   exports: [NpDatePickerComponent]
 })

@@ -4,6 +4,7 @@ import { NpDialogComponent } from './np-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { NpModalModule } from '../np-modal/np-modal.module';
 import { NpUtilityModule } from '../np-utility/np-utility.module';
+import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
 
 @NgModule({
   declarations: [NpDialogComponent],
@@ -11,7 +12,8 @@ import { NpUtilityModule } from '../np-utility/np-utility.module';
     CommonModule,
     NpModalModule,
     FormsModule,
-    NpUtilityModule
+    NpUtilityModule,
+    NpTranslationsModule
   ],
   exports: [NpDialogComponent]
 })

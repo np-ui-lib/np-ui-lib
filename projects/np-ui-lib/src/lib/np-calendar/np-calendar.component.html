@@ -9,7 +9,7 @@
             </button>
         </div>
         <div class="np-calendar-header-item">
-            <button class="np-btn np-calendar-today-btn" type="button" tabindex="-1" (click)="_loadCurrentMonth()">Today</button>
+            <button class="np-btn np-calendar-today-btn" type="button" tabindex="-1" (click)="_loadCurrentMonth()">{{ 'Today' | npTranslate}}</button>
         </div>
         <div class="np-calendar-header-spacer"></div>
         <div class="np-calendar-header-item">
@@ -25,7 +25,7 @@
         </div>
         <div class="np-calendar-header-item">
             <select class="np-form-control np-calendar-months-select" tabindex="-1" (change)="_selectMonth($event)">
-                <option *ngFor="let month of monthsList" [value]="month.key" [text]="month.value" [selected]="month.key === currentMonth">
+                <option *ngFor="let month of monthsList" [value]="month.key" [text]="month.value | npTranslate" [selected]="month.key === currentMonth">
                 </option>
             </select>
         </div>
@@ -41,7 +41,7 @@
     <table class="np-calendar-table">
         <thead>
             <tr>
-                <th *ngFor="let weekDay of weekDays" [innerHTML]="weekDay"></th>
+                <th *ngFor="let weekDay of weekDays">{{ weekDay | npTranslate }}</th>
             </tr>
         </thead>
         <tbody>

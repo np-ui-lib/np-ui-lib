@@ -17,6 +17,7 @@ import { NpDialogModule } from '../np-dialog/np-dialog.module';
 import { NpPaginatorModule } from '../np-paginator/np-paginator.module';
 import { NpModalModule } from '../np-modal/np-modal.module';
 import { NpCheckboxModule } from '../np-checkbox/np-checkbox.module';
+import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NpCheckboxModule } from '../np-checkbox/np-checkbox.module';
     NpDialogModule,
     NpModalModule,
     NpPaginatorModule,
-    NpCheckboxModule
+    NpCheckboxModule,
+    NpTranslationsModule
   ],
   exports: [
     NpDataGridComponent

@@ -2,7 +2,7 @@
     <div class="np-input-group" [ngClass]="{'np-focused': focused}">
         <label class="np-file-label" tabindex="auto">
             <input class="np-file-input" type="file" #control [attr.accept]="accept" [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly" [disabled]="isDisabled" [multiple]="multiple" #fileUploadInput (change)="_onFileSelected($event)" (blur)="_onBlur($event)" (focus)="_onFocus($event)">
-            <span class="np-file-btn">{{ uploadButtonLabel ? uploadButtonLabel : (multiple ? "Choose Files" : "Choose File")}}</span>
+            <span class="np-file-btn">{{ uploadButtonLabel ? uploadButtonLabel : (multiple ? "Choose_Files" : "Choose_File") | npTranslate}}</span>
             <span class="np-file-counts" [innerText]="_getFilesCountsText()"></span>
         </label>
         <div class="np-input-group-append" *ngIf="value && value.length > 1">

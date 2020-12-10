@@ -35,13 +35,13 @@
                     </tr>
                     <tr>
                         <td>trueLabelText</td>
-                        <td>Set text for label for true side. Pass plaintext or HTML as string</td>
+                        <td>Set text for label for true side</td>
                         <td>string</td>
                         <td>True</td>
                     </tr>
                     <tr>
                         <td>falseLabelText</td>
-                        <td>Set text for label for false side. Pass plaintext or HTML as string</td>
+                        <td>Set text for label for false side</td>
                         <td>string</td>
                         <td>False</td>
                     </tr>
@@ -152,7 +152,7 @@
         </np-card>
     </np-tab>
 
-    <np-tab title="Examples" id="tabExample">
+    <np-tab id="tabExample" title="Examples">
 
         <div>
             <fieldset>
@@ -192,15 +192,6 @@
                 <legend>trueLabelText and falseLabelText as string</legend>
                 <np-switch [(ngModel)]="switch5" [falseLabelText]="'No'" [trueLabelText]="'Yes'"></np-switch>
                 <div>Selected Value : {{switch5}}</div>
-            </fieldset>
-        </div>
-
-        <div>
-            <fieldset>
-                <legend>trueLabelText and falseLabelText as html string</legend>
-                <np-switch [(ngModel)]="switch6" [falseLabelText]="'<a>OFF</a>'" [trueLabelText]="'<a>ON</a>'">
-                </np-switch>
-                <div>Selected Value : {{switch6}}</div>
             </fieldset>
         </div>
 

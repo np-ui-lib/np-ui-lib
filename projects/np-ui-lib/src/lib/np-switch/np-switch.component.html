@@ -2,10 +2,10 @@
     <label (change)="_onClickSwitch($event)">
         <input class="np-switch-input" type="checkbox" role="switch" #control [attr.aria-checked]="innerValue" [checked]="innerValue" [disabled]="isDisabled" [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly" (blur)="_onBlur($event)" (focus)="_onFocus($event)">
         <div class="np-switch-label" [ngClass]="{'np-switch-danger': value === false}">
-            <span [innerHTML]="falseLabelText ? falseLabelText:'False'"></span>
+            <span>{{falseLabelText ? falseLabelText: 'False' | npTranslate}}</span>
         </div>
         <div class="np-switch-label" [ngClass]="{'np-switch-success': value === true}">
-            <span [innerHTML]="trueLabelText ? trueLabelText:'True'"></span>
+            <span>{{trueLabelText ? trueLabelText: 'True' | npTranslate}}</span>
         </div>
     </label>
 </div>

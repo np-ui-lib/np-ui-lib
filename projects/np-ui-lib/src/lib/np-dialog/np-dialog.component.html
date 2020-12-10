@@ -3,7 +3,7 @@
     <div class="np-dialog-message" [innerHTML]="message"></div>
     <input class="np-form-control np-dialog-input" type="text" *ngIf="type === 'prompt'" [(ngModel)]="value" [npAutoFocus]="true">
     <div class="np-btn-group np-dialog-btns">
-        <button class="np-btn np-btn-primary np-dialog-ok" (click)="onOk()">Ok</button>
-        <button class="np-btn np-btn-danger np-dialog-cancel" *ngIf="type !== 'alert'" (click)="onCancel()">Cancel</button>
+        <button class="np-btn np-btn-primary np-dialog-ok" (click)="onOk()">{{ 'Ok' | npTranslate }}</button>
+        <button class="np-btn np-btn-danger np-dialog-cancel" *ngIf="type !== 'alert'" (click)="onCancel()">{{ 'Cancel' | npTranslate }}</button>
     </div>
 </div>

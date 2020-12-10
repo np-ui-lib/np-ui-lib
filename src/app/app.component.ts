@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { NpMenuItem } from 'np-ui-lib';
+import { NpMenuItem, NpTranslationsService } from 'np-ui-lib';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'np-ui-package';
   year = new Date().getFullYear();
+  langList = ['En', 'Fr'];
 
   dataGridItems = [
     new NpMenuItem({ routerLink: '/np-data-grid-demo/data-grid-doc', label: 'Documentation' }),
@@ -91,7 +92,7 @@ export class AppComponent implements OnInit {
     this.setMenubarOnResize();
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private translateService: NpTranslationsService) {
     this.setMenubarOnResize();
   }
 
@@ -132,6 +133,71 @@ export class AppComponent implements OnInit {
     } else {
       this.showMenu = true;
       this.isMobileView = false;
+    }
+  }
+
+  onChangeLang($event) {
+    if ($event.target.value === 'FR') {
+      this.translateService.setTranslations('FR', {
+        'Su': 'Su_FR',
+        'Mo': 'Mo_FR',
+        'Tu': 'Tu_FR',
+        'We': 'We_FR',
+        'Th': 'Th_FR',
+        'Fr': 'Fr_FR',
+        'Sa': 'Sa_FR',
+        'Sunday': 'Sunday_FR',
+        'Monday': 'Monday_FR',
+        'Tuesday': 'Tuesday_FR',
+        'Wednesday': 'Wednesday_FR',
+        'Thursday': 'Thursday_FR',
+        'Friday': 'Friday_FR',
+        'Saturday': 'Saturday_FR',
+        'January': 'January_FR',
+        'February': 'February_FR',
+        'March': 'March_FR',
+        'April': 'April_FR',
+        'May': 'May_FR',
+        'June': 'June_FR',
+        'July': 'July_FR',
+        'August': 'August_FR',
+        'September': 'September_FR',
+        'October': 'October_FR',
+        'November': 'November_FR',
+        'December': 'December_FR',
+        'Today': 'Today_FR',
+        'Ok': 'Ok_FR',
+        'Clear': 'Clear_FR',
+        'Cancel': 'Cancel_FR',
+        'No_Result_Found': 'No result found_FR',
+        'Select': 'Select..._FR',
+        'True': 'True_FR',
+        'False': 'False_FR',
+        'No_Data_Found': 'No data found_FR',
+        'Search_Columns': 'Search columns..._FR',
+        'Saved_Successfully': 'Saved successfully_FR',
+        'Add_New_State': 'Add new state_FR',
+        'Deleted_Successfully': 'Deleted successfully_FR',
+        'Alert': 'Alert_FR',
+        'Confirm': 'Confirm_FR',
+        'Prompt': 'Prompt_FR',
+        'Choose_Files': 'Choose files_FR',
+        'Choose_File': 'Choose file_FR',
+        'Items_Per_Page': 'Items per page_FR',
+        'Of': 'of_FR',
+        'Now': 'Now_FR',
+        'HH': 'HH_FR',
+        'hh': 'hh_FR',
+        'mm': 'mm_FR',
+        'ss': 'ss_FR',
+        'tt': 'tt_FR',
+        'HEX': 'HEX_FR',
+        'R': 'R_FR',
+        'G': 'G_FR',
+        'B': 'B_FR'
+      });
+    } else {
+      this.translateService.setTranslations(null, null);
     }
   }
 

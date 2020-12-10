@@ -7,7 +7,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { fakeBackendProvider } from './np-data-grid-demo/fake-backend-interceptor';
-import { NpMenubarModule, NpNotificationsModule } from 'np-ui-lib';
+import { NpMenubarModule, NpNotificationsModule, NpTranslationsModule } from 'np-ui-lib';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { NpMenubarModule, NpNotificationsModule } from 'np-ui-lib';
     FormsModule,
     AppRoutingModule,
     NpMenubarModule,
-    NpNotificationsModule
+    NpNotificationsModule,
+    NpTranslationsModule
   ],
   providers: [
     // provider used to create fake backend

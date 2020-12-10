@@ -30,7 +30,7 @@
         <ng-container *ngIf="enableStateStoring">
             <div class="np-grid-toolbar-item">
                 <select class="np-form-control np-grid-states" [(ngModel)]="currentStateName" (change)="_loadState()">
-                    <option value="">Select...</option>
+                    <option value="">{{ 'Select' | npTranslate }}</option>
                     <option *ngFor="let state of stateList; trackBy: _trackBy;" [text]="state.name" [value]="state.name">
                     </option>
                 </select>
@@ -102,22 +102,20 @@
                         <th *ngFor="let column of visibleColumns; let l = index; trackBy: _trackBy;" [ngClass]="{'np-grid-sticky-left': column.stickyColumnLeft, 'np-grid-sticky-right': column.stickyColumnRight}">
                             <ng-container *ngIf="column.filterEnable">
                                 <select class="np-form-control np-grid-filter-type" [(ngModel)]="column.filterOperator" (change)="_onFilter(column, false)">
-                                    <option [value]="undefined" disabled hidden>Select...
+                                    <option [value]="undefined" disabled hidden>{{ 'Select' | npTranslate }}
                                     </option>
                                     <option *ngFor="let fOperator of filtersList | filterTypesPipe: column.dataType; trackBy: _trackBy;" [text]="fOperator.text" [value]="fOperator.name">
                                     </option>
-                                    <option value="Reset" [disabled]="column.filterOperator === undefined">
-                                        Reset
-                                    </option>
+                                    <option value="Reset" [disabled]="column.filterOperator === undefined">{{ 'Reset' | npTranslate }}</option>
                                 </select>
                                 <input class="np-form-control np-grid-filter-val" type="text" *ngIf="column.dataType === dataTypes.String" [(ngModel)]="column.filterValue" (change)="_onFilter(column, false)" placeholder="Search...">
                                 <input class="np-form-control np-grid-filter-val" type="number" *ngIf="column.dataType === dataTypes.Number" [(ngModel)]="column.filterValue" (change)="_onFilter(column, false)" placeholder="Search...">
                                 <np-date-picker *ngIf="column.dataType === dataTypes.Date" [format]="dateFormat" [styleClass]="'np-grid-filter-val'" [(ngModel)]="column.filterValue" (onChange)="_onFilter(column, false)" [placeholder]="dateFormat">
                                 </np-date-picker>
                                 <select class="np-form-control np-grid-filter-val" *ngIf="column.dataType === dataTypes.Boolean" [(ngModel)]="column.filterValue" (change)="_onFilter(column, false)">
-                                    <option [value]="undefined" disabled hidden>Select...</option>
-                                    <option [value]="true">True</option>
-                                    <option [value]="false">False</option>
+                                    <option [value]="undefined" disabled hidden>{{ 'Select' | npTranslate }}</option>
+                                    <option [value]="true">{{ 'True' | npTranslate }}</option>
+                                    <option [value]="false">{{ 'False' | npTranslate }}</option>
                                 </select>
                             </ng-container>
                         </th>
@@ -179,7 +177,7 @@
             </table>
         </div>
         <div class="np-grid-no-data" *ngIf="currentViewData && currentViewData.length === 0">
-            <div [innerHTML]="noDataMessage"></div>
+            <div>{{( noDataMessage || 'No_Data_Found') | npTranslate}}</div>
         </div>
         <div class="np-grid-summary" *ngIf="showSummary">
             <ng-container *ngTemplateOutlet="summaryTemplate;context:{ summary: summaryData }">
@@ -212,7 +210,7 @@
             </button>
         </div>
         <div class="np-grid-search">
-            <input class="np-form-control np-grid-search-input" type="text" placeholder="Search Columns..." [(ngModel)]="searchColumnsKeyword">
+            <input class="np-form-control np-grid-search-input" type="text" [placeholder]="'Search_Columns' | npTranslate" [(ngModel)]="searchColumnsKeyword">
             <button class="np-btn-icon np-float-right np-grid-clear" type="button" (click)="_clearColumnSearch()">
                 <svg class="np-icon" viewBox="0 0 24 24">
                     <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>

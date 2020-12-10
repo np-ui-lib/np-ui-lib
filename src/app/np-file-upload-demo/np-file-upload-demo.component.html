@@ -75,7 +75,7 @@
                         <td>uploadButtonLabel</td>
                         <td>Set upload button text</td>
                         <td>string</td>
-                        <td>Choose File/Choose Files</td>
+                        <td>Choose file/Choose files</td>
                     </tr>
                     <tr>
                         <td>showFileSize</td>
@@ -237,8 +237,7 @@
 
         <fieldset>
             <legend>Total file size 1000 bytes for multiple uploads</legend>
-            <np-file-upload [(ngModel)]="fileUpload7" [multiple]="true" [totalSize]="1000"
-                #fileUpload7Control="ngModel">
+            <np-file-upload [(ngModel)]="fileUpload7" [multiple]="true" [totalSize]="1000" #fileUpload7Control="ngModel">
             </np-file-upload>
             <div class="np-text-danger" *ngIf="fileUpload7Control.errors && fileUpload7Control.errors.totalSize">
                 Total File size exceeds.

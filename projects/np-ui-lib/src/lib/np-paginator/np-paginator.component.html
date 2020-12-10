@@ -35,13 +35,13 @@
     </div>
     <div class="np-paginator-spacer"></div>
     <div class="np-paginator-item" *ngIf="showPageSize">
-        Items per page
+        {{'Items_Per_Page' | npTranslate}}
     </div>
     <div class="np-paginator-item" *ngIf="showPageSize">
         <input class="np-form-control np-paginator-page-size" type="number" [value]="pageSize" [min]="1" [max]="100" (change)="_onItemPerPageChange($event)">
     </div>
     <div class="np-paginator-item" *ngIf="showTotal">
-        {{startIndex + 1}}-{{endIndex + 1}} of {{totalItems}}
+        {{startIndex + 1}}-{{endIndex + 1}} {{'Of' | npTranslate}} {{totalItems}}
     </div>
     <div class="np-paginator-item">
         <button class="np-btn-icon np-paginator-refresh" type="button" (click)="refresh()">

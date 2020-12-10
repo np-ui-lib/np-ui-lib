@@ -15,10 +15,10 @@
 <ng-template #templatePortalContent="">
     <div class="np-time-picker-overlay" [ngClass]="{'np-overlay-open': defaultOpen}">
         <div class="np-time-picker-header">
-            <div>{{ is24Hours ? 'HH' : 'hh' }}</div>
-            <div>mm</div>
-            <div *ngIf="hideSeconds === false">ss</div>
-            <div *ngIf="is24Hours === false">tt</div>
+            <div>{{ is24Hours ? 'HH' : 'hh' | npTranslate}}</div>
+            <div>{{ 'mm' | npTranslate }}</div>
+            <div *ngIf="hideSeconds === false">{{ 'ss' | npTranslate }}</div>
+            <div *ngIf="is24Hours === false">{{ 'tt' | npTranslate }}</div>
         </div>
         <div class="np-time-picker-controls">
             <button class="np-btn-icon" type="button" tabindex="-1" (click)="_minusHour()">
@@ -91,9 +91,9 @@
             </button>
         </div>
         <div class="np-time-picker-footer">
-            <button class="np-btn np-btn-primary np-ok" type="button" *ngIf="!defaultOpen" tabindex="-1" (click)="_close()">Ok</button>
-            <button class="np-btn np-btn-primary np-now" type="button" *ngIf="showNowButton" tabindex="-1" (click)="_selectNowTime()">Now</button>
-            <button class="np-btn np-btn-danger np-clear" type="button" tabindex="-1" (click)="_clear()">Clear</button>
+            <button class="np-btn np-btn-primary np-ok" type="button" *ngIf="!defaultOpen" tabindex="-1" (click)="_close()">{{ 'Ok' | npTranslate }}</button>
+            <button class="np-btn np-btn-primary np-now" type="button" *ngIf="showNowButton" tabindex="-1" (click)="_selectNowTime()">{{ 'Now' | npTranslate }}</button>
+            <button class="np-btn np-btn-danger np-clear" type="button" tabindex="-1" (click)="_clear()">{{ 'Clear' | npTranslate }}</button>
         </div>
     </div>
 </ng-template>

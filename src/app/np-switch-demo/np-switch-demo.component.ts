@@ -13,7 +13,6 @@ export class NpSwitchDemoComponent implements OnInit {
   switch3 = true;
   switch4: boolean;
   switch5 = true;
-  switch6 = true;
   switch7 = true;
   switch8 = true;
 

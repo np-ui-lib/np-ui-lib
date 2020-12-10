@@ -187,3 +187,8 @@ export * from './lib/np-input-text/np-input-text.component';
 /*Input Text */
 export * from './lib/np-textarea/np-textarea.module';
 export * from './lib/np-textarea/np-textarea.component';
+
+/*Translations */
+export * from './lib/np-translations/np-tranlations.module';
+export * from './lib/np-translations/np-translate.pipe';
+export * from './lib/np-translations/np-translations.service';

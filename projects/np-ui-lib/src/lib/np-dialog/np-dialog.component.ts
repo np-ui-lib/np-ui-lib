@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { NpModalRef } from '../np-modal/np-modal-ref';
+import { NpTranslationsService } from '../np-translations/np-translations.service';
 
 @Component({
   selector: 'np-dialog',
@@ -17,11 +18,11 @@ export class NpDialogComponent implements OnInit {
   styleClass: string;
   inputId = `np-modal_${NpDialogComponent.controlCount++}`;
 
-  constructor(public modalRef: NpModalRef) { }
+  constructor(public modalRef: NpModalRef, private translationService: NpTranslationsService) { }
 
   ngOnInit(): void {
     this.type = this.modalRef.data ? this.modalRef.data.type : 'alert';
-    this.title = this.type === 'alert' ? 'Alert' : this.type === 'confirm' ? 'Confirm' : 'Prompt';
+    this.title = this.translationService.translate(this.type === 'alert' ? 'Alert' : this.type === 'confirm' ? 'Confirm' : 'Prompt');
     this.message = this.modalRef.data ? this.modalRef.data.message : '';
     if (this.modalRef.config.inputId) {
       this.inputId = this.modalRef.config.inputId;

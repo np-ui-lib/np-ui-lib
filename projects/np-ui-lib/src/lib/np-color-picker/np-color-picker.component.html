@@ -14,13 +14,13 @@
     <div class="np-color-picker-overlay" [ngClass]="{'np-overlay-open': defaultOpen}">
         <div class="np-color-picker-header">
             <div class="np-hex-input">
-                <label>HEX</label><input class="np-color-hex-input" type="text" [value]="currentHex" (change)="_onChangeHex($event)">
+                <label>{{ 'HEX' | npTranslate}}</label><input class="np-color-hex-input" type="text" [value]="currentHex" (change)="_onChangeHex($event)">
                 <div class="np-selected-color-block" [ngStyle]="{'background-color': innerValue}"></div>
             </div>
             <div class="np-rgb-input">
-                <label>R</label><input class="np-color-r-input" type="number" min="0" max="255" [value]="currentR" (change)="_onChangeR($event)">
-                <label>G</label><input class="np-color-g-input" type="number" min="0" max="255" [value]="currentG" (change)="_onChangeG($event)">
-                <label>B</label><input class="np-color-b-input" type="number" min="0" max="255" [value]="currentB" (change)="_onChangeB($event)">
+                <label>{{ 'R' | npTranslate }}</label><input class="np-color-r-input" type="number" min="0" max="255" [value]="currentR" (change)="_onChangeR($event)">
+                <label>{{ 'G' | npTranslate }}</label><input class="np-color-g-input" type="number" min="0" max="255" [value]="currentG" (change)="_onChangeG($event)">
+                <label>{{ 'B' | npTranslate }}</label><input class="np-color-b-input" type="number" min="0" max="255" [value]="currentB" (change)="_onChangeB($event)">
             </div>
         </div>
         <div class="np-color-canvases">
@@ -32,8 +32,8 @@
             </div>
         </div>
         <div class="np-color-picker-footer">
-            <button class="np-btn np-btn-primary np-ok" type="button" *ngIf="!defaultOpen" tabindex="-1" (click)="_close()">Ok</button>
-            <button class="np-btn np-btn-danger np-clear" type="button" tabindex="-1" (click)="_clear()">Clear</button>
+            <button class="np-btn np-btn-primary np-ok" type="button" *ngIf="!defaultOpen" tabindex="-1" (click)="_close()">{{ 'Ok' | npTranslate }}</button>
+            <button class="np-btn np-btn-danger np-clear" type="button" tabindex="-1" (click)="_clear()">{{ 'Clear' | npTranslate }}</button>
         </div>
     </div>
 </ng-template>
