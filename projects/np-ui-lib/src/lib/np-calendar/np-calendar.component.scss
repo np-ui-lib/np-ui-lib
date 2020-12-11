@@ -23,8 +23,7 @@
         flex: 1 1 auto;
     }
 
-    .np-calendar-years-input,
-    .np-calendar-months-select {
+    .np-calendar-years-input {
         width: 100px;
     }
 
@@ -39,7 +38,7 @@
         table-layout: fixed;
 
         th {
-            background-color: #eee;
+            background-color: $selected-color;
             padding: 5px;
             min-width: 90px;
             overflow: hidden;

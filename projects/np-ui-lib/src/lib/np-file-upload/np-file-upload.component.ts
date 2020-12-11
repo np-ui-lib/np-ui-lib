@@ -191,7 +191,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     this.value = this.value.filter((element, index) => index !== idx);
   }
 
-    _onBlur($event) {
+  _onBlur($event) {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
@@ -204,6 +204,10 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
 
   focus() {
     this.inputViewChild.nativeElement.focus();
+  }
+
+  _getLabel() {
+    return this.uploadButtonLabel ? this.uploadButtonLabel : (this.multiple ? "Choose_Files" : "Choose_File");
   }
 }
 

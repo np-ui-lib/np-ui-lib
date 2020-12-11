@@ -1,6 +1,6 @@
 {
     "name": "np-ui-lib",
-    "version": "10.7.4",
+    "version": "10.8.0",
     "author": {
         "name": "nilav patel",
         "email": "nilavpatel1992@gmail.com",
@@ -66,6 +66,8 @@
         "Checkbox",
         "Radio Button",
         "Input Text",
-        "Textarea"
+        "Textarea",
+        "i18N",
+        "Themes"
     ]
 }

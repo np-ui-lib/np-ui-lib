@@ -104,12 +104,12 @@
                                 <select class="np-form-control np-grid-filter-type" [(ngModel)]="column.filterOperator" (change)="_onFilter(column, false)">
                                     <option [value]="undefined" disabled hidden>{{ 'Select' | npTranslate }}
                                     </option>
-                                    <option *ngFor="let fOperator of filtersList | filterTypesPipe: column.dataType; trackBy: _trackBy;" [text]="fOperator.text" [value]="fOperator.name">
+                                    <option *ngFor="let fOperator of filtersList | filterTypesPipe: column.dataType; trackBy: _trackBy;" [text]="fOperator.text | npTranslate" [value]="fOperator.name">
                                     </option>
                                     <option value="Reset" [disabled]="column.filterOperator === undefined">{{ 'Reset' | npTranslate }}</option>
                                 </select>
-                                <input class="np-form-control np-grid-filter-val" type="text" *ngIf="column.dataType === dataTypes.String" [(ngModel)]="column.filterValue" (change)="_onFilter(column, false)" placeholder="Search...">
-                                <input class="np-form-control np-grid-filter-val" type="number" *ngIf="column.dataType === dataTypes.Number" [(ngModel)]="column.filterValue" (change)="_onFilter(column, false)" placeholder="Search...">
+                                <input class="np-form-control np-grid-filter-val" type="text" *ngIf="column.dataType === dataTypes.String" [(ngModel)]="column.filterValue" (change)="_onFilter(column, false)" [placeholder]="'Search' | npTranslate">
+                                <input class="np-form-control np-grid-filter-val" type="number" *ngIf="column.dataType === dataTypes.Number" [(ngModel)]="column.filterValue" (change)="_onFilter(column, false)" [placeholder]="'Search' | npTranslate">
                                 <np-date-picker *ngIf="column.dataType === dataTypes.Date" [format]="dateFormat" [styleClass]="'np-grid-filter-val'" [(ngModel)]="column.filterValue" (onChange)="_onFilter(column, false)" [placeholder]="dateFormat">
                                 </np-date-picker>
                                 <select class="np-form-control np-grid-filter-val" *ngIf="column.dataType === dataTypes.Boolean" [(ngModel)]="column.filterValue" (change)="_onFilter(column, false)">
@@ -177,7 +177,7 @@
             </table>
         </div>
         <div class="np-grid-no-data" *ngIf="currentViewData && currentViewData.length === 0">
-            <div>{{( noDataMessage || 'No_Data_Found') | npTranslate}}</div>
+            <div>{{ noDataMessage || ( 'No_Data_Found' | npTranslate ) }}</div>
         </div>
         <div class="np-grid-summary" *ngIf="showSummary">
             <ng-container *ngTemplateOutlet="summaryTemplate;context:{ summary: summaryData }">

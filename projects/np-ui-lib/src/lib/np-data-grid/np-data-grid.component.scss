@@ -133,10 +133,10 @@
         right: 0px;
         top: 0px;
         z-index: 1;
+    }
 
-        &:hover {
-            background-color: $primary-color;
-        }
+    .np-grid-resize-handle:active {
+        background-color: $primary-color;
     }
 
     .np-grid-sticky-left {

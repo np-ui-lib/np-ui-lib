@@ -1,30 +1,24 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
     providedIn: 'root',
 })
 export class NpTranslationsService {
-    private _language: string;
     private _translations: any;
+    public onTranslationsChange: BehaviorSubject<any>;
 
     constructor() {
         this._setDefaultTranslations();
+        this.onTranslationsChange = new BehaviorSubject(null);
     }
 
-    getCurrentLanguage = function () {
-        return this._language;
-    }
-
-    getCurrentTranslations = function () {
-        return this._translations;
-    }
-
-    setTranslations = function (language: string, translations: any) {
-        if (!language) {
+    setTranslations = function (translations: any) {
+        if (!translations) {
             this._setDefaultTranslations();
         } else {
-            this._language = language;
             this._translations = translations;
         }
+        this.onTranslationsChange.next(null);
     }
 
     translate(key: string) {
@@ -32,7 +26,6 @@ export class NpTranslationsService {
     }
 
     private _setDefaultTranslations() {
-        this._language = 'en';
         this._translations = {
             'Su': 'Su',
             'Mo': 'Mo',
@@ -66,6 +59,8 @@ export class NpTranslationsService {
             'Cancel': 'Cancel',
             'No_Result_Found': 'No result found',
             'Select': 'Select...',
+            'Search': 'Search...',
+            'Reset': 'Reset',
             'True': 'True',
             'False': 'False',
             'No_Data_Found': 'No data found',
@@ -81,15 +76,16 @@ export class NpTranslationsService {
             'Items_Per_Page': 'Items per page',
             'Of': 'of',
             'Now': 'Now',
-            'HH': 'HH',
-            'hh': 'hh',
-            'mm': 'mm',
-            'ss': 'ss',
-            'tt': 'tt',
-            'HEX': 'HEX',
-            'R': 'R',
-            'G': 'G',
-            'B': 'B'
+            '>': '>',
+            '<': '<',
+            '>=': '>=',
+            '<=': '<=',
+            '=': '=',
+            '!=': '!=',
+            'abc': 'abc',
+            'abc*': 'abc*',
+            '*abc': '*abc',
+            '*abc*': '*abc*'
         };
     }
 }

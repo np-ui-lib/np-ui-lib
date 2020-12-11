@@ -171,6 +171,14 @@ const routes: Routes = [
     loadChildren: () => import('./np-textarea-demo/np-textarea-demo.module').then(m => m.NpTextareaDemoModule)
   },
   {
+    path: 'np-theming-demo',
+    loadChildren: () => import('./np-theming-demo/np-theming-demo.module').then(m => m.NpThemingDemoModule)
+  },
+  {
+    path: 'np-i18n-demo',
+    loadChildren: () => import('./np-i18n-demo/np-i18n-demo.module').then(m => m.NpI18nDemoModule)
+  },
+  {
     path: '**',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

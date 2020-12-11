@@ -1,14 +1,28 @@
-import { Injectable, Pipe, PipeTransform } from '@angular/core';
+import { ChangeDetectorRef, Injectable, OnDestroy, Pipe, PipeTransform } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { NpTranslationsService } from './np-translations.service';
-@Pipe({
-    name: 'npTranslate'
-})
-@Injectable()
-export class NpTranslatePipe implements PipeTransform {
-    constructor(private translationService: NpTranslationsService) {
 
+@Injectable()
+@Pipe({
+    name: 'npTranslate',
+    pure: false
+})
+export class NpTranslatePipe implements PipeTransform, OnDestroy {
+
+    subscription: Subscription;
+    value: string = '';
+
+    constructor(private translationService: NpTranslationsService, private _ref: ChangeDetectorRef) { }
+
+    transform(key: string): any {
+        this.subscription = this.translationService.onTranslationsChange.subscribe(() => {
+            this.value = this.translationService.translate(key);
+            this._ref.markForCheck();
+        });
+        return this.value;
     }
-    transform(key: string): string {
-        return this.translationService.translate(key);
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 }

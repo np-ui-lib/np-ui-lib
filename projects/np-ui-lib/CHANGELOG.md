@@ -3,7 +3,8 @@
 
 ## Change log and decision tracker
 
-## 10.7.4
+## 10.8.0
+- Add i18N support and related services
 - Add id to breadcrumb menu item
 
 ## 10.7.3

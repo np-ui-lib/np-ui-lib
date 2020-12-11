@@ -5,28 +5,33 @@
     }
 
     .np-dialog {
-        min-height: 150px;
-        min-width: 250px;
+        min-height: 170px;
+        min-width: 300px;
         position: relative;
         border: 1px solid $border-color;
         border-radius: 2px;
         background-color: #ffffff;
         padding: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        max-width: 400px;
     }
 
-    .np-dialog-btns {
-        position: absolute;
-        bottom: 0px;
-        right: 0px;
-        margin: 10px;
+    .np-dialog-header {
+        font-weight: bold;
+        padding: 5px 0px;
+    }
+
+    .np-dialog-body {
+        height: 100%;
     }
 
     .np-dialog-message {
         padding-bottom: 10px;
     }
 
-    .np-dialog-title {
-        font-weight: bold;
-        padding: 5px 0px;
+    .np-dialog-footer .np-btn-group {
+        float: right;
     }
 }

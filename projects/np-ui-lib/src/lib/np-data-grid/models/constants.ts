@@ -96,17 +96,17 @@ export const Filters = [
         forDataType: DataTypes.Date
     }, {
         name: FilterTypes.NotEquals,
-        text: '≠',
+        text: '!=',
         forDataType: DataTypes.Number
     },
     {
         name: FilterTypes.NotEquals,
-        text: '≠',
+        text: '!=',
         forDataType: DataTypes.Date
     },
     {
         name: FilterTypes.NotEquals,
-        text: '≠',
+        text: '!=',
         forDataType: DataTypes.Boolean
     }
 ];

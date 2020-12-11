@@ -11,7 +11,6 @@ Native Angular UI Components and Design Framework
 ![Contribution](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/contributions.svg)
 
 ### [NPM package manager](https://www.npmjs.com/package/np-ui-lib)  
-### For Angular 9, click [here](https://www.npmjs.com/package/np-ui-lib/v/9.20.0)  
 ````
 npm i np-ui-lib
 ````
@@ -56,23 +55,24 @@ npm i np-ui-lib
 1.  Grid Layout
 1.  Masking
 1.  Calendar
+1.  Themes
+1.  i18N
 
 ### Import css to your application:
 ````css
+@import "~@angular/cdk/overlay-prebuilt.css";
 @import "np-ui-lib/styles/default-theme.scss";
 ````
 
-### [Working examples](https://stackblitz.com/edit/np-ui-lib)
-### [Code for all examples here](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)
+### [Click here for full documentation](https://stackblitz.com/edit/np-ui-lib)
+### [Click here for source code and documentation code](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)
 ### [Release Notes](https://github.com/NilavPatel/np-ui-package/tree/master/projects/np-ui-lib/CHANGELOG.md)
 
 ### How to Run this project?
 ````
-Run this command in console, which will create dist folder for library.
+Run below commands in sequence
 $ ng build np-ui-lib --watch
-Then run below command in new console to copy all scss files.
 $ npm run copy-assets
-Then run below command in new console.
 $ ng serve
 ````
 
