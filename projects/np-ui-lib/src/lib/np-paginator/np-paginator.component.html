@@ -41,7 +41,7 @@
         <input class="np-form-control np-paginator-page-size" type="number" [value]="pageSize" [min]="1" [max]="100" (change)="_onItemPerPageChange($event)">
     </div>
     <div class="np-paginator-item" *ngIf="showTotal">
-        {{startIndex + 1}}-{{endIndex + 1}} {{'Of' | npTranslate}} {{totalItems}}
+        {{startIndex + 1}}-{{endIndex + 1}} / {{totalItems}}
     </div>
     <div class="np-paginator-item">
         <button class="np-btn-icon np-paginator-refresh" type="button" (click)="refresh()">

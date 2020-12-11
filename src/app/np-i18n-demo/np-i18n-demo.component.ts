@@ -56,7 +56,6 @@ export class NpI18nDemoComponent implements OnInit {
     'Choose_Files': 'Choose files',
     'Choose_File': 'Choose file',
     'Items_Per_Page': 'Items per page',
-    'Of': 'of',
     'Now': 'Now',
     '>': '>',
     '<': '<',

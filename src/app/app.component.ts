@@ -188,7 +188,6 @@ export class AppComponent implements OnInit {
         'Choose_Files': 'फ़ाइलों का चयन करें',
         'Choose_File': 'फ़ाइल का चयन करें',
         'Items_Per_Page': 'आइटम प्रति पृष्ठ',
-        'Of': 'से',
         'Now': 'अभी',
         '>': 'से अधिक',
         '<': 'से कम',

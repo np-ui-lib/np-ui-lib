@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 10.8.1
+- Minor improvments
+
 ## 10.8.0
 - Add i18N support and related services
 - Add id to breadcrumb menu item
