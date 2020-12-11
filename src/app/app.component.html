@@ -12,6 +12,14 @@
         </div>
         <div class="np-toolbar-spacer"></div>
         <div class="np-toolbar-item">
+            <select (change)="onChangeTheme($event)">
+                <option value="blue-theme" selected>Blue</option>
+                <option value="green-theme">Green</option>
+                <option value="orange-theme">Orange</option>
+                <option value="teal-theme">Teal</option>
+            </select>
+        </div>
+        <div class="np-toolbar-item">
             <select (change)="onChangeLang($event)">
                 <option value="EN" selected>EN</option>
                 <option value="हिंदी">हिंदी</option>

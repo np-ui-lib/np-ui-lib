@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Renderer2 } from '@angular/core';
 import { NpMenuItem, NpTranslationsService } from 'np-ui-lib';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 
@@ -94,7 +94,7 @@ export class AppComponent implements OnInit {
     this.setMenubarOnResize();
   }
 
-  constructor(private router: Router, private translateService: NpTranslationsService) {
+  constructor(private router: Router, private translateService: NpTranslationsService, private renderer: Renderer2) {
     this.setMenubarOnResize();
   }
 
@@ -204,6 +204,11 @@ export class AppComponent implements OnInit {
     } else {
       this.translateService.setTranslations(null);
     }
+  }
+
+  onChangeTheme($event) {
+    this.renderer.removeAttribute(document.body, 'class');
+    this.renderer.addClass(document.body, $event.target.value);
   }
 
 }
