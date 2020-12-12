@@ -1,9 +1,4 @@
 @mixin app-style {
-    body {
-        background: #c9d6ff;
-        background: linear-gradient(to right, #ffffff, rgba($primary-color, 0.1));
-    }
-
     header {
         background-color: $primary-color;
         position: fixed;
