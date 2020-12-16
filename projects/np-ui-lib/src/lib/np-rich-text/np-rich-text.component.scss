@@ -1,0 +1,30 @@
+@mixin np-rich-text-style {
+  .np-rich-text {
+    position: relative;
+    border: 1px solid $border-color;
+  }
+
+  .np-rich-text-input {
+    width: 100%;
+    overflow: auto;
+    background-color: #ffffff;
+    padding: 10px;
+  }
+
+  .np-rich-text .np-toolbar {
+    background-color: $background-color;
+    border-bottom: 1px solid $border-color;
+  }
+
+  .np-btn-active {
+    color: #ffffff;
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
+
+  .np-btn-active:hover {
+    color: #ffffff;
+    background-color: rgba($primary-color, 0.8);
+    border-color: rgba($primary-color, 0.8);
+  }
+}

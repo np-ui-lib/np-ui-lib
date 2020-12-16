@@ -11,7 +11,7 @@
         </div>
     </div>
 </div>
-<ng-template #templatePortalContent="">
+<ng-template #templatePortalContent>
     <div class="np-date-picker-overlay" [ngClass]="{'np-overlay-open': defaultOpen}">
         <div class="np-date-picker-header">
             <button class="np-btn-icon" type="button" tabindex="-1" (click)="_prevMonth()">
@@ -44,7 +44,7 @@
                     <div class="np-date-picker-day np-day-{{item.day}}" *ngIf="item.day" (click)="_selectDate(item.date)" [ngClass]="{'np-date-picker-today': item.today, 'np-disabled': item.disabled, 'np-date-picker-selected': item.seleced}">
                         <div *ngIf="item.toolTip; else dayTemplate" [np-tooltip]="item.toolTip" [innerHTML]="item.day">
                         </div>
-                        <ng-template #dayTemplate="">
+                        <ng-template #dayTemplate>
                             <div [innerHTML]="item.day"></div>
                         </ng-template>
                     </div>

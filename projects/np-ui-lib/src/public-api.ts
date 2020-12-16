@@ -192,3 +192,7 @@ export * from './lib/np-textarea/np-textarea.component';
 export * from './lib/np-translations/np-tranlations.module';
 export * from './lib/np-translations/np-translate.pipe';
 export * from './lib/np-translations/np-translations.service';
+
+/*Rich text */
+export * from './lib/np-rich-text/np-rich-text.module';
+export * from './lib/np-rich-text/np-rich-text.component';

@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 10.8.2
+- Add new rich text component
+
 ## 10.8.1
 - Minor improvments
 

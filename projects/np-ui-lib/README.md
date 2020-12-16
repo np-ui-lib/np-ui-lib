@@ -55,6 +55,7 @@ npm i np-ui-lib
 1.  Grid Layout
 1.  Masking
 1.  Calendar
+1.  Rich Text
 1.  Themes
 1.  i18N
 
@@ -65,7 +66,7 @@ npm i np-ui-lib
 ````
 
 ### [Click here for full documentation](https://stackblitz.com/edit/np-ui-lib)
-### [Click here for source code and documentation code](https://github.com/NilavPatel/np-ui-package/tree/master/src/app)
+### [Click here for source code](https://github.com/NilavPatel/np-ui-package)
 ### [Release Notes](https://github.com/NilavPatel/np-ui-package/tree/master/projects/np-ui-lib/CHANGELOG.md)
 
 ## License

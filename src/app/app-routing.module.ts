@@ -179,6 +179,10 @@ const routes: Routes = [
     loadChildren: () => import('./np-i18n-demo/np-i18n-demo.module').then(m => m.NpI18nDemoModule)
   },
   {
+    path: 'np-rich-text-demo',
+    loadChildren: () => import('./np-rich-text-demo/np-rich-text-demo.module').then(m => m.NpRichTextDemoModule)
+  },
+  {
     path: '**',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

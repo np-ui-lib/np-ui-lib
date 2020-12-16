@@ -8,7 +8,6 @@
         display: flex;
         border: 1px solid $border-color;
         border-radius: 2px;
-        width: 4rem;
     }
 
     .np-color-picker .np-btn-icon {
@@ -26,6 +25,7 @@
 
     .np-input-color-block {
         width: 2rem;
+        height: 2rem;
     }
 
     .np-input-hidden {
@@ -52,14 +52,6 @@
     .np-selected-color-block {
         width: 3rem;
         margin-left: 5px;
-    }
-
-    .np-current-color-block {
-        height: 2rem;
-        width: 2rem;
-        margin-top: 10px;
-        margin-left: 10px;
-        z-index: 1001;
     }
 
     .np-color-canvases {

@@ -10,7 +10,7 @@
         </button>
     </div>
 </div>
-<ng-template #templatePortalContent="">
+<ng-template #templatePortalContent>
     <div class="np-color-picker-overlay" [ngClass]="{'np-overlay-open': defaultOpen}">
         <div class="np-color-picker-header">
             <div class="np-hex-input">
@@ -24,8 +24,8 @@
             </div>
         </div>
         <div class="np-color-canvases">
-            <canvas class="np-color-picker-block" width="170" height="170" (click)="_clickBlockColor($event)" (mousemove)="_onMouseOverBlock($event)" (mouseleave)="_onMouseLeaveBlock()"></canvas>
-            <canvas class="np-color-picker-strip" width="25" height="170" (click)="_clickStripeColor($event)" (mousemove)="_onMouseOverStrip($event)" (mouseleave)="_onMouseLeaveStrip()"></canvas>
+            <canvas class="np-color-picker-block" width="170" height="170" (click)="_clickBlockColor($event)"></canvas>
+            <canvas class="np-color-picker-strip" width="25" height="170" (click)="_clickStripeColor($event)"></canvas>
         </div>
         <div class="np-color-blocks" *ngIf="colors && colors.length > 0">
             <div class="np-color-block" *ngFor="let color of colors" [style.background-color]="color" (click)="_onClickColorBlock(color)">
@@ -37,5 +37,3 @@
         </div>
     </div>
 </ng-template>
-<div class="np-current-color-block" *ngIf="isShowCursorDiv" [ngStyle]="{'background-color': currentCursorColor, 'position': 'absolute', 'left': xColorCursor , 'top': yColorCursor}">
-</div>

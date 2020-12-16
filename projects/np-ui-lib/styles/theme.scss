@@ -32,6 +32,7 @@
 @import "np-tooltip.component.scss";
 @import "np-tree-view.component.scss";
 @import "np-virtual-scroll.component.scss";
+@import "np-rich-text.component.scss";
 
 @mixin theme {
     @include np-core-style;
@@ -68,4 +69,5 @@
     @include np-tooltip-style;
     @include np-tree-view-style;
     @include np-virtual-scroll-style;
+    @include np-rich-text-style;
 }

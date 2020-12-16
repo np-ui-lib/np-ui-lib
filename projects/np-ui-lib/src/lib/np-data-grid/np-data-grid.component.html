@@ -30,7 +30,7 @@
         <ng-container *ngIf="enableStateStoring">
             <div class="np-grid-toolbar-item">
                 <select class="np-form-control np-grid-states" [(ngModel)]="currentStateName" (change)="_loadState()">
-                    <option value="">{{ 'Select' | npTranslate }}</option>
+                    <option value>{{ 'Select' | npTranslate }}</option>
                     <option *ngFor="let state of stateList; trackBy: _trackBy;" [text]="state.name" [value]="state.name">
                     </option>
                 </select>
@@ -139,7 +139,7 @@
                                         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
                                         <path d="M0 0h24v24H0z" fill="none"></path></svg>
                                 </button>
-                                <ng-template #collapseRowButton="">
+                                <ng-template #collapseRowButton>
                                     <button class="np-child-collapse" type="button" (click)="_onClickCollapseRow(data)">
                                         <svg class="np-icon" viewBox="0 0 24 24">
                                             <path d="M19 13H5v-2h14v2z"></path>
@@ -187,7 +187,7 @@
     <np-paginator #gridPaginator [pageSize]="pageSize" [totalItems]="totalRow" [styleClass]="'np-grid-pagination'" (onPageChange)="_onPageChange($event)">
     </np-paginator>
 </div>
-<ng-template #columnChooserTemplate="">
+<ng-template #columnChooserTemplate>
     <div class="np-column-chooser np-border">
         <div class="np-btn-group np-float-right">
             <button class="np-btn-icon np-grid-show-all" type="button" (click)="_showAllColumns()">

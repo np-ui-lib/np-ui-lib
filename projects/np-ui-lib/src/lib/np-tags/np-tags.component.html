@@ -20,7 +20,7 @@
         </div>
     </div>
 </div>
-<ng-template #templatePortalContent="">
+<ng-template #templatePortalContent>
     <ul class="np-tags-overlay np-list" role="listbox" [attr.id]="inputId + '_listbox'">
         <ng-container *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
             <li class="np-list-item" role="option" (click)="_selectValue(item)" [ngClass]="{'np-tag-selected': _isSelected(item)}">

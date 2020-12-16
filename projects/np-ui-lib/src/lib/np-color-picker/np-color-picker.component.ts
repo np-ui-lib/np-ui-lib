@@ -50,7 +50,6 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   currentCursorColor: string;
   xColorCursor: string;
   yColorCursor: string;
-  isShowCursorDiv = false;
   innerValue: string;
   isDisabled = false;
   currentHex = '';
@@ -167,7 +166,6 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     if (this.defaultOpen) {
       return;
     }
-    this.isShowCursorDiv = false;
     this.isOpen = false;
     this.overlayRef.detach();
     this.inputViewChild.nativeElement.focus();
@@ -257,34 +255,6 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
     const g = parseInt(hex.substring(3, 5), 16);
     const b = parseInt(hex.substring(5, 7), 16);
     return { r, g, b };
-  }
-
-  _onMouseLeaveStrip() {
-    this.isShowCursorDiv = false;
-  }
-
-  _onMouseLeaveBlock() {
-    this.isShowCursorDiv = false;
-  }
-
-  _onMouseOverStrip(e: any) {
-    this.isShowCursorDiv = true;
-    this.xColorCursor = `${e.pageX}px`;
-    this.yColorCursor = `${e.pageY}px`;
-    const imageData = this._getColorFromClickevent(e, '.np-color-picker-strip');
-    this.currentCursorColor = this.format === 'rgb'
-      ? `rgb(${imageData[0]},${imageData[1]},${imageData[2]})`
-      : this._rgbToHex(imageData[0], imageData[1], imageData[2]);
-  }
-
-  _onMouseOverBlock(e: any) {
-    this.isShowCursorDiv = true;
-    this.xColorCursor = `${e.pageX}px`;
-    this.yColorCursor = `${e.pageY}px`;
-    const imageData = this._getColorFromClickevent(e, '.np-color-picker-block');
-    this.currentCursorColor = this.format === 'rgb'
-      ? `rgb(${imageData[0]},${imageData[1]},${imageData[2]})`
-      : this._rgbToHex(imageData[0], imageData[1], imageData[2]);
   }
 
   _onClickColorBlock(color: string) {

@@ -10,7 +10,7 @@
             </button>
         </div>
     </div>
-    <ng-template #templatePortalContent="">
+    <ng-template #templatePortalContent>
         <ul class="np-dropdown-overlay np-list" role="listbox" [attr.id]="inputId + '_listbox'">
             <li class="np-list-item" role="option" *ngFor="let item of items | npOrderBy: orderBy : orderDir ; let i = index; trackBy: _trackBy;" [ngClass]="{'np-dropdown-selected': _isSelected(item)}" (click)="_selectValue(item)">
                 <ng-container *ngIf="!itemTemplate; else customTemplate">
