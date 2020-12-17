@@ -1,5 +1,158 @@
-<np-rich-text [(ngModel)]="rtf1"></np-rich-text>
-<div>{{rtf1}}</div>
-<div class="np-btn-group">
-    <button class="np-btn" (click)="setValue()">Set value</button>
-</div>
+<h2>Rich Text</h2>
+<np-tabs>
+  <np-tab [title]="'Documentation'">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>ngModel</td>
+            <td>Value in string format</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>height</td>
+            <td>Set height in px for contenteditable control</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>Set disabled</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>required</td>
+            <td>Set required</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>readOnly</td>
+            <td>Set readonly</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>autoFocus</td>
+            <td>Set autofocus</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>tabIndex</td>
+            <td>Set tabindex attribute</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onChange(v: any)</td>
+            <td>Callback event on value change.</td>
+            <td>value</td>
+          </tr>
+          <tr>
+            <td>onFocus(event)</td>
+            <td>Callback event on input focus.</td>
+            <td>Browser event</td>
+          </tr>
+          <tr>
+            <td>onBlur(event)</td>
+            <td>Callback event on input blur.</td>
+            <td>Browser event</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>focus()</td>
+            <td>
+              Set focus on control. If not setting focus properly then use
+              timeout of 500ms.
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab [title]="'Examples'">
+    <fieldset>
+      <legend>Basic</legend>
+      <np-rich-text
+        [(ngModel)]="rtf1"
+        [disabled]="isDisabled"
+        [readOnly]="isReadonly"
+        [required]="required"
+        [height]="height"
+      ></np-rich-text>
+      <div class="np-btn-group">
+        <button class="np-btn" (click)="setValue()">Set value</button>
+        <button class="np-btn" (click)="isDisabled = !isDisabled">
+          Toggle Disabled
+        </button>
+        <button class="np-btn" (click)="isReadonly = !isReadonly">
+          Toggle Readonly
+        </button>
+        <button class="np-btn" (click)="required = !required">
+          Toggle Required
+        </button>
+        <button class="np-btn" (click)="height = 200">Set height 200px</button>
+      </div>
+      <div>Value: {{ rtf1 }}</div>
+    </fieldset>
+  </np-tab>
+</np-tabs>

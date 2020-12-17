@@ -199,7 +199,17 @@ export class AppComponent implements OnInit {
         'abc': 'बराबर',
         'abc*': 'के साथ शुरू',
         '*abc': 'के साथ समाप्त',
-        '*abc*': 'के बीच'
+        '*abc*': 'के बीच',
+        'Enter_The_URL_For_Link': 'लिंक के लिए url दर्ज करें',
+        'Formatting': 'Formatting',
+        'Header_1': 'हैडर 1 <h1>',
+        'Header_2': 'हैडर 2 <h2>',
+        'Header_3': 'हैडर 3 <h3>',
+        'Header_4': 'हैडर 4 <h4>',
+        'Header_5': 'हैडर 5 <h5>',
+        'Header_6': 'हैडर 6 <h6>',
+        'Paragraph': 'Paragraph <p>',
+        'Preformatted': 'Preformatted <pre>'
       });
     } else {
       this.translateService.setTranslations(null);

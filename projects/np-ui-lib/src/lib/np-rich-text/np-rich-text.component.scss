@@ -9,6 +9,8 @@
     overflow: auto;
     background-color: #ffffff;
     padding: 10px;
+    resize: vertical;
+    min-height: 200px;
   }
 
   .np-rich-text .np-toolbar {

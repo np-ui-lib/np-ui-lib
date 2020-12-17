@@ -21,7 +21,7 @@ import { NpPopoverDirective } from '../np-popover/np-popover.directive';
 export class NpRichTextComponent implements ControlValueAccessor {
   static controlCount = 1;
 
-  @Input() height = 200;
+  @Input() height: number;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -33,6 +33,8 @@ export class NpRichTextComponent implements ControlValueAccessor {
 
   @ViewChild('control') inputViewChild: ElementRef;
   @ViewChild('createLinkPopover') createLinkPopover: NpPopoverDirective;
+  @ViewChild('foreColorPopover') foreColorPopover: NpPopoverDirective;
+  @ViewChild('backColorPopover') backColorPopover: NpPopoverDirective;
 
   innerValue: string;
   isDisabled = false;
@@ -45,7 +47,8 @@ export class NpRichTextComponent implements ControlValueAccessor {
   currentFormat: string = 'no format';
   linkUrl: string;
   currentSelectionRange: Range;
-  showUnlink = false;
+  foreColor: string;
+  backColor: string;
 
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
@@ -119,10 +122,116 @@ export class NpRichTextComponent implements ControlValueAccessor {
     }, 100);
   }
 
-  _createLink() {
-    var url = prompt('Enter URL for the link', 'http:\/\/');
-    if (url && url != '' && url != 'http://') {
-      this._formatDoc('createlink', url);
+  _showForeColorOverlay() {
+    if (document.getSelection() && document.getSelection().getRangeAt) {
+      this.currentSelectionRange = document.getSelection().getRangeAt(0);;
     }
+    var colour = document.queryCommandValue("foreColor");
+    if (colour.indexOf('rgb') > -1) {
+      colour = this._changeRGBToHex(colour);
+    }
+    if (colour.indexOf('transparent') > -1) {
+      colour = null;
+    }
+    this.foreColor = colour;
   }
+
+  _changeForeColor(color: any) {
+    if (this.currentSelectionRange) {
+      document.getSelection().removeAllRanges();
+      document.getSelection().addRange(this.currentSelectionRange);
+      this.foreColor = color;
+      if (color) {
+        this._formatDoc('foreColor', color)
+      } else {
+        document.execCommand("removeFormat", false, "foreColor");
+      }
+      this.currentSelectionRange = null;
+    }
+    this.foreColorPopover.close();
+  }
+
+  _showBackColorOverlay() {
+    if (document.getSelection() && document.getSelection().getRangeAt) {
+      this.currentSelectionRange = document.getSelection().getRangeAt(0);;
+    }
+    var colour = document.queryCommandValue("backColor");
+    if (colour.indexOf('rgb') > -1) {
+      colour = this._changeRGBToHex(colour);
+    }
+    if (colour.indexOf('transparent') > -1) {
+      colour = null;
+    }
+    this.backColor = colour;
+  }
+
+  _changeBackColor(color: any) {
+    if (this.currentSelectionRange) {
+      document.getSelection().removeAllRanges();
+      document.getSelection().addRange(this.currentSelectionRange);
+      this.backColor = color;
+      if (color) {
+        this._formatDoc('backColor', color)
+      } else {
+        document.execCommand("removeFormat", false, "backColor");
+      }
+      this.currentSelectionRange = null;
+    }
+    this.backColorPopover.close();
+  }
+
+  _onCloseOverlays() {
+    if (this.currentSelectionRange) {
+      document.getSelection().removeAllRanges();
+      document.getSelection().addRange(this.currentSelectionRange);
+      this.currentSelectionRange = null;
+    }
+    this.focus();
+  }
+
+  _showCreateLink() {
+    if (document.getSelection() && document.getSelection().getRangeAt) {
+      this.currentSelectionRange = document.getSelection().getRangeAt(0);;
+    }
+    this.linkUrl = 'https://';
+  }
+
+  _createLink() {
+    if (this.currentSelectionRange) {
+      document.getSelection().removeAllRanges();
+      document.getSelection().addRange(this.currentSelectionRange);
+      if (this.linkUrl) {
+        this._formatDoc('createlink', this.linkUrl);
+      }
+      this.currentSelectionRange = null;
+    }
+    this.createLinkPopover.close();
+  }
+
+  _closeCreateLinkOverlay() {
+    this.createLinkPopover.close();
+  }
+
+  _changeRGBToHex(val) {
+    const rgb = val.replace('rgb', '').replace('rgba', '').replace('(', '').replace(')', '').replace(' ', '');
+    const rgbAray = rgb.split(',');
+    return this._rgbToHex(Number(rgbAray[0]), Number(rgbAray[1]), Number(rgbAray[2]));
+  }
+
+
+  _rgbToHex(r: any, g: any, b: any) {
+    const red = this._convertNumberToHex(r);
+    const green = this._convertNumberToHex(g);
+    const blue = this._convertNumberToHex(b);
+    return `#${red}${green}${blue}`;
+  }
+
+  _convertNumberToHex(num: any) {
+    let hex = Number(num).toString(16);
+    if (hex.length < 2) {
+      hex = `0${hex}`;
+    }
+    return hex;
+  }
+
 }

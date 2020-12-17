@@ -84,15 +84,15 @@
           [(ngModel)]="currentFormat"
           (change)="_formatBlock('formatblock', currentFormat)"
         >
-          <option [value]="'no format'">- formatting -</option>
-          <option [value]="'h1'">Title 1 &lt;h1&gt;</option>
-          <option [value]="'h2'">Title 2 &lt;h2&gt;</option>
-          <option [value]="'h3'">Title 3 &lt;h3&gt;</option>
-          <option [value]="'h4'">Title 4 &lt;h4&gt;</option>
-          <option [value]="'h5'">Title 5 &lt;h5&gt;</option>
-          <option [value]="'h6'">Subtitle &lt;h6&gt;</option>
-          <option [value]="'p'">Paragraph &lt;p&gt;</option>
-          <option [value]="'pre'">Preformatted &lt;pre&gt;</option>
+          <option [value]="'no format'">{{ 'Formatting' | npTranslate }}</option>
+          <option [value]="'h1'">{{ 'Header_1' | npTranslate }}</option>
+          <option [value]="'h2'">{{ 'Header_2' | npTranslate }}</option>
+          <option [value]="'h3'">{{ 'Header_3' | npTranslate }}</option>
+          <option [value]="'h4'">{{ 'Header_4' | npTranslate }}</option>
+          <option [value]="'h5'">{{ 'Header_5' | npTranslate }}</option>
+          <option [value]="'h6'">{{ 'Header_6' | npTranslate }}</option>
+          <option [value]="'p'">{{ 'Paragraph' | npTranslate }}</option>
+          <option [value]="'pre'">{{ 'Preformatted' | npTranslate }}</option>
         </select>
       </div>
       <div class="np-toolbar-item">
@@ -109,18 +109,40 @@
       </div>
       <div class="np-toolbar-separator"></div>
       <div class="np-toolbar-item">
-        <input
-          type="color"
-          class="np-form-control"
-          (change)="_formatDoc('forecolor', $event.target.value)"
-        />
+        <button
+          class="np-btn-icon np-btn-fore-color"
+          np-popover
+          #foreColorPopover="NpPopoverDirective"
+          [body]="foreColorTemplate"
+          [openOnClick]="true"
+          (onOpen)="_showForeColorOverlay()"
+          (onClose)="_onCloseOverlays()"
+        >
+          <svg class="np-icon" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M5 17v2h14v-2H5zm4.5-4.2h5l.9 2.2h2.1L12.75 4h-1.5L6.5 15h2.1l.9-2.2zM12 5.98L13.87 11h-3.74L12 5.98z"
+            />
+          </svg>
+        </button>
       </div>
       <div class="np-toolbar-item">
-        <input
-          type="color"
-          class="np-form-control"
-          (change)="_formatDoc('backcolor', $event.target.value)"
-        />
+        <button
+          class="np-btn-icon np-btn-back-color"
+          np-popover
+          #backColorPopover="NpPopoverDirective"
+          [body]="backColorTemplate"
+          [openOnClick]="true"
+          (onOpen)="_showBackColorOverlay()"
+          (onClose)="_onCloseOverlays()"
+        >
+          <svg class="np-icon" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M9.93 13.5h4.14L12 7.98zM20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-4.05 16.5l-1.14-3H9.17l-1.12 3H5.96l5.11-13h1.86l5.11 13h-2.09z"
+            />
+          </svg>
+        </button>
       </div>
       <div class="np-toolbar-separator"></div>
       <div class="np-toolbar-item">
@@ -218,12 +240,35 @@
       </div>
       <div class="np-toolbar-separator"></div>
       <div class="np-toolbar-item">
-        <button class="np-btn-icon np-create-link" (click)="_createLink()">
+        <button
+          class="np-btn-icon np-create-link"
+          np-popover
+          #createLinkPopover="NpPopoverDirective"
+          [header]="'Enter_The_URL_For_Link' | npTranslate"
+          [body]="createLinkTemp"
+          [openOnClick]="true"
+          (onOpen)="_showCreateLink()"
+          (onClose)="_onCloseOverlays()"
+        >
           <svg class="np-icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none" />
             <path
               d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"
             />
+          </svg>
+        </button>
+      </div>
+      <div class="np-toolbar-item">
+        <button
+          class="np-btn-icon np-btn-unlink"
+          (click)="_formatDoc('unlink', null)"
+        >
+          <svg class="np-icon" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17 7h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.43-.98 2.63-2.31 2.98l1.46 1.46C20.88 15.61 22 13.95 22 12c0-2.76-2.24-5-5-5zm-1 4h-2.19l2 2H16zM2 4.27l3.11 3.11C3.29 8.12 2 9.91 2 12c0 2.76 2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1 0-1.59 1.21-2.9 2.76-3.07L8.73 11H8v2h2.73L13 15.27V17h1.73l4.01 4L20 19.74 3.27 3 2 4.27z"
+            />
+            <path d="M0 24V0" fill="none" />
           </svg>
         </button>
       </div>
@@ -258,7 +303,7 @@
     <div
       class="np-rich-text-input"
       role="textbox"
-      contenteditable="true"
+      [attr.contenteditable]="!isDisabled && !readOnly"
       #control
       [attr.tabindex]="tabIndex"
       [style.height.px]="height"
@@ -269,3 +314,40 @@
     ></div>
   </div>
 </div>
+
+<ng-template #backColorTemplate>
+  <np-color-picker
+    [(ngModel)]="backColor"
+    [colors]="[]"
+    [defaultOpen]="true"
+    (onChange)="_changeBackColor($event)"
+  ></np-color-picker>
+</ng-template>
+
+<ng-template #foreColorTemplate>
+  <np-color-picker
+    [(ngModel)]="foreColor"
+    [colors]="[]"
+    [defaultOpen]="true"
+    (onChange)="_changeForeColor($event)"
+  ></np-color-picker>
+</ng-template>
+
+<ng-template #createLinkTemp>
+  <div class="np-create-link-form">
+    <div class="np-form-group">
+      <input
+        type="url"
+        class="np-form-control"
+        [npAutoFocus]="true"
+        [(ngModel)]="linkUrl"
+      />
+    </div>
+    <div class="np-btn-group">
+      <button type="button" class="np-btn" (click)="_createLink()">{{'Ok' | npTranslate}}</button>
+      <button type="button" class="np-btn" (click)="_closeCreateLinkOverlay()">
+        {{'Cancel' | npTranslate}}
+      </button>
+    </div>
+  </div>
+</ng-template>

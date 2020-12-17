@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpRichTextDemoRoutingModule } from './np-rich-text-demo-routing.module';
 import { NpRichTextDemoComponent } from './np-rich-text-demo.component';
-import { NpRichTextModule } from 'np-ui-lib';
+import { NpCardModule, NpRichTextModule, NpTabsModule } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     NpRichTextDemoRoutingModule,
     NpRichTextModule,
-    FormsModule
+    FormsModule,
+    NpTabsModule,
+    NpCardModule
   ]
 })
 export class NpRichTextDemoModule { }
