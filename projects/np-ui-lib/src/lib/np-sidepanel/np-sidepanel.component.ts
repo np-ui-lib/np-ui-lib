@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, TemplateRef, ViewContainerRef, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, TemplateRef, ViewContainerRef, Input, Output, EventEmitter } from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
 
@@ -24,6 +24,9 @@ export class NpSidepanelComponent implements OnInit {
   @Input() styleClass: string;
   @Input() inputId = `np-sidepanel_${NpSidepanelComponent.controlCount++}`;
 
+  @Output() onOpen: EventEmitter<any> = new EventEmitter();
+  @Output() onClose: EventEmitter<any> = new EventEmitter();
+
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -39,6 +42,7 @@ export class NpSidepanelComponent implements OnInit {
   close() {
     if (this.overlayRef && this.overlayRef.hasAttached()) {
       this.overlayRef.detach();
+      this.onClose.emit();
     }
   }
 
@@ -78,6 +82,7 @@ export class NpSidepanelComponent implements OnInit {
       }
       );
       this.overlayRef.attach(this.templatePortal);
+      this.onOpen.emit();
     }
   }
 
