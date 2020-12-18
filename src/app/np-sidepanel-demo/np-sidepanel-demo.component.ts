@@ -46,11 +46,11 @@ export class NpSidepanelDemoComponent implements OnInit {
   }
 
   openLeft() {
-    this.sidePanelLeft.open();
+    this.sidePanelLeft.open(null);
   }
 
   closeLeft() {
-    this.sidePanelLeft.close();
+    this.sidePanelLeft.close(null);
   }
 
   onSubmit() {
@@ -72,14 +72,14 @@ export class NpSidepanelDemoComponent implements OnInit {
   }
 
   openRight() {
-    this.sidePanelRight.open();
+    this.sidePanelRight.open(null);
   }
 
   openTop() {
-    this.sidePanelTop.open();
+    this.sidePanelTop.open(null);
   }
 
   openBottom() {
-    this.sidePanelBottom.open();
+    this.sidePanelBottom.open(null);
   }
 }
