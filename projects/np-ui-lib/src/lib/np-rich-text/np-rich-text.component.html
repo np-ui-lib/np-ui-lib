@@ -26,6 +26,7 @@
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-italic"
           [ngClass]="{ 'np-btn-active': isItalic }"
           (click)="_formatDoc('italic', null)"
@@ -38,6 +39,7 @@
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-underline"
           [ngClass]="{ 'np-btn-active': isUnderline }"
           (click)="_formatDoc('underline', null)"
@@ -52,6 +54,7 @@
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-strikethrough"
           [ngClass]="{ 'np-btn-active': isStrikethrough }"
           (click)="_formatDoc('strikethrough', null)"
@@ -66,6 +69,7 @@
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-remove-format"
           (click)="_formatDoc('removeFormat', null)"
         >
@@ -84,19 +88,22 @@
           [(ngModel)]="currentFormat"
           (change)="_formatBlock('formatblock', currentFormat)"
         >
-          <option [value]="'no format'">{{ 'Formatting' | npTranslate }}</option>
-          <option [value]="'h1'">{{ 'Header_1' | npTranslate }}</option>
-          <option [value]="'h2'">{{ 'Header_2' | npTranslate }}</option>
-          <option [value]="'h3'">{{ 'Header_3' | npTranslate }}</option>
-          <option [value]="'h4'">{{ 'Header_4' | npTranslate }}</option>
-          <option [value]="'h5'">{{ 'Header_5' | npTranslate }}</option>
-          <option [value]="'h6'">{{ 'Header_6' | npTranslate }}</option>
-          <option [value]="'p'">{{ 'Paragraph' | npTranslate }}</option>
-          <option [value]="'pre'">{{ 'Preformatted' | npTranslate }}</option>
+          <option [value]="'no format'">
+            {{ "Formatting" | npTranslate }}
+          </option>
+          <option [value]="'h1'">{{ "Header_1" | npTranslate }}</option>
+          <option [value]="'h2'">{{ "Header_2" | npTranslate }}</option>
+          <option [value]="'h3'">{{ "Header_3" | npTranslate }}</option>
+          <option [value]="'h4'">{{ "Header_4" | npTranslate }}</option>
+          <option [value]="'h5'">{{ "Header_5" | npTranslate }}</option>
+          <option [value]="'h6'">{{ "Header_6" | npTranslate }}</option>
+          <option [value]="'p'">{{ "Paragraph" | npTranslate }}</option>
+          <option [value]="'pre'">{{ "Preformatted" | npTranslate }}</option>
         </select>
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-blockquote"
           [ngClass]="{ 'np-btn-active': isBlockquote }"
           (click)="_formatDoc('formatblock', 'blockquote')"
@@ -110,6 +117,7 @@
       <div class="np-toolbar-separator"></div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-fore-color"
           np-popover
           #foreColorPopover="NpPopoverDirective"
@@ -128,6 +136,7 @@
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-back-color"
           np-popover
           #backColorPopover="NpPopoverDirective"
@@ -147,6 +156,7 @@
       <div class="np-toolbar-separator"></div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-align-left"
           (click)="_formatDoc('justifyleft', null)"
         >
@@ -160,6 +170,7 @@
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-align-center"
           (click)="_formatDoc('justifycenter', null)"
         >
@@ -173,6 +184,7 @@
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-align-right"
           (click)="_formatDoc('justifyright', null)"
         >
@@ -187,6 +199,7 @@
       <div class="np-toolbar-separator"></div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-unorder-list"
           (click)="_formatDoc('indent', null)"
         >
@@ -200,6 +213,7 @@
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-unorder-list"
           (click)="_formatDoc('outdent', null)"
         >
@@ -214,6 +228,7 @@
       <div class="np-toolbar-separator"></div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-unorder-list"
           (click)="_formatDoc('insertunorderedlist', null)"
         >
@@ -227,6 +242,7 @@
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-order-list"
           (click)="_formatDoc('insertorderedlist', null)"
         >
@@ -241,6 +257,7 @@
       <div class="np-toolbar-separator"></div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-create-link"
           np-popover
           #createLinkPopover="NpPopoverDirective"
@@ -260,6 +277,7 @@
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-unlink"
           (click)="_formatDoc('unlink', null)"
         >
@@ -275,6 +293,7 @@
       <div class="np-toolbar-separator"></div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-undo"
           (click)="_formatDoc('undo', null)"
         >
@@ -288,6 +307,7 @@
       </div>
       <div class="np-toolbar-item">
         <button
+          type="button"
           class="np-btn-icon np-btn-redo"
           (click)="_formatDoc('redo', null)"
         >
@@ -344,9 +364,11 @@
       />
     </div>
     <div class="np-btn-group">
-      <button type="button" class="np-btn" (click)="_createLink()">{{'Ok' | npTranslate}}</button>
+      <button type="button" class="np-btn" (click)="_createLink()">
+        {{ "Ok" | npTranslate }}
+      </button>
       <button type="button" class="np-btn" (click)="_closeCreateLinkOverlay()">
-        {{'Cancel' | npTranslate}}
+        {{ "Cancel" | npTranslate }}
       </button>
     </div>
   </div>
