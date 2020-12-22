@@ -5,6 +5,7 @@
 
 ## 10.8.4
 - Minor improvements
+- Add font and size in rich text editor
 
 ## 10.8.3
 - Add theme and scss files which were missing in 10.8.2

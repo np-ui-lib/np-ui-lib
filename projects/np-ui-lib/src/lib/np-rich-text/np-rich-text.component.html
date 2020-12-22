@@ -88,17 +88,17 @@
           [(ngModel)]="currentFormat"
           (change)="_formatBlock('formatblock', currentFormat)"
         >
-          <option [value]="'no format'">
+          <option [value]="'no value'">
             {{ "Formatting" | npTranslate }}
           </option>
-          <option [value]="'h1'">{{ "Header_1" | npTranslate }}</option>
-          <option [value]="'h2'">{{ "Header_2" | npTranslate }}</option>
-          <option [value]="'h3'">{{ "Header_3" | npTranslate }}</option>
-          <option [value]="'h4'">{{ "Header_4" | npTranslate }}</option>
-          <option [value]="'h5'">{{ "Header_5" | npTranslate }}</option>
-          <option [value]="'h6'">{{ "Header_6" | npTranslate }}</option>
-          <option [value]="'p'">{{ "Paragraph" | npTranslate }}</option>
-          <option [value]="'pre'">{{ "Preformatted" | npTranslate }}</option>
+          <option [value]="'h1'">Header 1</option>
+          <option [value]="'h2'">Header 2</option>
+          <option [value]="'h3'">Header 3</option>
+          <option [value]="'h4'">Header 4</option>
+          <option [value]="'h5'">Header 5</option>
+          <option [value]="'h6'">Header 6</option>
+          <option [value]="'p'">Paragraph</option>
+          <option [value]="'pre'">Pre formatted</option>
         </select>
       </div>
       <div class="np-toolbar-item">
@@ -115,6 +115,39 @@
         </button>
       </div>
       <div class="np-toolbar-separator"></div>
+      <div class="np-toolbar-item">
+        <select
+          class="np-form-control np-select-font"
+          [(ngModel)]="currentFont"
+          (change)="_formatBlock('fontname', currentFont)"
+        >
+          <option [value]="'no value'">
+            {{ "Font" | npTranslate }}
+          </option>
+          <option [value]="'Arial'">Arial</option>
+          <option [value]="'Arial Black'">Arial Black</option>
+          <option [value]="'Courier New'">Courier New</option>
+          <option [value]="'Times New Roman'">Times New Roman</option>
+        </select>
+      </div>
+      <div class="np-toolbar-item">
+        <select
+          class="np-form-control np-select-fontsize"
+          [(ngModel)]="currentFontSize"
+          (change)="_formatBlock('fontSize', currentFontSize)"
+        >
+          <option [value]="'no value'">
+            {{ "Font_Size" | npTranslate }}
+          </option>
+          <option [value]="1">Smaller</option>
+          <option [value]="2">Small</option>
+          <option [value]="3">Medium</option>
+          <option [value]="4">Large</option>
+          <option [value]="5">Larger</option>
+          <option [value]="6">X-large</option>
+          <option [value]="7">X-larger</option>
+        </select>
+      </div>
       <div class="np-toolbar-item">
         <button
           type="button"
@@ -200,7 +233,7 @@
       <div class="np-toolbar-item">
         <button
           type="button"
-          class="np-btn-icon np-btn-unorder-list"
+          class="np-btn-icon np-btn-add-indent"
           (click)="_formatDoc('indent', null)"
         >
           <svg class="np-icon" viewBox="0 0 24 24">
@@ -214,7 +247,7 @@
       <div class="np-toolbar-item">
         <button
           type="button"
-          class="np-btn-icon np-btn-unorder-list"
+          class="np-btn-icon np-btn-remove-indent"
           (click)="_formatDoc('outdent', null)"
         >
           <svg class="np-icon" viewBox="0 0 24 24">

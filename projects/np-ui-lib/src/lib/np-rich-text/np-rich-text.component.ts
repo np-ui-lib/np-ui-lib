@@ -44,7 +44,9 @@ export class NpRichTextComponent implements ControlValueAccessor {
   isUnderline = false;
   isBlockquote = false;
   isStrikethrough = false;
-  currentFormat: string = 'no format';
+  currentFormat: string = 'no value';
+  currentFont: string = 'no value';
+  currentFontSize: string = 'no value';
   linkUrl: string;
   currentSelectionRange: Range;
   foreColor: string;
@@ -113,12 +115,14 @@ export class NpRichTextComponent implements ControlValueAccessor {
   }
 
   _formatBlock(sCmd: string, sValue: any) {
-    if (sValue === 'no format') {
+    if (sValue === 'no value') {
       return;
     }
     this._formatDoc(sCmd, sValue);
     setTimeout(() => {
-      this.currentFormat = 'no format';
+      this.currentFormat = 'no value';
+      this.currentFont = 'no value';
+      this.currentFontSize = 'no value';
     }, 100);
   }
 

@@ -87,14 +87,8 @@ export class NpTranslationsService {
             '*abc*': '*abc*',
             'Enter_The_URL_For_Link': 'Enter the URL for link',
             'Formatting': 'Formatting',
-            'Header_1': 'Header 1 <h1>',
-            'Header_2': 'Header 2 <h2>',
-            'Header_3': 'Header 3 <h3>',
-            'Header_4': 'Header 4 <h4>',
-            'Header_5': 'Header 5 <h5>',
-            'Header_6': 'Header 6 <h6>',
-            'Paragraph': 'Paragraph <p>',
-            'Preformatted': 'Preformatted <pre>'
+            'Font': 'Font',
+            'Font_Size': 'Font size'
         };
     }
 }
