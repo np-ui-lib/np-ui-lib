@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 10.8.4
+- Minor improvements
+
 ## 10.8.3
 - Add theme and scss files which were missing in 10.8.2
 

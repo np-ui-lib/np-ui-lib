@@ -16,6 +16,7 @@
             <div class="np-hex-input">
                 <label>HEX</label><input class="np-color-hex-input" type="text" [value]="currentHex" (change)="_onChangeHex($event)">
                 <div class="np-selected-color-block" [ngStyle]="{'background-color': innerValue}"></div>
+                <div class="np-current-color-block" [ngStyle]="{'background-color': currentCursorColor}"></div>
             </div>
             <div class="np-rgb-input">
                 <label>R</label><input class="np-color-r-input" type="number" min="0" max="255" [value]="currentR" (change)="_onChangeR($event)">
@@ -24,8 +25,10 @@
             </div>
         </div>
         <div class="np-color-canvases">
-            <canvas class="np-color-picker-block" width="170" height="170" (click)="_clickBlockColor($event)"></canvas>
-            <canvas class="np-color-picker-strip" width="25" height="170" (click)="_clickStripeColor($event)"></canvas>
+            <canvas class="np-color-picker-block" width="170" height="170" (click)="_clickBlockColor($event)" 
+                (mousemove)="_onMouseOverBlock($event)" (mouseleave)="_onMouseLeaveBlock()"></canvas>
+            <canvas class="np-color-picker-strip" width="25" height="170" (click)="_clickStripeColor($event)" 
+                (mousemove)="_onMouseOverStrip($event)" (mouseleave)="_onMouseLeaveStrip()"></canvas>
         </div>
         <div class="np-color-blocks" *ngIf="colors && colors.length > 0">
             <div class="np-color-block" *ngFor="let color of colors" [style.background-color]="color" (click)="_onClickColorBlock(color)">

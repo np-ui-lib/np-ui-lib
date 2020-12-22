@@ -33,11 +33,16 @@
         margin: 5px 0px;
     }
 
+    .np-grid-columns-item .np-checkbox,
+    .np-grid-columns-item.cdk-drag-preview .np-checkbox  {
+        margin: 0px;
+    }
+
     .np-grid-columns-item {
         border-bottom: 1px solid $border-color;
         background-color: #ffffff;
         height: 2rem;
-        padding: 2px;
+        padding: 5px;
 
         &:last-child {
             border-bottom: none;

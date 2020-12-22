@@ -49,8 +49,9 @@
         background-color: $background-color;
     }
 
+    .np-current-color-block,
     .np-selected-color-block {
-        width: 3rem;
+        width: 2rem;
         margin-left: 5px;
     }
 
@@ -103,7 +104,7 @@
         padding-bottom: 5px;
 
         input {
-            width: 100px;
+            width: 80px;
             border: 1px solid $border-color;
             border-radius: 2px;
         }

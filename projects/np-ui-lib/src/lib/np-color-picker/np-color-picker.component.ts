@@ -375,4 +375,30 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   focus() {
     this.inputViewChild.nativeElement.focus();
   }
+
+  _onMouseLeaveStrip() {
+    this.currentCursorColor = undefined;
+  }
+
+  _onMouseLeaveBlock() {
+    this.currentCursorColor = undefined;
+  }
+
+  _onMouseOverStrip(e: any) {
+    this.xColorCursor = `${e.pageX}px`;
+    this.yColorCursor = `${e.pageY}px`;
+    const imageData = this._getColorFromClickevent(e, '.np-color-picker-strip');
+    this.currentCursorColor = this.format === 'rgb'
+      ? `rgb(${imageData[0]},${imageData[1]},${imageData[2]})`
+      : this._rgbToHex(imageData[0], imageData[1], imageData[2]);
+  }
+
+  _onMouseOverBlock(e: any) {
+    this.xColorCursor = `${e.pageX}px`;
+    this.yColorCursor = `${e.pageY}px`;
+    const imageData = this._getColorFromClickevent(e, '.np-color-picker-block');
+    this.currentCursorColor = this.format === 'rgb'
+      ? `rgb(${imageData[0]},${imageData[1]},${imageData[2]})`
+      : this._rgbToHex(imageData[0], imageData[1], imageData[2]);
+  }
 }
