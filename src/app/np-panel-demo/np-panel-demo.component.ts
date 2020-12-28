@@ -9,7 +9,8 @@ export class NpPanelDemoComponent implements OnInit {
   constructor() { }
 
   importText = 'import { NpPanelModule } from \'np-ui-lib\';';
-  htmlText = `<np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true" [styleClass]="'np-pn-danger'" [height]="200">
+  htmlText = `<np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true" 
+  [styleClass]="'np-pn-danger'" [height]="200">
   Panel Body content...
 </np-panel>`;
   lazyLoadText = `<np-panel [title]="'Details'">
