@@ -78,6 +78,7 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
         }
         if (this.overlayRef.hasAttached()) {
             this.overlayRef.detach();
+            this.onClose.emit();
         } else {
             this._open();
         }

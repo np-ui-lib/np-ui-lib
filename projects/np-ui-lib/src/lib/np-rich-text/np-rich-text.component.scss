@@ -16,6 +16,9 @@
   .np-rich-text .np-toolbar {
     background-color: $background-color;
     border-bottom: 1px solid $border-color;
+    border-top: none;
+    border-left: none;
+    border-right: none;
   }
 
   .np-btn-active {

@@ -9,14 +9,8 @@ import { NpSidepanelComponent } from 'np-ui-lib';
 export class NpSidepanelDemoComponent implements OnInit {
 
   importText = 'import { NpSidepanelModule } from \'np-ui-lib\';';
-  htmlText = `<np-sidepanel [right]="'0'" [height]="'100%'" [width]="'200px'">
-  <np-sidepanel-header>
-    Header
-  </np-sidepanel-header>
+  htmlText = `<np-sidepanel [position]="'right'" [height]="'100%'" [width]="'200px'">
   Body content...
-  <np-sidepanel-footer>
-    Footer
-  </np-sidepanel-footer>
 </np-sidepanel>`;
 
   firstName: string;

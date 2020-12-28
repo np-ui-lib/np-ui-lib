@@ -10,11 +10,12 @@ export class NpTooltipDemoComponent implements OnInit {
   htmlText = `<span [np-tooltip]="\'This is left tooltip.\'" [placement]="\'left\'">
   Hover me for left tooltip
 </span>`;
-  contextText = `<span [np-tooltip]="tooltipTemp" [context]="{count: 5}">Hover me for top tooltip, with ng-template.
-  <ng-template #tooltipTemp let-count="count">
-    Count pass in context is {{count}}
-  </ng-template>
-</span>`;
+  contextText = `<span [np-tooltip]="tooltipTemp" [context]="{count: 5}">
+  Hover me for top tooltip, with ng-template.
+</span>
+<ng-template #tooltipTemp let-count="count">
+  Count pass in context is {{count}}
+</ng-template>`;
 
   constructor() { }
 

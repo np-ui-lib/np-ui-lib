@@ -15,33 +15,7 @@
         opacity: 0.3 !important;
     }
 
-    .np-sidepanel-close {
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        z-index: 1;
-        border: none;
-    }
-
-    .np-sidepanel-header {
-        background-color: $background-color;
-        border-bottom: 1px solid $border-color;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        min-height: 3rem;
-        font-weight: bold;
-    }
-
-    .np-sidepanel-footer {
-        background-color: $background-color;
-        border-top: 1px solid $border-color;
-        padding: 10px;
-        min-height: 3rem;
-    }
-
-    .np-sidepanel-body {
+    .np-sidepanel-content {
         padding: 10px;
         overflow: auto;
         height: 100%;

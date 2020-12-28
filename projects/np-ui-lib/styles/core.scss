@@ -1728,6 +1728,8 @@
     flex-wrap: wrap;
     width: 100%;
     padding: 3px;
+    border: 1px solid $border-color;
+    border-radius: 2px;
   }
 
   .np-toolbar-separator {
@@ -1800,8 +1802,7 @@
   h4,
   h5,
   h6 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin: 0;
     line-height: 1.2;
     font-weight: normal;
   }

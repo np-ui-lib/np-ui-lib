@@ -14,13 +14,10 @@ import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overla
 export class NpSidepanelComponent implements OnInit {
   static controlCount = 1;
 
-  @Input() top: string;
-  @Input() bottom: string;
-  @Input() left: string;
-  @Input() right: string;
+  // left | right | top | bottom
+  @Input() position = 'left';
   @Input() height: number | string;
   @Input() width: number | string;
-  @Input() showCloseIcon = true;
   @Input() closeOnClickOutside = true;
   @Input() backDropClass = 'np-sidepanel-backdrop';
   @Input() hasBackDrop = true;
@@ -31,6 +28,7 @@ export class NpSidepanelComponent implements OnInit {
   @Output() onClose: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
 
@@ -53,17 +51,17 @@ export class NpSidepanelComponent implements OnInit {
     // if overlay is not attached then only attach
     if (this.overlayRef === undefined || !this.overlayRef.hasAttached()) {
       const positionStrategy = this.overlayPositionBuilder.global();
-      if (this.left) {
-        positionStrategy.left(this.left);
+      if (this.position === 'left') {
+        positionStrategy.left('0');
       }
-      if (this.right) {
-        positionStrategy.right(this.right);
+      if (this.position === 'right') {
+        positionStrategy.right('0');
       }
-      if (this.top) {
-        positionStrategy.top(this.top);
+      if (this.position === 'top') {
+        positionStrategy.top('0');
       }
-      if (this.bottom) {
-        positionStrategy.bottom(this.bottom);
+      if (this.position === 'bottom') {
+        positionStrategy.bottom('0');
       }
       this.overlayRef = this.overlay.create({
         positionStrategy,
@@ -82,8 +80,7 @@ export class NpSidepanelComponent implements OnInit {
         if (this.closeOnClickOutside) {
           this.close(null);
         }
-      }
-      );
+      });
       this.overlayRef.attach(this.templatePortal);
       this.onOpen.emit(data);
     }

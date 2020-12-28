@@ -1,41 +1,45 @@
 @mixin np-modal-style {
-    .np-modal-overlay {
-        margin: 5px;
-        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-    }
+  .np-modal-overlay {
+    margin: 5px;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  }
 
-    .np-modal {
-        border: 1px solid $border-color;
-        border-radius: 2px;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        background-color: #ffffff;
-    }
+  .np-modal {
+    border: 1px solid $border-color;
+    border-radius: 2px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #ffffff;
+  }
 
-    .np-modal-header {
-        background-color: $background-color;
-        border-bottom: 1px solid $border-color;
-        padding: 10px;
-        min-height: 3rem;
-        font-weight: bold;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+  .np-modal-header {
+    background-color: $background-color;
+    border-bottom: 1px solid $border-color;
+    padding: 10px;
+    min-height: 3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    .np-modal-body {
-        padding: 10px;
-        overflow: auto;
-    }
+  .np-modal-close {
+    border: none;
+  }
 
-    .np-modal-footer {
-        background-color: $background-color;
-        border-top: 1px solid $border-color;
-        padding: 10px;
-        min-height: 3rem;
-    }
+  .np-modal-body {
+    padding: 10px;
+    overflow: auto;
+  }
+
+  .np-modal-footer {
+    background-color: $background-color;
+    border-top: 1px solid $border-color;
+    padding: 10px;
+    min-height: 3rem;
+  }
 }
