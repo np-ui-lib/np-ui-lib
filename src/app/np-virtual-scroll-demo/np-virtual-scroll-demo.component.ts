@@ -8,7 +8,8 @@ import { NpVirtualScrollComponent } from 'np-ui-lib';
 export class NpVirtualScrollDemoComponent implements OnInit {
 
   importText = 'import { NpVirtualScrollModule } from \'np-ui-lib\';';
-  htmlText = `<np-virtual-scroll [items]="data" [pageSize]="pageSize" [itemHeight]="50" [template]="itemTemplate" (loadData)="loadData($event)">
+  htmlText = `<np-virtual-scroll [items]="data" [pageSize]="pageSize" [itemHeight]="50" 
+  [template]="itemTemplate" (loadData)="loadData($event)">
 </np-virtual-scroll>
 
 <ng-template #itemTemplate let-item="item">

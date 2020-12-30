@@ -218,8 +218,20 @@
             [resetEventsOnLoad]="true" [eventTemplate]="eventTemplate" (onClickDate)="onClickDate2($event)"
             (onClickEvent)="onClickEvent2($event)" (onLoadMonth)="onLoadMonth2($event)"></np-calendar>
         <ng-template #eventTemplate let-event="event">
-            <div [np-tooltip]="event.title">
-                {{event.startDate.toTimeString().substring(0,5)}} {{event.title}}
+            <div np-popover [body]="eventPopBody" [context]="{event: event}">
+                <b>{{event.startDate.toTimeString().substring(0,5)}}</b>
+                <div>{{event.title}}</div>
+            </div>
+        </ng-template>
+        <ng-template #eventPopBody let-event="event">
+            <div>
+                <b>Start: </b> {{event.startDate}}
+            </div>
+            <div>
+                <b>End: </b> -
+            </div>
+            <div>
+                <b>Title: </b> {{event.title}}
             </div>
         </ng-template>
     </np-tab>

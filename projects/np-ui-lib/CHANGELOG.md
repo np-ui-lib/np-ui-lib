@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+# 10.8.5
+- Minor improvements in tooltip and popover triggers
+
 ## 10.8.4
 - Minor improvements
 - Add font and size in rich text editor

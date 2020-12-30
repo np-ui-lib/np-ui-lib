@@ -63,7 +63,7 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
         }
     }
 
-    @HostListener('mouseenter')
+    @HostListener('mouseover')
     _showOnMouseEnter() {
         if (this.openOnClick) {
             return;

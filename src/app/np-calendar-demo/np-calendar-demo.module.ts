@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpCalendarDemoRoutingModule } from './np-calendar-demo-routing.module';
 import { NpCalendarDemoComponent } from './np-calendar-demo.component';
-import { NpCalendarModule, NpCardModule, NpDialogModule, NpTabsModule, NpTooltipModule } from 'np-ui-lib';
+import { NpCalendarModule, NpCardModule, NpDialogModule, NpPopoverModule, NpTabsModule } from 'np-ui-lib';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { NpCalendarModule, NpCardModule, NpDialogModule, NpTabsModule, NpTooltip
     NpDialogModule,
     NpTabsModule,
     NpCardModule,
-    NpTooltipModule
+    NpPopoverModule
   ]
 })
 export class NpCalendarDemoModule { }

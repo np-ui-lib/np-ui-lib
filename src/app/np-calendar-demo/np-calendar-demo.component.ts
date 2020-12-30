@@ -101,6 +101,7 @@ export class NpCalendarDemoComponent implements OnInit {
     date3.setHours(24);
     const events = [
       new NpCalendarEvent({ startDate: date1, description: 'Meeting with client' }),
+      new NpCalendarEvent({ startDate: date1, description: 'Team lunch' }),
       new NpCalendarEvent({
         startDate: date2, description: 'Retrospective Meeting with scrum team of np-ui-lib project',
         backgroundColor: '#1e7e34', fontColor: 'black'

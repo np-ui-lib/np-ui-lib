@@ -78,6 +78,8 @@
 
     .np-calendar-events {
         margin: 1px;
+        max-height: 100px;
+        overflow-y: auto;
     }
 
     .np-calendar-event {

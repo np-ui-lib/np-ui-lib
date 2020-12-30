@@ -47,8 +47,8 @@ export class NpTooltipDirective implements AfterViewInit, OnDestroy {
         } else {
             this.mouseEnterListener = this._show.bind(this);
             this.mouseLeaveListener = this._hide.bind(this);
-            this.elementRef.nativeElement.addEventListener('mouseenter', this.mouseEnterListener);
-            this.elementRef.nativeElement.addEventListener('mouseleave', this.mouseLeaveListener);
+            this.elementRef.nativeElement.addEventListener('mouseover', this.mouseEnterListener);
+            this.elementRef.nativeElement.addEventListener('mouseout', this.mouseLeaveListener);
         }
     }
 

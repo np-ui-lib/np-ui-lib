@@ -163,7 +163,6 @@ export class NpUtilityService {
                     break;
                 }
             case 'bottom':
-            default:
                 {
                     result = [{
                         originX: 'center',
@@ -174,6 +173,33 @@ export class NpUtilityService {
                     }];
                     break;
                 }
+            default: {
+                result = [{
+                    originX: 'center',
+                    originY: 'bottom',
+                    overlayX: 'center',
+                    overlayY: 'top',
+                    offsetY: 5
+                }, {
+                    originX: 'center',
+                    originY: 'top',
+                    overlayX: 'center',
+                    overlayY: 'bottom',
+                    offsetY: -5
+                }, {
+                    originX: 'start',
+                    originY: 'center',
+                    overlayX: 'end',
+                    overlayY: 'center',
+                    offsetX: -5
+                }, {
+                    originX: 'end',
+                    originY: 'center',
+                    overlayX: 'start',
+                    overlayY: 'center',
+                    offsetX: 5
+                }];
+            }
         }
         return result;
     }
