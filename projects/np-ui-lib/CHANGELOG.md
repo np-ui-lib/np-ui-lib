@@ -33,7 +33,7 @@
 - Change default stroke width for loader to 4px
 
 ## 10.7.0
-- Add scss insted of css
+- Add scss instead of css
 - Add theming and 2 default themes
 
 ## 10.6.3

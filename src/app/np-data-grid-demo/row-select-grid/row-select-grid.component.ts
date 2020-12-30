@@ -34,11 +34,11 @@ export class RowSelectGridComponent implements OnInit {
   }
 
   onSelectRow($event) {
-    console.log('Selected rows:' + $event.data);
+    console.log('Selected rows:' + $event);
   }
 
   onDeselectRow($event) {
-    console.log('Deselected rows:' + $event.data);
+    console.log('Deselected rows:' + $event);
   }
 
   getSelectedRows() {

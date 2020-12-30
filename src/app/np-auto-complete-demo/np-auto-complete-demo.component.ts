@@ -12,7 +12,8 @@ export class NpAutoCompleteDemoComponent implements OnInit {
   htmlText = `<np-auto-complete [(ngModel)]="value" [searchResult]="searchResult" (onSearch)="onSearchName($event)">
 </np-auto-complete>`;
   templateText = `<ng-template #itemTemplateRef let-item="item" let-keyword="keyword">
-  <span [innerHTML]="item.name | npHighLight : keyword"></span><span> ({{item.age}})</span>
+  <span [innerHTML]="item.name | npHighLight : keyword"></span>
+  <span> ({{item.age}})</span>
 </ng-template>`;
   onSearchText = `onSearchName(keyword: string) {
     ...Search data
