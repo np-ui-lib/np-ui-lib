@@ -14,7 +14,8 @@ export class NpListComponent {
   @Input() header: string;
   @Input() items: any[];
   @Input() itemTemplate: TemplateRef<any>;
-  @Input() allowSelection = false;
+  /* Selection mode can be single or multiple */
+  @Input() selectionMode: string;
   @Input() valueKey: string;
   @Input() height: number;
   @Input() orderBy: string;
@@ -41,10 +42,18 @@ export class NpListComponent {
   _onSelectItem(checked: any, item: any) {
     if (checked) {
       if (this.valueKey) {
-        this.selection.push(item[this.valueKey]);
+        if (this._isSingleSelectionMode()) {
+          this.selection = [item[this.valueKey]];
+        } else {
+          this.selection.push(item[this.valueKey]);
+        }
         this.onSelect.emit(item[this.valueKey]);
       } else {
-        this.selection.push(item);
+        if (this._isSingleSelectionMode()) {
+          this.selection = [item];
+        } else {
+          this.selection.push(item);
+        }
         this.onSelect.emit(item);
       }
     } else {
@@ -56,7 +65,7 @@ export class NpListComponent {
   }
 
   _isSelected(item) {
-    return this.allowSelection && this._getSelectedIndexOfItem(item) > -1;
+    return this.selectionMode && this._getSelectedIndexOfItem(item) > -1;
   }
 
   _getSelectedIndexOfItem(item: any) {
@@ -76,6 +85,9 @@ export class NpListComponent {
   }
 
   selectAll() {
+    if (this._isSingleSelectionMode()) {
+      return;
+    }
     const items = [];
     this.items.forEach((element) => {
       if (this.valueKey) {
@@ -111,5 +123,9 @@ export class NpListComponent {
 
   loadPage(page: number) {
     this.listPaginator.loadPage(page);
+  }
+
+  _isSingleSelectionMode() {
+    return this.selectionMode && this.selectionMode === 'single';
   }
 }

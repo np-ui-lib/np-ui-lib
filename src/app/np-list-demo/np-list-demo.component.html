@@ -50,10 +50,10 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>allowSelection</td>
-                        <td>Allow to select items</td>
-                        <td>boolean</td>
-                        <td>false</td>
+                        <td>selectionMode</td>
+                        <td>Set selection mode as 'single' or 'multiple'</td>
+                        <td>string</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>valueKey</td>
@@ -241,7 +241,7 @@
         <fieldset>
             <legend>List with selection</legend>
 
-            <np-list [items]="items" [itemTemplate]="list2Template" [allowSelection]="true" [height]="200"
+            <np-list [items]="items" [itemTemplate]="list2Template" [selectionMode]="'multiple'" [height]="200"
                 [(selection)]="selection1" [styleClass]="'myClass'" #list2>
             </np-list>
 
@@ -270,8 +270,8 @@
 
         <fieldset>
             <legend>Tiles view with server side data with valueKey</legend>
-            <np-list [items]="tilesView2" [showTiles]="true" [itemTemplate]="TileTemplate2" [allowSelection]="true"
-                [selection]="selection2" [height]="300" [header]="'Product List'" [isServerOperations]="true"
+            <np-list [items]="tilesView2" [showTiles]="true" [itemTemplate]="TileTemplate2" [selectionMode]="'single'"
+                [(selection)]="selection2" [height]="300" [header]="'Product List'" [isServerOperations]="true"
                 [totalItems]="tilesViewTotal2" [pageSize]="10" [valueKey]="'ProductID'"
                 (onPageChange)="onLoadData($event)">
             </np-list>

@@ -5,6 +5,7 @@
 
 # 10.8.6
 - Add new SASS variable for boarder radius
+- Remove allowSelection and add selectionMode in list component
 
 # 10.8.5
 - Minor improvements in tooltip and popover triggers
