@@ -5,7 +5,7 @@
         min-width: 210px;
         box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
     }
 
     .np-overlay-open {
@@ -44,7 +44,7 @@
         width: 45px;
         margin: 0px 2px;
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
 
         option {
             padding: 5px;

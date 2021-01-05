@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+# 10.8.6
+- Add new SASS variable for boarder radius
+
 # 10.8.5
 - Minor improvements in tooltip and popover triggers
 

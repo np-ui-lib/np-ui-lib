@@ -9,7 +9,7 @@
         min-width: 300px;
         position: relative;
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
         background-color: #ffffff;
         padding: 10px;
         display: flex;

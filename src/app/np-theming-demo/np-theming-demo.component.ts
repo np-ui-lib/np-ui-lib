@@ -11,6 +11,7 @@ $primary-color: #4caf50; <span class="np-text-success">// set primary color</spa
 $background-color: #EDF7ED; <span class="np-text-success">// set background color</span>
 $selected-color: #C9E7C9; <span class="np-text-success">// set background color for selected items</span>
 $border-color: #112611; <span class="np-text-success">// set border color</span>
+$border-radius: 2px; <span class="np-text-success">// set border radius</span>
 @include theme;`;
 
   constructor() { }

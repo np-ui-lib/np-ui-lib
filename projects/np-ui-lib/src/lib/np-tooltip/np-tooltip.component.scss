@@ -5,7 +5,7 @@
         color: #ffffff;
         min-height: 1.5rem;
         border: 1px solid #000000;
-        border-radius: 2px;
+        border-radius: $border-radius;
     }
 
     .np-tooltip-target {

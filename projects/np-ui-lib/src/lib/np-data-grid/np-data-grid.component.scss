@@ -1,7 +1,7 @@
 @mixin np-data-grid-style {
     .np-grid {
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
         display: flex;
         flex-direction: column;
     }
@@ -29,7 +29,7 @@
 
     .np-grid-columns {
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
         margin: 5px 0px;
     }
 

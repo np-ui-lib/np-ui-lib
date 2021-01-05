@@ -6,7 +6,7 @@
 
   .np-modal {
     border: 1px solid $border-color;
-    border-radius: 2px;
+    border-radius: $border-radius;
     height: 100%;
     width: 100%;
     overflow: hidden;

@@ -1,7 +1,7 @@
 @mixin np-breadcrumb-style {
     .np-breadcrumb {
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
         background-color: #ffffff;
         padding: 5px 10px;
     }

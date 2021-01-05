@@ -3,7 +3,7 @@
         width: 100px;
         user-select: none;
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
         background-color: $background-color;
     }
 

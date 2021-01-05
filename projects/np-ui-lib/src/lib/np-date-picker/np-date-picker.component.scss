@@ -3,7 +3,7 @@
         background-color: #ffffff;
         box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
         width: fit-content;
     }
 
@@ -56,12 +56,12 @@
         text-align: center;
         vertical-align: middle;
         position: relative;
-        border-radius: 2px;
+        border-radius: $border-radius;
     }
 
     .np-date-picker-today {
         background-color: #d39e00;
-        border-radius: 2px;
+        border-radius: $border-radius;
     }
 
     .np-date-picker-selected {

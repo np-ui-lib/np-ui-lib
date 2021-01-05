@@ -89,7 +89,7 @@
         color: white;
         padding: 10px;
         overflow: auto;
-        border-radius: 2px;
+        border-radius: $border-radius;
     }
 
     .np-input-group-append .fa,
@@ -99,7 +99,7 @@
 
     fieldset {
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
         padding: 10px;
         margin-bottom: 10px;
     }

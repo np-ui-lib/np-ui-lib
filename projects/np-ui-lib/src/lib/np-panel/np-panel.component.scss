@@ -1,7 +1,7 @@
 @mixin np-panel-style {
     .np-panel {
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
         background-color: #ffffff;
         margin-bottom: 5px;
         display: flex;

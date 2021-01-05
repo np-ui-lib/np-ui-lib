@@ -1,7 +1,7 @@
 @mixin np-accordion-style {
   .np-accordion-item {
     border: 1px solid $border-color;
-    border-radius: 2px;
+    border-radius: $border-radius;
     background-color: #ffffff;
     margin-bottom: 1px;
     display: flex;

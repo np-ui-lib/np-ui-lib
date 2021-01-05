@@ -3,7 +3,7 @@
         background-color: #ffffff;
         position: relative;
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
         overflow: auto;
     }
 

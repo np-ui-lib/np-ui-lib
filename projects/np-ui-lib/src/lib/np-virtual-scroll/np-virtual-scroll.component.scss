@@ -4,7 +4,7 @@
         flex-direction: column;
         overflow: hidden;
         border: 1px solid $border-color;
-        border-radius: 2px;
+        border-radius: $border-radius;
     }
 
     .np-virtual-scroll-item {
