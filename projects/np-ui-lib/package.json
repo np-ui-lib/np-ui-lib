@@ -1,18 +1,18 @@
 {
     "name": "np-ui-lib",
-    "version": "10.9.0",
+    "version": "11.0.0",
     "author": {
         "name": "nilav patel",
         "email": "nilavpatel1992@gmail.com",
         "url": "http://nilavpatel.github.io"
     },
     "peerDependencies": {
-        "@angular/common": "^10.0.0",
-        "@angular/core": "^10.0.0",
-        "@angular/cdk": "^10.0.0",
-        "@angular/forms": "^10.0.0",
-        "@angular/router": "^10.0.0",
-        "rxjs": "^6.5.5"
+        "@angular/common": "^11.0.6",
+        "@angular/core": "^11.0.6",
+        "@angular/cdk": "^11.0.3",
+        "@angular/forms": "^11.0.6",
+        "@angular/router": "^11.0.6",
+        "rxjs": "^6.6.3"
     },
     "dependencies": {
         "tslib": "^2.0.0"
@@ -25,7 +25,6 @@
     "private": false,
     "keywords": [
         "Angular",
-        "Angular10",
         "Components",
         "Typescript",
         "Data Grid",

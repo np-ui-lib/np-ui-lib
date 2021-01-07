@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 11.0.0
+- Upgrade to Angular 11
+
 ## 10.9.0
 - Add new SASS variable for boarder radius
 - Remove allowSelection and add selectionMode in list component
