@@ -1,16 +1,29 @@
-<div [ngClass]="'np-popover'" [style.width.px]="width" [class]="styleClass" [attr.id]="inputId">
-    <div class="np-popover-header" *ngIf="header">
-        <ng-container *ngIf="!isHeaderTemplate">
-            <div [innerHTML]="header"></div>
-        </ng-container>
-        <ng-template *ngIf="isHeaderTemplate" [ngTemplateOutlet]="header" [ngTemplateOutletContext]="context">
-        </ng-template>
-    </div>
-    <div class="np-popover-body">
-        <ng-container *ngIf="!isBodyTemplate">
-            <div [innerHTML]="body"></div>
-        </ng-container>
-        <ng-template *ngIf="isBodyTemplate" [ngTemplateOutlet]="body" [ngTemplateOutletContext]="context">
-        </ng-template>
-    </div>
+<div
+  [ngClass]="'np-popover'"
+  [style.width.px]="width"
+  [class]="styleClass"
+  [attr.id]="inputId"
+>
+  <div class="np-popover-header" *ngIf="header">
+    <ng-container *ngIf="!isHeaderTemplate">
+      <div [innerHTML]="header"></div>
+    </ng-container>
+    <ng-template
+      *ngIf="isHeaderTemplate"
+      [ngTemplateOutlet]="header"
+      [ngTemplateOutletContext]="context"
+    >
+    </ng-template>
+  </div>
+  <div class="np-popover-body">
+    <ng-container *ngIf="!isBodyTemplate">
+      <div [innerHTML]="body"></div>
+    </ng-container>
+    <ng-template
+      *ngIf="isBodyTemplate"
+      [ngTemplateOutlet]="body"
+      [ngTemplateOutletContext]="context"
+    >
+    </ng-template>
+  </div>
 </div>

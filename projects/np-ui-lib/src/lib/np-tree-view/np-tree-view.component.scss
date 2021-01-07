@@ -1,57 +1,57 @@
 @mixin np-tree-view-style {
-    .np-treeview {
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        background-color: #ffffff;
-        list-style: none;
-        margin: 0px;
-        padding: 0px;
+  .np-treeview {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background-color: #ffffff;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .np-treeview-node {
+    padding-left: 2rem;
+    position: relative;
+  }
+
+  .np-treeview-label {
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .np-treeview-expand,
+  .np-treeview-collapse {
+    position: absolute;
+    left: 0px;
+    border: none;
+    background-color: transparent;
+  }
+
+  .np-treeview-label {
+    &:hover {
+      background-color: $background-color;
     }
 
-    .np-treeview-node {
-        padding-left: 2rem;
-        position: relative;
+    i {
+      font-size: inherit;
+      padding: 5px;
     }
+  }
 
-    .np-treeview-label {
-        min-height: 2rem;
-        display: flex;
-        align-items: center;
-    }
+  .np-treeview-checkbox {
+    position: absolute !important;
+    left: 0px;
+    top: 0px;
+  }
 
-    .np-treeview-expand,
-    .np-treeview-collapse {
-        position: absolute;
-        left: 0px;
-        border: none;
-        background-color: transparent;
-    }
+  .np-treeview-selection {
+    padding-left: 2rem;
+    position: relative;
+  }
 
-    .np-treeview-label {
-        &:hover {
-            background-color: $background-color;
-        }
-
-        i {
-            font-size: inherit;
-            padding: 5px;
-        }
-    }
-
-    .np-treeview-checkbox {
-        position: absolute !important;
-        left: 0px;
-        top: 0px;
-    }
-
-    .np-treeview-selection {
-        padding-left: 2rem;
-        position: relative;
-    }
-
-    .np-treeview-sub {
-        list-style: none;
-        margin: 0px;
-        padding: 0px;
-    }
+  .np-treeview-sub {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+  }
 }

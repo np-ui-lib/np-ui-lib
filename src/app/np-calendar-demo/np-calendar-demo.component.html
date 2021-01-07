@@ -218,7 +218,7 @@
             [resetEventsOnLoad]="true" [eventTemplate]="eventTemplate" (onClickDate)="onClickDate2($event)"
             (onClickEvent)="onClickEvent2($event)" (onLoadMonth)="onLoadMonth2($event)"></np-calendar>
         <ng-template #eventTemplate let-event="event">
-            <div np-popover [body]="eventPopBody" [context]="{event: event}">
+            <div npPopover [body]="eventPopBody" [context]="{event: event}">
                 <b>{{event.startDate.toTimeString().substring(0,5)}}</b>
                 <div>{{event.title}}</div>
             </div>

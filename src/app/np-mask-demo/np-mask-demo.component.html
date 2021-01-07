@@ -50,7 +50,7 @@
             <div class="np-form-group">
                 <label class="np-form-label">000-aaa-AAA-BBB</label>
                 <input type="text" class="np-form-control" [(ngModel)]="maskedValue1" placeholder="000-aaa-AAA-BBB"
-                    [np-mask]="'000-aaa-AAA-BBB'"> Value:{{maskedValue1}}
+                    [npMask]="'000-aaa-AAA-BBB'"> Value:{{maskedValue1}}
             </div>
         </fieldset>
         <fieldset>
@@ -62,14 +62,14 @@
                 <label class="np-form-label">Credit Card Number:</label>
                 <input type="text" class="np-form-control" [(ngModel)]="maskedValue2"
                     [placeholder]="selectedCard ? selectedCard.placeholder: ''"
-                    [np-mask]="selectedCard ? selectedCard.mask:''"> Value:{{maskedValue2}}
+                    [npMask]="selectedCard ? selectedCard.mask:''"> Value:{{maskedValue2}}
             </div>
         </fieldset>
         <fieldset>
             <div class="np-form-group">
                 <label class="np-form-label">Phone Number:</label>
                 <input type="text" class="np-form-control" [(ngModel)]="maskedValue3" placeholder="+(000) 000-0000"
-                    [np-mask]="'+(000) 000-0000'"> Value:{{maskedValue3}}
+                    [npMask]="'+(000) 000-0000'"> Value:{{maskedValue3}}
             </div>
         </fieldset>
     </np-tab>

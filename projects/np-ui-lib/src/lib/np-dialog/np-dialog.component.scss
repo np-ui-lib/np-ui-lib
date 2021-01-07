@@ -1,37 +1,37 @@
 @mixin np-dialog-style {
-    .np-dialog-overlay {
-        margin: 5px;
-        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-    }
+  .np-dialog-overlay {
+    margin: 5px;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  }
 
-    .np-dialog {
-        min-height: 170px;
-        min-width: 300px;
-        position: relative;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        background-color: #ffffff;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        max-width: 400px;
-    }
+  .np-dialog {
+    min-height: 170px;
+    min-width: 300px;
+    position: relative;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background-color: #ffffff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 400px;
+  }
 
-    .np-dialog-header {
-        font-weight: bold;
-        padding: 5px 0px;
-    }
+  .np-dialog-header {
+    font-weight: bold;
+    padding: 5px 0px;
+  }
 
-    .np-dialog-body {
-        height: 100%;
-    }
+  .np-dialog-body {
+    height: 100%;
+  }
 
-    .np-dialog-message {
-        padding-bottom: 10px;
-    }
+  .np-dialog-message {
+    padding-bottom: 10px;
+  }
 
-    .np-dialog-footer .np-btn-group {
-        float: right;
-    }
+  .np-dialog-footer .np-btn-group {
+    float: right;
+  }
 }

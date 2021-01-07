@@ -1,31 +1,31 @@
 @mixin np-virtual-scroll-style {
-    .np-virtual-scroll-wrapper {
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
+  .np-virtual-scroll-wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+
+  .np-virtual-scroll-item {
+    padding: 10px;
+    border-bottom: 1px solid $border-color;
+    background-color: #ffffff;
+    position: relative;
+
+    &:last-child {
+      border-bottom: none;
     }
 
-    .np-virtual-scroll-item {
-        padding: 10px;
-        border-bottom: 1px solid $border-color;
-        background-color: #ffffff;
-        position: relative;
-
-        &:last-child {
-            border-bottom: none;
-        }
-
-        &:hover {
-            background-color: $selected-color;
-        }
+    &:hover {
+      background-color: $selected-color;
     }
+  }
 
-    .np-virtual-scroll-header {
-        background-color: $background-color;
-        padding: 10px;
-        border-bottom: 1px solid $border-color;
-        font-weight: bold;
-    }
+  .np-virtual-scroll-header {
+    background-color: $background-color;
+    padding: 10px;
+    border-bottom: 1px solid $border-color;
+    font-weight: bold;
+  }
 }

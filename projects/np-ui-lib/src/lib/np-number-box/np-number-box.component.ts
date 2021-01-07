@@ -162,7 +162,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     }
   }
 
-    _onBlur($event) {
+  _onBlur($event) {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);

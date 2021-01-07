@@ -159,14 +159,14 @@
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
-            <a np-popover [header]="'Header content'" [body]="'Body content'" [placement]="'right'" (onOpen)="onOpen()"
+            <a npPopover [header]="'Header content'" [body]="'Body content'" [placement]="'right'" (onOpen)="onOpen()"
                 (onClose)="onClose()">
                 <i class="fa fa-info-circle"></i>
             </a>
         </fieldset>
 
         <fieldset>
-            <button class="np-btn" np-popover [body]="mailTemp" [placement]="'bottom'" [openOnClick]="true" [hasBackDrop]="false" [styleClass]="'mail-popover'">
+            <button class="np-btn" npPopover [body]="mailTemp" [placement]="'bottom'" [openOnClick]="true" [hasBackDrop]="false" [styleClass]="'mail-popover'">
                 <i class="fa fa-envelope"></i>
                 <span class="np-badge">5</span>
             </button>
@@ -197,7 +197,7 @@
         </fieldset>
 
         <fieldset>
-            <a np-popover [header]="headerTemp" [body]="bodyTemp" [context]="{count: 5}" [openOnClick]="true"
+            <a npPopover [header]="headerTemp" [body]="bodyTemp" [context]="{count: 5}" [openOnClick]="true"
                 [width]="250" [styleClass]="'myClass'">With [width] and [styleClass] attribute</a>
             <ng-template #headerTemp let-count="count">
                 Others, Count pass in context is {{count}}.
@@ -209,21 +209,21 @@
 
         <fieldset>
             <legend>backDropClass and Api example</legend>
-            <a np-popover #myPopover1="NpPopoverDirective" [header]="'Step 1'" [body]="myPopover1Body"
+            <a npPopover #myPopover1="NpPopoverDirective" [header]="'Step 1'" [body]="myPopover1Body"
                 [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 1</a>
             <ng-template #myPopover1Body>
                 Description of Step Click on Next button to start tour.
                 <button type="button" class="np-btn" (click)="openStep2Popover()">Next</button>
             </ng-template>
             <br>
-            <a np-popover #myPopover2="NpPopoverDirective" [header]="'Step 2'" [body]="myPopover2Body"
+            <a npPopover #myPopover2="NpPopoverDirective" [header]="'Step 2'" [body]="myPopover2Body"
                 [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 2</a>
             <ng-template #myPopover2Body>
                 Description of Step 2. Read and Wait for Next button.
                 <button type="button" class="np-btn" (click)="openStep3Popover()">Next</button>
             </ng-template>
             <br>
-            <a np-popover #myPopover3="NpPopoverDirective" [header]="'Step 3'" [body]="myPopover3Body"
+            <a npPopover #myPopover3="NpPopoverDirective" [header]="'Step 3'" [body]="myPopover3Body"
                 [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 3</a>
             <ng-template #myPopover3Body>
                 Description of Step 3. Click on Close button to end tour.

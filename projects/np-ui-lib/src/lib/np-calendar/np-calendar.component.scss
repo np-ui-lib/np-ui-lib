@@ -1,93 +1,93 @@
 @mixin np-calendar-style {
-    .np-calendar {
-        background-color: #ffffff;
-        position: relative;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        overflow: auto;
+  .np-calendar {
+    background-color: #ffffff;
+    position: relative;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    overflow: auto;
+  }
+
+  .np-calendar-header {
+    display: flex;
+    padding: 10px;
+    background-color: $background-color;
+    flex-wrap: wrap;
+    padding: 3px;
+  }
+
+  .np-calendar-header-item {
+    padding: 2px;
+  }
+
+  .np-calendar-header-spacer {
+    flex: 1 1 auto;
+  }
+
+  .np-calendar-years-input {
+    width: 100px;
+  }
+
+  .np-calendar-today-btn {
+    height: 2rem;
+  }
+
+  .np-calendar-table {
+    width: 100%;
+    height: 100%;
+    border-spacing: 0px;
+    table-layout: fixed;
+
+    th {
+      background-color: $selected-color;
+      padding: 5px;
+      min-width: 90px;
+      overflow: hidden;
     }
 
-    .np-calendar-header {
-        display: flex;
-        padding: 10px;
-        background-color: $background-color;
-        flex-wrap: wrap;
-        padding: 3px;
+    td {
+      padding: 0px;
+      margin: 0px;
+      border-right: 1px solid $border-color;
+      border-top: 1px solid $border-color;
+      min-width: 90px;
+
+      &:last-child {
+        border-right: none;
+      }
     }
+  }
 
-    .np-calendar-header-item {
-        padding: 2px;
-    }
+  .np-calendar-day {
+    min-height: 100px;
+    position: relative;
+    cursor: pointer;
+  }
 
-    .np-calendar-header-spacer {
-        flex: 1 1 auto;
-    }
+  .np-calendar-day-label {
+    padding: 5px;
+    direction: rtl;
+  }
 
-    .np-calendar-years-input {
-        width: 100px;
-    }
-
-    .np-calendar-today-btn {
-        height: 2rem;
-    }
-
-    .np-calendar-table {
-        width: 100%;
-        height: 100%;
-        border-spacing: 0px;
-        table-layout: fixed;
-
-        th {
-            background-color: $selected-color;
-            padding: 5px;
-            min-width: 90px;
-            overflow: hidden;
-        }
-
-        td {
-            padding: 0px;
-            margin: 0px;
-            border-right: 1px solid $border-color;
-            border-top: 1px solid $border-color;
-            min-width: 90px;
-
-            &:last-child {
-                border-right: none;
-            }
-        }
-    }
-
-    .np-calendar-day {
-        min-height: 100px;
-        position: relative;
-        cursor: pointer;
-    }
+  .np-calendar-today {
+    background-color: #f0f8ff;
 
     .np-calendar-day-label {
-        padding: 5px;
-        direction: rtl;
+      font-weight: bold;
     }
+  }
 
-    .np-calendar-today {
-        background-color: #f0f8ff;
+  .np-calendar-events {
+    margin: 1px;
+    max-height: 100px;
+    overflow-y: auto;
+  }
 
-        .np-calendar-day-label {
-            font-weight: bold;
-        }
-    }
-
-    .np-calendar-events {
-        margin: 1px;
-        max-height: 100px;
-        overflow-y: auto;
-    }
-
-    .np-calendar-event {
-        margin: 1px;
-        padding: 0px 2px;
-        background-color: $primary-color;
-        color: #ffffff;
-        white-space: nowrap;
-        overflow: hidden;
-    }
+  .np-calendar-event {
+    margin: 1px;
+    padding: 0px 2px;
+    background-color: $primary-color;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 }

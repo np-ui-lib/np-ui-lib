@@ -1,100 +1,100 @@
 @mixin np-progress-style {
-    .np-progress-container {
-        display: flex;
-        height: 1rem;
-        overflow: hidden;
-        background-color: $background-color;
-        width: 100%;
-        border-radius: $border-radius;
+  .np-progress-container {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    background-color: $background-color;
+    width: 100%;
+    border-radius: $border-radius;
+  }
+
+  .np-progress-bar {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    background-color: $primary-color;
+    line-height: 1rem;
+    text-align: center;
+  }
+
+  .np-progress-striped {
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.15) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.15) 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 1rem 1rem;
+  }
+
+  .np-progress-animated {
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.15) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.15) 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 1rem 1rem;
+    animation: np-progress-bar-stripes 1s linear reverse infinite;
+  }
+
+  .np-progress-indeterminate {
+    width: 100%;
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.15) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.15) 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 1rem 1rem;
+    animation: np-progress-bar-stripes 1s linear reverse infinite;
+  }
+
+  .np-progress-success .np-progress-bar {
+    background-color: #1e7e34 !important;
+  }
+
+  .np-progress-danger .np-progress-bar {
+    background-color: #bd2130 !important;
+  }
+
+  .np-progress-warning .np-progress-bar {
+    background-color: #d39e00 !important;
+  }
+
+  .np-progress-info .np-progress-bar {
+    background-color: #117a8b !important;
+  }
+
+  @-webkit-keyframes np-progress-bar-stripes {
+    from {
+      background-position: 2rem 0;
     }
 
-    .np-progress-bar {
-        display: flex;
-        flex-direction: column;
-        color: #ffffff;
-        background-color: $primary-color;
-        line-height: 1rem;
-        text-align: center;
+    to {
+      background-position: 0 0;
+    }
+  }
+
+  @keyframes np-progress-bar-stripes {
+    from {
+      background-position: 2rem 0;
     }
 
-    .np-progress-striped {
-        background-image: linear-gradient(
-            45deg,
-            rgba(255, 255, 255, 0.15) 25%,
-            transparent 25%,
-            transparent 50%,
-            rgba(255, 255, 255, 0.15) 50%,
-            rgba(255, 255, 255, 0.15) 75%,
-            transparent 75%,
-            transparent
-        );
-        background-size: 1rem 1rem;
+    to {
+      background-position: 0 0;
     }
-
-    .np-progress-animated {
-        background-image: linear-gradient(
-            45deg,
-            rgba(255, 255, 255, 0.15) 25%,
-            transparent 25%,
-            transparent 50%,
-            rgba(255, 255, 255, 0.15) 50%,
-            rgba(255, 255, 255, 0.15) 75%,
-            transparent 75%,
-            transparent
-        );
-        background-size: 1rem 1rem;
-        animation: np-progress-bar-stripes 1s linear reverse infinite;
-    }
-
-    .np-progress-indeterminate {
-        width: 100%;
-        background-image: linear-gradient(
-            45deg,
-            rgba(255, 255, 255, 0.15) 25%,
-            transparent 25%,
-            transparent 50%,
-            rgba(255, 255, 255, 0.15) 50%,
-            rgba(255, 255, 255, 0.15) 75%,
-            transparent 75%,
-            transparent
-        );
-        background-size: 1rem 1rem;
-        animation: np-progress-bar-stripes 1s linear reverse infinite;
-    }
-
-    .np-progress-success .np-progress-bar {
-        background-color: #1e7e34 !important;
-    }
-
-    .np-progress-danger .np-progress-bar {
-        background-color: #bd2130 !important;
-    }
-
-    .np-progress-warning .np-progress-bar {
-        background-color: #d39e00 !important;
-    }
-
-    .np-progress-info .np-progress-bar {
-        background-color: #117a8b !important;
-    }
-
-    @-webkit-keyframes np-progress-bar-stripes {
-        from {
-            background-position: 2rem 0;
-        }
-
-        to {
-            background-position: 0 0;
-        }
-    }
-
-    @keyframes np-progress-bar-stripes {
-        from {
-            background-position: 2rem 0;
-        }
-
-        to {
-            background-position: 0 0;
-        }
-    }
+  }
 }

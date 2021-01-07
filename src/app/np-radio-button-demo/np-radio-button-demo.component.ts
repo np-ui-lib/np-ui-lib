@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NpRadioGroupComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-radio-button-demo',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class NpRadioButtonDemoComponent implements OnInit {
 
   importText = 'import { NpRadioButtonModule } from \'np-ui-lib\';';
-  htmlText = '<np-radio-button label="Male" value="Male" [(ngModel)]="gender"></np-radio-button>';
-  groupHtmlText = `<np-radio-group orientation="vertical">
-  <np-radio-button label="Male" value="1" [(ngModel)]="gender"></np-radio-button>
-  <np-radio-button label="Female" value="2" [(ngModel)]="gender"></np-radio-button>
+  htmlText = '<np-radio-button label="Male" value="Male"></np-radio-button>';
+  groupHtmlText = `<np-radio-group orientation="vertical" [(ngModel)]="gender" name="rgbGender">
+  <np-radio-button label="Male" value="1"></np-radio-button>
+  <np-radio-button label="Female" value="2"></np-radio-button>
 </np-radio-group>`;
+
+  @ViewChild('gender8Group') gender8Group: NpRadioGroupComponent;
 
   gender1: string;
   gender2 = '1';
@@ -20,6 +23,7 @@ export class NpRadioButtonDemoComponent implements OnInit {
   gender5: number;
   gender6: number;
   gender7: number;
+  gender8: number;
 
   constructor() { }
 
@@ -28,6 +32,10 @@ export class NpRadioButtonDemoComponent implements OnInit {
 
   onChange($event) {
     alert($event);
+  }
+
+  setFocus() {
+    this.gender8Group.focus();
   }
 
 }

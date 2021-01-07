@@ -1,103 +1,25 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, forwardRef, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { AfterViewInit, ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'np-radio-button',
-  templateUrl: './np-radio-button.component.html',
+  template: '',
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => NpRadioButtonComponent),
-      multi: true
-    }
-  ]
+  changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpRadioButtonComponent implements ControlValueAccessor {
+export class NpRadioButtonComponent implements AfterViewInit {
   static controlCount = 1;
+  focused = false;
 
   @Input() label: string;
   @Input() value: any;
-  @Input() name: string;
-  @Input() readOnly: boolean;
-  @Input() autoFocus: boolean;
-  @Input() tabIndex: number;
-  @Input() styleClass: string;
   @Input() inputId = `np-radio-button_${NpRadioButtonComponent.controlCount++}`;
 
-  @Output() onChange: EventEmitter<any> = new EventEmitter();
-  @Output() onFocus: EventEmitter<any> = new EventEmitter();
-  @Output() onBlur: EventEmitter<any> = new EventEmitter();
-
-  @ViewChild('control') inputViewChild: ElementRef;
-
-  innerValue: any;
-  isDisabled = false;
-  focused = false;
-
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
-
-  constructor() { }
-
-  get currentValue(): any {
-    return this.innerValue ? this.innerValue : null;
-  }
-
-  set currentValue(v: any) {
-    if (v !== this.innerValue) {
-      this.innerValue = v;
-      this.onChangeCallback(v);
-      this.onChange.emit(v);
+  ngAfterViewInit() {
+    if (!this.value) {
+      throw new EvalError('The [value] property is required!');
+    }
+    if (!this.label) {
+      throw new EvalError('The [label] property is required!');
     }
   }
-
-  writeValue(v: any): void {
-    if (v !== this.innerValue) {
-      this.innerValue = v;
-    }
-  }
-
-  registerOnChange(fn: any): void {
-    this.onChangeCallback = fn;
-  }
-
-  registerOnTouched(fn: any): void {
-    this.onTouchedCallback = fn;
-  }
-
-  setDisabledState?(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
-  }
-
-  _onBlur($event) {
-    this.focused = false;
-    this.onTouchedCallback();
-    this.onBlur.emit($event);
-  }
-
-  _onFocus($event) {
-    this.focused = true;
-    this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
-  }
-
-  _isSelected() {
-    return this.value === this.currentValue;
-  }
-
-  _onKeyDown(event: KeyboardEvent) {
-    if ((event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'ArrowDown') && (this.readOnly || this.isDisabled)) {
-      event.preventDefault();
-    }
-  }
-
-  _onChange(event: any) {
-    this.currentValue = this.value;
-  }
-
 }

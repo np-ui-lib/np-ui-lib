@@ -16,7 +16,7 @@ export class NpCalendarDemoComponent implements OnInit {
   disabledDates = [];
   disableWeekDays = ['Sunday', 'Saturday'];
   eventTemplateStr = `<ng-template #eventTemplate let-event="event">
-  <div [np-tooltip]="event.title">
+  <div [npTooltip]="event.title">
       {{event.startDate.toTimeString().substring(0,5)}} {{event.title}}
   </div>
 </ng-template>`;

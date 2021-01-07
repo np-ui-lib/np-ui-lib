@@ -1,4 +1,7 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild } from '@angular/core';
+import {
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy,
+  ViewEncapsulation, forwardRef, ViewChild
+} from '@angular/core';
 import { TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Overlay, OverlayRef, OverlayPositionBuilder } from '@angular/cdk/overlay';

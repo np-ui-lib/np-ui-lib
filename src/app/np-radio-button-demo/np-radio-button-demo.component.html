@@ -1,242 +1,258 @@
 <h2>Radio Button</h2>
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-                <b>Radio Group</b>
-                <div>
-                    <pre><code [innerText]="groupHtmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>np-radio-button</b>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>ngModel</td>
-                        <td>Value</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>label</td>
-                        <td>Set display label</td>
-                        <td>plain text | html string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>value</td>
-                        <td>Set value for that radio button</td>
-                        <td>any</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>name</td>
-                        <td>Set name attribute, same name will be used for all radio buttons in same group</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>Set disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>required</td>
-                        <td>Set required</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>readOnly</td>
-                        <td>Set readonly</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>autoFocus</td>
-                        <td>Set autofocus</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>tabIndex</td>
-                        <td>Set tabindex attribute</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onChange(v: any)
-                        </td>
-                        <td>
-                            Callback event on value change.
-                        </td>
-                        <td>value</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onFocus(event)
-                        </td>
-                        <td>
-                            Callback event on input focus.
-                        </td>
-                        <td>Browser event</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onBlur(event)
-                        </td>
-                        <td>
-                            Callback event on input blur.
-                        </td>
-                        <td>Browser event</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            focus()
-                        </td>
-                        <td>
-                            Set focus on control. If not setting focus properly then use timeout of 500ms.
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>np-radio-group</b>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>orientation</td>
-                        <td>Set orientation of group as 'horizontal' | 'vertical'</td>
-                        <td>string</td>
-                        <td>horizontal</td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <fieldset>
-            <legend>Radio group horizontal</legend>
-            <np-radio-group>
-                <np-radio-button name="gender1" label="Male" value="Male" [(ngModel)]="gender1"></np-radio-button>
-                <np-radio-button name="gender1" label="Female" value="Female" [(ngModel)]="gender1"></np-radio-button>
-            </np-radio-group>
-            <div>Selected: {{gender1}}</div>
-        </fieldset>
-        <fieldset>
-            <legend>Radio group vertical</legend>
-            <np-radio-group orientation="vertical">
-                <np-radio-button name="gender2" label="Male" value="1" [(ngModel)]="gender2"></np-radio-button>
-                <np-radio-button name="gender2" label="Female" value="2" [(ngModel)]="gender2"></np-radio-button>
-            </np-radio-group>
-            <div>Selected: {{gender2}}</div>
-        </fieldset>
-        <fieldset>
-            <legend>disabled and readonly</legend>
-            <np-radio-group>
-                <np-radio-button name="gender3" label="Male" value="1" [(ngModel)]="gender3" [disabled]="true"></np-radio-button>
-                <np-radio-button name="gender3" label="Female" value="2" [(ngModel)]="gender3" [disabled]="true"></np-radio-button>
-            </np-radio-group>
-            <np-radio-group>
-                <np-radio-button name="gender4" label="Male" value="1" [(ngModel)]="gender4" [readOnly]="true"></np-radio-button>
-                <np-radio-button name="gender4" label="Female" value="2" [(ngModel)]="gender4" [readOnly]="true"></np-radio-button>
-            </np-radio-group>
-        </fieldset>
-        <fieldset>
-            <legend>required</legend>
-            <np-radio-group>
-                <np-radio-button name="gender5" label="Male" value="1" [(ngModel)]="gender5" required></np-radio-button>
-                <np-radio-button name="gender5" label="Female" value="2" [(ngModel)]="gender5" required></np-radio-button>
-            </np-radio-group>
-            <button class="np-btn" (click)="gender5 = null">Set null</button>
-        </fieldset>
-        <fieldset>
-            <legend>styleClass</legend>
-            <np-radio-group>
-                <np-radio-button name="gender6" label="Male" value="1" [(ngModel)]="gender6" [styleClass]="'myClass'">
-                </np-radio-button>
-                <np-radio-button name="gender6" label="Female" value="2" [(ngModel)]="gender6" [styleClass]="'myClass'">
-                </np-radio-button>
-            </np-radio-group>
-        </fieldset>
-        <fieldset>
-            <legend>onChange</legend>
-            <np-radio-group>
-                <np-radio-button name="gender7" label="Male" value="1" [(ngModel)]="gender7" (onChange)="onChange($event)">
-                </np-radio-button>
-                <np-radio-button name="gender7" label="Female" value="2" [(ngModel)]="gender7" (onChange)="onChange($event)">
-                </np-radio-button>
-            </np-radio-group>
-        </fieldset>
-    </np-tab>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+        <b>Radio Group</b>
+        <div>
+          <pre><code [innerText]="groupHtmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>&lt;np-radio-button&gt;</b>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>label</td>
+            <td>Set display label</td>
+            <td>plain text | html string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>value</td>
+            <td>Set value for that radio button</td>
+            <td>any</td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>&lt;np-radio-group&gt;</b>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>orientation</td>
+            <td>Set orientation of group as 'horizontal' | 'vertical'</td>
+            <td>string</td>
+            <td>horizontal</td>
+          </tr>
+          <tr>
+            <td>ngModel</td>
+            <td>Selected value</td>
+            <td>any</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>name</td>
+            <td>Set name attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>Set disabled</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>required</td>
+            <td>Set required</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>readOnly</td>
+            <td>Set readonly</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>autoFocus</td>
+            <td>Set autofocus</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>tabIndex</td>
+            <td>Set tabindex attribute</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>&lt;np-radio-group&gt;</b>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onChange(v: any)</td>
+            <td>Callback event on value change.</td>
+            <td>value</td>
+          </tr>
+          <tr>
+            <td>onFocus(event)</td>
+            <td>Callback event on input focus.</td>
+            <td>Browser event</td>
+          </tr>
+          <tr>
+            <td>onBlur(event)</td>
+            <td>Callback event on input blur.</td>
+            <td>Browser event</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>&lt;np-radio-group&gt;</b>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>focus()</td>
+            <td>
+              Set focus on control. If not setting focus properly then use
+              timeout of 500ms.
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <ng-template npTabContent>
+      <fieldset>
+        <legend>Radio group horizontal</legend>
+        <np-radio-group
+          name="gender1"
+          [(ngModel)]="gender1"
+          [tabIndex]="1"
+          [autoFocus]="true"
+        >
+          <np-radio-button label="Male" value="Male"></np-radio-button>
+          <np-radio-button label="Female" value="Female"></np-radio-button>
+        </np-radio-group>
+        <div>Selected: {{ gender1 }}</div>
+      </fieldset>
+      <fieldset>
+        <legend>Radio group vertical</legend>
+        <np-radio-group
+          orientation="vertical"
+          [(ngModel)]="gender2"
+          name="gender2"
+          [tabIndex]="2"
+        >
+          <np-radio-button label="Male" value="1"></np-radio-button>
+          <np-radio-button label="Female" value="2"></np-radio-button>
+        </np-radio-group>
+        <div>Selected: {{ gender2 }}</div>
+      </fieldset>
+      <fieldset>
+        <legend>disabled and readonly</legend>
+        <np-radio-group [(ngModel)]="gender3" [disabled]="true" name="gender3">
+          <np-radio-button label="Male" value="1"></np-radio-button>
+          <np-radio-button label="Female" value="2"></np-radio-button>
+        </np-radio-group>
+        <np-radio-group [(ngModel)]="gender4" [readOnly]="true" name="gender4">
+          <np-radio-button label="Male" value="1"></np-radio-button>
+          <np-radio-button label="Female" value="2"></np-radio-button>
+        </np-radio-group>
+      </fieldset>
+      <fieldset>
+        <legend>required</legend>
+        <np-radio-group [(ngModel)]="gender5" name="gender5" required>
+          <np-radio-button label="Male" value="1"></np-radio-button>
+          <np-radio-button label="Female" value="2"></np-radio-button>
+        </np-radio-group>
+        <button class="np-btn" (click)="gender5 = null">Set null</button>
+      </fieldset>
+      <fieldset>
+        <legend>styleClass</legend>
+        <np-radio-group
+          [(ngModel)]="gender6"
+          [styleClass]="'myClass'"
+          name="gender6"
+        >
+          <np-radio-button label="Male" value="1"> </np-radio-button>
+          <np-radio-button label="Female" value="2"> </np-radio-button>
+        </np-radio-group>
+      </fieldset>
+      <fieldset>
+        <legend>onChange</legend>
+        <np-radio-group
+          name="gender7"
+          [(ngModel)]="gender7"
+          (onChange)="onChange($event)"
+        >
+          <np-radio-button label="Male" value="1"> </np-radio-button>
+          <np-radio-button label="Female" value="2"> </np-radio-button>
+        </np-radio-group>
+      </fieldset>
+      <fieldset>
+        <legend>focus()</legend>
+        <np-radio-group name="gender8" #gender8Group [(ngModel)]="gender8">
+          <np-radio-button label="Male" value="1"> </np-radio-button>
+          <np-radio-button label="Female" value="2"> </np-radio-button>
+        </np-radio-group>
+        <div class="np-btn-group">
+          <div class="np-btn" (click)="setFocus()">Set focus</div>
+        </div>
+      </fieldset>
+    </ng-template>
+  </np-tab>
 </np-tabs>

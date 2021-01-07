@@ -11,7 +11,7 @@ export class NpBlockuiDemoComponent implements OnInit {
   blockUi1 = false;
 
   importText = 'import { NpBlockUiModule } from \'np-ui-lib\';';
-  htmlText = '<span [np-blockui]="true"></span>';
+  htmlText = '<span [npBlockUi]="true"></span>';
 
   ngOnInit(): void {
   }

@@ -1,10 +1,10 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
-    selector: '[npAutoFocus]'
+    selector: '[npAutofocus]'
 })
-export class NpAutoFocusDirective {
-    @Input('npAutoFocus')
+export class NpAutofocusDirective {
+    @Input('npAutofocus')
     set autofocus(value: boolean) {
         if (value) {
             setTimeout(() => {

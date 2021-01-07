@@ -1,13 +1,38 @@
-<div role="alertdialog" [ngClass]="'np-dialog'" [class]="styleClass" [attr.id]="inputId" [attr.aria-modal]="modalRef.config.hasBackDrop ? 'true' : null" [attr.aria-labelledby]="inputId + '_title'">
-    <div class="np-dialog-header" [innerHTML]="title" [id]="inputId + '_title'"></div>
-    <div class="np-dialog-body">
-        <div class="np-dialog-message" [innerHTML]="message"></div>
-        <input class="np-form-control np-dialog-input" type="text" *ngIf="type === 'prompt'" [(ngModel)]="value" [npAutoFocus]="true">
+<div
+  role="alertdialog"
+  [ngClass]="'np-dialog'"
+  [class]="styleClass"
+  [attr.id]="inputId"
+  [attr.aria-modal]="modalRef.config.hasBackDrop ? 'true' : null"
+  [attr.aria-labelledby]="inputId + '_title'"
+>
+  <div
+    class="np-dialog-header"
+    [innerHTML]="title"
+    [id]="inputId + '_title'"
+  ></div>
+  <div class="np-dialog-body">
+    <div class="np-dialog-message" [innerHTML]="message"></div>
+    <input
+      class="np-form-control np-dialog-input"
+      type="text"
+      *ngIf="type === 'prompt'"
+      [(ngModel)]="value"
+      [npAutofocus]="true"
+    />
+  </div>
+  <div class="np-dialog-footer">
+    <div class="np-btn-group">
+      <button class="np-btn np-btn-primary np-dialog-ok" (click)="onOk()">
+        {{ "Ok" | npTranslate }}
+      </button>
+      <button
+        class="np-btn np-btn-danger np-dialog-cancel"
+        *ngIf="type !== 'alert'"
+        (click)="onCancel()"
+      >
+        {{ "Cancel" | npTranslate }}
+      </button>
     </div>
-    <div class="np-dialog-footer">
-        <div class="np-btn-group">
-            <button class="np-btn np-btn-primary np-dialog-ok" (click)="onOk()">{{ 'Ok' | npTranslate }}</button>
-            <button class="np-btn np-btn-danger np-dialog-cancel" *ngIf="type !== 'alert'" (click)="onCancel()">{{ 'Cancel' | npTranslate }}</button>
-        </div>
-    </div>
+  </div>
 </div>

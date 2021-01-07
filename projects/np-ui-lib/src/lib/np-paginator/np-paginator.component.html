@@ -1,54 +1,96 @@
 <div [ngClass]="'np-paginator'" [class]="styleClass" [attr.id]="inputId">
-    <div class="np-paginator-item">
-        <button class="np-btn-icon np-paginator-first" type="button" [ngClass]="{'np-disabled': currentPage === 1}" (click)="_loadPage(1)">
-            <svg class="np-icon" viewBox="0 0 24 24">
-                <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"></path>
-            </svg>
-        </button>
-    </div>
-    <div class="np-paginator-item">
-        <button class="np-btn-icon np-paginator-prev" type="button" [ngClass]="{'np-disabled': currentPage === 1}" (click)="_loadPage(currentPage - 1)">
-            <svg class="np-icon" viewBox="0 0 24 24">
-                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
-            </svg>
-        </button>
-    </div>
-    <div class="np-paginator-item np-paginator-current-page">
-        <input class="np-form-control" type="number" [value]="currentPage" [min]="1" [max]="totalPages" (change)="_onCurrentPageChange($event)">
-    </div>
-    <div class="np-paginator-item">
-        / {{totalPages}}
-    </div>
-    <div class="np-paginator-item">
-        <button class="np-btn-icon np-paginator-next" type="button" [ngClass]="{'np-disabled': currentPage === totalPages}" (click)="_loadPage(currentPage + 1)">
-            <svg class="np-icon" viewBox="0 0 24 24">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
-            </svg>
-        </button>
-    </div>
-    <div class="np-paginator-item">
-        <button class="np-btn-icon np-paginator-last" type="button" [ngClass]="{'np-disabled': currentPage === totalPages}" (click)="_loadPage(totalPages)">
-            <svg class="np-icon" viewBox="0 0 24 24">
-                <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"></path>
-            </svg>
-        </button>
-    </div>
-    <div class="np-paginator-spacer"></div>
-    <div class="np-paginator-item" *ngIf="showPageSize">
-        {{'Items_Per_Page' | npTranslate}}
-    </div>
-    <div class="np-paginator-item" *ngIf="showPageSize">
-        <input class="np-form-control np-paginator-page-size" type="number" [value]="pageSize" [min]="1" [max]="100" (change)="_onItemPerPageChange($event)">
-    </div>
-    <div class="np-paginator-item" *ngIf="showTotal">
-        {{startIndex + 1}}-{{endIndex + 1}} / {{totalItems}}
-    </div>
-    <div class="np-paginator-item">
-        <button class="np-btn-icon np-paginator-refresh" type="button" (click)="refresh()">
-            <svg class="np-icon" viewBox="0 0 24 24">
-                <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>
-                <path d="M0 0h24v24H0z" fill="none"></path>
-            </svg>
-        </button>
-    </div>
+  <div class="np-paginator-item">
+    <button
+      class="np-btn-icon np-paginator-first"
+      type="button"
+      [ngClass]="{ 'np-disabled': currentPage === 1 }"
+      (click)="_loadPage(1)"
+    >
+      <svg class="np-icon" viewBox="0 0 24 24">
+        <path
+          d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+  <div class="np-paginator-item">
+    <button
+      class="np-btn-icon np-paginator-prev"
+      type="button"
+      [ngClass]="{ 'np-disabled': currentPage === 1 }"
+      (click)="_loadPage(currentPage - 1)"
+    >
+      <svg class="np-icon" viewBox="0 0 24 24">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="np-paginator-item np-paginator-current-page">
+    <input
+      class="np-form-control"
+      type="number"
+      [value]="currentPage"
+      [min]="1"
+      [max]="totalPages"
+      (change)="_onCurrentPageChange($event)"
+    />
+  </div>
+  <div class="np-paginator-item">/ {{ totalPages }}</div>
+  <div class="np-paginator-item">
+    <button
+      class="np-btn-icon np-paginator-next"
+      type="button"
+      [ngClass]="{ 'np-disabled': currentPage === totalPages }"
+      (click)="_loadPage(currentPage + 1)"
+    >
+      <svg class="np-icon" viewBox="0 0 24 24">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="np-paginator-item">
+    <button
+      class="np-btn-icon np-paginator-last"
+      type="button"
+      [ngClass]="{ 'np-disabled': currentPage === totalPages }"
+      (click)="_loadPage(totalPages)"
+    >
+      <svg class="np-icon" viewBox="0 0 24 24">
+        <path
+          d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+  <div class="np-paginator-spacer"></div>
+  <div class="np-paginator-item" *ngIf="showPageSize">
+    {{ "Items_Per_Page" | npTranslate }}
+  </div>
+  <div class="np-paginator-item" *ngIf="showPageSize">
+    <input
+      class="np-form-control np-paginator-page-size"
+      type="number"
+      [value]="pageSize"
+      [min]="1"
+      [max]="100"
+      (change)="_onItemPerPageChange($event)"
+    />
+  </div>
+  <div class="np-paginator-item" *ngIf="showTotal">
+    {{ startIndex + 1 }}-{{ endIndex + 1 }} / {{ totalItems }}
+  </div>
+  <div class="np-paginator-item">
+    <button
+      class="np-btn-icon np-paginator-refresh"
+      type="button"
+      (click)="refresh()"
+    >
+      <svg class="np-icon" viewBox="0 0 24 24">
+        <path
+          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+        ></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg>
+    </button>
+  </div>
 </div>

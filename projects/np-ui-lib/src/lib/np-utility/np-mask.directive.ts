@@ -3,11 +3,11 @@ import { NgControl } from '@angular/forms';
 import { NpMaskService } from './np-mask.service';
 
 @Directive({
-    selector: '[np-mask]',
+    selector: '[npMask]',
 })
 export class NpMaskDirective implements OnInit {
 
-    @Input('np-mask') mask: string;
+    @Input('npMask') mask: string;
 
     private control: NgControl;
     private lastMaskedValue = '';

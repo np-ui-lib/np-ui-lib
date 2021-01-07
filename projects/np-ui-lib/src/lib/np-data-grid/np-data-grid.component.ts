@@ -1,6 +1,12 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef } from '@angular/core';
-import { ViewEncapsulation, ViewChild, ViewContainerRef, ElementRef, AfterContentInit, AfterViewInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy, Component, EventEmitter, Input,
+  OnDestroy, OnInit, Output, TemplateRef
+} from '@angular/core';
+import {
+  ViewEncapsulation, ViewChild, ViewContainerRef, ElementRef,
+  AfterContentInit, AfterViewInit
+} from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';

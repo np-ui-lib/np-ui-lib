@@ -28,7 +28,7 @@
                         <th>Default</th>
                     </tr>
                     <tr>
-                        <td>np-loader</td>
+                        <td>npLoader</td>
                         <td>Show loader</td>
                         <td>boolean</td>
                         <td>false</td>
@@ -59,7 +59,7 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Loader on div</legend>
-            <div style="height: 200px;width: 200px;background-color: lightblue;" [np-loader]="loader1"></div>
+            <div style="height: 200px;width: 200px;background-color: lightblue;" [npLoader]="loader1"></div>
             <div class="np-btn-group">
                 <button class="np-btn" (click)="loader1 = true">Show Loader</button>
                 <button class="np-btn" (click)="loader1 = false">Hide Loader</button>
@@ -69,14 +69,14 @@
         <fieldset>
             <legend>Loader on Button</legend>
             <div class="np-btn-group">
-                <button class="np-btn" (click)="loader2 = true" [np-loader]="loader2">Show Loader</button>
+                <button class="np-btn" (click)="loader2 = true" [npLoader]="loader2">Show Loader</button>
                 <button class="np-btn" (click)="loader2 = false">Hide Loader</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>Loader with text</legend>
-            <div style="height: 200px;background-color: lightblue;" [np-loader]="loader3" [loadingText]="'Loading...'">
+            <div style="height: 200px;background-color: lightblue;" [npLoader]="loader3" [loadingText]="'Loading...'">
             </div>
             <div class="np-btn-group">
                 <button class="np-btn" (click)="loader3 = true">Show Loader</button>
@@ -87,7 +87,7 @@
         <fieldset>
             <legend>On other component</legend>
 
-            <div [np-loader]="loader4" [diameter]="64" [strokeWidth]="10">
+            <div [npLoader]="loader4" [diameter]="64" [strokeWidth]="10">
                 <np-tabs>
                     <np-tab [title]="'Tab 1'">
                         <h1>

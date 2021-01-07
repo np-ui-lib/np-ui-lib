@@ -1,24 +1,24 @@
 @mixin np-popover-style {
-    .np-popover {
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-        background-color: #ffffff;
-    }
+  .np-popover {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    background-color: #ffffff;
+  }
 
-    .np-popover-target {
-        cursor: pointer;
-    }
+  .np-popover-target {
+    cursor: pointer;
+  }
 
-    .np-popover-header {
-        padding: 10px;
-        background-color: $background-color;
-        border-bottom: 1px solid $border-color;
-        font-weight: bold;
-    }
+  .np-popover-header {
+    padding: 10px;
+    background-color: $background-color;
+    border-bottom: 1px solid $border-color;
+    font-weight: bold;
+  }
 
-    .np-popover-body {
-        padding: 10px;
-        overflow: auto;
-    }
+  .np-popover-body {
+    padding: 10px;
+    overflow: auto;
+  }
 }

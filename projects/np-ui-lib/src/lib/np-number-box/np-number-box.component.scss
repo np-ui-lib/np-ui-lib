@@ -1,15 +1,11 @@
 @mixin np-number-box-style {
-    /* Chrome, Safari, Edge, Opera */
-
-    .np-number-box .np-form-control {
-        &::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        -moz-appearance: textfield;
+  .np-number-box .np-form-control {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
 
-    /* Firefox */
+    -moz-appearance: textfield;
+  }
 }

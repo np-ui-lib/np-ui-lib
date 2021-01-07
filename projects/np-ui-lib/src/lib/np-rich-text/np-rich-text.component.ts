@@ -44,9 +44,9 @@ export class NpRichTextComponent implements ControlValueAccessor {
   isUnderline = false;
   isBlockquote = false;
   isStrikethrough = false;
-  currentFormat: string = 'no value';
-  currentFont: string = 'no value';
-  currentFontSize: string = 'no value';
+  currentFormat = 'no value';
+  currentFont = 'no value';
+  currentFontSize = 'no value';
   linkUrl: string;
   currentSelectionRange: Range;
   foreColor: string;
@@ -128,9 +128,9 @@ export class NpRichTextComponent implements ControlValueAccessor {
 
   _showForeColorOverlay() {
     if (document.getSelection() && document.getSelection().getRangeAt) {
-      this.currentSelectionRange = document.getSelection().getRangeAt(0);;
+      this.currentSelectionRange = document.getSelection().getRangeAt(0);
     }
-    var colour = document.queryCommandValue("foreColor");
+    let colour = document.queryCommandValue('foreColor');
     if (colour.indexOf('rgb') > -1) {
       colour = this._changeRGBToHex(colour);
     }
@@ -148,7 +148,7 @@ export class NpRichTextComponent implements ControlValueAccessor {
       if (color) {
         this._formatDoc('foreColor', color)
       } else {
-        document.execCommand("removeFormat", false, "foreColor");
+        document.execCommand('removeFormat', false, 'foreColor');
       }
       this.currentSelectionRange = null;
     }
@@ -157,9 +157,9 @@ export class NpRichTextComponent implements ControlValueAccessor {
 
   _showBackColorOverlay() {
     if (document.getSelection() && document.getSelection().getRangeAt) {
-      this.currentSelectionRange = document.getSelection().getRangeAt(0);;
+      this.currentSelectionRange = document.getSelection().getRangeAt(0);
     }
-    var colour = document.queryCommandValue("backColor");
+    let colour = document.queryCommandValue('backColor');
     if (colour.indexOf('rgb') > -1) {
       colour = this._changeRGBToHex(colour);
     }
@@ -177,7 +177,7 @@ export class NpRichTextComponent implements ControlValueAccessor {
       if (color) {
         this._formatDoc('backColor', color)
       } else {
-        document.execCommand("removeFormat", false, "backColor");
+        document.execCommand('removeFormat', false, 'backColor');
       }
       this.currentSelectionRange = null;
     }
@@ -195,7 +195,7 @@ export class NpRichTextComponent implements ControlValueAccessor {
 
   _showCreateLink() {
     if (document.getSelection() && document.getSelection().getRangeAt) {
-      this.currentSelectionRange = document.getSelection().getRangeAt(0);;
+      this.currentSelectionRange = document.getSelection().getRangeAt(0);
     }
     this.linkUrl = 'https://';
   }

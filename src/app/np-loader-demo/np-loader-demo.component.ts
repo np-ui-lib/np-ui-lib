@@ -14,7 +14,7 @@ export class NpLoaderDemoComponent implements OnInit {
   loader4 = false;
 
   importText = 'import { NpLoaderModule } from \'np-ui-lib\';';
-  htmlText = '<span [np-loader]="true"></span>';
+  htmlText = '<span [npLoader]="true"></span>';
 
   ngOnInit(): void {
   }

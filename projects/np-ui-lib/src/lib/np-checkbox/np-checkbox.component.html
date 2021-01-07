@@ -1,16 +1,40 @@
-<div [ngClass]="{'np-checkbox': true, 'np-disabled': isDisabled , 'np-readonly': readOnly, 'np-focused': focused}" [class]="styleClass" [attr.id]="inputId">
-    <label class="np-checkbox-label">
-        <input class="np-checkbox-input" type="checkbox" role="checkbox" [attr.aria-checked]="indeterminate ? 'mixed' : innerValue" #control [checked]="innerValue" [disabled]="isDisabled" [readonly]="readOnly" [attr.tabindex]="tabIndex" [npAutoFocus]="autoFocus" (change)="_onChange($event)" [indeterminate]="indeterminate" (blur)="_onBlur($event)" (focus)="_onFocus($event)" (keydown)="_onKeyDown($event)">
-        <span class="np-checkbox-checkmark">
-            <svg class="np-checkbox-icon" *ngIf="innerValue" viewBox="0 0 24 24">
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path>
-            </svg>
-            <svg class="np-checkbox-icon" *ngIf="indeterminate" viewBox="0 0 24 24">
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M19 13H5v-2h14v2z"></path>
-            </svg>
-        </span>
-        <span class="np-checkbox-text" *ngIf="label" [innerHTML]="label"></span>
-    </label>
+<div
+  [ngClass]="{
+    'np-checkbox': true,
+    'np-disabled': isDisabled,
+    'np-readonly': readOnly
+  }"
+  role="checkbox"
+  [attr.aria-checked]="indeterminate ? 'mixed' : innerValue"
+  [class]="styleClass"
+  [attr.id]="inputId"
+>
+  <label class="np-checkbox-label">
+    <input
+      class="np-checkbox-input"
+      type="checkbox"
+      #control
+      [checked]="innerValue"
+      [disabled]="isDisabled"
+      [readonly]="readOnly"
+      [attr.tabindex]="tabIndex"
+      [npAutofocus]="autoFocus"
+      (change)="_onChange($event)"
+      [indeterminate]="indeterminate"
+      (blur)="_onBlur($event)"
+      (focus)="_onFocus($event)"
+      (keydown)="_onKeyDown($event)"
+    />
+    <span class="np-checkbox-checkmark" [ngClass]="{ 'np-focused': focused }">
+      <svg class="np-checkbox-icon" *ngIf="innerValue" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path>
+      </svg>
+      <svg class="np-checkbox-icon" *ngIf="indeterminate" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M19 13H5v-2h14v2z"></path>
+      </svg>
+    </span>
+    <span class="np-checkbox-text" *ngIf="label" [innerHTML]="label"></span>
+  </label>
 </div>

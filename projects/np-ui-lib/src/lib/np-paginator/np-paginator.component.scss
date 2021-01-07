@@ -1,24 +1,24 @@
 @mixin np-paginator-style {
-    .np-paginator {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        width: 100%;
-        padding: 3px;
-        background-color: $background-color;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-    }
+  .np-paginator {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 3px;
+    background-color: $background-color;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
 
-    .np-paginator-item {
-        padding: 2px;
-    }
+  .np-paginator-item {
+    padding: 2px;
+  }
 
-    .np-paginator-spacer {
-        flex: 1 1 auto;
-    }
+  .np-paginator-spacer {
+    flex: 1 1 auto;
+  }
 
-    .np-paginator .np-form-control {
-        width: 70px;
-    }
+  .np-paginator .np-form-control {
+    width: 70px;
+  }
 }

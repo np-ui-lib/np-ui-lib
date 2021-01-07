@@ -1,53 +1,53 @@
 @mixin np-time-picker-style {
-    .np-time-picker-overlay {
-        background-color: #ffffff;
-        width: fit-content;
-        min-width: 210px;
-        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
+  .np-time-picker-overlay {
+    background-color: #ffffff;
+    width: fit-content;
+    min-width: 210px;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+
+  .np-overlay-open {
+    box-shadow: none;
+  }
+
+  .np-time-picker-header {
+    padding: 5px;
+    background-color: $background-color;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .np-time-picker-footer {
+    padding: 5px;
+    background-color: $background-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .np-time-picker-controls {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .np-btn-icon {
+      border: none;
     }
+  }
 
-    .np-overlay-open {
-        box-shadow: none;
+  .np-time-picker-select {
+    width: 45px;
+    margin: 0px 2px;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+
+    option {
+      padding: 5px;
     }
-
-    .np-time-picker-header {
-        padding: 5px;
-        background-color: $background-color;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-
-    .np-time-picker-footer {
-        padding: 5px;
-        background-color: $background-color;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-
-    .np-time-picker-controls {
-        padding: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-
-        .np-btn-icon {
-            border: none;
-        }
-    }
-
-    .np-time-picker-select {
-        width: 45px;
-        margin: 0px 2px;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-
-        option {
-            padding: 5px;
-        }
-    }
+  }
 }

@@ -1,7 +1,7 @@
 <h2>Server side grid full example</h2>
 <p>Here <b>np-loader</b> is used to show loader on server side operations. </p>
 
-<div [np-loader]="isLoading" [loadingText]="'Loading Data...'">
+<div [npLoader]="isLoading" [loadingText]="'Loading Data...'">
     <np-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiRowSelectEnable]="true"
         [title]="'Server side data grid'" [showColumnChooser]="true" [showToolBar]="true" [allowExport]="true"
         [enableStateStoring]="true" [showFilters]="showFilters" [showSummary]="true" [summaryTemplate]="summaryTemplate"

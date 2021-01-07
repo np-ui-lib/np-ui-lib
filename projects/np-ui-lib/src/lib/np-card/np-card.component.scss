@@ -1,48 +1,48 @@
 @mixin np-card-style {
-    .np-card {
-        background-color: #ffffff;
-        overflow: hidden;
-        margin-bottom: 5px;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-    }
+  .np-card {
+    background-color: #ffffff;
+    overflow: hidden;
+    margin-bottom: 5px;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  }
 
-    .np-card-header {
-        padding: 10px;
-        background-color: $background-color;
-        overflow: auto;
-    }
+  .np-card-header {
+    padding: 10px;
+    background-color: $background-color;
+    overflow: auto;
+  }
 
-    .np-card-image img {
-        width: 100%;
-        height: auto;
-        vertical-align: middle;
-    }
+  .np-card-image img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
 
-    .np-card-body {
-        padding: 10px;
-        overflow: auto;
-    }
+  .np-card-body {
+    padding: 10px;
+    overflow: auto;
+  }
 
-    .np-card-footer {
-        padding: 10px;
-        background-color: $background-color;
-    }
+  .np-card-footer {
+    padding: 10px;
+    background-color: $background-color;
+  }
 
-    .np-card-title {
-        font-size: x-large;
-        font-weight: bold;
-        padding-bottom: 5px;
-    }
+  .np-card-title {
+    font-size: x-large;
+    font-weight: bold;
+    padding-bottom: 5px;
+  }
 
-    .np-card-subtitle {
-        font-weight: bold;
-        padding-bottom: 5px;
-    }
+  .np-card-subtitle {
+    font-weight: bold;
+    padding-bottom: 5px;
+  }
 
-    .np-card-avatar {
-        float: left;
-        padding-right: 10px;
-    }
+  .np-card-avatar {
+    float: left;
+    padding-right: 10px;
+  }
 }

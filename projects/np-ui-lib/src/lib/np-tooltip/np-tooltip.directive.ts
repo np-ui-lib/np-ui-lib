@@ -4,10 +4,12 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { NpTooltipComponent } from './np-tooltip.component';
 import { NpUtilityService } from '../np-utility/np-utility.service';
 
-@Directive({ selector: '[np-tooltip]' })
+@Directive({
+    selector: '[npTooltip]'
+})
 export class NpTooltipDirective implements AfterViewInit, OnDestroy {
 
-    @Input('np-tooltip') text: string | TemplateRef<any>;
+    @Input('npTooltip') text: string | TemplateRef<any>;
     @Input() placement: string;
     @Input() context: any;
     @Input() width: number;

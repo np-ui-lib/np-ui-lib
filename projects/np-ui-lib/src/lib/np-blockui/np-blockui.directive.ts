@@ -1,9 +1,9 @@
 import { Directive, ElementRef, Input, OnChanges, SimpleChanges, Renderer2 } from '@angular/core';
 
-@Directive({ selector: '[np-blockui]' })
+@Directive({ selector: '[npBlockUi]' })
 export class NpBlockUiDirective implements OnChanges {
 
-    @Input('np-blockui') visible: boolean;
+    @Input('npBlockUi') visible: boolean;
 
     element: any;
     isActive = false;

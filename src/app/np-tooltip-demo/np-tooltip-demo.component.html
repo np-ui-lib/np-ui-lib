@@ -28,8 +28,8 @@
                         <th>Default</th>
                     </tr>
                     <tr>
-                        <td>np-tooltip</td>
-                        <td>String text or ng-template reference</td>
+                        <td>npTooltip</td>
+                        <td>Text or ng-template reference</td>
                         <td>string | TemplateRef&lt;any&gt;</td>
                         <td></td>
                     </tr>
@@ -78,19 +78,19 @@
 
     <np-tab title="Examples">
         <p>
-            <span [np-tooltip]="'This is left tooltip.'" [placement]="'left'">
+            <span [npTooltip]="'This is left tooltip.'" [placement]="'left'">
                 Hover me for left tooltip
             </span>
         </p>
 
         <p>
-            <span [np-tooltip]="'This is right tooltip.'" [placement]="'right'" [styleClass]="'myClass'">
+            <span [npTooltip]="'This is right tooltip.'" [placement]="'right'" [styleClass]="'myClass'">
                 Hover me for right tooltip, with [styleClass] attribute.
             </span>
         </p>
 
         <p>
-            <span [np-tooltip]="tooltipTop" [placement]="'top'" [context]="{count: 5}" [width]="100">
+            <span [npTooltip]="tooltipTop" [placement]="'top'" [context]="{count: 5}" [width]="100">
                 Hover me for top tooltip, with ng-template.
                 <ng-template #tooltipTop let-count="count">
                     <u>This is top tooltip. Count pass in context is {{count}}</u>
@@ -99,7 +99,7 @@
         </p>
 
         <p>
-            <span [np-tooltip]="tooltipBottom" [placement]="'bottom'">
+            <span [npTooltip]="tooltipBottom" [placement]="'bottom'">
                 Hover me for bottom tooltip, with ng-template.
                 <ng-template #tooltipBottom>
                     <i>This is bottom tooltip</i>
@@ -110,7 +110,7 @@
 
         <p>
             <input type="text" style="width: 200px;" placeholder="Tooltip on focus" class="np-form-control"
-                [np-tooltip]="'Enter your name.'" [tooltipOnFocus]="true">
+                [npTooltip]="'Enter your name.'" [tooltipOnFocus]="true">
         </p>
     </np-tab>
 </np-tabs>

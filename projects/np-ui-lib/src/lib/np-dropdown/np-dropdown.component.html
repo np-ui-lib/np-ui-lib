@@ -1,24 +1,77 @@
-<div [ngClass]="{'np-dropdown': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass" [attr.id]="inputId">
-    <div class="np-input-group" role="combobox" aria-haspopup="listbox" [attr.aria-expanded]="isOpen" [attr.aria-owns]="inputId + '_listbox'" [ngClass]="{'np-focused': focused}">
-        <input class="np-form-control" type="text" #control autocomplete="off" readonly [disabled]="isDisabled" [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex" [value]="_getDisplayValue()" [placeholder]="placeholder" [attr.id]="inputId + '_input'" (click)="_open()" (keydown)="_onKeydown($event)" (blur)="_onBlur($event)" (focus)="_onFocus($event)">
-        <div class="np-input-group-append" *ngIf="innerValue">
-            <button class="np-btn-icon np-btn-clear" type="button" tabindex="-1" (click)="_clear()">
-                <svg class="np-icon" viewBox="0 0 24 24">
-                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-                    <path d="M0 0h24v24H0z" fill="none"></path>
-                </svg>
-            </button>
-        </div>
+<div
+  [ngClass]="{
+    'np-dropdown': true,
+    'np-disabled': isDisabled,
+    'np-readonly': readOnly
+  }"
+  [class]="styleClass"
+  [attr.id]="inputId"
+  role="combobox"
+  aria-haspopup="listbox"
+  [attr.aria-expanded]="isOpen"
+  [attr.aria-owns]="inputId + '_listbox'"
+>
+  <div class="np-input-group" [ngClass]="{ 'np-focused': focused }">
+    <input
+      class="np-form-control"
+      type="text"
+      #control
+      autocomplete="off"
+      readonly
+      [disabled]="isDisabled"
+      [npAutofocus]="autoFocus"
+      [attr.tabindex]="tabIndex"
+      [value]="_getDisplayValue()"
+      [placeholder]="placeholder"
+      [attr.id]="inputId + '_input'"
+      (click)="_open()"
+      (keydown)="_onKeydown($event)"
+      (blur)="_onBlur($event)"
+      (focus)="_onFocus($event)"
+    />
+    <div class="np-input-group-append" *ngIf="innerValue">
+      <button
+        class="np-btn-icon np-btn-clear"
+        type="button"
+        tabindex="-1"
+        (click)="_clear()"
+      >
+        <svg class="np-icon" viewBox="0 0 24 24">
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          ></path>
+          <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>
+      </button>
     </div>
-    <ng-template #templatePortalContent>
-        <ul class="np-dropdown-overlay np-list" role="listbox" [attr.id]="inputId + '_listbox'">
-            <li class="np-list-item" role="option" *ngFor="let item of items | npOrderBy: orderBy : orderDir ; let i = index; trackBy: _trackBy;" [ngClass]="{'np-dropdown-selected': _isSelected(item)}" (click)="_selectValue(item)">
-                <ng-container *ngIf="!itemTemplate; else customTemplate">
-                    <span [innerHTML]="displayKey ? item[displayKey] : item"></span>
-                </ng-container>
-                <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}">
-                </ng-template>
-            </li>
-        </ul>
-    </ng-template>
+  </div>
+  <ng-template #templatePortalContent>
+    <ul
+      class="np-dropdown-overlay np-list"
+      role="listbox"
+      [attr.id]="inputId + '_listbox'"
+    >
+      <li
+        class="np-list-item"
+        role="option"
+        *ngFor="
+          let item of items | npOrderBy: orderBy:orderDir;
+          let i = index;
+          trackBy: _trackBy
+        "
+        [ngClass]="{ 'np-dropdown-selected': _isSelected(item) }"
+        (click)="_selectValue(item)"
+      >
+        <ng-container *ngIf="!itemTemplate; else customTemplate">
+          <span [innerHTML]="displayKey ? item[displayKey] : item"></span>
+        </ng-container>
+        <ng-template
+          #customTemplate
+          [ngTemplateOutlet]="itemTemplate"
+          [ngTemplateOutletContext]="{ item: item }"
+        >
+        </ng-template>
+      </li>
+    </ul>
+  </ng-template>
 </div>

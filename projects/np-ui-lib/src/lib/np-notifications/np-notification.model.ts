@@ -12,4 +12,8 @@ export class NpNotification {
     public message: string;
     public autoCloseTimeout: number;
     private id: number;
+
+    _getId(){
+        return this.id;
+    }
 }

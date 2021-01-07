@@ -1,104 +1,104 @@
 @mixin np-date-picker-style {
-    .np-date-picker-overlay {
-        background-color: #ffffff;
-        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        width: fit-content;
+  .np-date-picker-overlay {
+    background-color: #ffffff;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    width: fit-content;
+  }
+
+  .np-overlay-open {
+    box-shadow: none;
+  }
+
+  .np-date-picker-header {
+    padding: 5px;
+    background-color: $background-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .np-date-picker-years {
+    width: 60px;
+  }
+
+  .np-date-picker-months {
+    width: 100px;
+  }
+
+  .np-date-picker-header .np-btn-icon {
+    border: none;
+  }
+
+  .np-date-picker-weekdays {
+    background-color: $selected-color;
+    padding: 0px 5px;
+  }
+
+  .np-date-picker-weekday {
+    font-weight: bold;
+    line-height: 2rem;
+    width: 2rem;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .np-date-picker-days {
+    padding: 5px;
+  }
+
+  .np-date-picker-day {
+    line-height: 2rem;
+    width: 2rem;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    border-radius: $border-radius;
+  }
+
+  .np-date-picker-today {
+    background-color: #d39e00;
+    border-radius: $border-radius;
+  }
+
+  .np-date-picker-selected {
+    color: #ffffff;
+    background-color: $primary-color;
+    cursor: pointer;
+  }
+
+  .np-date-picker-day {
+    &:hover {
+      color: #ffffff;
+      background-color: $primary-color;
+      cursor: pointer;
     }
 
-    .np-overlay-open {
-        box-shadow: none;
+    .np-tooltip-target:before {
+      content: "";
+      display: inline-block;
+      border: solid transparent;
+      border-width: 0 0 10px 10px;
+      border-bottom-color: $primary-color;
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
     }
+  }
 
-    .np-date-picker-header {
-        padding: 5px;
-        background-color: $background-color;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
+  .np-date-picker-selected .np-tooltip-target:before,
+  .np-date-picker-day:hover .np-tooltip-target:before {
+    border-bottom-color: #ffffff;
+  }
 
-    .np-date-picker-years {
-        width: 60px;
-    }
-
-    .np-date-picker-months {
-        width: 100px;
-    }
-
-    .np-date-picker-header .np-btn-icon {
-        border: none;
-    }
-
-    .np-date-picker-weekdays {
-        background-color: $selected-color;
-        padding: 0px 5px;
-    }
-
-    .np-date-picker-weekday {
-        font-weight: bold;
-        line-height: 2rem;
-        width: 2rem;
-        display: inline-block;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .np-date-picker-days {
-        padding: 5px;
-    }
-
-    .np-date-picker-day {
-        line-height: 2rem;
-        width: 2rem;
-        display: inline-block;
-        text-align: center;
-        vertical-align: middle;
-        position: relative;
-        border-radius: $border-radius;
-    }
-
-    .np-date-picker-today {
-        background-color: #d39e00;
-        border-radius: $border-radius;
-    }
-
-    .np-date-picker-selected {
-        color: #ffffff;
-        background-color: $primary-color;
-        cursor: pointer;
-    }
-
-    .np-date-picker-day {
-        &:hover {
-            color: #ffffff;
-            background-color: $primary-color;
-            cursor: pointer;
-        }
-
-        .np-tooltip-target:before {
-            content: "";
-            display: inline-block;
-            border: solid transparent;
-            border-width: 0 0 10px 10px;
-            border-bottom-color: $primary-color;
-            position: absolute;
-            bottom: 2px;
-            right: 2px;
-        }
-    }
-
-    .np-date-picker-selected .np-tooltip-target:before,
-    .np-date-picker-day:hover .np-tooltip-target:before {
-        border-bottom-color: #ffffff;
-    }
-
-    .np-date-picker-footer {
-        padding: 5px;
-        background-color: $background-color;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
+  .np-date-picker-footer {
+    padding: 5px;
+    background-color: $background-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 }

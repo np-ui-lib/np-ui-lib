@@ -1,6 +1,6 @@
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
 @Pipe({
-    name: 'npHighLight'
+    name: 'npHighlight'
 })
 @Injectable()
 export class NpHightLightPipe implements PipeTransform {

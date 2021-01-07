@@ -1,39 +1,94 @@
-<div [ngClass]="{'np-tags': true, 'np-disabled': isDisabled , 'np-readonly': readOnly}" [class]="styleClass" [attr.id]="inputId">
-    <div class="np-input-group" [ngClass]="{'np-focused': focused}">
-        <div class="np-tag" *ngFor="let tag of selected">
-            <div [innerHTML]="_getValueFromTag(tag)"></div>
-            <button class="np-tag-remove" tabindex="-1" (click)="_removeTag(tag)">
-                <svg class="np-icon" viewBox="0 0 24 24">
-                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-                    <path d="M0 0h24v24H0z" fill="none"></path>
-                </svg>
-            </button>
-        </div>
-        <input class="np-form-control" type="text" #control autocomplete="off" [placeholder]="placeholder" [value]="_getDisplayValue()" [disabled]="isDisabled" [npAutoFocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly" (click)="_open()" (input)="_onInput($event)" (keydown)="_onKeydown($event)" (blur)="_onBlur($event)" (focus)="_onFocus($event)">
-        <div class="np-input-group-append">
-            <div class="np-tag-loader" *ngIf="isLoading">
-                <svg class="np-icon" viewBox="0 0 24 24">
-                    <path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"></path>
-                    <path d="M0 0h24v24H0z" fill="none"></path>
-                </svg>
-            </div>
-        </div>
+<div
+  [ngClass]="{
+    'np-tags': true,
+    'np-disabled': isDisabled,
+    'np-readonly': readOnly
+  }"
+  [class]="styleClass"
+  [attr.id]="inputId"
+>
+  <div class="np-input-group" [ngClass]="{ 'np-focused': focused }">
+    <div class="np-tag" *ngFor="let tag of selected">
+      <div [innerHTML]="_getValueFromTag(tag)"></div>
+      <button class="np-tag-remove" tabindex="-1" (click)="_removeTag(tag)">
+        <svg class="np-icon" viewBox="0 0 24 24">
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          ></path>
+          <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>
+      </button>
     </div>
+    <input
+      class="np-form-control"
+      type="text"
+      #control
+      autocomplete="off"
+      [placeholder]="placeholder"
+      [value]="_getDisplayValue()"
+      [disabled]="isDisabled"
+      [npAutofocus]="autoFocus"
+      [attr.tabindex]="tabIndex"
+      [readonly]="readOnly"
+      (click)="_open()"
+      (input)="_onInput($event)"
+      (keydown)="_onKeydown($event)"
+      (blur)="_onBlur($event)"
+      (focus)="_onFocus($event)"
+    />
+    <div class="np-input-group-append">
+      <div class="np-tag-loader" *ngIf="isLoading">
+        <svg class="np-icon" viewBox="0 0 24 24">
+          <path
+            d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"
+          ></path>
+          <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
 </div>
 <ng-template #templatePortalContent>
-    <ul class="np-tags-overlay np-list" role="listbox" [attr.id]="inputId + '_listbox'">
-        <ng-container *ngFor="let item of options | npOrderBy: orderBy: orderDir; let i = index; trackBy: _trackBy;">
-            <li class="np-list-item" role="option" (click)="_selectValue(item)" [ngClass]="{'np-tag-selected': _isSelected(item)}">
-                <ng-container *ngIf="!itemTemplate; else customTemplate">
-                    <span [innerHTML]="(displayKey ? item[displayKey] : item ) | npHighLight : displayValue">
-                    </span>
-                </ng-container>
-                <ng-template #customTemplate [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item, keyword: displayValue}">
-                </ng-template>
-            </li>
+  <ul
+    class="np-tags-overlay np-list"
+    role="listbox"
+    [attr.id]="inputId + '_listbox'"
+  >
+    <ng-container
+      *ngFor="
+        let item of options | npOrderBy: orderBy:orderDir;
+        let i = index;
+        trackBy: _trackBy
+      "
+    >
+      <li
+        class="np-list-item"
+        role="option"
+        (click)="_selectValue(item)"
+        [ngClass]="{ 'np-tag-selected': _isSelected(item) }"
+      >
+        <ng-container *ngIf="!itemTemplate; else customTemplate">
+          <span
+            [innerHTML]="
+              (displayKey ? item[displayKey] : item) | npHighlight: displayValue
+            "
+          >
+          </span>
         </ng-container>
-        <li class="np-list-item np-disabled" role="option" *ngIf="options && options.length===0">
-            <b>{{ 'No_Result_Found' | npTranslate }}</b>
-        </li>
-    </ul>
+        <ng-template
+          #customTemplate
+          [ngTemplateOutlet]="itemTemplate"
+          [ngTemplateOutletContext]="{ item: item, keyword: displayValue }"
+        >
+        </ng-template>
+      </li>
+    </ng-container>
+    <li
+      class="np-list-item np-disabled"
+      role="option"
+      *ngIf="options && options.length === 0"
+    >
+      <b>{{ "No_Result_Found" | npTranslate }}</b>
+    </li>
+  </ul>
 </ng-template>

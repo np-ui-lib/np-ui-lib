@@ -152,7 +152,7 @@
         <button
           type="button"
           class="np-btn-icon np-btn-fore-color"
-          np-popover
+          npPopover
           #foreColorPopover="NpPopoverDirective"
           [body]="foreColorTemplate"
           [openOnClick]="true"
@@ -171,7 +171,7 @@
         <button
           type="button"
           class="np-btn-icon np-btn-back-color"
-          np-popover
+          npPopover
           #backColorPopover="NpPopoverDirective"
           [body]="backColorTemplate"
           [openOnClick]="true"
@@ -292,7 +292,7 @@
         <button
           type="button"
           class="np-btn-icon np-create-link"
-          np-popover
+          npPopover
           #createLinkPopover="NpPopoverDirective"
           [header]="'Enter_The_URL_For_Link' | npTranslate"
           [body]="createLinkTemp"
@@ -360,7 +360,7 @@
       #control
       [attr.tabindex]="tabIndex"
       [style.height.px]="height"
-      [npAutoFocus]="autoFocus"
+      [npAutofocus]="autoFocus"
       (blur)="_onBlur($event)"
       (focus)="_onFocus($event)"
       (input)="_onInputChange($event)"
@@ -392,7 +392,7 @@
       <input
         type="url"
         class="np-form-control"
-        [npAutoFocus]="true"
+        [npAutofocus]="true"
         [(ngModel)]="linkUrl"
       />
     </div>

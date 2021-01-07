@@ -3,11 +3,16 @@
 
 ## Change log and decision tracker
 
-# 10.8.6
+## 10.9.0
 - Add new SASS variable for boarder radius
 - Remove allowSelection and add selectionMode in list component
+- Radio button and group recreate component
+- Aria and role attribute updates
+- Rename all directives and pipes np-loader = npLoader, no-blockui = npBlockUi, np-mask = npMask,  
+np-tooltip = npTooltip, np-popover = npPopover, np-popup-menubar = npPopupMenubar, np-highlight = npHighlight,  
+np-autofocus = npAutofocus  
 
-# 10.8.5
+## 10.8.5
 - Minor improvements in tooltip and popover triggers
 
 ## 10.8.4

@@ -1,9 +1,9 @@
 import { Directive, ElementRef, Input, OnChanges, SimpleChanges, Renderer2, AfterContentInit, OnInit } from '@angular/core';
 
-@Directive({ selector: '[np-loader]' })
+@Directive({ selector: '[npLoader]' })
 export class NpLoaderDirective implements OnChanges, OnInit {
 
-    @Input('np-loader') show: boolean;
+    @Input('npLoader') show: boolean;
     @Input() diameter = 32;
     @Input() strokeWidth = 4;
     @Input() loadingText: string;
@@ -12,9 +12,7 @@ export class NpLoaderDirective implements OnChanges, OnInit {
     isactive = false;
     initialized = false;
 
-    constructor(private elRef: ElementRef, private renderer: Renderer2) {
-
-    }
+    constructor(private elRef: ElementRef, private renderer: Renderer2) { }
 
     ngOnInit(): void {
         const loader = this.renderer.createElement('div');

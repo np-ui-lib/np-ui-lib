@@ -75,7 +75,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-dialog-demo', label: 'Dialog' }),
     new NpMenuItem({ routerLink: '/np-sidepanel-demo', label: 'Sidepanel' }),
     new NpMenuItem({ routerLink: '/np-loader-demo', label: 'Loader' }),
-    new NpMenuItem({ routerLink: '/np-blockui-demo', label: 'Block UI' }),
+    new NpMenuItem({ routerLink: '/np-blockui-demo', label: 'Block Ui' }),
     new NpMenuItem({ routerLink: '/np-tooltip-demo', label: 'Tooltip' }),
     new NpMenuItem({ routerLink: '/np-popover-demo', label: 'Popover' }),
     new NpMenuItem({ isHeader: true, label: 'Other' }),

@@ -6,7 +6,7 @@ import { NpMenuItem } from './np-menu.model';
 import { Subscription } from 'rxjs';
 import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 
-@Directive({ selector: '[np-popup-menubar]' })
+@Directive({ selector: '[npPopupMenubar]' })
 export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
 
     @Input() items: NpMenuItem[];

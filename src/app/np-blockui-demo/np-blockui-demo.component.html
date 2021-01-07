@@ -1,4 +1,4 @@
-<h2>Block UI</h2>
+<h2>Block Ui</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -28,8 +28,8 @@
                         <th>Default</th>
                     </tr>
                     <tr>
-                        <td>np-blockui</td>
-                        <td>Show block ui</td>
+                        <td>npBlockUi</td>
+                        <td>Show ui as blocked</td>
                         <td>boolean</td>
                         <td>false</td>
                     </tr>
@@ -41,7 +41,7 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Block on div</legend>
-            <div style="height: 200px;width: 200px;background-color: lightblue;" [np-blockui]="blockUi1"></div>
+            <div style="height: 200px;width: 200px;background-color: lightblue;" [npBlockUi]="blockUi1"></div>
             <div class="np-btn-group">
                 <button class="np-btn" (click)="blockUi1 = true">Block</button>
                 <button class="np-btn" (click)="blockUi1 = false">Unblock</button>

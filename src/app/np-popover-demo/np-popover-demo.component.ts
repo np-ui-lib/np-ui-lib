@@ -8,8 +8,8 @@ import { NpPopoverDirective } from 'np-ui-lib';
 export class NpPopoverDemoComponent implements OnInit {
 
   importText = 'import { NpPopoverModule } from \'np-ui-lib\';';
-  htmlText = `<a np-popover [header]="'Link header'" [body]="'Link Description.'">Link</a>`;
-  contextText = `<a np-popover [header]="headerTemp" [body]="bodyTemp" [context]="{count: 5}">
+  htmlText = `<a npPopover [header]="'Link header'" [body]="'Link Description.'">Link</a>`;
+  contextText = `<a npPopover [header]="headerTemp" [body]="bodyTemp" [context]="{count: 5}">
   Context Sample
 </a>
 <ng-template #headerTemp let-count="count">

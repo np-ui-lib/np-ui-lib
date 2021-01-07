@@ -1,7 +1,12 @@
 <ng-template #templatePortalContent>
-    <div role="complementary" [ngClass]="'np-sidepanel'" [class]="styleClass" [attr.id]="inputId">
-        <div class="np-sidepanel-content">
-            <ng-content></ng-content>
-        </div>
+  <div
+    role="complementary"
+    [ngClass]="'np-sidepanel'"
+    [class]="styleClass"
+    [attr.id]="inputId"
+  >
+    <div class="np-sidepanel-content">
+      <ng-content></ng-content>
     </div>
+  </div>
 </ng-template>

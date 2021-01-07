@@ -5,7 +5,7 @@ import { NpPopoverComponent } from './np-popover.component';
 import { NpUtilityService } from '../np-utility/np-utility.service';
 
 @Directive({
-    selector: '[np-popover]',
+    selector: '[npPopover]',
     exportAs: 'NpPopoverDirective'
 })
 export class NpPopoverDirective implements AfterViewInit, OnDestroy {
