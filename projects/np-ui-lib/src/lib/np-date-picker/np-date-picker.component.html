@@ -1,100 +1,82 @@
-<div
-  [ngClass]="{
+<div [ngClass]="{
     'np-date-picker': true,
     'np-disabled': isDisabled,
     'np-readonly': readOnly
   }"
-  [class]="styleClass"
-  [attr.id]="inputId"
->
-  <div
-    class="np-input-group"
-    *ngIf="!defaultOpen; else templatePortalContent"
-    [ngClass]="{ 'np-focused': focused }"
-  >
-    <input
-      class="np-form-control"
-      type="text"
-      #control
-      [value]="value | date: format"
-      [placeholder]="placeholder"
-      [disabled]="isDisabled"
-      [npAutofocus]="autoFocus"
-      [attr.tabindex]="tabIndex"
-      [readonly]="readOnly"
-      (click)="_open()"
-      (keydown)="_onKeydown($event)"
-      (change)="_onInputChange($event)"
-      (blur)="_onBlur($event)"
-      (focus)="_onFocus($event)"
-    />
+     [class]="styleClass"
+     [attr.id]="inputId">
+  <div class="np-input-group"
+       *ngIf="!defaultOpen; else templatePortalContent"
+       [ngClass]="{ 'np-focused': focused }">
+    <input class="np-form-control"
+           type="text"
+           #control
+           [value]="value | date: format"
+           [placeholder]="placeholder"
+           [disabled]="isDisabled"
+           [npAutofocus]="autoFocus"
+           [attr.tabindex]="tabIndex"
+           [readonly]="readOnly"
+           (click)="_open()"
+           (keydown)="_onKeydown($event)"
+           (change)="_onInputChange($event)"
+           (blur)="_onBlur($event)"
+           (focus)="_onFocus($event)" />
     <div class="np-input-group-append">
-      <button
-        class="np-btn-icon np-toggle-overlay"
-        type="button"
-        tabindex="-1"
-        (click)="_toggleDatePicker()"
-      >
-        <svg class="np-icon" viewBox="0 0 24 24">
+      <button class="np-btn-icon np-toggle-overlay"
+              type="button"
+              tabindex="-1"
+              (click)="_toggleDatePicker()">
+        <svg class="np-icon"
+             viewBox="0 0 24 24">
           <path
-            d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-          ></path>
-          <path fill="none" d="M0 0h24v24H0z"></path>
+                d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z">
+          </path>
+          <path fill="none"
+                d="M0 0h24v24H0z"></path>
         </svg>
       </button>
     </div>
   </div>
 </div>
 <ng-template #templatePortalContent>
-  <div
-    class="np-date-picker-overlay"
-    [ngClass]="{ 'np-overlay-open': defaultOpen }"
-  >
+  <div class="np-date-picker-overlay"
+       [ngClass]="{ 'np-overlay-open': defaultOpen }">
     <div class="np-date-picker-header">
-      <button
-        class="np-btn-icon"
-        type="button"
-        tabindex="-1"
-        (click)="_prevMonth()"
-      >
-        <svg class="np-icon" viewBox="0 0 24 24">
-          <path
-            d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
-          ></path>
-          <path fill="none" d="M0 0h24v24H0V0z"></path>
+      <button class="np-btn-icon"
+              type="button"
+              tabindex="-1"
+              (click)="_prevMonth()">
+        <svg class="np-icon"
+             viewBox="0 0 24 24">
+          <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"></path>
+          <path fill="none"
+                d="M0 0h24v24H0V0z"></path>
         </svg>
       </button>
-      <input
-        class="np-form-control np-date-picker-years"
-        type="number"
-        tabindex="-1"
-        [value]="currentYear"
-        (change)="_changeYear($event)"
-        required
-      />
-      <select
-        class="np-form-control np-date-picker-months"
-        tabindex="-1"
-        (change)="_selectMonth($event)"
-      >
-        <option
-          *ngFor="let month of monthsList"
-          [value]="month.key"
-          [text]="month.value | npTranslate"
-          [selected]="month.key === currentMonth"
-        ></option>
+      <input class="np-form-control np-date-picker-years"
+             type="number"
+             tabindex="-1"
+             [value]="currentYear"
+             (change)="_changeYear($event)"
+             required />
+      <select class="np-form-control np-date-picker-months"
+              tabindex="-1"
+              (change)="_selectMonth($event)">
+        <option *ngFor="let month of monthsList"
+                [value]="month.key"
+                [text]="month.value | npTranslate"
+                [selected]="month.key === currentMonth"></option>
       </select>
-      <button
-        class="np-btn-icon"
-        type="button"
-        tabindex="-1"
-        (click)="_nextMonth()"
-      >
-        <svg class="np-icon" viewBox="0 0 24 24">
-          <path
-            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-          ></path>
-          <path fill="none" d="M0 0h24v24H0V0z"></path>
+      <button class="np-btn-icon"
+              type="button"
+              tabindex="-1"
+              (click)="_nextMonth()">
+        <svg class="np-icon"
+             viewBox="0 0 24 24">
+          <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"></path>
+          <path fill="none"
+                d="M0 0h24v24H0V0z"></path>
         </svg>
       </button>
     </div>
@@ -106,22 +88,19 @@
     <div class="np-date-picker-days">
       <div *ngFor="let week of currentMonthWeeks">
         <ng-container *ngFor="let item of week">
-          <div class="np-date-picker-day" *ngIf="!item.day"></div>
-          <div
-            class="np-date-picker-day np-day-{{ item.day }}"
-            *ngIf="item.day"
-            (click)="_selectDate(item.date)"
-            [ngClass]="{
+          <div class="np-date-picker-day"
+               *ngIf="!item.day"></div>
+          <div class="np-date-picker-day np-day-{{ item.day }}"
+               *ngIf="item.day"
+               (click)="_selectDate(item.date)"
+               [ngClass]="{
               'np-date-picker-today': item.today,
               'np-disabled': item.disabled,
               'np-date-picker-selected': item.seleced
-            }"
-          >
-            <div
-              *ngIf="item.toolTip; else dayTemplate"
-              [npTooltip]="item.toolTip"
-              [innerHTML]="item.day"
-            ></div>
+            }">
+            <div *ngIf="item.toolTip; else dayTemplate"
+                 [npTooltip]="item.toolTip"
+                 [innerHTML]="item.day"></div>
             <ng-template #dayTemplate>
               <div [innerHTML]="item.day"></div>
             </ng-template>
@@ -130,30 +109,24 @@
       </div>
     </div>
     <div class="np-date-picker-footer">
-      <button
-        class="np-btn np-btn-primary np-ok"
-        type="button"
-        *ngIf="!defaultOpen"
-        tabindex="-1"
-        (click)="_close()"
-      >
+      <button class="np-btn np-btn-primary np-ok"
+              type="button"
+              *ngIf="!defaultOpen"
+              tabindex="-1"
+              (click)="_close()">
         {{ "Ok" | npTranslate }}
       </button>
-      <button
-        class="np-btn np-btn-primary np-today"
-        type="button"
-        *ngIf="showTodayButton"
-        tabindex="-1"
-        (click)="_setToday()"
-      >
+      <button class="np-btn np-btn-primary np-today"
+              type="button"
+              *ngIf="showTodayButton"
+              tabindex="-1"
+              (click)="_setToday()">
         {{ "Today" | npTranslate }}
       </button>
-      <button
-        class="np-btn np-btn-danger np-clear"
-        type="button"
-        tabindex="-1"
-        (click)="_clear()"
-      >
+      <button class="np-btn np-btn-danger np-clear"
+              type="button"
+              tabindex="-1"
+              (click)="_clear()">
         {{ "Clear" | npTranslate }}
       </button>
     </div>

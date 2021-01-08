@@ -1,4 +1,7 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, Output, EventEmitter, AfterContentInit, OnDestroy } from '@angular/core';
+import {
+  Component, Input, ViewEncapsulation, ChangeDetectionStrategy, Output,
+  EventEmitter, AfterContentInit, OnDestroy
+} from '@angular/core';
 import { NpMenuItem } from './np-menu.model';
 import { Subscription } from 'rxjs';
 
@@ -9,7 +12,8 @@ import { Subscription } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpMenubarComponent implements AfterContentInit, OnDestroy {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() items: NpMenuItem[];
   @Input() orientation;
@@ -17,12 +21,9 @@ export class NpMenubarComponent implements AfterContentInit, OnDestroy {
   @Input() styleClass: string;
   @Input() inputId = `np-menubar_${NpMenubarComponent.controlCount++}`;
 
-  subscription: Subscription;
-
   @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 
-  constructor() {
-  }
+  subscription: Subscription;
 
   ngAfterContentInit(): void {
     if (!this.isPanelMenu) {

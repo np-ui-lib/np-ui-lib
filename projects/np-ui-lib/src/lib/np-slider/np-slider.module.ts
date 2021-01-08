@@ -5,10 +5,7 @@ import { NpUtilityModule } from '../np-utility/np-utility.module';
 
 @NgModule({
   declarations: [NpSliderComponent],
-  imports: [
-    CommonModule,
-    NpUtilityModule
-  ],
+  imports: [CommonModule, NpUtilityModule],
   exports: [NpSliderComponent]
 })
 export class NpSliderModule { }

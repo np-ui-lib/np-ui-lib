@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'np-card',
@@ -6,16 +6,12 @@ import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy } 
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpCardComponent implements OnInit {
-  static controlCount = 1;
+export class NpCardComponent {
+
+  private static controlCount = 1;
 
   @Input() width: number;
   @Input() styleClass: string;
   @Input() inputId = `np-card_${NpCardComponent.controlCount++}`;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

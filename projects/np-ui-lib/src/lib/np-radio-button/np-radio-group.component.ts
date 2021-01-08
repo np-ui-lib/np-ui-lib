@@ -19,7 +19,8 @@ import { NpRadioButtonComponent } from './np-radio-button.component';
     ]
 })
 export class NpRadioGroupComponent implements ControlValueAccessor {
-    static controlCount = 1;
+
+    private static controlCount = 1;
 
     @Input() name: string;
     // Orientation can be 'horizontal' or 'vertical'
@@ -78,6 +79,25 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
         this.isDisabled = isDisabled;
     }
 
+    focus() {
+        setTimeout(() => {
+            if (!this.value) {
+                const radio = this.el.nativeElement.querySelector('#' + this.radioButtons.first.inputId);
+                if (radio) {
+                    radio.querySelector('.np-radio-button-input').focus();
+                }
+            }
+            this.radioButtons.forEach((item) => {
+                if (item.value === this.value) {
+                    const radio = this.el.nativeElement.querySelector('#' + item.inputId);
+                    if (radio) {
+                        radio.querySelector('.np-radio-button-input').focus();
+                    }
+                }
+            });
+        }, 100);
+    }
+
     _onKeyDown(event: KeyboardEvent) {
         if ((event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'ArrowUp'
             || event.key === 'ArrowDown') && (this.readOnly || this.isDisabled)) {
@@ -112,24 +132,5 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
     _onFocus($event, item: NpRadioButtonComponent) {
         item.focused = true;
         this.onFocus.emit($event);
-    }
-
-    focus() {
-        setTimeout(() => {
-            if (!this.value) {
-                const radio = this.el.nativeElement.querySelector('#' + this.radioButtons.first.inputId);
-                if (radio) {
-                    radio.querySelector('.np-radio-button-input').focus();
-                }
-            }
-            this.radioButtons.forEach((item) => {
-                if (item.value === this.value) {
-                    const radio = this.el.nativeElement.querySelector('#' + item.inputId);
-                    if (radio) {
-                        radio.querySelector('.np-radio-button-input').focus();
-                    }
-                }
-            });
-        }, 100);
     }
 }

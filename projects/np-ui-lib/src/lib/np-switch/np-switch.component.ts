@@ -15,7 +15,8 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
   ]
 })
 export class NpSwitchComponent implements ControlValueAccessor {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() trueLabelText: string;
   @Input() falseLabelText: string;
@@ -67,6 +68,10 @@ export class NpSwitchComponent implements ControlValueAccessor {
     this.isDisabled = isDisabled;
   }
 
+  focus() {
+    this.inputViewChild.nativeElement.focus();
+  }
+
   _onClickSwitch($event) {
     if (this.isDisabled || this.readOnly) {
       return;
@@ -74,7 +79,7 @@ export class NpSwitchComponent implements ControlValueAccessor {
     this.value = $event.target.checked;
   }
 
-    _onBlur($event) {
+  _onBlur($event) {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
@@ -83,9 +88,5 @@ export class NpSwitchComponent implements ControlValueAccessor {
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 }

@@ -9,7 +9,8 @@ import { NpTranslationsService } from '../np-translations/np-translations.servic
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpDialogComponent implements OnInit {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   title: string;
   value: string;

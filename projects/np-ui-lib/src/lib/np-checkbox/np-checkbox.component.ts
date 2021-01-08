@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, forwardRef, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy, Component, ElementRef, EventEmitter, forwardRef,
+  Input, Output, ViewChild, ViewEncapsulation
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -15,7 +18,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class NpCheckboxComponent implements ControlValueAccessor {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() label: string;
   @Input() indeterminate: boolean;
@@ -37,8 +41,6 @@ export class NpCheckboxComponent implements ControlValueAccessor {
 
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
-
-  constructor() { }
 
   get value(): boolean {
     return this.innerValue ? this.innerValue : null;
@@ -71,6 +73,10 @@ export class NpCheckboxComponent implements ControlValueAccessor {
     this.isDisabled = isDisabled;
   }
 
+  focus() {
+    this.inputViewChild.nativeElement.focus();
+  }
+
   _onBlur($event) {
     this.focused = false;
     this.onTouchedCallback();
@@ -80,10 +86,6 @@ export class NpCheckboxComponent implements ControlValueAccessor {
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 
   _onChange(event: any) {

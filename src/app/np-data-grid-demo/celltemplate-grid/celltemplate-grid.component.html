@@ -1,6 +1,7 @@
-<h2>Cell template example</h2>
+<h2 class="page-header">Cell template example</h2>
 <p>To add cell template in data grid add <b>&lt;ng-template&gt;</b> in html file and get that template as
-    <b>TemplateRef&lt;any&gt; in component</b></p>
+    <b>TemplateRef&lt;any&gt; in component</b>
+</p>
 <p>Now set that template reference in <b>cellTemplate</b> property in column definations</p>
 
 <b>In HTML file:</b>
@@ -17,29 +18,39 @@
 <div class="np-jumbotron">
     <pre><code>{{columnText}}</code></pre>
 </div>
-<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource">
+<np-data-grid [columns]="gridColumns"
+              [dataSource]="gridDataSource">
 </np-data-grid>
 
 <!-- Template for action buttons column -->
-<ng-template #actionButtonsTemplate let-row="row">
+<ng-template #actionButtonsTemplate
+             let-row="row">
     <div class="np-btn-group">
-        <button class="np-btn np-btn-primary" (click)="onActionClick(row,'Edit', $event)">Edit</button>
-        <button class="np-btn np-btn-danger" (click)="onActionClick(row,'Delete', $event)">Delete</button>
+        <button class="np-btn np-btn-primary"
+                (click)="onActionClick(row,'Edit', $event)">Edit</button>
+        <button class="np-btn np-btn-danger"
+                (click)="onActionClick(row,'Delete', $event)">Delete</button>
     </div>
 </ng-template>
 
 <!-- Template for birthdate column -->
-<ng-template #birthDateColumnTemplate let-row="row">
+<ng-template #birthDateColumnTemplate
+             let-row="row">
     {{row.BirthDate | date:'dd/MM/yyyy'}}
 </ng-template>
 
 <!-- Template for active column -->
-<ng-template #activeColumnTemplate let-row="row">
-    <span class="np-badge np-badge-success" *ngIf="row.Active">true</span>
-    <span class="np-badge np-badge-danger" *ngIf="!row.Active">false</span>
+<ng-template #activeColumnTemplate
+             let-row="row">
+    <span class="np-badge np-badge-success"
+          *ngIf="row.Active">true</span>
+    <span class="np-badge np-badge-danger"
+          *ngIf="!row.Active">false</span>
 </ng-template>
 
 <!-- Template for avatar column -->
-<ng-template #avatarColumnTemplate let-row="row">
-    <img src="../../assets/images/img_avatar.png" class="np-avatar">
+<ng-template #avatarColumnTemplate
+             let-row="row">
+    <img src="../../assets/images/img_avatar.png"
+         class="np-avatar">
 </ng-template>

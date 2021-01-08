@@ -1,4 +1,7 @@
-import { AfterContentInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
+import {
+  AfterContentInit, ChangeDetectionStrategy, Component, EventEmitter,
+  Input, Output, TemplateRef, ViewEncapsulation
+} from '@angular/core';
 import { NpCalendarEvent } from './np-calendar-event.model';
 
 @Component({
@@ -8,7 +11,8 @@ import { NpCalendarEvent } from './np-calendar-event.model';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpCalendarComponent implements AfterContentInit {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() disableWeekDays: string[] = [];
   @Input() disableDates: Date[] = [];
@@ -62,6 +66,28 @@ export class NpCalendarComponent implements AfterContentInit {
     }
     this._calculateDays();
     this._onLoad();
+  }
+
+  refresh() {
+    this._calculateDays();
+    this._onLoad();
+  }
+
+  addEvents(eve: NpCalendarEvent[]) {
+    eve.forEach(element => {
+      this.events.push(element);
+    });
+    this._calculateDays();
+  }
+
+  removeEvents(eve: NpCalendarEvent[]) {
+    eve.forEach(element => {
+      const idx = this._findIndexOfEvent(element);
+      if (idx > -1) {
+        this.events.splice(idx, 1);
+      }
+    });
+    this._calculateDays();
   }
 
   _calculateDays() {
@@ -236,28 +262,6 @@ export class NpCalendarComponent implements AfterContentInit {
     if (this.onClickEvent) {
       this.onClickEvent.emit(event);
     }
-  }
-
-  refresh() {
-    this._calculateDays();
-    this._onLoad();
-  }
-
-  addEvents(eve: NpCalendarEvent[]) {
-    eve.forEach(element => {
-      this.events.push(element);
-    });
-    this._calculateDays();
-  }
-
-  removeEvents(eve: NpCalendarEvent[]) {
-    eve.forEach(element => {
-      const idx = this._findIndexOfEvent(element);
-      if (idx > -1) {
-        this.events.splice(idx, 1);
-      }
-    });
-    this._calculateDays();
   }
 
   _findIndexOfEvent(event: NpCalendarEvent) {

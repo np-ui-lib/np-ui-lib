@@ -21,7 +21,8 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
   ]
 })
 export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit, OnDestroy {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() displayKey: string;
   @Input() valueKey: string;
@@ -144,6 +145,10 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
 
   setDisabledState?(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 
   _close() {
@@ -307,9 +312,5 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 }

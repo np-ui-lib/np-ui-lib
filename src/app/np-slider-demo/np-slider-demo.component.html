@@ -1,4 +1,4 @@
-<h2>Slider</h2>
+<h2 class="page-header">Slider</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -164,31 +164,38 @@
 
         <fieldset>
             <legend>min and max</legend>
-            <np-slider [(ngModel)]="slider2" [min]="50" [max]="150"></np-slider>
+            <np-slider [(ngModel)]="slider2"
+                       [min]="50"
+                       [max]="150"></np-slider>
             Value: {{slider2}}
         </fieldset>
 
         <fieldset>
             <legend>Step</legend>
-            <np-slider [(ngModel)]="slider3" [step]="5"></np-slider>
+            <np-slider [(ngModel)]="slider3"
+                       [step]="5"></np-slider>
             Value: {{slider3}}
         </fieldset>
 
         <fieldset>
             <legend>required</legend>
-            <np-slider [(ngModel)]="slider4" required></np-slider>
+            <np-slider [(ngModel)]="slider4"
+                       required></np-slider>
             Value: {{slider4}}
-            <button class="np-btn" (click)="slider4 = null">Set null</button>
+            <button class="np-btn"
+                    (click)="slider4 = null">Set null</button>
         </fieldset>
 
         <fieldset>
             <legend>disabled</legend>
-            <np-slider [(ngModel)]="slider5" disabled></np-slider>
+            <np-slider [(ngModel)]="slider5"
+                       disabled></np-slider>
         </fieldset>
 
         <fieldset>
             <legend>readOnly</legend>
-            <np-slider [(ngModel)]="slider5" [readOnly]="true"></np-slider>
+            <np-slider [(ngModel)]="slider5"
+                       [readOnly]="true"></np-slider>
         </fieldset>
     </np-tab>
 </np-tabs>

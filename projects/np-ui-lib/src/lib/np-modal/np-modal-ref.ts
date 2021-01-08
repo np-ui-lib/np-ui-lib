@@ -4,6 +4,7 @@ import { TemplateRef, Type } from '@angular/core';
 import { NpModalConfig } from './np-modal.config';
 
 export class NpModalRef {
+
     onClose = new Subject<any>();
 
     constructor(

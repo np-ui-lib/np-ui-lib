@@ -1,4 +1,4 @@
-<h2>Alert</h2>
+<h2 class="page-header">Alert</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -89,23 +89,28 @@
     </np-tab>
     <np-tab title="Examples">
         <ng-template npTabContent>
-            <np-alert type="success" [showCloseButton]="true">
+            <np-alert type="success"
+                      [showCloseButton]="true">
                 Hi this is success message content.
             </np-alert>
 
-            <np-alert type="error" [showCloseButton]="true">
+            <np-alert type="error"
+                      [showCloseButton]="true">
                 Hi this is danger message content.
             </np-alert>
 
-            <np-alert type="warning" [showCloseButton]="true">
+            <np-alert type="warning"
+                      [showCloseButton]="true">
                 Hi this is warning message content.
             </np-alert>
 
-            <np-alert type="info" [autoClose]="true">
+            <np-alert type="info"
+                      [autoClose]="true">
                 Hi this is info message content. This alert will be auto close after default timeout of 10000 ms.
             </np-alert>
 
-            <np-alert [autoClose]="true" [autoCloseTimeout]=5000>
+            <np-alert [autoClose]="true"
+                      [autoCloseTimeout]=5000>
                 <b>What is paragraph?</b>
                 <p>
                     Hi this is custom alert message content. This alert will be auto close after timeout of 5000 ms.

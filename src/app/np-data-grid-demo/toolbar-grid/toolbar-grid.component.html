@@ -1,19 +1,19 @@
-<h2>Toolbar , Column chooser, Export to CSV example</h2>
+<h2 class="page-header">Toolbar , Column chooser, Export to CSV example</h2>
 
 
 <p>To show tool bar in data grid, set <b>showToolBar</b> to "true" in grid defination</p>
 
-<h2>For column chooser:</h2>
+<h3>For column chooser:</h3>
 <p>
     To show show Column Chooser in tool bar, set <b>showColumnChooser</b> to "true".
     <br>
     Column chooser will help to show/hide columns in data grid.
 </p>
 
-<h2>For toggle filters:</h2>
+<h3>For toggle filters:</h3>
 <p>If any column has <b>filterEnable</b> set to "true", then toggle filter button will be visible in tool bar</p>
 
-<h2>For Export to csv:</h2>
+<h3>For Export to csv:</h3>
 <p>To show export to CSV button in tool bar, set <b>allowExport</b> to "true"</p>
 <p class="np-text-info">In export to CSV in client side, it will download file with all pages data</p>
 <p class="np-text-info">
@@ -23,6 +23,9 @@
     dataSource as "isAllPages = true".
 </p>
 
-<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [showToolBar]="true" [allowExport]="true"
-    [showColumnChooser]="true">
+<np-data-grid [columns]="gridColumns"
+              [dataSource]="gridDataSource"
+              [showToolBar]="true"
+              [allowExport]="true"
+              [showColumnChooser]="true">
 </np-data-grid>

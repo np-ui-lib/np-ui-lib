@@ -1,4 +1,7 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, OnDestroy, } from '@angular/core';
+import {
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation,
+  forwardRef, ViewChild, OnDestroy,
+} from '@angular/core';
 import { TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Overlay, OverlayRef, OverlayPositionBuilder } from '@angular/cdk/overlay';
@@ -21,7 +24,7 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 })
 export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit, OnDestroy {
 
-  static controlCount = 1;
+  private static controlCount = 1;
 
   @Input() searchResult: BehaviorSubject<any[]>;
   @Input() forceToSelect = false;
@@ -143,6 +146,10 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
     this.isDisabled = isDisabled;
   }
 
+  focus() {
+    this.inputViewChild.nativeElement.focus();
+  }
+
   _getDisplayValue() {
     return this.innerValue || '';
   }
@@ -228,9 +235,5 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 }

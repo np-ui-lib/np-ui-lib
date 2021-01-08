@@ -1,4 +1,4 @@
-<h2>Notifications</h2>
+<h2 class="page-header">Notifications</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -100,31 +100,38 @@
         <fieldset>
             <legend>Basic notifications</legend>
             <div class="np-btn-group">
-                <button class="np-btn np-btn-success" (click)="success()">Success</button>
-                <button class="np-btn np-btn-danger" (click)="error()">Error</button>
-                <button class="np-btn np-btn-warning" (click)="warning()">Warning</button>
-                <button class="np-btn np-btn-info" (click)="info()">Info</button>
+                <button class="np-btn np-btn-success"
+                        (click)="success()">Success</button>
+                <button class="np-btn np-btn-danger"
+                        (click)="error()">Error</button>
+                <button class="np-btn np-btn-warning"
+                        (click)="warning()">Warning</button>
+                <button class="np-btn np-btn-info"
+                        (click)="info()">Info</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>Notification with header</legend>
             <div class="np-btn-group">
-                <button class="np-btn np-btn-success" (click)="successWithHeader()">Notification With Header</button>
+                <button class="np-btn np-btn-success"
+                        (click)="successWithHeader()">Notification With Header</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>Notification with HTML text</legend>
             <div class="np-btn-group">
-                <button class="np-btn np-btn-danger" (click)="errorWithHTML()">Notification With HTML text</button>
+                <button class="np-btn np-btn-danger"
+                        (click)="errorWithHTML()">Notification With HTML text</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>Remove all</legend>
             <div class="np-btn-group">
-                <button class="np-btn np-btn-danger" (click)="closeAll()">Remove All</button>
+                <button class="np-btn np-btn-danger"
+                        (click)="closeAll()">Remove All</button>
             </div>
         </fieldset>
     </np-tab>

@@ -4,9 +4,7 @@ import { NpBreadcrumbComponent } from './np-breadcrumb.component';
 
 @NgModule({
   declarations: [NpBreadcrumbComponent],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [NpBreadcrumbComponent]
 })
 export class NpBreadcrumbModule { }

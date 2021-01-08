@@ -12,7 +12,8 @@ import { NpTabContent } from './np-tab-content.directive';
     changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpTabComponent implements OnInit, OnDestroy {
-    static controlCount = 1;
+
+    private static controlCount = 1;
 
     @Input() title: string | TemplateRef<any>;
     @Input() iconCss: string;

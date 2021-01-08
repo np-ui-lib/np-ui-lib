@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, forwardRef, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy, Component, ElementRef, EventEmitter, forwardRef,
+  Input, Output, ViewChild, ViewEncapsulation
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
 
 @Component({
@@ -20,7 +23,8 @@ import { ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } fro
   ]
 })
 export class NpInputTextComponent implements ControlValueAccessor, Validator {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() minLength: number;
   @Input() maxLength: number;
@@ -46,8 +50,6 @@ export class NpInputTextComponent implements ControlValueAccessor, Validator {
 
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
-
-  constructor() { }
 
   get value(): string {
     return this.innerValue ? this.innerValue : null;
@@ -106,6 +108,10 @@ export class NpInputTextComponent implements ControlValueAccessor, Validator {
     }
   }
 
+  focus() {
+    this.inputViewChild.nativeElement.focus();
+  }
+
   _onInputChange(event) {
     this.value = event.target.value;
   }
@@ -119,10 +125,6 @@ export class NpInputTextComponent implements ControlValueAccessor, Validator {
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 
 }

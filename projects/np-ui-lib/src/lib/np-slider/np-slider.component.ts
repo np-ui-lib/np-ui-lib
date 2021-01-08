@@ -18,7 +18,8 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class NpSliderComponent {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() min = 0;
   @Input() max = 100;
@@ -76,6 +77,10 @@ export class NpSliderComponent {
     this.isDisabled = isDisabled;
   }
 
+  focus() {
+    this.inputViewChild.nativeElement.focus();
+  }
+
   _onChange($event) {
     if (this.isDisabled || this.readOnly) {
       $event.preventDefault();
@@ -109,10 +114,6 @@ export class NpSliderComponent {
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 
   _setLeftPosition(value: number) {

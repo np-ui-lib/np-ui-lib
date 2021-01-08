@@ -1,4 +1,4 @@
-<h2>Input Text</h2>
+<h2 class="page-header">Input Text</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -177,41 +177,53 @@
         <ng-template npTabContent>
             <fieldset>
                 <legend>Basic</legend>
-                <np-input-text [(ngModel)]="input1" [autoFocus]="true"></np-input-text>
+                <np-input-text [(ngModel)]="input1"
+                               [autoFocus]="true"></np-input-text>
                 <div>Value: {{input1}}</div>
             </fieldset>
 
             <fieldset>
                 <legend>disabled</legend>
-                <np-input-text [(ngModel)]="input2" [disabled]="true"></np-input-text>
+                <np-input-text [(ngModel)]="input2"
+                               [disabled]="true"></np-input-text>
             </fieldset>
 
             <fieldset>
                 <legend>readOnly</legend>
-                <np-input-text [(ngModel)]="input2" [readOnly]="true"></np-input-text>
+                <np-input-text [(ngModel)]="input2"
+                               [readOnly]="true"></np-input-text>
             </fieldset>
 
             <fieldset>
                 <legend>required</legend>
-                <np-input-text [(ngModel)]="input3" [required]="true"></np-input-text>
+                <np-input-text [(ngModel)]="input3"
+                               [required]="true"></np-input-text>
             </fieldset>
 
             <fieldset>
                 <legend>minLength and maxLength</legend>
-                <np-input-text [minLength]="10" [maxLength]="20" [(ngModel)]="input4" #inputText4="ngModel">
+                <np-input-text [minLength]="10"
+                               [maxLength]="20"
+                               [(ngModel)]="input4"
+                               #inputText4="ngModel">
                 </np-input-text>
-                <div class="np-text-danger" *ngIf="inputText4.errors && inputText4.errors.minLength">
+                <div class="np-text-danger"
+                     *ngIf="inputText4.errors && inputText4.errors.minLength">
                     Min length 10 characters.
                 </div>
-                <div class="np-text-danger" *ngIf="inputText4.errors && inputText4.errors.maxLength">
+                <div class="np-text-danger"
+                     *ngIf="inputText4.errors && inputText4.errors.maxLength">
                     Max length 20 characters.
                 </div>
             </fieldset>
 
             <fieldset>
                 <legend>pattern</legend>
-                <np-input-text pattern="^\d*$" [(ngModel)]="input5" #inputText5="ngModel"></np-input-text>
-                <div class="np-text-danger" *ngIf="inputText5.errors && inputText5.errors.pattern">
+                <np-input-text pattern="^\d*$"
+                               [(ngModel)]="input5"
+                               #inputText5="ngModel"></np-input-text>
+                <div class="np-text-danger"
+                     *ngIf="inputText5.errors && inputText5.errors.pattern">
                     Only digits
                 </div>
             </fieldset>

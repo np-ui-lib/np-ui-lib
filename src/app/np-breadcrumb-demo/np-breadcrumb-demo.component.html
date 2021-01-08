@@ -1,4 +1,4 @@
-<h2>Breadcrumb</h2>
+<h2 class="page-header">Breadcrumb</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -42,7 +42,8 @@
                     <tr>
                         <td>iconCss</td>
                         <td>Set CSS for icon like 'fa fa-home',
-                            <br>if not passing this then default home icon will display.</td>
+                            <br>if not passing this then default home icon will display.
+                        </td>
                         <td>string</td>
                         <td></td>
                     </tr>
@@ -123,17 +124,22 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>With default home icon</legend>
-            <np-breadcrumb [items]="items" (onClick)="onClick($event)"></np-breadcrumb>
+            <np-breadcrumb [items]="items"
+                           (onClick)="onClick($event)"></np-breadcrumb>
         </fieldset>
 
         <fieldset>
             <legend>Set showIcon to false</legend>
-            <np-breadcrumb [items]="items" [showIcon]="false" (onClick)="onClick($event)"></np-breadcrumb>
+            <np-breadcrumb [items]="items"
+                           [showIcon]="false"
+                           (onClick)="onClick($event)"></np-breadcrumb>
         </fieldset>
 
         <fieldset>
             <legend>Set iconCss attribute</legend>
-            <np-breadcrumb [items]="items" [iconCss]="'fa fa-list'" (onClick)="onClick($event)"></np-breadcrumb>
+            <np-breadcrumb [items]="items"
+                           [iconCss]="'fa fa-list'"
+                           (onClick)="onClick($event)"></np-breadcrumb>
         </fieldset>
     </np-tab>
 </np-tabs>

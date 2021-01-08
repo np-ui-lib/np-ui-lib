@@ -4,11 +4,7 @@ import { NpCarouselComponent } from './np-carousel.component';
 
 @NgModule({
   declarations: [NpCarouselComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    NpCarouselComponent
-  ]
+  imports: [CommonModule],
+  exports: [NpCarouselComponent]
 })
 export class NpCarouselModule { }

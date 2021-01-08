@@ -7,10 +7,7 @@ import { PortalModule } from '@angular/cdk/portal';
 
 @NgModule({
   declarations: [NpTabsComponent, NpTabComponent, NpTabContent],
-  imports: [
-    CommonModule,
-    PortalModule
-  ],
+  imports: [CommonModule, PortalModule],
   exports: [NpTabsComponent, NpTabComponent, NpTabContent]
 })
 export class NpTabsModule { }

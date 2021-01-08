@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+
 @Injectable({
     providedIn: 'root',
 })
 export class NpTranslationsService {
+
     private _translations: any;
     public onTranslationsChange: BehaviorSubject<any>;
 

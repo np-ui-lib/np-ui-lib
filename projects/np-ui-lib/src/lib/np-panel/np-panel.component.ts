@@ -12,7 +12,8 @@ import { TemplatePortal } from '@angular/cdk/portal';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpPanelComponent implements OnInit, OnDestroy {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() title: string | TemplateRef<any>;
   @Input() allowToMinimize: boolean;
@@ -53,6 +54,12 @@ export class NpPanelComponent implements OnInit, OnDestroy {
     }
   }
 
+  ngOnDestroy(): void {
+    if (this._contentPortal && this._contentPortal.isAttached) {
+      this._contentPortal.detach();
+    }
+  }
+
   _toggle() {
     if (this.disabled || !this.allowToMinimize || this.isZoom) {
       return;
@@ -88,12 +95,6 @@ export class NpPanelComponent implements OnInit, OnDestroy {
       return;
     }
     this.el.nativeElement.remove();
-  }
-
-  ngOnDestroy(): void {
-    if (this._contentPortal && this._contentPortal.isAttached) {
-      this._contentPortal.detach();
-    }
   }
 
   _getTitleId() {

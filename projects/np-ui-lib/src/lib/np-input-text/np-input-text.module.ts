@@ -5,10 +5,7 @@ import { NpUtilityModule } from '../np-utility/np-utility.module';
 
 @NgModule({
   declarations: [NpInputTextComponent],
-  imports: [
-    CommonModule,
-    NpUtilityModule
-  ],
+  imports: [CommonModule, NpUtilityModule],
   exports: [NpInputTextComponent]
 })
 export class NpInputTextModule { }

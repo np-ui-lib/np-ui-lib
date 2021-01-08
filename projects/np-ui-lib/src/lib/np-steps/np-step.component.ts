@@ -11,7 +11,8 @@ import { CdkStep, } from '@angular/cdk/stepper';
     changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpStepComponent extends CdkStep {
-    static controlCount = 1;
+
+    private static controlCount = 1;
 
     @Input() labelTemplate: TemplateRef<any>;
     @Input() iconCss: string;

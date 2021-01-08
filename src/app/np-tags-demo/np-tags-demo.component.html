@@ -1,4 +1,4 @@
-<h2>Tags</h2>
+<h2 class="page-header">Tags</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -105,7 +105,8 @@
                     <tr>
                         <td>isServerSide</td>
                         <td>If fetching items from server then set this to true, so on input change it will call
-                            <b>onSearch</b> method</td>
+                            <b>onSearch</b> method
+                        </td>
                         <td>boolean</td>
                         <td>false</td>
                     </tr>
@@ -243,72 +244,104 @@
         <ng-template npTabContent>
             <fieldset>
                 <legend>searchResult as string[] + isServerSide + orderDir + onSearch</legend>
-                <np-tags [(ngModel)]="tags1" [searchResult]="searchResult1" [isServerSide]="true" [orderDir]="'asc'"
-                    (onSearch)="onSearch1($event)">
+                <np-tags [(ngModel)]="tags1"
+                         [searchResult]="searchResult1"
+                         [isServerSide]="true"
+                         [orderDir]="'asc'"
+                         (onSearch)="onSearch1($event)">
                 </np-tags>
                 <div>Selected value : {{tags1 | json}}</div>
             </fieldset>
 
             <fieldset>
                 <legend>searchResult as any[] + displayKey + orderBy + orderDir</legend>
-                <np-tags [(ngModel)]="tags2" [displayKey]="'name'" [searchResult]="searchResult2" [orderBy]="'name'"
-                    [orderDir]="'desc'">
+                <np-tags [(ngModel)]="tags2"
+                         [displayKey]="'name'"
+                         [searchResult]="searchResult2"
+                         [orderBy]="'name'"
+                         [orderDir]="'desc'">
                 </np-tags>
                 <div>Selected value : {{tags2 | json}}</div>
             </fieldset>
 
             <fieldset>
                 <legend>searchResult as any[] + displayKey + valueKey</legend>
-                <np-tags [(ngModel)]="tags8" [displayKey]="'name'" [searchResult]="searchResult8" [valueKey]="'id'">
+                <np-tags [(ngModel)]="tags8"
+                         [displayKey]="'name'"
+                         [searchResult]="searchResult8"
+                         [valueKey]="'id'">
                 </np-tags>
                 <div>Selected value : {{tags8 | json}}</div>
             </fieldset>
 
             <fieldset>
                 <legend>forceToSelect</legend>
-                <np-tags [(ngModel)]="tags3" [searchResult]="searchResult3" [isServerSide]="true" [forceToSelect]="true"
-                    (onSearch)="onSearch3($event)">
+                <np-tags [(ngModel)]="tags3"
+                         [searchResult]="searchResult3"
+                         [isServerSide]="true"
+                         [forceToSelect]="true"
+                         (onSearch)="onSearch3($event)">
                 </np-tags>
                 <div>Selected value : {{tags3 | json}}</div>
             </fieldset>
 
             <fieldset>
                 <legend>displayKey + itemTemplate</legend>
-                <np-tags [(ngModel)]="tags4" [displayKey]="'name'" [searchResult]="searchResult4"
-                    [itemTemplate]="itemTemplate">
+                <np-tags [(ngModel)]="tags4"
+                         [displayKey]="'name'"
+                         [searchResult]="searchResult4"
+                         [itemTemplate]="itemTemplate">
                 </np-tags>
                 <div>Selected value : {{tags4 | json}}</div>
-                <ng-template #itemTemplate let-item="item">
+                <ng-template #itemTemplate
+                             let-item="item">
                     <div>{{item.name}} ( {{item.vitamin}} )</div>
                 </ng-template>
             </fieldset>
 
             <fieldset>
                 <legend>disabled and readOnly</legend>
-                <np-tags [(ngModel)]="tags5" [displayKey]="'name'" [searchResult]="searchResult5" disabled>
+                <np-tags [(ngModel)]="tags5"
+                         [displayKey]="'name'"
+                         [searchResult]="searchResult5"
+                         disabled>
                 </np-tags>
                 <br>
-                <np-tags [(ngModel)]="tags5" [displayKey]="'name'" [searchResult]="searchResult5" [readOnly]="true">
+                <np-tags [(ngModel)]="tags5"
+                         [displayKey]="'name'"
+                         [searchResult]="searchResult5"
+                         [readOnly]="true">
                 </np-tags>
             </fieldset>
 
             <fieldset>
                 <legend>required</legend>
-                <np-tags [(ngModel)]="tags6" [displayKey]="'name'" [searchResult]="searchResult6" [required]="true">
+                <np-tags [(ngModel)]="tags6"
+                         [displayKey]="'name'"
+                         [searchResult]="searchResult6"
+                         [required]="true">
                 </np-tags>
             </fieldset>
 
             <fieldset>
                 <legend>maxResultLimit + minSearchCharLimit + maxSelectLimit</legend>
-                <np-tags [(ngModel)]="tags7" [isServerSide]="true" [displayKey]="'name'" [searchResult]="searchResult7"
-                    [maxResultLimit]="3" [minSearchCharLimit]="3" [maxSelectLimit]="3" (onSearch)="onSearch7($event)">
+                <np-tags [(ngModel)]="tags7"
+                         [isServerSide]="true"
+                         [displayKey]="'name'"
+                         [searchResult]="searchResult7"
+                         [maxResultLimit]="3"
+                         [minSearchCharLimit]="3"
+                         [maxSelectLimit]="3"
+                         (onSearch)="onSearch7($event)">
                 </np-tags>
             </fieldset>
 
             <fieldset>
                 <legend>onChange</legend>
-                <np-tags [(ngModel)]="tags9" [displayKey]="'name'" [searchResult]="searchResult9"
-                    (onChange)="onChange9($event)">
+                <np-tags [(ngModel)]="tags9"
+                         [displayKey]="'name'"
+                         [searchResult]="searchResult9"
+                         (onChange)="onChange9($event)">
                 </np-tags>
             </fieldset>
         </ng-template>

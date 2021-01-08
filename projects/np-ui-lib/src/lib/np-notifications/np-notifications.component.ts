@@ -9,7 +9,8 @@ import { NpNotification } from './np-notification.model';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpNotificationsComponent {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() styleClass: string;
   @Input() inputId = `np-notifications_${NpNotificationsComponent.controlCount++}`;

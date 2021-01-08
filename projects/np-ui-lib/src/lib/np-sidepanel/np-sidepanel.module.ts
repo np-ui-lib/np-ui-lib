@@ -4,9 +4,7 @@ import { NpSidepanelComponent } from './np-sidepanel.component';
 
 @NgModule({
   declarations: [NpSidepanelComponent],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [NpSidepanelComponent]
 })
 export class NpSidepanelModule { }

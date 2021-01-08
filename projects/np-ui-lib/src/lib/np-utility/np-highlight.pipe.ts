@@ -1,8 +1,9 @@
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
+
+@Injectable()
 @Pipe({
     name: 'npHighlight'
 })
-@Injectable()
 export class NpHightLightPipe implements PipeTransform {
     transform(text: string, search: string): string {
         if (search && text) {

@@ -1,4 +1,4 @@
-<h2>Time Picker</h2>
+<h2 class="page-header">Time Picker</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -168,32 +168,42 @@
         </np-card>
     </np-tab>
 
-    <np-tab title="Examples" id="tabExample">
+    <np-tab title="Examples"
+            id="tabExample">
         <ng-template npTabContent>
             <div>
                 <fieldset>
                     <legend>Basic timepicker</legend>
-                    <np-time-picker [(ngModel)]="timePicker1" [inputId]="'txtTime'" [autoFocus]="true"></np-time-picker>
+                    <np-time-picker [(ngModel)]="timePicker1"
+                                    [inputId]="'txtTime'"
+                                    [autoFocus]="true"></np-time-picker>
                     <div>Selected value is : {{timePicker1}}</div>
-                    <button class="np-btn" type="button" (click)="timePicker1 = '06:30:30 PM'">Set 06:30:30 PM</button>
+                    <button class="np-btn"
+                            type="button"
+                            (click)="timePicker1 = '06:30:30 PM'">Set 06:30:30 PM</button>
                 </fieldset>
             </div>
 
             <div>
                 <fieldset>
                     <legend>is24Hours</legend>
-                    <np-time-picker [(ngModel)]="timePicker2" [is24Hours]=true></np-time-picker>
+                    <np-time-picker [(ngModel)]="timePicker2"
+                                    [is24Hours]=true></np-time-picker>
                     <div>Selected time is : {{timePicker2}}</div>
-                    <button class="np-btn" type="button" (click)="timePicker2 = '23:15:00'">Set 23:15:00</button>
+                    <button class="np-btn"
+                            type="button"
+                            (click)="timePicker2 = '23:15:00'">Set 23:15:00</button>
                 </fieldset>
             </div>
 
             <div>
                 <fieldset>
                     <legend>disabled and readOnly</legend>
-                    <np-time-picker [(ngModel)]="timePicker3" disabled></np-time-picker>
+                    <np-time-picker [(ngModel)]="timePicker3"
+                                    disabled></np-time-picker>
                     <br>
-                    <np-time-picker [(ngModel)]="timePicker3" [readOnly]="true"></np-time-picker>
+                    <np-time-picker [(ngModel)]="timePicker3"
+                                    [readOnly]="true"></np-time-picker>
                 </fieldset>
             </div>
 
@@ -201,10 +211,13 @@
                 <form #form="ngForm">
                     <fieldset>
                         <legend>required</legend>
-                        <np-time-picker [(ngModel)]="timePicker4" #validations="ngModel" required name="startTime">
+                        <np-time-picker [(ngModel)]="timePicker4"
+                                        #validations="ngModel"
+                                        required
+                                        name="startTime">
                         </np-time-picker>
                         <div *ngIf="validations.control.touched && validations.control.errors?.required"
-                            class="np-text-danger">
+                             class="np-text-danger">
                             Start time is required.
                         </div>
                         <p>Form valid: {{ form.valid }}</p>
@@ -215,16 +228,21 @@
             <div>
                 <fieldset>
                     <legend>defaultOpen</legend>
-                    <np-time-picker [(ngModel)]="timePicker5" [defaultOpen]="true" #validations5="ngModel"
-                        [disabled]="timePicker5Disable" [required]="timePicker5Required"></np-time-picker>
+                    <np-time-picker [(ngModel)]="timePicker5"
+                                    [defaultOpen]="true"
+                                    #validations5="ngModel"
+                                    [disabled]="timePicker5Disable"
+                                    [required]="timePicker5Required"></np-time-picker>
                     <div *ngIf="validations5.control.touched && validations5.control.errors?.required"
-                        class="np-text-danger">
+                         class="np-text-danger">
                         Time is required.
                     </div>
                     <div class="np-btn-group">
-                        <button class="np-btn" (click)="timePicker5Disable = !timePicker5Disable">Toggle
+                        <button class="np-btn"
+                                (click)="timePicker5Disable = !timePicker5Disable">Toggle
                             Disable</button>
-                        <button class="np-btn" (click)="timePicker5Required = !timePicker5Required">Toggle
+                        <button class="np-btn"
+                                (click)="timePicker5Required = !timePicker5Required">Toggle
                             required</button>
                     </div>
                 </fieldset>
@@ -233,7 +251,8 @@
             <div>
                 <fieldset>
                     <legend>placeholder</legend>
-                    <np-time-picker [(ngModel)]="timePicker6" [placeholder]="'Select start time'"></np-time-picker>
+                    <np-time-picker [(ngModel)]="timePicker6"
+                                    [placeholder]="'Select start time'"></np-time-picker>
                 </fieldset>
             </div>
 
@@ -241,9 +260,12 @@
                 <fieldset>
                     <legend>showNowButton</legend>
                     12 hrs:
-                    <np-time-picker [(ngModel)]="timePicker71" [showNowButton]="true"></np-time-picker>
+                    <np-time-picker [(ngModel)]="timePicker71"
+                                    [showNowButton]="true"></np-time-picker>
                     24 hrs:
-                    <np-time-picker [(ngModel)]="timePicker72" [showNowButton]="true" [is24Hours]=true>
+                    <np-time-picker [(ngModel)]="timePicker72"
+                                    [showNowButton]="true"
+                                    [is24Hours]=true>
                     </np-time-picker>
                 </fieldset>
             </div>
@@ -251,21 +273,24 @@
             <div>
                 <fieldset>
                     <legend>hideSeconds</legend>
-                    <np-time-picker [hideSeconds]=true [(ngModel)]="timePicker8"></np-time-picker>
+                    <np-time-picker [hideSeconds]=true
+                                    [(ngModel)]="timePicker8"></np-time-picker>
                 </fieldset>
             </div>
 
             <div>
                 <fieldset>
                     <legend>styleClass</legend>
-                    <np-time-picker [(ngModel)]="timePicker9" [styleClass]="'myClass'"></np-time-picker>
+                    <np-time-picker [(ngModel)]="timePicker9"
+                                    [styleClass]="'myClass'"></np-time-picker>
                 </fieldset>
             </div>
 
             <div>
                 <fieldset>
                     <legend>onChange event</legend>
-                    <np-time-picker [(ngModel)]="timePicker10" (onChange)="onChange($event)"></np-time-picker>
+                    <np-time-picker [(ngModel)]="timePicker10"
+                                    (onChange)="onChange($event)"></np-time-picker>
                 </fieldset>
             </div>
         </ng-template>

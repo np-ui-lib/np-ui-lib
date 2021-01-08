@@ -7,12 +7,14 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, Input, ViewEncapsula
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpRadioButtonComponent implements AfterViewInit {
-  static controlCount = 1;
-  focused = false;
+
+  private static controlCount = 1;
 
   @Input() label: string;
   @Input() value: any;
   @Input() inputId = `np-radio-button_${NpRadioButtonComponent.controlCount++}`;
+
+  focused = false;
 
   ngAfterViewInit() {
     if (!this.value) {

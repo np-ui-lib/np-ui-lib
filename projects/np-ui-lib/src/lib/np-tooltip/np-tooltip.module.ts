@@ -12,9 +12,7 @@ import { NpUtilityModule } from '../np-utility/np-utility.module';
     OverlayModule,
     NpUtilityModule
   ],
-  exports: [
-    NpTooltipDirective
-  ],
+  exports: [NpTooltipDirective],
   entryComponents: [NpTooltipComponent]
 })
 export class NpTooltipModule { }

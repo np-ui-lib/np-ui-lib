@@ -1,4 +1,4 @@
-<h2>Dropdown</h2>
+<h2 class="page-header">Dropdown</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -192,45 +192,63 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>items : string[] + orderDir</legend>
-            <np-dropdown [(ngModel)]="dropdownVal1" [items]="data" [orderDir]="'asc'"></np-dropdown>
+            <np-dropdown [(ngModel)]="dropdownVal1"
+                         [items]="data"
+                         [orderDir]="'asc'"></np-dropdown>
             <div>Selected value: {{dropdownVal1}}</div>
-            <button class="np-btn" (click)="changeValue()">Change value</button>
+            <button class="np-btn"
+                    (click)="changeValue()">Change value</button>
         </fieldset>
 
         <fieldset>
             <legend>items : any[] + displayKey + orderBy + orderDir</legend>
-            <np-dropdown [(ngModel)]="dropdownVal2" [items]="dataFull" [displayKey]="'name'" [orderBy]="'name'"
-                [orderDir]="'desc'"></np-dropdown>
+            <np-dropdown [(ngModel)]="dropdownVal2"
+                         [items]="dataFull"
+                         [displayKey]="'name'"
+                         [orderBy]="'name'"
+                         [orderDir]="'desc'"></np-dropdown>
             <div>Selected value: {{dropdownVal2 | json}}</div>
         </fieldset>
 
         <fieldset>
             <legend>items : any[] + displayKey + valueKey</legend>
-            <np-dropdown [(ngModel)]="dropdownVal8" [items]="dataFull" [displayKey]="'name'" [valueKey]="'id'">
+            <np-dropdown [(ngModel)]="dropdownVal8"
+                         [items]="dataFull"
+                         [displayKey]="'name'"
+                         [valueKey]="'id'">
             </np-dropdown>
             <div>Selected value: {{dropdownVal8}}</div>
         </fieldset>
 
         <fieldset>
             <legend>required + placeholder</legend>
-            <np-dropdown [(ngModel)]="dropdownVal3" [items]="data" [required]="true"
-                [placeholder]="'Select from dropdown'">
+            <np-dropdown [(ngModel)]="dropdownVal3"
+                         [items]="data"
+                         [required]="true"
+                         [placeholder]="'Select from dropdown'">
             </np-dropdown>
         </fieldset>
 
         <fieldset>
             <legend>disabled + readOnly</legend>
-            <np-dropdown [(ngModel)]="dropdownVal4" [items]="data" [disabled]="true"></np-dropdown>
+            <np-dropdown [(ngModel)]="dropdownVal4"
+                         [items]="data"
+                         [disabled]="true"></np-dropdown>
             <br>
-            <np-dropdown [(ngModel)]="dropdownVal4" [items]="data" [readOnly]="true"></np-dropdown>
+            <np-dropdown [(ngModel)]="dropdownVal4"
+                         [items]="data"
+                         [readOnly]="true"></np-dropdown>
         </fieldset>
 
         <fieldset>
             <legend>itemTemplate + displayKey</legend>
-            <np-dropdown [(ngModel)]="dropdownVal5" [items]="dataFull" [displayKey]="'name'"
-                [itemTemplate]="itemTemplate">
+            <np-dropdown [(ngModel)]="dropdownVal5"
+                         [items]="dataFull"
+                         [displayKey]="'name'"
+                         [itemTemplate]="itemTemplate">
             </np-dropdown>
-            <ng-template #itemTemplate let-item="item">
+            <ng-template #itemTemplate
+                         let-item="item">
                 <div>{{item.name}} ( {{item.vitamin}} )</div>
             </ng-template>
             <div>Selected value: {{dropdownVal5 | json}}</div>
@@ -238,14 +256,19 @@
 
         <fieldset>
             <legend>onChange</legend>
-            <np-dropdown [(ngModel)]="dropdownVal6" [valueKey]="'id'" [displayKey]="'name'" [items]="dataFull"
-                (onChange)="onChange($event)">
+            <np-dropdown [(ngModel)]="dropdownVal6"
+                         [valueKey]="'id'"
+                         [displayKey]="'name'"
+                         [items]="dataFull"
+                         (onChange)="onChange($event)">
             </np-dropdown>
         </fieldset>
 
         <fieldset>
             <legend>styleClass</legend>
-            <np-dropdown [(ngModel)]="dropdownVal7" [items]="data" [styleClass]="'myClass'"></np-dropdown>
+            <np-dropdown [(ngModel)]="dropdownVal7"
+                         [items]="data"
+                         [styleClass]="'myClass'"></np-dropdown>
         </fieldset>
     </np-tab>
 </np-tabs>

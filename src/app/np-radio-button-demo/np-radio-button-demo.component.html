@@ -1,4 +1,4 @@
-<h2>Radio Button</h2>
+<h2 class="page-header">Radio Button</h2>
 <np-tabs>
   <np-tab title="Documentation">
     <np-card>
@@ -178,79 +178,97 @@
     <ng-template npTabContent>
       <fieldset>
         <legend>Radio group horizontal</legend>
-        <np-radio-group
-          name="gender1"
-          [(ngModel)]="gender1"
-          [tabIndex]="1"
-          [autoFocus]="true"
-        >
-          <np-radio-button label="Male" value="Male"></np-radio-button>
-          <np-radio-button label="Female" value="Female"></np-radio-button>
+        <np-radio-group name="gender1"
+                        [(ngModel)]="gender1"
+                        [tabIndex]="1"
+                        [autoFocus]="true">
+          <np-radio-button label="Male"
+                           value="Male"></np-radio-button>
+          <np-radio-button label="Female"
+                           value="Female"></np-radio-button>
         </np-radio-group>
         <div>Selected: {{ gender1 }}</div>
       </fieldset>
       <fieldset>
         <legend>Radio group vertical</legend>
-        <np-radio-group
-          orientation="vertical"
-          [(ngModel)]="gender2"
-          name="gender2"
-          [tabIndex]="2"
-        >
-          <np-radio-button label="Male" value="1"></np-radio-button>
-          <np-radio-button label="Female" value="2"></np-radio-button>
+        <np-radio-group orientation="vertical"
+                        [(ngModel)]="gender2"
+                        name="gender2"
+                        [tabIndex]="2">
+          <np-radio-button label="Male"
+                           value="1"></np-radio-button>
+          <np-radio-button label="Female"
+                           value="2"></np-radio-button>
         </np-radio-group>
         <div>Selected: {{ gender2 }}</div>
       </fieldset>
       <fieldset>
         <legend>disabled and readonly</legend>
-        <np-radio-group [(ngModel)]="gender3" [disabled]="true" name="gender3">
-          <np-radio-button label="Male" value="1"></np-radio-button>
-          <np-radio-button label="Female" value="2"></np-radio-button>
+        <np-radio-group [(ngModel)]="gender3"
+                        [disabled]="true"
+                        name="gender3">
+          <np-radio-button label="Male"
+                           value="1"></np-radio-button>
+          <np-radio-button label="Female"
+                           value="2"></np-radio-button>
         </np-radio-group>
-        <np-radio-group [(ngModel)]="gender4" [readOnly]="true" name="gender4">
-          <np-radio-button label="Male" value="1"></np-radio-button>
-          <np-radio-button label="Female" value="2"></np-radio-button>
+        <np-radio-group [(ngModel)]="gender4"
+                        [readOnly]="true"
+                        name="gender4">
+          <np-radio-button label="Male"
+                           value="1"></np-radio-button>
+          <np-radio-button label="Female"
+                           value="2"></np-radio-button>
         </np-radio-group>
       </fieldset>
       <fieldset>
         <legend>required</legend>
-        <np-radio-group [(ngModel)]="gender5" name="gender5" required>
-          <np-radio-button label="Male" value="1"></np-radio-button>
-          <np-radio-button label="Female" value="2"></np-radio-button>
+        <np-radio-group [(ngModel)]="gender5"
+                        name="gender5"
+                        required>
+          <np-radio-button label="Male"
+                           value="1"></np-radio-button>
+          <np-radio-button label="Female"
+                           value="2"></np-radio-button>
         </np-radio-group>
-        <button class="np-btn" (click)="gender5 = null">Set null</button>
+        <button class="np-btn"
+                (click)="gender5 = null">Set null</button>
       </fieldset>
       <fieldset>
         <legend>styleClass</legend>
-        <np-radio-group
-          [(ngModel)]="gender6"
-          [styleClass]="'myClass'"
-          name="gender6"
-        >
-          <np-radio-button label="Male" value="1"> </np-radio-button>
-          <np-radio-button label="Female" value="2"> </np-radio-button>
+        <np-radio-group [(ngModel)]="gender6"
+                        [styleClass]="'myClass'"
+                        name="gender6">
+          <np-radio-button label="Male"
+                           value="1"> </np-radio-button>
+          <np-radio-button label="Female"
+                           value="2"> </np-radio-button>
         </np-radio-group>
       </fieldset>
       <fieldset>
         <legend>onChange</legend>
-        <np-radio-group
-          name="gender7"
-          [(ngModel)]="gender7"
-          (onChange)="onChange($event)"
-        >
-          <np-radio-button label="Male" value="1"> </np-radio-button>
-          <np-radio-button label="Female" value="2"> </np-radio-button>
+        <np-radio-group name="gender7"
+                        [(ngModel)]="gender7"
+                        (onChange)="onChange($event)">
+          <np-radio-button label="Male"
+                           value="1"> </np-radio-button>
+          <np-radio-button label="Female"
+                           value="2"> </np-radio-button>
         </np-radio-group>
       </fieldset>
       <fieldset>
         <legend>focus()</legend>
-        <np-radio-group name="gender8" #gender8Group [(ngModel)]="gender8">
-          <np-radio-button label="Male" value="1"> </np-radio-button>
-          <np-radio-button label="Female" value="2"> </np-radio-button>
+        <np-radio-group name="gender8"
+                        #gender8Group
+                        [(ngModel)]="gender8">
+          <np-radio-button label="Male"
+                           value="1"> </np-radio-button>
+          <np-radio-button label="Female"
+                           value="2"> </np-radio-button>
         </np-radio-group>
         <div class="np-btn-group">
-          <div class="np-btn" (click)="setFocus()">Set focus</div>
+          <div class="np-btn"
+               (click)="setFocus()">Set focus</div>
         </div>
       </fieldset>
     </ng-template>

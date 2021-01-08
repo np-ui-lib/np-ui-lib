@@ -4,9 +4,7 @@ import { NpBlockUiDirective } from './np-blockui.directive';
 
 @NgModule({
   declarations: [NpBlockUiDirective],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [NpBlockUiDirective]
 })
 export class NpBlockUiModule { }

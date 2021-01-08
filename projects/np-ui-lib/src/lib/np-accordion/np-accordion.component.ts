@@ -3,7 +3,6 @@ import {
   OnDestroy, ContentChildren, QueryList, Input, Output, EventEmitter
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-
 import { NpAccordionItemComponent } from './np-accordion-item/np-accordion-item.component';
 
 @Component({
@@ -14,9 +13,7 @@ import { NpAccordionItemComponent } from './np-accordion-item/np-accordion-item.
 })
 export class NpAccordionComponent implements AfterContentInit, OnDestroy {
 
-  static controlCount = 1;
-
-  @ContentChildren(NpAccordionItemComponent) items: QueryList<NpAccordionItemComponent>;
+  private static controlCount = 1;
 
   @Input() defaultOpenIndex: number;
   @Input() allowMultipleOpen = true;
@@ -26,7 +23,9 @@ export class NpAccordionComponent implements AfterContentInit, OnDestroy {
   @Output() onExpand: EventEmitter<any> = new EventEmitter();
   @Output() onCollapse: EventEmitter<any> = new EventEmitter();
 
-  subscriptions: Subscription[] = [];
+  @ContentChildren(NpAccordionItemComponent) items: QueryList<NpAccordionItemComponent>;
+
+  private subscriptions: Subscription[] = [];
 
   ngAfterContentInit(): void {
     if (this.defaultOpenIndex >= 0) {

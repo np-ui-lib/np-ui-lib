@@ -1,4 +1,7 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, ViewChild, } from '@angular/core';
+import {
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy,
+  ViewEncapsulation, forwardRef, ViewChild,
+} from '@angular/core';
 import { TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Overlay, OverlayRef, OverlayPositionBuilder } from '@angular/cdk/overlay';
@@ -19,7 +22,8 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
   ]
 })
 export class NpColorPickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   /* forma can be 'hex' or 'rgb' */
   @Input() format = 'hex';
@@ -80,6 +84,7 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
       }
     }
   }
+
   ngAfterViewInit() {
     const positionStrategy = this.overlayPositionBuilder
       .flexibleConnectedTo(this.elementRef)
@@ -137,6 +142,10 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
 
   setDisabledState?(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 
   _toggleColorPicker() {
@@ -370,10 +379,6 @@ export class NpColorPickerComponent implements ControlValueAccessor, AfterViewIn
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 
   _onMouseLeaveStrip() {

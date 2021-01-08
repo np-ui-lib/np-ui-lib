@@ -1,4 +1,4 @@
-<h2>Tooltip</h2>
+<h2 class="page-header">Tooltip</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -78,28 +78,36 @@
 
     <np-tab title="Examples">
         <p>
-            <span [npTooltip]="'This is left tooltip.'" [placement]="'left'">
+            <span [npTooltip]="'This is left tooltip.'"
+                  [placement]="'left'">
                 Hover me for left tooltip
             </span>
         </p>
 
         <p>
-            <span [npTooltip]="'This is right tooltip.'" [placement]="'right'" [styleClass]="'myClass'">
+            <span [npTooltip]="'This is right tooltip.'"
+                  [placement]="'right'"
+                  [styleClass]="'myClass'">
                 Hover me for right tooltip, with [styleClass] attribute.
             </span>
         </p>
 
         <p>
-            <span [npTooltip]="tooltipTop" [placement]="'top'" [context]="{count: 5}" [width]="100">
+            <span [npTooltip]="tooltipTop"
+                  [placement]="'top'"
+                  [context]="{count: 5}"
+                  [width]="100">
                 Hover me for top tooltip, with ng-template.
-                <ng-template #tooltipTop let-count="count">
+                <ng-template #tooltipTop
+                             let-count="count">
                     <u>This is top tooltip. Count pass in context is {{count}}</u>
                 </ng-template>
             </span>
         </p>
 
         <p>
-            <span [npTooltip]="tooltipBottom" [placement]="'bottom'">
+            <span [npTooltip]="tooltipBottom"
+                  [placement]="'bottom'">
                 Hover me for bottom tooltip, with ng-template.
                 <ng-template #tooltipBottom>
                     <i>This is bottom tooltip</i>
@@ -109,8 +117,12 @@
 
 
         <p>
-            <input type="text" style="width: 200px;" placeholder="Tooltip on focus" class="np-form-control"
-                [npTooltip]="'Enter your name.'" [tooltipOnFocus]="true">
+            <input type="text"
+                   style="width: 200px;"
+                   placeholder="Tooltip on focus"
+                   class="np-form-control"
+                   [npTooltip]="'Enter your name.'"
+                   [tooltipOnFocus]="true">
         </p>
     </np-tab>
 </np-tabs>

@@ -5,10 +5,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [NpVirtualScrollComponent],
-  imports: [
-    CommonModule,
-    ScrollingModule
-  ],
+  imports: [CommonModule, ScrollingModule],
   exports: [NpVirtualScrollComponent]
 })
 export class NpVirtualScrollModule { }

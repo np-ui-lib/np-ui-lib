@@ -1,4 +1,4 @@
-<h2>Menubar</h2>
+<h2 class="page-header">Menubar</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -177,23 +177,33 @@
     <np-tab title="Examples">
         <fieldset style="width: 225px;">
             <legend>Vertical</legend>
-            <np-menubar [items]="items" (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
+            <np-menubar [items]="items"
+                        (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
         </fieldset>
 
         <fieldset>
             <legend>Horizontal</legend>
-            <np-menubar [items]="itemsHorizontal" [orientation]="'horizontal'" [styleClass]="'myClass'" (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
+            <np-menubar [items]="itemsHorizontal"
+                        [orientation]="'horizontal'"
+                        [styleClass]="'myClass'"
+                        (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
         </fieldset>
 
         <fieldset style="width: 225px;">
             <legend>Panel menu</legend>
-            <np-menubar [items]="itemsPanelMenu" [isPanelMenu]="true" (onClickMenuItem)="onClickMenuItem($event)">
+            <np-menubar [items]="itemsPanelMenu"
+                        [isPanelMenu]="true"
+                        (onClickMenuItem)="onClickMenuItem($event)">
             </np-menubar>
         </fieldset>
 
         <fieldset>
             <legend>Popup menu</legend>
-            <button class="np-btn-icon" type="button" npPopupMenubar [items]="itemsPopupMenubar" (onClickMenuItem)="onClickMenuItem($event)">
+            <button class="np-btn-icon"
+                    type="button"
+                    npPopupMenubar
+                    [items]="itemsPopupMenubar"
+                    (onClickMenuItem)="onClickMenuItem($event)">
                 <i class="fa fa-bars"></i>
             </button>
         </fieldset>

@@ -1,4 +1,4 @@
-<h2>Rich Text</h2>
+<h2 class="page-header">Rich Text</h2>
 <np-tabs>
   <np-tab [title]="'Documentation'">
     <np-card>
@@ -132,25 +132,28 @@
   <np-tab [title]="'Examples'">
     <fieldset>
       <legend>Basic</legend>
-      <np-rich-text
-        [(ngModel)]="rtf1"
-        [disabled]="isDisabled"
-        [readOnly]="isReadonly"
-        [required]="required"
-        [height]="height"
-      ></np-rich-text>
+      <np-rich-text [(ngModel)]="rtf1"
+                    [disabled]="isDisabled"
+                    [readOnly]="isReadonly"
+                    [required]="required"
+                    [height]="height"></np-rich-text>
       <div class="np-btn-group">
-        <button class="np-btn" (click)="setValue()">Set value</button>
-        <button class="np-btn" (click)="isDisabled = !isDisabled">
+        <button class="np-btn"
+                (click)="setValue()">Set value</button>
+        <button class="np-btn"
+                (click)="isDisabled = !isDisabled">
           Toggle Disabled
         </button>
-        <button class="np-btn" (click)="isReadonly = !isReadonly">
+        <button class="np-btn"
+                (click)="isReadonly = !isReadonly">
           Toggle Readonly
         </button>
-        <button class="np-btn" (click)="required = !required">
+        <button class="np-btn"
+                (click)="required = !required">
           Toggle Required
         </button>
-        <button class="np-btn" (click)="height = 200">Set height 200px</button>
+        <button class="np-btn"
+                (click)="height = 200">Set height 200px</button>
       </div>
       <div>Value: {{ rtf1 }}</div>
     </fieldset>

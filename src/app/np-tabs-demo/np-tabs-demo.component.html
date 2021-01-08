@@ -1,4 +1,4 @@
-<h2>Tabs</h2>
+<h2 class="page-header">Tabs</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -185,7 +185,8 @@
         <ng-template npTabContent>
             <fieldset>
                 <legend>Tabs basic</legend>
-                <np-tabs #tabs [height]="200">
+                <np-tabs #tabs
+                         [height]="200">
                     <np-tab [title]="'Tab1'">
                         <ng-template npTabContent>
                             <h3>
@@ -200,7 +201,9 @@
                             </p>
                         </ng-template>
                     </np-tab>
-                    <np-tab [title]="tab2Title" [inputId]="'tab2'" [iconCss]="'fa fa-home'">
+                    <np-tab [title]="tab2Title"
+                            [inputId]="'tab2'"
+                            [iconCss]="'fa fa-home'">
                         <ng-template #tab2Title>
                             Tab2<span class='np-badge'>{{count}}</span>
                         </ng-template>
@@ -217,7 +220,8 @@
                             </p>
                         </ng-template>
                     </np-tab>
-                    <np-tab [title]="'Tab3'" [disabled]="toggleTab3Disabled">
+                    <np-tab [title]="'Tab3'"
+                            [disabled]="toggleTab3Disabled">
                         <h3>
                             Tab 3
                         </h3>
@@ -229,7 +233,8 @@
                             one idea at a time to your broader argument.
                         </p>
                     </np-tab>
-                    <np-tab [title]="'Tab4'" *ngIf="isTab4Available">
+                    <np-tab [title]="'Tab4'"
+                            *ngIf="isTab4Available">
                         <h3>
                             Tab 4
                         </h3>
@@ -267,19 +272,32 @@
                 </np-tabs>
 
                 <div class="np-btn-group">
-                    <button type="button" class="np-btn" (click)="tabs.selectTabById('tab2')">Open Tab 2 with
+                    <button type="button"
+                            class="np-btn"
+                            (click)="tabs.selectTabById('tab2')">Open Tab 2 with
                         Id</button>
-                    <button type="button" class="np-btn" (click)="changeCount()">Change Title of Tab 2</button>
-                    <button type="button" class="np-btn" (click)="ToggleTab3Disabled()">Toggle Tab 3 disabled</button>
-                    <button type="button" class="np-btn" (click)="tabs.selectTabByIndex(3)">Open 4th Tab by
+                    <button type="button"
+                            class="np-btn"
+                            (click)="changeCount()">Change Title of Tab 2</button>
+                    <button type="button"
+                            class="np-btn"
+                            (click)="ToggleTab3Disabled()">Toggle Tab 3 disabled</button>
+                    <button type="button"
+                            class="np-btn"
+                            (click)="tabs.selectTabByIndex(3)">Open 4th Tab by
                         index</button>
-                    <button type="button" class="np-btn" (click)="toggleTab4()">Add/Remove Tab 4</button>
+                    <button type="button"
+                            class="np-btn"
+                            (click)="toggleTab4()">Add/Remove Tab 4</button>
                 </div>
             </fieldset>
 
             <fieldset>
                 <legend>Vertical tabs</legend>
-                <np-tabs (onTabChange)="onTabChange($event)" #tabs2 [verticalTabs]="true" [height]="200">
+                <np-tabs (onTabChange)="onTabChange($event)"
+                         #tabs2
+                         [verticalTabs]="true"
+                         [height]="200">
                     <np-tab [title]="'Tab1'">
                         <h3>
                             Tab 1 , Check console for isLoadFirstTime flag value.
@@ -296,7 +314,8 @@
                             one idea at a time to your broader argument.
                         </p>
                     </np-tab>
-                    <np-tab [title]="'Tab2'" [active]="true">
+                    <np-tab [title]="'Tab2'"
+                            [active]="true">
                         <h3>
                             Tab 2 , Check console for isLoadFirstTime flag value
                         </h3>

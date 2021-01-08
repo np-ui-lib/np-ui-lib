@@ -9,7 +9,8 @@ import { NpUtilityService } from '../np-utility/np-utility.service';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpListComponent {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() header: string;
   @Input() items: any[];
@@ -38,6 +39,35 @@ export class NpListComponent {
   @ViewChild('listPaginator') listPaginator: NpPaginatorComponent;
 
   constructor(private utility: NpUtilityService) { }
+
+  selectAll() {
+    if (this._isSingleSelectionMode()) {
+      return;
+    }
+    const items = [];
+    this.items.forEach((element) => {
+      if (this.valueKey) {
+        items.push(element[this.valueKey]);
+      } else {
+        items.push(element);
+      }
+    });
+    this.selection = items;
+    this.selectionChange.emit(this.selection);
+  }
+
+  deselectAll() {
+    this.selection = [];
+    this.selectionChange.emit(this.selection);
+  }
+
+  refresh() {
+    this.listPaginator.refresh();
+  }
+
+  loadPage(page: number) {
+    this.listPaginator.loadPage(page);
+  }
 
   _onSelectItem(checked: any, item: any) {
     if (checked) {
@@ -84,27 +114,6 @@ export class NpListComponent {
     });
   }
 
-  selectAll() {
-    if (this._isSingleSelectionMode()) {
-      return;
-    }
-    const items = [];
-    this.items.forEach((element) => {
-      if (this.valueKey) {
-        items.push(element[this.valueKey]);
-      } else {
-        items.push(element);
-      }
-    });
-    this.selection = items;
-    this.selectionChange.emit(this.selection);
-  }
-
-  deselectAll() {
-    this.selection = [];
-    this.selectionChange.emit(this.selection);
-  }
-
   _trackBy(index: number): number {
     return index;
   }
@@ -115,14 +124,6 @@ export class NpListComponent {
 
   _onPageChange(options: any) {
     this.onPageChange.emit(options);
-  }
-
-  refresh() {
-    this.listPaginator.refresh();
-  }
-
-  loadPage(page: number) {
-    this.listPaginator.loadPage(page);
   }
 
   _isSingleSelectionMode() {

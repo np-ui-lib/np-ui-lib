@@ -7,10 +7,7 @@ import { NpStepNext, NpStepPrevious } from './np-step-buttons.directive';
 
 @NgModule({
   declarations: [NpStepsComponent, NpStepComponent, NpStepNext, NpStepPrevious],
-  imports: [
-    CommonModule,
-    CdkStepperModule
-  ],
+  imports: [CommonModule, CdkStepperModule],
   exports: [NpStepsComponent, NpStepComponent, NpStepNext, NpStepPrevious]
 })
 export class NpStepsModule { }

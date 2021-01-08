@@ -12,7 +12,8 @@ import { NpStepComponent } from './np-step.component';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpStepsComponent extends CdkStepper {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() verticalSteps: boolean;
   @Input() styleClass: string;

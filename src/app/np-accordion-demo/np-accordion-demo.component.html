@@ -1,4 +1,4 @@
-<h2>Accordion</h2>
+<h2 class="page-header">Accordion</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -199,19 +199,22 @@
         <fieldset>
             <legend>Basic</legend>
             <np-accordion>
-                <np-accordion-item [title]="'Title A'" [isOpen]="true">
+                <np-accordion-item [title]="'Title A'"
+                                   [isOpen]="true">
                     <p>
                         Content A
                     </p>
                 </np-accordion-item>
 
-                <np-accordion-item [title]="'Title B'" [isOpen]="false">
+                <np-accordion-item [title]="'Title B'"
+                                   [isOpen]="false">
                     <p>
                         Content B
                     </p>
                 </np-accordion-item>
 
-                <np-accordion-item [title]="'Title C'" [isOpen]="false">
+                <np-accordion-item [title]="'Title C'"
+                                   [isOpen]="false">
                     <p>
                         Content C
                     </p>
@@ -220,9 +223,13 @@
         </fieldset>
 
         <fieldset>
-            <np-accordion [defaultOpenIndex]="1" [allowMultipleOpen]="allowMultipleOpen" #accordionDemo
-                (onExpand)="onExpand($event)" (onCollapse)="onCollapse($event)">
-                <np-accordion-item inputId="item1" [title]="para1Header">
+            <np-accordion [defaultOpenIndex]="1"
+                          [allowMultipleOpen]="allowMultipleOpen"
+                          #accordionDemo
+                          (onExpand)="onExpand($event)"
+                          (onCollapse)="onCollapse($event)">
+                <np-accordion-item inputId="item1"
+                                   [title]="para1Header">
                     <ng-template #para1Header>
                         <i class="fa fa-home"></i>Paragraph 1
                     </ng-template>
@@ -238,8 +245,10 @@
                     </ng-template>
                 </np-accordion-item>
 
-                <np-accordion-item inputId="item2" [title]="'Paragraph 2'" [disabled]="item2Disabled"
-                    [iconCss]="'fa fa-bars'">
+                <np-accordion-item inputId="item2"
+                                   [title]="'Paragraph 2'"
+                                   [disabled]="item2Disabled"
+                                   [iconCss]="'fa fa-bars'">
                     <ng-template npAccordionContent>
                         <p>
                             A paragraph 2 is a series of related sentences developing a central idea, called the topic.
@@ -252,7 +261,10 @@
                     </ng-template>
                 </np-accordion-item>
 
-                <np-accordion-item inputId="item3" [title]="'Paragraph 3'" [height]="200" [iconCss]="'fa fa-table'">
+                <np-accordion-item inputId="item3"
+                                   [title]="'Paragraph 3'"
+                                   [height]="200"
+                                   [iconCss]="'fa fa-table'">
                     <np-accordion>
                         <np-accordion-item [title]="'Paragraph 3.1'">
                             <p>
@@ -332,9 +344,12 @@
             </p>
 
             <div class="np-btn-group">
-                <button class="np-btn" (click)="toggleItem2Disabled()">Toggle paragraph 2's disabled flag</button>
-                <button class="np-btn" (click)="openItem2()">Open paragraph 2 by Id</button>
-                <button class="np-btn" (click)="openItem3()">Open paragraph 3 by index</button>
+                <button class="np-btn"
+                        (click)="toggleItem2Disabled()">Toggle paragraph 2's disabled flag</button>
+                <button class="np-btn"
+                        (click)="openItem2()">Open paragraph 2 by Id</button>
+                <button class="np-btn"
+                        (click)="openItem3()">Open paragraph 3 by index</button>
             </div>
         </fieldset>
     </np-tab>

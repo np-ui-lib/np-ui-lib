@@ -1,40 +1,32 @@
-<div
-  [ngClass]="{
+<div [ngClass]="{
     'np-switch': true,
     'np-disabled': isDisabled,
     'np-readonly': readOnly,
     'np-focused': focused
   }"
-  [class]="styleClass"
-  [attr.id]="inputId"
-  role="switch"
-  [attr.aria-checked]="innerValue"
->
+     [class]="styleClass"
+     [attr.id]="inputId"
+     role="switch"
+     [attr.aria-checked]="innerValue">
   <label (change)="_onClickSwitch($event)">
-    <input
-      class="np-switch-input"
-      type="checkbox"
-      #control
-      [checked]="innerValue"
-      [disabled]="isDisabled"
-      [npAutofocus]="autoFocus"
-      [attr.tabindex]="tabIndex"
-      [readonly]="readOnly"
-      (blur)="_onBlur($event)"
-      (focus)="_onFocus($event)"
-    />
-    <div
-      class="np-switch-label"
-      [ngClass]="{ 'np-switch-danger': value === false }"
-    >
+    <input class="np-switch-input"
+           type="checkbox"
+           #control
+           [checked]="innerValue"
+           [disabled]="isDisabled"
+           [npAutofocus]="autoFocus"
+           [attr.tabindex]="tabIndex"
+           [readonly]="readOnly"
+           (blur)="_onBlur($event)"
+           (focus)="_onFocus($event)" />
+    <div class="np-switch-label"
+         [ngClass]="{ 'np-switch-danger': value === false }">
       <span>{{
         (falseLabelText ? falseLabelText : "False") | npTranslate
-      }}</span>
+        }}</span>
     </div>
-    <div
-      class="np-switch-label"
-      [ngClass]="{ 'np-switch-success': value === true }"
-    >
+    <div class="np-switch-label"
+         [ngClass]="{ 'np-switch-success': value === true }">
       <span>{{ (trueLabelText ? trueLabelText : "True") | npTranslate }}</span>
     </div>
   </label>

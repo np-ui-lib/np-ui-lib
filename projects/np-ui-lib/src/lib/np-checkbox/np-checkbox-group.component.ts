@@ -7,10 +7,10 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@a
     changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpCheckboxGroupComponent {
-    static controlCount = 1;
+
+    private static controlCount = 1;
 
     // Orientation can be 'horizontal' or 'vertical'
     @Input() orientation = 'horizontal';
     @Input() inputId = `np-checkbox-group_${NpCheckboxGroupComponent.controlCount++}`;
-
 }

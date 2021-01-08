@@ -28,38 +28,31 @@ export const Filters = [
         name: FilterTypes.Equals,
         text: 'abc',
         forDataType: DataTypes.String
-    },
-    {
+    }, {
         name: FilterTypes.StartsWith,
         text: 'abc*',
         forDataType: DataTypes.String
-    },
-    {
+    }, {
         name: FilterTypes.EndsWith,
         text: '*abc',
         forDataType: DataTypes.String
-    },
-    {
+    }, {
         name: FilterTypes.Contains,
         text: '*abc*',
         forDataType: DataTypes.String
-    },
-    {
+    }, {
         name: FilterTypes.GreaterThan,
         text: '>',
         forDataType: DataTypes.Number
-    },
-    {
+    }, {
         name: FilterTypes.LessThan,
         text: '<',
         forDataType: DataTypes.Number
-    },
-    {
+    }, {
         name: FilterTypes.GreaterThanOrEquals,
         text: '>=',
         forDataType: DataTypes.Number
-    },
-    {
+    }, {
         name: FilterTypes.LessThanOrEquals,
         text: '<=',
         forDataType: DataTypes.Number
@@ -67,13 +60,11 @@ export const Filters = [
         name: FilterTypes.Equals,
         text: '=',
         forDataType: DataTypes.Number
-    },
-    {
+    }, {
         name: FilterTypes.Equals,
         text: '=',
         forDataType: DataTypes.Boolean
-    },
-    {
+    }, {
         name: FilterTypes.GreaterThan,
         text: '>',
         forDataType: DataTypes.Date
@@ -81,8 +72,7 @@ export const Filters = [
         name: FilterTypes.LessThan,
         text: '<',
         forDataType: DataTypes.Date
-    },
-    {
+    }, {
         name: FilterTypes.GreaterThanOrEquals,
         text: '>=',
         forDataType: DataTypes.Date
@@ -98,13 +88,11 @@ export const Filters = [
         name: FilterTypes.NotEquals,
         text: '!=',
         forDataType: DataTypes.Number
-    },
-    {
+    }, {
         name: FilterTypes.NotEquals,
         text: '!=',
         forDataType: DataTypes.Date
-    },
-    {
+    }, {
         name: FilterTypes.NotEquals,
         text: '!=',
         forDataType: DataTypes.Boolean

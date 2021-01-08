@@ -5,10 +5,7 @@ import { NpUtilityModule } from '../np-utility/np-utility.module';
 
 @NgModule({
   declarations: [NpTextareaComponent],
-  imports: [
-    CommonModule,
-    NpUtilityModule
-  ],
+  imports: [CommonModule, NpUtilityModule],
   exports: [NpTextareaComponent]
 })
 export class NpTextareaModule { }

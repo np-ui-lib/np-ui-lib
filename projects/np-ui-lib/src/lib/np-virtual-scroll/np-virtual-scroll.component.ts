@@ -1,5 +1,8 @@
+import {
+  Component, Input, Output, EventEmitter, TemplateRef, ViewEncapsulation,
+  ChangeDetectionStrategy, ViewChild
+} from '@angular/core';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { Component, Input, Output, EventEmitter, TemplateRef, ViewEncapsulation, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'np-virtual-scroll',
@@ -8,7 +11,8 @@ import { Component, Input, Output, EventEmitter, TemplateRef, ViewEncapsulation,
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpVirtualScrollComponent {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() header: string;
   @Input() items: any[];
@@ -20,15 +24,28 @@ export class NpVirtualScrollComponent {
 
   @Output() loadData: EventEmitter<any> = new EventEmitter();
 
-  loadedPages: number[] = [];
-
   @ViewChild(CdkVirtualScrollViewport) viewPort: CdkVirtualScrollViewport;
 
-  constructor() { }
+  loadedPages: number[] = [];
+
+  scrollToIndex(idx: number) {
+    this.viewPort.scrollToIndex(idx);
+  }
+
+  scrollToOffset(offset: number) {
+    this.viewPort.scrollToOffset(offset);
+  }
 
   _onScrollIndexChange(index: number) {
     const pageRange = this._createPageRange(Math.floor(index / this.pageSize));
     pageRange.forEach(page => this._loadPage(page));
+  }
+
+  _loadPage(page: number) {
+    if (this.loadedPages.indexOf(page) === -1) {
+      this.loadData.emit({ first: this.pageSize * page, rows: this.pageSize });
+      this.loadedPages.push(page);
+    }
   }
 
   private _createPageRange(page: number) {
@@ -43,20 +60,5 @@ export class NpVirtualScrollComponent {
     }
 
     return range;
-  }
-
-  _loadPage(page: number) {
-    if (this.loadedPages.indexOf(page) === -1) {
-      this.loadData.emit({ first: this.pageSize * page, rows: this.pageSize });
-      this.loadedPages.push(page);
-    }
-  }
-
-  scrollToIndex(idx: number) {
-    this.viewPort.scrollToIndex(idx);
-  }
-
-  scrollToOffset(offset: number) {
-    this.viewPort.scrollToOffset(offset);
   }
 }

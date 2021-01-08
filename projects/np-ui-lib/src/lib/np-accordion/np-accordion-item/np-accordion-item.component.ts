@@ -12,7 +12,8 @@ import { NpAccordionContent } from './np-accordion-content.directive';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpAccordionItemComponent implements OnInit, OnDestroy {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() title: string | TemplateRef<any>;
   @Input() isOpen = false;
@@ -25,9 +26,9 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
   @Output() _onExpand: EventEmitter<any> = new EventEmitter();
   @Output() _onCollapse: EventEmitter<any> = new EventEmitter();
 
-  isTitleTemplate: boolean;
-
   @ContentChild(NpAccordionContent, { read: TemplateRef, static: true }) _explicitContent: TemplateRef<any>;
+
+  isTitleTemplate: boolean;
   private _contentPortal: TemplatePortal | null = null;
   get content(): TemplatePortal | null {
     return this._contentPortal;
@@ -45,6 +46,20 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
         this._contentPortal = new TemplatePortal(this._explicitContent, this._viewContainerRef);
       }
     }
+  }
+
+  ngOnDestroy(): void {
+    if (this._contentPortal && this._contentPortal.isAttached) {
+      this._contentPortal.detach();
+    }
+  }
+
+  _getTitleId() {
+    return this.inputId + '_title';
+  }
+
+  _getBodyId() {
+    return this.inputId + '_body';
   }
 
   _expand() {
@@ -75,20 +90,6 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
       return;
     }
     this._expand();
-  }
-
-  ngOnDestroy(): void {
-    if (this._contentPortal && this._contentPortal.isAttached) {
-      this._contentPortal.detach();
-    }
-  }
-
-  _getTitleId() {
-    return this.inputId + '_title';
-  }
-
-  _getBodyId() {
-    return this.inputId + '_body';
   }
 
 }

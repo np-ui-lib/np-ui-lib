@@ -1,4 +1,4 @@
-<h2>Date Picker</h2>
+<h2 class="page-header">Date Picker</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -205,12 +205,16 @@
             <div>
                 <fieldset>
                     <legend>Basic datepicker</legend>
-                    <np-date-picker [(ngModel)]="date1" [inputId]="'txtDate'" [autoFocus]="true">
+                    <np-date-picker [(ngModel)]="date1"
+                                    [inputId]="'txtDate'"
+                                    [autoFocus]="true">
                     </np-date-picker>
                     <div>Selected Date : {{date1}}</div>
                     <div class="np-btn-group">
-                        <button class="np-btn" (click)="setDate1()">Set Date 28/10/1992</button>
-                        <button class="np-btn" (click)="setDate1AsNull()">Set null</button>
+                        <button class="np-btn"
+                                (click)="setDate1()">Set Date 28/10/1992</button>
+                        <button class="np-btn"
+                                (click)="setDate1AsNull()">Set null</button>
                     </div>
                 </fieldset>
             </div>
@@ -218,10 +222,12 @@
             <div>
                 <fieldset>
                     <legend>disabled and readOnly</legend>
-                    <np-date-picker [(ngModel)]="date2" disabled>
+                    <np-date-picker [(ngModel)]="date2"
+                                    disabled>
                     </np-date-picker>
                     <br>
-                    <np-date-picker [(ngModel)]="date2" [readOnly]="true">
+                    <np-date-picker [(ngModel)]="date2"
+                                    [readOnly]="true">
                     </np-date-picker>
                 </fieldset>
             </div>
@@ -230,10 +236,13 @@
                 <form #form="ngForm">
                     <fieldset>
                         <legend>required</legend>
-                        <np-date-picker [(ngModel)]="date3" required #validations="ngModel" name="startDate">
+                        <np-date-picker [(ngModel)]="date3"
+                                        required
+                                        #validations="ngModel"
+                                        name="startDate">
                         </np-date-picker>
                         <div *ngIf="validations.control.touched && validations.control.errors?.required"
-                            class="np-text-danger">
+                             class="np-text-danger">
                             Date is required.
                         </div>
                         <p>Form valid: {{ form.valid }}</p>
@@ -244,16 +253,21 @@
             <div>
                 <fieldset>
                     <legend>defaultOpen</legend>
-                    <np-date-picker [(ngModel)]="date4" [defaultOpen]="true" [disabled]="date4Disable"
-                        [required]="date4Required" #validations4="ngModel">
+                    <np-date-picker [(ngModel)]="date4"
+                                    [defaultOpen]="true"
+                                    [disabled]="date4Disable"
+                                    [required]="date4Required"
+                                    #validations4="ngModel">
                     </np-date-picker>
                     <div *ngIf="validations4.control.touched && validations4.control.errors?.required"
-                        class="np-text-danger">
+                         class="np-text-danger">
                         Date is required.
                     </div>
                     <div class="np-btn-group">
-                        <button class="np-btn" (click)="date4Disable = !date4Disable">Toggle Disable</button>
-                        <button class="np-btn" (click)="date4Required = !date4Required">Toggle required</button>
+                        <button class="np-btn"
+                                (click)="date4Disable = !date4Disable">Toggle Disable</button>
+                        <button class="np-btn"
+                                (click)="date4Required = !date4Required">Toggle required</button>
                     </div>
                 </fieldset>
             </div>
@@ -261,7 +275,8 @@
             <div>
                 <fieldset>
                     <legend>format</legend>
-                    <np-date-picker [(ngModel)]="date5" [format]="'dd-MMM-yy'">
+                    <np-date-picker [(ngModel)]="date5"
+                                    [format]="'dd-MMM-yy'">
                     </np-date-picker>
                 </fieldset>
             </div>
@@ -269,7 +284,8 @@
             <div>
                 <fieldset>
                     <legend>disableWeekDays</legend>
-                    <np-date-picker [(ngModel)]="date6" [disableWeekDays]="['Sa','Su']">
+                    <np-date-picker [(ngModel)]="date6"
+                                    [disableWeekDays]="['Sa','Su']">
                     </np-date-picker>
                 </fieldset>
             </div>
@@ -277,10 +293,12 @@
             <div>
                 <fieldset>
                     <legend>disableDates</legend>
-                    <np-date-picker [(ngModel)]="date7" [disableDates]="disableDates7">
+                    <np-date-picker [(ngModel)]="date7"
+                                    [disableDates]="disableDates7">
                     </np-date-picker>
                     <div>Selected Date : {{date7}}</div>
-                    <button class="np-btn" (click)="setDate7()">Set Today(Which is disable)</button>
+                    <button class="np-btn"
+                            (click)="setDate7()">Set Today(Which is disable)</button>
                 </fieldset>
             </div>
 
@@ -288,10 +306,12 @@
                 <fieldset>
                     <legend>minDate and maxDate</legend>
                     Min:
-                    <np-date-picker [(ngModel)]="date81" [maxDate]="date82">
+                    <np-date-picker [(ngModel)]="date81"
+                                    [maxDate]="date82">
                     </np-date-picker>
                     Max:
-                    <np-date-picker [(ngModel)]="date82" [minDate]="date81">
+                    <np-date-picker [(ngModel)]="date82"
+                                    [minDate]="date81">
                     </np-date-picker>
                 </fieldset>
             </div>
@@ -299,7 +319,8 @@
             <div>
                 <fieldset>
                     <legend>placeholder</legend>
-                    <np-date-picker [(ngModel)]="date9" [placeholder]="'Select start date'">
+                    <np-date-picker [(ngModel)]="date9"
+                                    [placeholder]="'Select start date'">
                     </np-date-picker>
                 </fieldset>
             </div>
@@ -307,7 +328,8 @@
             <div>
                 <fieldset>
                     <legend>showTodayButton</legend>
-                    <np-date-picker [(ngModel)]="date10" [showTodayButton]="true">
+                    <np-date-picker [(ngModel)]="date10"
+                                    [showTodayButton]="true">
                     </np-date-picker>
                 </fieldset>
             </div>
@@ -315,7 +337,9 @@
             <div>
                 <fieldset>
                     <legend>isStartMonthWithMonday</legend>
-                    <np-date-picker [(ngModel)]="date11" [isStartMonthWithMonday]="true" [disableWeekDays]="['Su']">
+                    <np-date-picker [(ngModel)]="date11"
+                                    [isStartMonthWithMonday]="true"
+                                    [disableWeekDays]="['Su']">
                     </np-date-picker>
                 </fieldset>
             </div>
@@ -323,21 +347,24 @@
             <div>
                 <fieldset>
                     <legend>dateLabels</legend>
-                    <np-date-picker [(ngModel)]="date12" [dateLabels]="dateLabels12"></np-date-picker>
+                    <np-date-picker [(ngModel)]="date12"
+                                    [dateLabels]="dateLabels12"></np-date-picker>
                 </fieldset>
             </div>
 
             <div>
                 <fieldset>
                     <legend>styleClass</legend>
-                    <np-date-picker [(ngModel)]="date13" [styleClass]="'myClass'"></np-date-picker>
+                    <np-date-picker [(ngModel)]="date13"
+                                    [styleClass]="'myClass'"></np-date-picker>
                 </fieldset>
             </div>
 
             <div>
                 <fieldset>
                     <legend>onChange event</legend>
-                    <np-date-picker [(ngModel)]="date14" (onChange)="onChangeDate14($event)"></np-date-picker>
+                    <np-date-picker [(ngModel)]="date14"
+                                    (onChange)="onChangeDate14($event)"></np-date-picker>
                 </fieldset>
             </div>
         </ng-template>

@@ -5,9 +5,7 @@ import { NpRadioGroupComponent } from './np-radio-group.component';
 
 @NgModule({
   declarations: [NpRadioButtonComponent, NpRadioGroupComponent],
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   exports: [NpRadioButtonComponent, NpRadioGroupComponent]
 })
 export class NpRadioButtonModule { }

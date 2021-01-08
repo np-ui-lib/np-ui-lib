@@ -11,7 +11,7 @@ import {
 })
 export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChanges {
 
-  static controlCount = 1;
+  private static controlCount = 1;
 
   @Input() items: any[] = [];
   @Input() autoPlay: boolean;
@@ -30,6 +30,37 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChang
   startIdx: number;
   endIdx: number;
   isPolite = false;
+
+  @HostListener('mouseenter')
+  _onMouseEnter() {
+    if (this.pauseOnHover) {
+      this.pause();
+    }
+  }
+
+  @HostListener('mouseleave')
+  _onMouseLeave() {
+    if (this.pauseOnHover) {
+      this.start();
+    }
+  }
+
+  pause() {
+    if (this.autoPlay) {
+      clearInterval(this.interval);
+      this.isPolite = true;
+    }
+  }
+
+  start() {
+    if (this.autoPlay) {
+      this._setAutoSlideChange();
+    }
+  }
+
+  select(page: number) {
+    this._goToPage(page);
+  }
 
   ngOnDestroy(): void {
     if (this.autoPlay) {
@@ -96,37 +127,6 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChang
       return true;
     }
     return false;
-  }
-
-  @HostListener('mouseenter')
-  _onMouseEnter() {
-    if (this.pauseOnHover) {
-      this.pause();
-    }
-  }
-
-  @HostListener('mouseleave')
-  _onMouseLeave() {
-    if (this.pauseOnHover) {
-      this.start();
-    }
-  }
-
-  pause() {
-    if (this.autoPlay) {
-      clearInterval(this.interval);
-      this.isPolite = true;
-    }
-  }
-
-  start() {
-    if (this.autoPlay) {
-      this._setAutoSlideChange();
-    }
-  }
-
-  select(page: number) {
-    this._goToPage(page);
   }
 
   _trackBy(index: number): number {

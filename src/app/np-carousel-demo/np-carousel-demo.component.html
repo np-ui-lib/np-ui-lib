@@ -1,4 +1,4 @@
-<h2>Carousel</h2>
+<h2 class="page-header">Carousel</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -143,26 +143,38 @@
     </np-tab>
     <np-tab title="Examples">
         <fieldset>
-            <np-carousel [items]="items" [itemTemplate]="itemTemplate" [autoPlay]="true" [pauseOnHover]="true">
+            <np-carousel [items]="items"
+                         [itemTemplate]="itemTemplate"
+                         [autoPlay]="true"
+                         [pauseOnHover]="true">
             </np-carousel>
 
-            <ng-template #itemTemplate let-item="item">
-                <img [src]="item.imageUrl" class="np-responsive-img">
+            <ng-template #itemTemplate
+                         let-item="item">
+                <img [src]="item.imageUrl"
+                     class="np-responsive-img">
             </ng-template>
         </fieldset>
 
         <fieldset>
-            <np-carousel #slider [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="visibleNum"
-                [currentPage]="1" [scrollNum]="scrollNum">
+            <np-carousel #slider
+                         [items]="items2"
+                         [itemTemplate]="itemTemplate2"
+                         [visibleNum]="visibleNum"
+                         [currentPage]="1"
+                         [scrollNum]="scrollNum">
             </np-carousel>
 
-            <ng-template #itemTemplate2 let-item="item">
-                <np-card [width]="250" styleClass="pricing-table">
+            <ng-template #itemTemplate2
+                         let-item="item">
+                <np-card [width]="250"
+                         styleClass="pricing-table">
                     <np-card-body>
                         <div class="np-text-center"
-                            style="background-color: black;color: white; padding: 10px 20px;font-size: 26px;">
+                             style="background-color: black;color: white; padding: 10px 20px;font-size: 26px;">
                             {{item.name}}</div>
-                        <div class="price-label np-text-center" style="padding: 10px 20px;font-size: 24px;">
+                        <div class="price-label np-text-center"
+                             style="padding: 10px 20px;font-size: 24px;">
                             ${{item.id * 100}}/mo
                         </div>
                         <div class="np-list">
@@ -184,17 +196,27 @@
 
             <div>
                 Slides To Show:
-                <input type="number" class="np-form-control" [(ngModel)]="visibleNum" [min]="1" [max]="5">
+                <input type="number"
+                       class="np-form-control"
+                       [(ngModel)]="visibleNum"
+                       [min]="1"
+                       [max]="5">
             </div>
 
             <div>
                 Slides To Scroll:
-                <input type="number" class="np-form-control" [(ngModel)]="scrollNum" [min]="1" [max]="5">
+                <input type="number"
+                       class="np-form-control"
+                       [(ngModel)]="scrollNum"
+                       [min]="1"
+                       [max]="5">
             </div>
 
             <div class="np-btn-group">
-                <button class="np-btn" (click)="selectPage2()">Go to page 2</button>
-                <button class="np-btn" (click)="addNewItem2()">Add new item</button>
+                <button class="np-btn"
+                        (click)="selectPage2()">Go to page 2</button>
+                <button class="np-btn"
+                        (click)="addNewItem2()">Add new item</button>
             </div>
         </fieldset>
     </np-tab>

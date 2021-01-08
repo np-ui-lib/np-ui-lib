@@ -1,4 +1,4 @@
-<h2>Modal</h2>
+<h2 class="page-header">Modal</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -28,7 +28,8 @@
                 <b>open(content: string | TemplateRef&lt;any&gt; | Type&lt;any&gt;, config: NpModalConfig, data: any):
                     NpModalRef;</b>
                 <p>Here open method has 3 parameters, and this method return the overlay reference object of class
-                    <b>NpModalRef</b></p>
+                    <b>NpModalRef</b>
+                </p>
                 <table class="np-table">
                     <tr>
                         <th>Parameter</th>
@@ -138,7 +139,8 @@
         <fieldset>
             <legend>Text</legend>
             <div class="np-btn-group">
-                <button class="np-btn" (click)="openModal1()">Open Modal</button>
+                <button class="np-btn"
+                        (click)="openModal1()">Open Modal</button>
             </div>
         </fieldset>
 
@@ -168,14 +170,16 @@
             </ng-template>
 
             <div class="np-btn-group">
-                <button class="np-btn" (click)="openModal2()">Open Modal</button>
+                <button class="np-btn"
+                        (click)="openModal2()">Open Modal</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>Type&lt;any&gt;</legend>
             <div class="np-btn-group">
-                <button class="np-btn" (click)="openModal3()">Open Modal</button>
+                <button class="np-btn"
+                        (click)="openModal3()">Open Modal</button>
             </div>
         </fieldset>
     </np-tab>

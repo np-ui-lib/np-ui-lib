@@ -20,7 +20,8 @@ import { NpUtilityService } from '../np-utility/np-utility.service';
   ]
 })
 export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit, OnChanges {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() items: any[];
   @Input() displayKey: string;
@@ -104,6 +105,22 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     }
   }
 
+  registerOnChange(fn: any): void {
+    this.onChangeCallback = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouchedCallback = fn;
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    this.isDisabled = isDisabled;
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
+  }
+
   _setSelectedOption() {
     let selected: any;
     if (this.valueKey) {
@@ -123,18 +140,6 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
       }
     }
     this.selected = selected;
-  }
-
-  registerOnChange(fn: any): void {
-    this.onChangeCallback = fn;
-  }
-
-  registerOnTouched(fn: any): void {
-    this.onTouchedCallback = fn;
-  }
-
-  setDisabledState?(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
   }
 
   _close() {
@@ -204,9 +209,5 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 }

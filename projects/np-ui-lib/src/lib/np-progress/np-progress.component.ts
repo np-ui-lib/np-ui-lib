@@ -7,7 +7,8 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@a
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpProgressComponent {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() value: number;
   @Input() styleClass: string;

@@ -8,13 +8,7 @@ import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
 
 @NgModule({
   declarations: [NpAutoCompleteComponent],
-  imports: [
-    CommonModule,
-    OverlayModule,
-    PortalModule,
-    NpUtilityModule,
-    NpTranslationsModule
-  ],
+  imports: [CommonModule, OverlayModule, PortalModule, NpUtilityModule, NpTranslationsModule],
   exports: [NpAutoCompleteComponent]
 })
 export class NpAutoCompleteModule { }

@@ -1,5 +1,11 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef } from '@angular/core';
-import { ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from '@angular/core';
+import {
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy,
+  ViewEncapsulation, forwardRef
+} from '@angular/core';
+import {
+  ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit,
+  AfterContentInit
+} from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Overlay, OverlayRef, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
@@ -20,7 +26,8 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
   ]
 })
 export class NpDatePickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() minDate: Date;
   @Input() maxDate: Date;
@@ -89,6 +96,17 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this.today.setHours(0, 0, 0, 0);
   }
 
+  ngAfterContentInit() {
+    if (this.isStartMonthWithMonday) {
+      this.weekDays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+    } else {
+      this.weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+    }
+    if (this.defaultOpen) {
+      this._resetVariables();
+    }
+  }
+
   ngAfterViewInit(): void {
     const positionStrategy = this.overlayPositionBuilder
       .flexibleConnectedTo(this.elementRef)
@@ -140,15 +158,8 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     this.isDisabled = isDisabled;
   }
 
-  ngAfterContentInit() {
-    if (this.isStartMonthWithMonday) {
-      this.weekDays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
-    } else {
-      this.weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-    }
-    if (this.defaultOpen) {
-      this._resetVariables();
-    }
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 
   _resetVariables() {
@@ -412,7 +423,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
     return false;
   }
 
-    _onBlur($event) {
+  _onBlur($event) {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
@@ -421,9 +432,5 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 }

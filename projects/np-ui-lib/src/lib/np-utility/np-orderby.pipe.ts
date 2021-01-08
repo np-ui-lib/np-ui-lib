@@ -1,8 +1,9 @@
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
+
+@Injectable()
 @Pipe({
     name: 'npOrderBy'
 })
-@Injectable()
 export class NpOrderByPipe implements PipeTransform {
     transform(data: any[], orderBy: string, dir: string): any[] {
         if (data && orderBy && dir) {

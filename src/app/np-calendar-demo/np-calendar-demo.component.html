@@ -1,4 +1,4 @@
-<h2>Calendar</h2>
+<h2 class="page-header">Calendar</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -210,20 +210,32 @@
         </np-card>
     </np-tab>
     <np-tab title="Basic Example">
-        <np-calendar #myCalendar [disableDates]="disabledDates" (onClickDate)="onClickDate($event)"
-            (onClickEvent)="onClickEvent($event)" (onLoadMonth)="onLoadMonth($event)"></np-calendar>
+        <np-calendar #myCalendar
+                     [disableDates]="disabledDates"
+                     (onClickDate)="onClickDate($event)"
+                     (onClickEvent)="onClickEvent($event)"
+                     (onLoadMonth)="onLoadMonth($event)"></np-calendar>
     </np-tab>
     <np-tab title="Example with event template">
-        <np-calendar #myCalendar2 [disableWeekDays]="disableWeekDays" [isStartMonthWithMonday]="true"
-            [resetEventsOnLoad]="true" [eventTemplate]="eventTemplate" (onClickDate)="onClickDate2($event)"
-            (onClickEvent)="onClickEvent2($event)" (onLoadMonth)="onLoadMonth2($event)"></np-calendar>
-        <ng-template #eventTemplate let-event="event">
-            <div npPopover [body]="eventPopBody" [context]="{event: event}">
+        <np-calendar #myCalendar2
+                     [disableWeekDays]="disableWeekDays"
+                     [isStartMonthWithMonday]="true"
+                     [resetEventsOnLoad]="true"
+                     [eventTemplate]="eventTemplate"
+                     (onClickDate)="onClickDate2($event)"
+                     (onClickEvent)="onClickEvent2($event)"
+                     (onLoadMonth)="onLoadMonth2($event)"></np-calendar>
+        <ng-template #eventTemplate
+                     let-event="event">
+            <div npPopover
+                 [body]="eventPopBody"
+                 [context]="{event: event}">
                 <b>{{event.startDate.toTimeString().substring(0,5)}}</b>
                 <div>{{event.title}}</div>
             </div>
         </ng-template>
-        <ng-template #eventPopBody let-event="event">
+        <ng-template #eventPopBody
+                     let-event="event">
             <div>
                 <b>Start: </b> {{event.startDate}}
             </div>

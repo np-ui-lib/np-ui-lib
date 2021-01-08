@@ -1,4 +1,4 @@
-<h2>Virtual Scroll</h2>
+<h2 class="page-header">Virtual Scroll</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -117,7 +117,8 @@
                             scrollToOffset(offset: number)
                         </td>
                         <td>
-                            Scroll to given offset, offset is in px. <br> Use +offset to scroll down. Use -offset to scroll up.
+                            Scroll to given offset, offset is in px. <br> Use +offset to scroll down. Use -offset to
+                            scroll up.
                         </td>
                         <td>
                             offset: number
@@ -137,17 +138,29 @@
         <ng-template npTabContent>
             <fieldset>
                 <legend>Basic</legend>
-                <np-virtual-scroll #virtualScroll [items]="data" [pageSize]="pageSize" [itemHeight]="50"
-                    [template]="itemTemplate" (loadData)="loadData($event)" header="New Products">
+                <np-virtual-scroll #virtualScroll
+                                   [items]="data"
+                                   [pageSize]="pageSize"
+                                   [itemHeight]="50"
+                                   [template]="itemTemplate"
+                                   (loadData)="loadData($event)"
+                                   header="New Products">
                 </np-virtual-scroll>
-                <ng-template #itemTemplate let-item="item">
+                <ng-template #itemTemplate
+                             let-item="item">
                     {{item}}
                 </ng-template>
 
                 <div class="np-btn-group">
-                    <button type="button" class="np-btn" (click)="scrollTo11Item()">Go to 11th Item</button>
-                    <button type="button" class="np-btn" (click)="scrollOffsetDown()">Scroll offset 1000px down</button>
-                    <button type="button" class="np-btn" (click)="scrollOffsetUp()">Scroll offset 1000px up</button>
+                    <button type="button"
+                            class="np-btn"
+                            (click)="scrollTo11Item()">Go to 11th Item</button>
+                    <button type="button"
+                            class="np-btn"
+                            (click)="scrollOffsetDown()">Scroll offset 1000px down</button>
+                    <button type="button"
+                            class="np-btn"
+                            (click)="scrollOffsetUp()">Scroll offset 1000px up</button>
                 </div>
             </fieldset>
         </ng-template>

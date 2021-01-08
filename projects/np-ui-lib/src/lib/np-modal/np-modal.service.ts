@@ -13,11 +13,9 @@ export class NpModalService {
         private injector: Injector,
         private overlayPositionBuilder: OverlayPositionBuilder) { }
 
-    open(
-        content: string | TemplateRef<any> | Type<any>,
+    open(content: string | TemplateRef<any> | Type<any>,
         config: NpModalConfig,
-        data: any
-    ): NpModalRef {
+        data: any): NpModalRef {
         const positionStrategy = this.overlayPositionBuilder.global().centerHorizontally().centerVertically();
         if (!config) {
             config = new NpModalConfig({});
@@ -34,7 +32,6 @@ export class NpModalService {
             scrollStrategy: this.overlay.scrollStrategies.block(),
             panelClass: content !== NpDialogComponent ? 'np-modal-overlay' : 'np-dialog-overlay'
         });
-
         const overlayRef = this.overlay.create(overlayConfig);
         const myOverlayRef = new NpModalRef(overlayRef, content, config, data);
         const portalInjector = this.createInjector(myOverlayRef, this.injector);

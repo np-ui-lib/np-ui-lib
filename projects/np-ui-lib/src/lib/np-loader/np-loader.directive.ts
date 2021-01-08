@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, SimpleChanges, Renderer2, AfterContentInit, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, SimpleChanges, Renderer2, OnInit } from '@angular/core';
 
 @Directive({ selector: '[npLoader]' })
 export class NpLoaderDirective implements OnChanges, OnInit {

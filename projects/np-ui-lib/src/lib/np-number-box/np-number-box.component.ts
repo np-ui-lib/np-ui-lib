@@ -1,4 +1,7 @@
-import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy,
+  forwardRef, ElementRef, ViewChild
+} from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Validator } from '@angular/forms';
 
 @Component({
@@ -20,7 +23,8 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Validator } fro
   ]
 })
 export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() steps = 1;
   @Input() min: number;
@@ -79,6 +83,37 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     this.isDisabled = isDisabled;
   }
 
+  validate() {
+    if (this.min !== undefined && this.value < this.min) {
+      return {
+        min: {
+          valid: false,
+        },
+      };
+    }
+    if (this.max !== undefined && this.value > this.max) {
+      return {
+        max: {
+          valid: false,
+        },
+      };
+    }
+    if (this.pattern) {
+      const regex = new RegExp(this.pattern);
+      if (this.value && !regex.test(this.value.toString())) {
+        return {
+          pattern: {
+            valid: false,
+          },
+        };
+      }
+    }
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
+  }
+
   _add() {
     if (this.isDisabled || this.readOnly) {
       return;
@@ -135,33 +170,6 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     }
   }
 
-  validate() {
-    if (this.min !== undefined && this.value < this.min) {
-      return {
-        min: {
-          valid: false,
-        },
-      };
-    }
-    if (this.max !== undefined && this.value > this.max) {
-      return {
-        max: {
-          valid: false,
-        },
-      };
-    }
-    if (this.pattern) {
-      const regex = new RegExp(this.pattern);
-      if (this.value && !regex.test(this.value.toString())) {
-        return {
-          pattern: {
-            valid: false,
-          },
-        };
-      }
-    }
-  }
-
   _onBlur($event) {
     this.focused = false;
     this.onTouchedCallback();
@@ -171,9 +179,5 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 }

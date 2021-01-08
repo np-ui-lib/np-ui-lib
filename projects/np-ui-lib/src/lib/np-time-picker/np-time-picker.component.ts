@@ -22,7 +22,8 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
   ]
 })
 export class NpTimePickerComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() defaultOpen = false;
   @Input() is24Hours = false;
@@ -59,14 +60,12 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
-
   constructor(
     public overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef
-  ) {
-  }
+  ) { }
 
   ngAfterViewInit(): void {
     const positionStrategy = this.overlayPositionBuilder
@@ -138,6 +137,24 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     }
     this.minutes = minuteAndSeconds;
     this.seconds = minuteAndSeconds;
+  }
+
+  get24hrsTimeFormat() {
+    if (this.is24Hours) {
+      return this.value;
+    }
+    return this.timeConvert12to24(this.value);
+  }
+
+  get12hrsTimeFormat() {
+    if (this.is24Hours) {
+      return this.timeConvert24to12(this.value);
+    }
+    return this.value;
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
   }
 
   _minusHour() {
@@ -337,20 +354,6 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
     this._close();
   }
 
-  get24hrsTimeFormat() {
-    if (this.is24Hours) {
-      return this.value;
-    }
-    return this.timeConvert12to24(this.value);
-  }
-
-  get12hrsTimeFormat() {
-    if (this.is24Hours) {
-      return this.timeConvert24to12(this.value);
-    }
-    return this.value;
-  }
-
   _clear() {
     if (this.isDisabled || this.readOnly) {
       return;
@@ -401,10 +404,6 @@ export class NpTimePickerComponent implements ControlValueAccessor, AfterViewIni
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 
   _getRegEx() {

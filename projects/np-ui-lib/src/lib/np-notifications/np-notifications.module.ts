@@ -4,9 +4,7 @@ import { NpNotificationsComponent } from './np-notifications.component';
 
 @NgModule({
   declarations: [NpNotificationsComponent],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [NpNotificationsComponent]
 })
 export class NpNotificationsModule { }

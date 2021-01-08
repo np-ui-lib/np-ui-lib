@@ -1,4 +1,4 @@
-<h2>Progress</h2>
+<h2 class="page-header">Progress</h2>
 
 <np-tabs (onTabChange)="onTabChange($event)">
     <np-tab title="Documentation">
@@ -85,23 +85,31 @@
 
         <fieldset>
             <legend>Success + striped</legend>
-            <np-progress [value]="progressCount" [styleClass]="'np-progress-success'" [striped]="true"></np-progress>
+            <np-progress [value]="progressCount"
+                         [styleClass]="'np-progress-success'"
+                         [striped]="true"></np-progress>
         </fieldset>
 
         <fieldset>
             <legend>Error + height</legend>
-            <np-progress [value]="50" [styleClass]="'np-progress-danger'" [showLabel]="false" [height]="5">
+            <np-progress [value]="50"
+                         [styleClass]="'np-progress-danger'"
+                         [showLabel]="false"
+                         [height]="5">
             </np-progress>
         </fieldset>
 
         <fieldset>
             <legend>Warning + animated</legend>
-            <np-progress [value]="100" [animated]="true" [styleClass]="'np-progress-warning'"></np-progress>
+            <np-progress [value]="100"
+                         [animated]="true"
+                         [styleClass]="'np-progress-warning'"></np-progress>
         </fieldset>
 
         <fieldset>
             <legend>Info + indeterminate</legend>
-            <np-progress [indeterminate]="true" [styleClass]="'np-progress-info'"></np-progress>
+            <np-progress [indeterminate]="true"
+                         [styleClass]="'np-progress-info'"></np-progress>
         </fieldset>
     </np-tab>
 </np-tabs>

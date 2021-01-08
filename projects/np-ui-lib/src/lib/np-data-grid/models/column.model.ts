@@ -1,12 +1,8 @@
 import { TemplateRef } from '@angular/core';
 import { DataTypes, FilterTypes, SortDirections } from './constants';
 
-/**
- * grid column class
- */
 export class Column {
 
-    /*constructor */
     constructor(item: any) {
         this.dataField = item.dataField;
         this.dataType = item.dataType ? item.dataType : DataTypes.String;

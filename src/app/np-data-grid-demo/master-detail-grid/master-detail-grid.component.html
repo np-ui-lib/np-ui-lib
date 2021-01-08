@@ -1,4 +1,4 @@
-<h2>Master-Detail example</h2>
+<h2 class="page-header">Master-Detail example</h2>
 
 <p>To set master-details in data grid, set <b>masterDetailTemplate</b> in grid defination</p>
 
@@ -7,12 +7,16 @@
 </div>
 
 <br>
-<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource" [masterDetailTemplate]="masterDetailTemplate"
-    [singleRowExpand]="singleRowExpand" [expandRowOnClick]="true">
+<np-data-grid [columns]="gridColumns"
+              [dataSource]="gridDataSource"
+              [masterDetailTemplate]="masterDetailTemplate"
+              [singleRowExpand]="singleRowExpand"
+              [expandRowOnClick]="true">
 </np-data-grid>
 
 <!-- Template for child section -->
-<ng-template #masterDetailTemplate let-row="row">
+<ng-template #masterDetailTemplate
+             let-row="row">
     <span><b>Name: </b>{{row.FirstName}} {{row.LastName}}</span>
     <br>
     <span><b>Age: </b>{{row.Age}} years</span>

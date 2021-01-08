@@ -1,4 +1,7 @@
-import { Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation,
+  ChangeDetectionStrategy, OnChanges, SimpleChanges
+} from '@angular/core';
 
 @Component({
   selector: 'np-paginator',
@@ -7,7 +10,8 @@ import { Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation, Chan
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpPaginatorComponent implements OnInit, OnChanges {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() pageSize: number;
   @Input() totalItems: number;
@@ -23,8 +27,6 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
   startIndex: number;
   endIndex: number;
   inited = false;
-
-  constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes && changes.totalItems) {
@@ -52,6 +54,14 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
     }
     this.inited = true;
     this._applyChanges();
+  }
+
+  loadPage(page: number) {
+    this._loadPage(page);
+  }
+
+  refresh() {
+    this.onPageChange.emit({ currentPage: this.currentPage, pageSize: this.pageSize });
   }
 
   _onCurrentPageChange(event) {
@@ -82,14 +92,6 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
       this.onPageChange.emit({ currentPage: this.currentPage, pageSize: this.pageSize });
       this._setStartEndIndex();
     }
-  }
-
-  loadPage(page: number) {
-    this._loadPage(page);
-  }
-
-  refresh() {
-    this.onPageChange.emit({ currentPage: this.currentPage, pageSize: this.pageSize });
   }
 
   private _calculateTotalPages(): number {

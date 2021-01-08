@@ -20,7 +20,8 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl, NG_VALIDATORS, Va
   ]
 })
 export class NpFileUploadComponent implements ControlValueAccessor, Validator {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() multiple: boolean;
   @Input() extensions: string;
@@ -79,6 +80,51 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     this.isDisabled = isDisabled;
   }
 
+  validate(control: FormControl) {
+    const value = control.value || [];
+    if (this.extensions) {
+      let isInValidExtension = false;
+      const exts = this.extensions.split(',');
+      value.forEach(element => {
+        if (exts.indexOf(element.name.split('.')[1]) === -1) {
+          isInValidExtension = true;
+        }
+      });
+      if (isInValidExtension) {
+        return { extensions: { valid: false } };
+      }
+    }
+    if (this.size) {
+      let isInValidSize = false;
+      value.forEach(element => {
+        if (element.size > this.size) {
+          isInValidSize = true;
+        }
+      });
+      if (isInValidSize) {
+        return { size: { valid: false } };
+      }
+    }
+    if (this.multiple && this.totalSize) {
+      let totalSize = 0;
+      value.forEach(element => {
+        totalSize = totalSize + element.size;
+      });
+      if (totalSize > this.totalSize) {
+        return { totalSize: { valid: false } };
+      }
+    }
+    if (this.maxFiles) {
+      if (value.length > this.maxFiles) {
+        return { maxFiles: { valid: false } };
+      }
+    }
+  }
+
+  focus() {
+    this.inputViewChild.nativeElement.focus();
+  }
+
   _clear() {
     if (this.isDisabled || this.readOnly) {
       return;
@@ -105,66 +151,6 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     this.fileUploadInput.nativeElement.value = '';
   }
 
-  validate(control: FormControl) {
-    const value = control.value || [];
-    let isInValidExtension = false;
-    if (this.extensions) {
-      const exts = this.extensions.split(',');
-      value.forEach(element => {
-        if (exts.indexOf(element.name.split('.')[1]) === -1) {
-          isInValidExtension = true;
-        }
-      });
-      if (isInValidExtension) {
-        return {
-          extensions: {
-            valid: false,
-          }
-        };
-      }
-    }
-
-    let isInValidSize = false;
-    if (this.size) {
-      value.forEach(element => {
-        if (element.size > this.size) {
-          isInValidSize = true;
-        }
-      });
-      if (isInValidSize) {
-        return {
-          size: {
-            valid: false,
-          }
-        };
-      }
-    }
-
-    if (this.multiple && this.totalSize) {
-      let totalSize = 0;
-      value.forEach(element => {
-        totalSize = totalSize + element.size;
-      });
-      if (totalSize > this.totalSize) {
-        return {
-          totalSize: {
-            valid: false,
-          },
-        };
-      }
-    }
-
-    if (this.maxFiles) {
-      if (value.length > this.maxFiles) {
-        return {
-          maxFiles: {
-            valid: false,
-          },
-        };
-      }
-    }
-  }
-
   _getFilesCountsText() {
     if (this.value && this.value.length > 0) {
       return this.value.length === 1 ? '1 file' : `${this.value.length} files`;
@@ -177,13 +163,10 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     if (bytes === 0) {
       return '0 Bytes';
     }
-
     const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;
     const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 
@@ -200,10 +183,6 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 
   _getLabel() {

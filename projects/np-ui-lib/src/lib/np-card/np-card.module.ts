@@ -13,9 +13,7 @@ import { NpCardBodyComponent } from './np-card-body.component';
     NpCardImageComponent,
     NpCardBodyComponent,
     NpCardFooterComponent],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [
     NpCardComponent,
     NpCardHeaderComponent,

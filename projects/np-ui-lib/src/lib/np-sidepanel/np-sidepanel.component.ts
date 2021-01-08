@@ -1,5 +1,5 @@
 import {
-  Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, TemplateRef,
+  Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, TemplateRef,
   ViewContainerRef, Input, Output, EventEmitter
 } from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
@@ -11,8 +11,9 @@ import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overla
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpSidepanelComponent implements OnInit {
-  static controlCount = 1;
+export class NpSidepanelComponent {
+
+  private static controlCount = 1;
 
   // left | right | top | bottom
   @Input() position = 'left';
@@ -36,16 +37,6 @@ export class NpSidepanelComponent implements OnInit {
     public overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder) { }
-
-  ngOnInit(): void {
-  }
-
-  close(data: any) {
-    if (this.overlayRef && this.overlayRef.hasAttached()) {
-      this.overlayRef.detach();
-      this.onClose.emit(data);
-    }
-  }
 
   open(data: any) {
     // if overlay is not attached then only attach
@@ -83,6 +74,13 @@ export class NpSidepanelComponent implements OnInit {
       });
       this.overlayRef.attach(this.templatePortal);
       this.onOpen.emit(data);
+    }
+  }
+
+  close(data: any) {
+    if (this.overlayRef && this.overlayRef.hasAttached()) {
+      this.overlayRef.detach();
+      this.onClose.emit(data);
     }
   }
 }

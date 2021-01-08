@@ -1,4 +1,4 @@
-<h2>List</h2>
+<h2 class="page-header">List</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -229,11 +229,17 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Basic list with height</legend>
-            <np-list [items]="items" [itemTemplate]="list1Template" [height]="200" [orderBy]="'name'" [orderDir]="'asc'"
-                [header]="'Employee List'" (onClick)="onClick($event)">
+            <np-list [items]="items"
+                     [itemTemplate]="list1Template"
+                     [height]="200"
+                     [orderBy]="'name'"
+                     [orderDir]="'asc'"
+                     [header]="'Employee List'"
+                     (onClick)="onClick($event)">
             </np-list>
 
-            <ng-template let-item="item" #list1Template>
+            <ng-template let-item="item"
+                         #list1Template>
                 Name: {{item.name}},<br> Age: {{item.age}}
             </ng-template>
         </fieldset>
@@ -241,42 +247,70 @@
         <fieldset>
             <legend>List with selection</legend>
 
-            <np-list [items]="items" [itemTemplate]="list2Template" [selectionMode]="'multiple'" [height]="200"
-                [(selection)]="selection1" [styleClass]="'myClass'" #list2>
+            <np-list [items]="items"
+                     [itemTemplate]="list2Template"
+                     [selectionMode]="'multiple'"
+                     [height]="200"
+                     [(selection)]="selection1"
+                     [styleClass]="'myClass'"
+                     #list2>
             </np-list>
 
-            <ng-template let-item="item" #list2Template>
+            <ng-template let-item="item"
+                         #list2Template>
                 Name: <b>{{item.name}}</b>,<br> Age: <b>{{item.age}}</b>
             </ng-template>
 
             <div class="np-btn-group">
-                <button type="button" class="np-btn" (click)="getSelectedItems()">Get selected items</button>
-                <button type="button" class="np-btn" (click)="selectItems()">Set selected items</button>
-                <button type="button" class="np-btn" (click)="selectAll()">Select All</button>
-                <button type="button" class="np-btn" (click)="deselectAll()">Deselect all</button>
+                <button type="button"
+                        class="np-btn"
+                        (click)="getSelectedItems()">Get selected items</button>
+                <button type="button"
+                        class="np-btn"
+                        (click)="selectItems()">Set selected items</button>
+                <button type="button"
+                        class="np-btn"
+                        (click)="selectAll()">Select All</button>
+                <button type="button"
+                        class="np-btn"
+                        (click)="deselectAll()">Deselect all</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>Tiles view</legend>
-            <np-list [items]="items" [showTiles]="true" [itemTemplate]="TileTemplate" [height]="300"
-                [header]="'Employee List'" (onClick)="onClick($event)">
+            <np-list [items]="items"
+                     [showTiles]="true"
+                     [itemTemplate]="TileTemplate"
+                     [height]="300"
+                     [header]="'Employee List'"
+                     (onClick)="onClick($event)">
             </np-list>
 
-            <ng-template let-item="item" #TileTemplate>
+            <ng-template let-item="item"
+                         #TileTemplate>
                 Id: {{item.id}},<br> Name: {{item.name}},<br> Age: {{item.age}}
             </ng-template>
         </fieldset>
 
         <fieldset>
             <legend>Tiles view with server side data with valueKey</legend>
-            <np-list [items]="tilesView2" [showTiles]="true" [itemTemplate]="TileTemplate2" [selectionMode]="'single'"
-                [(selection)]="selection2" [height]="300" [header]="'Product List'" [isServerOperations]="true"
-                [totalItems]="tilesViewTotal2" [pageSize]="10" [valueKey]="'ProductID'"
-                (onPageChange)="onLoadData($event)">
+            <np-list [items]="tilesView2"
+                     [showTiles]="true"
+                     [itemTemplate]="TileTemplate2"
+                     [selectionMode]="'single'"
+                     [(selection)]="selection2"
+                     [height]="300"
+                     [header]="'Product List'"
+                     [isServerOperations]="true"
+                     [totalItems]="tilesViewTotal2"
+                     [pageSize]="10"
+                     [valueKey]="'ProductID'"
+                     (onPageChange)="onLoadData($event)">
             </np-list>
             <p>Selected: {{selection2 | json}}</p>
-            <ng-template let-item="item" #TileTemplate2>
+            <ng-template let-item="item"
+                         #TileTemplate2>
                 Name: {{item.ProductName}},<br> Unit price: {{item.UnitPrice}},<br> In stock: {{item.UnitsInStock}}
             </ng-template>
         </fieldset>

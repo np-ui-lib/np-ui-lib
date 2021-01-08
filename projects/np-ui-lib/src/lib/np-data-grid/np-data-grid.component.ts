@@ -32,7 +32,8 @@ import { NpTranslationsService } from '../np-translations/np-translations.servic
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() inputId = `np-data-grid_${NpDataGridComponent.controlCount++}`;
   @Input() columns: Column[];
@@ -140,7 +141,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     } else {
       this.keyColumnName = this.columnsClone[0].dataField;
     }
-    this.subscribeDataSource();
+    this._subscribeDataSource();
   }
 
   ngAfterViewInit() {
@@ -161,7 +162,205 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     this.onAfterInit.emit();
   }
 
-  private subscribeDataSource() {
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+  getSelectedRowKeys() {
+    return this.selectedRowKeys;
+  }
+
+  selectRowByKey(key) {
+    if (this.selectedRowKeys.indexOf(key) === -1) {
+      this.selectedRowKeys.push(key);
+    }
+  }
+
+  deselectRowByKey(key) {
+    const idx = this.selectedRowKeys.indexOf(key);
+    if (idx >= 0) {
+      this.selectedRowKeys.splice(idx, 1);
+    }
+  }
+
+  reset() {
+    this._setColumns();
+    this.filterColumnList = [];
+    this.sortColumnList = [];
+    this.selectedRowKeys = [];
+    this.openRowKeys = [];
+    this.isAllSelected = false;
+    this.isOpenColumnChooser = false;
+    this.currentStateName = '';
+    this._closeColumnChooser();
+    if (this.isServerOperations) {
+      this.gridPaginator.loadPage(1);
+    }
+    else {
+      this._resetDataSource();
+      this.gridPaginator.loadPage(1);
+    }
+  }
+
+  selectAll() {
+    this._selectAll();
+  }
+
+  deselectAll() {
+    this._deselectAll();
+  }
+
+  hideColumnByIndex(idx: number) {
+    this.columnsClone[idx].visible = false;
+    this._setVisibleColumns();
+  }
+
+  showColumnByIndex(idx: number) {
+    this.columnsClone[idx].visible = true;
+    this._setVisibleColumns();
+  }
+
+  hideColumnByDataField(dataField: string) {
+    for (const element of this.columnsClone) {
+      if (element.dataField === dataField) {
+        element.visible = false;
+      }
+    }
+    this._setVisibleColumns();
+  }
+
+  showColumnByDataField(dataField: string) {
+    for (const element of this.columnsClone) {
+      if (element.dataField === dataField) {
+        element.visible = true;
+      }
+    }
+    this._setVisibleColumns();
+  }
+
+  goToPage(pageNumber: number) {
+    this.gridPaginator.loadPage(pageNumber);
+  }
+
+  sortByColumn(dataField: string, direction: SortDirections) {
+    const sortColumn = this.utilityService.custFind(this.columnsClone, (element: Column) => {
+      return element.dataField === dataField;
+    });
+    sortColumn.sortDirection = direction;
+    this._onSort(sortColumn);
+  }
+
+  filterByColumn(dataField: string, keyword: string, type: FilterTypes) {
+    const filterColumn = this.utilityService.custFind(this.columnsClone, (element: Column) => {
+      return element.dataField === dataField;
+    });
+    filterColumn.filterString = keyword;
+    filterColumn.filterType = type;
+    this._onFilter(filterColumn, true);
+  }
+
+  getTotalRows() {
+    return this.totalRow;
+  }
+
+  getCurrentPageNumber() {
+    return this.gridPaginator.currentPage;
+  }
+
+  getPageSize() {
+    return this.pageSize;
+  }
+
+  getTotalPages() {
+    return this.gridPaginator.totalPages;
+  }
+
+  closeAllChild() {
+    this.openRowKeys = [];
+  }
+
+  getFilterColumns() {
+    return this.filterColumnList;
+  }
+
+  getSortColumns() {
+    return this.sortColumnList;
+  }
+
+  getColumns() {
+    return this._cloneColumns(this.columnsClone);
+  }
+
+  setColumns(columns: Column[]) {
+    this.columnsClone = this._cloneColumns(columns);
+    const currentFilterColumnList = [];
+    for (const element of this.columnsClone) {
+      if (element.filterOperator && element.filterValue && element.filterValue.toString().length > 0) {
+        currentFilterColumnList.push({
+          dataField: element.dataField, filterOperator: element.filterOperator,
+          filterValue: element.filterValue, dataType: element.dataType
+        });
+      }
+    }
+    this.filterColumnList = currentFilterColumnList;
+    const currentSortColumnList = [];
+    for (const element of this.columnsClone) {
+      if (element.sortEnable && element.sortDirection) {
+        currentSortColumnList.push({ dataField: element.dataField, sortDirection: element.sortDirection });
+      }
+    }
+    this.sortColumnList = currentSortColumnList;
+    if (!this.isServerOperations) {
+      this._filterDataSource();
+      this._sortDataSource();
+    }
+    this.gridPaginator.loadPage(1);
+    this._setVisibleColumns();
+    this.selectedRowKeys = [];
+    this.openRowKeys = [];
+  }
+
+  loadStateByName(stateName: string) {
+    const state = this.stateList.filter((element: State) => {
+      if (element.name === stateName) { return element; }
+    });
+    if (state && state.length > 0) {
+      this.currentStateName = stateName;
+      this.setColumns(state[0].columns);
+    } else {
+      throw new Error('Datagrid state not found');
+    }
+  }
+
+  getCurrentStateName() {
+    return this.currentStateName;
+  }
+
+  removeAllSorting() {
+    this._removeAllSorting();
+    this.gridPaginator.loadPage(1);
+  }
+
+  removeAllFilters() {
+    this._removeAllFilters();
+    this.gridPaginator.loadPage(1);
+  }
+
+  getAllState() {
+    return this.stateList;
+  }
+
+  setAllState(states: State[]) {
+    this.stateList = states;
+  }
+
+  refresh() {
+    this._onRefresh();
+  }
+
+  _subscribeDataSource() {
     this.subscription = this.dataSource.subscribe((ds: DataSource) => {
       if (ds === undefined || ds === null) {
         return;
@@ -191,12 +390,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
         this.gridPaginator.refresh();
       }
     });
-  }
-
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
   }
 
   _onPageChange(options: any) {
@@ -533,230 +726,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     this._setVisibleColumns();
   }
 
-  /**
-   * get selected row keys array
-   */
-  getSelectedRowKeys() {
-    return this.selectedRowKeys;
-  }
-
-  selectRowByKey(key) {
-    if (this.selectedRowKeys.indexOf(key) === -1) {
-      this.selectedRowKeys.push(key);
-    }
-  }
-
-  deselectRowByKey(key) {
-    const idx = this.selectedRowKeys.indexOf(key);
-    if (idx >= 0) {
-      this.selectedRowKeys.splice(idx, 1);
-    }
-  }
-
-  /**
-   * reset all
-   */
-  reset() {
-    this._setColumns();
-    this.filterColumnList = [];
-    this.sortColumnList = [];
-    this.selectedRowKeys = [];
-    this.openRowKeys = [];
-    this.isAllSelected = false;
-    this.isOpenColumnChooser = false;
-    this.currentStateName = '';
-    this._closeColumnChooser();
-    if (this.isServerOperations) {
-      this.gridPaginator.loadPage(1);
-    }
-    else {
-      this._resetDataSource();
-      this.gridPaginator.loadPage(1);
-    }
-  }
-
-  /**
-   * select all rows
-   */
-  selectAll() {
-    this._selectAll();
-  }
-
-  /**
-   * de select all rows
-   */
-  deselectAll() {
-    this._deselectAll();
-  }
-
-  /**
-   * hide column by index
-   * @param idx index number of column
-   */
-  hideColumnByIndex(idx: number) {
-    this.columnsClone[idx].visible = false;
-    this._setVisibleColumns();
-  }
-
-  /**
-   * show column by index
-   * @param idx index number of column
-   */
-  showColumnByIndex(idx: number) {
-    this.columnsClone[idx].visible = true;
-    this._setVisibleColumns();
-  }
-
-  /**
-   * hide column by data field
-   * @param dataField dataField value of column
-   */
-  hideColumnByDataField(dataField: string) {
-    for (const element of this.columnsClone) {
-      if (element.dataField === dataField) {
-        element.visible = false;
-      }
-    }
-    this._setVisibleColumns();
-  }
-
-  /**
-   * show column by data field
-   * @param dataField dataField value of column
-   */
-  showColumnByDataField(dataField: string) {
-    for (const element of this.columnsClone) {
-      if (element.dataField === dataField) {
-        element.visible = true;
-      }
-    }
-    this._setVisibleColumns();
-  }
-
-  /**
-   * go to page
-   * @param pageNumber page number
-   */
-  goToPage(pageNumber: number) {
-    this.gridPaginator.loadPage(pageNumber);
-  }
-
-  /**
-   * sort by column
-   * @param dataField dataField value of column
-   * @param direction desc | asc
-   */
-  sortByColumn(dataField: string, direction: SortDirections) {
-    const sortColumn = this.utilityService.custFind(this.columnsClone, (element: Column) => {
-      return element.dataField === dataField;
-    });
-    sortColumn.sortDirection = direction;
-    this._onSort(sortColumn);
-  }
-
-  /**
-   * filter by column
-   * @param dataField dataField value of column
-   * @param keyword search keyword
-   * @param type FilterTypes
-   */
-  filterByColumn(dataField: string, keyword: string, type: FilterTypes) {
-    const filterColumn = this.utilityService.custFind(this.columnsClone, (element: Column) => {
-      return element.dataField === dataField;
-    });
-    filterColumn.filterString = keyword;
-    filterColumn.filterType = type;
-    this._onFilter(filterColumn, true);
-  }
-
-  /**
-   * get total row count
-   */
-  getTotalRows() {
-    return this.totalRow;
-  }
-
-  /**
-   * get current page number
-   */
-  getCurrentPageNumber() {
-    return this.gridPaginator.currentPage;
-  }
-
-  /**
-   * get page size
-   */
-  getPageSize() {
-    return this.pageSize;
-  }
-
-  /**
-   * get total pages number
-   */
-  getTotalPages() {
-    return this.gridPaginator.totalPages;
-  }
-
-  /**
-   * close all child
-   */
-  closeAllChild() {
-    this.openRowKeys = [];
-  }
-
-  /**
-   * get filter column list
-   */
-  getFilterColumns() {
-    return this.filterColumnList;
-  }
-
-  /**
-   * get sort column list
-   */
-  getSortColumns() {
-    return this.sortColumnList;
-  }
-
-  /**
-   * get column list
-   */
-  getColumns() {
-    return this._cloneColumns(this.columnsClone);
-  }
-
-  /**
-   * set column list
-   */
-  setColumns(columns: Column[]) {
-    this.columnsClone = this._cloneColumns(columns);
-    const currentFilterColumnList = [];
-    for (const element of this.columnsClone) {
-      if (element.filterOperator && element.filterValue && element.filterValue.toString().length > 0) {
-        currentFilterColumnList.push({
-          dataField: element.dataField, filterOperator: element.filterOperator,
-          filterValue: element.filterValue, dataType: element.dataType
-        });
-      }
-    }
-    this.filterColumnList = currentFilterColumnList;
-    const currentSortColumnList = [];
-    for (const element of this.columnsClone) {
-      if (element.sortEnable && element.sortDirection) {
-        currentSortColumnList.push({ dataField: element.dataField, sortDirection: element.sortDirection });
-      }
-    }
-    this.sortColumnList = currentSortColumnList;
-    if (!this.isServerOperations) {
-      this._filterDataSource();
-      this._sortDataSource();
-    }
-    this.gridPaginator.loadPage(1);
-    this._setVisibleColumns();
-    this.selectedRowKeys = [];
-    this.openRowKeys = [];
-  }
-
   _saveState() {
     const columns = this._cloneColumns(this.columnsClone);
     const currentStateName = this.currentStateName;
@@ -837,50 +806,12 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     this.loadStateByName(currentStateName);
   }
 
-  loadStateByName(stateName: string) {
-    const state = this.stateList.filter((element: State) => {
-      if (element.name === stateName) { return element; }
-    });
-    if (state && state.length > 0) {
-      this.currentStateName = stateName;
-      this.setColumns(state[0].columns);
-    } else {
-      throw new Error('Datagrid state not found');
-    }
-  }
-
-  getCurrentStateName() {
-    return this.currentStateName;
-  }
-
-  private _cloneColumns(cols: Column[]) {
+  _cloneColumns(cols: Column[]) {
     const result = [];
     for (const element of cols) {
       result.push(new Column(element));
     }
     return result;
-  }
-
-  /**
-   * get state list
-   */
-  getAllState() {
-    return this.stateList;
-  }
-
-  /**
-   * set state list
-   * @param states state array
-   */
-  setAllState(states: State[]) {
-    this.stateList = states;
-  }
-
-  /**
-   * refresh current view data only
-   */
-  refresh() {
-    this._onRefresh();
   }
 
   _onRefresh() {
@@ -931,22 +862,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     } else {
       this.fileService.downloadCSVFile(this.dataSourceClone.data, this.visibleColumns, this.dateFormat);
     }
-  }
-
-  /**
-   * Remove all sorting
-   */
-  removeAllSorting() {
-    this._removeAllSorting();
-    this.gridPaginator.loadPage(1);
-  }
-
-  /**
-   * Remove all filters
-   */
-  removeAllFilters() {
-    this._removeAllFilters();
-    this.gridPaginator.loadPage(1);
   }
 
   _showAllColumns() {

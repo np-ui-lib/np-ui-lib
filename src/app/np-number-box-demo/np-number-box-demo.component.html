@@ -1,4 +1,4 @@
-<h2>Number Box</h2>
+<h2 class="page-header">Number Box</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -194,48 +194,63 @@
             <np-number-box [(ngModel)]="number1"></np-number-box>
             value: {{number1}}
             <div class="np-btn-group">
-                <button class="np-btn" (click)="setNumber1()">Set 100</button>
+                <button class="np-btn"
+                        (click)="setNumber1()">Set 100</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>Number box with steps</legend>
-            <np-number-box [(ngModel)]="number2" [steps]="0.5"></np-number-box>
+            <np-number-box [(ngModel)]="number2"
+                           [steps]="0.5"></np-number-box>
         </fieldset>
 
         <fieldset>
             <legend>Number box with min as 0 & max as 100</legend>
-            <np-number-box [(ngModel)]="number3" [steps]="5" [min]="0" [max]="100" #number3Control="ngModel">
+            <np-number-box [(ngModel)]="number3"
+                           [steps]="5"
+                           [min]="0"
+                           [max]="100"
+                           #number3Control="ngModel">
             </np-number-box>
-            <div class="np-text-danger" *ngIf="number3Control.errors && number3Control.errors.min">
+            <div class="np-text-danger"
+                 *ngIf="number3Control.errors && number3Control.errors.min">
                 Less then min value.
             </div>
-            <div class="np-text-danger" *ngIf="number3Control.errors && number3Control.errors.max">
+            <div class="np-text-danger"
+                 *ngIf="number3Control.errors && number3Control.errors.max">
                 More then max value.
             </div>
             <div class="np-btn-group">
-                <button class="np-btn" (click)="setNumber3()">Set 101</button>
+                <button class="np-btn"
+                        (click)="setNumber3()">Set 101</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>required</legend>
-            <np-number-box [(ngModel)]="number4" required></np-number-box>
+            <np-number-box [(ngModel)]="number4"
+                           required></np-number-box>
         </fieldset>
 
         <fieldset>
             <legend>disabled and readOnly</legend>
-            <np-number-box [(ngModel)]="number5" disabled></np-number-box>
+            <np-number-box [(ngModel)]="number5"
+                           disabled></np-number-box>
             <br>
-            <np-number-box [(ngModel)]="number5" [readOnly]="true"></np-number-box>
+            <np-number-box [(ngModel)]="number5"
+                           [readOnly]="true"></np-number-box>
         </fieldset>
 
         <fieldset>
             <legend>pattern</legend>
-            <np-number-box [(ngModel)]="number6" pattern="^(\d{0,5}\.)?\d{0,2}$" placeholder="99999.99"
-                #number6Control="ngModel">
+            <np-number-box [(ngModel)]="number6"
+                           pattern="^(\d{0,5}\.)?\d{0,2}$"
+                           placeholder="99999.99"
+                           #number6Control="ngModel">
             </np-number-box>
-            <div class="np-text-danger" *ngIf="number6Control.errors && number6Control.errors.pattern">
+            <div class="np-text-danger"
+                 *ngIf="number6Control.errors && number6Control.errors.pattern">
                 Invalid number.
             </div>
             value: {{number6}}
@@ -243,18 +258,23 @@
 
         <fieldset>
             <legend>onChange</legend>
-            <np-number-box [(ngModel)]="number7" (onChange)="onChangeNumber7($event)"></np-number-box>
+            <np-number-box [(ngModel)]="number7"
+                           (onChange)="onChangeNumber7($event)"></np-number-box>
         </fieldset>
 
         <fieldset>
             <legend>Set showControls to false, and suffixLabel</legend>
-            <np-number-box [(ngModel)]="number8" [showControls]=false [suffixLabel]="'.00'" pattern="^\d*$">
+            <np-number-box [(ngModel)]="number8"
+                           [showControls]=false
+                           [suffixLabel]="'.00'"
+                           pattern="^\d*$">
             </np-number-box>
         </fieldset>
 
         <fieldset>
             <legend>prefixLabel</legend>
-            <np-number-box [(ngModel)]="number9" [prefixLabel]="'$'"></np-number-box>
+            <np-number-box [(ngModel)]="number9"
+                           [prefixLabel]="'$'"></np-number-box>
         </fieldset>
     </np-tab>
 </np-tabs>

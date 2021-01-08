@@ -38,9 +38,7 @@ import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
     NpCheckboxModule,
     NpTranslationsModule
   ],
-  exports: [
-    NpDataGridComponent
-  ],
+  exports: [NpDataGridComponent],
   providers: [
     NpFilterService,
     NpGridUtilityService,

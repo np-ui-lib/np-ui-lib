@@ -20,7 +20,8 @@ import { ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } fro
   ]
 })
 export class NpTextareaComponent implements ControlValueAccessor, Validator {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() rows: number;
   @Input() cols: number;
@@ -46,8 +47,6 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
 
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
-
-  constructor() { }
 
   get value(): string {
     return this.innerValue ? this.innerValue : null;
@@ -96,6 +95,10 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
     }
   }
 
+  focus() {
+    this.inputViewChild.nativeElement.focus();
+  }
+
   _onInputChange(event) {
     this.value = event.target.value;
   }
@@ -110,9 +113,4 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
     this.focused = true;
     this.onFocus.emit($event);
   }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
-  }
-
 }

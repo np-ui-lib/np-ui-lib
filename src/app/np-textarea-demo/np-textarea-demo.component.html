@@ -1,4 +1,4 @@
-<h2>Textarea</h2>
+<h2 class="page-header">Textarea</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -177,40 +177,52 @@
         <ng-template npTabContent>
             <fieldset>
                 <legend>Basic</legend>
-                <np-textarea [(ngModel)]="input1" [rows]="5" [cols]="30" [autoFocus]="true"></np-textarea>
+                <np-textarea [(ngModel)]="input1"
+                             [rows]="5"
+                             [cols]="30"
+                             [autoFocus]="true"></np-textarea>
                 <div>Value: {{input1}}</div>
             </fieldset>
 
             <fieldset>
                 <legend>disabled</legend>
-                <np-textarea [(ngModel)]="input2" [disabled]="true"></np-textarea>
+                <np-textarea [(ngModel)]="input2"
+                             [disabled]="true"></np-textarea>
             </fieldset>
 
             <fieldset>
                 <legend>readOnly</legend>
-                <np-textarea [(ngModel)]="input2" [readOnly]="true"></np-textarea>
+                <np-textarea [(ngModel)]="input2"
+                             [readOnly]="true"></np-textarea>
             </fieldset>
 
             <fieldset>
                 <legend>required</legend>
-                <np-textarea [(ngModel)]="input3" [required]="true"></np-textarea>
+                <np-textarea [(ngModel)]="input3"
+                             [required]="true"></np-textarea>
             </fieldset>
 
             <fieldset>
                 <legend>minLength and maxLength</legend>
-                <np-textarea [minLength]="10" [maxLength]="100" [(ngModel)]="input4" #inputText4="ngModel">
+                <np-textarea [minLength]="10"
+                             [maxLength]="100"
+                             [(ngModel)]="input4"
+                             #inputText4="ngModel">
                 </np-textarea>
-                <div class="np-text-danger" *ngIf="inputText4.errors && inputText4.errors.minLength">
+                <div class="np-text-danger"
+                     *ngIf="inputText4.errors && inputText4.errors.minLength">
                     Min length 10 characters.
                 </div>
-                <div class="np-text-danger" *ngIf="inputText4.errors && inputText4.errors.maxLength">
+                <div class="np-text-danger"
+                     *ngIf="inputText4.errors && inputText4.errors.maxLength">
                     Max length 20 characters.
                 </div>
             </fieldset>
 
             <fieldset>
                 <legend>placeholder and no resize</legend>
-                <np-textarea [placeholder]="'Enter your address'" [resize]="false"></np-textarea>
+                <np-textarea [placeholder]="'Enter your address'"
+                             [resize]="false"></np-textarea>
             </fieldset>
 
             <fieldset>

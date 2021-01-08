@@ -6,7 +6,8 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateR
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpTooltipComponent implements OnInit {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() tooltip: string | TemplateRef<any>;
   @Input() context: any;

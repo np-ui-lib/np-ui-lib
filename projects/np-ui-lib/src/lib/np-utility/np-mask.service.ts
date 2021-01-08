@@ -1,6 +1,7 @@
+import { Injectable } from '@angular/core';
+
 export interface StringHashMap<T> { [key: string]: T; }
 
-import { Injectable } from '@angular/core';
 @Injectable()
 export class NpMaskService {
     private formatToRegExp: StringHashMap<RegExp> = {

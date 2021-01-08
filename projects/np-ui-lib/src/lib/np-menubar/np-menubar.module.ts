@@ -14,9 +14,7 @@ import { NpPanelMenuItemComponent } from './np-panel-menu-item/np-panel-menu-ite
     RouterModule,
     OverlayModule
   ],
-  entryComponents: [
-    NpMenubarComponent,
-  ],
+  entryComponents: [NpMenubarComponent],
   exports: [NpMenubarComponent, NpPopupMenubarDirective]
 })
 export class NpMenubarModule { }

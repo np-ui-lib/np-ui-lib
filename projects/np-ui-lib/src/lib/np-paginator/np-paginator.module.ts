@@ -5,10 +5,7 @@ import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
 
 @NgModule({
   declarations: [NpPaginatorComponent],
-  imports: [
-    CommonModule,
-    NpTranslationsModule
-  ],
+  imports: [CommonModule, NpTranslationsModule],
   exports: [NpPaginatorComponent]
 })
 export class NpPaginatorModule { }

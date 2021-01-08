@@ -1,13 +1,19 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy,
+  ViewEncapsulation
+} from '@angular/core';
 import { NpBreadcrumbItem } from './np-breadcrumb.model';
 
 @Component({
   selector: 'np-breadcrumb',
   templateUrl: './np-breadcrumb.component.html',
-  styleUrls: ['./np-breadcrumb.component.scss']
+  styleUrls: ['./np-breadcrumb.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpBreadcrumbComponent implements OnInit {
-  static controlCount = 1;
+export class NpBreadcrumbComponent {
+
+  private static controlCount = 1;
 
   @Input() items: NpBreadcrumbItem[];
   @Input() showIcon = true;
@@ -16,9 +22,6 @@ export class NpBreadcrumbComponent implements OnInit {
   @Input() inputId = `np-breadcrumb_${NpBreadcrumbComponent.controlCount++}`;
 
   @Output() onClick: EventEmitter<any> = new EventEmitter();
-
-  ngOnInit(): void {
-  }
 
   _onClick(item: NpBreadcrumbItem) {
     if (this.onClick && !item.disabled) {

@@ -7,7 +7,8 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, Input, T
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpPopoverComponent implements OnInit {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() header: string | TemplateRef<any>;
   @Input() body: string | TemplateRef<any>;
@@ -18,8 +19,6 @@ export class NpPopoverComponent implements OnInit {
 
   isHeaderTemplate: boolean;
   isBodyTemplate: boolean;
-
-  constructor() { }
 
   ngOnInit(): void {
     if (this.header instanceof TemplateRef) {

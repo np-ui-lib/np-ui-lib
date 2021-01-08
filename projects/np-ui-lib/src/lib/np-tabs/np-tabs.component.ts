@@ -9,18 +9,19 @@ import { NpTabComponent } from './np-tab.component';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpTabsComponent implements AfterContentInit {
-  static controlCount = 1;
 
-  @ContentChildren(NpTabComponent) tabs: QueryList<NpTabComponent>;
+  private static controlCount = 1;
 
   @Input() verticalTabs: boolean;
   @Input() height: number;
   @Input() styleClass: string;
   @Input() inputId = `np-tabs_${NpTabsComponent.controlCount++}`;
 
-  selected: NpTabComponent;
-
   @Output() onTabChange: EventEmitter<any> = new EventEmitter();
+
+  @ContentChildren(NpTabComponent) tabs: QueryList<NpTabComponent>;
+
+  selected: NpTabComponent;
 
   ngAfterContentInit() {
     // if default active and not disabled tab is present then select it.
@@ -40,17 +41,6 @@ export class NpTabsComponent implements AfterContentInit {
       this.onTabChange.emit(activeTabs[0]);
       activeTabs[0].isLoadFirstTime = false;
     }
-  }
-
-  _selectTab(tab: NpTabComponent) {
-    if (tab.disabled === true || tab.active === true) {
-      return;
-    }
-    this.tabs.toArray().forEach(element => { if (element.inputId !== tab.inputId) { element.active = false; } });
-    tab.active = true;
-    this.selected = tab;
-    this.onTabChange.emit(tab);
-    tab.isLoadFirstTime = false;
   }
 
   selectTabById(id: string) {
@@ -87,5 +77,16 @@ export class NpTabsComponent implements AfterContentInit {
 
   _getBodyId(tab: NpTabComponent) {
     return tab.inputId + '_body';
+  }
+
+  _selectTab(tab: NpTabComponent) {
+    if (tab.disabled === true || tab.active === true) {
+      return;
+    }
+    this.tabs.toArray().forEach(element => { if (element.inputId !== tab.inputId) { element.active = false; } });
+    tab.active = true;
+    this.selected = tab;
+    this.onTabChange.emit(tab);
+    tab.isLoadFirstTime = false;
   }
 }

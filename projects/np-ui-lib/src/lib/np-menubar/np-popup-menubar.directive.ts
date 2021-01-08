@@ -1,4 +1,7 @@
-import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, EventEmitter, Output, OnDestroy } from '@angular/core';
+import {
+    Directive, HostListener, Input, AfterViewInit, ComponentRef,
+    ElementRef, EventEmitter, Output, OnDestroy
+} from '@angular/core';
 import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpMenubarComponent } from './np-menubar.component';
@@ -6,7 +9,9 @@ import { NpMenuItem } from './np-menu.model';
 import { Subscription } from 'rxjs';
 import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 
-@Directive({ selector: '[npPopupMenubar]' })
+@Directive({
+    selector: '[npPopupMenubar]'
+})
 export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
 
     @Input() items: NpMenuItem[];
@@ -53,10 +58,6 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
         }
     }
 
-    _close() {
-        this.overlayRef.detach();
-    }
-
     @HostListener('click')
     show() {
         if (this.overlayRef.hasAttached()) {
@@ -68,5 +69,9 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
         menubarRef.instance.items = this.items;
         menubarRef.instance.styleClass = this.styleClass;
         menubarRef.instance.onClickMenuItem = this.onClickMenuItem;
+    }
+
+    _close() {
+        this.overlayRef.detach();
     }
 }

@@ -6,10 +6,7 @@ import { NpCheckboxGroupComponent } from './np-checkbox-group.component';
 
 @NgModule({
   declarations: [NpCheckboxComponent, NpCheckboxGroupComponent],
-  imports: [
-    CommonModule,
-    NpUtilityModule
-  ],
+  imports: [CommonModule, NpUtilityModule],
   exports: [NpCheckboxComponent, NpCheckboxGroupComponent]
 })
 export class NpCheckboxModule { }

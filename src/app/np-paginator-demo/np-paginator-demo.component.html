@@ -1,4 +1,4 @@
-<h2>Paginator</h2>
+<h2 class="page-header">Paginator</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -126,21 +126,35 @@
         <ng-template npTabContent>
             <fieldset>
                 <legend>Basic</legend>
-                <np-paginator [pageSize]="pageSize" [totalItems]="total" [currentPage]="currentPage"
-                    (onPageChange)="onPageChange($event)">
+                <np-paginator [pageSize]="pageSize"
+                              [totalItems]="total"
+                              [currentPage]="currentPage"
+                              (onPageChange)="onPageChange($event)">
                 </np-paginator>
                 <div class="np-btn-group">
-                    <button type="button" class="np-btn" (click)="changePageSize()">Set pagesize to 10</button>
-                    <button type="button" class="np-btn" (click)="changePageNumber()">Set currentpage to 3</button>
-                    <button type="button" class="np-btn" (click)="changeTotal()">Set total to 100</button>
-                    <button type="button" class="np-btn" (click)="SetTotalToZero()">Set total to 0</button>
+                    <button type="button"
+                            class="np-btn"
+                            (click)="changePageSize()">Set pagesize to 10</button>
+                    <button type="button"
+                            class="np-btn"
+                            (click)="changePageNumber()">Set currentpage to 3</button>
+                    <button type="button"
+                            class="np-btn"
+                            (click)="changeTotal()">Set total to 100</button>
+                    <button type="button"
+                            class="np-btn"
+                            (click)="SetTotalToZero()">Set total to 0</button>
                 </div>
             </fieldset>
 
             <fieldset>
                 <legend>Set showPageSize and showTotal to false</legend>
-                <np-paginator [pageSize]="10" [totalItems]="1000" [currentPage]="1" [showPageSize]="false"
-                    [showTotal]="false" (onPageChange)="onPageChange($event)">
+                <np-paginator [pageSize]="10"
+                              [totalItems]="1000"
+                              [currentPage]="1"
+                              [showPageSize]="false"
+                              [showTotal]="false"
+                              (onPageChange)="onPageChange($event)">
                 </np-paginator>
             </fieldset>
 
@@ -164,8 +178,10 @@
                         </td>
                     </tr>
                 </table>
-                <np-paginator [pageSize]="10" [totalItems]="total2" [styleClass]="'myClass'"
-                    (onPageChange)="onLoadData($event)">
+                <np-paginator [pageSize]="10"
+                              [totalItems]="total2"
+                              [styleClass]="'myClass'"
+                              (onPageChange)="onLoadData($event)">
                 </np-paginator>
             </fieldset>
         </ng-template>

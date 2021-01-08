@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, ElementRef, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component, OnInit, Input, ElementRef,
+  ViewEncapsulation, ChangeDetectionStrategy
+} from '@angular/core';
 
 @Component({
   selector: 'np-alert',
@@ -7,7 +10,8 @@ import { Component, OnInit, Input, ElementRef, ViewEncapsulation, ChangeDetectio
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpAlertComponent implements OnInit {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   /* type should be 'success' | 'danger' | 'info' | 'warning' */
   @Input() type: string;

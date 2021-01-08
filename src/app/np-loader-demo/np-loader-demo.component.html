@@ -1,4 +1,4 @@
-<h2>Loader</h2>
+<h2 class="page-header">Loader</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -59,35 +59,47 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Loader on div</legend>
-            <div style="height: 200px;width: 200px;background-color: lightblue;" [npLoader]="loader1"></div>
+            <div style="height: 200px;width: 200px;background-color: lightblue;"
+                 [npLoader]="loader1"></div>
             <div class="np-btn-group">
-                <button class="np-btn" (click)="loader1 = true">Show Loader</button>
-                <button class="np-btn" (click)="loader1 = false">Hide Loader</button>
+                <button class="np-btn"
+                        (click)="loader1 = true">Show Loader</button>
+                <button class="np-btn"
+                        (click)="loader1 = false">Hide Loader</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>Loader on Button</legend>
             <div class="np-btn-group">
-                <button class="np-btn" (click)="loader2 = true" [npLoader]="loader2">Show Loader</button>
-                <button class="np-btn" (click)="loader2 = false">Hide Loader</button>
+                <button class="np-btn"
+                        (click)="loader2 = true"
+                        [npLoader]="loader2">Show Loader</button>
+                <button class="np-btn"
+                        (click)="loader2 = false">Hide Loader</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>Loader with text</legend>
-            <div style="height: 200px;background-color: lightblue;" [npLoader]="loader3" [loadingText]="'Loading...'">
+            <div style="height: 200px;background-color: lightblue;"
+                 [npLoader]="loader3"
+                 [loadingText]="'Loading...'">
             </div>
             <div class="np-btn-group">
-                <button class="np-btn" (click)="loader3 = true">Show Loader</button>
-                <button class="np-btn" (click)="loader3 = false">Hide Loader</button>
+                <button class="np-btn"
+                        (click)="loader3 = true">Show Loader</button>
+                <button class="np-btn"
+                        (click)="loader3 = false">Hide Loader</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>On other component</legend>
 
-            <div [npLoader]="loader4" [diameter]="64" [strokeWidth]="10">
+            <div [npLoader]="loader4"
+                 [diameter]="64"
+                 [strokeWidth]="10">
                 <np-tabs>
                     <np-tab [title]="'Tab 1'">
                         <h1>
@@ -114,8 +126,10 @@
                 </np-tabs>
             </div>
             <div class="np-btn-group">
-                <button class="np-btn" (click)="loader4 = true">Show Loader</button>
-                <button class="np-btn" (click)="loader4 = false">Hide Loader</button>
+                <button class="np-btn"
+                        (click)="loader4 = true">Show Loader</button>
+                <button class="np-btn"
+                        (click)="loader4 = false">Hide Loader</button>
             </div>
         </fieldset>
     </np-tab>

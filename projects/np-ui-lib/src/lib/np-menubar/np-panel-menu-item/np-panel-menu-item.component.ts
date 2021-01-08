@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { NpMenuItem } from '../np-menu.model';
 import { Router } from '@angular/router';
 
@@ -9,16 +9,13 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.Default
 
 })
-export class NpPanelMenuItemComponent implements OnInit {
+export class NpPanelMenuItemComponent {
 
   @Input() item: NpMenuItem;
 
   @Output() onClickItem: EventEmitter<any> = new EventEmitter();
 
   constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   _onClickMenuItem(menuItem: NpMenuItem) {
     this.onClickItem.emit(menuItem);

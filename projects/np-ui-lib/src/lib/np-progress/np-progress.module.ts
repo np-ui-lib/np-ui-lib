@@ -4,9 +4,7 @@ import { NpProgressComponent } from './np-progress.component';
 
 @NgModule({
   declarations: [NpProgressComponent],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [NpProgressComponent]
 })
 export class NpProgressModule { }

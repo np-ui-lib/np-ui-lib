@@ -12,6 +12,5 @@ export class NpAutofocusDirective {
             }, 100);
         }
     }
-    constructor(private el: ElementRef) {
-    }
+    constructor(private el: ElementRef) { }
 }

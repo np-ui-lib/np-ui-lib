@@ -1,4 +1,4 @@
-<h2>Color Picker</h2>
+<h2 class="page-header">Color Picker</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -156,23 +156,30 @@
         </np-card>
     </np-tab>
 
-    <np-tab title="Examples" id="tabExample">
+    <np-tab title="Examples"
+            id="tabExample">
         <ng-template npTabContent>
             <div>
                 <fieldset>
                     <legend>Basic colorpicker</legend>
-                    <np-color-picker [(ngModel)]="color1" [inputId]="'txtColor'" [autoFocus]="true"></np-color-picker>
+                    <np-color-picker [(ngModel)]="color1"
+                                     [inputId]="'txtColor'"
+                                     [autoFocus]="true"></np-color-picker>
                     <div>Selected value is: {{color1}}</div>
-                    <button type="button" class="np-btn" (click)="color1 = '#ed5a0f'">Set color #ed5a0f</button>
+                    <button type="button"
+                            class="np-btn"
+                            (click)="color1 = '#ed5a0f'">Set color #ed5a0f</button>
                 </fieldset>
             </div>
 
             <div>
                 <fieldset>
                     <legend>disabled and readOnly</legend>
-                    <np-color-picker [(ngModel)]="color2" disabled></np-color-picker>
+                    <np-color-picker [(ngModel)]="color2"
+                                     disabled></np-color-picker>
                     <br>
-                    <np-color-picker [(ngModel)]="color2" [readOnly]="true"></np-color-picker>
+                    <np-color-picker [(ngModel)]="color2"
+                                     [readOnly]="true"></np-color-picker>
                 </fieldset>
             </div>
 
@@ -180,11 +187,14 @@
                 <form #form="ngForm">
                     <fieldset>
                         <legend>required and format 'rgb'</legend>
-                        <np-color-picker [(ngModel)]="color3" format="rgb" required #validations="ngModel"
-                            name="colorPicker3">
+                        <np-color-picker [(ngModel)]="color3"
+                                         format="rgb"
+                                         required
+                                         #validations="ngModel"
+                                         name="colorPicker3">
                         </np-color-picker>
                         <div *ngIf="validations.control.touched && validations.control.errors?.required"
-                            class="np-text-danger">
+                             class="np-text-danger">
                             Color is required.
                         </div>
                         <div>Form valid: {{ form.valid }}</div>
@@ -196,17 +206,24 @@
             <div>
                 <fieldset>
                     <legend>defaultOpen</legend>
-                    <np-color-picker [(ngModel)]="color4" [defaultOpen]="true" #validations4="ngModel"
-                        [disabled]="color4Disabled" [required]="color4Required">
+                    <np-color-picker [(ngModel)]="color4"
+                                     [defaultOpen]="true"
+                                     #validations4="ngModel"
+                                     [disabled]="color4Disabled"
+                                     [required]="color4Required">
                     </np-color-picker>
                     <div *ngIf="validations4.control.touched && validations4.control.errors?.required"
-                        class="np-text-danger">
+                         class="np-text-danger">
                         Color is required.
                     </div>
                     <div class="np-btn-group">
-                        <button type="button" class="np-btn" (click)="color4Disabled = !color4Disabled">Toggle
+                        <button type="button"
+                                class="np-btn"
+                                (click)="color4Disabled = !color4Disabled">Toggle
                             Disable</button>
-                        <button type="button" class="np-btn" (click)="color4Required = !color4Required">Toggle
+                        <button type="button"
+                                class="np-btn"
+                                (click)="color4Required = !color4Required">Toggle
                             required</button>
                     </div>
                 </fieldset>
@@ -215,7 +232,8 @@
             <div>
                 <fieldset>
                     <legend>Pre-defined colors in picker</legend>
-                    <np-color-picker [(ngModel)]="color5" [colors]="existingColors5">
+                    <np-color-picker [(ngModel)]="color5"
+                                     [colors]="existingColors5">
                     </np-color-picker>
                 </fieldset>
             </div>
@@ -223,7 +241,8 @@
             <div>
                 <fieldset>
                     <legend>styleClass</legend>
-                    <np-color-picker [(ngModel)]="color8" [styleClass]="'myClass'">
+                    <np-color-picker [(ngModel)]="color8"
+                                     [styleClass]="'myClass'">
                     </np-color-picker>
                 </fieldset>
             </div>
@@ -231,7 +250,8 @@
             <div>
                 <fieldset>
                     <legend>No pre-defined colors</legend>
-                    <np-color-picker [(ngModel)]="color9" [colors]="[]">
+                    <np-color-picker [(ngModel)]="color9"
+                                     [colors]="[]">
                     </np-color-picker>
                 </fieldset>
             </div>
@@ -239,7 +259,8 @@
             <div>
                 <fieldset>
                     <legend>onChange</legend>
-                    <np-color-picker [(ngModel)]="color10" (onChange)="onChangeColor($event)">
+                    <np-color-picker [(ngModel)]="color10"
+                                     (onChange)="onChangeColor($event)">
                     </np-color-picker>
                 </fieldset>
             </div>

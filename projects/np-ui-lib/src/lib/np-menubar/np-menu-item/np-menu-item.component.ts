@@ -1,4 +1,7 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component, ViewEncapsulation, ChangeDetectionStrategy,
+  Input, Output, EventEmitter
+} from '@angular/core';
 import { NpMenuItem } from '../np-menu.model';
 import { Router } from '@angular/router';
 
@@ -8,7 +11,7 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpMenuItemComponent implements OnInit {
+export class NpMenuItemComponent {
 
   @Input() item: NpMenuItem;
   @Input() orientation = 'vertical';
@@ -16,9 +19,6 @@ export class NpMenuItemComponent implements OnInit {
   @Output() onClickItem: EventEmitter<any> = new EventEmitter();
 
   constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   _onMouseEnter($event, item: NpMenuItem) {
     if (this.orientation === 'vertical') {

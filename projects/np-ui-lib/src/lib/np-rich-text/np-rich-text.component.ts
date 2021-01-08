@@ -19,7 +19,8 @@ import { NpPopoverDirective } from '../np-popover/np-popover.directive';
   ]
 })
 export class NpRichTextComponent implements ControlValueAccessor {
-  static controlCount = 1;
+
+  private static controlCount = 1;
 
   @Input() height: number;
   @Input() readOnly: boolean;
@@ -55,8 +56,6 @@ export class NpRichTextComponent implements ControlValueAccessor {
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
-  constructor() { }
-
   get value(): string {
     return this.innerValue ? this.innerValue : null;
   }
@@ -90,6 +89,10 @@ export class NpRichTextComponent implements ControlValueAccessor {
     this.isDisabled = isDisabled;
   }
 
+  focus() {
+    this.inputViewChild.nativeElement.focus();
+  }
+
   _onInputChange(event) {
     this.value = event.target.innerHTML;
   }
@@ -103,10 +106,6 @@ export class NpRichTextComponent implements ControlValueAccessor {
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
-  }
-
-  focus() {
-    this.inputViewChild.nativeElement.focus();
   }
 
   _formatDoc(sCmd: string, sValue: any) {

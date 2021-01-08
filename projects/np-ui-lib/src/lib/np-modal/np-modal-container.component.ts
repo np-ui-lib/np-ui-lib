@@ -8,7 +8,8 @@ import { NpModalRef } from './np-modal-ref';
     changeDetection: ChangeDetectionStrategy.Default
 })
 export class NpModalContainerComponent implements OnInit {
-    static controlCount = 1;
+
+    private static controlCount = 1;
 
     contentType: 'template' | 'string' | 'component';
     content: string | TemplateRef<any> | Type<any>;

@@ -1,4 +1,4 @@
-<h2>Tree View</h2>
+<h2 class="page-header">Tree View</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -250,36 +250,52 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Treeview basic</legend>
-            <np-tree-view [items]="items" #treeview (onClick)="onClick($event)" (onExpand)="onExpand($event)"
-                (onCollapse)="onCollapse($event)" (onExpandAll)="onExpandAll($event)"
-                (onCollapseAll)="onCollapseAll($event)">
+            <np-tree-view [items]="items"
+                          #treeview
+                          (onClick)="onClick($event)"
+                          (onExpand)="onExpand($event)"
+                          (onCollapse)="onCollapse($event)"
+                          (onExpandAll)="onExpandAll($event)"
+                          (onCollapseAll)="onCollapseAll($event)">
             </np-tree-view>
 
             <div class="np-btn-group">
-                <button class="np-btn" (click)="setAllExpand()">Expand All</button>
-                <button class="np-btn" (click)="setAllCollapse()">Collapse All</button>
+                <button class="np-btn"
+                        (click)="setAllExpand()">Expand All</button>
+                <button class="np-btn"
+                        (click)="setAllCollapse()">Collapse All</button>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>Treeview single selection</legend>
-            <np-tree-view [items]="items2" #treeview2 [(selection)]="selection2" [selectionMode]="'single'"
-                (onSelect)="onSelect($event)" (onDeselect)="onDeselect($event)">
+            <np-tree-view [items]="items2"
+                          #treeview2
+                          [(selection)]="selection2"
+                          [selectionMode]="'single'"
+                          (onSelect)="onSelect($event)"
+                          (onDeselect)="onDeselect($event)">
             </np-tree-view>
             <div>Selected value : {{selection2 | json}}</div>
         </fieldset>
 
         <fieldset>
             <legend>Treeview multiple selection with template</legend>
-            <np-tree-view [items]="items3" #treeview3 [itemTemplate]="itemTemplate" [(selection)]="selection3"
-                [selectionMode]="'multiple'">
+            <np-tree-view [items]="items3"
+                          #treeview3
+                          [itemTemplate]="itemTemplate"
+                          [(selection)]="selection3"
+                          [selectionMode]="'multiple'">
             </np-tree-view>
             <div>Selected value : {{selection3 | json}}</div>
             <div class="np-btn-group">
-                <button class="np-btn" (click)="selectAll()">Select All</button>
-                <button class="np-btn" (click)="deselectAll()">Deselect All</button>
+                <button class="np-btn"
+                        (click)="selectAll()">Select All</button>
+                <button class="np-btn"
+                        (click)="deselectAll()">Deselect All</button>
             </div>
-            <ng-template #itemTemplate let-item="item">
+            <ng-template #itemTemplate
+                         let-item="item">
                 ({{item.data.index}}) {{item.label}}
             </ng-template>
         </fieldset>

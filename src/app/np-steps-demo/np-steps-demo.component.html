@@ -1,4 +1,4 @@
-<h2>Steps</h2>
+<h2 class="page-header">Steps</h2>
 
 <np-tabs>
     <np-tab title="Documentation">
@@ -25,7 +25,7 @@
                     <b>&lt;np-steps&gt;</b> extends <b>&lt;cdk-stepper&gt;</b>
                     <br>
                     Find documentation for <b>&lt;cdk-stepper&gt;</b> at <a
-                        href="https://material.angular.io/cdk/stepper/api#CdkStepper">here</a>.
+                       href="https://material.angular.io/cdk/stepper/api#CdkStepper">here</a>.
                 </p>
                 <table class="np-table">
                     <tr>
@@ -62,7 +62,7 @@
                     <b>&lt;np-step&gt;</b> extends <b>&lt;cdk-step&gt;</b>
                     <br>
                     Find documentation for <b>&lt;cdk-step&gt;</b> at <a
-                        href="https://material.angular.io/cdk/stepper/api#CdkStep">here</a>.
+                       href="https://material.angular.io/cdk/stepper/api#CdkStep">here</a>.
                 </p>
                 <np-alert type="info">
                     <b>Note:</b>&nbsp;Instead of&nbsp;<b>stepLabel</b>&nbsp;use&nbsp;<b>labelTemplate</b>&nbsp;property.
@@ -124,66 +124,97 @@
             <legend>Horizontal Steps</legend>
             <np-steps #stepper>
                 <form>
-                    <np-step label="Add Personal Info" #personalStep [stepControl]="personal">
+                    <np-step label="Add Personal Info"
+                             #personalStep
+                             [stepControl]="personal">
                         <div [formGroup]="personal">
                             <h3>Personal Info</h3>
                             <br>
                             <label>
                                 First Name:
-                                <input type="text" class="np-form-control" formControlName="firstName">
+                                <input type="text"
+                                       class="np-form-control"
+                                       formControlName="firstName">
                             </label>
                             <br>
                             <label>
                                 Last Name:
-                                <input type="text" class="np-form-control" formControlName="lastName">
+                                <input type="text"
+                                       class="np-form-control"
+                                       formControlName="lastName">
                             </label>
                             <div class="np-btn-group">
-                                <button type="button" class="np-btn" npStepNext>Next</button>
+                                <button type="button"
+                                        class="np-btn"
+                                        npStepNext>Next</button>
                             </div>
                         </div>
                     </np-step>
-                    <np-step label="Add Address" #addressStep [stepControl]="address">
+                    <np-step label="Add Address"
+                             #addressStep
+                             [stepControl]="address">
                         <div [formGroup]="address">
                             <h3>Address</h3>
                             <br>
                             <label>
                                 Street:
-                                <input type="text" class="np-form-control" formControlName="street">
+                                <input type="text"
+                                       class="np-form-control"
+                                       formControlName="street">
                             </label>
                             <br>
                             <label>
                                 City:
-                                <input type="text" class="np-form-control" formControlName="city">
+                                <input type="text"
+                                       class="np-form-control"
+                                       formControlName="city">
                             </label>
                             <br>
                             <label>
                                 State:
-                                <input type="text" class="np-form-control" formControlName="state">
+                                <input type="text"
+                                       class="np-form-control"
+                                       formControlName="state">
                             </label>
                             <br>
                             <label>
                                 Zip Code:
-                                <input type="text" class="np-form-control" formControlName="zip">
+                                <input type="text"
+                                       class="np-form-control"
+                                       formControlName="zip">
                             </label>
                             <div class="np-btn-group">
-                                <button type="button" class="np-btn" npStepPrevious>Previous</button>
-                                <button type="button" class="np-btn" npStepNext>Next</button>
+                                <button type="button"
+                                        class="np-btn"
+                                        npStepPrevious>Previous</button>
+                                <button type="button"
+                                        class="np-btn"
+                                        npStepNext>Next</button>
                             </div>
                         </div>
                     </np-step>
-                    <np-step label="Upload Images" #photosStep [stepControl]="photos" [iconCss]="'fa fa-photo'">
+                    <np-step label="Upload Images"
+                             #photosStep
+                             [stepControl]="photos"
+                             [iconCss]="'fa fa-photo'">
                         <div [formGroup]="photos">
                             <h3>Upload Images</h3>
                             <br>
                             <label>
                                 Upload Images:
-                                <input type="file" class="np-form-control" formControlName="images">
+                                <input type="file"
+                                       class="np-form-control"
+                                       formControlName="images">
                             </label>
                             <div class="np-btn-group">
-                                <button type="button" class="np-btn" npStepPrevious>Previous</button>
-                                <button type="button" class="np-btn np-btn-primary">Save</button>
-                                <button type="button" class="np-btn np-btn-danger"
-                                    (click)="stepper.reset()">Reset</button>
+                                <button type="button"
+                                        class="np-btn"
+                                        npStepPrevious>Previous</button>
+                                <button type="button"
+                                        class="np-btn np-btn-primary">Save</button>
+                                <button type="button"
+                                        class="np-btn np-btn-danger"
+                                        (click)="stepper.reset()">Reset</button>
                             </div>
                         </div>
                     </np-step>

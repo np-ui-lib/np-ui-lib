@@ -1,4 +1,7 @@
-import { Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef, TemplateRef, OnDestroy, EventEmitter, Output } from '@angular/core';
+import {
+    Directive, HostListener, Input, AfterViewInit, ComponentRef, ElementRef,
+    TemplateRef, OnDestroy, EventEmitter, Output
+} from '@angular/core';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NpPopoverComponent } from './np-popover.component';
@@ -63,6 +66,14 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
         }
     }
 
+    open() {
+        this._open();
+    }
+
+    close() {
+        this._close();
+    }
+
     @HostListener('mouseover')
     _showOnMouseEnter() {
         if (this.openOnClick) {
@@ -108,13 +119,5 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
             this.overlayRef.detach();
             this.onClose.emit();
         }
-    }
-
-    open() {
-        this._open();
-    }
-
-    close() {
-        this._close();
     }
 }

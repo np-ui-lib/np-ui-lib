@@ -127,7 +127,7 @@
       "projectType": "library",
       "root": "projects/np-ui-lib",
       "sourceRoot": "projects/np-ui-lib/src",
-      "prefix": "lib",
+      "prefix": "np",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

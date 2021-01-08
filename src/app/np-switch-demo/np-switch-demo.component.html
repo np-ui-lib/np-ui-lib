@@ -1,4 +1,4 @@
-<h2>Switch</h2>
+<h2 class="page-header">Switch</h2>
 
 <np-tabs (onTabChange)="onTabChange($event)">
     <np-tab title="Documentation">
@@ -152,14 +152,18 @@
         </np-card>
     </np-tab>
 
-    <np-tab id="tabExample" title="Examples">
+    <np-tab id="tabExample"
+            title="Examples">
 
         <div>
             <fieldset>
                 <legend>Basic switch</legend>
-                <np-switch #switchControl [(ngModel)]="switch1" [inputId]="'txtSwitch'"></np-switch>
+                <np-switch #switchControl
+                           [(ngModel)]="switch1"
+                           [inputId]="'txtSwitch'"></np-switch>
                 <div>Selected Value : {{switch1}}</div>
-                <button class="np-btn" (click)="switch1 = !switch1">Toggle Value</button>
+                <button class="np-btn"
+                        (click)="switch1 = !switch1">Toggle Value</button>
             </fieldset>
         </div>
 
@@ -174,23 +178,28 @@
         <div>
             <fieldset>
                 <legend>disabled and readOnly</legend>
-                <np-switch [(ngModel)]="switch3" disabled></np-switch>
+                <np-switch [(ngModel)]="switch3"
+                           disabled></np-switch>
                 <br>
-                <np-switch [(ngModel)]="switch3" [readOnly]="true"></np-switch>
+                <np-switch [(ngModel)]="switch3"
+                           [readOnly]="true"></np-switch>
             </fieldset>
         </div>
 
         <div>
             <fieldset>
                 <legend>required</legend>
-                <np-switch [(ngModel)]="switch4" required></np-switch>
+                <np-switch [(ngModel)]="switch4"
+                           required></np-switch>
             </fieldset>
         </div>
 
         <div>
             <fieldset>
                 <legend>trueLabelText and falseLabelText as string</legend>
-                <np-switch [(ngModel)]="switch5" [falseLabelText]="'No'" [trueLabelText]="'Yes'"></np-switch>
+                <np-switch [(ngModel)]="switch5"
+                           [falseLabelText]="'No'"
+                           [trueLabelText]="'Yes'"></np-switch>
                 <div>Selected Value : {{switch5}}</div>
             </fieldset>
         </div>
@@ -198,14 +207,16 @@
         <div>
             <fieldset>
                 <legend>styleClass</legend>
-                <np-switch [(ngModel)]="switch7" [styleClass]="'myClass'"></np-switch>
+                <np-switch [(ngModel)]="switch7"
+                           [styleClass]="'myClass'"></np-switch>
             </fieldset>
         </div>
 
         <div>
             <fieldset>
                 <legend>onChange</legend>
-                <np-switch [(ngModel)]="switch8" (onChange)="onChangeSwitch8($event)"></np-switch>
+                <np-switch [(ngModel)]="switch8"
+                           (onChange)="onChangeSwitch8($event)"></np-switch>
             </fieldset>
         </div>
 

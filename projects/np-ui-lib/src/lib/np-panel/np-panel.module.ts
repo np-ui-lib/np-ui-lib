@@ -6,10 +6,7 @@ import { PortalModule } from '@angular/cdk/portal';
 
 @NgModule({
   declarations: [NpPanelComponent, NpPanelContent],
-  imports: [
-    CommonModule,
-    PortalModule
-  ],
+  imports: [CommonModule, PortalModule],
   exports: [NpPanelComponent, NpPanelContent]
 })
 export class NpPanelModule { }

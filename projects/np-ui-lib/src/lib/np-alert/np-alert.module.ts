@@ -4,9 +4,7 @@ import { NpAlertComponent } from './np-alert.component';
 
 @NgModule({
   declarations: [NpAlertComponent],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [NpAlertComponent]
 })
 export class NpAlertModule { }
