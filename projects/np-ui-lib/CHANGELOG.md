@@ -3,6 +3,10 @@
 
 ## Change log and decision tracker
 
+## 11.0.1
+- Resolved entry component issue in Modal and Dialog
+- Add inputId in popup menubar directive
+
 ## 11.0.0
 - Upgrade to Angular 11
 

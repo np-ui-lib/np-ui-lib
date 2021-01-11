@@ -15,6 +15,7 @@ import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
     NpUtilityModule,
     NpTranslationsModule
   ],
+  entryComponents: [NpDialogComponent],
   exports: [NpDialogComponent]
 })
 export class NpDialogModule { }

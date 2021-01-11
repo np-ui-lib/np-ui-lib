@@ -16,10 +16,6 @@
                 <div>
                     <pre><code [innerText]="htmlText"></code></pre>
                 </div>
-                <b>Popup menu HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlPanelMenuText"></code></pre>
-                </div>
                 <np-alert type="info">
                     Set parent element's width attribute to set width of menu for vertical and panel menubar.
                 </np-alert>
@@ -27,6 +23,7 @@
         </np-card>
         <np-card>
             <np-card-body>
+                <b>&lt;np-menubar&gt;</b>
                 <table class="np-table">
                     <tr>
                         <th>Property</th>
@@ -169,6 +166,41 @@
                         <td>Set menu as header, if it is set as true then only set label, iconCss property.</td>
                         <td>boolean</td>
                         <td>false</td>
+                    </tr>
+                </table>
+            </np-card-body>
+        </np-card>
+        <np-card>
+            <np-card-body>
+                <b>How to set popup menu?</b>
+                <div> Use <b>npPopupMenubar</b> directive to set popup menu. </div>
+                <div>
+                    <pre><code [innerText]="htmlPanelMenuText"></code></pre>
+                </div>
+                <table class="np-table">
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                    </tr>
+                    <tr>
+                        <td>items</td>
+                        <td>Array of menu items in hierarchical structure</td>
+                        <td>NpMenuItem[]</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>styleClass</td>
+                        <td>Add extra class to component</td>
+                        <td>string</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>Set id attribute</td>
+                        <td>string</td>
+                        <td></td>
                     </tr>
                 </table>
             </np-card-body>

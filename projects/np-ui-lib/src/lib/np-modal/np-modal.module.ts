@@ -13,6 +13,7 @@ import { NpModalService } from './np-modal.service';
         PortalModule
     ],
     exports: [NpModalContainerComponent],
+    entryComponents: [NpModalContainerComponent],
     providers: [NpModalService]
 })
 export class NpModalModule { }

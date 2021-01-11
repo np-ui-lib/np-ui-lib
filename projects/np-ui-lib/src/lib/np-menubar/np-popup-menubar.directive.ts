@@ -14,8 +14,11 @@ import { TopBottomOverlayPositions } from '../np-utility/np-constants';
 })
 export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
 
+    private static controlCount = 1;
+
     @Input() items: NpMenuItem[];
     @Input() styleClass: string;
+    @Input() inputId = `np-popup-menubar_${NpPopupMenubarDirective.controlCount++}`;
 
     @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 
@@ -68,6 +71,7 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
         const menubarRef: ComponentRef<NpMenubarComponent> = this.overlayRef.attach(menubarPortal);
         menubarRef.instance.items = this.items;
         menubarRef.instance.styleClass = this.styleClass;
+        menubarRef.instance.inputId = this.inputId;
         menubarRef.instance.onClickMenuItem = this.onClickMenuItem;
     }
 
