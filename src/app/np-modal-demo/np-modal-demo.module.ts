@@ -21,6 +21,7 @@ import { NpModalDemoChildComponent } from './np-modal-demo-child/np-modal-demo-c
     NpTabsModule,
     NpCardModule,
     NpUtilityModule
-  ]
+  ],
+  entryComponents: [NpModalDemoChildComponent]
 })
 export class NpModalDemoModule { }
