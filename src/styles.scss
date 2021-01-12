@@ -16,6 +16,10 @@
         font-size: 1.5rem;
     }
 
+    .header-menu-btn:hover {
+        opacity: 0.9;
+    }
+
     .header-menu-btn i {
         margin: 8px;
     }
@@ -34,6 +38,14 @@
 
     .logo-link i {
         font-size: 30px !important;
+    }
+
+    .logo-background {
+        fill: $primary-color;
+    }
+
+    .logo-text {
+        fill: #ffffff;
     }
 
     .page-header {
@@ -108,36 +120,41 @@
         margin-bottom: 10px;
     }
 
-    .overview-1 {
-        background-color: #1e7e34 !important;
+    .overview-card {
         color: white;
         border: none !important;
+    }
+
+    .overview-card .np-card-body {
+        padding: 20px;
+    }
+
+    .overview-1 {
+        background-color: #1e7e34 !important;
     }
 
     .overview-2 {
         background-color: #d9534f !important;
-        color: white;
-        border: none !important;
     }
 
     .overview-3 {
         background-color: #117a8b !important;
-        color: white;
-        border: none !important;
     }
 
     .overview-4 {
         background-color: #d39e00 !important;
-        color: white;
-        border: none !important;
     }
 
     .overview-header {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+    }
+
+    .overview-card .fa {
+        padding-right: 10px;
     }
 
     .overview-number {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: bolder;
         float: right;
     }
