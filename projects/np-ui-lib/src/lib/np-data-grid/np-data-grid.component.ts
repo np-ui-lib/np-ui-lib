@@ -398,7 +398,11 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       if (this.isODataOperations) {
         const top = options.pageSize;
         const skip = (options.currentPage - 1) * options.pageSize;
-        loadOpt.odataQuery = this.oDataService.buildQuery(top, skip, this.sortColumnList, this.filterColumnList);
+        loadOpt.odataQuery = this.oDataService.buildQuery(
+          top,
+          skip,
+          this.sortColumnList,
+          this.filterColumnList);
         loadOpt.pageNumber = 0;
         loadOpt.pageSize = 0;
         loadOpt.sortColumns = [];
@@ -436,7 +440,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     this.visibleColumns = this.utilityService.custFilter(this.columnsClone,
       (element: Column) => { if (element.visible === true) { return element; } });
     this.isFilterAvailable = this.utilityService.custFilter(this.columnsClone,
-      (element) => { if (element.filterEnable === true && element.visible === true) { return element; } }).length > 0;
+      (element) => {
+        if (element.filterEnable === true && element.visible === true) { return element; }
+      }).length > 0;
   }
 
   _onCellClick($event: any, column: Column, data: any) {
@@ -455,7 +461,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       this._removeSortingFromColumn(column);
       return;
     }
-    const sortOrder = column.sortDirection === SortDirections.Ascending ? SortDirections.Descending : SortDirections.Ascending;
+    const sortOrder = column.sortDirection === SortDirections.Ascending
+      ? SortDirections.Descending
+      : SortDirections.Ascending;
     if (!this.multiColumnSortEnable) {
       this._removeAllSorting();
     }
@@ -508,7 +516,10 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       this._resetDataSource();
       this._filterDataSource();
       for (const element of this.sortColumnList) {
-        this.dataSourceClone.data = this.utilityService.custSort(this.dataSourceClone.data, element.dataField, element.sortDirection);
+        this.dataSourceClone.data = this.utilityService.custSort(
+          this.dataSourceClone.data,
+          element.dataField,
+          element.sortDirection);
       }
     }
     this.gridPaginator.loadPage(1);
@@ -525,14 +536,20 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       column.filterValue = undefined;
       isForceFilter = true;
     }
-    if (!isForceFilter && (column.filterValue === undefined || column.filterValue === null || column.filterValue.length === 0
-      || column.filterOperator === undefined || column.filterOperator === null)) {
+    if (!isForceFilter && (column.filterValue === undefined
+      || column.filterValue === null
+      || column.filterValue.length === 0
+      || column.filterOperator === undefined
+      || column.filterOperator === null)) {
       return;
     }
     const currentFilterList = [];
     for (const element of this.columnsClone) {
-      if (element.filterOperator === undefined || element.filterOperator === null
-        || element.filterValue === undefined || element.filterValue === null || element.filterValue.toString().length === 0) {
+      if (element.filterOperator === undefined
+        || element.filterOperator === null
+        || element.filterValue === undefined
+        || element.filterValue === null
+        || element.filterValue.toString().length === 0) {
         continue;
       }
       else {
@@ -734,7 +751,10 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       if (element.name === currentStateName) {
         element.columns = columns;
         editedState = element;
-        this.modalService.open(NpDialogComponent, null, { type: 'alert', message: this.translationsService.translate('Saved_Successfully') });
+        this.modalService.open(NpDialogComponent, null,
+          {
+            type: 'alert', message: this.translationsService.translate('Saved_Successfully')
+          });
       }
     }
     if (this.onStatesUpdate) {
@@ -756,7 +776,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       return;
     }
     const name = stateName.trim();
-    const state = this.stateList.filter((element: State) => { if (element.name === name) { return element; } });
+    const state = this.stateList.filter((element: State) => {
+      if (element.name === name) { return element; }
+    });
     if (state && state.length > 0) {
       this.nameAlreadyExistError = true;
       return;
@@ -794,7 +816,10 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     if (this.onStatesUpdate) {
       this.onStatesUpdate.emit({ action: 'delete', state: deletedState });
     }
-    this.modalService.open(NpDialogComponent, null, { type: 'alert', message: this.translationsService.translate('Deleted_Successfully') });
+    this.modalService.open(NpDialogComponent, null,
+      {
+        type: 'alert', message: this.translationsService.translate('Deleted_Successfully')
+      });
   }
 
   _loadState() {
@@ -835,7 +860,10 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     const loadOpt = new LoadOptions();
     if (this.isServerExport) {
       if (this.isODataOperations) {
-        loadOpt.odataQuery = this.oDataService.buildQuery(0, 0, this.sortColumnList, this.filterColumnList, 'allpages');
+        loadOpt.odataQuery = this.oDataService.buildQuery(0, 0,
+          this.sortColumnList,
+          this.filterColumnList,
+          'allpages');
         loadOpt.isAllPages = true;
       } else {
         loadOpt.pageNumber = 1;
@@ -849,7 +877,10 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
     if (this.isServerOperations) {
       if (this.isODataOperations) {
-        loadOpt.odataQuery = this.oDataService.buildQuery(0, 0, this.sortColumnList, this.filterColumnList, 'allpages');
+        loadOpt.odataQuery = this.oDataService.buildQuery(0, 0,
+          this.sortColumnList,
+          this.filterColumnList,
+          'allpages');
         loadOpt.isAllPages = true;
       } else {
         loadOpt.pageNumber = 1;

@@ -145,7 +145,7 @@ export class NpRichTextComponent implements ControlValueAccessor {
       document.getSelection().addRange(this.currentSelectionRange);
       this.foreColor = color;
       if (color) {
-        this._formatDoc('foreColor', color)
+        this._formatDoc('foreColor', color);
       } else {
         document.execCommand('removeFormat', false, 'foreColor');
       }
@@ -174,7 +174,7 @@ export class NpRichTextComponent implements ControlValueAccessor {
       document.getSelection().addRange(this.currentSelectionRange);
       this.backColor = color;
       if (color) {
-        this._formatDoc('backColor', color)
+        this._formatDoc('backColor', color);
       } else {
         document.execCommand('removeFormat', false, 'backColor');
       }

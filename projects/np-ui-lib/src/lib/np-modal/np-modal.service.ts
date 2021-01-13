@@ -1,5 +1,5 @@
 import { Overlay, OverlayConfig, OverlayPositionBuilder } from '@angular/cdk/overlay';
-import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
+import { ComponentPortal } from '@angular/cdk/portal';
 import { Injectable, Injector, TemplateRef, Type } from '@angular/core';
 import { NpModalRef } from './np-modal-ref';
 import { NpModalContainerComponent } from './np-modal-container.component';
@@ -34,18 +34,16 @@ export class NpModalService {
         });
         const overlayRef = this.overlay.create(overlayConfig);
         const myOverlayRef = new NpModalRef(overlayRef, content, config, data);
-        const portalInjector = this.createInjector(myOverlayRef, this.injector);
+        const injector = Injector.create({
+            parent: this.injector,
+            providers: [{ provide: NpModalRef, useValue: myOverlayRef }]
+        });
+
         if (content !== NpDialogComponent) {
-            overlayRef.attach(new ComponentPortal(NpModalContainerComponent, null, portalInjector));
+            overlayRef.attach(new ComponentPortal(NpModalContainerComponent, null, injector));
         } else {
-            overlayRef.attach(new ComponentPortal(NpDialogComponent, null, portalInjector));
+            overlayRef.attach(new ComponentPortal(NpDialogComponent, null, injector));
         }
         return myOverlayRef;
-    }
-
-    private createInjector(ref: NpModalRef, inj: Injector) {
-        const injectorTokens = new WeakMap();
-        injectorTokens.set(NpModalRef, ref);
-        return new PortalInjector(inj, injectorTokens);
     }
 }
