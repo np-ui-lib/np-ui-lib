@@ -183,6 +183,14 @@ const routes: Routes = [
     loadChildren: () => import('./np-rich-text-demo/np-rich-text-demo.module').then(m => m.NpRichTextDemoModule)
   },
   {
+    path: 'np-toolbar-demo',
+    loadChildren: () => import('./np-toolbar-demo/np-toolbar-demo.module').then(m => m.NpToolbarDemoModule)
+  },
+  {
+    path: 'np-directives-demo',
+    loadChildren: () => import('./np-directives-demo/np-directives-demo.module').then(m => m.NpDirectivesDemoModule)
+  },
+  {
     path: '**',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

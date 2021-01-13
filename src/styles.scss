@@ -145,18 +145,21 @@
         background-color: #d39e00 !important;
     }
 
-    .overview-header {
+    .overview-icon {
         font-size: 1.5rem;
+        padding-bottom: 10px;
+        text-align: center;
     }
 
-    .overview-card .fa {
-        padding-right: 10px;
+    .overview-header {
+        font-size: 1.5rem;
+        padding-bottom: 10px;
+        text-align: center;
     }
 
     .overview-number {
         font-size: 1.5rem;
-        font-weight: bolder;
-        float: right;
+        text-align: center;
     }
 
     .pricing-table .np-card-body {

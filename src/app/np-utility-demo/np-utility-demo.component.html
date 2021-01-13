@@ -120,34 +120,6 @@
 <np-card>
   <np-card-body>
     <fieldset>
-      <legend>Toolbar</legend>
-      <div class="np-toolbar">
-        <div class="np-toolbar-item"><button class="np-btn-icon"><i class="fa fa-bars"></i></button></div>
-        <div class="np-toolbar-item"><button class="np-btn-icon"><i class="fa fa-android"></i></button></div>
-        <div class="np-toolbar-separator"></div>
-        <div class="np-toolbar-item"><button class="np-btn-icon"><i class="fa fa-apple"></i></button></div>
-        <div class="np-toolbar-item"><button class="np-btn-icon"><i class="fa fa-battery-full"></i></button></div>
-        <div class="np-toolbar-spacer"></div>
-        <div class="np-toolbar-item">
-          <select class="np-form-control">
-            <option>Select</option>
-          </select>
-        </div>
-        <div class="np-toolbar-item"><button class="np-btn-icon"><i class="fa fa-calendar"></i></button></div>
-      </div>
-      <pre><code [innerText]="toolbarCode"></code></pre>
-      <p>
-        Use <b>.np-toolbar-spacer</b> class to separate items left and right.
-        All the items after this class will be shown on right side.
-      </p>
-      <p>Use <b>.np-toolbar-separator</b> class to seprate items.</p>
-    </fieldset>
-  </np-card-body>
-</np-card>
-
-<np-card>
-  <np-card-body>
-    <fieldset>
       <legend>Template-Driven Form</legend>
       <form #myForm="ngForm">
         <div class="np-container">
@@ -291,26 +263,6 @@
           </div>
         </div>
       </form>
-    </fieldset>
-  </np-card-body>
-</np-card>
-
-<np-card>
-  <np-card-body>
-    <fieldset>
-      <legend>How to Highlight Text?</legend>
-      <pre><code>{{highlightTextCode}}</code></pre>
-      <p [innerHTML]="text | npHighlight: 'paragraph'"></p>
-    </fieldset>
-  </np-card-body>
-</np-card>
-
-<np-card>
-  <np-card-body>
-    <fieldset>
-      <legend>Add autofocus to input control</legend>
-      <p>npAutofocus directive is available in NpUtilityModule.</p>
-      <pre><code>{{autofocusTextCode}}</code></pre>
     </fieldset>
   </np-card-body>
 </np-card>

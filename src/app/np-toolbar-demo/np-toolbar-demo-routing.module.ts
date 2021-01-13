@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NpTooltipDemoComponent } from './np-tooltip-demo.component';
+import { NpToolbarDemoComponent } from './np-toolbar-demo.component';
 
 const routes: Routes = [{
   path: '',
-  component: NpTooltipDemoComponent
+  component: NpToolbarDemoComponent
 }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class NpTooltipDemoRoutingModule { }
+export class NpToolbarDemoRoutingModule { }

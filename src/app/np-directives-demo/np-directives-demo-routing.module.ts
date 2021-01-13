@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NpDropdownDemoComponent } from './np-dropdown-demo.component';
+import { NpDirectivesDemoComponent } from './np-directives-demo.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: NpDropdownDemoComponent
+    component: NpDirectivesDemoComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class NpDropdownDemoRoutingModule { }
+export class NpDirectivesDemoRoutingModule { }

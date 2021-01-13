@@ -11,6 +11,7 @@
   .np-progress-bar {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     color: #ffffff;
     background-color: $primary-color;
     line-height: 1rem;

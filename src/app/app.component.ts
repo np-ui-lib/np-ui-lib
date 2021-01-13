@@ -54,6 +54,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ isHeader: true, label: 'Menu' }),
     new NpMenuItem({ routerLink: '/np-menubar-demo', label: 'Menubar' }),
     new NpMenuItem({ routerLink: '/np-breadcrumb-demo', label: 'Breadcrumb' }),
+    new NpMenuItem({ routerLink: '/np-toolbar-demo', label: 'Toolbar' }),
     new NpMenuItem({ isHeader: true, label: 'Data' }),
     new NpMenuItem({ routerLink: '/np-data-grid-demo', label: 'Data Grid', items: this.dataGridItems }),
     new NpMenuItem({ routerLink: '/np-paginator-demo', label: 'Paginator' }),
@@ -61,6 +62,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-tree-view-demo', label: 'Tree view' }),
     new NpMenuItem({ routerLink: '/np-list-demo', label: 'List' }),
     new NpMenuItem({ routerLink: '/np-virtual-scroll-demo', label: 'Virtual Scroll' }),
+    new NpMenuItem({ routerLink: '/np-calendar-demo', label: 'Calendar' }),
     new NpMenuItem({ isHeader: true, label: 'Panel' }),
     new NpMenuItem({ routerLink: '/np-panel-demo', label: 'Panel' }),
     new NpMenuItem({ routerLink: '/np-accordion-demo', label: 'Accordion' }),
@@ -78,12 +80,12 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-blockui-demo', label: 'Block Ui' }),
     new NpMenuItem({ routerLink: '/np-tooltip-demo', label: 'Tooltip' }),
     new NpMenuItem({ routerLink: '/np-popover-demo', label: 'Popover' }),
-    new NpMenuItem({ isHeader: true, label: 'Other' }),
+    new NpMenuItem({ isHeader: true, label: 'Misc' }),
     new NpMenuItem({ routerLink: '/np-progress-demo', label: 'Progress' }),
-    new NpMenuItem({ routerLink: '/np-calendar-demo', label: 'Calendar' }),
-    new NpMenuItem({ routerLink: '/np-grid-layout-demo', label: 'Grid Layout' }),
     new NpMenuItem({ routerLink: '/np-mask-demo', label: 'Masking' }),
-    new NpMenuItem({ routerLink: '/np-utility-demo', label: 'Other Utility' })
+    new NpMenuItem({ routerLink: '/np-grid-layout-demo', label: 'Grid Layout' }),
+    new NpMenuItem({ routerLink: '/np-utility-demo', label: 'Other Utility' }),
+    new NpMenuItem({ routerLink: '/np-directives-demo', label: 'Directives' })
   ];
 
   showMenu: boolean;

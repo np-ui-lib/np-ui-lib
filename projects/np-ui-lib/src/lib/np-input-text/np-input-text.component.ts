@@ -31,6 +31,7 @@ export class NpInputTextComponent implements ControlValueAccessor, Validator {
   @Input() pattern: string;
   @Input() prefixLabel: string;
   @Input() suffixLabel: string;
+  @Input() mask: string;
   @Input() placeholder = '';
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;

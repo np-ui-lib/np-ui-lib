@@ -1,8 +1,5 @@
-import { Injectable } from '@angular/core';
-
 export interface StringHashMap<T> { [key: string]: T; }
 
-@Injectable()
 export class NpMaskService {
     private formatToRegExp: StringHashMap<RegExp> = {
         0: /[0-9]/, a: /[a-z]/, A: /[A-Z]/, B: /[a-zA-Z]/,

@@ -24,11 +24,11 @@ npm i np-ui-lib
 1.  Dropdown
 1.  Auto Complete
 1.  Tags
-1.  Number box
+1.  Number Box
 1.  File Upload
 1.  Slider
 1.  Checkbox
-1.  Radio Button
+2.  Radio Button
 1.  Menubar
 1.  Breadcrumb
 1.  Data Grid
@@ -52,12 +52,15 @@ npm i np-ui-lib
 1.  List
 1.  Virtual Scroll
 1.  Sidepanel
-1.  Grid Layout
 1.  Masking
 1.  Calendar
 1.  Rich Text
-1.  Themes
 1.  i18N
+1.  Themes
+1.  Grid Layout
+1.  Button and Button Group
+1.  Badges
+1.  Toolbar
 
 ### Import css to your application:
 ````css
