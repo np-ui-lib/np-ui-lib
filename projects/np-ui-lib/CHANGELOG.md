@@ -5,6 +5,7 @@
 
 ## 11.0.2
 - Minor bug fixes
+- Add trueFilterText, falseFilterText properties in column model of datagrid
 
 ## 11.0.1
 - Resolved entry component issue in Modal and Dialog

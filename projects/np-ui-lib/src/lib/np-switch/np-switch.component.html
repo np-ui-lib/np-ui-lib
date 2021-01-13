@@ -21,13 +21,11 @@
            (focus)="_onFocus($event)" />
     <div class="np-switch-label"
          [ngClass]="{ 'np-switch-danger': value === false }">
-      <span>{{
-        (falseLabelText ? falseLabelText : "False") | npTranslate
-        }}</span>
+      <span>{{ falseLabelText ? falseLabelText : ("False" | npTranslate) }}</span>
     </div>
     <div class="np-switch-label"
          [ngClass]="{ 'np-switch-success': value === true }">
-      <span>{{ (trueLabelText ? trueLabelText : "True") | npTranslate }}</span>
+      <span>{{ trueLabelText ? trueLabelText : ("True"| npTranslate) }}</span>
     </div>
   </label>
 </div>

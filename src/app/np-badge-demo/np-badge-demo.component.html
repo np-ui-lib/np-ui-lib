@@ -1,0 +1,45 @@
+<h2 class="page-header">Badge</h2>
+
+<np-card>
+    <np-card-body>
+        <fieldset>
+            <legend>Badges</legend>
+
+            <div>
+                <pre><code [innerText]="badgeText"></code></pre>
+            </div>
+
+            <p>Use <b>np-badge-primary, np-badge-success, np-badge-danger, np-badge-warning, np-badge-info</b> classes
+                to set colors for badges.</p>
+
+            <span class="np-badge">Basic</span>
+            <span class="np-badge np-badge-primary">Priamry</span>
+            <span class="np-badge np-badge-success">Success</span>
+            <span class="np-badge np-badge-danger">Error</span>
+            <span class="np-badge np-badge-warning">Warning</span>
+            <span class="np-badge np-badge-info">Info</span>
+
+            <p>Use <b>np-badge-left, np-badge-right</b> classes to set margins for badges.</p>
+            <div class="np-btn-group">
+                <button class="np-btn">
+                    <span class="np-badge np-badge-primary np-badge-left">5</span>Basic
+                </button>
+                <button class="np-btn np-btn-primary">
+                    <span class="np-badge np-badge-left">200</span>Primary
+                </button>
+                <button class="np-btn np-btn-success">
+                    <span class="np-badge np-badge-danger np-badge-left">99+</span>Success
+                </button>
+                <button class="np-btn np-btn-danger">
+                    Error<span class="np-badge np-badge-warning np-badge-right">999+</span>
+                </button>
+                <button class="np-btn np-btn-warning">
+                    Warning<span class="np-badge np-badge-info np-badge-right">New</span>
+                </button>
+                <button class="np-btn np-btn-info">
+                    Info<span class="np-badge np-badge-success np-badge-right">10</span>
+                </button>
+            </div>
+        </fieldset>
+    </np-card-body>
+</np-card>

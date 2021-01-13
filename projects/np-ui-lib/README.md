@@ -28,11 +28,14 @@ npm i np-ui-lib
 1.  File Upload
 1.  Slider
 1.  Checkbox
-2.  Radio Button
+1.  Radio Button
+1.  Rich Text
 1.  Menubar
 1.  Breadcrumb
+1.  Toolbar
 1.  Data Grid
 1.  Paginator
+1.  Calendar
 1.  Alert
 1.  Notification
 1.  Tooltip
@@ -53,14 +56,12 @@ npm i np-ui-lib
 1.  Virtual Scroll
 1.  Sidepanel
 1.  Masking
-1.  Calendar
-1.  Rich Text
 1.  i18N
 1.  Themes
 1.  Grid Layout
 1.  Button and Button Group
 1.  Badges
-1.  Toolbar
+1.  Form
 
 ### Import css to your application:
 ````css

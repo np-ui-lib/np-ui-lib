@@ -1,0 +1,77 @@
+<h2 class="page-header">Button</h2>
+
+<np-card>
+    <np-card-body>
+        <fieldset>
+            <legend>Button and Button Group</legend>
+            <div>
+                <pre><code [innerText]="basicButton"></code></pre>
+            </div>
+            <div class="np-btn-group">
+                <button class="np-btn">Normal</button>
+                <button class="np-btn np-btn-primary">Primary</button>
+                <button class="np-btn np-btn-success">Success</button>
+                <button class="np-btn np-btn-danger">Error</button>
+                <button class="np-btn np-btn-warning">Warning</button>
+                <button class="np-btn np-btn-info">Info</button>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Small Button</legend>
+            <div>
+                <pre><code [innerText]="smallButton"></code></pre>
+            </div>
+            <div class="np-btn-group">
+                <button class="np-btn np-btn-sm">Normal</button>
+                <button class="np-btn np-btn-primary np-btn-sm">Primary</button>
+                <button class="np-btn np-btn-success np-btn-sm">Success</button>
+                <button class="np-btn np-btn-danger np-btn-sm">Error</button>
+                <button class="np-btn np-btn-warning np-btn-sm">Warning</button>
+                <button class="np-btn np-btn-info np-btn-sm">Info</button>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Icon</legend>
+            <div>
+                <pre><code [innerText]="iconButton"></code></pre>
+            </div>
+            <div class="np-btn-group">
+                <button type="button"
+                        class="np-btn-icon">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <button type="button"
+                        class="np-btn-icon np-btn-primary">
+                    <i class="fa fa-home"></i>
+                </button>
+                <button type="button"
+                        class="np-btn-icon  np-btn-success">
+                    <i class="fa fa-camera"></i>
+                </button>
+                <button type="button"
+                        class="np-btn-icon np-btn-danger">
+                    <i class="fa fa-automobile"></i>
+                </button>
+                <button type="button"
+                        class="np-btn-icon np-btn-warning">
+                    <i class="fa fa-bell"></i>
+                </button>
+                <button type="button"
+                        class="np-btn-icon np-btn-info">
+                    <i class="fa fa-user"></i>
+                </button>
+            </div>
+
+            <div class="np-btn-group">
+                <button class="np-btn np-btn-success">
+                    Success<i class="fa fa-save np-btn-icon-right"></i>
+                </button>
+                <button class="np-btn np-btn-danger">
+                    <i class="fa fa-trash np-btn-icon-left"></i>Error
+                </button>
+            </div>
+        </fieldset>
+    </np-card-body>
+</np-card>

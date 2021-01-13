@@ -1457,7 +1457,7 @@
   }
 
   .np-badge {
-    background-color: #ffffff;
+    background-color: $background-color;
     text-align: center;
     padding: 2px 5px;
     border-radius: $border-radius;
@@ -1465,6 +1465,11 @@
     margin: 0px 5px;
     color: #080707;
     white-space: nowrap;
+  }
+
+  .np-badge-primary {
+    color: #ffffff;
+    background-color: $primary-color;
   }
 
   .np-badge-success {
@@ -1485,6 +1490,14 @@
   .np-badge-info {
     color: #ffffff;
     background-color: #117a8b;
+  }
+
+  .np-badge-left {
+    margin: 0px 5px 0px 0px;
+  }
+
+  .np-badge-right {
+    margin: 0px 0px 0px 5px;
   }
 
   .np-container {

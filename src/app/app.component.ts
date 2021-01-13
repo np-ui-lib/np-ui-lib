@@ -83,8 +83,10 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ isHeader: true, label: 'Misc' }),
     new NpMenuItem({ routerLink: '/np-progress-demo', label: 'Progress' }),
     new NpMenuItem({ routerLink: '/np-mask-demo', label: 'Masking' }),
+    new NpMenuItem({ routerLink: '/np-button-demo', label: 'Button' }),
+    new NpMenuItem({ routerLink: '/np-badge-demo', label: 'Badge' }),
     new NpMenuItem({ routerLink: '/np-grid-layout-demo', label: 'Grid Layout' }),
-    new NpMenuItem({ routerLink: '/np-utility-demo', label: 'Other Utility' }),
+    new NpMenuItem({ routerLink: '/np-form-demo', label: 'Form' }),
     new NpMenuItem({ routerLink: '/np-directives-demo', label: 'Directives' })
   ];
 
@@ -218,4 +220,3 @@ export class AppComponent implements OnInit {
   }
 
 }
-

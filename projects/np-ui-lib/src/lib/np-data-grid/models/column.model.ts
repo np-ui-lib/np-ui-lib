@@ -20,6 +20,8 @@ export class Column {
         this.rightAlignText = item.rightAlignText;
         this.stickyColumnLeft = item.stickyColumnLeft;
         this.stickyColumnRight = item.stickyColumnRight;
+        this.trueFilterText = item.trueFilterText;
+        this.falseFilterText = item.falseFilterText;
     }
 
     public dataField: string;
@@ -38,4 +40,6 @@ export class Column {
     public rightAlignText: boolean;
     public stickyColumnLeft: boolean;
     public stickyColumnRight: boolean;
+    public trueFilterText: string;
+    public falseFilterText: string;
 }

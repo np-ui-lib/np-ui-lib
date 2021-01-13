@@ -23,6 +23,8 @@ export class NpTranslatePipe implements PipeTransform, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.subscription.unsubscribe();
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 }

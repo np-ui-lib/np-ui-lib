@@ -36,7 +36,10 @@ export class CelltemplateGridComponent implements OnInit {
       new Column({ dataField: 'LastName', visible: true, caption: 'Last Name', dataType: DataTypes.String, sortEnable: true, filterEnable: true }),
       new Column({ dataField: 'BirthDate', visible: true, caption: 'Birth Date', dataType: DataTypes.Date, sortEnable: true, filterEnable: true, cellTemplate: this.birthDateColumnTemplate }),
       new Column({ dataField: 'Age', visible: true, caption: 'Age', dataType: DataTypes.Number, sortEnable: true, filterEnable: true }),
-      new Column({ dataField: 'Active', visible: true, caption: 'Is Active?', dataType: DataTypes.Boolean, sortEnable: true, filterEnable: true, cellTemplate: this.activeColumnTemplate, width: 100 }),
+      new Column({
+        dataField: 'Active', visible: true, caption: 'Is Active?', dataType: DataTypes.Boolean, sortEnable: true, filterEnable: true,
+        cellTemplate: this.activeColumnTemplate, width: 100, trueFilterText: 'Yes', falseFilterText: 'No'
+      }),
       new Column({ visible: true, cellTemplate: this.actionButtonsTemplate, width: 130 })];
 
     this.dataService.getAll().subscribe((data: any) => {

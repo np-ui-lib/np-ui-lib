@@ -238,8 +238,10 @@
                           hidden>
                     {{ "Select" | npTranslate }}
                   </option>
-                  <option [value]="true">{{ "True" | npTranslate }}</option>
-                  <option [value]="false">{{ "False" | npTranslate }}</option>
+                  <option [value]="true">{{ column.trueFilterText ? column.trueFilterText : ("True" | npTranslate) }}
+                  </option>
+                  <option [value]="false">{{ column.falseFilterText ? column.falseFilterText : ("False" | npTranslate)
+                    }}</option>
                 </select>
               </ng-container>
             </th>
