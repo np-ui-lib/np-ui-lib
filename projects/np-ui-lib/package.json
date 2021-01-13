@@ -1,11 +1,17 @@
 {
     "name": "np-ui-lib",
     "version": "11.0.2",
+    "private": false,
     "author": {
         "name": "nilav patel",
         "email": "nilavpatel1992@gmail.com",
         "url": "http://nilavpatel.github.io"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NilavPatel/np-ui-package.git"
+    },
+    "license": "MIT",
     "peerDependencies": {
         "@angular/common": "^11.0.6",
         "@angular/core": "^11.0.6",
@@ -17,12 +23,6 @@
     "dependencies": {
         "tslib": "^2.0.0"
     },
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/NilavPatel/np-ui-package.git"
-    },
-    "private": false,
     "keywords": [
         "Angular",
         "Components",
