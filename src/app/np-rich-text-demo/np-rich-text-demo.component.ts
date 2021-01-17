@@ -8,12 +8,22 @@ export class NpRichTextDemoComponent implements OnInit {
 
   importText = 'import { NpRichTextModule } from \'np-ui-lib\';';
   htmlText = '<np-rich-text [(ngModel)]="value"></np-rich-text>';
+  configText = `['bold', 'italic', 'underline', 'strikethrough', 'removeformat',
+'formatblock', 'blockquote', 'fontname', 'fontsize', 'forecolor', 'backcolor',
+'subscript', 'superscript', 'justifyleft', 'justifycenter', 'justifyright',
+'indent', 'outdent', 'insertunorderedlist', 'insertorderedlist', 'createlink',
+'undo', 'redo']`;
+  fontText = `['Arial', 'Arial Black', 'Courier New', 'Times New Roman']`;
 
   rtf1: string;
   isDisabled = false;
   isReadonly = false;
   required = false;
   height: number;
+
+  config = ['bold', 'italic', 'underline', 'strikethrough', 'removeformat',
+    'formatblock', 'blockquote', 'fontname', 'fontsize'];
+  fonts = ['Arial', 'Arial Black'];
 
   constructor() { }
 

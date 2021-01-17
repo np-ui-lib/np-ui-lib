@@ -3,6 +3,11 @@
 
 ## Change log and decision tracker
 
+## 11.0.3
+- Add sub and sup script in rich text editor
+- Add config property to show/hide commands in rich text editor
+- Add fonts property to set dropdown options for fonts in rich text editor
+
 ## 11.0.2
 - Minor bug fixes
 - Add trueFilterText, falseFilterText properties in column model of datagrid

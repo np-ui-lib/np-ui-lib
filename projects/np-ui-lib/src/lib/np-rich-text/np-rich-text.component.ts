@@ -19,9 +19,10 @@ import { NpPopoverDirective } from '../np-popover/np-popover.directive';
   ]
 })
 export class NpRichTextComponent implements ControlValueAccessor {
-
   private static controlCount = 1;
 
+  @Input() config: string[];
+  @Input() fonts: string[];
   @Input() height: number;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
@@ -47,7 +48,7 @@ export class NpRichTextComponent implements ControlValueAccessor {
   isStrikethrough = false;
   currentFormat = 'no value';
   currentFont = 'no value';
-  currentFontSize = 'no value';
+  currentfontsize = 'no value';
   linkUrl: string;
   currentSelectionRange: Range;
   foreColor: string;
@@ -55,6 +56,15 @@ export class NpRichTextComponent implements ControlValueAccessor {
 
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
+
+  constructor() {
+    this.config = ['bold', 'italic', 'underline', 'strikethrough', 'removeformat',
+      'formatblock', 'blockquote', 'fontname', 'fontsize', 'forecolor', 'backcolor',
+      'subscript', 'superscript', 'justifyleft', 'justifycenter', 'justifyright',
+      'indent', 'outdent', 'insertunorderedlist', 'insertorderedlist', 'createlink',
+      'undo', 'redo'];
+    this.fonts = ['Arial', 'Arial Black', 'Courier New', 'Times New Roman'];
+  }
 
   get value(): string {
     return this.innerValue ? this.innerValue : null;
@@ -121,7 +131,7 @@ export class NpRichTextComponent implements ControlValueAccessor {
     setTimeout(() => {
       this.currentFormat = 'no value';
       this.currentFont = 'no value';
-      this.currentFontSize = 'no value';
+      this.currentfontsize = 'no value';
     }, 100);
   }
 
@@ -147,7 +157,7 @@ export class NpRichTextComponent implements ControlValueAccessor {
       if (color) {
         this._formatDoc('foreColor', color);
       } else {
-        document.execCommand('removeFormat', false, 'foreColor');
+        document.execCommand('removeformat', false, 'foreColor');
       }
       this.currentSelectionRange = null;
     }
@@ -176,7 +186,7 @@ export class NpRichTextComponent implements ControlValueAccessor {
       if (color) {
         this._formatDoc('backColor', color);
       } else {
-        document.execCommand('removeFormat', false, 'backColor');
+        document.execCommand('removeformat', false, 'backColor');
       }
       this.currentSelectionRange = null;
     }
@@ -237,4 +247,7 @@ export class NpRichTextComponent implements ControlValueAccessor {
     return hex;
   }
 
+  _isAllowed(permission: string) {
+    return this.config.indexOf(permission) > -1;
+  }
 }
