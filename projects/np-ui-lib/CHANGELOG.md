@@ -7,6 +7,8 @@
 - Add sub and sup script in rich text editor
 - Add config property to show/hide commands in rich text editor
 - Add fonts property to set dropdown options for fonts in rich text editor
+- Add minLength and maxLength validation in rich text editor
+- Style update for card component
 
 ## 11.0.2
 - Minor bug fixes

@@ -16,6 +16,7 @@ export class NpRichTextDemoComponent implements OnInit {
   fontText = `['Arial', 'Arial Black', 'Courier New', 'Times New Roman']`;
 
   rtf1: string;
+  rtf2: string;
   isDisabled = false;
   isReadonly = false;
   required = false;

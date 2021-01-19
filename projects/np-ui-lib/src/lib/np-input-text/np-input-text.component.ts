@@ -14,8 +14,7 @@ import { ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } fro
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NpInputTextComponent),
       multi: true
-    },
-    {
+    }, {
       provide: NG_VALIDATORS,
       useExisting: forwardRef(() => NpInputTextComponent),
       multi: true,

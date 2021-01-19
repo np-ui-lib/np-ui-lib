@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy, Component, ElementRef, EventEmitter, forwardRef,
   Input, Output, ViewChild, ViewEncapsulation
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Validator } from '@angular/forms';
 import { NpPopoverDirective } from '../np-popover/np-popover.directive';
 
 @Component({
@@ -15,12 +15,18 @@ import { NpPopoverDirective } from '../np-popover/np-popover.directive';
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NpRichTextComponent),
       multi: true
+    }, {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => NpRichTextComponent),
+      multi: true,
     }
   ]
 })
-export class NpRichTextComponent implements ControlValueAccessor {
+export class NpRichTextComponent implements ControlValueAccessor, Validator {
   private static controlCount = 1;
 
+  @Input() minLength: number;
+  @Input() maxLength: number;
   @Input() config: string[];
   @Input() fonts: string[];
   @Input() height: number;
@@ -57,7 +63,7 @@ export class NpRichTextComponent implements ControlValueAccessor {
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
-  constructor() {
+  constructor(private el: ElementRef) {
     this.config = ['bold', 'italic', 'underline', 'strikethrough', 'removeformat',
       'formatblock', 'blockquote', 'fontname', 'fontsize', 'forecolor', 'backcolor',
       'subscript', 'superscript', 'justifyleft', 'justifycenter', 'justifyright',
@@ -97,6 +103,24 @@ export class NpRichTextComponent implements ControlValueAccessor {
 
   setDisabledState?(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  validate() {
+    var text = this.el.nativeElement.querySelector('.np-rich-text-input').textContent;
+    if (this.minLength !== undefined && text && text.length < this.minLength) {
+      return {
+        minLength: {
+          valid: false,
+        },
+      };
+    }
+    if (this.maxLength !== undefined && text && text.length > this.maxLength) {
+      return {
+        maxLength: {
+          valid: false,
+        },
+      };
+    }
   }
 
   focus() {
