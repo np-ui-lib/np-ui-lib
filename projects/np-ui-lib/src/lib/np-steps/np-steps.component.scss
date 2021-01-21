@@ -2,7 +2,6 @@
   .np-steps {
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    background-color: #ffffff;
   }
 
   .np-steps-header {
@@ -50,6 +49,7 @@
   .np-step-body {
     padding: 10px;
     overflow: auto;
+    background-color: #ffffff;
   }
 
   .np-step-done {

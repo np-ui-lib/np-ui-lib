@@ -325,18 +325,17 @@
                 </ng-template>
               </td>
             </tr>
-            <ng-container *ngIf="_isOpenChild(data)">
-              <tr class="np-child-row"
-                  id="row_{{ i }}_child">
-                <td [attr.colspan]="_getColSpanForChildRow()">
-                  <ng-container *ngTemplateOutlet="
-                      masterDetailTemplate;
-                      context: { row: data }
-                    ">
-                  </ng-container>
-                </td>
-              </tr>
-            </ng-container>
+            <tr *ngIf="_isOpenChild(data)"
+                class="np-child-row"
+                id="row_{{ i }}_child">
+              <td [attr.colspan]="_getColSpanForChildRow()">
+                <ng-container *ngTemplateOutlet="
+                masterDetailTemplate;
+                context: { row: data }
+              ">
+                </ng-container>
+              </td>
+            </tr>
           </ng-container>
         </tbody>
       </table>

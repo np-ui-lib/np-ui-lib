@@ -7,7 +7,11 @@
         width: 100%;
         z-index: 1000;
         height: 50px;
-        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+        box-shadow: 0 1px 6px 0 rgba(#000000, 0.5);
+    }
+
+    header .np-toolbar {
+        background-color: $primary-color;
     }
 
     .header-menu-btn {
@@ -17,7 +21,17 @@
     }
 
     .header-menu-btn:hover {
-        opacity: 0.9;
+        animation: spin-half 0.5s linear normal;
+    }
+
+    @keyframes spin-half {
+        0% {
+          transform: rotate(0deg);
+        }
+    
+        100% {
+          transform: rotate(180deg);
+        }
     }
 
     .header-menu-btn i {
@@ -53,6 +67,7 @@
         padding: 10px;
         background: $primary-color;
         color: white;
+        font-size: 25px;
     }
 
     section {
@@ -165,7 +180,7 @@
         text-align: center;
     }
 
-    .pricing-table .np-card-body {
+    .pricing-table, .pricing-table .np-card-body{
         padding: 0px;
     }
 
@@ -208,5 +223,9 @@
 
     .no-border {
         border: none !important;
+    }
+
+    .list {
+        margin: 0px;
     }
 }

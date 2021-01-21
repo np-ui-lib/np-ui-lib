@@ -16,7 +16,7 @@ export class NpFormDemoComponent implements OnInit {
       ... add form control, do not add this class if using np-ui-lib input control
     </div>
     <div class="np-form-text np-text-danger">
-      ... add erroe message
+      ... add error message
     </div>
   </div>
 </form>`;

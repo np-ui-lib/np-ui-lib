@@ -2,10 +2,12 @@
   <ng-container *ngIf="item.isHeader">
     <li class="np-menu-header"
         role="none">
-      <i *ngIf="item.iconCss"
-         [class]="item.iconCss"></i>
-      <span class="np-menu-text"
-            [innerHTML]="item.label"></span>
+      <a [attr.id]="item.id">
+        <i *ngIf="item.iconCss"
+           [class]="item.iconCss"></i>
+        <span class="np-menu-text"
+              [innerHTML]="item.label"></span>
+      </a>
     </li>
   </ng-container>
   <ng-container *ngIf="item.items && !item.isHeader">

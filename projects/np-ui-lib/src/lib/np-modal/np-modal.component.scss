@@ -13,7 +13,6 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    background-color: #ffffff;
   }
 
   .np-modal-header {
@@ -34,6 +33,7 @@
   .np-modal-body {
     padding: 10px;
     overflow: auto;
+    background-color: #ffffff;
   }
 
   .np-modal-footer {

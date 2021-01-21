@@ -3,7 +3,6 @@
     border: 1px solid $border-color;
     border-radius: $border-radius;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-    background-color: #ffffff;
   }
 
   .np-popover-target {
@@ -20,5 +19,6 @@
   .np-popover-body {
     padding: 10px;
     overflow: auto;
+    background-color: #ffffff;
   }
 }

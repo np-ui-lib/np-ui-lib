@@ -2,7 +2,6 @@
   .np-accordion-item {
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    background-color: #ffffff;
     margin-bottom: 1px;
     display: flex;
     flex-direction: column;
@@ -40,6 +39,7 @@
     padding: 10px;
     overflow: auto;
     border-top: 1px solid $border-color;
+    background-color: #ffffff;
   }
 
   .np-accordion-title i {

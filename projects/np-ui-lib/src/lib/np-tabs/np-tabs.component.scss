@@ -4,7 +4,6 @@
     flex-direction: column;
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    background-color: #ffffff;
   }
 
   .np-tabs-header {
@@ -45,6 +44,7 @@
   .np-tab-body {
     padding: 10px;
     overflow: auto;
+    background-color: #ffffff;
   }
 
   .np-tabs-vertical {

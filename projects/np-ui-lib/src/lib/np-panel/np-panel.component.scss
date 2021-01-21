@@ -2,7 +2,6 @@
   .np-panel {
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    background-color: #ffffff;
     margin-bottom: 5px;
     display: flex;
     flex-direction: column;
@@ -48,6 +47,8 @@
     padding: 10px;
     overflow: auto;
     border-top: 1px solid $border-color;
+    background-color: #ffffff;
+    height: 100%;
   }
 
   .np-panel-zoom {

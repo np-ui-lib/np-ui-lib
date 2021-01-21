@@ -1,6 +1,5 @@
 @mixin np-calendar-style {
   .np-calendar {
-    background-color: #ffffff;
     position: relative;
     border: 1px solid $border-color;
     border-radius: $border-radius;
@@ -61,6 +60,7 @@
     min-height: 100px;
     position: relative;
     cursor: pointer;
+    background-color: #ffffff;
   }
 
   .np-calendar-day-label {
