@@ -40,7 +40,7 @@ export class CelltemplateGridComponent implements OnInit {
         dataField: 'Active', visible: true, caption: 'Is Active?', dataType: DataTypes.Boolean, sortEnable: true, filterEnable: true,
         cellTemplate: this.activeColumnTemplate, width: 100, trueFilterText: 'Yes', falseFilterText: 'No'
       }),
-      new Column({ visible: true, cellTemplate: this.actionButtonsTemplate, width: 130 })];
+      new Column({ visible: true, cellTemplate: this.actionButtonsTemplate, width: 80 })];
 
     this.dataService.getAll().subscribe((data: any) => {
 

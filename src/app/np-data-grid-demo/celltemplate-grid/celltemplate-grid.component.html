@@ -26,10 +26,10 @@
 <ng-template #actionButtonsTemplate
              let-row="row">
     <div class="np-btn-group">
-        <button class="np-btn np-btn-primary"
-                (click)="onActionClick(row,'Edit', $event)">Edit</button>
-        <button class="np-btn np-btn-danger"
-                (click)="onActionClick(row,'Delete', $event)">Delete</button>
+        <button class="np-btn-icon np-btn-primary"
+                (click)="onActionClick(row,'Edit', $event)"><i class="fa fa-pencil"></i></button>
+        <button class="np-btn-icon np-btn-danger"
+                (click)="onActionClick(row,'Delete', $event)"><i class="fa fa-remove"></i></button>
     </div>
 </ng-template>
 
