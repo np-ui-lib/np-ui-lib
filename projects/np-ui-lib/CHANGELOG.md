@@ -3,6 +3,10 @@
 
 ## Change log and decision tracker
 
+## 11.0.4
+- Some CSS class name changes in datagrid
+- Remove files count from file upload component
+
 ## 11.0.3
 - Add sub and sup script in rich text editor
 - Add config property to show/hide commands in rich text editor
@@ -132,7 +136,7 @@ np-autofocus = npAutofocus
 - Add remove file button in file upload
 - Change ngModel type to File[] in file upload
 - apply date format in export to csv in data grid 
-- Resolved datagrid master child expand collapse issue when expandRowOnClick is true
+- Resolved datagrid master detail expand collapse issue when expandRowOnClick is true
 - Add scrollToIndex and scrollToOffset apis in virtual scroll
 
 ## 10.4.1

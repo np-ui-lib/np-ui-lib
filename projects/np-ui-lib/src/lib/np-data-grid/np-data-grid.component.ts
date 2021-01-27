@@ -67,13 +67,13 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   @Input() pageSize = 10;
   @Input() styleClass: string;
 
+  @Output() onInit: EventEmitter<any> = new EventEmitter();
+  @Output() onAfterInit: EventEmitter<any> = new EventEmitter();
+  @Output() onLoadData: EventEmitter<LoadOptions> = new EventEmitter();
   @Output() onSelect: EventEmitter<any> = new EventEmitter();
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
   @Output() onRowClick: EventEmitter<any> = new EventEmitter();
   @Output() onStatesUpdate: EventEmitter<any> = new EventEmitter();
-  @Output() onInit: EventEmitter<any> = new EventEmitter();
-  @Output() onAfterInit: EventEmitter<any> = new EventEmitter();
-  @Output() onLoadData: EventEmitter<LoadOptions> = new EventEmitter();
   @Output() onServerExport: EventEmitter<LoadOptions> = new EventEmitter();
 
   @ViewChild('columnChooserTemplate') columnChooserTemplate: TemplateRef<any>;
@@ -88,7 +88,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   sortColumnList: any[];
   filterColumnList: any[];
   isFilterAvailable: boolean;
-  enableMasterChild = false;
+  enableMasterDetail = false;
   openRowKeys: any[] = [];
   selectedRowKeys: any[] = [];
   isAllSelected: boolean;
@@ -133,7 +133,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   ngAfterContentInit() {
     if (this.masterDetailTemplate) {
-      this.enableMasterChild = true;
+      this.enableMasterDetail = true;
     }
     this._setColumns();
     if (this.key) {
@@ -694,9 +694,9 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     return this.selectedRowKeys.indexOf(keyValue) > -1;
   }
 
-  _isOpenChild(data: any) {
+  _isOpenDetailRow(data: any) {
     const keyValue = data[this.keyColumnName];
-    if (!this.enableMasterChild) {
+    if (!this.enableMasterDetail) {
       return false;
     }
     return this.openRowKeys.indexOf(keyValue) > -1;
@@ -704,7 +704,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
 
   _rowClick(event: any, data: any) {
     if (this.masterDetailTemplate && this.expandRowOnClick) {
-      if (this._isOpenChild(data)) {
+      if (this._isOpenDetailRow(data)) {
         this._collapseRow(data[this.keyColumnName]);
       } else {
         this._expandRow(data[this.keyColumnName]);
@@ -910,7 +910,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     return this.singleRowSelectEnable || this.multiRowSelectEnable;
   }
 
-  _getColSpanForChildRow() {
+  _getColSpanForDetailRow() {
     return this.visibleColumns.length + (this._allowRowSelection() ? 1 : 0) + 1;
   }
 

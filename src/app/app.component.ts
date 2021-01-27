@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-data-grid-demo/toolbar-grid', label: 'Toolbar, Column Chooser, Export' }),
     new NpMenuItem({ routerLink: '/np-data-grid-demo/columns-grid', label: 'Column Reorder/Resize and Other' }),
     new NpMenuItem({ routerLink: '/np-data-grid-demo/row-select-grid', label: 'Row Selection' }),
-    new NpMenuItem({ routerLink: '/np-data-grid-demo/master-detail-grid', label: 'Master-Detail' }),
+    new NpMenuItem({ routerLink: '/np-data-grid-demo/master-detail-grid', label: 'Master Detail' }),
     new NpMenuItem({ routerLink: '/np-data-grid-demo/summary-grid', label: 'Summary' }),
     new NpMenuItem({ routerLink: '/np-data-grid-demo/state-management-grid', label: 'State Management' }),
     new NpMenuItem({ routerLink: '/np-data-grid-demo/other-grid', label: 'Other' }),

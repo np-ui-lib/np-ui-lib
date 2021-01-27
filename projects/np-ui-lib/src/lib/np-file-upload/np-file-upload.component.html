@@ -23,8 +23,6 @@
              (blur)="_onBlur($event)"
              (focus)="_onFocus($event)" />
       <span class="np-file-btn">{{ _getLabel() | npTranslate }}</span>
-      <span class="np-file-counts"
-            [innerText]="_getFilesCountsText()"></span>
     </label>
     <div class="np-input-group-append"
          *ngIf="value && value.length > 1">

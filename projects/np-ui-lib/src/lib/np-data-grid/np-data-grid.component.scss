@@ -98,7 +98,7 @@
     height: 2rem;
   }
 
-  .np-grid-filter th {
+  .np-row-filter th {
     padding: 5px;
   }
 
@@ -140,6 +140,7 @@
     z-index: 1;
   }
 
+  .np-grid-resize-handle:hover,
   .np-grid-resize-handle:active {
     background-color: $primary-color;
   }
@@ -182,15 +183,11 @@
     background-color: $selected-color;
   }
 
-  .np-grid-toggle-child {
-    padding: 1px !important;
-  }
-
   .np-sort-ascending,
   .np-sort-descending,
   .np-sort-toggle,
-  .np-child-collapse,
-  .np-child-expand {
+  .np-detail-row-collapse,
+  .np-detail-row-expand {
     border: none;
     background-color: transparent;
     margin: 0px;
@@ -202,7 +199,7 @@
     color: inherit;
   }
 
-  .np-child-row {
+  .np-detail-row {
     position: sticky;
     left: 0px;
   }

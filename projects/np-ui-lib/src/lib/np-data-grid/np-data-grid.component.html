@@ -110,7 +110,7 @@
     <div class="np-grid-thead">
       <table role="grid">
         <colgroup>
-          <col *ngIf="enableMasterChild"
+          <col *ngIf="enableMasterDetail"
                style="width: 2.5rem" />
           <col *ngIf="_allowRowSelection()"
                style="width: 2.5rem" />
@@ -118,8 +118,8 @@
                [style.width.px]="column.width" />
         </colgroup>
         <thead>
-          <tr>
-            <th *ngIf="enableMasterChild"></th>
+          <tr class="np-row-header">
+            <th *ngIf="enableMasterDetail"></th>
             <th *ngIf="_allowRowSelection()">
               <np-checkbox *ngIf="multiRowSelectEnable"
                            [(ngModel)]="isAllSelected"
@@ -176,9 +176,9 @@
                    (cdkDragEnded)="_resizeColumn($event, column)"></div>
             </th>
           </tr>
-          <tr class="np-grid-filter"
+          <tr class="np-row-filter"
               *ngIf="isFilterAvailable && showFilters">
-            <th *ngIf="enableMasterChild"></th>
+            <th *ngIf="enableMasterDetail"></th>
             <th *ngIf="_allowRowSelection()"></th>
             <th *ngFor="
                 let column of visibleColumns;
@@ -252,7 +252,7 @@
     <div class="np-grid-tbody">
       <table role="grid">
         <colgroup>
-          <col *ngIf="enableMasterChild"
+          <col *ngIf="enableMasterDetail"
                style="width: 2.5rem" />
           <col *ngIf="_allowRowSelection()"
                style="width: 2.5rem" />
@@ -265,13 +265,14 @@
               let i = index;
               trackBy: _trackBy
             ">
-            <tr id="row_{{ i }}"
+            <tr class="np-row-master"
+                id="row_{{ i }}"
                 [ngClass]="{ 'np-grid-selected': _isSelected(data) }"
                 (click)="_rowClick($event, data)">
-              <td *ngIf="enableMasterChild">
-                <button class="np-child-expand"
+              <td *ngIf="enableMasterDetail">
+                <button class="np-detail-row-expand"
                         type="button"
-                        *ngIf="!_isOpenChild(data); else collapseRowButton"
+                        *ngIf="!_isOpenDetailRow(data); else collapseRowButton"
                         (click)="_onClickExpandRow(data)">
                   <svg class="np-icon"
                        viewBox="0 0 24 24">
@@ -281,7 +282,7 @@
                   </svg>
                 </button>
                 <ng-template #collapseRowButton>
-                  <button class="np-child-collapse"
+                  <button class="np-detail-row-collapse"
                           type="button"
                           (click)="_onClickCollapseRow(data)">
                     <svg class="np-icon"
@@ -325,10 +326,10 @@
                 </ng-template>
               </td>
             </tr>
-            <tr *ngIf="_isOpenChild(data)"
-                class="np-child-row"
-                id="row_{{ i }}_child">
-              <td [attr.colspan]="_getColSpanForChildRow()">
+            <tr *ngIf="_isOpenDetailRow(data)"
+                class="np-row-detail"
+                id="row_{{ i }}_detail">
+              <td [attr.colspan]="_getColSpanForDetailRow()">
                 <ng-container *ngTemplateOutlet="
                 masterDetailTemplate;
                 context: { row: data }

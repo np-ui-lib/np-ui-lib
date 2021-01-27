@@ -21,17 +21,7 @@
     }
 
     .header-menu-btn:hover {
-        animation: spin-half 0.5s linear normal;
-    }
-
-    @keyframes spin-half {
-        0% {
-          transform: rotate(0deg);
-        }
-    
-        100% {
-          transform: rotate(180deg);
-        }
+        transform: scale(1.1);
     }
 
     .header-menu-btn i {
