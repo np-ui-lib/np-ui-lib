@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpModalDemoRoutingModule } from './np-modal-demo-routing.module';
 import { NpModalDemoComponent } from './np-modal-demo.component';
-import { NpModalModule, NpDatePickerModule, NpTimePickerModule, NpSwitchModule, NpTabsModule, NpCardModule, NpUtilityModule } from 'np-ui-lib';
+import { NpModalModule, NpDatePickerModule, NpTimePickerModule, NpSwitchModule, NpTabsModule, NpCardModule, NpAutofocusModule } from 'np-ui-lib';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NpModalDemoChildComponent } from './np-modal-demo-child/np-modal-demo-child.component';
 
@@ -20,7 +20,7 @@ import { NpModalDemoChildComponent } from './np-modal-demo-child/np-modal-demo-c
     NpSwitchModule,
     NpTabsModule,
     NpCardModule,
-    NpUtilityModule
+    NpAutofocusModule
   ],
   entryComponents: [NpModalDemoChildComponent]
 })

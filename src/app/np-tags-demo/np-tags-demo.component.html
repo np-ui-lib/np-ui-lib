@@ -58,6 +58,7 @@
                         <td>itemTemplate</td>
                         <td>Set template for item. Use var let-item="item" in template to access item
                             <pre><code>{{templateText}}</code></pre>
+                            <a routerLink="/np-directives-demo">How to use npHightlight pipe?</a>
                         </td>
                         <td>TemplateRef&lt;any&gt;</td>
                         <td></td>
@@ -294,8 +295,9 @@
                 </np-tags>
                 <div>Selected value : {{tags4 | json}}</div>
                 <ng-template #itemTemplate
-                             let-item="item">
-                    <div>{{item.name}} ( {{item.vitamin}} )</div>
+                             let-item="item"
+                             let-keyword="keyword">
+                    <div><span [innerHTML]="item.name | npHighlight : keyword"></span> ( {{item.vitamin}} )</div>
                 </ng-template>
             </fieldset>
 

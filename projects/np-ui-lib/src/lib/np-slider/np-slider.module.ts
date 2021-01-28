@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NpSliderComponent } from './np-slider.component';
-import { NpUtilityModule } from '../np-utility/np-utility.module';
+import { NpAutofocusModule } from '../np-utility/np-autofocus.module';
 
 @NgModule({
   declarations: [NpSliderComponent],
-  imports: [CommonModule, NpUtilityModule],
+  imports: [CommonModule, NpAutofocusModule],
   exports: [NpSliderComponent]
 })
 export class NpSliderModule { }

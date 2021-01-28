@@ -87,7 +87,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-badge-demo', label: 'Badge' }),
     new NpMenuItem({ routerLink: '/np-grid-layout-demo', label: 'Grid Layout' }),
     new NpMenuItem({ routerLink: '/np-form-demo', label: 'Form' }),
-    new NpMenuItem({ routerLink: '/np-directives-demo', label: 'Directives' })
+    new NpMenuItem({ routerLink: '/np-directives-demo', label: 'Directives & Pipes' })
   ];
 
   showMenu: boolean;

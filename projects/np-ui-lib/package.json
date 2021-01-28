@@ -1,6 +1,6 @@
 {
     "name": "np-ui-lib",
-    "version": "11.0.4",
+    "version": "11.1.0",
     "private": false,
     "author": {
         "name": "nilav patel",
@@ -68,6 +68,7 @@
         "Textarea",
         "i18N",
         "Themes",
-        "Rich Text"
+        "Rich Text",
+        "Defer"
     ]
 }

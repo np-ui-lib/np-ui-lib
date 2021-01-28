@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NpTextareaComponent } from './np-textarea.component';
-import { NpUtilityModule } from '../np-utility/np-utility.module';
+import { NpAutofocusModule } from '../np-utility/np-autofocus.module';
 
 @NgModule({
   declarations: [NpTextareaComponent],
-  imports: [CommonModule, NpUtilityModule],
+  imports: [CommonModule, NpAutofocusModule],
   exports: [NpTextareaComponent]
 })
 export class NpTextareaModule { }

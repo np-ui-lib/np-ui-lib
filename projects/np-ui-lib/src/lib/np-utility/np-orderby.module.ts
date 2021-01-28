@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { NgModule, Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
     name: 'npOrderBy'
@@ -24,3 +24,9 @@ export class NpOrderByPipe implements PipeTransform {
         }
     }
 }
+
+@NgModule({
+    declarations: [NpOrderByPipe],
+    exports: [NpOrderByPipe]
+})
+export class NpOrderByModule { }

@@ -1,5 +1,9 @@
 import { ConnectedPosition } from '@angular/cdk/overlay';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+    providedIn: 'root',
+})
 export class NpUtilityService {
     isEqual(x: any, y: any) {
         if (x === y) { return true; }

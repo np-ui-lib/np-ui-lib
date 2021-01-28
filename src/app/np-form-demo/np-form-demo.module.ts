@@ -6,7 +6,7 @@ import { NpFormDemoComponent } from './np-form-demo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   NpCardModule, NpDatePickerModule, NpFileUploadModule, NpInputTextModule,
-  NpSwitchModule, NpTextareaModule, NpTimePickerModule, NpUtilityModule
+  NpSwitchModule, NpTextareaModule, NpTimePickerModule, NpAutofocusModule
 } from 'np-ui-lib';
 
 @NgModule({
@@ -23,7 +23,7 @@ import {
     NpFileUploadModule,
     NpTextareaModule,
     NpCardModule,
-    NpUtilityModule
+    NpAutofocusModule
   ]
 })
 export class NpFormDemoModule { }

@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { NpDirectivesDemoRoutingModule } from './np-directives-demo-routing.module';
 import { NpDirectivesDemoComponent } from './np-directives-demo.component';
-import { NpCardModule, NpUtilityModule } from 'np-ui-lib';
+import { NpCardModule, NpAutofocusModule, NpHightlightModule, NpOrderByModule } from 'np-ui-lib';
+import { NpDeferModule } from 'projects/np-ui-lib/src/public-api';
 
 @NgModule({
   declarations: [NpDirectivesDemoComponent],
@@ -11,7 +12,10 @@ import { NpCardModule, NpUtilityModule } from 'np-ui-lib';
     CommonModule,
     NpDirectivesDemoRoutingModule,
     NpCardModule,
-    NpUtilityModule
+    NpAutofocusModule,
+    NpHightlightModule,
+    NpOrderByModule,
+    NpDeferModule
   ]
 })
 export class NpDirectivesDemoModule { }

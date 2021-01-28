@@ -1,9 +1,9 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { NgModule, Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
     name: 'npHighlight'
 })
-export class NpHightLightPipe implements PipeTransform {
+export class NpHightlightPipe implements PipeTransform {
     transform(text: string, search: string): string {
         if (search && text) {
             let pattern = search.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
@@ -17,3 +17,9 @@ export class NpHightLightPipe implements PipeTransform {
         }
     }
 }
+
+@NgModule({
+    declarations: [NpHightlightPipe],
+    exports: [NpHightlightPipe]
+})
+export class NpHightlightModule { }

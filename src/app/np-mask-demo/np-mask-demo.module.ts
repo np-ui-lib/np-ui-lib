@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpMaskDemoRoutingModule } from './np-mask-demo-routing.module';
 import { NpMaskDemoComponent } from './np-mask-demo.component';
-import { NpUtilityModule, NpDropdownModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
+import { NpMaskModule, NpDropdownModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
 
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     NpMaskDemoRoutingModule,
-    NpUtilityModule,
+    NpMaskModule,
     NpDropdownModule,
     FormsModule,
     NpCardModule,

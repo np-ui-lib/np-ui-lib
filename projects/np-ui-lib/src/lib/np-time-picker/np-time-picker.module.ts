@@ -3,8 +3,8 @@ import { NpTimePickerComponent } from './np-time-picker.component';
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
-import { NpUtilityModule } from '../np-utility/np-utility.module';
 import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
+import { NpAutofocusModule } from '../np-utility/np-autofocus.module';
 
 @NgModule({
   declarations: [NpTimePickerComponent],
@@ -12,7 +12,7 @@ import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
     CommonModule,
     OverlayModule,
     PortalModule,
-    NpUtilityModule,
+    NpAutofocusModule,
     NpTranslationsModule
   ],
   exports: [NpTimePickerComponent]

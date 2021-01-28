@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input, NgModule } from '@angular/core';
 
 @Directive({
     selector: '[npAutofocus]'
@@ -14,3 +14,9 @@ export class NpAutofocusDirective {
     }
     constructor(private el: ElementRef) { }
 }
+
+@NgModule({
+    declarations: [NpAutofocusDirective],
+    exports: [NpAutofocusDirective]
+})
+export class NpAutofocusModule { }

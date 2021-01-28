@@ -39,11 +39,11 @@ export * from './lib/np-panel/np-panel.component';
 export * from './lib/np-panel/np-panel-content.directive';
 
 /*Utility */
-export * from './lib/np-utility/np-utility.module';
-export * from './lib/np-utility/np-highlight.pipe';
-export * from './lib/np-utility/np-mask.directive';
-export * from './lib/np-utility/np-orderby.pipe';
-export * from './lib/np-utility/np-autofocus.directive';
+export * from './lib/np-utility/np-highlight.module';
+export * from './lib/np-utility/np-mask.module';
+export * from './lib/np-utility/np-orderby.module';
+export * from './lib/np-utility/np-autofocus.module';
+export * from './lib/np-utility/np-defer.module';
 
 /*Tooltip */
 export * from './lib/np-tooltip/np-tooltip.module';

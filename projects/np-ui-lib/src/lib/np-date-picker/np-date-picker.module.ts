@@ -4,8 +4,8 @@ import { NpDatePickerComponent } from './np-date-picker.component';
 import { NpTooltipModule } from '../np-tooltip/np-tooltip.module';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
-import { NpUtilityModule } from '../np-utility/np-utility.module';
 import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
+import { NpAutofocusModule } from '../np-utility/np-autofocus.module';
 
 @NgModule({
   declarations: [NpDatePickerComponent],
@@ -14,7 +14,7 @@ import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
     OverlayModule,
     PortalModule,
     NpTooltipModule,
-    NpUtilityModule,
+    NpAutofocusModule,
     NpTranslationsModule
   ],
   exports: [NpDatePickerComponent]

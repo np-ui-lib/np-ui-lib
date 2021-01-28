@@ -1,4 +1,4 @@
-import { Directive, Injector, Input, OnInit } from '@angular/core';
+import { Directive, Injector, Input, NgModule, OnInit } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { NpMaskService } from './np-mask.service';
 
@@ -70,3 +70,10 @@ export class NpMaskDirective implements OnInit {
         }
     }
 }
+
+@NgModule({
+    declarations: [NpMaskDirective],
+    exports: [NpMaskDirective],
+    providers: [NpMaskService]
+})
+export class NpMaskModule { }

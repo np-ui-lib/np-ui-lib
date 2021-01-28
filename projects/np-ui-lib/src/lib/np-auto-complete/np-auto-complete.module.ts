@@ -3,12 +3,20 @@ import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
 import { NpAutoCompleteComponent } from './np-auto-complete.component';
-import { NpUtilityModule } from '../np-utility/np-utility.module';
 import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
+import { NpAutofocusModule } from '../np-utility/np-autofocus.module';
+import { NpOrderByModule } from '../np-utility/np-orderby.module';
+import { NpHightlightModule } from '../np-utility/np-highlight.module';
 
 @NgModule({
   declarations: [NpAutoCompleteComponent],
-  imports: [CommonModule, OverlayModule, PortalModule, NpUtilityModule, NpTranslationsModule],
+  imports: [CommonModule,
+    OverlayModule,
+    PortalModule,
+    NpAutofocusModule,
+    NpOrderByModule,
+    NpHightlightModule,
+    NpTranslationsModule],
   exports: [NpAutoCompleteComponent]
 })
 export class NpAutoCompleteModule { }

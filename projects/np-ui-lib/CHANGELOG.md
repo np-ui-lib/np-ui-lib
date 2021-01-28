@@ -3,9 +3,11 @@
 
 ## Change log and decision tracker
 
-## 11.0.4
+## 11.1.0
 - Some CSS class name changes in datagrid
 - Remove files count from file upload component
+- Remove NpUtilityModule and create separate NoAutofocusModule, NpHighlightModule, NpMaskModule, NpOrderByModule
+- Add npDefer directive
 
 ## 11.0.3
 - Add sub and sup script in rich text editor

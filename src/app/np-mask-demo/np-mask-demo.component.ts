@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpMaskDemoComponent implements OnInit {
 
-  importText = 'import { NpUtilityModule } from \'np-ui-lib\';';
+  importText = 'import { NpMaskModule } from \'np-ui-lib\';';
   htmlText = `<input type="text" [(ngModel)]="value" [npMask]="'000-aaa-AAA-BBB'">`;
 
   creditCards: any[] = [

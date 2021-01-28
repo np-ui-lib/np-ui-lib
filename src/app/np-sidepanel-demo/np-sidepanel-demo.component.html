@@ -166,20 +166,16 @@
             <div class="np-col-6">
               <div class="np-form-group">
                 <div class="np-form-label np-required">First name:</div>
-                <input class="np-form-control"
-                       name="txtFirstName"
-                       type="text"
-                       formControlName="firstName"
-                       [npAutofocus]="true" />
+                <np-input-text name="txtFirstName"
+                               formControlName="firstName"
+                               #firstName></np-input-text>
               </div>
             </div>
             <div class="np-col-6">
               <div class="np-form-group">
                 <div class="np-form-label np-required">Last name:</div>
-                <input class="np-form-control"
-                       name="txtLastName"
-                       type="text"
-                       formControlName="lastName" />
+                <np-input-text name="txtLastName"
+                               formControlName="lastName"></np-input-text>
               </div>
             </div>
           </div>
@@ -214,10 +210,9 @@
             <div class="np-col-12">
               <div class="np-form-group">
                 <div class="np-form-label np-required">Description:</div>
-                <textarea class="np-form-control"
-                          name="txtDescription"
-                          rows="3"
-                          formControlName="description"></textarea>
+                <np-textarea name="txtDescription"
+                             rows="3"
+                             formControlName="description"></np-textarea>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NpSidepanelComponent } from 'np-ui-lib';
+import { NpInputTextComponent, NpSidepanelComponent } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-sidepanel-demo',
@@ -33,6 +33,7 @@ export class NpSidepanelDemoComponent implements OnInit {
   @ViewChild('sidePanelRight', { static: true }) sidePanelRight: NpSidepanelComponent;
   @ViewChild('sidePanelTop', { static: true }) sidePanelTop: NpSidepanelComponent;
   @ViewChild('sidePanelBottom', { static: true }) sidePanelBottom: NpSidepanelComponent;
+  @ViewChild('firstName', { static: true }) firstNameInput: NpInputTextComponent;
 
   constructor() { }
 
@@ -41,6 +42,7 @@ export class NpSidepanelDemoComponent implements OnInit {
 
   openLeft() {
     this.sidePanelLeft.open(null);
+    this.firstNameInput.focus();
   }
 
   closeLeft() {

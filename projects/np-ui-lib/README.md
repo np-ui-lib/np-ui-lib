@@ -56,6 +56,7 @@ npm i np-ui-lib
 1.  Virtual Scroll
 1.  Sidepanel
 1.  Masking
+1.  Defer
 1.  i18N
 1.  Themes
 1.  Grid Layout
