@@ -49,7 +49,8 @@
                     styleClass="my-nav">
         </np-menubar>
     </nav>
-    <article class="main-container">
+    <article class="main-container"
+             [ngClass]="{'full-container': isMobileView || !showMenu}">
         <div class="content-container">
             <router-outlet></router-outlet>
         </div>

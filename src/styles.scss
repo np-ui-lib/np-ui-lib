@@ -63,7 +63,6 @@
     section {
         margin-top: 50px;
         height: calc(100vh - 50px);
-        overflow: hidden;
         display: flex;
     }
 
@@ -71,12 +70,23 @@
         height: calc(100vh - 50px);
         overflow: auto;
         width: 225px;
+        position: fixed;
+        top: 50px;
+        z-index: 999;
+    }
+
+    article {
+        margin-left: 225px;
+        width: 100%;
+    }
+
+    .full-container {
+        margin-left: 0px;
     }
 
     .mobile-nav {
-        position: absolute;
         border-right: 1px solid $border-color;
-        z-index: 3000;
+        z-index: 999;
     }
 
     .my-nav {
@@ -86,7 +96,6 @@
 
     article {
         flex: 1 1 0%;
-        overflow: auto;
         display: flex;
         flex-direction: column;
     }
