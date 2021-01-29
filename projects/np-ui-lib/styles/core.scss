@@ -1561,7 +1561,7 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    z-index: 2000;
+    z-index: 800;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1573,7 +1573,7 @@
     border-radius: 50%;
     color: rgba($primary-color, 0.3) !important;
     animation: spin 0.5s linear infinite;
-    z-index: 2001;
+    z-index: 801;
   }
 
   @keyframes spin {
@@ -1603,7 +1603,7 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    z-index: 2000;
+    z-index: 800;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1614,7 +1614,7 @@
     width: 2rem;
     border-radius: 50%;
     color: #000000;
-    z-index: 2001;
+    z-index: 801;
   }
 
   .np-cursor-pointer {
@@ -1869,13 +1869,13 @@
   .np-accordion-title:focus,
   .np-panel-title:focus {
     box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.4);
-    z-index: 5;
+    z-index: 2;
     border-radius: $border-radius;
   }
 
   .np-focused-rounded {
     box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.4);
-    z-index: 5;
+    z-index: 2;
     border-radius: 50%;
   }
 

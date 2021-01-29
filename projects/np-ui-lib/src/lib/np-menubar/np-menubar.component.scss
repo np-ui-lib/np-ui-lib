@@ -78,7 +78,7 @@
   .np-menubar-horizontal .np-submenu,
   .np-menubar-vertical .np-submenu {
     position: absolute;
-    z-index: 1001;
+    z-index: 400;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
     margin-top: -1px;
     background-color: $background-color;
