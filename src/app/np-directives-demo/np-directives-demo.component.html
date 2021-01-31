@@ -33,16 +33,18 @@
             <div class="np-row">
                 <div class="np-col np-col-6">
                     <b>Ascending:</b>
-                    <ul>
-                        <li *ngFor="let item of items | npOrderBy : null : 'asc'">
+                    <ul class="np-list">
+                        <li *ngFor="let item of items | npOrderBy : null : 'asc'"
+                            class="np-list-item">
                             {{item}}
                         </li>
                     </ul>
                 </div>
                 <div class="np-col np-col-6">
                     <b>Descending:</b>
-                    <ul>
-                        <li *ngFor="let item of items | npOrderBy : null : 'desc'">
+                    <ul class="np-list">
+                        <li *ngFor="let item of items | npOrderBy : null : 'desc'"
+                            class="np-list-item">
                             {{item}}
                         </li>
                     </ul>

@@ -13,16 +13,16 @@ export class NpTimelineDemoComponent implements OnInit {
 </ng-template>`;
 
   items = [
-    { year: 2015, desc: 'Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.' },
-    { year: 2016, desc: 'Lorem ipsum dolor sit amet, quo ei simul congue exerci.' },
-    { year: 2017, desc: 'Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto perfecto perfecti perfect!' }
+    { year: 2015, desc: 'A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add one idea at a time to your broader argument.' },
+    { year: 2016, desc: 'A paragraph is a series of related sentences developing a central idea, called the topic.' },
+    { year: 2017, desc: 'A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea.' }
   ];
 
   orderItems = [
     'Order placed',
     'Order confirmed',
     'Order shipped',
-    'Order deliverd'
+    'Order delivered'
   ]
 
   constructor() { }

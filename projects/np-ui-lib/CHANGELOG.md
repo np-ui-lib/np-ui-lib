@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+# 11.1.2
+- Resolved css issue for vertical line in vertical steps
+
 # 11.1.1
 - Resolved dialog component issue for npAutofocus
 - Resolved css class issue in virtual scroll

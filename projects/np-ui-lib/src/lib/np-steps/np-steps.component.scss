@@ -11,7 +11,7 @@
     border-bottom: 1px solid $border-color;
     position: relative;
 
-    &::before {
+    &::after {
       top: 50%;
       bottom: 0;
       position: absolute;
@@ -79,6 +79,7 @@
     border: none;
     color: #ffffff;
     padding: 5px;
+    z-index: 1;
   }
 
   .np-step-done .np-step-number {
@@ -105,6 +106,15 @@
 
     .np-step-title {
       margin: 0px;
+
+      &::after {
+        left: 22px;
+        position: absolute;
+        content: " ";
+        width: 1px;
+        height: 3rem;
+        background-color: $border-color;
+      }
     }
 
     .np-step-done {
