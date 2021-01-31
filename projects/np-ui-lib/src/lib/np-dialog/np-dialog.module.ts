@@ -4,6 +4,7 @@ import { NpDialogComponent } from './np-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { NpModalModule } from '../np-modal/np-modal.module';
 import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
+import { NpAutofocusModule } from '../np-utility/np-autofocus.module';
 
 @NgModule({
   declarations: [NpDialogComponent],
@@ -11,7 +12,8 @@ import { NpTranslationsModule } from '../np-translations/np-tranlations.module';
     CommonModule,
     NpModalModule,
     FormsModule,
-    NpTranslationsModule
+    NpTranslationsModule,
+    NpAutofocusModule
   ],
   entryComponents: [NpDialogComponent],
   exports: [NpDialogComponent]

@@ -3,6 +3,11 @@
 
 ## Change log and decision tracker
 
+# 11.1.1
+- Resolved dialog component issue for npAutofocus
+- Resolved css class issue in sidepanel
+- Resolved font and background color button issue in rich text
+
 ## 11.1.0
 - Some CSS class name changes in datagrid
 - Remove files count from file upload component
