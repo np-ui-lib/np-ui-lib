@@ -5,7 +5,7 @@
 
 # 11.1.1
 - Resolved dialog component issue for npAutofocus
-- Resolved css class issue in sidepanel
+- Resolved css class issue in virtual scroll
 - Resolved font and background color button issue in rich text
 
 ## 11.1.0
