@@ -63,6 +63,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ routerLink: '/np-list-demo', label: 'List' }),
     new NpMenuItem({ routerLink: '/np-virtual-scroll-demo', label: 'Virtual Scroll' }),
     new NpMenuItem({ routerLink: '/np-calendar-demo', label: 'Calendar' }),
+    new NpMenuItem({ routerLink: '/np-timeline-demo', label: 'Timeline' }),
     new NpMenuItem({ isHeader: true, label: 'Panel' }),
     new NpMenuItem({ routerLink: '/np-panel-demo', label: 'Panel' }),
     new NpMenuItem({ routerLink: '/np-accordion-demo', label: 'Accordion' }),

@@ -36,6 +36,7 @@ npm i np-ui-lib
 1.  Data Grid
 1.  Paginator
 1.  Calendar
+1.  Timeline
 1.  Alert
 1.  Notification
 1.  Tooltip

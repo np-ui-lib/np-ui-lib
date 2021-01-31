@@ -194,3 +194,7 @@ export * from './lib/np-translations/np-translations.service';
 /*Rich text */
 export * from './lib/np-rich-text/np-rich-text.module';
 export * from './lib/np-rich-text/np-rich-text.component';
+
+/*Timeline */
+export * from './lib/np-timeline/np-timeline.module';
+export * from './lib/np-timeline/np-timeline.component';

@@ -1,0 +1,48 @@
+@mixin np-timeline-style {
+    .np-timeline {
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        background-color: #ffffff;
+        overflow: auto;
+    }
+
+    .np-timeline-container {
+        position: relative;
+        padding: 10px;
+    }
+
+    .np-timeline-container::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: $border-color;
+        top: 0;
+        bottom: 0;
+        left: 17px;
+    }
+
+    .np-timeline-item {
+        padding: 10px 30px;
+        position: relative;
+    }
+
+    .np-timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border: 4px solid $primary-color;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+        left: 0;
+    }
+
+    .np-timeline-item-content {
+        padding: 10px;
+        background-color: $background-color;
+        position: relative;
+        border-radius: $border-radius;
+    }
+}

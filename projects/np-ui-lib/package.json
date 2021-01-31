@@ -69,6 +69,7 @@
         "i18N",
         "Themes",
         "Rich Text",
-        "Defer"
+        "Defer",
+        "Timeline"
     ]
 }

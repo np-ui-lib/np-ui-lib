@@ -8,6 +8,7 @@
 - Remove files count from file upload component
 - Remove NpUtilityModule and create separate NoAutofocusModule, NpHighlightModule, NpMaskModule, NpOrderByModule
 - Add npDefer directive
+- Add new timeline component
 
 ## 11.0.3
 - Add sub and sup script in rich text editor

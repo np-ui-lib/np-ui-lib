@@ -150,6 +150,9 @@ const routes: Routes = [
     path: 'np-form-demo',
     loadChildren: () => import('./np-form-demo/np-form-demo.module').then(m => m.NpFormDemoModule)
   }, {
+    path: 'np-timeline-demo',
+    loadChildren: () => import('./np-timeline-demo/np-timeline-demo.module').then(m => m.NpTimelineDemoModule)
+  }, {
     path: '**',
     redirectTo: 'how-to-add',
     pathMatch: 'full'

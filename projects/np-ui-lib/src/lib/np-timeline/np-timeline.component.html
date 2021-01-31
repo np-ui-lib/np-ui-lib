@@ -1,0 +1,20 @@
+<div [ngClass]="'np-timeline'"
+     [class]="styleClass"
+     [style.max-height.px]="height"
+     [attr.id]="inputId">
+    <div class="np-timeline-container">
+        <ng-container *ngFor="
+        let item of items;
+        let i = index;
+        trackBy: _trackBy
+      ">
+            <div class="np-timeline-item"
+                 [attr.id]="'np-timeline-item_' + (i+1)">
+                <div class="np-timeline-item-content">
+                    <ng-container *ngTemplateOutlet="itemTemplate; context: { item: item }">
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
