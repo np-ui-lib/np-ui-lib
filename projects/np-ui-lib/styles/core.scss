@@ -1554,6 +1554,7 @@
     pointer-events: none;
   }
 
+  .np-blockui-backdrop,
   .np-loader-backdrop {
     height: 100%;
     width: 100%;
@@ -1594,19 +1595,6 @@
   .np-blockui-target {
     position: relative;
     pointer-events: none;
-  }
-
-  .np-blockui-backdrop {
-    height: 100%;
-    width: 100%;
-    background-color: rgba(#000000, 0.2);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 800;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .np-blockui svg {
@@ -1805,7 +1793,9 @@
     color: #d9534f;
   }
 
-  .np-modal-backdrop {
+  .np-sidepanel-backdrop,
+  .np-modal-backdrop,
+  .np-dialog-backdrop {
     background-color: #000000;
     opacity: 0.3 !important;
   }

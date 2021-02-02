@@ -100,4 +100,7 @@ export class NpTagsDemoComponent implements OnInit {
     alert(JSON.stringify($event));
   }
 
+  onCreateNewTag($event) {
+    console.log(JSON.stringify($event));
+  }
 }

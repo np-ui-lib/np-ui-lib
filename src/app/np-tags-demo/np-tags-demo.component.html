@@ -187,7 +187,7 @@
                         <td>
                             Callback event on value change.
                         </td>
-                        <td>value</td>
+                        <td>Value</td>
                     </tr>
                     <tr>
                         <td>
@@ -197,7 +197,16 @@
                             Callback event on search<br>
                             <pre><code>{{onSearchText}}</code></pre>
                         </td>
-                        <td>search keyword</td>
+                        <td>Search keyword</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            onCreateNewTag(v: any)
+                        </td>
+                        <td>
+                            Callback event on new tag created
+                        </td>
+                        <td>New created tag</td>
                     </tr>
                     <tr>
                         <td>
@@ -249,6 +258,7 @@
                          [searchResult]="searchResult1"
                          [isServerSide]="true"
                          [orderDir]="'asc'"
+                         (onCreateNewTag)="onCreateNewTag($event)"
                          (onSearch)="onSearch1($event)">
                 </np-tags>
                 <div>Selected value : {{tags1 | json}}</div>
@@ -339,11 +349,13 @@
             </fieldset>
 
             <fieldset>
-                <legend>onChange</legend>
+                <legend>onChange and onCreateNewTag</legend>
+                Check console for onCreateNewTag event.
                 <np-tags [(ngModel)]="tags9"
                          [displayKey]="'name'"
                          [searchResult]="searchResult9"
-                         (onChange)="onChange9($event)">
+                         (onChange)="onChange9($event)"
+                         (onCreateNewTag)="onCreateNewTag($event)">
                 </np-tags>
             </fieldset>
         </ng-template>

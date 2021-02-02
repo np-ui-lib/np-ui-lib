@@ -1,5 +1,11 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, forwardRef, OnDestroy } from '@angular/core';
-import { ViewChild, TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from '@angular/core';
+import {
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy,
+  ViewEncapsulation, forwardRef, OnDestroy
+} from '@angular/core';
+import {
+  ViewChild, TemplateRef, ViewContainerRef, ElementRef,
+  AfterViewInit, AfterContentInit
+} from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Overlay, OverlayRef, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
@@ -45,6 +51,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
+  @Output() onCreateNewTag: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
   @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
@@ -216,19 +223,19 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     if (this.options === undefined || this.options === null) {
       this.options = [];
     }
+    let newObj: any;
     if (this.displayKey) {
-      let newObj;
       newObj = {};
       newObj[this.displayKey] = this.displayValue;
       if (this.valueKey) {
         newObj[this.valueKey] = this.displayValue;
       }
-      this.options.push(newObj);
-      this._selectValue(newObj);
     } else {
-      this.options.push(this.displayValue);
-      this._selectValue(this.displayValue);
+      newObj = this.displayValue;
     }
+    this.options.push(newObj);
+    this._selectValue(newObj);
+    this.onCreateNewTag.emit(newObj);
     this.displayValue = null;
   }
 

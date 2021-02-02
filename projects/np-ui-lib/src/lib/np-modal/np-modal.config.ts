@@ -1,7 +1,7 @@
 export class NpModalConfig {
     constructor(item: any) {
         this.hasBackDrop = item.hasBackDrop === false ? false : true;
-        this.backDropClass = item.backDropClass ? item.backDropClass : 'np-modal-backdrop';
+        this.backDropClass = item.backDropClass;
         this.height = item.height;
         this.width = item.width;
         this.showCloseButton = item.showCloseButton === false ? false : true;

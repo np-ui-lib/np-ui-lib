@@ -17,7 +17,7 @@ export class NpDialogComponent implements OnInit {
   type: string;
   message: string;
   styleClass: string;
-  inputId = `np-modal_${NpDialogComponent.controlCount++}`;
+  inputId = `np-dialog_${NpDialogComponent.controlCount++}`;
 
   constructor(public modalRef: NpModalRef, private translationService: NpTranslationsService) { }
 

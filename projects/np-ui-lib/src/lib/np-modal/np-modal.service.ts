@@ -26,7 +26,7 @@ export class NpModalService {
         const overlayConfig = new OverlayConfig({
             positionStrategy,
             hasBackdrop: config.hasBackDrop,
-            backdropClass: config.backDropClass,
+            backdropClass: config.backDropClass || (content !== NpDialogComponent ? 'np-modal-backdrop' : 'np-dialog-backdrop'),
             height: config.height,
             width: config.width,
             scrollStrategy: this.overlay.scrollStrategies.block(),
