@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NpCarouselDemoRoutingModule } from './np-carousel-demo-routing.module';
 import { NpCarouselDemoComponent } from './np-carousel-demo.component';
-import { NpCarouselModule, NpCardModule, NpTabsModule, NpSliderModule, NpNumberBoxModule } from 'np-ui-lib';
+import { NpCarouselModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
 import { FormsModule } from '@angular/forms';
 
 

@@ -767,14 +767,13 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       null,
       { type: 'prompt', message: this.translationsService.translate('Add_New_State') });
     promptAddNewState.onClose.subscribe((data) => {
-      this._addState(data);
+      if (data.action === 'Ok' && data.value && data.value.trim().length === 0) {
+        this._addState(data.value);
+      }
     });
   }
 
   _addState(stateName: string) {
-    if (!stateName || stateName.trim().length === 0) {
-      return;
-    }
     const name = stateName.trim();
     const state = this.stateList.filter((element: State) => {
       if (element.name === name) { return element; }

@@ -35,15 +35,15 @@ export class NpDialogComponent implements OnInit {
 
   onOk() {
     if (this.type === 'prompt') {
-      this.modalRef.close(this.value);
+      this.modalRef.close({ action: 'Ok', value: this.value });
     } else if (this.type === 'confirm') {
-      this.modalRef.close(true);
+      this.modalRef.close({ action: 'Ok' });
     } else {
-      this.modalRef.close();
+      this.modalRef.close({ action: 'Ok' });
     }
   }
 
   onCancel() {
-    this.modalRef.close();
+    this.modalRef.close({ action: 'Cancel' });
   }
 }

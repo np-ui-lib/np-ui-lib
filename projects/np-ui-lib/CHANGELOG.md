@@ -6,6 +6,7 @@
 # 11.1.2
 - Resolved css issue for vertical line in vertical steps
 - Add onCreateNewTag method in tags component
+- Change return object in dialog component on close
 
 # 11.1.1
 - Resolved dialog component issue for npAutofocus

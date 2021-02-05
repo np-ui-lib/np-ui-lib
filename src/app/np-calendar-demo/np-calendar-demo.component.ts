@@ -51,8 +51,8 @@ export class NpCalendarDemoComponent implements OnInit {
     const prompt = this.modalService.open(NpDialogComponent,
       null, { type: 'prompt', message: 'Add Event Title' });
     prompt.onClose.subscribe((data) => {
-      if (data && data.length > 0) {
-        this.myCalendar.addEvents([new NpCalendarEvent({ startDate: date, description: data })]);
+      if (data.action === 'Ok' && data.value && data.value.length > 0) {
+        this.myCalendar.addEvents([new NpCalendarEvent({ startDate: date, description: data.value })]);
       }
     });
   }
@@ -61,7 +61,7 @@ export class NpCalendarDemoComponent implements OnInit {
     const confirm = this.modalService.open(NpDialogComponent,
       null, { type: 'confirm', message: 'Are you sure to delete event?' });
     confirm.onClose.subscribe((data) => {
-      if (data === true) {
+      if (data.action === 'Ok') {
         this.myCalendar.removeEvents([event]);
       }
     });
@@ -75,8 +75,8 @@ export class NpCalendarDemoComponent implements OnInit {
     const prompt = this.modalService.open(NpDialogComponent,
       null, { type: 'prompt', message: 'Add Event Title' });
     prompt.onClose.subscribe((data) => {
-      if (data && data.length > 0) {
-        this.myCalendar2.addEvents([new NpCalendarEvent({ startDate: date, description: data })]);
+      if (data.action === 'Ok' && data.value && data.value.length > 0) {
+        this.myCalendar2.addEvents([new NpCalendarEvent({ startDate: date, description: data.value })]);
       }
     });
   }
@@ -85,7 +85,7 @@ export class NpCalendarDemoComponent implements OnInit {
     const confirm = this.modalService.open(NpDialogComponent,
       null, { type: 'confirm', message: 'Are you sure to delete event?' });
     confirm.onClose.subscribe((data) => {
-      if (data === true) {
+      if (data.action === 'Ok') {
         this.myCalendar2.removeEvents([event]);
       }
     });

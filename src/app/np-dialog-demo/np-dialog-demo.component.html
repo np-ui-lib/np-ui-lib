@@ -16,15 +16,19 @@
                 <div>
                     <pre><code [innerText]="serviceText"></code></pre>
                 </div>
-                <span class="np-text-info">Dialogs are using NpModalSercice to show overlays.
-                    <br>
-                    NpDialogComponent contains <b>type</b> and <b>message</b> properties which needs to pass in
-                    service.</span>
+                <div class="np-text-info">
+                    <div>Dialogs are using <b>NpModalService</b> to show overlays.</div>
+                    <div>
+                        <b>NpDialogComponent</b> contains <b>type</b> and <b>message</b> properties which needs to pass
+                        in service.
+                    </div>
+                    <div>Where type can ne 'alert' | 'prompt' | 'confirm', and message is string text.</div>
+                </div>
             </np-card-body>
         </np-card>
         <np-card>
             <np-card-body>
-                <b>Component</b>
+                <b>How to open dialogs?</b>
                 <div>
                     <pre><code [innerHTML]="componentText"></code></pre>
                 </div>

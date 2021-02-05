@@ -63,7 +63,6 @@
     section {
         margin-top: 50px;
         height: calc(100vh - 50px);
-        display: flex;
     }
 
     nav {
@@ -77,11 +76,15 @@
 
     article {
         margin-left: 225px;
-        width: 100%;
+        width: calc(100% - 225px);
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 50px);
     }
 
     .full-container {
         margin-left: 0px;
+        width: 100%;
     }
 
     .mobile-nav {
@@ -92,12 +95,6 @@
     .my-nav {
         border: none !important;
         padding: 10px 0px !important;
-    }
-
-    article {
-        flex: 1 1 0%;
-        display: flex;
-        flex-direction: column;
     }
 
     .color-red {
@@ -179,7 +176,8 @@
         text-align: center;
     }
 
-    .pricing-table, .pricing-table .np-card-body{
+    .pricing-table,
+    .pricing-table .np-card-body {
         padding: 0px;
     }
 
