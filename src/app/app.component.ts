@@ -188,6 +188,7 @@ export class AppComponent implements OnInit {
         'Saved_Successfully': 'सफलतापूर्वक स्टोर करे',
         'Add_New_State': 'नया जोड़ें',
         'Deleted_Successfully': 'सफलतापूर्वक मिटाया गया',
+        'State_Name_Already_Exists': 'नाम पहले से मौजूद है',
         'Alert': 'चेतावनी',
         'Confirm': 'पुष्टि करे',
         'Prompt': 'पूछना',

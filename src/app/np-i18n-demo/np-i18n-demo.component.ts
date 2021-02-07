@@ -8,7 +8,7 @@ export class NpI18nDemoComponent implements OnInit {
 
   importText = 'import { NpTranslationsModule } from \'np-ui-lib\';';
   serviceInjectText = `constructor(private translateService: NpTranslationsService) { }`;
-  addTanslationText =`this.translateService.setTranslations({
+  addTanslationText = `this.translateService.setTranslations({
     'Su': 'Su',
     'Mo': 'Mo',
     'Tu': 'Tu',
@@ -50,6 +50,7 @@ export class NpI18nDemoComponent implements OnInit {
     'Saved_Successfully': 'Saved successfully',
     'Add_New_State': 'Add new state',
     'Deleted_Successfully': 'Deleted successfully',
+    'State_Name_Already_Exists': 'State name already exists',
     'Alert': 'Alert',
     'Confirm': 'Confirm',
     'Prompt': 'Prompt',

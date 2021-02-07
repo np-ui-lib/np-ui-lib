@@ -101,7 +101,6 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   currentStateName: string;
   summaryData: any;
   searchColumnsKeyword: string;
-  nameAlreadyExistError = false;
   isDataSourceInit = false;
 
   private columnChooserTemplatePortal: TemplatePortal<any>;
@@ -767,8 +766,8 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       null,
       { type: 'prompt', message: this.translationsService.translate('Add_New_State') });
     promptAddNewState.onClose.subscribe((data) => {
-      if (data.action === 'Ok' && data.value && data.value.trim().length === 0) {
-        this._addState(data.value);
+      if (data != undefined && data != null && data.trim().length > 0) {
+        this._addState(data);
       }
     });
   }
@@ -779,10 +778,11 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       if (element.name === name) { return element; }
     });
     if (state && state.length > 0) {
-      this.nameAlreadyExistError = true;
+      this.modalService.open(NpDialogComponent, null,
+        {
+          type: 'alert', message: this.translationsService.translate('State_Name_Already_Exists')
+        });
       return;
-    } else {
-      this.nameAlreadyExistError = false;
     }
     const columns = this._cloneColumns(this.columnsClone);
     const newState = new State(name, columns);

@@ -7,6 +7,7 @@
 - Resolved css issue for vertical line in vertical steps
 - Add onCreateNewTag method in tags component
 - Change return object in dialog component on close
+- Add validation for state name already exists in data grid, and add translation for validation message
 
 # 11.1.1
 - Resolved dialog component issue for npAutofocus

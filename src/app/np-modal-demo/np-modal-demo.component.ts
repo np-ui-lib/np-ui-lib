@@ -20,8 +20,8 @@ this.modalService.open(NpModalDemoChildComponent, null, null);`;
   overlayRefText = `constructor(private ref: NpModalRef) { }`;
   subscribeText = `let reference = this.modalService.open(NpModalDemoChildComponent, null, null);
 reference.onClose.subscribe((data) => { <span class="np-text-success">... // do something on modal close</span> });
-reference.close() <span class="np-text-success">// use this method to close modal<span>`;
-  closeText = `this.ref.close() <span class="np-text-success">// use this method to close modal</span>`;
+reference.close(data) <span class="np-text-success">// use this method to close modal<span>`;
+  closeText = `this.ref.close(data) <span class="np-text-success">// use this method to close modal</span>`;
 
   @ViewChild('modal2', { static: true }) modal2: TemplateRef<any>;
 

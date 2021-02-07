@@ -209,7 +209,7 @@
 
     .np-demo-container .np-col {
         background-color: $selected-color;
-        border: 1px solid $border-color;
+        outline: 2px solid #ffffff;
         padding: 10px;
         text-align: center;
     }

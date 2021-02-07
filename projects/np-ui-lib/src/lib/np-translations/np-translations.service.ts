@@ -70,6 +70,7 @@ export class NpTranslationsService {
             'Saved_Successfully': 'Saved successfully',
             'Add_New_State': 'Add new state',
             'Deleted_Successfully': 'Deleted successfully',
+            'State_Name_Already_Exists': 'State name already exists',
             'Alert': 'Alert',
             'Confirm': 'Confirm',
             'Prompt': 'Prompt',
