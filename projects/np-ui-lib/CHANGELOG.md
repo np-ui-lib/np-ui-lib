@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+# 11.1.3
+- Add npSidepanelContent directive for lazy loading
+
 # 11.1.2
 - Resolved css issue for vertical line in vertical steps
 - Add onCreateNewTag method in tags component

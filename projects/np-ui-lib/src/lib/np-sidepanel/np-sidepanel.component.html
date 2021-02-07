@@ -5,6 +5,7 @@
        [attr.id]="inputId">
     <div class="np-sidepanel-content">
       <ng-content></ng-content>
+      <ng-template [cdkPortalOutlet]="content"></ng-template>
     </div>
   </div>
 </ng-template>

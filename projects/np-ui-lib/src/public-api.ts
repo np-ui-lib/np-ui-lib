@@ -118,6 +118,7 @@ export * from './lib/np-blockui/np-blockui.directive';
 /*Sidepanel */
 export * from './lib/np-sidepanel/np-sidepanel.module';
 export * from './lib/np-sidepanel/np-sidepanel.component';
+export * from './lib/np-sidepanel/np-sidepanel-content.directive';
 
 /*Breadcrumb */
 export * from './lib/np-breadcrumb/np-breadcrumb.module';

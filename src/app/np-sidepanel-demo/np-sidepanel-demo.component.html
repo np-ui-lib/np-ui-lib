@@ -16,6 +16,10 @@
         <div>
           <pre><code [innerText]="htmlText"></code></pre>
         </div>
+        <b>How to set lazy loading for sidepanel?</b>
+        <div>
+          <pre><code [innerText]="lazyLoadText"></code></pre>
+        </div>
       </np-card-body>
     </np-card>
     <np-card>
@@ -160,76 +164,78 @@
     <np-sidepanel #sidePanelLeft
                   [position]="'left'"
                   [height]="'100%'">
-      <form [formGroup]="myForm">
-        <div class="np-container">
-          <div class="np-row">
-            <div class="np-col-6">
-              <div class="np-form-group">
-                <div class="np-form-label np-required">First name:</div>
-                <np-input-text name="txtFirstName"
-                               formControlName="firstName"
-                               #firstName></np-input-text>
+      <ng-template npSidepanelContent>
+        <form [formGroup]="myForm">
+          <div class="np-container">
+            <div class="np-row">
+              <div class="np-col-6">
+                <div class="np-form-group">
+                  <div class="np-form-label np-required">First name:</div>
+                  <np-input-text name="txtFirstName"
+                                 formControlName="firstName"
+                                 [autoFocus]="true"></np-input-text>
+                </div>
+              </div>
+              <div class="np-col-6">
+                <div class="np-form-group">
+                  <div class="np-form-label np-required">Last name:</div>
+                  <np-input-text name="txtLastName"
+                                 formControlName="lastName"></np-input-text>
+                </div>
               </div>
             </div>
-            <div class="np-col-6">
-              <div class="np-form-group">
-                <div class="np-form-label np-required">Last name:</div>
-                <np-input-text name="txtLastName"
-                               formControlName="lastName"></np-input-text>
+            <div class="np-row">
+              <div class="np-col-6">
+                <div class="np-form-group">
+                  <div class="np-form-label np-required">Birth date:</div>
+                  <np-date-picker name="txtBirthDate"
+                                  formControlName="birthDate">
+                  </np-date-picker>
+                </div>
               </div>
+              <div class="np-col-6">
+                <div class="np-form-group">
+                  <div class="np-form-label np-required">Birth time:</div>
+                  <np-time-picker name="txtBirthTime"
+                                  formControlName="birthTime">
+                  </np-time-picker>
+                </div>
+              </div>
+            </div>
+            <div class="np-row">
+              <div class="np-col-12">
+                <div class="np-form-group">
+                  <div class="np-form-label np-required">Is Active:</div>
+                  <np-switch name="swIsActive"
+                             formControlName="isActive"></np-switch>
+                </div>
+              </div>
+            </div>
+            <div class="np-row">
+              <div class="np-col-12">
+                <div class="np-form-group">
+                  <div class="np-form-label np-required">Description:</div>
+                  <np-textarea name="txtDescription"
+                               rows="3"
+                               formControlName="description"></np-textarea>
+                </div>
+              </div>
+            </div>
+            <div class="np-btn-group">
+              <button class="np-btn np-btn-primary"
+                      type="button"
+                      (click)="onSubmit()">
+                Save
+              </button>
+              <button class="np-btn"
+                      type="button"
+                      (click)="closeLeft()">
+                Close
+              </button>
             </div>
           </div>
-          <div class="np-row">
-            <div class="np-col-6">
-              <div class="np-form-group">
-                <div class="np-form-label np-required">Birth date:</div>
-                <np-date-picker name="txtBirthDate"
-                                formControlName="birthDate">
-                </np-date-picker>
-              </div>
-            </div>
-            <div class="np-col-6">
-              <div class="np-form-group">
-                <div class="np-form-label np-required">Birth time:</div>
-                <np-time-picker name="txtBirthTime"
-                                formControlName="birthTime">
-                </np-time-picker>
-              </div>
-            </div>
-          </div>
-          <div class="np-row">
-            <div class="np-col-12">
-              <div class="np-form-group">
-                <div class="np-form-label np-required">Is Active:</div>
-                <np-switch name="swIsActive"
-                           formControlName="isActive"></np-switch>
-              </div>
-            </div>
-          </div>
-          <div class="np-row">
-            <div class="np-col-12">
-              <div class="np-form-group">
-                <div class="np-form-label np-required">Description:</div>
-                <np-textarea name="txtDescription"
-                             rows="3"
-                             formControlName="description"></np-textarea>
-              </div>
-            </div>
-          </div>
-          <div class="np-btn-group">
-            <button class="np-btn np-btn-primary"
-                    type="button"
-                    (click)="onSubmit()">
-              Save
-            </button>
-            <button class="np-btn"
-                    type="button"
-                    (click)="closeLeft()">
-              Close
-            </button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </ng-template>
     </np-sidepanel>
 
     <np-sidepanel #sidePanelRight

@@ -12,6 +12,11 @@ export class NpSidepanelDemoComponent implements OnInit {
   htmlText = `<np-sidepanel [position]="'right'" [height]="'100%'" [width]="'200px'">
   Body content...
 </np-sidepanel>`;
+  lazyLoadText = `<np-sidepanel [position]="'right'" [height]="'100%'" [width]="'200px'">
+  <ng-template npSidepanelContent>
+    ...lazy load content
+  </ng-tempalte>
+</sidepanel>`;
 
   firstName: string;
   lastName: string;
@@ -33,7 +38,6 @@ export class NpSidepanelDemoComponent implements OnInit {
   @ViewChild('sidePanelRight', { static: true }) sidePanelRight: NpSidepanelComponent;
   @ViewChild('sidePanelTop', { static: true }) sidePanelTop: NpSidepanelComponent;
   @ViewChild('sidePanelBottom', { static: true }) sidePanelBottom: NpSidepanelComponent;
-  @ViewChild('firstName', { static: true }) firstNameInput: NpInputTextComponent;
 
   constructor() { }
 
@@ -42,7 +46,6 @@ export class NpSidepanelDemoComponent implements OnInit {
 
   openLeft() {
     this.sidePanelLeft.open(null);
-    this.firstNameInput.focus();
   }
 
   closeLeft() {

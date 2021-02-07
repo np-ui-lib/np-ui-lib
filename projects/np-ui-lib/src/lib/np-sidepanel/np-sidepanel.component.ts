@@ -1,9 +1,10 @@
 import {
   Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, TemplateRef,
-  ViewContainerRef, Input, Output, EventEmitter
+  ViewContainerRef, Input, Output, EventEmitter, ContentChild
 } from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
+import { NpSidepanelContent } from './np-sidepanel-content.directive';
 
 @Component({
   selector: 'np-sidepanel',
@@ -29,6 +30,11 @@ export class NpSidepanelComponent {
   @Output() onClose: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+  @ContentChild(NpSidepanelContent, { read: TemplateRef, static: true }) _explicitContent: TemplateRef<any>;
+  private _contentPortal: TemplatePortal | null = null;
+  get content(): TemplatePortal | null {
+    return this._contentPortal;
+  }
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -72,6 +78,9 @@ export class NpSidepanelComponent {
           this.close(null);
         }
       });
+      if (!this._contentPortal && this._explicitContent) {
+        this._contentPortal = new TemplatePortal(this._explicitContent, this.viewContainerRef);
+      }
       this.overlayRef.attach(this.templatePortal);
       this.onOpen.emit(data);
     }
@@ -79,6 +88,9 @@ export class NpSidepanelComponent {
 
   close(data: any) {
     if (this.overlayRef && this.overlayRef.hasAttached()) {
+      if (this._contentPortal && this._contentPortal.isAttached) {
+        this._contentPortal.detach();
+      }
       this.overlayRef.detach();
       this.onClose.emit(data);
     }
