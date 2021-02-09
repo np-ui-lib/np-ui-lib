@@ -35,11 +35,11 @@ export class NpRichTextDemoComponent implements OnInit {
     this.rtf1 = `<p><h1><font color="#007bff"><a href="http://npmjs.com/np-ui-lib">NP-UI-LIB</a></font></h1><h4>
     <font color="#007bff"><i>Native Angular UI Components and Design Framework</i></font></h4></p>
     <blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"><p><h3>Why np-ui-lib?</h3></p>
-    </blockquote><p><ul><ul><li>An enterprise level UI design</li><li>50+ components</li>
-    <li>Free and open source</li><li>Fast and easy to implement</li><li>Theming and i18N supported</li></ul>
+    </blockquote><p><ul><li>An enterprise level UI design</li><li>50+ components</li>
+    <li>Free and open source</li><li>Fast and easy to implement</li><li>Theming and i18N supported</li><li>No 3rd party dependencies</li>
     </ul></p><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"><p><h3>Best Practices</h3></p>
-    </blockquote><p><ul><ul><li>Followed best coding practices</li><li>Responsive UI design</li>
-    <li>Good documentation</li><li>Flexible to customization</li><li>WAI-ARIA included</li></ul></ul></p>`;
+    </blockquote><p><ul><li>Followed best coding practices</li><li>Responsive UI design</li>
+    <li>Good documentation</li><li>Flexible to customization</li><li>WAI-ARIA included</li><li>Support modern browsers</li></ul></p>`;
   }
 
 }

@@ -1,6 +1,5 @@
 @mixin app-style {
     header {
-        background-color: $primary-color;
         position: fixed;
         top: 0px;
         left: 0px;
@@ -12,6 +11,7 @@
 
     header .np-toolbar {
         background-color: $primary-color;
+        border-radius: 0px;
     }
 
     .header-menu-btn {
@@ -68,15 +68,15 @@
     nav {
         height: calc(100vh - 50px);
         overflow: auto;
-        width: 225px;
+        width: 250px;
         position: fixed;
         top: 50px;
         z-index: 803;
     }
 
     article {
-        margin-left: 225px;
-        width: calc(100% - 225px);
+        margin-left: 250px;
+        width: calc(100% - 250px);
         display: flex;
         flex-direction: column;
         height: calc(100vh - 50px);

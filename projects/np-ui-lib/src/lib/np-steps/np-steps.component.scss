@@ -43,6 +43,7 @@
     i {
       font-size: large;
       padding-right: 10px;
+      z-index: 1;
     }
   }
 
@@ -95,13 +96,13 @@
   }
 
   .np-steps-vertical {
-    display: flex;
-    flex-direction: row;
-
     .np-steps-header {
       flex-direction: column;
-      border-right: 1px solid $border-color;
       border-bottom: none;
+
+      &::after {
+        display: none;
+      }
     }
 
     .np-step-title {
@@ -113,6 +114,20 @@
         content: " ";
         width: 1px;
         height: 3rem;
+        background-color: $border-color;
+      }
+    }
+
+    .np-step-body {
+      padding-left: 45px;
+
+      &::after {
+        top: 0px;
+        left: 22px;
+        position: absolute;
+        content: " ";
+        width: 1px;
+        height: 100%;
         background-color: $border-color;
       }
     }

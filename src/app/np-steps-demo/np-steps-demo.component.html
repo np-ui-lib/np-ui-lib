@@ -224,14 +224,42 @@
         <fieldset>
             <legend>Vertical Steps</legend>
             <np-steps [verticalSteps]="true">
-                <np-step label="Step 1">
-                    Step 1
+                <np-step label="Fill your personal details">
+                    <p>Step 1</p>
+                    <p>Step 1</p>
+                    <p>Step 1</p>
+                    <p>Step 1</p>
+                    <div class="np-btn-group">
+                        <button type="button"
+                                class="np-btn"
+                                npStepNext>Next</button>
+                    </div>
                 </np-step>
-                <np-step label="Step 2">
-                    Step 2
+                <np-step label="Fill your address">
+                    <p>Step 2</p>
+                    <p>Step 2</p>
+                    <p>Step 2</p>
+                    <p>Step 2</p>
+                    <div class="np-btn-group">
+                        <button type="button"
+                                class="np-btn"
+                                npStepPrevious>Previous</button>
+                        <button type="button"
+                                class="np-btn"
+                                npStepNext>Next</button>
+                    </div>
                 </np-step>
-                <np-step label="Step 3">
-                    Step 3
+                <np-step label="Upload your photo"
+                         [iconCss]="'fa fa-photo'">
+                    <p>Step 3</p>
+                    <p>Step 3</p>
+                    <p>Step 3</p>
+                    <p>Step 3</p>
+                    <div class="np-btn-group">
+                        <button type="button"
+                                class="np-btn"
+                                npStepPrevious>Previous</button>
+                    </div>
                 </np-step>
             </np-steps>
         </fieldset>

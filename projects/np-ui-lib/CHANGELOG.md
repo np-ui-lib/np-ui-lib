@@ -5,6 +5,7 @@
 
 # 11.1.3
 - Add npSidepanelContent directive for lazy loading
+- Vertical steps layout update
 
 # 11.1.2
 - Resolved css issue for vertical line in vertical steps

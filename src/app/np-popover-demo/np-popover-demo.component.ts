@@ -14,6 +14,9 @@ export class NpPopoverDemoComponent implements OnInit {
 </a>
 <ng-template #headerTemp let-count="count">
   Count pass in context is {{count}}.
+</ng-template>
+<ng-template #bodyTemp let-count="count">
+  Count pass in context is {{count}}.
 </ng-template>`;
 
   @ViewChild('myPopover1') myPopover1: NpPopoverDirective;
