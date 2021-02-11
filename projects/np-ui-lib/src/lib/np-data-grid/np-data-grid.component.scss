@@ -15,10 +15,8 @@
   }
 
   .np-column-chooser {
-    max-height: 350px;
     width: 350px;
     padding: 5px;
-    overflow: auto;
     background-color: $background-color;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
   }
@@ -31,6 +29,8 @@
     border: 1px solid $border-color;
     border-radius: $border-radius;
     margin: 5px 0px;
+    max-height: 300px;
+    overflow: auto;
   }
 
   .np-grid-columns-item .np-checkbox,
@@ -145,19 +145,6 @@
     background-color: $primary-color;
   }
 
-  .np-grid-sticky-left {
-    position: sticky !important;
-    left: 0px;
-    z-index: 200;
-  }
-
-  .np-grid-sticky-right {
-    position: sticky !important;
-    right: 0px;
-    border-left: 1px solid $border-color;
-    z-index: 200;
-  }
-
   .np-grid-no-data {
     position: sticky;
     left: 0px;
@@ -237,5 +224,9 @@
 
   .np-grid-pagination {
     border: none !important;
+  }
+
+  .np-grid-column-pin {
+    float: right;
   }
 }

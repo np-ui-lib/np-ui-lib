@@ -21,13 +21,13 @@ export class ClientGridAllComponent implements OnInit {
 
   ngOnInit() {
     this.gridColumns = [
-      new Column({ dataField: 'Id', visible: true, width: 200, caption: 'Id', dataType: DataTypes.Number, sortEnable: true, filterEnable: true, onCellClick: this.cellClicked, stickyColumn: true, stickyColumnLeft: true }),
+      new Column({ dataField: 'Id', visible: true, width: 100, caption: 'Id', dataType: DataTypes.Number, sortEnable: true, filterEnable: true, onCellClick: this.cellClicked }),
       new Column({ dataField: 'FirstName', visible: true, width: 200, caption: 'First Name', dataType: DataTypes.String, sortEnable: true, filterEnable: true }),
       new Column({ dataField: 'LastName', visible: true, width: 200, caption: 'Last Name', dataType: DataTypes.String }),
       new Column({ dataField: 'BirthDate', visible: true, width: 200, caption: 'Birth Date', dataType: DataTypes.Date, sortEnable: true, filterEnable: true, cellTemplate: this.birthDateColumnTemplate }),
       new Column({ dataField: 'Age', visible: true, width: 200, dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: 'np-text-danger', rightAlignText: true }),
-      new Column({ dataField: 'Active', visible: true, width: 200, caption: 'Is Active?', dataType: DataTypes.Boolean, filterEnable: true, }),
-      new Column({ caption: 'Actions', visible: true, width: 200, cellTemplate: this.actionButtonsTemplate, stickyColumnRight: true })];
+      new Column({ dataField: 'Active', visible: true, width: 80, caption: 'Is Active?', dataType: DataTypes.Boolean, filterEnable: true }),
+      new Column({ caption: 'Actions', visible: true, width: 100, cellTemplate: this.actionButtonsTemplate })];
 
     this.gridDataSource = new BehaviorSubject(null);
 

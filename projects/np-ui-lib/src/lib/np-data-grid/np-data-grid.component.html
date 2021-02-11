@@ -1,4 +1,4 @@
-<div [ngClass]="'np-grid'"
+<div [class.np-grid]="true"
      [style.max-height.px]="height"
      [style.max-width.px]="width"
      [class]="styleClass"
@@ -131,24 +131,16 @@
                 let column of visibleColumns;
                 let k = index;
                 trackBy: _trackBy
-              "
-                [ngClass]="{
-                'np-grid-sticky-left': column.stickyColumnLeft,
-                'np-grid-sticky-right': column.stickyColumnRight
-              }">
+              ">
               <span [innerHTML]="column.caption"
                     (click)="_onSort(column)"
                     [ngClass]="{ 'np-cursor-pointer': column.sortEnable }">
               </span>
               <ng-container *ngIf="column.sortEnable">
                 <button type="button"
-                        [ngClass]="{
-                    'np-sort-ascending':
-                      column.sortDirection === sortDirections.Ascending,
-                    'np-sort-descending':
-                      column.sortDirection === sortDirections.Descending,
-                    'np-sort-toggle': !column.sortDirection
-                  }"
+                        [class.np-sort-ascending]="column.sortDirection === sortDirections.Ascending"
+                        [class.np-sort-descending]="column.sortDirection === sortDirections.Descending"
+                        [class.np-sort-toggle]="!column.sortDirection"
                         (click)="_onSort(column)">
                   <svg class="np-icon"
                        *ngIf="column.sortDirection === sortDirections.Ascending"
@@ -184,11 +176,7 @@
                 let column of visibleColumns;
                 let l = index;
                 trackBy: _trackBy
-              "
-                [ngClass]="{
-                'np-grid-sticky-left': column.stickyColumnLeft,
-                'np-grid-sticky-right': column.stickyColumnRight
-              }">
+              ">
               <ng-container *ngIf="column.filterEnable">
                 <select class="np-form-control np-grid-filter-type"
                         [(ngModel)]="column.filterOperator"
@@ -267,12 +255,12 @@
             ">
             <tr class="np-row-master"
                 id="row_{{ i }}"
-                [ngClass]="{ 'np-grid-selected': _isSelected(data) }"
+                [class.np-grid-selected]="_isSelected(data)"
                 (click)="_rowClick($event, data)">
               <td *ngIf="enableMasterDetail">
-                <button class="np-detail-row-expand"
+                <button *ngIf="!_isOpenDetailRow(data); else collapseRowButton"
+                        class="np-detail-row-expand"
                         type="button"
-                        *ngIf="!_isOpenDetailRow(data); else collapseRowButton"
                         (click)="_onClickExpandRow(data)">
                   <svg class="np-icon"
                        viewBox="0 0 24 24">
@@ -306,19 +294,15 @@
                   trackBy: _trackBy
                 "
                   [class]="column.styleClass"
-                  [ngClass]="{
-                  'np-text-right': column.rightAlignText,
-                  'np-grid-sticky-left': column.stickyColumnLeft,
-                  'np-grid-sticky-right': column.stickyColumnRight
-                }"
+                  [class.np-text-right]="column.rightAlignText"
                   (click)="_onCellClick($event, column, data)">
                 <ng-container *ngIf="!column.cellTemplate; else customTemplate">
-                  <ng-container *ngIf="column.dataType === dataTypes.Date">
-                    {{ data[column.dataField] | date: dateFormat }}
-                  </ng-container>
-                  <ng-container *ngIf="column.dataType !== dataTypes.Date">
+                  <ng-container *ngIf="column.dataType !== dataTypes.Date; else dateTemplate">
                     {{ data[column.dataField] }}
                   </ng-container>
+                  <ng-template #dateTemplate>
+                    {{ data[column.dataField] | date: dateFormat }}
+                  </ng-template>
                 </ng-container>
                 <ng-template #customTemplate
                              [ngTemplateOutlet]="column.cellTemplate"
@@ -422,7 +406,7 @@
          (cdkDropListDropped)="_dropColumn($event)">
       <div class="np-grid-columns-item"
            *ngFor="
-          let column of columnsClone | searchColumnsPipe: searchColumnsKeyword;
+          let column of gridColumns | searchColumnsPipe: searchColumnsKeyword;
           trackBy: _trackBy
         "
            cdkDrag
@@ -430,7 +414,8 @@
            cdkDragBoundary=".np-grid-columns">
         <np-checkbox [(ngModel)]="column.visible"
                      [label]="column.caption"
-                     (onChange)="_onColumnChoosing($event, column)"></np-checkbox>
+                     (onChange)="_onColumnChoosing($event, column)">
+        </np-checkbox>
         <div class="np-grid-drag-handle"
              cdkDragHandle
              *ngIf="allowColumnReorder">
@@ -442,7 +427,8 @@
           </svg>
         </div>
         <div class="np-grid-drag-placeholder"
-             *cdkDragPlaceholder></div>
+             *cdkDragPlaceholder>
+        </div>
       </div>
     </div>
   </div>

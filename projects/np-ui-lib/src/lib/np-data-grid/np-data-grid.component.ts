@@ -79,7 +79,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   @ViewChild('columnChooserTemplate') columnChooserTemplate: TemplateRef<any>;
   @ViewChild('gridPaginator') gridPaginator: NpPaginatorComponent;
 
-  columnsClone: Column[];
+  gridColumns: Column[];
   dataSourceClone: DataSource;
   subscription: Subscription;
   currentViewData: any[];
@@ -138,7 +138,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     if (this.key) {
       this.keyColumnName = this.key;
     } else {
-      this.keyColumnName = this.columnsClone[0].dataField;
+      this.keyColumnName = this.gridColumns[0].dataField;
     }
     this._subscribeDataSource();
   }
@@ -212,17 +212,17 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   hideColumnByIndex(idx: number) {
-    this.columnsClone[idx].visible = false;
+    this.gridColumns[idx].visible = false;
     this._setVisibleColumns();
   }
 
   showColumnByIndex(idx: number) {
-    this.columnsClone[idx].visible = true;
+    this.gridColumns[idx].visible = true;
     this._setVisibleColumns();
   }
 
   hideColumnByDataField(dataField: string) {
-    for (const element of this.columnsClone) {
+    for (const element of this.gridColumns) {
       if (element.dataField === dataField) {
         element.visible = false;
       }
@@ -231,7 +231,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   showColumnByDataField(dataField: string) {
-    for (const element of this.columnsClone) {
+    for (const element of this.gridColumns) {
       if (element.dataField === dataField) {
         element.visible = true;
       }
@@ -244,7 +244,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   sortByColumn(dataField: string, direction: SortDirections) {
-    const sortColumn = this.utilityService.custFind(this.columnsClone, (element: Column) => {
+    const sortColumn = this.utilityService.custFind(this.gridColumns, (element: Column) => {
       return element.dataField === dataField;
     });
     sortColumn.sortDirection = direction;
@@ -252,7 +252,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   filterByColumn(dataField: string, keyword: string, type: FilterTypes) {
-    const filterColumn = this.utilityService.custFind(this.columnsClone, (element: Column) => {
+    const filterColumn = this.utilityService.custFind(this.gridColumns, (element: Column) => {
       return element.dataField === dataField;
     });
     filterColumn.filterString = keyword;
@@ -289,13 +289,13 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   getColumns() {
-    return this._cloneColumns(this.columnsClone);
+    return this._cloneColumns(this.gridColumns);
   }
 
   setColumns(columns: Column[]) {
-    this.columnsClone = this._cloneColumns(columns);
+    this.gridColumns = this._cloneColumns(columns);
     const currentFilterColumnList = [];
-    for (const element of this.columnsClone) {
+    for (const element of this.gridColumns) {
       if (element.filterOperator && element.filterValue && element.filterValue.toString().length > 0) {
         currentFilterColumnList.push({
           dataField: element.dataField, filterOperator: element.filterOperator,
@@ -305,7 +305,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     }
     this.filterColumnList = currentFilterColumnList;
     const currentSortColumnList = [];
-    for (const element of this.columnsClone) {
+    for (const element of this.gridColumns) {
       if (element.sortEnable && element.sortDirection) {
         currentSortColumnList.push({ dataField: element.dataField, sortDirection: element.sortDirection });
       }
@@ -431,16 +431,18 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     for (const element of this.columns) {
       result.push(new Column(element));
     }
-    this.columnsClone = result;
+    this.gridColumns = result;
     this._setVisibleColumns();
   }
 
   _setVisibleColumns() {
-    this.visibleColumns = this.utilityService.custFilter(this.columnsClone,
-      (element: Column) => { if (element.visible === true) { return element; } });
-    this.isFilterAvailable = this.utilityService.custFilter(this.columnsClone,
-      (element) => {
-        if (element.filterEnable === true && element.visible === true) { return element; }
+    this.visibleColumns = this.utilityService.custFilter(this.gridColumns,
+      (element: Column) => {
+        if (element.visible === true) { return element; }
+      });
+    this.isFilterAvailable = this.utilityService.custFilter(this.visibleColumns,
+      (element: Column) => {
+        if (element.filterEnable === true) { return element; }
       }).length > 0;
   }
 
@@ -495,7 +497,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _removeAllSorting() {
-    for (const element of this.columnsClone) {
+    for (const element of this.gridColumns) {
       element.sortDirection = null;
     }
     this.sortColumnList = [];
@@ -543,7 +545,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       return;
     }
     const currentFilterList = [];
-    for (const element of this.columnsClone) {
+    for (const element of this.gridColumns) {
       if (element.filterOperator === undefined
         || element.filterOperator === null
         || element.filterValue === undefined
@@ -576,7 +578,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _removeAllFilters() {
-    for (const element of this.columnsClone) {
+    for (const element of this.gridColumns) {
       element.filterOperator = null;
       element.filterValue = null;
     }
@@ -738,12 +740,12 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _dropColumn(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.columnsClone, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.gridColumns, event.previousIndex, event.currentIndex);
     this._setVisibleColumns();
   }
 
   _saveState() {
-    const columns = this._cloneColumns(this.columnsClone);
+    const columns = this._cloneColumns(this.gridColumns);
     const currentStateName = this.currentStateName;
     let editedState;
     for (const element of this.stateList) {
@@ -784,7 +786,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
         });
       return;
     }
-    const columns = this._cloneColumns(this.columnsClone);
+    const columns = this._cloneColumns(this.gridColumns);
     const newState = new State(name, columns);
     this.stateList.push(newState);
     this.currentStateName = name;
@@ -895,7 +897,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   }
 
   _showAllColumns() {
-    this.columnsClone.forEach((element) => {
+    this.gridColumns.forEach((element) => {
       element.visible = true;
     });
     this._setVisibleColumns();

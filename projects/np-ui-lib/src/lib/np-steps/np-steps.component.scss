@@ -38,12 +38,17 @@
 
     &:hover {
       background-color: $selected-color;
+
+      i {
+        background-color: $selected-color;
+      }
     }
 
     i {
       font-size: large;
       padding-right: 10px;
       z-index: 1;
+      background-color: #f5f5f5;
     }
   }
 
