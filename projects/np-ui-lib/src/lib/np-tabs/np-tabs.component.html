@@ -4,29 +4,7 @@
      [class]="styleClass"
      [attr.id]="inputId">
   <div class="np-tabs-header">
-    <cdk-virtual-scroll-viewport orientation="horizontal"
-                                 itemSize="50"
-                                 class="example-viewport">
-      <ng-container *cdkVirtualFor="let tab of tabs">
-        <button class="np-tab-title"
-                role="tab"
-                [attr.id]="_getTitleId(tab)"
-                [ngClass]="{ 'np-tab-active': tab.active, 'np-disabled': tab.disabled }"
-                [attr.tabindex]="tab.disabled ? '-1' : '0'"
-                [attr.aria-selected]="tab.active"
-                [attr.aria-controls]="_getBodyId(tab)"
-                (click)="_selectTab(tab)">
-          <i *ngIf="tab.iconCss"
-             [class]="tab.iconCss"></i>
-          <span *ngIf="!tab.titleIsTemplate"
-                [innerHTML]="tab.title"></span>
-          <ng-template *ngIf="tab.titleIsTemplate"
-                       [ngTemplateOutlet]="tab.title">
-          </ng-template>
-        </button>
-      </ng-container>
-    </cdk-virtual-scroll-viewport>
-    <!-- <ng-container *ngFor="let tab of tabs">
+    <ng-container *ngFor="let tab of tabs">
       <button class="np-tab-title"
               role="tab"
               [attr.id]="_getTitleId(tab)"
@@ -43,7 +21,7 @@
                      [ngTemplateOutlet]="tab.title">
         </ng-template>
       </button>
-    </ng-container> -->
+    </ng-container>
   </div>
   <div class="np-tab-body"
        role="tabpanel"

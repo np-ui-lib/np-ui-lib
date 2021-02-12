@@ -4,11 +4,10 @@ import { NpTabsComponent } from './np-tabs.component';
 import { NpTabComponent } from './np-tab.component';
 import { NpTabContent } from './np-tab-content.directive';
 import { PortalModule } from '@angular/cdk/portal';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [NpTabsComponent, NpTabComponent, NpTabContent],
-  imports: [CommonModule, PortalModule, ScrollingModule],
+  imports: [CommonModule, PortalModule],
   exports: [NpTabsComponent, NpTabComponent, NpTabContent]
 })
 export class NpTabsModule { }
