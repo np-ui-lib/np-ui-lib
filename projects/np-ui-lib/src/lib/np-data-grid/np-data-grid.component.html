@@ -1,4 +1,4 @@
-<div [class.np-grid]="true"
+<div [ngClass]="'np-grid'"
      [style.max-height.px]="height"
      [style.max-width.px]="width"
      [class]="styleClass"
@@ -138,9 +138,13 @@
               </span>
               <ng-container *ngIf="column.sortEnable">
                 <button type="button"
-                        [class.np-sort-ascending]="column.sortDirection === sortDirections.Ascending"
-                        [class.np-sort-descending]="column.sortDirection === sortDirections.Descending"
-                        [class.np-sort-toggle]="!column.sortDirection"
+                        [ngClass]="{
+                              'np-sort-ascending':
+                                column.sortDirection === sortDirections.Ascending,
+                              'np-sort-descending':
+                                column.sortDirection === sortDirections.Descending,
+                              'np-sort-toggle': !column.sortDirection
+                            }"
                         (click)="_onSort(column)">
                   <svg class="np-icon"
                        *ngIf="column.sortDirection === sortDirections.Ascending"
@@ -255,7 +259,7 @@
             ">
             <tr class="np-row-master"
                 id="row_{{ i }}"
-                [class.np-grid-selected]="_isSelected(data)"
+                [ngClass]="{ 'np-grid-selected': _isSelected(data) }"
                 (click)="_rowClick($event, data)">
               <td *ngIf="enableMasterDetail">
                 <button *ngIf="!_isOpenDetailRow(data); else collapseRowButton"
@@ -294,7 +298,7 @@
                   trackBy: _trackBy
                 "
                   [class]="column.styleClass"
-                  [class.np-text-right]="column.rightAlignText"
+                  [ngClass]="{'np-text-right': column.rightAlignText}"
                   (click)="_onCellClick($event, column, data)">
                 <ng-container *ngIf="!column.cellTemplate; else customTemplate">
                   <ng-container *ngIf="column.dataType !== dataTypes.Date; else dateTemplate">

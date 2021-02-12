@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+# 11.1.4
+- Resolved css issue in datagrid
+
 # 11.1.3
 - Add npSidepanelContent directive for lazy loading
 - Vertical steps layout update
