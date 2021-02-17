@@ -37,7 +37,7 @@ reference.close(data) <span class="np-text-success">// use this method to close 
 
   openModal2() {
     const config = new NpModalConfig({
-      height: 400,
+      height: '50%',
       width: 400,
       hasBackDrop: false,
       header: '<h4>What is paragraph?</h4>',

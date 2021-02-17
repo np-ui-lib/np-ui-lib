@@ -1,5 +1,5 @@
 import { Component, TemplateRef, ViewChild, OnInit } from '@angular/core';
-import { DataSource, DataTypes, Column } from 'np-ui-lib';
+import { DataSource, DataTypes, Column, NpSidepanelComponent } from 'np-ui-lib';
 import { DataService } from '../data.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -12,9 +12,12 @@ export class ClientGridAllComponent implements OnInit {
   gridColumns: any[];
   gridDataSource: BehaviorSubject<DataSource>;
 
+  sidepanelData: any;
+
   @ViewChild('actionButtonsTemplate', { static: true }) actionButtonsTemplate: TemplateRef<any>;
   @ViewChild('birthDateColumnTemplate', { static: true }) birthDateColumnTemplate: TemplateRef<any>;
   @ViewChild('summaryTemplate', { static: true }) summaryTemplate: TemplateRef<any>;
+  @ViewChild('sidePanelRight', { static: true }) sidePanelRight: NpSidepanelComponent;
 
   constructor(private dataService: DataService) {
   }
@@ -45,7 +48,8 @@ export class ClientGridAllComponent implements OnInit {
   onActionClick(rowData: any, event: any, $event) {
     $event.stopPropagation();
     if (event === 'Edit') {
-      alert('Edit button click for row: ' + rowData.Id);
+      this.sidepanelData = rowData;
+      this.sidePanelRight.open(null);
     }
     if (event === 'Delete') {
       alert('Delete button click for row: ' + rowData.Id);

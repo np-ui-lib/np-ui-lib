@@ -53,3 +53,20 @@
              let-summary="summary">
     <span>Total:{{summary ? summary.totalCount : 0}}</span>
 </ng-template>
+
+<np-sidepanel #sidePanelRight
+              [position]="'right'"
+              [height]="'100%'"
+              [width]="'50%'">
+    <ng-template npSidepanelContent>
+        <div>
+            Id: {{sidepanelData.Id}}
+        </div>
+        <div>
+            First Name: {{sidepanelData.FirstName}}
+        </div>
+        <div>
+            Last Name: {{sidepanelData.LastName}}
+        </div>
+    </ng-template>
+</np-sidepanel>
