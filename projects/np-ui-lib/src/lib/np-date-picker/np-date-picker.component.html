@@ -90,7 +90,7 @@
         <ng-container *ngFor="let item of week">
           <div class="np-date-picker-day"
                *ngIf="!item.day"></div>
-          <div class="np-date-picker-day np-day-{{ item.day }}"
+          <div [class]="_getDateClass(item)"
                *ngIf="item.day"
                (click)="_selectDate(item.date)"
                [ngClass]="{

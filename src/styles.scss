@@ -229,4 +229,14 @@
     .list {
         margin: 0px;
     }
+
+    .green-background,
+    .green-background:hover {
+        background-color: green;
+    }
+
+    .red-background,
+    .red-background:hover {
+        background-color: red;
+    }
 }

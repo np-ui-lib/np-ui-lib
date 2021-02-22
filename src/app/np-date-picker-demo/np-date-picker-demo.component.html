@@ -90,6 +90,15 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>dateClass</td>
+                        <td>
+                            Add CSS class on each date based on conditions, pass function which returns string CSS
+                            class.
+                        </td>
+                        <td [innerText]="dateClassText"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>placeholder</td>
                         <td>Set placeholder</td>
                         <td>string</td>
@@ -349,6 +358,14 @@
                     <legend>dateLabels</legend>
                     <np-date-picker [(ngModel)]="date12"
                                     [dateLabels]="dateLabels12"></np-date-picker>
+                </fieldset>
+            </div>
+
+            <div>
+                <fieldset>
+                    <legend>dateClass</legend>
+                    <np-date-picker [(ngModel)]="date15"
+                                    [dateClass]="getClassForDate"></np-date-picker>
                 </fieldset>
             </div>
 

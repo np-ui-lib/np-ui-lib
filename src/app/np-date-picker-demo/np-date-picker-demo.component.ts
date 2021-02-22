@@ -25,9 +25,11 @@ export class NpDatePickerDemoComponent implements OnInit {
   dateLabels12: any[] = [];
   date13: Date;
   date14: Date;
+  date15: Date;
 
   importText = `import { NpDatePickerModule } from 'np-ui-lib';`;
   htmlText = `<np-date-picker [(ngModel)]="value"></np-date-picker>`;
+  dateClassText = 'function(date: Date) { return "red-background";}';
 
   constructor() { }
 
@@ -61,6 +63,13 @@ export class NpDatePickerDemoComponent implements OnInit {
 
   onChangeDate14(e) {
     alert(e);
+  }
+
+  getClassForDate(date: Date) {
+    if (date.getDate() == 1 || date.getDate() == 28) {
+      return 'red-background';
+    }
+    return 'green-background';
   }
 
 }

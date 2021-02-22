@@ -37,6 +37,7 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   @Input() disableWeekDays: string[] = [];
   @Input() disableDates: Date[] = [];
   @Input() dateLabels: any[] = [];
+  @Input() dateClass: any;
   @Input() isStartMonthWithMonday = false;
   @Input() placeholder = '';
   @Input() readOnly: boolean;
@@ -432,5 +433,12 @@ export class NpDatePickerComponent implements ControlValueAccessor, AfterViewIni
   _onFocus($event) {
     this.focused = true;
     this.onFocus.emit($event);
+  }
+
+  _getDateClass(item: any) {
+    if (this.dateClass) {
+      return (`np-date-picker-day np-day-${item.day} ` + this.dateClass(item.date)).trim();
+    }
+    return `np-date-picker-day np-day-${item.day}`;
   }
 }
