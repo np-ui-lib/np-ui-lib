@@ -6,6 +6,7 @@
 # 11.1.5
 - Add sidepanel service
 - Add new dateClass property to date picker
+- Add new dateClass property to calendar
 
 # 11.1.4
 - Resolved css issue in datagrid

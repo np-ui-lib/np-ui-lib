@@ -80,10 +80,10 @@
     <tbody>
       <tr *ngFor="let week of currentMonthWeeks">
         <td *ngFor="let item of week">
-          <div class="np-calendar-day"
-               *ngIf="!item.day"></div>
-          <div class="np-calendar-day np-day-{{ item.day }}"
-               *ngIf="item.day"
+          <div *ngIf="!item.day"
+               class="np-calendar-day"></div>
+          <div *ngIf="item.day"
+               [class]="_getDateClass(item)"
                [ngClass]="{
               'np-calendar-today': item.today,
               'np-disabled': item.disabled

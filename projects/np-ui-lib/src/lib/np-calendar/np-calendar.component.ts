@@ -16,6 +16,7 @@ export class NpCalendarComponent implements AfterContentInit {
 
   @Input() disableWeekDays: string[] = [];
   @Input() disableDates: Date[] = [];
+  @Input() dateClass: any;
   @Input() isStartMonthWithMonday = false;
   @Input() eventTemplate: TemplateRef<any>;
   @Input() styleClass: string;
@@ -285,6 +286,13 @@ export class NpCalendarComponent implements AfterContentInit {
     if (this.onLoadMonth) {
       this.onLoadMonth.emit({ month: this.currentMonth, year: this.currentYear });
     }
+  }
+
+  _getDateClass(item: any) {
+    if (this.dateClass) {
+      return (`np-calendar-day np-day-${item.day} ` + this.dateClass(item.date)).trim();
+    }
+    return `np-calendar-day np-day-${item.day}`;
   }
 
 }

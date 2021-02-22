@@ -88,10 +88,10 @@
     <div class="np-date-picker-days">
       <div *ngFor="let week of currentMonthWeeks">
         <ng-container *ngFor="let item of week">
-          <div class="np-date-picker-day"
-               *ngIf="!item.day"></div>
-          <div [class]="_getDateClass(item)"
-               *ngIf="item.day"
+          <div *ngIf="!item.day"
+               class="np-date-picker-day"></div>
+          <div *ngIf="item.day"
+               [class]="_getDateClass(item)"
                (click)="_selectDate(item.date)"
                [ngClass]="{
               'np-date-picker-today': item.today,

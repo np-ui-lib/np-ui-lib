@@ -111,4 +111,11 @@ export class NpCalendarDemoComponent implements OnInit {
     this.myCalendar2.addEvents(events);
   }
 
+  getClassForDate(date: Date) {
+    if (date.getDate() == 1 || date.getDate() == 28) {
+      return 'red-background';
+    }
+    return 'green-background';
+  }
+
 }
