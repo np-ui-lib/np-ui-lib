@@ -133,6 +133,22 @@
         </table>
       </np-card-body>
     </np-card>
+    <np-card>
+      <np-card-body>
+        <np-card-body>
+          <b>NpSidepanelService</b>
+          <div>
+            <pre><code [innerText]="serviceText"></code></pre>
+          </div>
+          <div>
+            <pre><code [innerHTML]="serviceClose"></code></pre>
+          </div>
+          <div>
+            <pre><code [innerHTML]="serviceGet"></code></pre>
+          </div>
+        </np-card-body>
+      </np-card-body>
+    </np-card>
   </np-tab>
   <np-tab title="Examples">
     <div class="np-btn-group">
@@ -163,7 +179,9 @@
 
     <np-sidepanel #sidePanelLeft
                   [position]="'left'"
-                  [height]="'100%'">
+                  [height]="'100%'"
+                  [inputId]="'leftSidepanel'"
+                  (onClose)="onCloseLeft($event)">
       <ng-template npSidepanelContent>
         <form [formGroup]="myForm">
           <div class="np-container">

@@ -50,7 +50,7 @@ export class CelltemplateGridComponent implements OnInit {
   }
 
   onActionClick(row, actionType, event) {
-    alert('Action type is : ' + actionType + ', Row key value:' + row.Id);
+    alert('Action type is : ' + actionType + ', Row key value: ' + row.Id);
   }
 
 }

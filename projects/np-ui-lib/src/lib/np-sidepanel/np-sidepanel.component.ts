@@ -1,10 +1,12 @@
 import {
   Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, TemplateRef,
-  ViewContainerRef, Input, Output, EventEmitter, ContentChild
+  ViewContainerRef, Input, Output, EventEmitter, ContentChild, OnInit, OnDestroy
 } from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { NpSidepanelContent } from './np-sidepanel-content.directive';
+import { NpSidepanelService } from './np-sidepanel.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'np-sidepanel',
@@ -12,7 +14,7 @@ import { NpSidepanelContent } from './np-sidepanel-content.directive';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class NpSidepanelComponent {
+export class NpSidepanelComponent implements OnInit, OnDestroy {
 
   private static controlCount = 1;
 
@@ -38,13 +40,28 @@ export class NpSidepanelComponent {
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
+  private sidepanelRef = new Subject<any>();
 
   constructor(
     public overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
-    private overlayPositionBuilder: OverlayPositionBuilder) { }
+    private overlayPositionBuilder: OverlayPositionBuilder,
+    private sidepanelService: NpSidepanelService) {
+  }
 
-  open(data: any) {
+  ngOnInit(): void {
+    this.sidepanelRef = this.sidepanelService._add(this.inputId);
+    this.sidepanelRef.subscribe((data) => {
+      this.close(data);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.sidepanelRef.unsubscribe();
+    this.sidepanelService._remove(this.inputId);
+  }
+
+  open(data: any): Subject<any> {
     // if overlay is not attached then only attach
     if (this.overlayRef === undefined || !this.overlayRef.hasAttached()) {
       const positionStrategy = this.overlayPositionBuilder.global();
@@ -83,7 +100,9 @@ export class NpSidepanelComponent {
       }
       this.overlayRef.attach(this.templatePortal);
       this.onOpen.emit(data);
+      return this.sidepanelRef;
     }
+    return null;
   }
 
   close(data: any) {

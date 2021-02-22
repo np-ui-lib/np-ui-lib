@@ -177,7 +177,7 @@
                     [placement]="'bottom'"
                     [openOnClick]="true"
                     [hasBackDrop]="false"
-                    [styleClass]="'mail-popover'">
+                    [styleClass]="'popover-no-border'">
                 <i class="fa fa-envelope"></i>
                 <span class="np-badge">5</span>
             </button>
@@ -267,6 +267,28 @@
                 <button type="button"
                         class="np-btn"
                         (click)="closeStep3Popover()">Close</button>
+            </ng-template>
+        </fieldset>
+        <fieldset>
+            <legend>Dynamic menu with popover</legend>
+            <a npPopover
+               [openOnClick]="true"
+               [body]="buttonOverlatTemp"
+               [styleClass]="'popover-no-border'"
+               [closeOnClickOutside]="true"><i class="fa fa-bars"></i>
+            </a>
+            <ng-template #buttonOverlatTemp>
+                <ul class="np-menubar">
+                    <li class="np-menu-item">
+                        <a class="np-menu-link">Add</a>
+                    </li>
+                    <li class="np-menu-item">
+                        <a class="np-menu-link">Edit</a>
+                    </li>
+                    <li class="np-menu-item">
+                        <a class="np-menu-link">Close</a>
+                    </li>
+                </ul>
             </ng-template>
         </fieldset>
     </np-tab>

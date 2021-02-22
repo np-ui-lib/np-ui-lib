@@ -214,8 +214,12 @@
         text-align: center;
     }
 
-    .mail-popover .np-popover-body {
+    .popover-no-border .np-popover-body {
         padding: 0px;
+    }
+
+    .popover-no-border .np-menubar {
+        border: none;
     }
 
     .no-border {

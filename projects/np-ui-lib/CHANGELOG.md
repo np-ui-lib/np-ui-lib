@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+# 11.1.5
+- Add sidepanel service
+
 # 11.1.4
 - Resolved css issue in datagrid
 

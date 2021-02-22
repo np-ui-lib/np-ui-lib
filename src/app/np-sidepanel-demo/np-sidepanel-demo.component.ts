@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NpInputTextComponent, NpSidepanelComponent } from 'np-ui-lib';
+import { NpSidepanelComponent, NpSidepanelService } from 'np-ui-lib';
 
 @Component({
   selector: 'app-np-sidepanel-demo',
@@ -10,13 +10,28 @@ export class NpSidepanelDemoComponent implements OnInit {
 
   importText = 'import { NpSidepanelModule } from \'np-ui-lib\';';
   htmlText = `<np-sidepanel [position]="'right'" [height]="'100%'" [width]="'200px'">
-  Body content...
+  ...Body content
 </np-sidepanel>`;
   lazyLoadText = `<np-sidepanel [position]="'right'" [height]="'100%'" [width]="'200px'">
   <ng-template npSidepanelContent>
-    ...lazy load content
+    ...Lazy load content
   </ng-tempalte>
 </sidepanel>`;
+  serviceText = 'constructor(private sidepanelService: NpSidepanelService) { }';
+
+  serviceClose = `this.sidepanelService.closeSidepanel("leftSidepanel", { data: 5 });
+<span class="np-text-success">// Where leftSidepanel is inputId of sidepanel. and pass data in second parameter.
+// this data will be passed to onClose callback method of sidepanel.
+</span>`;
+
+  serviceGet = `var reference = this.sidepanelService.get("leftSidepanel");
+<span class="np-text-success">// Where leftSidepanel is inputId of sidepanel.
+// this get method will return sidepanel reference object, 
+// which can be furthur subscribed to get call back when sidepanel is closed by service.
+</span>
+reference.subscribe((data) => {
+  <span class="np-text-success">... Callback on sidepanel close by service</span>
+});`;
 
   firstName: string;
   lastName: string;
@@ -39,7 +54,7 @@ export class NpSidepanelDemoComponent implements OnInit {
   @ViewChild('sidePanelTop', { static: true }) sidePanelTop: NpSidepanelComponent;
   @ViewChild('sidePanelBottom', { static: true }) sidePanelBottom: NpSidepanelComponent;
 
-  constructor() { }
+  constructor(private sidepanelService: NpSidepanelService) { }
 
   ngOnInit(): void {
   }
@@ -48,8 +63,13 @@ export class NpSidepanelDemoComponent implements OnInit {
     this.sidePanelLeft.open(null);
   }
 
+  onCloseLeft(data: any) {
+    console.log(JSON.stringify(data));
+    alert('Left sidepanel closed');
+  }
+
   closeLeft() {
-    this.sidePanelLeft.close(null);
+    this.sidepanelService.closeSidepanel("leftSidepanel", { data: 5 });
   }
 
   onSubmit() {
