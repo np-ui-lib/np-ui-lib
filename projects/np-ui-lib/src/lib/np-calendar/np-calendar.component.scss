@@ -39,7 +39,7 @@
     th {
       background-color: $selected-color;
       padding: 5px;
-      min-width: 90px;
+      margin: 0px;
       overflow: hidden;
     }
 
@@ -48,7 +48,6 @@
       margin: 0px;
       border-right: 1px solid $border-color;
       border-top: 1px solid $border-color;
-      min-width: 90px;
 
       &:last-child {
         border-right: none;

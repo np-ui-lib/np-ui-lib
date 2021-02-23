@@ -20,6 +20,7 @@ export class NpCalendarDemoComponent implements OnInit {
       {{event.startDate.toTimeString().substring(0,5)}} {{event.title}}
   </div>
 </ng-template>`;
+  dateClassText = 'function(date: Date) { return "red-background";}';
 
   constructor(private modalService: NpModalService) { }
 
