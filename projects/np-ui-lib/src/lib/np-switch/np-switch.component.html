@@ -8,10 +8,12 @@
      [attr.id]="inputId"
      role="switch"
      [attr.aria-checked]="innerValue">
-  <label (change)="_onClickSwitch($event)">
+  <label (change)="_onClickSwitch($event)"
+         [attr.for]="_getInputId()">
     <input class="np-switch-input"
            type="checkbox"
            #control
+           [attr.id]="_getInputId()"
            [checked]="innerValue"
            [disabled]="isDisabled"
            [npAutofocus]="autoFocus"

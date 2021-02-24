@@ -98,4 +98,8 @@ export class NpCheckboxComponent implements ControlValueAccessor {
     }
   }
 
+  _getInputId() {
+    return this.inputId + "_input";
+  }
+
 }

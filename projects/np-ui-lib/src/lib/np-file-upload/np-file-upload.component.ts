@@ -181,5 +181,9 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   _getLabel() {
     return this.uploadButtonLabel ? this.uploadButtonLabel : (this.multiple ? "Choose_Files" : "Choose_File");
   }
+
+  _getInputId() {
+    return this.inputId + "_input";
+  }
 }
 

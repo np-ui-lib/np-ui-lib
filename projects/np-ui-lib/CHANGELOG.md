@@ -7,6 +7,8 @@
 - Add sidepanel service
 - Add new dateClass property to date picker
 - Add new dateClass property to calendar
+- Firefox click issue resolved for radio button and checkbox
+- Resolved css issue for calendar events
 
 # 11.1.4
 - Resolved css issue in datagrid

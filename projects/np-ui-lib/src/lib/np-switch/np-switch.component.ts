@@ -89,4 +89,8 @@ export class NpSwitchComponent implements ControlValueAccessor {
     this.focused = true;
     this.onFocus.emit($event);
   }
+
+  _getInputId() {
+    return this.inputId + "_input";
+  }
 }

@@ -25,6 +25,7 @@
     width: 1rem;
     border: 1px solid $border-color;
     border-radius: $border-radius;
+    pointer-events: none;
   }
 
   .np-checkbox-input {

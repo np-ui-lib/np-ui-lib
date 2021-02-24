@@ -133,4 +133,8 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
         item.focused = true;
         this.onFocus.emit($event);
     }
+
+    _getInputId(id: string) {
+        return id + "_input";
+    }
 }

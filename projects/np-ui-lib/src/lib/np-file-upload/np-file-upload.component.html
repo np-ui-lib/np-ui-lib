@@ -8,10 +8,12 @@
   <div class="np-input-group"
        [ngClass]="{ 'np-focused': focused }">
     <label class="np-file-label"
-           tabindex="auto">
+           tabindex="auto"
+           [attr.for]="_getInputId()">
       <input class="np-file-input"
              type="file"
              #control
+             [attr.id]="_getInputId()"
              [attr.accept]="accept"
              [npAutofocus]="autoFocus"
              [attr.tabindex]="tabIndex"

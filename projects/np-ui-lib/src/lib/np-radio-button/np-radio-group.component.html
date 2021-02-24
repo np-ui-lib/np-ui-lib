@@ -12,11 +12,13 @@
          [attr.aria-checked]="_isSelected(item)"
          [class]="styleClass"
          [attr.id]="item.inputId">
-      <label class="np-radio-button-label">
+      <label class="np-radio-button-label"
+             [attr.for]="_getInputId(item.inputId)">
         <input class="np-radio-button-input"
                type="radio"
                [value]="value"
                [checked]="_isSelected(item)"
+               [attr.id]="_getInputId(item.inputId)"
                [attr.name]="name"
                [disabled]="isDisabled"
                [readonly]="readOnly"
