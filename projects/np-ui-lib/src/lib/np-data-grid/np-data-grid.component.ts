@@ -102,6 +102,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
   summaryData: any;
   searchColumnsKeyword: string;
   isDataSourceInit = false;
+  _colSpanForDetailRow = 0;
 
   private columnChooserTemplatePortal: TemplatePortal<any>;
   private columnChooserOverlayRef: OverlayRef;
@@ -444,6 +445,7 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
       (element: Column) => {
         if (element.filterEnable === true) { return element; }
       }).length > 0;
+    this._colSpanForDetailRow = this.visibleColumns.length + (this._allowRowSelection() ? 1 : 0) + 1;
   }
 
   _onCellClick($event: any, column: Column, data: any) {
@@ -911,15 +913,11 @@ export class NpDataGridComponent implements OnInit, AfterContentInit, AfterViewI
     return this.singleRowSelectEnable || this.multiRowSelectEnable;
   }
 
-  _getColSpanForDetailRow() {
-    return this.visibleColumns.length + (this._allowRowSelection() ? 1 : 0) + 1;
-  }
-
   _trackBy(index: number): number {
     return index;
   }
 
-  _checkIndeterminate() {
+  _isAnyRowSelected() {
     return !this.isAllSelected && this.selectedRowKeys && this.selectedRowKeys.length > 0;
   }
 

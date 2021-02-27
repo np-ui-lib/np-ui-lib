@@ -123,7 +123,7 @@
             <th *ngIf="_allowRowSelection()">
               <np-checkbox *ngIf="multiRowSelectEnable"
                            [(ngModel)]="isAllSelected"
-                           [indeterminate]="_checkIndeterminate()"
+                           [indeterminate]="_isAnyRowSelected()"
                            (onChange)="_onClickSelectAll($event)">
               </np-checkbox>
             </th>
@@ -257,9 +257,8 @@
               let i = index;
               trackBy: _trackBy
             ">
-            <tr class="np-row-master"
-                id="row_{{ i }}"
-                [ngClass]="{ 'np-grid-selected': _isSelected(data) }"
+            <tr id="row_{{ i }}"
+                [ngClass]="{ 'np-grid-selected': _isSelected(data) , 'np-row-master': enableMasterDetail}"
                 (click)="_rowClick($event, data)">
               <td *ngIf="enableMasterDetail">
                 <button *ngIf="!_isOpenDetailRow(data); else collapseRowButton"
@@ -314,10 +313,10 @@
                 </ng-template>
               </td>
             </tr>
-            <tr *ngIf="_isOpenDetailRow(data)"
+            <tr *ngIf="enableMasterDetail && _isOpenDetailRow(data)"
                 class="np-row-detail"
                 id="row_{{ i }}_detail">
-              <td [attr.colspan]="_getColSpanForDetailRow()">
+              <td [attr.colspan]="_colSpanForDetailRow">
                 <ng-container *ngTemplateOutlet="
                 masterDetailTemplate;
                 context: { row: data }
@@ -331,7 +330,7 @@
     </div>
     <div class="np-grid-no-data"
          *ngIf="currentViewData && currentViewData.length === 0">
-      <div>{{ noDataMessage || ("No_Data_Found" | npTranslate) }}</div>
+      {{ noDataMessage || ("No_Data_Found" | npTranslate) }}
     </div>
     <div class="np-grid-summary"
          *ngIf="showSummary">

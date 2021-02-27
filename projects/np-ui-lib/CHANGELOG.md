@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 11.1.6
+- Grid improvements
+
 # 11.1.5
 - Add sidepanel service
 - Add new dateClass property to date picker
