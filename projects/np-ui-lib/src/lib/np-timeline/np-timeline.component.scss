@@ -11,22 +11,22 @@
         padding: 10px;
     }
 
-    .np-timeline-container::after {
-        content: "";
-        position: absolute;
-        width: 4px;
-        background-color: $border-color;
-        top: 0;
-        bottom: 0;
-        left: 17px;
-    }
-
     .np-timeline-item {
         padding: 10px 30px;
         position: relative;
     }
 
     .np-timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: $border-color;
+        top: 0;
+        bottom: 0px;
+        left: 10px;
+    }
+
+    .np-timeline-item::before {
         content: "";
         position: absolute;
         width: 10px;
@@ -36,7 +36,19 @@
         top: calc(50% - 5px);
         border-radius: 50%;
         z-index: 1;
-        left: 0;
+        left: 3px;
+    }
+
+    .np-timeline-item:first-child::after {
+        top: 50%;
+        bottom: 0px;
+        height: 50%;
+    }
+
+    .np-timeline-item:last-child::after {
+        bottom: 50%;
+        bottom: 0px;
+        height: 50%;
     }
 
     .np-timeline-item-content {

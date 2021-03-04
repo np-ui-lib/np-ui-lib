@@ -5,29 +5,30 @@
 
 ## 11.1.6
 - Grid improvements
+- Timeline css improvements
 
-# 11.1.5
+## 11.1.5
 - Add sidepanel service
 - Add new dateClass property to date picker
 - Add new dateClass property to calendar
 - Firefox click issue resolved for radio button and checkbox
 - Resolved css issue for calendar events
 
-# 11.1.4
+## 11.1.4
 - Resolved css issue in datagrid
 
-# 11.1.3
+## 11.1.3
 - Add npSidepanelContent directive for lazy loading
 - Vertical steps layout update
 - Remove stickyColumnLeft, stickyColumnRight from data grid
 
-# 11.1.2
+## 11.1.2
 - Resolved css issue for vertical line in vertical steps
 - Add onCreateNewTag method in tags component
 - Change return object in dialog component on close
 - Add validation for state name already exists in data grid, and add translation for validation message
 
-# 11.1.1
+## 11.1.1
 - Resolved dialog component issue for npAutofocus
 - Resolved css class issue in virtual scroll
 - Resolved font and background color button issue in rich text
