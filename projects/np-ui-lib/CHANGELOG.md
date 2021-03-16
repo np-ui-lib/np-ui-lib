@@ -3,6 +3,10 @@
 
 ## Change log and decision tracker
 
+## 11.1.7
+- Add stretchLabels property to tabs
+- Add stretchLabels property to steps
+
 ## 11.1.6
 - Grid improvements
 - Timeline css improvements

@@ -41,6 +41,12 @@
                         <td>false</td>
                     </tr>
                     <tr>
+                        <td>stretchLabels</td>
+                        <td>Set stretched header label</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>styleClass</td>
                         <td>Set extra class on component</td>
                         <td>string</td>
@@ -122,7 +128,8 @@
     <np-tab title="Examples">
         <fieldset>
             <legend>Horizontal Steps</legend>
-            <np-steps #stepper>
+            <np-steps #stepper
+                      [stretchLabels]="stretchLabels">
                 <form>
                     <np-step label="Add Personal Info"
                              #personalStep
@@ -220,6 +227,8 @@
                     </np-step>
                 </form>
             </np-steps>
+            <br>
+            Stretch labels : <np-switch [(ngModel)]="stretchLabels"></np-switch>
         </fieldset>
         <fieldset>
             <legend>Vertical Steps</legend>

@@ -3,14 +3,15 @@
      [ngClass]="{ 'np-steps': true}"
      [class]="styleClass"
      [attr.id]="inputId">
-  <div class="np-steps-header">
+  <div class="np-steps-header"
+       [ngClass]="{'np-steps-header-stretch': stretchLabels}">
     <ng-container *ngFor="let step of steps; let i = index">
       <button class="np-step-title"
               role="tab"
               [ngClass]="{
           'np-step-active': selectedIndex === i,
           'np-step-done': step.completed,
-          'np-step-error': step.hasError
+          'np-step-error': step.hasError         
         }"
               [attr.tabindex]="step.disabled ? '-1' : '0'"
               [attr.id]="_getTitleId(step)"

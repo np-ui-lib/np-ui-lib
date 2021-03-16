@@ -8,7 +8,7 @@
       <button class="np-tab-title"
               role="tab"
               [attr.id]="_getTitleId(tab)"
-              [ngClass]="{ 'np-tab-active': tab.active, 'np-disabled': tab.disabled }"
+              [ngClass]="{ 'np-tab-active': tab.active, 'np-disabled': tab.disabled, 'np-tab-stretch-label': stretchLabels }"
               [attr.tabindex]="tab.disabled ? '-1' : '0'"
               [attr.aria-selected]="tab.active"
               [attr.aria-controls]="_getBodyId(tab)"

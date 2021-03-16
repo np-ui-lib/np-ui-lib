@@ -15,6 +15,7 @@ export class NpStepsComponent extends CdkStepper {
 
   private static controlCount = 1;
 
+  @Input() stretchLabels: boolean;
   @Input() verticalSteps: boolean;
   @Input() styleClass: string;
   @Input() inputId = `np-steps_${NpStepsComponent.controlCount++}`;

@@ -16,6 +16,10 @@
     flex-wrap: wrap;
   }
 
+  .np-tab-stretch-label {
+    flex: 1;
+  }
+
   .np-tab-title {
     display: flex;
     align-items: center;

@@ -39,6 +39,12 @@
                         <td>false</td>
                     </tr>
                     <tr>
+                        <td>stretchLabels</td>
+                        <td>Set stretched header label</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
                         <td>height</td>
                         <td>Set height of tabs in px</td>
                         <td>number</td>
@@ -290,6 +296,21 @@
                             class="np-btn"
                             (click)="toggleTab4()">Add/Remove Tab 4</button>
                 </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Stretch labels</legend>
+                <np-tabs [stretchLabels]="true">
+                    <np-tab title="tab 1">
+                        Tab 1 content
+                    </np-tab>
+                    <np-tab title="tab 2">
+                        Tab 2 content
+                    </np-tab>
+                    <np-tab title="tab 3">
+                        Tab 3 content
+                    </np-tab>
+                </np-tabs>
             </fieldset>
 
             <fieldset>

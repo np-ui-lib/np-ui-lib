@@ -14,6 +14,7 @@ export class NpTabsComponent implements AfterContentInit {
 
   @Input() verticalTabs: boolean;
   @Input() height: number;
+  @Input() stretchLabels: boolean;
   @Input() styleClass: string;
   @Input() inputId = `np-tabs_${NpTabsComponent.controlCount++}`;
 

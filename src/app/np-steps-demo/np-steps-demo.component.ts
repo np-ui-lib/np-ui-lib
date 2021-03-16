@@ -16,6 +16,7 @@ export class NpStepsDemoComponent implements OnInit {
 </np-steps>`;
   previousBtnText = `<button type="button" class="np-btn" npStepPrevious>Previous</button>`;
   nextBtnText = `<button type="button" class="np-btn" npStepNext>Next</button>`;
+  stretchLabels = false;
 
   personal = new FormGroup({
     firstName: new FormControl('', Validators.required),
