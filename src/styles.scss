@@ -21,7 +21,7 @@
     }
 
     .header-menu-btn:hover {
-        transform: scale(1.1);
+        background-color: darken($primary-color, 5%);
     }
 
     .header-menu-btn i {
@@ -120,6 +120,7 @@
         padding: 10px;
         overflow: auto;
         border-radius: $border-radius;
+        border-left: 3px solid $primary-color;
     }
 
     .np-input-group-append .fa,

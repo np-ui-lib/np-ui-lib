@@ -26,7 +26,7 @@ export class NpButtonDemoComponent implements OnInit {
   <button class="np-btn-icon"><i class="fa fa-bars"></i></button>
   <button class="np-btn-icon np-btn-primary"><i class="fa fa-home"></i></button>
   <button class="np-btn-icon np-btn-success"><i class="fa fa-camera"></i></button>
-  <button class="np-btn-icon np-btn-danger"><i class="fa fa-automobile"></i></button>
+  <button class="np-btn-icon np-btn-danger"><i class="fa fa-trash"></i></button>
   <button class="np-btn-icon np-btn-warning"><i class="fa fa-bell"></i></button>
   <button class="np-btn-icon np-btn-info"><i class="fa fa-user"></i></button>
 </div>

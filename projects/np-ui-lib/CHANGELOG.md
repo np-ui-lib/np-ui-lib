@@ -6,6 +6,7 @@
 ## 11.1.7
 - Add stretchLabels property to tabs
 - Add stretchLabels property to steps
+- Add $outline-color and $outline-size to themeing for outline in components
 
 ## 11.1.6
 - Grid improvements

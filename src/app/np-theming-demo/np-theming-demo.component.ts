@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 export class NpThemingDemoComponent implements OnInit {
 
   customSCSS = `@import "np-ui-lib/styles/theme.scss";
-$primary-color: #4caf50; <span class="np-text-success">// set primary color</span>
-$background-color: #EDF7ED; <span class="np-text-success">// set background color</span>
-$selected-color: #C9E7C9; <span class="np-text-success">// set background color for selected items</span>
-$border-color: #112611; <span class="np-text-success">// set border color</span>
-$border-radius: 2px; <span class="np-text-success">// set border radius</span>
+$primary-color: #0d47a1;// set primary color</span>
+$background-color: #f5f5f5;// set background color</span>
+$selected-color: #eeeeee;// set background color for selected items</span>
+$border-color: #9e9e9e;// set border color</span>
+$border-radius: 2px;// set border radius</span>
+$outline-color: #0d47a150;// set outline color</span>
+$outline-size: 0.2rem;// set outline size</span>
 @include theme;`;
 
   constructor() { }
