@@ -1865,31 +1865,31 @@
   .np-focused,
   .np-accordion-title:focus,
   .np-panel-title:focus {
-    box-shadow: 0 0 0 $outline-size $outline-color;
+    box-shadow: 0 0 0 0.2rem $outline-color;
     z-index: 2;
     border-radius: $border-radius;
   }
 
   .np-focused-rounded {
-    box-shadow: 0 0 0 $outline-size $outline-color;
+    box-shadow: 0 0 0 0.2rem $outline-color;
     z-index: 2;
     border-radius: 50%;
   }
 
   .np-btn-success:focus {
-    box-shadow: 0 0 0 $outline-size #4eb766 !important;
+    box-shadow: 0 0 0 0.2rem #4eb766 !important;
   }
 
   .np-btn-warning:focus {
-    box-shadow: 0 0 0 $outline-size #fbdc7f !important;
+    box-shadow: 0 0 0 0.2rem #fbdc7f !important;
   }
 
   .np-btn-danger:focus {
-    box-shadow: 0 0 0 $outline-size #e9969e !important;
+    box-shadow: 0 0 0 0.2rem #e9969e !important;
   }
 
   .np-btn-info:focus {
-    box-shadow: 0 0 0 $outline-size #87ccd7 !important;
+    box-shadow: 0 0 0 0.2rem #87ccd7 !important;
   }
 
   .np-input-group {
