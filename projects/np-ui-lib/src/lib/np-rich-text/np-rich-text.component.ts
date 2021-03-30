@@ -160,6 +160,9 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
   }
 
   _showForeColorOverlay() {
+    if (!this.focused) {
+      this.focus();
+    }
     if (document.getSelection() && document.getSelection().getRangeAt) {
       this.currentSelectionRange = document.getSelection().getRangeAt(0);
     }
@@ -189,6 +192,9 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
   }
 
   _showBackColorOverlay() {
+    if (!this.focused) {
+      this.focus();
+    }
     if (document.getSelection() && document.getSelection().getRangeAt) {
       this.currentSelectionRange = document.getSelection().getRangeAt(0);
     }
@@ -227,6 +233,9 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
   }
 
   _showCreateLink() {
+    if (!this.focused) {
+      this.focus();
+    }
     if (document.getSelection() && document.getSelection().getRangeAt) {
       this.currentSelectionRange = document.getSelection().getRangeAt(0);
     }
