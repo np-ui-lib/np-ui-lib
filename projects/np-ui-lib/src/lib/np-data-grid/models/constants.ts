@@ -3,9 +3,9 @@ export enum FilterTypes {
     EndsWith = 'endswith',
     Contains = 'contains',
     GreaterThan = 'gt',
+    GreaterThanOrEquals = 'ge',
     LessThan = 'lt',
     LessThanOrEquals = 'le',
-    GreaterThanOrEquals = 'ge',
     Equals = 'eq',
     NotEquals = 'ne',
     Reset = 'Reset'

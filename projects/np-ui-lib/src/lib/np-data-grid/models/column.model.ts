@@ -27,18 +27,15 @@ export class Column {
     public visible: boolean;
     public width: number;
     public caption: string;
-    public sortDirection: SortDirections;
-    public filterValue: any;
-    public filterOperator: FilterTypes;
     public sortEnable: boolean;
+    public sortDirection: SortDirections;
     public filterEnable: boolean;
+    public filterOperator: FilterTypes;
+    public filterValue: any;
     public cellTemplate: TemplateRef<any>;
-    public onCellClick: any;
-    public styleClass: string;
     public rightAlignText: boolean;
     public trueFilterText: string;
     public falseFilterText: string;
-
-    public _leftPad: number;
-    public _rightPad: number;
+    public styleClass: string;
+    public onCellClick: any;
 }
