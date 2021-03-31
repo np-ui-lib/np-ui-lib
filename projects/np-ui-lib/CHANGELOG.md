@@ -5,6 +5,7 @@
 
 ## 11.1.8
 - Resolved some error in rich text editor
+- Resolved filter issue in data grid for null values
 
 ## 11.1.7
 - Add stretchLabels property to tabs

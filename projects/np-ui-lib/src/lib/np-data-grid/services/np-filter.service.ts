@@ -11,27 +11,42 @@ export class NpFilterService {
             if (element.filterOperator === FilterTypes.StartsWith) {
                 const filterVal = element.filterValue.toLowerCase();
                 data = this.utility.custFilter(data, (a: any) => {
+                    if (!a[element.dataField]) {
+                        return false;
+                    }
                     return a[element.dataField].toLowerCase().startsWith(filterVal, 0);
                 });
             } else if (element.filterOperator === FilterTypes.EndsWith) {
                 const filterVal = element.filterValue.toLowerCase();
                 data = this.utility.custFilter(data, (a: any) => {
+                    if (!a[element.dataField]) {
+                        return false;
+                    }
                     return a[element.dataField].toLowerCase().endsWith(filterVal);
                 });
             } else if (element.filterOperator === FilterTypes.Contains) {
                 const filterVal = element.filterValue.toLowerCase();
                 data = this.utility.custFilter(data, (a: any) => {
+                    if (!a[element.dataField]) {
+                        return false;
+                    }
                     return a[element.dataField].toLowerCase().indexOf(filterVal) !== -1;
                 });
             } else if (element.filterOperator === FilterTypes.GreaterThan) {
                 if (element.dataType === DataTypes.Number) {
                     const filterVal = Number(element.filterValue);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return Number(a[element.dataField]) > filterVal;
                     });
                 } else if (element.dataType === DataTypes.Date) {
                     const filterVal = new Date(element.filterValue).setHours(0, 0, 0, 0);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return new Date(a[element.dataField]).setHours(0, 0, 0, 0) > filterVal;
                     });
                 }
@@ -39,11 +54,17 @@ export class NpFilterService {
                 if (element.dataType === DataTypes.Number) {
                     const filterVal = Number(element.filterValue);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return Number(a[element.dataField]) >= filterVal;
                     });
                 } else if (element.dataType === DataTypes.Date) {
                     const filterVal = new Date(element.filterValue).setHours(0, 0, 0, 0);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return new Date(a[element.dataField]).setHours(0, 0, 0, 0) >= filterVal;
                     });
                 }
@@ -51,11 +72,17 @@ export class NpFilterService {
                 if (element.dataType === DataTypes.Number) {
                     const filterVal = Number(element.filterValue);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return Number(a[element.dataField]) < filterVal;
                     });
                 } else if (element.dataType === DataTypes.Date) {
                     const filterVal = new Date(element.filterValue).setHours(0, 0, 0, 0);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return new Date(a[element.dataField]).setHours(0, 0, 0, 0) < filterVal;
                     });
                 }
@@ -63,11 +90,17 @@ export class NpFilterService {
                 if (element.dataType === DataTypes.Number) {
                     const filterVal = Number(element.filterValue);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return Number(a[element.dataField]) <= filterVal;
                     });
                 } else if (element.dataType === DataTypes.Date) {
                     const filterVal = new Date(element.filterValue).setHours(0, 0, 0, 0);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return new Date(a[element.dataField]).setHours(0, 0, 0, 0) <= filterVal;
                     });
                 }
@@ -85,16 +118,25 @@ export class NpFilterService {
                 } else if (element.dataType === DataTypes.Number) {
                     const filterVal = Number(element.filterValue);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return Number(a[element.dataField]) === filterVal;
                     });
                 } else if (element.dataType === DataTypes.Date) {
                     const filterVal = new Date(element.filterValue).setHours(0, 0, 0, 0);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return new Date(a[element.dataField]).setHours(0, 0, 0, 0) === filterVal;
                     });
                 } else if (element.dataType === DataTypes.String) {
                     const filterVal = element.filterValue.toLowerCase();
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return a[element.dataField].toLowerCase() === filterVal;
                     });
                 }
@@ -112,11 +154,17 @@ export class NpFilterService {
                 } else if (element.dataType === DataTypes.Number) {
                     const filterVal = Number(element.filterValue);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return Number(a[element.dataField]) !== filterVal;
                     });
                 } else if (element.dataType === DataTypes.Date) {
                     const filterVal = new Date(element.filterValue).setHours(0, 0, 0, 0);
                     data = this.utility.custFilter(data, (a: any) => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return new Date(a[element.dataField]).setHours(0, 0, 0, 0) !== filterVal;
                     });
                 }

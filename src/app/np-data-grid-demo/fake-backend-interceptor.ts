@@ -42,14 +42,19 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         return dataList;
 
         function getDataRow(id) {
-            const bday = randomDate(new Date(1950, 10, 28), new Date(2018, 10, 28), 0, 23);
+            let bday = randomDate(new Date(1950, 10, 28), new Date(2018, 10, 28), 0, 23);
+            let age = new Date().getFullYear() - bday.getFullYear();
+            if (bday.getFullYear() % 4 === 0) {
+                bday = null;
+                age = null;
+            }
             const nameLength = names.length;
             const surnameLength = surNames.length;
             return {
                 Id: id,
                 FirstName: names[Math.floor(Math.random() * nameLength)],
                 LastName: surNames[Math.floor(Math.random() * surnameLength)],
-                Age: new Date().getFullYear() - bday.getFullYear(),
+                Age: age,
                 Active: (Math.round(Math.random() % 2) === 0),
                 BirthDate: bday
             };
@@ -116,53 +121,86 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             for (const element of filterColumns) {
                 if (element.filterOperator === 'startswith') {
                     dataSource = _.filter(dataSource, a => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return _.startsWith(a[element.dataField].toLowerCase(), element.filterValue.toLowerCase());
                     });
                 } else if (element.filterOperator === 'endswith') {
                     dataSource = _.filter(dataSource, a => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return _.endsWith(a[element.dataField].toLowerCase(), element.filterValue.toLowerCase());
                     });
                 } else if (element.filterOperator === 'contains') {
                     dataSource = _.filter(dataSource, a => {
+                        if (!a[element.dataField]) {
+                            return false;
+                        }
                         return a[element.dataField].toLowerCase().indexOf(element.filterValue.toLowerCase()) !== -1;
                     });
                 } else if (element.filterOperator === 'gt') {
                     if (element.dataType === 'number') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField] > Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField].setHours(0, 0, 0, 0) > new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
                 } else if (element.filterOperator === 'ge') {
                     if (element.dataType === 'number') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField] >= Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField].setHours(0, 0, 0, 0) >= new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
                 } else if (element.filterOperator === 'lt') {
                     if (element.dataType === 'number') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField] < Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField].setHours(0, 0, 0, 0) < new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
                 } else if (element.filterOperator === 'le') {
                     if (element.dataType === 'number') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField] <= Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField].setHours(0, 0, 0, 0) <= new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }
@@ -179,14 +217,23 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         }
                     } else if (element.dataType === 'number') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField] === Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField].setHours(0, 0, 0, 0) === new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     } else if (element.dataType === 'string') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField].toLowerCase() === element.filterValue.toLowerCase();
                         });
                     }
@@ -204,10 +251,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         }
                     } else if (element.dataType === 'number') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField] !== Number(element.filterValue);
                         });
                     } else if (element.dataType === 'date') {
                         dataSource = _.filter(dataSource, a => {
+                            if (!a[element.dataField]) {
+                                return false;
+                            }
                             return a[element.dataField].setHours(0, 0, 0, 0) !== new Date(element.filterValue).setHours(0, 0, 0, 0);
                         });
                     }

@@ -3,6 +3,5 @@
     "dest": "../../dist/np-ui-lib",
     "lib": {
         "entryFile": "src/public-api.ts"
-    },
-    "assets": []
+    }
 }
