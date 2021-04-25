@@ -3,6 +3,9 @@
 
 ## Change log and decision tracker
 
+## 11.1.9
+- Add new tab icon for target blank menu items
+
 ## 11.1.8
 - Resolved some error in rich text editor
 - Resolved filter issue in data grid for null values
