@@ -31,6 +31,7 @@ npm i np-ui-lib
 1.  Radio Button
 1.  Rich Text
 1.  Menubar
+1.  Panel Menubar
 1.  Breadcrumb
 1.  Toolbar
 1.  Data Grid
