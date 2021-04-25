@@ -1,5 +1,8 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { DataSource, NpDataGridComponent, DataTypes, SortDirections, State, FilterTypes, LoadOptions, Column } from 'np-ui-lib';
+import {
+  DataSource, NpDataGridComponent, DataTypes, SortDirections, State,
+  FilterTypes, LoadOptions, Column, NpMenuItem
+} from 'np-ui-lib';
 import { DataService } from '../data.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -15,6 +18,7 @@ export class ServerGridAllComponent implements OnInit {
   toggleColumn = true;
   showFilters = true;
   isLoading = true;
+  menuItems: NpMenuItem[];
 
   @ViewChild('actionButtonsTemplate', { static: true }) actionButtonsTemplate: TemplateRef<any>;
   @ViewChild('summaryTemplate', { static: true }) summaryTemplate: TemplateRef<any>;
@@ -32,10 +36,12 @@ export class ServerGridAllComponent implements OnInit {
       new Column({ dataField: 'BirthDate', visible: true, caption: 'Birth Date', dataType: DataTypes.Date, sortEnable: true, filterEnable: true }),
       new Column({ dataField: 'Age', visible: true, dataType: DataTypes.Number, sortEnable: true, filterEnable: true, styleClass: 'np-text-danger', rightAlignText: true }),
       new Column({ dataField: 'Active', visible: true, caption: 'Is Active?', dataType: DataTypes.Boolean, filterEnable: true, }),
-      new Column({ visible: true, cellTemplate: this.actionButtonsTemplate })];
+      new Column({ visible: true, cellTemplate: this.actionButtonsTemplate, width: 50 })];
     this.gridDataSource = new BehaviorSubject(null);
 
     this.setStateForServerSideGrid();
+
+    this.menuItems = [new NpMenuItem({ label: "Edit" }), new NpMenuItem({ label: "Delete" })]
   }
 
   onLoadData(options: LoadOptions) {
@@ -51,12 +57,11 @@ export class ServerGridAllComponent implements OnInit {
     alert('column ' + column.dataField + ' clicked. Value is ' + row[column.dataField]);
   }
 
-  onActionClick(rowData: any, event: any, $event) {
-    $event.stopPropagation();
-    if (event === 'Edit') {
+  onClickMenuItem($event, rowData: any) {
+    if ($event.label === 'Edit') {
       alert('Edit button click for row: ' + rowData.Id);
     }
-    if (event === 'Delete') {
+    if ($event.label === 'Delete') {
       alert('Delete button click for row: ' + rowData.Id);
     }
   }

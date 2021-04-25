@@ -9,7 +9,7 @@ export class NpMenubarDemoComponent implements OnInit {
 
   importText = 'import { NpMenubarModule } from \'np-ui-lib\';';
   htmlText = '<np-menubar [items]="menuList"></np-menubar>';
-  htmlPanelMenuText = `<button type="button" class="np-btn" npPopupMenubar [items]="menuList"
+  htmlPanelMenuText = `<button type="button" class="np-btn" npPopupMenubar [items]="menuList" (onClickMenuItem)="onClickMenuItem($event)">
   <i class="fa fa-bars"></i>
 </button>`;
   sampleMenuItems = `menuList = [

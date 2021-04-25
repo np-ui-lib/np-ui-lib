@@ -1,79 +1,39 @@
 <h2 class="page-header">Server side grid full example</h2>
 <p>Here <b>np-loader</b> is used to show loader on server side operations. </p>
 
-<div [npLoader]="isLoading"
-     [loadingText]="'Loading Data...'">
-        <np-data-grid #serverSideGrid
-                      [columns]="gridColumns"
-                      [dataSource]="gridDataSource"
-                      [multiRowSelectEnable]="true"
-                      [title]="'Server side data grid'"
-                      [showColumnChooser]="true"
-                      [showToolBar]="true"
-                      [allowExport]="true"
-                      [enableStateStoring]="true"
-                      [showFilters]="showFilters"
-                      [showSummary]="true"
-                      [summaryTemplate]="summaryTemplate"
-                      [allowColumnReorder]="true"
-                      [allowColumnResize]="true"
-                      [isServerOperations]="true"
-                      [pageSize]="5"
-                      [dateFormat]="'dd MMM yy'"
-                      (onLoadData)="onLoadData($event)"
-                      (onInit)="onInit()"
-                      (onAfterInit)="onAfterInit()">
+<div [npLoader]="isLoading" [loadingText]="'Loading Data...'">
+        <np-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource"
+                [multiRowSelectEnable]="true" [title]="'Server side data grid'" [showColumnChooser]="true"
+                [showToolBar]="true" [allowExport]="true" [enableStateStoring]="true" [showFilters]="showFilters"
+                [showSummary]="true" [summaryTemplate]="summaryTemplate" [allowColumnReorder]="true"
+                [allowColumnResize]="true" [isServerOperations]="true" [pageSize]="5" [dateFormat]="'dd MMM yy'"
+                (onLoadData)="onLoadData($event)" (onInit)="onInit()" (onAfterInit)="onAfterInit()">
         </np-data-grid>
 </div>
 
 <!-- Template for sction buttons column -->
-<ng-template #actionButtonsTemplate
-             let-row="row">
-        <div class="np-btn-group">
-                <button class="np-btn-icon np-btn-primary"
-                        (click)="onActionClick(row,'Edit', $event)"><i class="fa fa-edit"></i></button>
-                <button class="np-btn-icon np-btn-danger"
-                        (click)="onActionClick(row,'Delete', $event)"><i class="fa fa-trash"></i></button>
-        </div>
+<ng-template #actionButtonsTemplate let-row="row">
+        <button type="button" class="np-btn-icon np-btn-primary" npPopupMenubar [items]="menuItems"
+                (onClickMenuItem)="onClickMenuItem($event,row)"><i class="fa fa-ellipsis-v"></i>
+        </button>
 </ng-template>
 
 <!-- Template for summary column -->
-<ng-template #summaryTemplate
-             let-summary="summary">
+<ng-template #summaryTemplate let-summary="summary">
         <span>Total:{{summary ? summary.totalCount : 0}}</span>
 </ng-template>
 
 <br>
 
 <div class="np-btn-group">
-        <button class="np-btn"
-                type="button"
-                (click)="getSelectedRowKeys()">Get Selected Row Keys</button>
-        <button class="np-btn"
-                type="button"
-                (click)="toggleFirstColumn()">Toggle 1st column</button>
-        <button class="np-btn"
-                type="button"
-                (click)="changeColumns()">Change Column list</button>
-        <button class="np-btn"
-                type="button"
-                (click)="showFilters = !showFilters">Toggle Filters</button>
-        <button class="np-btn"
-                type="button"
-                (click)="goToPage(2)">Go to Page 2</button>
-        <button class="np-btn"
-                type="button"
-                (click)="clearFilters()">Clear All Filters</button>
-        <button class="np-btn"
-                type="button"
-                (click)="clearSorting()">Clear All Sorting</button>
-        <button class="np-btn"
-                type="button"
-                (click)="reset()">Reset</button>
-        <button class="np-btn"
-                type="button"
-                (click)="refresh()">Refresh</button>
-        <button class="np-btn"
-                type="button"
-                (click)="updateFirstName()">Update FirstName For Selected Records</button>
+        <button class="np-btn" type="button" (click)="getSelectedRowKeys()">Get Selected Row Keys</button>
+        <button class="np-btn" type="button" (click)="toggleFirstColumn()">Toggle 1st column</button>
+        <button class="np-btn" type="button" (click)="changeColumns()">Change Column list</button>
+        <button class="np-btn" type="button" (click)="showFilters = !showFilters">Toggle Filters</button>
+        <button class="np-btn" type="button" (click)="goToPage(2)">Go to Page 2</button>
+        <button class="np-btn" type="button" (click)="clearFilters()">Clear All Filters</button>
+        <button class="np-btn" type="button" (click)="clearSorting()">Clear All Sorting</button>
+        <button class="np-btn" type="button" (click)="reset()">Reset</button>
+        <button class="np-btn" type="button" (click)="refresh()">Refresh</button>
+        <button class="np-btn" type="button" (click)="updateFirstName()">Update FirstName For Selected Records</button>
 </div>
