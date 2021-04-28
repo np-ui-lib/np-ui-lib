@@ -5,10 +5,13 @@ Native Angular UI Components and Design Framework
   <img width="200px" height="200px" src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/logo.png">
 </p>
 
-![Typescript](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/typescript.svg)
-![Build](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/build.svg)
-![License](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/license.svg)
-![Contribution](https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/contributions.svg)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/angular.svg">
+  <img src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/typescript.svg">
+  <img src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/npm.svg">
+  <img src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/license.svg">
+  <img src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/contributions.svg">
+</p>
 
 ### [NPM package manager](https://www.npmjs.com/package/np-ui-lib)  
 ````
@@ -65,6 +68,16 @@ npm i np-ui-lib
 1.  Button and Button Group
 1.  Badges
 1.  Form
+
+### Modules to be pre-installed
+````javascript
+"@angular/common": "^11.0.6",
+"@angular/core": "^11.0.6",
+"@angular/cdk": "^11.0.3",
+"@angular/forms": "^11.0.6",
+"@angular/router": "^11.0.6",
+"rxjs": "^6.6.3"
+````
 
 ### Import css to your application:
 ````css
