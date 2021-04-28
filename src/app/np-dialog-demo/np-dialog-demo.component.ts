@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { NpModalService, NpDialogComponent } from 'np-ui-lib';
+import { Component, OnInit } from "@angular/core";
+import { NpModalService, NpDialogComponent } from "np-ui-lib";
 
 @Component({
-  selector: 'app-np-dialog-demo',
-  templateUrl: './np-dialog-demo.component.html'
+  selector: "app-np-dialog-demo",
+  templateUrl: "./np-dialog-demo.component.html",
 })
 export class NpDialogDemoComponent implements OnInit {
-
   importText = `import { NpDialogModule } from 'np-ui-lib';
 import { NpModalModule } from 'np-ui-lib';`;
 
@@ -40,36 +39,41 @@ confirm.onClose.subscribe((data) => {
 });
     `;
 
-  constructor(private modalService: NpModalService) { }
+  constructor(private modalService: NpModalService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openAlert() {
-    this.modalService.open(NpDialogComponent,
-      null, { type: 'alert', message: 'Saved successfully.' });
+    this.modalService.open(NpDialogComponent, null, {
+      type: "alert",
+      message: "Saved successfully.",
+    });
   }
 
   openPrompt() {
-    const prompt = this.modalService.open(NpDialogComponent,
-      null, { type: 'prompt', message: 'Enter your name' });
+    const prompt = this.modalService.open(NpDialogComponent, null, {
+      type: "prompt",
+      message: "Enter your name",
+    });
     prompt.onClose.subscribe((data) => {
       if (data != undefined && data != null) {
-        alert('Ok button is clicked, input value is: ' + data);
+        alert("Ok button is clicked, input value is: " + data);
       } else {
-        alert('Cancel button is clicked');
+        alert("Cancel button is clicked");
       }
     });
   }
 
   openConfirm() {
-    const confirm = this.modalService.open(NpDialogComponent,
-      null, { type: 'confirm', message: 'Are you sure to delete?' });
+    const confirm = this.modalService.open(NpDialogComponent, null, {
+      type: "confirm",
+      message: "Are you sure to delete?",
+    });
     confirm.onClose.subscribe((data) => {
       if (data) {
-        alert('Ok button is clicked');
+        alert("Ok button is clicked");
       } else {
-        alert('Cancel button is clicked');
+        alert("Cancel button is clicked");
       }
     });
   }

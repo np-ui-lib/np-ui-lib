@@ -1,21 +1,30 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import {
+  Component,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  forwardRef,
+  Input,
+  Output,
+  EventEmitter,
+  ElementRef,
+  ViewChild,
+} from "@angular/core";
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 
 @Component({
-  selector: 'np-switch',
-  templateUrl: './np-switch.component.html',
+  selector: "np-switch",
+  templateUrl: "./np-switch.component.html",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NpSwitchComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class NpSwitchComponent implements ControlValueAccessor {
-
   private static controlCount = 1;
 
   @Input() trueLabelText: string;
@@ -30,13 +39,13 @@ export class NpSwitchComponent implements ControlValueAccessor {
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
   @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('control') inputViewChild: ElementRef;
+  @ViewChild("control") inputViewChild: ElementRef;
 
   innerValue: boolean;
   isDisabled = false;
   focused = false;
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
+  private onChangeCallback: (_: any) => void = () => {};
+  private onTouchedCallback: () => void = () => {};
 
   get value(): boolean {
     return this.innerValue;

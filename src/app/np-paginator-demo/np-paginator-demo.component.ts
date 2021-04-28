@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { NpNotificationsService, NpNotification } from 'np-ui-lib';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from "@angular/core";
+import { NpNotificationsService, NpNotification } from "np-ui-lib";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
-  selector: 'app-np-paginator-demo',
-  templateUrl: './np-paginator-demo.component.html'
+  selector: "app-np-paginator-demo",
+  templateUrl: "./np-paginator-demo.component.html",
 })
 export class NpPaginatorDemoComponent implements OnInit {
-
-  importText = 'import { NpPaginatorModule } from \'np-ui-lib\';';
+  importText = "import { NpPaginatorModule } from 'np-ui-lib';";
   htmlText = `<np-paginator [pageSize]="pageSize" [totalItems]="total" [currentPage]="currentPage"
   (onPageChange)="onPageChange($event)">
 </np-paginator>`;
@@ -20,13 +19,18 @@ export class NpPaginatorDemoComponent implements OnInit {
   total2 = 0;
   data2: any;
 
-  constructor(private notificationsService: NpNotificationsService, private http: HttpClient) { }
+  constructor(
+    private notificationsService: NpNotificationsService,
+    private http: HttpClient
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onPageChange(event) {
-    const msg = new NpNotification({ type: 'info', message: JSON.stringify(event) });
+    const msg = new NpNotification({
+      type: "info",
+      message: JSON.stringify(event),
+    });
     this.notificationsService.show(msg);
   }
 
@@ -49,11 +53,14 @@ export class NpPaginatorDemoComponent implements OnInit {
   onLoadData(options) {
     const skip = (options.currentPage - 1) * options.pageSize;
     const take = options.pageSize;
-    this.http.get(`https://services.odata.org/V4/Northwind/Northwind.svc/Products?$top=${take}&$skip=${skip}&$count=true`)
+    this.http
+      .get(
+        `https://services.odata.org/V4/Northwind/Northwind.svc/Products?$top=${take}&$skip=${skip}&$count=true`
+      )
       .subscribe((data: any) => {
         if (data && data.value) {
           this.data2 = data.value;
-          this.total2 = data['@odata.count'];
+          this.total2 = data["@odata.count"];
         }
       });
   }

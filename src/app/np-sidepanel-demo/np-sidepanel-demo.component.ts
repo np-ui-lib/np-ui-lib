@@ -1,14 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NpSidepanelComponent, NpSidepanelService } from 'np-ui-lib';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { NpSidepanelComponent, NpSidepanelService } from "np-ui-lib";
 
 @Component({
-  selector: 'app-np-sidepanel-demo',
-  templateUrl: './np-sidepanel-demo.component.html'
+  selector: "app-np-sidepanel-demo",
+  templateUrl: "./np-sidepanel-demo.component.html",
 })
 export class NpSidepanelDemoComponent implements OnInit {
-
-  importText = 'import { NpSidepanelModule } from \'np-ui-lib\';';
+  importText = "import { NpSidepanelModule } from 'np-ui-lib';";
   htmlText = `<np-sidepanel [position]="'right'" [height]="'100%'" [width]="'200px'">
   ...Body content
 </np-sidepanel>`;
@@ -17,7 +16,7 @@ export class NpSidepanelDemoComponent implements OnInit {
     ...Lazy load content
   </ng-tempalte>
 </sidepanel>`;
-  serviceText = 'constructor(private sidepanelService: NpSidepanelService) { }';
+  serviceText = "constructor(private sidepanelService: NpSidepanelService) { }";
 
   serviceClose = `this.sidepanelService.closeSidepanel("leftSidepanel", { data: 5 });
 <span class="np-text-success">// Where leftSidepanel is inputId of sidepanel. and pass data in second parameter.
@@ -41,23 +40,26 @@ reference.subscribe((data) => {
   description: string;
 
   myForm = new FormGroup({
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
+    firstName: new FormControl("", Validators.required),
+    lastName: new FormControl("", Validators.required),
     birthDate: new FormControl(null, Validators.required),
-    birthTime: new FormControl('', Validators.required),
+    birthTime: new FormControl("", Validators.required),
     isActive: new FormControl(false, Validators.required),
-    description: new FormControl('', Validators.required),
+    description: new FormControl("", Validators.required),
   });
 
-  @ViewChild('sidePanelLeft', { static: true }) sidePanelLeft: NpSidepanelComponent;
-  @ViewChild('sidePanelRight', { static: true }) sidePanelRight: NpSidepanelComponent;
-  @ViewChild('sidePanelTop', { static: true }) sidePanelTop: NpSidepanelComponent;
-  @ViewChild('sidePanelBottom', { static: true }) sidePanelBottom: NpSidepanelComponent;
+  @ViewChild("sidePanelLeft", { static: true })
+  sidePanelLeft: NpSidepanelComponent;
+  @ViewChild("sidePanelRight", { static: true })
+  sidePanelRight: NpSidepanelComponent;
+  @ViewChild("sidePanelTop", { static: true })
+  sidePanelTop: NpSidepanelComponent;
+  @ViewChild("sidePanelBottom", { static: true })
+  sidePanelBottom: NpSidepanelComponent;
 
-  constructor(private sidepanelService: NpSidepanelService) { }
+  constructor(private sidepanelService: NpSidepanelService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openLeft() {
     this.sidePanelLeft.open(null);
@@ -65,7 +67,7 @@ reference.subscribe((data) => {
 
   onCloseLeft(data: any) {
     console.log(JSON.stringify(data));
-    alert('Left sidepanel closed');
+    alert("Left sidepanel closed");
   }
 
   closeLeft() {
@@ -75,14 +77,13 @@ reference.subscribe((data) => {
   onSubmit() {
     if (this.myForm.invalid) {
       this.markFormGroupTouched(this.myForm);
-    }
-    else {
+    } else {
       this.closeLeft();
     }
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
-    (Object as any).values(formGroup.controls).forEach(control => {
+    (Object as any).values(formGroup.controls).forEach((control) => {
       control.markAsTouched();
       if (control.controls) {
         this.markFormGroupTouched(control);

@@ -1,24 +1,30 @@
 import {
-  ChangeDetectionStrategy, Component, ElementRef, EventEmitter, forwardRef,
-  Input, Output, ViewChild, ViewEncapsulation
-} from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  Input,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from "@angular/core";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component({
-  selector: 'np-checkbox',
-  templateUrl: './np-checkbox.component.html',
+  selector: "np-checkbox",
+  templateUrl: "./np-checkbox.component.html",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NpCheckboxComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class NpCheckboxComponent implements ControlValueAccessor {
-
   private static controlCount = 1;
 
   @Input() label: string;
@@ -33,14 +39,14 @@ export class NpCheckboxComponent implements ControlValueAccessor {
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
   @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('control') inputViewChild: ElementRef;
+  @ViewChild("control") inputViewChild: ElementRef;
 
   innerValue: boolean;
   isDisabled = false;
   focused = false;
 
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
+  private onChangeCallback: (_: any) => void = () => {};
+  private onTouchedCallback: () => void = () => {};
 
   get value(): boolean {
     return this.innerValue ? this.innerValue : null;
@@ -93,7 +99,7 @@ export class NpCheckboxComponent implements ControlValueAccessor {
   }
 
   _onKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Space' && (this.readOnly || this.isDisabled)) {
+    if (event.key === "Space" && (this.readOnly || this.isDisabled)) {
       event.preventDefault();
     }
   }
@@ -101,5 +107,4 @@ export class NpCheckboxComponent implements ControlValueAccessor {
   _getInputId() {
     return this.inputId + "_input";
   }
-
 }

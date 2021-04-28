@@ -1,363 +1,378 @@
 <h2 class="page-header">Tags</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>ngModel</td>
-                        <td>Value</td>
-                        <td>any[]</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>searchResult</td>
-                        <td>List of data</td>
-                        <td>BehaviorSubject&lt;any[]&gt;</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>displayKey</td>
-                        <td>If <b>items</b> is type of any[], then set property name which needs to display
-                        </td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>valueKey</td>
-                        <td>If <b>items</b> is type of any[], then set unique property name which needs to be selected
-                            as value
-                        </td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>itemTemplate</td>
-                        <td>Set template for item. Use var let-item="item" in template to access item
-                            <pre><code>{{templateText}}</code></pre>
-                            <a routerLink="/np-directives-demo">How to use npHightlight pipe?</a>
-                        </td>
-                        <td>TemplateRef&lt;any&gt;</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>orderBy</td>
-                        <td>Set order by property</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>orderDir</td>
-                        <td>
-                            Set order direction 'asc' or 'desc'. Default value is 'asc'.
-                            <br>
-                            If data is type of string[], then only use orderDir.
-                        </td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>forceToSelect</td>
-                        <td>Allow to create new item, enter key will create new tag if set to true</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>maxResultLimit</td>
-                        <td>Maximum number of search items to display</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>minSearchCharLimit</td>
-                        <td>Minimum search character required to search</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>maxSelectLimit</td>
-                        <td>Maximum tags to select</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>isServerSide</td>
-                        <td>If fetching items from server then set this to true, so on input change it will call
-                            <b>onSearch</b> method
-                        </td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>searchDelay</td>
-                        <td>Set delay in search, in miliseconds</td>
-                        <td>number</td>
-                        <td>1000</td>
-                    </tr>
-                    <tr>
-                        <td>placeholder</td>
-                        <td>Set placeholder</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>Set disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>required</td>
-                        <td>Set required</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>readOnly</td>
-                        <td>Set readonly</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>autoFocus</td>
-                        <td>Set autofocus</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>tabIndex</td>
-                        <td>Set tabindex attribute</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-                <np-alert type="info">
-                    Press Enter to create new tag(Only if forceToSelect is false), press Backspace to remove last
-                    selected tag.
-                </np-alert>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onChange(v: any)
-                        </td>
-                        <td>
-                            Callback event on value change.
-                        </td>
-                        <td>Value</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onSearch(v: any)
-                        </td>
-                        <td>
-                            Callback event on search<br>
-                            <pre><code>{{onSearchText}}</code></pre>
-                        </td>
-                        <td>Search keyword</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onCreateNewTag(v: any)
-                        </td>
-                        <td>
-                            Callback event on new tag created
-                        </td>
-                        <td>New created tag</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onFocus(event)
-                        </td>
-                        <td>
-                            Callback event on input focus.
-                        </td>
-                        <td>Browser event</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onBlur(event)
-                        </td>
-                        <td>
-                            Callback event on input blur.
-                        </td>
-                        <td>Browser event</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            focus()
-                        </td>
-                        <td>
-                            Set focus on control. If not setting focus properly then use timeout of 500ms.
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <ng-template npTabContent>
-            <fieldset>
-                <legend>searchResult as string[] + isServerSide + orderDir + onSearch</legend>
-                <np-tags [(ngModel)]="tags1"
-                         [searchResult]="searchResult1"
-                         [isServerSide]="true"
-                         [orderDir]="'asc'"
-                         (onCreateNewTag)="onCreateNewTag($event)"
-                         (onSearch)="onSearch1($event)">
-                </np-tags>
-                <div>Selected value : {{tags1 | json}}</div>
-            </fieldset>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>ngModel</td>
+            <td>Value</td>
+            <td>any[]</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>searchResult</td>
+            <td>List of data</td>
+            <td>BehaviorSubject&lt;any[]&gt;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>displayKey</td>
+            <td>
+              If <b>items</b> is type of any[], then set property name which
+              needs to display
+            </td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>valueKey</td>
+            <td>
+              If <b>items</b> is type of any[], then set unique property name
+              which needs to be selected as value
+            </td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>itemTemplate</td>
+            <td>
+              Set template for item. Use var let-item="item" in template to
+              access item
+              <pre><code>{{templateText}}</code></pre>
+              <a routerLink="/np-directives-demo"
+                >How to use npHightlight pipe?</a
+              >
+            </td>
+            <td>TemplateRef&lt;any&gt;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>orderBy</td>
+            <td>Set order by property</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>orderDir</td>
+            <td>
+              Set order direction 'asc' or 'desc'. Default value is 'asc'.
+              <br />
+              If data is type of string[], then only use orderDir.
+            </td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>forceToSelect</td>
+            <td>
+              Allow to create new item, enter key will create new tag if set to
+              true
+            </td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>maxResultLimit</td>
+            <td>Maximum number of search items to display</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>minSearchCharLimit</td>
+            <td>Minimum search character required to search</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>maxSelectLimit</td>
+            <td>Maximum tags to select</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>isServerSide</td>
+            <td>
+              If fetching items from server then set this to true, so on input
+              change it will call <b>onSearch</b> method
+            </td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>searchDelay</td>
+            <td>Set delay in search, in miliseconds</td>
+            <td>number</td>
+            <td>1000</td>
+          </tr>
+          <tr>
+            <td>placeholder</td>
+            <td>Set placeholder</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>Set disabled</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>required</td>
+            <td>Set required</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>readOnly</td>
+            <td>Set readonly</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>autoFocus</td>
+            <td>Set autofocus</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>tabIndex</td>
+            <td>Set tabindex attribute</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+        <np-alert type="info">
+          Press Enter to create new tag(Only if forceToSelect is false), press
+          Backspace to remove last selected tag.
+        </np-alert>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onChange(v: any)</td>
+            <td>Callback event on value change.</td>
+            <td>Value</td>
+          </tr>
+          <tr>
+            <td>onSearch(v: any)</td>
+            <td>
+              Callback event on search<br />
+              <pre><code>{{onSearchText}}</code></pre>
+            </td>
+            <td>Search keyword</td>
+          </tr>
+          <tr>
+            <td>onCreateNewTag(v: any)</td>
+            <td>Callback event on new tag created</td>
+            <td>New created tag</td>
+          </tr>
+          <tr>
+            <td>onFocus(event)</td>
+            <td>Callback event on input focus.</td>
+            <td>Browser event</td>
+          </tr>
+          <tr>
+            <td>onBlur(event)</td>
+            <td>Callback event on input blur.</td>
+            <td>Browser event</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>focus()</td>
+            <td>
+              Set focus on control. If not setting focus properly then use
+              timeout of 500ms.
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <ng-template npTabContent>
+      <fieldset>
+        <legend>
+          searchResult as string[] + isServerSide + orderDir + onSearch
+        </legend>
+        <np-tags
+          [(ngModel)]="tags1"
+          [searchResult]="searchResult1"
+          [isServerSide]="true"
+          [orderDir]="'asc'"
+          (onCreateNewTag)="onCreateNewTag($event)"
+          (onSearch)="onSearch1($event)"
+        >
+        </np-tags>
+        <div>Selected value : {{ tags1 | json }}</div>
+      </fieldset>
 
-            <fieldset>
-                <legend>searchResult as any[] + displayKey + orderBy + orderDir</legend>
-                <np-tags [(ngModel)]="tags2"
-                         [displayKey]="'name'"
-                         [searchResult]="searchResult2"
-                         [orderBy]="'name'"
-                         [orderDir]="'desc'">
-                </np-tags>
-                <div>Selected value : {{tags2 | json}}</div>
-            </fieldset>
+      <fieldset>
+        <legend>searchResult as any[] + displayKey + orderBy + orderDir</legend>
+        <np-tags
+          [(ngModel)]="tags2"
+          [displayKey]="'name'"
+          [searchResult]="searchResult2"
+          [orderBy]="'name'"
+          [orderDir]="'desc'"
+        >
+        </np-tags>
+        <div>Selected value : {{ tags2 | json }}</div>
+      </fieldset>
 
-            <fieldset>
-                <legend>searchResult as any[] + displayKey + valueKey</legend>
-                <np-tags [(ngModel)]="tags8"
-                         [displayKey]="'name'"
-                         [searchResult]="searchResult8"
-                         [valueKey]="'id'">
-                </np-tags>
-                <div>Selected value : {{tags8 | json}}</div>
-            </fieldset>
+      <fieldset>
+        <legend>searchResult as any[] + displayKey + valueKey</legend>
+        <np-tags
+          [(ngModel)]="tags8"
+          [displayKey]="'name'"
+          [searchResult]="searchResult8"
+          [valueKey]="'id'"
+        >
+        </np-tags>
+        <div>Selected value : {{ tags8 | json }}</div>
+      </fieldset>
 
-            <fieldset>
-                <legend>forceToSelect</legend>
-                <np-tags [(ngModel)]="tags3"
-                         [searchResult]="searchResult3"
-                         [isServerSide]="true"
-                         [forceToSelect]="true"
-                         (onSearch)="onSearch3($event)">
-                </np-tags>
-                <div>Selected value : {{tags3 | json}}</div>
-            </fieldset>
+      <fieldset>
+        <legend>forceToSelect</legend>
+        <np-tags
+          [(ngModel)]="tags3"
+          [searchResult]="searchResult3"
+          [isServerSide]="true"
+          [forceToSelect]="true"
+          (onSearch)="onSearch3($event)"
+        >
+        </np-tags>
+        <div>Selected value : {{ tags3 | json }}</div>
+      </fieldset>
 
-            <fieldset>
-                <legend>displayKey + itemTemplate</legend>
-                <np-tags [(ngModel)]="tags4"
-                         [displayKey]="'name'"
-                         [searchResult]="searchResult4"
-                         [itemTemplate]="itemTemplate">
-                </np-tags>
-                <div>Selected value : {{tags4 | json}}</div>
-                <ng-template #itemTemplate
-                             let-item="item"
-                             let-keyword="keyword">
-                    <div><span [innerHTML]="item.name | npHighlight : keyword"></span> ( {{item.vitamin}} )</div>
-                </ng-template>
-            </fieldset>
-
-            <fieldset>
-                <legend>disabled and readOnly</legend>
-                <np-tags [(ngModel)]="tags5"
-                         [displayKey]="'name'"
-                         [searchResult]="searchResult5"
-                         disabled>
-                </np-tags>
-                <br>
-                <np-tags [(ngModel)]="tags5"
-                         [displayKey]="'name'"
-                         [searchResult]="searchResult5"
-                         [readOnly]="true">
-                </np-tags>
-            </fieldset>
-
-            <fieldset>
-                <legend>required</legend>
-                <np-tags [(ngModel)]="tags6"
-                         [displayKey]="'name'"
-                         [searchResult]="searchResult6"
-                         [required]="true">
-                </np-tags>
-            </fieldset>
-
-            <fieldset>
-                <legend>maxResultLimit + minSearchCharLimit + maxSelectLimit</legend>
-                <np-tags [(ngModel)]="tags7"
-                         [isServerSide]="true"
-                         [displayKey]="'name'"
-                         [searchResult]="searchResult7"
-                         [maxResultLimit]="3"
-                         [minSearchCharLimit]="3"
-                         [maxSelectLimit]="3"
-                         (onSearch)="onSearch7($event)">
-                </np-tags>
-            </fieldset>
-
-            <fieldset>
-                <legend>onChange and onCreateNewTag</legend>
-                Check console for onCreateNewTag event.
-                <np-tags [(ngModel)]="tags9"
-                         [displayKey]="'name'"
-                         [searchResult]="searchResult9"
-                         (onChange)="onChange9($event)"
-                         (onCreateNewTag)="onCreateNewTag($event)">
-                </np-tags>
-            </fieldset>
+      <fieldset>
+        <legend>displayKey + itemTemplate</legend>
+        <np-tags
+          [(ngModel)]="tags4"
+          [displayKey]="'name'"
+          [searchResult]="searchResult4"
+          [itemTemplate]="itemTemplate"
+        >
+        </np-tags>
+        <div>Selected value : {{ tags4 | json }}</div>
+        <ng-template #itemTemplate let-item="item" let-keyword="keyword">
+          <div>
+            <span [innerHTML]="item.name | npHighlight: keyword"></span> (
+            {{ item.vitamin }} )
+          </div>
         </ng-template>
-    </np-tab>
+      </fieldset>
+
+      <fieldset>
+        <legend>disabled and readOnly</legend>
+        <np-tags
+          [(ngModel)]="tags5"
+          [displayKey]="'name'"
+          [searchResult]="searchResult5"
+          disabled
+        >
+        </np-tags>
+        <br />
+        <np-tags
+          [(ngModel)]="tags5"
+          [displayKey]="'name'"
+          [searchResult]="searchResult5"
+          [readOnly]="true"
+        >
+        </np-tags>
+      </fieldset>
+
+      <fieldset>
+        <legend>required</legend>
+        <np-tags
+          [(ngModel)]="tags6"
+          [displayKey]="'name'"
+          [searchResult]="searchResult6"
+          [required]="true"
+        >
+        </np-tags>
+      </fieldset>
+
+      <fieldset>
+        <legend>maxResultLimit + minSearchCharLimit + maxSelectLimit</legend>
+        <np-tags
+          [(ngModel)]="tags7"
+          [isServerSide]="true"
+          [displayKey]="'name'"
+          [searchResult]="searchResult7"
+          [maxResultLimit]="3"
+          [minSearchCharLimit]="3"
+          [maxSelectLimit]="3"
+          (onSearch)="onSearch7($event)"
+        >
+        </np-tags>
+      </fieldset>
+
+      <fieldset>
+        <legend>onChange and onCreateNewTag</legend>
+        Check console for onCreateNewTag event.
+        <np-tags
+          [(ngModel)]="tags9"
+          [displayKey]="'name'"
+          [searchResult]="searchResult9"
+          (onChange)="onChange9($event)"
+          (onCreateNewTag)="onCreateNewTag($event)"
+        >
+        </np-tags>
+      </fieldset>
+    </ng-template>
+  </np-tab>
 </np-tabs>

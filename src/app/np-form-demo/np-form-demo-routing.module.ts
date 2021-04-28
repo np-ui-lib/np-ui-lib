@@ -1,14 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpFormDemoComponent } from './np-form-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpFormDemoComponent } from "./np-form-demo.component";
 
-const routes: Routes = [{
-  path: '',
-  component: NpFormDemoComponent
-}];
+const routes: Routes = [
+  {
+    path: "",
+    component: NpFormDemoComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpFormDemoRoutingModule { }
+export class NpFormDemoRoutingModule {}

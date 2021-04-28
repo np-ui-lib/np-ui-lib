@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { NpDropdownComponent } from './np-dropdown.component';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { PortalModule } from '@angular/cdk/portal';
-import { NpAutofocusModule } from '../np-utility/np-autofocus.module';
-import { NpOrderByModule } from '../np-utility/np-orderby.module';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { NpDropdownComponent } from "./np-dropdown.component";
+import { OverlayModule } from "@angular/cdk/overlay";
+import { PortalModule } from "@angular/cdk/portal";
+import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
+import { NpOrderByModule } from "../np-utility/np-orderby.module";
 
 @NgModule({
   declarations: [NpDropdownComponent],
@@ -13,8 +13,8 @@ import { NpOrderByModule } from '../np-utility/np-orderby.module';
     OverlayModule,
     PortalModule,
     NpAutofocusModule,
-    NpOrderByModule
+    NpOrderByModule,
   ],
-  exports: [NpDropdownComponent]
+  exports: [NpDropdownComponent],
 })
-export class NpDropdownModule { }
+export class NpDropdownModule {}

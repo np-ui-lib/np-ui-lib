@@ -1,17 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpSwitchDemoComponent } from './np-switch-demo.component';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpSwitchDemoComponent } from "./np-switch-demo.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NpSwitchDemoComponent
-  }
+    path: "",
+    component: NpSwitchDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpSwitchDemoRoutingModule { }
+export class NpSwitchDemoRoutingModule {}

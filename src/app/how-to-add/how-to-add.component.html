@@ -1,168 +1,191 @@
 <div class="np-container">
-    <div class="np-row"
-         style="padding: 20px;">
-        <div class="np-col np-col-12">
-            <div style="width: 100%; text-align: center;">
-                <svg width="250px"
-                     height="250px"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <g>
-                        <polygon id="svg_2"
-                                 points="125,30 125,30 125,30 31.9,63.2 46.1,186.3 125,230 125,230 125,230 203.9,186.3 218.1,63.2  "
-                                 class="logo-background" />
-                        <text xml:space="preserve"
-                              text-anchor="start"
-                              font-family="sans-serif"
-                              font-size="100"
-                              id="svg_4"
-                              y="160"
-                              x="60"
-                              stroke-width="0"
-                              stroke="#000"
-                              class="logo-text">NP</text>
-                    </g>
-                </svg>
-            </div>
-        </div>
-        <div class="np-col np-col-12">
-            <div style="width: 100%; text-align: center;">
-                <h1>NP-UI-LIB</h1>
-                <h2>Native Angular UI Components and Design Framework</h2>
-                <p>Current Version: 11.1.9, Angular Version: 11.0.0+</p>
-            </div>
-        </div>
-        <div class="np-col np-col-12">
-            <div class="np-btn-group justify-content-center">
-                <a class="np-btn np-btn-danger"
-                   href="http://npmjs.com/np-ui-lib"
-                   style="width: 150px; font-size: large;"
-                   target="_blank">NPM</a>
-                <a class="np-btn"
-                   href="https://github.com/NilavPatel/np-ui-package"
-                   style="width: 150px; font-size: large;"
-                   target="_blank">Github</a>
-                <a class="np-btn np-btn-primary"
-                   style="width: 150px; font-size: large;"
-                   [routerLink]="['/np-input-text-demo']">Documentation</a>
-            </div>
-        </div>
+  <div class="np-row" style="padding: 20px">
+    <div class="np-col np-col-12">
+      <div style="width: 100%; text-align: center">
+        <svg width="250px" height="250px" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <polygon
+              id="svg_2"
+              points="125,30 125,30 125,30 31.9,63.2 46.1,186.3 125,230 125,230 125,230 203.9,186.3 218.1,63.2  "
+              class="logo-background"
+            />
+            <text
+              xml:space="preserve"
+              text-anchor="start"
+              font-family="sans-serif"
+              font-size="100"
+              id="svg_4"
+              y="160"
+              x="60"
+              stroke-width="0"
+              stroke="#000"
+              class="logo-text"
+            >NP</text>
+          </g>
+        </svg>
+      </div>
     </div>
-    <div class="np-row">
-        <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6">
-            <np-card>
-                <np-card-header>
-                    <h4 class="no-margin">Why np-ui-lib?</h4>
-                </np-card-header>
-                <np-card-body>
-                    <ul class="list">
-                        <li>An enterprise level UI design</li>
-                        <li>50+ components</li>
-                        <li>Free and open source</li>
-                        <li>Fast and easy to integrate</li>
-                        <li>Theming and i18N support</li>
-                        <li>No 3rd party dependencies</li>
-                    </ul>
-                </np-card-body>
-            </np-card>
-        </div>
-        <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6">
-            <np-card>
-                <np-card-header>
-                    <h4 class="no-margin">Best Practices</h4>
-                </np-card-header>
-                <np-card-body>
-                    <ul class="list">
-                        <li>Followed best coding practices</li>
-                        <li>Responsive UI design</li>
-                        <li>Good documentation</li>
-                        <li>Flexible to customization</li>
-                        <li>WAI-ARIA included</li>
-                        <li>Support modern browsers</li>
-                    </ul>
-                </np-card-body>
-            </np-card>
-        </div>
-        <div class="np-col np-col-12">
-            <np-card>
-                <np-card-header>
-                    <h4 class="no-margin">How to add np-ui-lib package to angular application?</h4>
-                </np-card-header>
-                <np-card-body>
-                    <div>
-                        <h6>Step 1: Install node package using below command</h6>
-                        <pre><code>$ npm install np-ui-lib</code></pre>
-                    </div>
-                    <div>
-                        <h6>Step 2: Import below style sheets to application's styles.scss file</h6>
-                        <pre><code>@import "~@angular/cdk/overlay-prebuilt.css";<br>@import "np-ui-lib/styles/default-theme.scss";</code></pre>
-                    </div>
-                </np-card-body>
-            </np-card>
-        </div>
-        <div class="np-col np-col-12">
-            <np-card>
-                <np-card-header>
-                    <h4 class="no-margin">Below packages already needs to be pre-installed</h4>
-                </np-card-header>
-                <np-card-body>
-                    <div>np-ui-lib has dependency on below packages.</div>
-                    <pre><code>"@angular/common": "^11.0.6",<br>"@angular/core": "^11.0.6",<br>"@angular/cdk": "^11.0.3",<br>"@angular/forms": "^11.0.6",<br>"@angular/router": "^11.0.6",<br>"rxjs": "^6.6.3"<br></code></pre>
-                </np-card-body>
-            </np-card>
-        </div>
-        <div class="np-col np-col-12">
-            <np-card>
-                <np-card-header>
-                    <h4 class="no-margin">Browser Support</h4>
-                </np-card-header>
-                <np-card-body>
-                    <table class="np-table">
-                        <tr>
-                            <th>Chrome</th>
-                            <th>Firefox</th>
-                            <th>Safari</th>
-                            <th>Edge</th>
-                            <th>Mobile Chrome</th>
-                            <th>Mobile Safari</th>
-                            <th>IE11</th>
-                        </tr>
-                        <tr>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>Partial</td>
-                        </tr>
-                    </table>
-                </np-card-body>
-            </np-card>
-        </div>
-        <div class="np-col np-col-12">
-            <h3>Links</h3>
-            <p>
-                <a href="https://github.com/NilavPatel/np-ui-package/tree/master/projects/np-ui-lib/CHANGELOG.md"
-                   target="_blank">Release Notes</a>
-            </p>
-        </div>
-        <div class="np-col np-col-12">
-            <h3>License</h3>
-            <p>
-                This project is licensed under the
-                <a href="https://github.com/NilavPatel/np-ui-package/blob/master/LICENSE"
-                   target="_blank">MIT
-                    License</a>.
-            </p>
-        </div>
-        <div class="np-col np-col-12">
-            <h3>Contributors</h3>
-            <a href="https://github.com/NTech-Software-Solutions"
-               target="_blank">
-                <img src="https://raw.githubusercontent.com/NilavPatel/nilavpatel.github.io/master/images/logo-large.png"
-                     height="50px"
-                     width="200px">
-            </a>
-        </div>
+    <div class="np-col np-col-12">
+      <div style="width: 100%; text-align: center">
+        <h1>NP-UI-LIB</h1>
+        <h2>Native Angular UI Components and Design Framework</h2>
+        <p>Current Version: 11.2.0, Angular Version: 11.0.0+</p>
+      </div>
     </div>
+    <div class="np-col np-col-12">
+      <div class="np-btn-group justify-content-center">
+        <a
+          class="np-btn np-btn-danger"
+          href="http://npmjs.com/np-ui-lib"
+          style="width: 150px; font-size: large"
+          target="_blank"
+          >NPM</a
+        >
+        <a
+          class="np-btn"
+          href="https://github.com/NilavPatel/np-ui-package"
+          style="width: 150px; font-size: large"
+          target="_blank"
+          >Github</a
+        >
+        <a
+          class="np-btn np-btn-primary"
+          style="width: 150px; font-size: large"
+          [routerLink]="['/np-input-text-demo']"
+          >Documentation</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="np-row">
+    <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6">
+      <np-card>
+        <np-card-header>
+          <h4 class="no-margin">Why np-ui-lib?</h4>
+        </np-card-header>
+        <np-card-body>
+          <ul class="list">
+            <li>An enterprise level UI design</li>
+            <li>50+ components</li>
+            <li>Free and open source</li>
+            <li>Fast and easy to integrate</li>
+            <li>Theming and i18N support</li>
+            <li>No 3rd party dependencies</li>
+          </ul>
+        </np-card-body>
+      </np-card>
+    </div>
+    <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6">
+      <np-card>
+        <np-card-header>
+          <h4 class="no-margin">Best Practices</h4>
+        </np-card-header>
+        <np-card-body>
+          <ul class="list">
+            <li>Followed best coding practices</li>
+            <li>Responsive UI design</li>
+            <li>Good documentation</li>
+            <li>Flexible to customization</li>
+            <li>WAI-ARIA included</li>
+            <li>Support modern browsers</li>
+          </ul>
+        </np-card-body>
+      </np-card>
+    </div>
+    <div class="np-col np-col-12">
+      <np-card>
+        <np-card-header>
+          <h4 class="no-margin">
+            How to add np-ui-lib package to angular application?
+          </h4>
+        </np-card-header>
+        <np-card-body>
+          <div>
+            <h6>Step 1: Install node package using below command</h6>
+            <pre><code>$ npm install np-ui-lib</code></pre>
+          </div>
+          <div>
+            <h6>
+              Step 2: Import below style sheets to application's styles.scss
+              file
+            </h6>
+            <pre><code>@import "~@angular/cdk/overlay-prebuilt.css";<br>@import "np-ui-lib/styles/default-theme.scss";</code></pre>
+          </div>
+        </np-card-body>
+      </np-card>
+    </div>
+    <div class="np-col np-col-12">
+      <np-card>
+        <np-card-header>
+          <h4 class="no-margin">
+            Below packages already needs to be pre-installed
+          </h4>
+        </np-card-header>
+        <np-card-body>
+          <div>np-ui-lib has dependency on below packages.</div>
+          <pre><code>"@angular/common": "^11.0.6",<br>"@angular/core": "^11.0.6",<br>"@angular/cdk": "^11.0.3",<br>"@angular/forms": "^11.0.6",<br>"@angular/router": "^11.0.6",<br>"rxjs": "^6.6.3"<br></code></pre>
+        </np-card-body>
+      </np-card>
+    </div>
+    <div class="np-col np-col-12">
+      <np-card>
+        <np-card-header>
+          <h4 class="no-margin">Browser Support</h4>
+        </np-card-header>
+        <np-card-body>
+          <table class="np-table">
+            <tr>
+              <th>Chrome</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Edge</th>
+              <th>Mobile Chrome</th>
+              <th>Mobile Safari</th>
+              <th>IE11</th>
+            </tr>
+            <tr>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Partial</td>
+            </tr>
+          </table>
+        </np-card-body>
+      </np-card>
+    </div>
+    <div class="np-col np-col-12">
+      <h3>Links</h3>
+      <p>
+        <a
+          href="https://github.com/NilavPatel/np-ui-package/tree/master/projects/np-ui-lib/CHANGELOG.md"
+          target="_blank"
+          >Release Notes</a
+        >
+      </p>
+    </div>
+    <div class="np-col np-col-12">
+      <h3>License</h3>
+      <p>
+        This project is licensed under the
+        <a
+          href="https://github.com/NilavPatel/np-ui-package/blob/master/LICENSE"
+          target="_blank"
+          >MIT License</a
+        >.
+      </p>
+    </div>
+    <div class="np-col np-col-12">
+      <h3>Contributors</h3>
+      <a href="https://github.com/NTech-Software-Solutions" target="_blank">
+        <img
+          src="https://raw.githubusercontent.com/NilavPatel/nilavpatel.github.io/master/images/logo-large.png"
+          height="50px"
+          width="200px"
+        />
+      </a>
+    </div>
+  </div>
 </div>

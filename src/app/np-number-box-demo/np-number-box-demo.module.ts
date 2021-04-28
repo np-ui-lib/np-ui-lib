@@ -1,10 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpNumberBoxDemoRoutingModule } from './np-number-box-demo-routing.module';
-import { NpNumberBoxDemoComponent } from './np-number-box-demo.component';
-import { NpNumberBoxModule, NpTabsModule, NpCardModule, NpAlertModule } from 'np-ui-lib';
-import { FormsModule } from '@angular/forms';
+import { NpNumberBoxDemoRoutingModule } from "./np-number-box-demo-routing.module";
+import { NpNumberBoxDemoComponent } from "./np-number-box-demo.component";
+import {
+  NpNumberBoxModule,
+  NpTabsModule,
+  NpCardModule,
+  NpAlertModule,
+} from "np-ui-lib";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [NpNumberBoxDemoComponent],
@@ -15,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     NpTabsModule,
     NpCardModule,
-    NpAlertModule
-  ]
+    NpAlertModule,
+  ],
 })
-export class NpNumberBoxDemoModule { }
+export class NpNumberBoxDemoModule {}

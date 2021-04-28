@@ -1,249 +1,257 @@
 <h2 class="page-header">Panel</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-                <b>How to set lazy loading for panel?</b>
-                <div>
-                    <pre><code [innerText]="lazyLoadText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>title</td>
-                        <td>Title of panel</td>
-                        <td>string | TemplateRef &lt;any&gt; </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>allowToMinimize</td>
-                        <td>Allow to minimize</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>allowToZoom</td>
-                        <td>Allow to zoom</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>allowToClose</td>
-                        <td>Allow to close</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>isOpen</td>
-                        <td>Set panel to default open</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>height</td>
-                        <td>Height of panel in px</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>Set panel to disabled mode</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>iconCss</td>
-                        <td>Set CSS for icon like 'fa fa-home'</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onExpand()
-                        </td>
-                        <td>
-                            Callback on expanding panel.
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onCollapse()
-                        </td>
-                        <td>
-                            Callback on collapsing panel.
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <div class="np-container">
-            <div class="np-row">
-                <div class="np-col np-col-sm-12 np-col-md-6">
-                    <np-panel [title]="title">
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                    </np-panel>
-                </div>
-                <div class="np-col np-col-sm-12 np-col-md-6">
-                    <np-panel [title]="title"
-                              [allowToMinimize]="true"
-                              [allowToZoom]="true"
-                              [allowToClose]="true"
-                              [iconCss]="'fa fa-home'"
-                              [styleClass]="'np-pn-success'"
-                              [disabled]="pnl2Disabled">
-                        <ng-template npPanelContent>
-                            <p>
-                                A paragraph is a series of related sentences developing a central idea, called the
-                                topic.
-                                Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                                group of sentences that supports one central, unified idea. Paragraphs add
-                                one idea at a time to your broader argument.
-                            </p>
-                        </ng-template>
-                    </np-panel>
-                </div>
-                <div class="np-col np-col-12">
-                    <np-panel [title]="title"
-                              [allowToMinimize]="true"
-                              [allowToZoom]="true"
-                              [allowToClose]="true"
-                              [styleClass]="'np-pn-danger'"
-                              [height]="200">
-                        <p>
-                            A first paragraph is a series of related sentences developing a central idea, called the
-                            topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence
-                            or a group of sentences that supports one central, unified idea. Paragraphs
-                            add one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A last paragraph is a series of related sentences developing a central idea, called the
-                            topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence
-                            or a group of sentences that supports one central, unified idea. Paragraphs
-                            add one idea at a time to your broader argument.
-                        </p>
-                    </np-panel>
-                </div>
-                <div class="np-col np-col-12">
-                    <button type="button"
-                            class="np-btn"
-                            (click)="togglePanel2Disabled()">Toggle panel 2
-                        disabled</button>
-                </div>
-            </div>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
         </div>
-    </np-tab>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+        <b>How to set lazy loading for panel?</b>
+        <div>
+          <pre><code [innerText]="lazyLoadText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>title</td>
+            <td>Title of panel</td>
+            <td>string | TemplateRef &lt;any&gt;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>allowToMinimize</td>
+            <td>Allow to minimize</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>allowToZoom</td>
+            <td>Allow to zoom</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>allowToClose</td>
+            <td>Allow to close</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>isOpen</td>
+            <td>Set panel to default open</td>
+            <td>boolean</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>height</td>
+            <td>Height of panel in px</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>Set panel to disabled mode</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>iconCss</td>
+            <td>Set CSS for icon like 'fa fa-home'</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onExpand()</td>
+            <td>Callback on expanding panel.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>onCollapse()</td>
+            <td>Callback on collapsing panel.</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <div class="np-container">
+      <div class="np-row">
+        <div class="np-col np-col-sm-12 np-col-md-6">
+          <np-panel [title]="title">
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+          </np-panel>
+        </div>
+        <div class="np-col np-col-sm-12 np-col-md-6">
+          <np-panel
+            [title]="title"
+            [allowToMinimize]="true"
+            [allowToZoom]="true"
+            [allowToClose]="true"
+            [iconCss]="'fa fa-home'"
+            [styleClass]="'np-pn-success'"
+            [disabled]="pnl2Disabled"
+          >
+            <ng-template npPanelContent>
+              <p>
+                A paragraph is a series of related sentences developing a
+                central idea, called the topic. Try to think about paragraphs in
+                terms of thematic unity: a paragraph is a sentence or a group of
+                sentences that supports one central, unified idea. Paragraphs
+                add one idea at a time to your broader argument.
+              </p>
+            </ng-template>
+          </np-panel>
+        </div>
+        <div class="np-col np-col-12">
+          <np-panel
+            [title]="title"
+            [allowToMinimize]="true"
+            [allowToZoom]="true"
+            [allowToClose]="true"
+            [styleClass]="'np-pn-danger'"
+            [height]="200"
+          >
+            <p>
+              A first paragraph is a series of related sentences developing a
+              central idea, called the topic. Try to think about paragraphs in
+              terms of thematic unity: a paragraph is a sentence or a group of
+              sentences that supports one central, unified idea. Paragraphs add
+              one idea at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A last paragraph is a series of related sentences developing a
+              central idea, called the topic. Try to think about paragraphs in
+              terms of thematic unity: a paragraph is a sentence or a group of
+              sentences that supports one central, unified idea. Paragraphs add
+              one idea at a time to your broader argument.
+            </p>
+          </np-panel>
+        </div>
+        <div class="np-col np-col-12">
+          <button type="button" class="np-btn" (click)="togglePanel2Disabled()">
+            Toggle panel 2 disabled
+          </button>
+        </div>
+      </div>
+    </div>
+  </np-tab>
 </np-tabs>

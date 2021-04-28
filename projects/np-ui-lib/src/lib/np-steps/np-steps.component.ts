@@ -1,18 +1,21 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef, Input } from '@angular/core';
-import { CdkStepper } from '@angular/cdk/stepper';
-import { NpStepComponent } from './np-step.component';
+import {
+  Component,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  TemplateRef,
+  Input,
+} from "@angular/core";
+import { CdkStepper } from "@angular/cdk/stepper";
+import { NpStepComponent } from "./np-step.component";
 
 @Component({
-  selector: 'np-steps',
-  templateUrl: './np-steps.component.html',
-  providers: [
-    { provide: CdkStepper, useExisting: NpStepsComponent }
-  ],
+  selector: "np-steps",
+  templateUrl: "./np-steps.component.html",
+  providers: [{ provide: CdkStepper, useExisting: NpStepsComponent }],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpStepsComponent extends CdkStepper {
-
   private static controlCount = 1;
 
   @Input() stretchLabels: boolean;
@@ -29,10 +32,10 @@ export class NpStepsComponent extends CdkStepper {
   }
 
   _getTitleId(step: any) {
-    return step.inputId + '_title';
+    return step.inputId + "_title";
   }
 
   _getBodyId(step: any) {
-    return step.inputId + '_body';
+    return step.inputId + "_body";
   }
 }

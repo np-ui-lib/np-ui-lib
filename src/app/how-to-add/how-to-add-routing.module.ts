@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HowToAddComponent } from './how-to-add.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { HowToAddComponent } from "./how-to-add.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: HowToAddComponent
-  }
+    path: "",
+    component: HowToAddComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class HowToAddRoutingModule { }
+export class HowToAddRoutingModule {}

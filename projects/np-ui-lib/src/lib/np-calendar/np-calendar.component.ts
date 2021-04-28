@@ -1,17 +1,22 @@
 import {
-  AfterContentInit, ChangeDetectionStrategy, Component, EventEmitter,
-  Input, Output, TemplateRef, ViewEncapsulation
-} from '@angular/core';
-import { NpCalendarEvent } from './np-calendar-event.model';
+  AfterContentInit,
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  TemplateRef,
+  ViewEncapsulation,
+} from "@angular/core";
+import { NpCalendarEvent } from "./np-calendar-event.model";
 
 @Component({
-  selector: 'np-calendar',
-  templateUrl: './np-calendar.component.html',
+  selector: "np-calendar",
+  templateUrl: "./np-calendar.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpCalendarComponent implements AfterContentInit {
-
   private static controlCount = 1;
 
   @Input() disableWeekDays: string[] = [];
@@ -36,22 +41,30 @@ export class NpCalendarComponent implements AfterContentInit {
   currentYear: number;
   today: Date;
   events: NpCalendarEvent[] = [];
-  originalWeekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  originalWeekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   constructor() {
     this.monthsList = [
-      { key: 0, value: 'January' },
-      { key: 1, value: 'February' },
-      { key: 2, value: 'March' },
-      { key: 3, value: 'April' },
-      { key: 4, value: 'May' },
-      { key: 5, value: 'June' },
-      { key: 6, value: 'July' },
-      { key: 7, value: 'August' },
-      { key: 8, value: 'September' },
-      { key: 9, value: 'October' },
-      { key: 10, value: 'November' },
-      { key: 11, value: 'December' }
+      { key: 0, value: "January" },
+      { key: 1, value: "February" },
+      { key: 2, value: "March" },
+      { key: 3, value: "April" },
+      { key: 4, value: "May" },
+      { key: 5, value: "June" },
+      { key: 6, value: "July" },
+      { key: 7, value: "August" },
+      { key: 8, value: "September" },
+      { key: 9, value: "October" },
+      { key: 10, value: "November" },
+      { key: 11, value: "December" },
     ];
     this.today = new Date();
     this.today.setHours(0, 0, 0, 0);
@@ -61,9 +74,25 @@ export class NpCalendarComponent implements AfterContentInit {
 
   ngAfterContentInit() {
     if (this.isStartMonthWithMonday) {
-      this.weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+      this.weekDays = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ];
     } else {
-      this.weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      this.weekDays = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
     }
     this._calculateDays();
     this._onLoad();
@@ -75,14 +104,14 @@ export class NpCalendarComponent implements AfterContentInit {
   }
 
   addEvents(eve: NpCalendarEvent[]) {
-    eve.forEach(element => {
+    eve.forEach((element) => {
       this.events.push(element);
     });
     this._calculateDays();
   }
 
   removeEvents(eve: NpCalendarEvent[]) {
-    eve.forEach(element => {
+    eve.forEach((element) => {
       const idx = this._findIndexOfEvent(element);
       if (idx > -1) {
         this.events.splice(idx, 1);
@@ -95,7 +124,11 @@ export class NpCalendarComponent implements AfterContentInit {
     const weeks = [];
     weeks[0] = [];
     const daysInMonth = this._getCurrentMonthData();
-    const firstWeekDayOfMonth = new Date(this.currentYear, this.currentMonth, 1).getDay();
+    const firstWeekDayOfMonth = new Date(
+      this.currentYear,
+      this.currentMonth,
+      1
+    ).getDay();
     // push extra values up to week days match to start date if month
     for (let index = 0; index < firstWeekDayOfMonth; index++) {
       weeks[0].push({ disabled: true });
@@ -103,15 +136,21 @@ export class NpCalendarComponent implements AfterContentInit {
     if (this.isStartMonthWithMonday) {
       // if start with monday then
       if (firstWeekDayOfMonth === 0) {
-        weeks[0].push({ disabled: true }, { disabled: true }, { disabled: true }, { disabled: true },
-          { disabled: true }, { disabled: true });
+        weeks[0].push(
+          { disabled: true },
+          { disabled: true },
+          { disabled: true },
+          { disabled: true },
+          { disabled: true },
+          { disabled: true }
+        );
       } else {
         weeks[0].pop();
       }
     }
     let j = 0;
     // push all dates in month
-    daysInMonth.forEach(element => {
+    daysInMonth.forEach((element) => {
       if (weeks[j].length === 7) {
         j++;
         weeks[j] = [];
@@ -136,7 +175,7 @@ export class NpCalendarComponent implements AfterContentInit {
         day: i,
         disabled: this._checkIsFullDateDisabled(date),
         today: this._compareDate(this.today, date),
-        events: this._getEventsForDate(date)
+        events: this._getEventsForDate(date),
       });
     }
     return data;
@@ -146,13 +185,15 @@ export class NpCalendarComponent implements AfterContentInit {
     if (this.events === undefined || this.events === null) {
       return null;
     }
-    return this.events.filter(element => {
-      if (this._compareDate(element.startDate, date)) {
-        return element;
-      }
-    }).sort((a: NpCalendarEvent, b: NpCalendarEvent) =>
-      (a.startDate > b.startDate) ? 1 : ((b.startDate > a.startDate) ? -1 : 0)
-    );
+    return this.events
+      .filter((element) => {
+        if (this._compareDate(element.startDate, date)) {
+          return element;
+        }
+      })
+      .sort((a: NpCalendarEvent, b: NpCalendarEvent) =>
+        a.startDate > b.startDate ? 1 : b.startDate > a.startDate ? -1 : 0
+      );
   }
 
   _daysInCurrentMonth() {
@@ -187,9 +228,11 @@ export class NpCalendarComponent implements AfterContentInit {
     if (this._checkIsWeekDayDisabled(date.getDay())) {
       return true;
     }
-    return (this.disableDates.findIndex((item) => {
-      return this._compareDate(item, date);
-    }) > -1);
+    return (
+      this.disableDates.findIndex((item) => {
+        return this._compareDate(item, date);
+      }) > -1
+    );
   }
 
   _checkIsWeekDayDisabled(index: number) {
@@ -242,16 +285,20 @@ export class NpCalendarComponent implements AfterContentInit {
     if (!dateA || !dateB) {
       return false;
     }
-    if (dateA.getFullYear() === dateB.getFullYear() &&
+    if (
+      dateA.getFullYear() === dateB.getFullYear() &&
       dateA.getMonth() === dateB.getMonth() &&
-      dateA.getDate() === dateB.getDate()) {
+      dateA.getDate() === dateB.getDate()
+    ) {
       return true;
     }
     return false;
   }
 
   _onClickDate(date: Date) {
-    if (this._checkIsFullDateDisabled(date)) { return; }
+    if (this._checkIsFullDateDisabled(date)) {
+      return;
+    }
     if (this.onClickDate) {
       this.onClickDate.emit(date);
     }
@@ -259,7 +306,9 @@ export class NpCalendarComponent implements AfterContentInit {
 
   _onClickEvent($domEvent: any, event: NpCalendarEvent) {
     $domEvent.stopPropagation();
-    if (this._checkIsFullDateDisabled(event.startDate)) { return; }
+    if (this._checkIsFullDateDisabled(event.startDate)) {
+      return;
+    }
     if (this.onClickEvent) {
       this.onClickEvent.emit(event);
     }
@@ -270,7 +319,11 @@ export class NpCalendarComponent implements AfterContentInit {
     if (this.events) {
       for (let i = 0; i < this.events.length; i++) {
         const element = this.events[i];
-        if (element.startDate === event.startDate && element.endDate === event.endDate && element.title === event.title) {
+        if (
+          element.startDate === event.startDate &&
+          element.endDate === event.endDate &&
+          element.title === event.title
+        ) {
           index = i;
           break;
         }
@@ -284,15 +337,19 @@ export class NpCalendarComponent implements AfterContentInit {
       this.events = [];
     }
     if (this.onLoadMonth) {
-      this.onLoadMonth.emit({ month: this.currentMonth, year: this.currentYear });
+      this.onLoadMonth.emit({
+        month: this.currentMonth,
+        year: this.currentYear,
+      });
     }
   }
 
   _getDateClass(item: any) {
     if (this.dateClass) {
-      return (`np-calendar-day np-day-${item.day} ` + this.dateClass(item.date)).trim();
+      return (
+        `np-calendar-day np-day-${item.day} ` + this.dateClass(item.date)
+      ).trim();
     }
     return `np-calendar-day np-day-${item.day}`;
   }
-
 }

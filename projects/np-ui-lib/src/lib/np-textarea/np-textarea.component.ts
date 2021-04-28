@@ -1,26 +1,40 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, forwardRef, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  Input,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from "@angular/core";
+import {
+  ControlValueAccessor,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
+  Validator,
+} from "@angular/forms";
 
 @Component({
-  selector: 'np-textarea',
-  templateUrl: './np-textarea.component.html',
+  selector: "np-textarea",
+  templateUrl: "./np-textarea.component.html",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NpTextareaComponent),
-      multi: true
+      multi: true,
     },
     {
       provide: NG_VALIDATORS,
       useExisting: forwardRef(() => NpTextareaComponent),
       multi: true,
-    }
-  ]
+    },
+  ],
 })
 export class NpTextareaComponent implements ControlValueAccessor, Validator {
-
   private static controlCount = 1;
 
   @Input() rows: number;
@@ -28,7 +42,7 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
   @Input() resize = true;
   @Input() minLength: number;
   @Input() maxLength: number;
-  @Input() placeholder = '';
+  @Input() placeholder = "";
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -39,14 +53,14 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
   @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('control') inputViewChild: ElementRef;
+  @ViewChild("control") inputViewChild: ElementRef;
 
   innerValue: string;
   isDisabled = false;
   focused = false;
 
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
+  private onChangeCallback: (_: any) => void = () => {};
+  private onTouchedCallback: () => void = () => {};
 
   get value(): string {
     return this.innerValue ? this.innerValue : null;
@@ -79,14 +93,22 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
   }
 
   validate() {
-    if (this.minLength !== undefined && this.value && this.value.length < this.minLength) {
+    if (
+      this.minLength !== undefined &&
+      this.value &&
+      this.value.length < this.minLength
+    ) {
       return {
         minLength: {
           valid: false,
         },
       };
     }
-    if (this.maxLength !== undefined && this.value && this.value.length > this.maxLength) {
+    if (
+      this.maxLength !== undefined &&
+      this.value &&
+      this.value.length > this.maxLength
+    ) {
       return {
         maxLength: {
           valid: false,

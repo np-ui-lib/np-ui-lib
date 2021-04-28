@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpRadioButtonDemoRoutingModule } from './np-radio-button-demo-routing.module';
-import { NpRadioButtonDemoComponent } from './np-radio-button-demo.component';
-import { FormsModule } from '@angular/forms';
-import { NpCardModule, NpRadioButtonModule, NpTabsModule } from 'np-ui-lib';
+import { NpRadioButtonDemoRoutingModule } from "./np-radio-button-demo-routing.module";
+import { NpRadioButtonDemoComponent } from "./np-radio-button-demo.component";
+import { FormsModule } from "@angular/forms";
+import { NpCardModule, NpRadioButtonModule, NpTabsModule } from "np-ui-lib";
 
 @NgModule({
   declarations: [NpRadioButtonDemoComponent],
@@ -14,7 +14,7 @@ import { NpCardModule, NpRadioButtonModule, NpTabsModule } from 'np-ui-lib';
     FormsModule,
     NpRadioButtonModule,
     NpTabsModule,
-    NpCardModule
-  ]
+    NpCardModule,
+  ],
 })
-export class NpRadioButtonDemoModule { }
+export class NpRadioButtonDemoModule {}

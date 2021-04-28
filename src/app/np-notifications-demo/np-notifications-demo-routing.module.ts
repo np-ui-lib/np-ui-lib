@@ -1,17 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpNotificationsDemoComponent } from './np-notifications-demo.component';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpNotificationsDemoComponent } from "./np-notifications-demo.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NpNotificationsDemoComponent
-  }
+    path: "",
+    component: NpNotificationsDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpNotificationsDemoRoutingModule { }
+export class NpNotificationsDemoRoutingModule {}

@@ -1,17 +1,23 @@
 import {
-  Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy,
-  OnChanges, SimpleChanges, TemplateRef
-} from '@angular/core';
-import { NpTreeViewItem } from './np-tree-view.model';
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  OnChanges,
+  SimpleChanges,
+  TemplateRef,
+} from "@angular/core";
+import { NpTreeViewItem } from "./np-tree-view.model";
 
 @Component({
-  selector: 'np-tree-view',
-  templateUrl: './np-tree-view.component.html',
+  selector: "np-tree-view",
+  templateUrl: "./np-tree-view.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpTreeViewComponent implements OnChanges {
-
   private static controlCount = 1;
 
   @Input() items: NpTreeViewItem[];
@@ -38,26 +44,25 @@ export class NpTreeViewComponent implements OnChanges {
   }
 
   expandAll() {
-    this.items.forEach(element => {
+    this.items.forEach((element) => {
       this._expandAllInNode(element);
     });
     this.onExpandAll.emit();
   }
 
   collapseAll() {
-    this.items.forEach(element => {
+    this.items.forEach((element) => {
       this._collapseAllInNode(element);
     });
     this.onCollapseAll.emit();
   }
-
 
   selectAll() {
     if (this._isSingleSelectionMode()) {
       return;
     }
     this.selection = [];
-    this.items.forEach(element => {
+    this.items.forEach((element) => {
       this._selectAll(element);
     });
     this._syncSelectionForAll();
@@ -86,7 +91,7 @@ export class NpTreeViewComponent implements OnChanges {
   _expandAllInNode(item: NpTreeViewItem) {
     item.isExpanded = true;
     if (item.childItems) {
-      item.childItems.forEach(element => {
+      item.childItems.forEach((element) => {
         this._expandAllInNode(element);
       });
     }
@@ -95,7 +100,7 @@ export class NpTreeViewComponent implements OnChanges {
   _collapseAllInNode(item: NpTreeViewItem) {
     item.isExpanded = false;
     if (item.childItems) {
-      item.childItems.forEach(element => {
+      item.childItems.forEach((element) => {
         this._collapseAllInNode(element);
       });
     }
@@ -107,7 +112,7 @@ export class NpTreeViewComponent implements OnChanges {
 
   _changeSelection(checked: any, item: NpTreeViewItem) {
     if (!item.id) {
-      throw new Error('NpTreeViewItem.id must be defined for selection');
+      throw new Error("NpTreeViewItem.id must be defined for selection");
     }
     if (checked) {
       this._selectNode(item);
@@ -125,8 +130,7 @@ export class NpTreeViewComponent implements OnChanges {
   _selectNode(item: NpTreeViewItem) {
     if (this._isSingleSelectionMode()) {
       this.selection = [item];
-    }
-    else {
+    } else {
       if (!this.selection) {
         this.selection = [];
       }
@@ -138,7 +142,7 @@ export class NpTreeViewComponent implements OnChanges {
 
   _selectChildNodes(item: NpTreeViewItem) {
     if (item.childItems) {
-      item.childItems.forEach(element => {
+      item.childItems.forEach((element) => {
         if (element.childItems) {
           this._selectChildNodes(element);
         }
@@ -156,8 +160,7 @@ export class NpTreeViewComponent implements OnChanges {
   _deselectNode(item: NpTreeViewItem) {
     if (this._isSingleSelectionMode()) {
       this.selection = [];
-    }
-    else {
+    } else {
       const idx = this._findIndexInSelection(item);
       if (idx > -1) {
         this.selection.splice(idx, 1);
@@ -169,7 +172,7 @@ export class NpTreeViewComponent implements OnChanges {
 
   _deselectChildNodes(item: NpTreeViewItem) {
     if (item.childItems) {
-      item.childItems.forEach(element => {
+      item.childItems.forEach((element) => {
         if (element.childItems) {
           this._deselectChildNodes(element);
         }
@@ -200,18 +203,18 @@ export class NpTreeViewComponent implements OnChanges {
   }
 
   _isSingleSelectionMode() {
-    return this.selectionMode && this.selectionMode === 'single';
+    return this.selectionMode && this.selectionMode === "single";
   }
 
   _syncSelectionForAll() {
-    this.items.forEach(element => {
+    this.items.forEach((element) => {
       this._syncSelection(element);
     });
   }
 
   _syncSelection(item: NpTreeViewItem) {
     if (!item.id) {
-      throw new Error('NpTreeViewItem.id must be defined for selection');
+      throw new Error("NpTreeViewItem.id must be defined for selection");
     }
     if (item.childItems && item.childItems.length) {
       for (const child of item.childItems) {
@@ -228,7 +231,10 @@ export class NpTreeViewComponent implements OnChanges {
           childPartiallySelected = true;
         }
       }
-      if ((childPartiallySelected || selectedCount > 0) && selectedCount !== item.childItems.length) {
+      if (
+        (childPartiallySelected || selectedCount > 0) &&
+        selectedCount !== item.childItems.length
+      ) {
         item.partiallySelected = true;
       } else {
         item.partiallySelected = false;
@@ -254,11 +260,11 @@ export class NpTreeViewComponent implements OnChanges {
 
   _selectAll(item: NpTreeViewItem) {
     if (!item.id) {
-      throw new Error('NpTreeViewItem.id must be defined for selection');
+      throw new Error("NpTreeViewItem.id must be defined for selection");
     }
     this.selection.push(item);
     if (item.childItems) {
-      item.childItems.forEach(element => {
+      item.childItems.forEach((element) => {
         this._selectAll(element);
       });
     }
@@ -267,5 +273,4 @@ export class NpTreeViewComponent implements OnChanges {
   _trackBy(index: number): number {
     return index;
   }
-
 }

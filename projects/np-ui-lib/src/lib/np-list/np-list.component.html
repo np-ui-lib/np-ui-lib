@@ -1,34 +1,48 @@
-<div [ngClass]="'np-list-wrapper'"
-     [style.max-height.px]="height"
-     [class]="styleClass"
-     [attr.id]="inputId">
-  <div class="np-list-header"
-       *ngIf="header"
-       [innerHTML]="header"
-       [attr.id]="inputId + '-title'"></div>
+<div
+  [ngClass]="'np-list-wrapper'"
+  [style.max-height.px]="height"
+  [class]="styleClass"
+  [attr.id]="inputId"
+>
+  <div
+    class="np-list-header"
+    *ngIf="header"
+    [innerHTML]="header"
+    [attr.id]="inputId + '-title'"
+  ></div>
   <ng-container *ngIf="!showTiles">
-    <ul class="np-list"
-        role="listbox"
-        [attr.aria-labelledby]="inputId + '-title'">
-      <ng-container *ngFor="
+    <ul
+      class="np-list"
+      role="listbox"
+      [attr.aria-labelledby]="inputId + '-title'"
+    >
+      <ng-container
+        *ngFor="
           let item of items | npOrderBy: orderBy:orderDir;
           let i = index;
           trackBy: _trackBy
-        ">
-        <li class="np-list-item"
-            role="option"
-            [attr.aria-selected]="_isSelected(item)"
-            [ngClass]="{
+        "
+      >
+        <li
+          class="np-list-item"
+          role="option"
+          [attr.aria-selected]="_isSelected(item)"
+          [ngClass]="{
             'np-list-selectable': selectionMode,
-            'np-list-selected': _isSelected(item)}"
-            [attr.id]="'np-list-item_' + (i+1)">
-          <np-checkbox *ngIf="selectionMode"
-                       [ngModel]="_isSelected(item)"
-                       [styleClass]="'np-list-checkbox'"
-                       (onChange)="_onSelectItem($event, item)"></np-checkbox>
-          <div class="np-list-item-content"
-               (click)="_onClick(item)">
-            <ng-container *ngTemplateOutlet="itemTemplate; context: { item: item }">
+            'np-list-selected': _isSelected(item)
+          }"
+          [attr.id]="'np-list-item_' + (i + 1)"
+        >
+          <np-checkbox
+            *ngIf="selectionMode"
+            [ngModel]="_isSelected(item)"
+            [styleClass]="'np-list-checkbox'"
+            (onChange)="_onSelectItem($event, item)"
+          ></np-checkbox>
+          <div class="np-list-item-content" (click)="_onClick(item)">
+            <ng-container
+              *ngTemplateOutlet="itemTemplate; context: { item: item }"
+            >
             </ng-container>
           </div>
         </li>
@@ -38,24 +52,32 @@
   <ng-container *ngIf="showTiles">
     <div class="np-tiles">
       <div class="np-row np-no-gutters">
-        <ng-container *ngFor="
+        <ng-container
+          *ngFor="
             let item of items | npOrderBy: orderBy:orderDir;
             let i = index;
             trackBy: _trackBy
-          ">
+          "
+        >
           <div class="np-col np-col-{{ columnSize }}">
-            <div class="np-tiles-item"
-                 [ngClass]="{
+            <div
+              class="np-tiles-item"
+              [ngClass]="{
                 'np-tiles-selectable': selectionMode,
-                'np-tile-selected': _isSelected(item)}"
-                 [attr.id]="'np-tiles-item_' + (i+1)">
-              <np-checkbox *ngIf="selectionMode"
-                           [ngModel]="_isSelected(item)"
-                           [styleClass]="'np-tiles-checkbox'"
-                           (onChange)="_onSelectItem($event, item)"></np-checkbox>
-              <div class="np-tiles-item-content"
-                   (click)="_onClick(item)">
-                <ng-container *ngTemplateOutlet="itemTemplate; context: { item: item }">
+                'np-tile-selected': _isSelected(item)
+              }"
+              [attr.id]="'np-tiles-item_' + (i + 1)"
+            >
+              <np-checkbox
+                *ngIf="selectionMode"
+                [ngModel]="_isSelected(item)"
+                [styleClass]="'np-tiles-checkbox'"
+                (onChange)="_onSelectItem($event, item)"
+              ></np-checkbox>
+              <div class="np-tiles-item-content" (click)="_onClick(item)">
+                <ng-container
+                  *ngTemplateOutlet="itemTemplate; context: { item: item }"
+                >
                 </ng-container>
               </div>
             </div>
@@ -65,11 +87,13 @@
     </div>
   </ng-container>
   <ng-container *ngIf="isServerOperations">
-    <np-paginator #listPaginator
-                  [pageSize]="pageSize"
-                  [totalItems]="totalItems"
-                  [styleClass]="'np-list-pagination'"
-                  (onPageChange)="_onPageChange($event)">
+    <np-paginator
+      #listPaginator
+      [pageSize]="pageSize"
+      [totalItems]="totalItems"
+      [styleClass]="'np-list-pagination'"
+      (onPageChange)="_onPageChange($event)"
+    >
     </np-paginator>
   </ng-container>
 </div>

@@ -1,29 +1,42 @@
 import {
-  Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, TemplateRef,
-  ViewContainerRef, Input, Output, EventEmitter, ContentChild, OnInit, OnDestroy
-} from '@angular/core';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
-import { NpSidepanelContent } from './np-sidepanel-content.directive';
-import { NpSidepanelService } from './np-sidepanel.service';
-import { Subject } from 'rxjs';
+  Component,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  ViewChild,
+  TemplateRef,
+  ViewContainerRef,
+  Input,
+  Output,
+  EventEmitter,
+  ContentChild,
+  OnInit,
+  OnDestroy,
+} from "@angular/core";
+import { TemplatePortal } from "@angular/cdk/portal";
+import {
+  OverlayRef,
+  Overlay,
+  OverlayPositionBuilder,
+} from "@angular/cdk/overlay";
+import { NpSidepanelContent } from "./np-sidepanel-content.directive";
+import { NpSidepanelService } from "./np-sidepanel.service";
+import { Subject } from "rxjs";
 
 @Component({
-  selector: 'np-sidepanel',
-  templateUrl: './np-sidepanel.component.html',
+  selector: "np-sidepanel",
+  templateUrl: "./np-sidepanel.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpSidepanelComponent implements OnInit, OnDestroy {
-
   private static controlCount = 1;
 
   // left | right | top | bottom
-  @Input() position = 'left';
+  @Input() position = "left";
   @Input() height: number | string;
   @Input() width: number | string;
   @Input() closeOnClickOutside = true;
-  @Input() backDropClass = 'np-sidepanel-backdrop';
+  @Input() backDropClass = "np-sidepanel-backdrop";
   @Input() hasBackDrop = true;
   @Input() styleClass: string;
   @Input() inputId = `np-sidepanel_${NpSidepanelComponent.controlCount++}`;
@@ -31,8 +44,9 @@ export class NpSidepanelComponent implements OnInit, OnDestroy {
   @Output() onOpen: EventEmitter<any> = new EventEmitter();
   @Output() onClose: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
-  @ContentChild(NpSidepanelContent, { read: TemplateRef, static: true }) _explicitContent: TemplateRef<any>;
+  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  @ContentChild(NpSidepanelContent, { read: TemplateRef, static: true })
+  _explicitContent: TemplateRef<any>;
   private _contentPortal: TemplatePortal | null = null;
   get content(): TemplatePortal | null {
     return this._contentPortal;
@@ -46,8 +60,8 @@ export class NpSidepanelComponent implements OnInit, OnDestroy {
     public overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
-    private sidepanelService: NpSidepanelService) {
-  }
+    private sidepanelService: NpSidepanelService
+  ) {}
 
   ngOnInit(): void {
     this.sidepanelRef = this.sidepanelService._add(this.inputId);
@@ -65,17 +79,17 @@ export class NpSidepanelComponent implements OnInit, OnDestroy {
     // if overlay is not attached then only attach
     if (this.overlayRef === undefined || !this.overlayRef.hasAttached()) {
       const positionStrategy = this.overlayPositionBuilder.global();
-      if (this.position === 'left') {
-        positionStrategy.left('0');
+      if (this.position === "left") {
+        positionStrategy.left("0");
       }
-      if (this.position === 'right') {
-        positionStrategy.right('0');
+      if (this.position === "right") {
+        positionStrategy.right("0");
       }
-      if (this.position === 'top') {
-        positionStrategy.top('0');
+      if (this.position === "top") {
+        positionStrategy.top("0");
       }
-      if (this.position === 'bottom') {
-        positionStrategy.bottom('0');
+      if (this.position === "bottom") {
+        positionStrategy.bottom("0");
       }
       this.overlayRef = this.overlay.create({
         positionStrategy,
@@ -84,7 +98,7 @@ export class NpSidepanelComponent implements OnInit, OnDestroy {
         height: this.height,
         width: this.width,
         scrollStrategy: this.overlay.scrollStrategies.block(),
-        panelClass: 'np-sidepanel-overlay'
+        panelClass: "np-sidepanel-overlay",
       });
       this.templatePortal = new TemplatePortal(
         this.templatePortalContent,
@@ -96,7 +110,10 @@ export class NpSidepanelComponent implements OnInit, OnDestroy {
         }
       });
       if (!this._contentPortal && this._explicitContent) {
-        this._contentPortal = new TemplatePortal(this._explicitContent, this.viewContainerRef);
+        this._contentPortal = new TemplatePortal(
+          this._explicitContent,
+          this.viewContainerRef
+        );
       }
       this.overlayRef.attach(this.templatePortal);
       this.onOpen.emit(data);

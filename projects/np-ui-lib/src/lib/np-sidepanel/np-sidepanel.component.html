@@ -1,8 +1,10 @@
 <ng-template #templatePortalContent>
-  <div role="complementary"
-       [ngClass]="'np-sidepanel'"
-       [class]="styleClass"
-       [attr.id]="inputId">
+  <div
+    role="complementary"
+    [ngClass]="'np-sidepanel'"
+    [class]="styleClass"
+    [attr.id]="inputId"
+  >
     <div class="np-sidepanel-content">
       <ng-content></ng-content>
       <ng-template [cdkPortalOutlet]="content"></ng-template>

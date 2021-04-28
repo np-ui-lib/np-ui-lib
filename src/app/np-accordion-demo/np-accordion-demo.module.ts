@@ -1,10 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpAccordionDemoRoutingModule } from './np-accordion-demo-routing.module';
-import { NpAccordionDemoComponent } from './np-accordion-demo.component';
-import { NpAccordionModule, NpPanelModule, NpSwitchModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
-import { FormsModule } from '@angular/forms';
+import { NpAccordionDemoRoutingModule } from "./np-accordion-demo-routing.module";
+import { NpAccordionDemoComponent } from "./np-accordion-demo.component";
+import {
+  NpAccordionModule,
+  NpPanelModule,
+  NpSwitchModule,
+  NpTabsModule,
+  NpCardModule,
+} from "np-ui-lib";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [NpAccordionDemoComponent],
@@ -16,7 +22,7 @@ import { FormsModule } from '@angular/forms';
     NpPanelModule,
     NpSwitchModule,
     NpTabsModule,
-    NpCardModule
-  ]
+    NpCardModule,
+  ],
 })
-export class NpAccordionDemoModule { }
+export class NpAccordionDemoModule {}

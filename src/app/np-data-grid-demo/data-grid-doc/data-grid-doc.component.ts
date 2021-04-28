@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-data-grid-doc',
-  templateUrl: './data-grid-doc.component.html'
+  selector: "app-data-grid-doc",
+  templateUrl: "./data-grid-doc.component.html",
 })
 export class DataGridDocComponent implements OnInit {
-
-  importText = 'import { NpDataGridModule } from \'np-ui-lib\';';
+  importText = "import { NpDataGridModule } from 'np-ui-lib';";
   htmlText = `<np-data-grid [columns]="gridColumns" [dataSource]="gridDataSource">
 </np-data-grid>`;
   columnText = `[
@@ -33,9 +32,7 @@ export class DataGridDocComponent implements OnInit {
   filterColText = `[{ dataField : string, filterOperator: string, filterValue: string, dataType: string}, ...]`;
   sortColText = `[{ dataField : string, sortDirection: string }, ...]`;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

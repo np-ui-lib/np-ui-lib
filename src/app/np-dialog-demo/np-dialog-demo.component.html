@@ -1,48 +1,48 @@
 <h2 class="page-header">Dialog</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>Inject NpModalService in component</b>
-                <div>
-                    <pre><code [innerText]="serviceText"></code></pre>
-                </div>
-                <div class="np-text-info">
-                    <div>Dialogs are using <b>NpModalService</b> to show overlays.</div>
-                    <div>
-                        <b>NpDialogComponent</b> contains <b>type</b> and <b>message</b> properties which needs to pass
-                        in service.
-                    </div>
-                    <div>Where type can ne 'alert' | 'prompt' | 'confirm', and message is string text.</div>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>How to open dialogs?</b>
-                <div>
-                    <pre><code [innerHTML]="componentText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <div class="np-btn-group">
-            <button class="np-btn"
-                    (click)="openAlert()">Open Alert</button>
-            <button class="np-btn"
-                    (click)="openPrompt()">Open Prompt</button>
-            <button class="np-btn"
-                    (click)="openConfirm()">Open Confirm</button>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
         </div>
-    </np-tab>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>Inject NpModalService in component</b>
+        <div>
+          <pre><code [innerText]="serviceText"></code></pre>
+        </div>
+        <div class="np-text-info">
+          <div>Dialogs are using <b>NpModalService</b> to show overlays.</div>
+          <div>
+            <b>NpDialogComponent</b> contains <b>type</b> and
+            <b>message</b> properties which needs to pass in service.
+          </div>
+          <div>
+            Where type can ne 'alert' | 'prompt' | 'confirm', and message is
+            string text.
+          </div>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>How to open dialogs?</b>
+        <div>
+          <pre><code [innerHTML]="componentText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <div class="np-btn-group">
+      <button class="np-btn" (click)="openAlert()">Open Alert</button>
+      <button class="np-btn" (click)="openPrompt()">Open Prompt</button>
+      <button class="np-btn" (click)="openConfirm()">Open Confirm</button>
+    </div>
+  </np-tab>
 </np-tabs>

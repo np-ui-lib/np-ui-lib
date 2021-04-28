@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpTimelineDemoRoutingModule } from './np-timeline-demo-routing.module';
-import { NpTimelineDemoComponent } from './np-timeline-demo.component';
-import { NpCardModule, NpTabsModule, NpTimelineModule } from 'np-ui-lib';
-
+import { NpTimelineDemoRoutingModule } from "./np-timeline-demo-routing.module";
+import { NpTimelineDemoComponent } from "./np-timeline-demo.component";
+import { NpCardModule, NpTabsModule, NpTimelineModule } from "np-ui-lib";
 
 @NgModule({
   declarations: [NpTimelineDemoComponent],
@@ -13,7 +12,7 @@ import { NpCardModule, NpTabsModule, NpTimelineModule } from 'np-ui-lib';
     NpTimelineDemoRoutingModule,
     NpTimelineModule,
     NpTabsModule,
-    NpCardModule
-  ]
+    NpCardModule,
+  ],
 })
-export class NpTimelineDemoModule { }
+export class NpTimelineDemoModule {}

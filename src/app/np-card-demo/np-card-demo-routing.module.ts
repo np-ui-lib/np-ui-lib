@@ -1,14 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpCardDemoComponent } from './np-card-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpCardDemoComponent } from "./np-card-demo.component";
 
-const routes: Routes = [{
-  path: '',
-  component: NpCardDemoComponent
-}];
+const routes: Routes = [
+  {
+    path: "",
+    component: NpCardDemoComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpCardDemoRoutingModule { }
+export class NpCardDemoRoutingModule {}

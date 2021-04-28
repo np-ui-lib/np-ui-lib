@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpLoaderDemoRoutingModule } from './np-loader-demo-routing.module';
-import { NpLoaderDemoComponent } from './np-loader-demo.component';
-import { NpLoaderModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
+import { NpLoaderDemoRoutingModule } from "./np-loader-demo-routing.module";
+import { NpLoaderDemoComponent } from "./np-loader-demo.component";
+import { NpLoaderModule, NpTabsModule, NpCardModule } from "np-ui-lib";
 
 @NgModule({
   declarations: [NpLoaderDemoComponent],
@@ -12,7 +12,7 @@ import { NpLoaderModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
     NpLoaderDemoRoutingModule,
     NpLoaderModule,
     NpTabsModule,
-    NpCardModule
-  ]
+    NpCardModule,
+  ],
 })
-export class NpLoaderDemoModule { }
+export class NpLoaderDemoModule {}

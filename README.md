@@ -1,4 +1,5 @@
-# np-ui-lib  
+# np-ui-lib
+
 Native Angular UI Components and Design Framework
 
 <p align="center">
@@ -13,11 +14,14 @@ Native Angular UI Components and Design Framework
   <img src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/contributions.svg">
 </p>
 
-### [NPM package manager](https://www.npmjs.com/package/np-ui-lib)  
-````
+### [NPM package manager](https://www.npmjs.com/package/np-ui-lib)
+
+```
 npm i np-ui-lib
-````
+```
+
 ### List of components:
+
 1.  Input Text
 1.  Textarea
 1.  Date Picker
@@ -70,36 +74,44 @@ npm i np-ui-lib
 1.  Form
 
 ### Modules to be pre-installed
-````javascript
+
+```javascript
 "@angular/common": "^11.0.6",
 "@angular/core": "^11.0.6",
 "@angular/cdk": "^11.0.3",
 "@angular/forms": "^11.0.6",
 "@angular/router": "^11.0.6",
 "rxjs": "^6.6.3"
-````
+```
 
 ### Import css to your application:
-````css
+
+```css
 @import "~@angular/cdk/overlay-prebuilt.css";
 @import "np-ui-lib/styles/default-theme.scss";
-````
+```
 
 ### [Click here for full documentation](https://stackblitz.com/edit/np-ui-lib)
+
 ### [Click here for source code](https://github.com/NilavPatel/np-ui-package)
+
 ### [Release Notes](https://github.com/NilavPatel/np-ui-package/tree/master/projects/np-ui-lib/CHANGELOG.md)
 
 ### How to Run this project?
-````
+
+```
 Run below commands in sequence
 $ ng build np-ui-lib --watch
 $ npm run copy-assets
 $ ng serve
-````
+```
 
 ## License
+
 This project is licensed under the MIT License.
+
 ## Contributors
+
 <p>
   <img width="200px" height="50px" src="https://raw.githubusercontent.com/NilavPatel/nilavpatel.github.io/master/images/logo-large.png">
 </p>

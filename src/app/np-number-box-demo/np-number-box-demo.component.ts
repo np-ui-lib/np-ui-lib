@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-number-box-demo',
-  templateUrl: './np-number-box-demo.component.html'
+  selector: "app-np-number-box-demo",
+  templateUrl: "./np-number-box-demo.component.html",
 })
 export class NpNumberBoxDemoComponent implements OnInit {
-
-  importText = 'import { NpNumberBoxModule } from \'np-ui-lib\';';
+  importText = "import { NpNumberBoxModule } from 'np-ui-lib';";
   htmlText = '<np-number-box [(ngModel)]="value"></np-number-box>';
 
   number1 = 50;
@@ -19,10 +18,9 @@ export class NpNumberBoxDemoComponent implements OnInit {
   number8: number;
   number9: number;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   setNumber1() {
     this.number1 = 100;

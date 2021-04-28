@@ -1,298 +1,329 @@
 <h2 class="page-header">Time Picker</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>ngModel</td>
-                        <td>Value in string format</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>is24Hours</td>
-                        <td>Set 24 hours time format</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>defaultOpen</td>
-                        <td>Set default open</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>showNowButton</td>
-                        <td>Show now button in timepicker</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>hideSeconds</td>
-                        <td>Hide seconds dropdown</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>placeholder</td>
-                        <td>Set placeholder</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>Set disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>required</td>
-                        <td>Set required</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>readOnly</td>
-                        <td>Set readonly</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>autoFocus</td>
-                        <td>Set autofocus</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>tabIndex</td>
-                        <td>Set tabindex attribute</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onChange(v: any)
-                        </td>
-                        <td>
-                            Callback event on value change.
-                        </td>
-                        <td>Value</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onFocus(event)
-                        </td>
-                        <td>
-                            Callback event on input focus.
-                        </td>
-                        <td>Browser event</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onBlur(event)
-                        </td>
-                        <td>
-                            Callback event on input blur.
-                        </td>
-                        <td>Browser event</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            focus()
-                        </td>
-                        <td>
-                            Set focus on control. If not setting focus properly then use timeout of 500ms.
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>ngModel</td>
+            <td>Value in string format</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>is24Hours</td>
+            <td>Set 24 hours time format</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>defaultOpen</td>
+            <td>Set default open</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>showNowButton</td>
+            <td>Show now button in timepicker</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>hideSeconds</td>
+            <td>Hide seconds dropdown</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>placeholder</td>
+            <td>Set placeholder</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>Set disabled</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>required</td>
+            <td>Set required</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>readOnly</td>
+            <td>Set readonly</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>autoFocus</td>
+            <td>Set autofocus</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>tabIndex</td>
+            <td>Set tabindex attribute</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onChange(v: any)</td>
+            <td>Callback event on value change.</td>
+            <td>Value</td>
+          </tr>
+          <tr>
+            <td>onFocus(event)</td>
+            <td>Callback event on input focus.</td>
+            <td>Browser event</td>
+          </tr>
+          <tr>
+            <td>onBlur(event)</td>
+            <td>Callback event on input blur.</td>
+            <td>Browser event</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>focus()</td>
+            <td>
+              Set focus on control. If not setting focus properly then use
+              timeout of 500ms.
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
 
-    <np-tab title="Examples"
-            id="tabExample">
-        <ng-template npTabContent>
-            <div>
-                <fieldset>
-                    <legend>Basic timepicker</legend>
-                    <np-time-picker [(ngModel)]="timePicker1"
-                                    [inputId]="'txtTime'"
-                                    [autoFocus]="true"></np-time-picker>
-                    <div>Selected value is : {{timePicker1}}</div>
-                    <button class="np-btn"
-                            type="button"
-                            (click)="timePicker1 = '06:30:30 PM'">Set 06:30:30 PM</button>
-                </fieldset>
-            </div>
+  <np-tab title="Examples" id="tabExample">
+    <ng-template npTabContent>
+      <div>
+        <fieldset>
+          <legend>Basic timepicker</legend>
+          <np-time-picker
+            [(ngModel)]="timePicker1"
+            [inputId]="'txtTime'"
+            [autoFocus]="true"
+          ></np-time-picker>
+          <div>Selected value is : {{ timePicker1 }}</div>
+          <button
+            class="np-btn"
+            type="button"
+            (click)="timePicker1 = '06:30:30 PM'"
+          >
+            Set 06:30:30 PM
+          </button>
+        </fieldset>
+      </div>
 
-            <div>
-                <fieldset>
-                    <legend>is24Hours</legend>
-                    <np-time-picker [(ngModel)]="timePicker2"
-                                    [is24Hours]=true></np-time-picker>
-                    <div>Selected time is : {{timePicker2}}</div>
-                    <button class="np-btn"
-                            type="button"
-                            (click)="timePicker2 = '23:15:00'">Set 23:15:00</button>
-                </fieldset>
-            </div>
+      <div>
+        <fieldset>
+          <legend>is24Hours</legend>
+          <np-time-picker
+            [(ngModel)]="timePicker2"
+            [is24Hours]="true"
+          ></np-time-picker>
+          <div>Selected time is : {{ timePicker2 }}</div>
+          <button
+            class="np-btn"
+            type="button"
+            (click)="timePicker2 = '23:15:00'"
+          >
+            Set 23:15:00
+          </button>
+        </fieldset>
+      </div>
 
-            <div>
-                <fieldset>
-                    <legend>disabled and readOnly</legend>
-                    <np-time-picker [(ngModel)]="timePicker3"
-                                    disabled></np-time-picker>
-                    <br>
-                    <np-time-picker [(ngModel)]="timePicker3"
-                                    [readOnly]="true"></np-time-picker>
-                </fieldset>
-            </div>
+      <div>
+        <fieldset>
+          <legend>disabled and readOnly</legend>
+          <np-time-picker [(ngModel)]="timePicker3" disabled></np-time-picker>
+          <br />
+          <np-time-picker
+            [(ngModel)]="timePicker3"
+            [readOnly]="true"
+          ></np-time-picker>
+        </fieldset>
+      </div>
 
-            <div>
-                <form #form="ngForm">
-                    <fieldset>
-                        <legend>required</legend>
-                        <np-time-picker [(ngModel)]="timePicker4"
-                                        #validations="ngModel"
-                                        required
-                                        name="startTime">
-                        </np-time-picker>
-                        <div *ngIf="validations.control.touched && validations.control.errors?.required"
-                             class="np-text-danger">
-                            Start time is required.
-                        </div>
-                        <p>Form valid: {{ form.valid }}</p>
-                    </fieldset>
-                </form>
+      <div>
+        <form #form="ngForm">
+          <fieldset>
+            <legend>required</legend>
+            <np-time-picker
+              [(ngModel)]="timePicker4"
+              #validations="ngModel"
+              required
+              name="startTime"
+            >
+            </np-time-picker>
+            <div
+              *ngIf="
+                validations.control.touched &&
+                validations.control.errors?.required
+              "
+              class="np-text-danger"
+            >
+              Start time is required.
             </div>
+            <p>Form valid: {{ form.valid }}</p>
+          </fieldset>
+        </form>
+      </div>
 
-            <div>
-                <fieldset>
-                    <legend>defaultOpen</legend>
-                    <np-time-picker [(ngModel)]="timePicker5"
-                                    [defaultOpen]="true"
-                                    #validations5="ngModel"
-                                    [disabled]="timePicker5Disable"
-                                    [required]="timePicker5Required"></np-time-picker>
-                    <div *ngIf="validations5.control.touched && validations5.control.errors?.required"
-                         class="np-text-danger">
-                        Time is required.
-                    </div>
-                    <div class="np-btn-group">
-                        <button class="np-btn"
-                                (click)="timePicker5Disable = !timePicker5Disable">Toggle
-                            Disable</button>
-                        <button class="np-btn"
-                                (click)="timePicker5Required = !timePicker5Required">Toggle
-                            required</button>
-                    </div>
-                </fieldset>
-            </div>
+      <div>
+        <fieldset>
+          <legend>defaultOpen</legend>
+          <np-time-picker
+            [(ngModel)]="timePicker5"
+            [defaultOpen]="true"
+            #validations5="ngModel"
+            [disabled]="timePicker5Disable"
+            [required]="timePicker5Required"
+          ></np-time-picker>
+          <div
+            *ngIf="
+              validations5.control.touched &&
+              validations5.control.errors?.required
+            "
+            class="np-text-danger"
+          >
+            Time is required.
+          </div>
+          <div class="np-btn-group">
+            <button
+              class="np-btn"
+              (click)="timePicker5Disable = !timePicker5Disable"
+            >
+              Toggle Disable
+            </button>
+            <button
+              class="np-btn"
+              (click)="timePicker5Required = !timePicker5Required"
+            >
+              Toggle required
+            </button>
+          </div>
+        </fieldset>
+      </div>
 
-            <div>
-                <fieldset>
-                    <legend>placeholder</legend>
-                    <np-time-picker [(ngModel)]="timePicker6"
-                                    [placeholder]="'Select start time'"></np-time-picker>
-                </fieldset>
-            </div>
+      <div>
+        <fieldset>
+          <legend>placeholder</legend>
+          <np-time-picker
+            [(ngModel)]="timePicker6"
+            [placeholder]="'Select start time'"
+          ></np-time-picker>
+        </fieldset>
+      </div>
 
-            <div>
-                <fieldset>
-                    <legend>showNowButton</legend>
-                    12 hrs:
-                    <np-time-picker [(ngModel)]="timePicker71"
-                                    [showNowButton]="true"></np-time-picker>
-                    24 hrs:
-                    <np-time-picker [(ngModel)]="timePicker72"
-                                    [showNowButton]="true"
-                                    [is24Hours]=true>
-                    </np-time-picker>
-                </fieldset>
-            </div>
+      <div>
+        <fieldset>
+          <legend>showNowButton</legend>
+          12 hrs:
+          <np-time-picker
+            [(ngModel)]="timePicker71"
+            [showNowButton]="true"
+          ></np-time-picker>
+          24 hrs:
+          <np-time-picker
+            [(ngModel)]="timePicker72"
+            [showNowButton]="true"
+            [is24Hours]="true"
+          >
+          </np-time-picker>
+        </fieldset>
+      </div>
 
-            <div>
-                <fieldset>
-                    <legend>hideSeconds</legend>
-                    <np-time-picker [hideSeconds]=true
-                                    [(ngModel)]="timePicker8"></np-time-picker>
-                </fieldset>
-            </div>
+      <div>
+        <fieldset>
+          <legend>hideSeconds</legend>
+          <np-time-picker
+            [hideSeconds]="true"
+            [(ngModel)]="timePicker8"
+          ></np-time-picker>
+        </fieldset>
+      </div>
 
-            <div>
-                <fieldset>
-                    <legend>styleClass</legend>
-                    <np-time-picker [(ngModel)]="timePicker9"
-                                    [styleClass]="'myClass'"></np-time-picker>
-                </fieldset>
-            </div>
+      <div>
+        <fieldset>
+          <legend>styleClass</legend>
+          <np-time-picker
+            [(ngModel)]="timePicker9"
+            [styleClass]="'myClass'"
+          ></np-time-picker>
+        </fieldset>
+      </div>
 
-            <div>
-                <fieldset>
-                    <legend>onChange event</legend>
-                    <np-time-picker [(ngModel)]="timePicker10"
-                                    (onChange)="onChange($event)"></np-time-picker>
-                </fieldset>
-            </div>
-        </ng-template>
-    </np-tab>
+      <div>
+        <fieldset>
+          <legend>onChange event</legend>
+          <np-time-picker
+            [(ngModel)]="timePicker10"
+            (onChange)="onChange($event)"
+          ></np-time-picker>
+        </fieldset>
+      </div>
+    </ng-template>
+  </np-tab>
 </np-tabs>

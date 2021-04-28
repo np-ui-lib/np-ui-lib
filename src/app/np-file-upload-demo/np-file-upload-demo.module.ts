@@ -1,11 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpFileUploadDemoRoutingModule } from './np-file-upload-demo-routing.module';
-import { NpFileUploadDemoComponent } from './np-file-upload-demo.component';
-import { NpFileUploadModule, NpCardModule, NpTabsModule, NpAlertModule } from 'np-ui-lib';
-import { FormsModule } from '@angular/forms';
-
+import { NpFileUploadDemoRoutingModule } from "./np-file-upload-demo-routing.module";
+import { NpFileUploadDemoComponent } from "./np-file-upload-demo.component";
+import {
+  NpFileUploadModule,
+  NpCardModule,
+  NpTabsModule,
+  NpAlertModule,
+} from "np-ui-lib";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [NpFileUploadDemoComponent],
@@ -16,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     NpFileUploadModule,
     NpTabsModule,
     NpCardModule,
-    NpAlertModule
-  ]
+    NpAlertModule,
+  ],
 })
-export class NpFileUploadDemoModule { }
+export class NpFileUploadDemoModule {}

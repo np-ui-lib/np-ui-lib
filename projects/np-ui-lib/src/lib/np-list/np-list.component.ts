@@ -1,15 +1,24 @@
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, Input, TemplateRef, Output, EventEmitter, ViewChild, SimpleChanges } from '@angular/core';
-import { NpPaginatorComponent } from '../np-paginator/np-paginator.component';
-import { NpUtilityService } from '../np-utility/np-utility.service';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+  Input,
+  TemplateRef,
+  Output,
+  EventEmitter,
+  ViewChild,
+  SimpleChanges,
+} from "@angular/core";
+import { NpPaginatorComponent } from "../np-paginator/np-paginator.component";
+import { NpUtilityService } from "../np-utility/np-utility.service";
 
 @Component({
-  selector: 'np-list',
-  templateUrl: './np-list.component.html',
+  selector: "np-list",
+  templateUrl: "./np-list.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpListComponent {
-
   private static controlCount = 1;
 
   @Input() header: string;
@@ -36,9 +45,9 @@ export class NpListComponent {
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
   @Output() onPageChange: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('listPaginator') listPaginator: NpPaginatorComponent;
+  @ViewChild("listPaginator") listPaginator: NpPaginatorComponent;
 
-  constructor(private utility: NpUtilityService) { }
+  constructor(private utility: NpUtilityService) {}
 
   selectAll() {
     if (this._isSingleSelectionMode()) {
@@ -127,6 +136,6 @@ export class NpListComponent {
   }
 
   _isSingleSelectionMode() {
-    return this.selectionMode && this.selectionMode === 'single';
+    return this.selectionMode && this.selectionMode === "single";
   }
 }

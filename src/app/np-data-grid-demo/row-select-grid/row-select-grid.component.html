@@ -1,32 +1,40 @@
 <h2 class="page-header">Row selction example</h2>
 
-<p>To set single row selection, set <b>singleRowSelectEnable</b> to "true" in grid defination</p>
-<p>To set multi row selection, set <b>multiRowSelectEnable</b> to "true" in grid defination</p>
+<p>
+  To set single row selection, set <b>singleRowSelectEnable</b> to "true" in
+  grid defination
+</p>
+<p>
+  To set multi row selection, set <b>multiRowSelectEnable</b> to "true" in grid
+  defination
+</p>
 
 <h4>Single Row Selection</h4>
-<np-data-grid #singleSelectGrid
-              [columns]="gridColumns"
-              [dataSource]="gridDataSource"
-              [singleRowSelectEnable]="true">
+<np-data-grid
+  #singleSelectGrid
+  [columns]="gridColumns"
+  [dataSource]="gridDataSource"
+  [singleRowSelectEnable]="true"
+>
 </np-data-grid>
 <div class="np-btn-group">
-    <button class="np-btn"
-            (click)="getSelectedRows()">Get Selected Row</button>
+  <button class="np-btn" (click)="getSelectedRows()">Get Selected Row</button>
 </div>
 <h4>Multi Row Selection</h4>
-<np-data-grid #multiSelectGrid
-              [columns]="gridColumns"
-              [dataSource]="gridDataSource"
-              [multiRowSelectEnable]="true"
-              (onSelect)="onSelectRow($event)"
-              (onDeselect)="onDeselectRow($event)"
-              [selectRowOnClick]="true">
+<np-data-grid
+  #multiSelectGrid
+  [columns]="gridColumns"
+  [dataSource]="gridDataSource"
+  [multiRowSelectEnable]="true"
+  (onSelect)="onSelectRow($event)"
+  (onDeselect)="onDeselectRow($event)"
+  [selectRowOnClick]="true"
+>
 </np-data-grid>
 <div class="np-btn-group">
-    <button class="np-btn"
-            (click)="getMultiSelectedRows()">Get Selected Row</button>
-    <button class="np-btn"
-            (click)="selectAll()">Select all Rows</button>
-    <button class="np-btn"
-            (click)="deselectAll()">De select all Rows</button>
+  <button class="np-btn" (click)="getMultiSelectedRows()">
+    Get Selected Row
+  </button>
+  <button class="np-btn" (click)="selectAll()">Select all Rows</button>
+  <button class="np-btn" (click)="deselectAll()">De select all Rows</button>
 </div>

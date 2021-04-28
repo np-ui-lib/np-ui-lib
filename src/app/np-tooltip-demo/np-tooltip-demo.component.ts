@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-tooltip-demo',
-  templateUrl: './np-tooltip-demo.component.html'
+  selector: "app-np-tooltip-demo",
+  templateUrl: "./np-tooltip-demo.component.html",
 })
 export class NpTooltipDemoComponent implements OnInit {
-
-  importText = 'import { NpTooltipModule } from \'np-ui-lib\';';
+  importText = "import { NpTooltipModule } from 'np-ui-lib';";
   htmlText = `<span [npTooltip]="\'This is left tooltip.\'" [placement]="\'left\'">
   Hover me for left tooltip
 </span>`;
@@ -17,10 +16,7 @@ export class NpTooltipDemoComponent implements OnInit {
   Count pass in context is {{count}}
 </ng-template>`;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
-
+  ngOnInit(): void {}
 }

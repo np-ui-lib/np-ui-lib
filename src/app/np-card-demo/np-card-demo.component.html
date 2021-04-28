@@ -1,186 +1,192 @@
 <h2 class="page-header">Card</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-                <np-alert type="info">
-                    <b>np-card-header, np-card-image, np-card-body, np-card-footer</b>&nbsp;components can be used in
-                    any order.
-                </np-alert>
-                <np-alert type="info">
-                    Use CSS classes like&nbsp;<b>.np-card-title, .np-card-subtitle, .np-card-avatar</b>&nbsp;in
-                    header.
-                </np-alert>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>width</td>
-                        <td>Set width of card in px</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <div class="np-container card-list">
-            <div class="np-row">
-                <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
-                    <np-card [styleClass]="'overview-card overview-1'">
-                        <np-card-body>
-                            <div class="overview-icon"><i class="fa fa-user"></i></div>
-                            <div class="overview-header">Active</div>
-                            <div class="overview-number">78%</div>
-                        </np-card-body>
-                    </np-card>
-                </div>
-                <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
-                    <np-card [styleClass]="'overview-card overview-2'">
-                        <np-card-body>
-                            <div class="overview-icon"><i class="fa fa-user"></i></div>
-                            <div class="overview-header">In Active</div>
-                            <div class="overview-number">10%</div>
-                        </np-card-body>
-                    </np-card>
-                </div>
-                <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
-                    <np-card [styleClass]="'overview-card overview-3'">
-                        <np-card-body>
-                            <div class="overview-icon"><i class="fa fa-user"></i></div>
-                            <div class="overview-header">Pending</div>
-                            <div class="overview-number">5%</div>
-                        </np-card-body>
-                    </np-card>
-                </div>
-                <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
-                    <np-card [styleClass]="'overview-card overview-4'">
-                        <np-card-body>
-                            <div class="overview-icon"><i class="fa fa-user"></i></div>
-                            <div class="overview-header">Approved</div>
-                            <div class="overview-number">95%</div>
-                        </np-card-body>
-                    </np-card>
-                </div>
-            </div>
-            <br>
-            <div class="np-row">
-                <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6 np-col-xl-6">
-                    <np-card>
-                        <np-card-header>
-                            <div class="np-card-avatar">
-                                <img class="np-avatar"
-                                     src="../../assets/images/img_avatar.png">
-                            </div>
-                            <div class="np-card-title">
-                                Card Title
-                            </div>
-                            <div class="np-card-subtitle">
-                                Card Subtitle
-                            </div>
-                        </np-card-header>
-                        <np-card-image>
-                            <img src="../../assets/images/test1.jpg">
-                        </np-card-image>
-                        <np-card-body>
-                            <h2>What is Lorem Ipsum?</h2>
-                            <div>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. It has
-                                survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </div>
-                        </np-card-body>
-                        <np-card-footer>
-                            <div class="np-btn-group">
-                                <button class="np-btn np-btn-primary"><i
-                                       class="fa fa-check np-btn-icon-left"></i>Ok</button>
-                                <button class="np-btn np-btn-danger"><i
-                                       class="fa fa-close np-btn-icon-left"></i>Cancel</button>
-                            </div>
-                        </np-card-footer>
-                    </np-card>
-                </div>
-                <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6 np-col-xl-6">
-                    <np-card [styleClass]="'myClass'"
-                             [width]="300">
-                        <np-card-image>
-                            <img class="np-responsive-img"
-                                 src="../../assets/images/img_avatar.png">
-                        </np-card-image>
-                        <np-card-body>
-                            <div class="np-card-title">John Doe</div>
-                            <div class="np-card-subtitle">Software Engineer</div>
-                        </np-card-body>
-                    </np-card>
-                </div>
-            </div>
-            <div class="np-row">
-                <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6 np-col-xl-6">
-                    <np-card [width]="300">
-                        <np-card-image>
-                            <img class="np-responsive-img"
-                                 style="background-color: $background-color;"
-                                 src="../../assets/images/lenovo-laptop.png">
-                        </np-card-image>
-                        <np-card-body>
-                            <div class="np-card-title">
-                                Lenovo Laptop
-                            </div>
-                            <div class="np-card-subtitle">
-                                Lenovo Ideapad 10th Gen Intel Core i7
-                            </div>
-                            <ul>
-                                <li>Reliable entry-level 35.56cms (14) laptop</li>
-                                <li>Cutting-edge Intel Core processors</li>
-                                <li>Great for everyday use</li>
-                            </ul>
-                            <div class="np-card-title np-text-center">$1500</div>
-                        </np-card-body>
-                        <np-card-footer>
-                            <button class="np-btn np-btn-block np-btn-primary"><i
-                                   class="fa fa-plus np-btn-icon-left"></i>ADD TO CART</button>
-                        </np-card-footer>
-                    </np-card>
-                </div>
-            </div>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
         </div>
-    </np-tab>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+        <np-alert type="info">
+          <b>np-card-header, np-card-image, np-card-body, np-card-footer</b
+          >&nbsp;components can be used in any order.
+        </np-alert>
+        <np-alert type="info">
+          Use CSS classes like&nbsp;<b
+            >.np-card-title, .np-card-subtitle, .np-card-avatar</b
+          >&nbsp;in header.
+        </np-alert>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>width</td>
+            <td>Set width of card in px</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <div class="np-container card-list">
+      <div class="np-row">
+        <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
+          <np-card [styleClass]="'overview-card overview-1'">
+            <np-card-body>
+              <div class="overview-icon"><i class="fa fa-user"></i></div>
+              <div class="overview-header">Active</div>
+              <div class="overview-number">78%</div>
+            </np-card-body>
+          </np-card>
+        </div>
+        <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
+          <np-card [styleClass]="'overview-card overview-2'">
+            <np-card-body>
+              <div class="overview-icon"><i class="fa fa-user"></i></div>
+              <div class="overview-header">In Active</div>
+              <div class="overview-number">10%</div>
+            </np-card-body>
+          </np-card>
+        </div>
+        <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
+          <np-card [styleClass]="'overview-card overview-3'">
+            <np-card-body>
+              <div class="overview-icon"><i class="fa fa-user"></i></div>
+              <div class="overview-header">Pending</div>
+              <div class="overview-number">5%</div>
+            </np-card-body>
+          </np-card>
+        </div>
+        <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
+          <np-card [styleClass]="'overview-card overview-4'">
+            <np-card-body>
+              <div class="overview-icon"><i class="fa fa-user"></i></div>
+              <div class="overview-header">Approved</div>
+              <div class="overview-number">95%</div>
+            </np-card-body>
+          </np-card>
+        </div>
+      </div>
+      <br />
+      <div class="np-row">
+        <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6 np-col-xl-6">
+          <np-card>
+            <np-card-header>
+              <div class="np-card-avatar">
+                <img
+                  class="np-avatar"
+                  src="../../assets/images/img_avatar.png"
+                />
+              </div>
+              <div class="np-card-title">Card Title</div>
+              <div class="np-card-subtitle">Card Subtitle</div>
+            </np-card-header>
+            <np-card-image>
+              <img src="../../assets/images/test1.jpg" />
+            </np-card-image>
+            <np-card-body>
+              <h2>What is Lorem Ipsum?</h2>
+              <div>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </div>
+            </np-card-body>
+            <np-card-footer>
+              <div class="np-btn-group">
+                <button class="np-btn np-btn-primary">
+                  <i class="fa fa-check np-btn-icon-left"></i>Ok
+                </button>
+                <button class="np-btn np-btn-danger">
+                  <i class="fa fa-close np-btn-icon-left"></i>Cancel
+                </button>
+              </div>
+            </np-card-footer>
+          </np-card>
+        </div>
+        <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6 np-col-xl-6">
+          <np-card [styleClass]="'myClass'" [width]="300">
+            <np-card-image>
+              <img
+                class="np-responsive-img"
+                src="../../assets/images/img_avatar.png"
+              />
+            </np-card-image>
+            <np-card-body>
+              <div class="np-card-title">John Doe</div>
+              <div class="np-card-subtitle">Software Engineer</div>
+            </np-card-body>
+          </np-card>
+        </div>
+      </div>
+      <div class="np-row">
+        <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6 np-col-xl-6">
+          <np-card [width]="300">
+            <np-card-image>
+              <img
+                class="np-responsive-img"
+                style="background-color: $background-color"
+                src="../../assets/images/lenovo-laptop.png"
+              />
+            </np-card-image>
+            <np-card-body>
+              <div class="np-card-title">Lenovo Laptop</div>
+              <div class="np-card-subtitle">
+                Lenovo Ideapad 10th Gen Intel Core i7
+              </div>
+              <ul>
+                <li>Reliable entry-level 35.56cms (14) laptop</li>
+                <li>Cutting-edge Intel Core processors</li>
+                <li>Great for everyday use</li>
+              </ul>
+              <div class="np-card-title np-text-center">$1500</div>
+            </np-card-body>
+            <np-card-footer>
+              <button class="np-btn np-btn-block np-btn-primary">
+                <i class="fa fa-plus np-btn-icon-left"></i>ADD TO CART
+              </button>
+            </np-card-footer>
+          </np-card>
+        </div>
+      </div>
+    </div>
+  </np-tab>
 </np-tabs>

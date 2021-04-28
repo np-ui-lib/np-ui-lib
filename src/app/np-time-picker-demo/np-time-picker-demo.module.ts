@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 
-import { NpTimePickerDemoRoutingModule } from './np-time-picker-demo-routing.module';
-import { NpTimePickerDemoComponent } from './np-time-picker-demo.component';
-import { NpTimePickerModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { NpTimePickerDemoRoutingModule } from "./np-time-picker-demo-routing.module";
+import { NpTimePickerDemoComponent } from "./np-time-picker-demo.component";
+import { NpTimePickerModule, NpTabsModule, NpCardModule } from "np-ui-lib";
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [NpTimePickerDemoComponent],
@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     FormsModule,
     NpTabsModule,
-    NpCardModule
-  ]
+    NpCardModule,
+  ],
 })
-export class NpTimePickerDemoModule { }
+export class NpTimePickerDemoModule {}

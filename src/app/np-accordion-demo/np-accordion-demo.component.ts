@@ -1,13 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpAccordionComponent } from 'np-ui-lib';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { NpAccordionComponent } from "np-ui-lib";
 
 @Component({
-  selector: 'app-np-accordion-demo',
-  templateUrl: './np-accordion-demo.component.html'
+  selector: "app-np-accordion-demo",
+  templateUrl: "./np-accordion-demo.component.html",
 })
 export class NpAccordionDemoComponent implements OnInit {
-
-  importText = 'import { NpAccordionModule } from \'np-ui-lib\';';
+  importText = "import { NpAccordionModule } from 'np-ui-lib';";
   htmlText = `<np-accordion>
   <np-accordion-item [title]="'Details'" [isOpen]="true">
       Panel 1 Content
@@ -23,18 +22,18 @@ export class NpAccordionDemoComponent implements OnInit {
   </ng-tempalte>
 </np-accordion-item>`;
 
-  @ViewChild('accordionDemo', { static: true }) accordionDemo: NpAccordionComponent;
+  @ViewChild("accordionDemo", { static: true })
+  accordionDemo: NpAccordionComponent;
   allowMultipleOpen = false;
 
   item2Disabled = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openItem2() {
-    this.accordionDemo.expandById('item2');
+    this.accordionDemo.expandById("item2");
   }
 
   openItem3() {

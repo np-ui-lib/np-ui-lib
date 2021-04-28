@@ -1,13 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpPopoverDirective } from 'np-ui-lib';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { NpPopoverDirective } from "np-ui-lib";
 
 @Component({
-  selector: 'app-np-popover-demo',
-  templateUrl: './np-popover-demo.component.html'
+  selector: "app-np-popover-demo",
+  templateUrl: "./np-popover-demo.component.html",
 })
 export class NpPopoverDemoComponent implements OnInit {
-
-  importText = 'import { NpPopoverModule } from \'np-ui-lib\';';
+  importText = "import { NpPopoverModule } from 'np-ui-lib';";
   htmlText = `<a npPopover [header]="'Link header'" [body]="'Link Description.'">Link</a>`;
   contextText = `<a npPopover [header]="headerTemp" [body]="bodyTemp" [context]="{count: 5}">
   Context Sample
@@ -19,14 +18,13 @@ export class NpPopoverDemoComponent implements OnInit {
   Count pass in context is {{count}}.
 </ng-template>`;
 
-  @ViewChild('myPopover1') myPopover1: NpPopoverDirective;
-  @ViewChild('myPopover2') myPopover2: NpPopoverDirective;
-  @ViewChild('myPopover3') myPopover3: NpPopoverDirective;
+  @ViewChild("myPopover1") myPopover1: NpPopoverDirective;
+  @ViewChild("myPopover2") myPopover2: NpPopoverDirective;
+  @ViewChild("myPopover3") myPopover3: NpPopoverDirective;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openStep2Popover() {
     this.myPopover1.close();
@@ -43,10 +41,10 @@ export class NpPopoverDemoComponent implements OnInit {
   }
 
   onOpen() {
-    console.log('Open popover');
+    console.log("Open popover");
   }
 
   onClose() {
-    console.log('Close popover');
+    console.log("Close popover");
   }
 }

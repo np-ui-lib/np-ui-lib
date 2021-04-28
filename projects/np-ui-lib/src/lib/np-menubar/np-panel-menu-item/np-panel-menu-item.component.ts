@@ -1,21 +1,26 @@
-import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { NpMenuItem } from '../np-menu.model';
-import { Router } from '@angular/router';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { NpMenuItem } from "../np-menu.model";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'np-panel-menu-item',
-  templateUrl: './np-panel-menu-item.component.html',
+  selector: "np-panel-menu-item",
+  templateUrl: "./np-panel-menu-item.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
-
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpPanelMenuItemComponent {
-
   @Input() item: NpMenuItem;
 
   @Output() onClickItem: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   _onClickMenuItem(menuItem: NpMenuItem) {
     this.onClickItem.emit(menuItem);

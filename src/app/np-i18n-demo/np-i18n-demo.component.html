@@ -1,19 +1,21 @@
 <h2 class="page-header">i18N</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-alert type='info'>
-            English is the default language set for translations.
-        </np-alert>
-        <b>How to add translations to components?</b>
-        <div>Import module to root application module</div>
-        <pre><code [innerText]="importText"></code></pre>
-        <div>Inject translation service to constructor</div>
-        <pre><code [innerText]="serviceInjectText"></code></pre>
-        <div>Add translations object to service using <b>setTranslations</b> method.</div>
-        <div>Here set each translation value on right side of variables.</div>
-        <pre><code [innerText]="addTanslationText"></code></pre>
-        <b>How to reset to default translations?</b>
-        <pre><code [innerText]="defaultTransSetText"></code></pre>
-    </np-tab>
+  <np-tab title="Documentation">
+    <np-alert type="info">
+      English is the default language set for translations.
+    </np-alert>
+    <b>How to add translations to components?</b>
+    <div>Import module to root application module</div>
+    <pre><code [innerText]="importText"></code></pre>
+    <div>Inject translation service to constructor</div>
+    <pre><code [innerText]="serviceInjectText"></code></pre>
+    <div>
+      Add translations object to service using <b>setTranslations</b> method.
+    </div>
+    <div>Here set each translation value on right side of variables.</div>
+    <pre><code [innerText]="addTanslationText"></code></pre>
+    <b>How to reset to default translations?</b>
+    <pre><code [innerText]="defaultTransSetText"></code></pre>
+  </np-tab>
 </np-tabs>

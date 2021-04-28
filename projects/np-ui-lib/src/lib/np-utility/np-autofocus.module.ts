@@ -1,22 +1,22 @@
-import { Directive, ElementRef, Input, NgModule } from '@angular/core';
+import { Directive, ElementRef, Input, NgModule } from "@angular/core";
 
 @Directive({
-    selector: '[npAutofocus]'
+  selector: "[npAutofocus]",
 })
 export class NpAutofocusDirective {
-    @Input('npAutofocus')
-    set autofocus(value: boolean) {
-        if (value) {
-            setTimeout(() => {
-                this.el.nativeElement.focus();
-            }, 100);
-        }
+  @Input("npAutofocus")
+  set autofocus(value: boolean) {
+    if (value) {
+      setTimeout(() => {
+        this.el.nativeElement.focus();
+      }, 100);
     }
-    constructor(private el: ElementRef) { }
+  }
+  constructor(private el: ElementRef) {}
 }
 
 @NgModule({
-    declarations: [NpAutofocusDirective],
-    exports: [NpAutofocusDirective]
+  declarations: [NpAutofocusDirective],
+  exports: [NpAutofocusDirective],
 })
-export class NpAutofocusModule { }
+export class NpAutofocusModule {}

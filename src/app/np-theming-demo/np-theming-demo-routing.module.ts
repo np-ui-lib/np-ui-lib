@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpThemingDemoComponent } from './np-theming-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpThemingDemoComponent } from "./np-theming-demo.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NpThemingDemoComponent
-  }
+    path: "",
+    component: NpThemingDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpThemingDemoRoutingModule { }
+export class NpThemingDemoRoutingModule {}

@@ -1,7 +1,6 @@
-import { Directive } from '@angular/core';
+import { Directive } from "@angular/core";
 
 @Directive({
-    selector: '[npTabContent]',
+  selector: "[npTabContent]",
 })
-export class NpTabContent {
-}
+export class NpTabContent {}

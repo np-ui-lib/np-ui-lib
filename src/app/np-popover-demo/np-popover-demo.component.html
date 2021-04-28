@@ -1,236 +1,278 @@
 <h2 class="page-header">Popover</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>header</td>
-                        <td>Header text or template</td>
-                        <td>string | TemplateRef &lt;any&gt; </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>body</td>
-                        <td>Body text or template</td>
-                        <td>string | TemplateRef &lt;any&gt; </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>context</td>
-                        <td>Pass data to template. Context will be avaialable in both header and body templates.
-                            <pre><code>{{contextText}}</code></pre>
-                        </td>
-                        <td>any</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>placement</td>
-                        <td>Set popover position from 'left' | 'right' | 'top' | 'bottom'</td>
-                        <td>string</td>
-                        <td>bottom</td>
-                    </tr>
-                    <tr>
-                        <td>openOnClick</td>
-                        <td>Open popover on click of target</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>width</td>
-                        <td>Set width. Values should be like '100%', '100px', 200. If pass as number then it
-                            will considered as px.</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>hasBackDrop</td>
-                        <td>Show backdrop or not</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>closeOnClickOutside</td>
-                        <td>Close on outside click or not</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>backDropClass</td>
-                        <td>Set backdrop class</td>
-                        <td>string</td>
-                        <td>np-popover-backdrop</td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onOpen()
-                        </td>
-                        <td>
-                            Callback on open
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onClose()
-                        </td>
-                        <td>
-                            Callback on close
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            open()
-                        </td>
-                        <td>
-                            Open popover
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            close()
-                        </td>
-                        <td>
-                            Close popover
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <fieldset>
-            <a npPopover [header]="'Header content'" [body]="'Body content'" [placement]="'right'" (onOpen)="onOpen()"
-                (onClose)="onClose()">
-                <i class="fa fa-info-circle"></i>
-            </a>
-        </fieldset>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>header</td>
+            <td>Header text or template</td>
+            <td>string | TemplateRef &lt;any&gt;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>body</td>
+            <td>Body text or template</td>
+            <td>string | TemplateRef &lt;any&gt;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>context</td>
+            <td>
+              Pass data to template. Context will be avaialable in both header
+              and body templates.
+              <pre><code>{{contextText}}</code></pre>
+            </td>
+            <td>any</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>placement</td>
+            <td>
+              Set popover position from 'left' | 'right' | 'top' | 'bottom'
+            </td>
+            <td>string</td>
+            <td>bottom</td>
+          </tr>
+          <tr>
+            <td>openOnClick</td>
+            <td>Open popover on click of target</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>width</td>
+            <td>
+              Set width. Values should be like '100%', '100px', 200. If pass as
+              number then it will considered as px.
+            </td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>hasBackDrop</td>
+            <td>Show backdrop or not</td>
+            <td>boolean</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>closeOnClickOutside</td>
+            <td>Close on outside click or not</td>
+            <td>boolean</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>backDropClass</td>
+            <td>Set backdrop class</td>
+            <td>string</td>
+            <td>np-popover-backdrop</td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onOpen()</td>
+            <td>Callback on open</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>onClose()</td>
+            <td>Callback on close</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>open()</td>
+            <td>Open popover</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>close()</td>
+            <td>Close popover</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <fieldset>
+      <a
+        npPopover
+        [header]="'Header content'"
+        [body]="'Body content'"
+        [placement]="'right'"
+        (onOpen)="onOpen()"
+        (onClose)="onClose()"
+      >
+        <i class="fa fa-info-circle"></i>
+      </a>
+    </fieldset>
 
-        <fieldset>
-            <button class="np-btn np-btn-primary" npPopover [body]="mailTemp" [placement]="'bottom'"
-                [openOnClick]="true" [hasBackDrop]="false" [styleClass]="'popover-no-border'">
-                <i class="fa fa-envelope"></i>
-                <span class="np-badge">5</span>
-            </button>
-            <ng-template #mailTemp>
-                <div class="np-list">
-                    <div class="np-list-item">
-                        <b>Mail Subject</b><br>
-                        <i>From: abc@npui.com</i>
-                    </div>
-                    <div class="np-list-item">
-                        <b>Mail Subject</b><br>
-                        <i>From: abc@npui.com</i>
-                    </div>
-                    <div class="np-list-item">
-                        <b>Mail Subject</b><br>
-                        <i>From: abc@npui.com</i>
-                    </div>
-                    <div class="np-list-item">
-                        <b>Mail Subject</b><br>
-                        <i>From: abc@npui.com</i>
-                    </div>
-                    <div class="np-list-item">
-                        <b>Mail Subject</b><br>
-                        <i>From: abc@npui.com</i>
-                    </div>
-                </div>
-            </ng-template>
-        </fieldset>
+    <fieldset>
+      <button
+        class="np-btn np-btn-primary"
+        npPopover
+        [body]="mailTemp"
+        [placement]="'bottom'"
+        [openOnClick]="true"
+        [hasBackDrop]="false"
+        [styleClass]="'popover-no-border'"
+      >
+        <i class="fa fa-envelope"></i>
+        <span class="np-badge">5</span>
+      </button>
+      <ng-template #mailTemp>
+        <div class="np-list">
+          <div class="np-list-item">
+            <b>Mail Subject</b><br />
+            <i>From: abc@npui.com</i>
+          </div>
+          <div class="np-list-item">
+            <b>Mail Subject</b><br />
+            <i>From: abc@npui.com</i>
+          </div>
+          <div class="np-list-item">
+            <b>Mail Subject</b><br />
+            <i>From: abc@npui.com</i>
+          </div>
+          <div class="np-list-item">
+            <b>Mail Subject</b><br />
+            <i>From: abc@npui.com</i>
+          </div>
+          <div class="np-list-item">
+            <b>Mail Subject</b><br />
+            <i>From: abc@npui.com</i>
+          </div>
+        </div>
+      </ng-template>
+    </fieldset>
 
-        <fieldset>
-            <a npPopover [header]="headerTemp" [body]="bodyTemp" [context]="{count: 5}" [openOnClick]="true"
-                [width]="250" [styleClass]="'myClass'">With [width] and [styleClass] attribute</a>
-            <ng-template #headerTemp let-count="count">
-                Others, Count pass in context is {{count}}.
-            </ng-template>
-            <ng-template #bodyTemp let-count="count">
-                Set width of popover and add extra class to popover element, Count pass in context is {{count}}.
-            </ng-template>
-        </fieldset>
+    <fieldset>
+      <a
+        npPopover
+        [header]="headerTemp"
+        [body]="bodyTemp"
+        [context]="{ count: 5 }"
+        [openOnClick]="true"
+        [width]="250"
+        [styleClass]="'myClass'"
+        >With [width] and [styleClass] attribute</a
+      >
+      <ng-template #headerTemp let-count="count">
+        Others, Count pass in context is {{ count }}.
+      </ng-template>
+      <ng-template #bodyTemp let-count="count">
+        Set width of popover and add extra class to popover element, Count pass
+        in context is {{ count }}.
+      </ng-template>
+    </fieldset>
 
-        <fieldset>
-            <legend>backDropClass and Api example</legend>
-            <a npPopover #myPopover1="NpPopoverDirective" [header]="'Step 1'" [body]="myPopover1Body"
-                [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 1</a>
-            <ng-template #myPopover1Body>
-                Description of Step Click on Next button to start tour.
-                <button type="button" class="np-btn" (click)="openStep2Popover()">Next</button>
-            </ng-template>
-            <br>
-            <a npPopover #myPopover2="NpPopoverDirective" [header]="'Step 2'" [body]="myPopover2Body"
-                [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 2</a>
-            <ng-template #myPopover2Body>
-                Description of Step 2. Read and Wait for Next button.
-                <button type="button" class="np-btn" (click)="openStep3Popover()">Next</button>
-            </ng-template>
-            <br>
-            <a npPopover #myPopover3="NpPopoverDirective" [header]="'Step 3'" [body]="myPopover3Body"
-                [openOnClick]="true" [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">Step 3</a>
-            <ng-template #myPopover3Body>
-                Description of Step 3. Click on Close button to end tour.
-                <button type="button" class="np-btn" (click)="closeStep3Popover()">Close</button>
-            </ng-template>
-        </fieldset>
-    </np-tab>
+    <fieldset>
+      <legend>backDropClass and Api example</legend>
+      <a
+        npPopover
+        #myPopover1="NpPopoverDirective"
+        [header]="'Step 1'"
+        [body]="myPopover1Body"
+        [openOnClick]="true"
+        [backDropClass]="'myBackDrop'"
+        [closeOnClickOutside]="false"
+        >Step 1</a
+      >
+      <ng-template #myPopover1Body>
+        Description of Step Click on Next button to start tour.
+        <button type="button" class="np-btn" (click)="openStep2Popover()">
+          Next
+        </button>
+      </ng-template>
+      <br />
+      <a
+        npPopover
+        #myPopover2="NpPopoverDirective"
+        [header]="'Step 2'"
+        [body]="myPopover2Body"
+        [openOnClick]="true"
+        [backDropClass]="'myBackDrop'"
+        [closeOnClickOutside]="false"
+        >Step 2</a
+      >
+      <ng-template #myPopover2Body>
+        Description of Step 2. Read and Wait for Next button.
+        <button type="button" class="np-btn" (click)="openStep3Popover()">
+          Next
+        </button>
+      </ng-template>
+      <br />
+      <a
+        npPopover
+        #myPopover3="NpPopoverDirective"
+        [header]="'Step 3'"
+        [body]="myPopover3Body"
+        [openOnClick]="true"
+        [backDropClass]="'myBackDrop'"
+        [closeOnClickOutside]="false"
+        >Step 3</a
+      >
+      <ng-template #myPopover3Body>
+        Description of Step 3. Click on Close button to end tour.
+        <button type="button" class="np-btn" (click)="closeStep3Popover()">
+          Close
+        </button>
+      </ng-template>
+    </fieldset>
+  </np-tab>
 </np-tabs>

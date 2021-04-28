@@ -1,382 +1,355 @@
 <h2 class="page-header">Tabs</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-                <b>How to set lazy loading for tab?</b>
-                <div>
-                    <pre><code [innerText]="htmlLazyLoadText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>&lt;np-tabs&gt;</b>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>verticalTabs</td>
-                        <td>Set vertical tabs</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>stretchLabels</td>
-                        <td>Set stretched header label</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>height</td>
-                        <td>Set height of tabs in px</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>&lt;np-tab&gt;</b>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>title</td>
-                        <td>Set title for tab</td>
-                        <td>string | TemplateRef&lt;any&gt;</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>active</td>
-                        <td>Get/Set flag for current active tab, only one tab will be active at a time</td>
-                        <td>boolean</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>Set tab as disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>iconCss</td>
-                        <td>Set CSS for icon like 'fa fa-home'</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>isLoadFirstTime</td>
-                        <td>Internal property, will be true on loading tab first time, after that will be set to false
-                            <br> Helpful while making lazy loading tabs, and fetching data on click of tab
-                        </td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>&lt;np-tabs&gt;</b>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onTabChange(tab: NpTabComponent)
-                        </td>
-                        <td>
-                            Callback event on change of tab<br>
-                            <b>isLoadFirstTime</b> property of tab is used here to add lazy loading in tabs
-                        </td>
-                        <td>tab: NpTabComponent</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>&lt;np-tabs&gt;</b>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            selectTabByIndex(idx: number)
-                        </td>
-                        <td>
-                            Open tab by index, start with 0
-                        </td>
-                        <td>idx: number</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            selectTabById(id: string)
-                        </td>
-                        <td>
-                            Open tab by inputId
-                        </td>
-                        <td>id: string</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            getSelectedTabIndex()
-                        </td>
-                        <td>
-                            Get selected tab index
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            getSelectedTab()
-                        </td>
-                        <td>
-                            Get selected tab
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <ng-template npTabContent>
-            <fieldset>
-                <legend>Tabs basic</legend>
-                <np-tabs #tabs
-                         [height]="200">
-                    <np-tab [title]="'Tab1'">
-                        <ng-template npTabContent>
-                            <h3>
-                                Tab 1
-                            </h3>
-                            <p>
-                                A paragraph is a series of related sentences developing a central idea, called the
-                                topic.
-                                Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                                group of sentences that supports one central, unified idea. Paragraphs add
-                                one idea at a time to your broader argument.
-                            </p>
-                        </ng-template>
-                    </np-tab>
-                    <np-tab [title]="tab2Title"
-                            [inputId]="'tab2'"
-                            [iconCss]="'fa fa-home'">
-                        <ng-template #tab2Title>
-                            Tab2<span class='np-badge np-badge-primary'>{{count}}</span>
-                        </ng-template>
-                        <ng-template npTabContent>
-                            <h3>
-                                Tab 2
-                            </h3>
-                            <p>
-                                A paragraph is a series of related sentences developing a central idea, called the
-                                topic.
-                                Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                                group of sentences that supports one central, unified idea. Paragraphs add
-                                one idea at a time to your broader argument.
-                            </p>
-                        </ng-template>
-                    </np-tab>
-                    <np-tab [title]="'Tab3'"
-                            [disabled]="toggleTab3Disabled">
-                        <h3>
-                            Tab 3
-                        </h3>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to
-                            think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
-                            sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                    </np-tab>
-                    <np-tab [title]="'Tab4'"
-                            *ngIf="isTab4Available">
-                        <h3>
-                            Tab 4
-                        </h3>
-                        <p>
-                            A first paragraph is a series of related sentences developing a central idea, called the
-                            topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group
-                            of sentences that supports one central, unified idea. Paragraphs
-                            add one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to
-                            think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
-                            sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to
-                            think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
-                            sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A last paragraph is a series of related sentences developing a central idea, called the
-                            topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group
-                            of sentences that supports one central, unified idea. Paragraphs
-                            add one idea at a time to your broader argument.
-                        </p>
-                    </np-tab>
-                </np-tabs>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+        <b>How to set lazy loading for tab?</b>
+        <div>
+          <pre><code [innerText]="htmlLazyLoadText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>&lt;np-tabs&gt;</b>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>verticalTabs</td>
+            <td>Set vertical tabs</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>stretchLabels</td>
+            <td>Set stretched header label</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>height</td>
+            <td>Set height of tabs in px</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>&lt;np-tab&gt;</b>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>title</td>
+            <td>Set title for tab</td>
+            <td>string | TemplateRef&lt;any&gt;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>active</td>
+            <td>
+              Get/Set flag for current active tab, only one tab will be active
+              at a time
+            </td>
+            <td>boolean</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>Set tab as disabled</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>iconCss</td>
+            <td>Set CSS for icon like 'fa fa-home'</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>isLoadFirstTime</td>
+            <td>
+              Internal property, will be true on loading tab first time, after
+              that will be set to false <br />
+              Helpful while making lazy loading tabs, and fetching data on click
+              of tab
+            </td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>&lt;np-tabs&gt;</b>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onTabChange(tab: NpTabComponent)</td>
+            <td>
+              Callback event on change of tab<br />
+              <b>isLoadFirstTime</b> property of tab is used here to add lazy
+              loading in tabs
+            </td>
+            <td>tab: NpTabComponent</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>&lt;np-tabs&gt;</b>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>selectTabByIndex(idx: number)</td>
+            <td>Open tab by index, start with 0</td>
+            <td>idx: number</td>
+          </tr>
+          <tr>
+            <td>selectTabById(id: string)</td>
+            <td>Open tab by inputId</td>
+            <td>id: string</td>
+          </tr>
+          <tr>
+            <td>getSelectedTabIndex()</td>
+            <td>Get selected tab index</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>getSelectedTab()</td>
+            <td>Get selected tab</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <ng-template npTabContent>
+      <fieldset>
+        <legend>Tabs basic</legend>
+        <np-tabs #tabs [height]="200">
+          <np-tab [title]="'Tab1'">
+            <ng-template npTabContent>
+              <h3>Tab 1</h3>
+              <p>
+                A paragraph is a series of related sentences developing a
+                central idea, called the topic. Try to think about paragraphs in
+                terms of thematic unity: a paragraph is a sentence or a group of
+                sentences that supports one central, unified idea. Paragraphs
+                add one idea at a time to your broader argument.
+              </p>
+            </ng-template>
+          </np-tab>
+          <np-tab
+            [title]="tab2Title"
+            [inputId]="'tab2'"
+            [iconCss]="'fa fa-home'"
+          >
+            <ng-template #tab2Title>
+              Tab2<span class="np-badge np-badge-primary">{{ count }}</span>
+            </ng-template>
+            <ng-template npTabContent>
+              <h3>Tab 2</h3>
+              <p>
+                A paragraph is a series of related sentences developing a
+                central idea, called the topic. Try to think about paragraphs in
+                terms of thematic unity: a paragraph is a sentence or a group of
+                sentences that supports one central, unified idea. Paragraphs
+                add one idea at a time to your broader argument.
+              </p>
+            </ng-template>
+          </np-tab>
+          <np-tab [title]="'Tab3'" [disabled]="toggleTab3Disabled">
+            <h3>Tab 3</h3>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+          </np-tab>
+          <np-tab [title]="'Tab4'" *ngIf="isTab4Available">
+            <h3>Tab 4</h3>
+            <p>
+              A first paragraph is a series of related sentences developing a
+              central idea, called the topic. Try to think about paragraphs in
+              terms of thematic unity: a paragraph is a sentence or a group of
+              sentences that supports one central, unified idea. Paragraphs add
+              one idea at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A last paragraph is a series of related sentences developing a
+              central idea, called the topic. Try to think about paragraphs in
+              terms of thematic unity: a paragraph is a sentence or a group of
+              sentences that supports one central, unified idea. Paragraphs add
+              one idea at a time to your broader argument.
+            </p>
+          </np-tab>
+        </np-tabs>
 
-                <div class="np-btn-group">
-                    <button type="button"
-                            class="np-btn"
-                            (click)="tabs.selectTabById('tab2')">Open Tab 2 with
-                        Id</button>
-                    <button type="button"
-                            class="np-btn"
-                            (click)="changeCount()">Change Title of Tab 2</button>
-                    <button type="button"
-                            class="np-btn"
-                            (click)="ToggleTab3Disabled()">Toggle Tab 3 disabled</button>
-                    <button type="button"
-                            class="np-btn"
-                            (click)="tabs.selectTabByIndex(3)">Open 4th Tab by
-                        index</button>
-                    <button type="button"
-                            class="np-btn"
-                            (click)="toggleTab4()">Add/Remove Tab 4</button>
-                </div>
-            </fieldset>
+        <div class="np-btn-group">
+          <button
+            type="button"
+            class="np-btn"
+            (click)="tabs.selectTabById('tab2')"
+          >
+            Open Tab 2 with Id
+          </button>
+          <button type="button" class="np-btn" (click)="changeCount()">
+            Change Title of Tab 2
+          </button>
+          <button type="button" class="np-btn" (click)="ToggleTab3Disabled()">
+            Toggle Tab 3 disabled
+          </button>
+          <button
+            type="button"
+            class="np-btn"
+            (click)="tabs.selectTabByIndex(3)"
+          >
+            Open 4th Tab by index
+          </button>
+          <button type="button" class="np-btn" (click)="toggleTab4()">
+            Add/Remove Tab 4
+          </button>
+        </div>
+      </fieldset>
 
-            <fieldset>
-                <legend>Stretch labels</legend>
-                <np-tabs [stretchLabels]="true">
-                    <np-tab title="tab 1">
-                        Tab 1 content
-                    </np-tab>
-                    <np-tab title="tab 2">
-                        Tab 2 content
-                    </np-tab>
-                    <np-tab title="tab 3">
-                        Tab 3 content
-                    </np-tab>
-                </np-tabs>
-            </fieldset>
+      <fieldset>
+        <legend>Stretch labels</legend>
+        <np-tabs [stretchLabels]="true">
+          <np-tab title="tab 1"> Tab 1 content </np-tab>
+          <np-tab title="tab 2"> Tab 2 content </np-tab>
+          <np-tab title="tab 3"> Tab 3 content </np-tab>
+        </np-tabs>
+      </fieldset>
 
-            <fieldset>
-                <legend>Vertical tabs</legend>
-                <np-tabs (onTabChange)="onTabChange($event)"
-                         #tabs2
-                         [verticalTabs]="true"
-                         [height]="200">
-                    <np-tab [title]="'Tab1'">
-                        <h3>
-                            Tab 1 , Check console for isLoadFirstTime flag value.
-                        </h3>
-                        <h4>
-                            This isLoadFirstTime flag is used to know tab is open for first time. This helps in loading
-                            data from cache.
-                        </h4>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to
-                            think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
-                            sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                    </np-tab>
-                    <np-tab [title]="'Tab2'"
-                            [active]="true">
-                        <h3>
-                            Tab 2 , Check console for isLoadFirstTime flag value
-                        </h3>
-                        <h4>
-                            This isLoadFirstTime flag is used to know tab is open for first time. This helps in loading
-                            data from cache.
-                        </h4>
-                        <p>
-                            A first paragraph is a series of related sentences developing a central idea, called the
-                            topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group
-                            of sentences that supports one central, unified idea. Paragraphs
-                            add one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to
-                            think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
-                            sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to
-                            think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of
-                            sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                        <p>
-                            A last paragraph is a series of related sentences developing a central idea, called the
-                            topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group
-                            of sentences that supports one central, unified idea. Paragraphs
-                            add one idea at a time to your broader argument.
-                        </p>
-                    </np-tab>
-                </np-tabs>
-            </fieldset>
-        </ng-template>
-    </np-tab>
+      <fieldset>
+        <legend>Vertical tabs</legend>
+        <np-tabs
+          (onTabChange)="onTabChange($event)"
+          #tabs2
+          [verticalTabs]="true"
+          [height]="200"
+        >
+          <np-tab [title]="'Tab1'">
+            <h3>Tab 1 , Check console for isLoadFirstTime flag value.</h3>
+            <h4>
+              This isLoadFirstTime flag is used to know tab is open for first
+              time. This helps in loading data from cache.
+            </h4>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+          </np-tab>
+          <np-tab [title]="'Tab2'" [active]="true">
+            <h3>Tab 2 , Check console for isLoadFirstTime flag value</h3>
+            <h4>
+              This isLoadFirstTime flag is used to know tab is open for first
+              time. This helps in loading data from cache.
+            </h4>
+            <p>
+              A first paragraph is a series of related sentences developing a
+              central idea, called the topic. Try to think about paragraphs in
+              terms of thematic unity: a paragraph is a sentence or a group of
+              sentences that supports one central, unified idea. Paragraphs add
+              one idea at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+            <p>
+              A last paragraph is a series of related sentences developing a
+              central idea, called the topic. Try to think about paragraphs in
+              terms of thematic unity: a paragraph is a sentence or a group of
+              sentences that supports one central, unified idea. Paragraphs add
+              one idea at a time to your broader argument.
+            </p>
+          </np-tab>
+        </np-tabs>
+      </fieldset>
+    </ng-template>
+  </np-tab>
 </np-tabs>

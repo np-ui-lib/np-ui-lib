@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-file-upload-demo',
-  templateUrl: './np-file-upload-demo.component.html'
+  selector: "app-np-file-upload-demo",
+  templateUrl: "./np-file-upload-demo.component.html",
 })
 export class NpFileUploadDemoComponent implements OnInit {
-
-  importText = 'import { NpFileUploadModule } from \'np-ui-lib\';';
+  importText = "import { NpFileUploadModule } from 'np-ui-lib';";
   htmlText = `<np-file-upload [(ngModel)]="uploadedFiles"></np-file-upload>`;
 
   fileUpload1: any;
@@ -21,13 +20,12 @@ export class NpFileUploadDemoComponent implements OnInit {
   fileUpload10: any;
   fileUpload11: any;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onChange($event) {
-    alert('change event occurs.');
+    alert("change event occurs.");
   }
 
   SetNullValue() {

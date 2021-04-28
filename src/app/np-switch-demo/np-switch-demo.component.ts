@@ -1,13 +1,12 @@
-import { ViewChild } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
-import { NpSwitchComponent } from 'np-ui-lib';
+import { ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { NpSwitchComponent } from "np-ui-lib";
 
 @Component({
-  selector: 'app-np-switch-demo',
-  templateUrl: './np-switch-demo.component.html'
+  selector: "app-np-switch-demo",
+  templateUrl: "./np-switch-demo.component.html",
 })
 export class NpSwitchDemoComponent implements OnInit {
-
   switch1 = true;
   switch2 = false;
   switch3 = true;
@@ -16,22 +15,22 @@ export class NpSwitchDemoComponent implements OnInit {
   switch7 = true;
   switch8 = true;
 
-  importText = 'import { NpSwitchModule } from \'np-ui-lib\';';
+  importText = "import { NpSwitchModule } from 'np-ui-lib';";
   htmlText = '<np-switch [(ngModel)]="value"></np-switch>';
 
-  @ViewChild('switchControl', { static: true }) switchControl: NpSwitchComponent;
+  @ViewChild("switchControl", { static: true })
+  switchControl: NpSwitchComponent;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onChangeSwitch8(value) {
     alert(value);
   }
 
   onTabChange($event) {
-    if ($event.title === 'Examples') {
+    if ($event.title === "Examples") {
       setTimeout(() => {
         this.switchControl.focus();
       }, 100);

@@ -1,17 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpPanelDemoComponent } from './np-panel-demo.component';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpPanelDemoComponent } from "./np-panel-demo.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NpPanelDemoComponent
-  }
+    path: "",
+    component: NpPanelDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpPanelDemoRoutingModule { }
+export class NpPanelDemoRoutingModule {}

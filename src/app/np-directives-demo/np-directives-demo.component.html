@@ -1,72 +1,83 @@
 <h2 class="page-header">Directives & Pipes</h2>
 
 <np-card>
-    <np-card-body>
-        <fieldset>
-            <legend>How to add autofocus to input control?</legend>
-            <p><b>npAutofocus</b> directive is available in <b>NpAutofocusModule</b>.</p>
-            <pre><code>{{autofocusTextCode}}</code></pre>
-        </fieldset>
-    </np-card-body>
+  <np-card-body>
+    <fieldset>
+      <legend>How to add autofocus to input control?</legend>
+      <p>
+        <b>npAutofocus</b> directive is available in <b>NpAutofocusModule</b>.
+      </p>
+      <pre><code>{{autofocusTextCode}}</code></pre>
+    </fieldset>
+  </np-card-body>
 </np-card>
 
 <np-card>
-    <np-card-body>
-        <fieldset>
-            <legend>How to highlight Text?</legend>
-            <p><b>npHighlight</b> pipe is available in <b>NpHightlightModule</b>.</p>
-            <pre><code>{{highlightTextCode}}</code></pre>
-            <p [innerHTML]="text | npHighlight: 'paragraph'"></p>
-        </fieldset>
-    </np-card-body>
+  <np-card-body>
+    <fieldset>
+      <legend>How to highlight Text?</legend>
+      <p><b>npHighlight</b> pipe is available in <b>NpHightlightModule</b>.</p>
+      <pre><code>{{highlightTextCode}}</code></pre>
+      <p [innerHTML]="text | npHighlight: 'paragraph'"></p>
+    </fieldset>
+  </np-card-body>
 </np-card>
 
 <np-card>
-    <np-card-body>
-        <fieldset>
-            <legend>How to sort array?</legend>
-            <p><b>npOrderBy</b> pipe is available in <b>NpOrderByModule</b>.</p>
-            <pre><code [innerText]="orderByCode"></code></pre>
-            <div>First parameter is property name if array is type of any[]. if array is type of string[] then it will
-                be null.</div>
-            <div>Second parameter is direction. Direction can be 'asc' or 'desc'.</div>
-            <div class="np-row">
-                <div class="np-col np-col-6">
-                    <b>Ascending:</b>
-                    <ul class="np-list np-border">
-                        <li *ngFor="let item of items | npOrderBy : null : 'asc'"
-                            class="np-list-item">
-                            {{item}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="np-col np-col-6">
-                    <b>Descending:</b>
-                    <ul class="np-list np-border">
-                        <li *ngFor="let item of items | npOrderBy : null : 'desc'"
-                            class="np-list-item">
-                            {{item}}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </fieldset>
-    </np-card-body>
+  <np-card-body>
+    <fieldset>
+      <legend>How to sort array?</legend>
+      <p><b>npOrderBy</b> pipe is available in <b>NpOrderByModule</b>.</p>
+      <pre><code [innerText]="orderByCode"></code></pre>
+      <div>
+        First parameter is property name if array is type of any[]. if array is
+        type of string[] then it will be null.
+      </div>
+      <div>
+        Second parameter is direction. Direction can be 'asc' or 'desc'.
+      </div>
+      <div class="np-row">
+        <div class="np-col np-col-6">
+          <b>Ascending:</b>
+          <ul class="np-list np-border">
+            <li
+              *ngFor="let item of items | npOrderBy: null:'asc'"
+              class="np-list-item"
+            >
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+        <div class="np-col np-col-6">
+          <b>Descending:</b>
+          <ul class="np-list np-border">
+            <li
+              *ngFor="let item of items | npOrderBy: null:'desc'"
+              class="np-list-item"
+            >
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </np-card-body>
 </np-card>
 
 <np-card>
-    <np-card-body>
-        <fieldset>
-            <legend>How to defer loading?</legend>
-            <div><b>npDefer</b> directive is available in <b>NpDeferModule</b>.</div>
-            <div>npDefer is working on scroll event of window.</div>
-            <pre><code [innerText]="deferCode"></code></pre>
-            <div npDefer
-                 (onLoad)="onLoadDefer()">
-                <ng-template>
-                    <div style="background-color: lightblue;">This content is lazy loaded.</div>
-                </ng-template>
-            </div>
-        </fieldset>
-    </np-card-body>
+  <np-card-body>
+    <fieldset>
+      <legend>How to defer loading?</legend>
+      <div><b>npDefer</b> directive is available in <b>NpDeferModule</b>.</div>
+      <div>npDefer is working on scroll event of window.</div>
+      <pre><code [innerText]="deferCode"></code></pre>
+      <div npDefer (onLoad)="onLoadDefer()">
+        <ng-template>
+          <div style="background-color: lightblue">
+            This content is lazy loaded.
+          </div>
+        </ng-template>
+      </div>
+    </fieldset>
+  </np-card-body>
 </np-card>

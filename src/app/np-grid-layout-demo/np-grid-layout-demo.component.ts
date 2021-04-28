@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-grid-layout-demo',
-  templateUrl: './np-grid-layout-demo.component.html'
+  selector: "app-np-grid-layout-demo",
+  templateUrl: "./np-grid-layout-demo.component.html",
 })
 export class NpGridLayoutDemoComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

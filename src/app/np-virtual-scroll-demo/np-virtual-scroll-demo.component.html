@@ -1,168 +1,158 @@
 <h2 class="page-header">Virtual Scroll</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>header</td>
-                        <td>Header of list as plain text or html string</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>items</td>
-                        <td>Array of items</td>
-                        <td>any[]</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>pageSize</td>
-                        <td>Set page size</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>itemHeight</td>
-                        <td>Set height of single element in px</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>template</td>
-                        <td>Item template to display for single item</td>
-                        <td>TemplateRef&lt;any&gt;</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            loadData(&#123;first: number, rows: pageSize&#125;)
-                        </td>
-                        <td>
-                            Callback to load data event, fetch data in this method
-                            <br>first is the index of first record in page, and rows is number of page size
-                        </td>
-                        <td>&#123;first: number, rows: pageSize&#125;</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            scrollToIndex(idx: number)
-                        </td>
-                        <td>
-                            Scroll to given index, index start with 0.
-                        </td>
-                        <td>
-                            idx: number
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            scrollToOffset(offset: number)
-                        </td>
-                        <td>
-                            Scroll to given offset, offset is in px. <br> Use +offset to scroll down. Use -offset to
-                            scroll up.
-                        </td>
-                        <td>
-                            offset: number
-                        </td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>How to use loadData method?</b>
-                <pre><code>{{loadDataText}}</code></pre>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <ng-template npTabContent>
-            <fieldset>
-                <legend>Basic</legend>
-                <np-virtual-scroll #virtualScroll
-                                   [items]="data"
-                                   [pageSize]="pageSize"
-                                   [itemHeight]="50"
-                                   [template]="itemTemplate"
-                                   (loadData)="loadData($event)"
-                                   header="New Products">
-                </np-virtual-scroll>
-                <ng-template #itemTemplate
-                             let-item="item">
-                    {{item}}
-                </ng-template>
-
-                <div class="np-btn-group">
-                    <button type="button"
-                            class="np-btn"
-                            (click)="scrollTo11Item()">Go to 11th Item</button>
-                    <button type="button"
-                            class="np-btn"
-                            (click)="scrollOffsetDown()">Scroll offset 1000px down</button>
-                    <button type="button"
-                            class="np-btn"
-                            (click)="scrollOffsetUp()">Scroll offset 1000px up</button>
-                </div>
-            </fieldset>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>header</td>
+            <td>Header of list as plain text or html string</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>items</td>
+            <td>Array of items</td>
+            <td>any[]</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>pageSize</td>
+            <td>Set page size</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>itemHeight</td>
+            <td>Set height of single element in px</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>template</td>
+            <td>Item template to display for single item</td>
+            <td>TemplateRef&lt;any&gt;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>loadData(&#123;first: number, rows: pageSize&#125;)</td>
+            <td>
+              Callback to load data event, fetch data in this method
+              <br />first is the index of first record in page, and rows is
+              number of page size
+            </td>
+            <td>&#123;first: number, rows: pageSize&#125;</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>scrollToIndex(idx: number)</td>
+            <td>Scroll to given index, index start with 0.</td>
+            <td>idx: number</td>
+          </tr>
+          <tr>
+            <td>scrollToOffset(offset: number)</td>
+            <td>
+              Scroll to given offset, offset is in px. <br />
+              Use +offset to scroll down. Use -offset to scroll up.
+            </td>
+            <td>offset: number</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>How to use loadData method?</b>
+        <pre><code>{{loadDataText}}</code></pre>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <ng-template npTabContent>
+      <fieldset>
+        <legend>Basic</legend>
+        <np-virtual-scroll
+          #virtualScroll
+          [items]="data"
+          [pageSize]="pageSize"
+          [itemHeight]="50"
+          [template]="itemTemplate"
+          (loadData)="loadData($event)"
+          header="New Products"
+        >
+        </np-virtual-scroll>
+        <ng-template #itemTemplate let-item="item">
+          {{ item }}
         </ng-template>
-    </np-tab>
+
+        <div class="np-btn-group">
+          <button type="button" class="np-btn" (click)="scrollTo11Item()">
+            Go to 11th Item
+          </button>
+          <button type="button" class="np-btn" (click)="scrollOffsetDown()">
+            Scroll offset 1000px down
+          </button>
+          <button type="button" class="np-btn" (click)="scrollOffsetUp()">
+            Scroll offset 1000px up
+          </button>
+        </div>
+      </fieldset>
+    </ng-template>
+  </np-tab>
 </np-tabs>

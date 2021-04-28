@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-panel-demo',
-  templateUrl: './np-panel-demo.component.html'
+  selector: "app-np-panel-demo",
+  templateUrl: "./np-panel-demo.component.html",
 })
 export class NpPanelDemoComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  importText = 'import { NpPanelModule } from \'np-ui-lib\';';
+  importText = "import { NpPanelModule } from 'np-ui-lib';";
   htmlText = `<np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true" 
   [styleClass]="'np-pn-danger'" [height]="200">
   Panel Body content...
@@ -19,14 +18,12 @@ export class NpPanelDemoComponent implements OnInit {
   </ng-tempalte>
 </panel>`;
 
-  title = 'What is paragraph?';
+  title = "What is paragraph?";
   pnl2Disabled = false;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   togglePanel2Disabled() {
     this.pnl2Disabled = !this.pnl2Disabled;
   }
-
 }

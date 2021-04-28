@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { NpBreadcrumbItem } from 'np-ui-lib';
+import { Component, OnInit } from "@angular/core";
+import { NpBreadcrumbItem } from "np-ui-lib";
 
 @Component({
-  selector: 'app-np-breadcrumb-demo',
-  templateUrl: './np-breadcrumb-demo.component.html'
+  selector: "app-np-breadcrumb-demo",
+  templateUrl: "./np-breadcrumb-demo.component.html",
 })
 export class NpBreadcrumbDemoComponent implements OnInit {
-
   importText = `import { NpBreadcrumbModule } from \'np-ui-lib\';`;
   htmlText = `<np-breadcrumb [items]="items"></np-breadcrumb>`;
   modelText = `items = [
@@ -15,22 +14,20 @@ export class NpBreadcrumbDemoComponent implements OnInit {
   ...
 ];`;
 
-  constructor() { }
+  constructor() {}
 
   items: NpBreadcrumbItem[] = [
-    new NpBreadcrumbItem({ label: 'Galaxy', id: 'lnkGalaxy' }),
-    new NpBreadcrumbItem({ label: 'Earth', disabled: true }),
-    new NpBreadcrumbItem({ label: 'Asia' }),
-    new NpBreadcrumbItem({ label: 'India' }),
-    new NpBreadcrumbItem({ label: 'Gujarat' }),
-    new NpBreadcrumbItem({ label: 'Ahmedabad' })
+    new NpBreadcrumbItem({ label: "Galaxy", id: "lnkGalaxy" }),
+    new NpBreadcrumbItem({ label: "Earth", disabled: true }),
+    new NpBreadcrumbItem({ label: "Asia" }),
+    new NpBreadcrumbItem({ label: "India" }),
+    new NpBreadcrumbItem({ label: "Gujarat" }),
+    new NpBreadcrumbItem({ label: "Ahmedabad" }),
   ];
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onClick(item) {
     alert(item.label);
   }
-
 }

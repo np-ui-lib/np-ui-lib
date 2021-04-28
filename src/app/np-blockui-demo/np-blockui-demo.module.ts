@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpBlockuiDemoRoutingModule } from './np-blockui-demo-routing.module';
-import { NpBlockuiDemoComponent } from './np-blockui-demo.component';
-import { NpBlockUiModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
+import { NpBlockuiDemoRoutingModule } from "./np-blockui-demo-routing.module";
+import { NpBlockuiDemoComponent } from "./np-blockui-demo.component";
+import { NpBlockUiModule, NpTabsModule, NpCardModule } from "np-ui-lib";
 
 @NgModule({
   declarations: [NpBlockuiDemoComponent],
@@ -12,7 +12,7 @@ import { NpBlockUiModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
     NpBlockuiDemoRoutingModule,
     NpBlockUiModule,
     NpTabsModule,
-    NpCardModule
-  ]
+    NpCardModule,
+  ],
 })
-export class NpBlockuiDemoModule { }
+export class NpBlockuiDemoModule {}

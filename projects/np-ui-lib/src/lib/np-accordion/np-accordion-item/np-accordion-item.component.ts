@@ -1,18 +1,26 @@
 import {
-  Component, Input, TemplateRef, ViewEncapsulation, ChangeDetectionStrategy, Output,
-  EventEmitter, ContentChild, ViewContainerRef, OnInit, OnDestroy
-} from '@angular/core';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { NpAccordionContent } from './np-accordion-content.directive';
+  Component,
+  Input,
+  TemplateRef,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  Output,
+  EventEmitter,
+  ContentChild,
+  ViewContainerRef,
+  OnInit,
+  OnDestroy,
+} from "@angular/core";
+import { TemplatePortal } from "@angular/cdk/portal";
+import { NpAccordionContent } from "./np-accordion-content.directive";
 
 @Component({
-  selector: 'np-accordion-item',
-  templateUrl: './np-accordion-item.component.html',
+  selector: "np-accordion-item",
+  templateUrl: "./np-accordion-item.component.html",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpAccordionItemComponent implements OnInit, OnDestroy {
-
   private static controlCount = 1;
 
   @Input() title: string | TemplateRef<any>;
@@ -21,12 +29,14 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
   @Input() disabled: boolean;
   @Input() iconCss: string;
   @Input() styleClass: string;
-  @Input() inputId = `np-accordion-item_${NpAccordionItemComponent.controlCount++}`;
+  @Input()
+  inputId = `np-accordion-item_${NpAccordionItemComponent.controlCount++}`;
 
   @Output() _onExpand: EventEmitter<any> = new EventEmitter();
   @Output() _onCollapse: EventEmitter<any> = new EventEmitter();
 
-  @ContentChild(NpAccordionContent, { read: TemplateRef, static: true }) _explicitContent: TemplateRef<any>;
+  @ContentChild(NpAccordionContent, { read: TemplateRef, static: true })
+  _explicitContent: TemplateRef<any>;
 
   isTitleTemplate: boolean;
   private _contentPortal: TemplatePortal | null = null;
@@ -34,8 +44,7 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
     return this._contentPortal;
   }
 
-  constructor(private _viewContainerRef: ViewContainerRef) {
-  }
+  constructor(private _viewContainerRef: ViewContainerRef) {}
 
   ngOnInit(): void {
     if (this.title instanceof TemplateRef) {
@@ -43,7 +52,10 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
     }
     if (this.isOpen) {
       if (!this._contentPortal && this._explicitContent) {
-        this._contentPortal = new TemplatePortal(this._explicitContent, this._viewContainerRef);
+        this._contentPortal = new TemplatePortal(
+          this._explicitContent,
+          this._viewContainerRef
+        );
       }
     }
   }
@@ -55,11 +67,11 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
   }
 
   _getTitleId() {
-    return this.inputId + '_title';
+    return this.inputId + "_title";
   }
 
   _getBodyId() {
-    return this.inputId + '_body';
+    return this.inputId + "_body";
   }
 
   _expand() {
@@ -68,7 +80,10 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
     }
     this.isOpen = true;
     if (!this._contentPortal && this._explicitContent) {
-      this._contentPortal = new TemplatePortal(this._explicitContent, this._viewContainerRef);
+      this._contentPortal = new TemplatePortal(
+        this._explicitContent,
+        this._viewContainerRef
+      );
     }
     this._onExpand.emit(this);
   }
@@ -91,5 +106,4 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
     }
     this._expand();
   }
-
 }

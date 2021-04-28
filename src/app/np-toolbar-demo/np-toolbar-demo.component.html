@@ -1,27 +1,36 @@
 <h2 class="page-header">Toobar</h2>
 
 <np-card>
-    <np-card-body>
-        <div class="np-toolbar">
-            <div class="np-toolbar-item"><button class="np-btn-icon"><i class="fa fa-bars"></i></button></div>
-            <div class="np-toolbar-item"><button class="np-btn-icon"><i class="fab fa-android"></i></button></div>
-            <div class="np-toolbar-separator"></div>
-            <div class="np-toolbar-item"><button class="np-btn-icon"><i class="fab fa-apple"></i></button></div>
-            <div class="np-toolbar-item"><button class="np-btn-icon"><i class="fa fa-battery-full"></i></button>
-            </div>
-            <div class="np-toolbar-spacer"></div>
-            <div class="np-toolbar-item">
-                <select class="np-form-control">
-                    <option>Select</option>
-                </select>
-            </div>
-            <div class="np-toolbar-item"><button class="np-btn-icon"><i class="fa fa-calendar"></i></button></div>
-        </div>
-        <pre><code [innerText]="toolbarCode"></code></pre>
-        <p>
-            Use <b>.np-toolbar-spacer</b> class to separate items left and right.
-            All the items after this class will be shown on right side.
-        </p>
-        <p>Use <b>.np-toolbar-separator</b> class to seprate items.</p>
-    </np-card-body>
+  <np-card-body>
+    <div class="np-toolbar">
+      <div class="np-toolbar-item">
+        <button class="np-btn-icon"><i class="fa fa-bars"></i></button>
+      </div>
+      <div class="np-toolbar-item">
+        <button class="np-btn-icon"><i class="fab fa-android"></i></button>
+      </div>
+      <div class="np-toolbar-separator"></div>
+      <div class="np-toolbar-item">
+        <button class="np-btn-icon"><i class="fab fa-apple"></i></button>
+      </div>
+      <div class="np-toolbar-item">
+        <button class="np-btn-icon"><i class="fa fa-battery-full"></i></button>
+      </div>
+      <div class="np-toolbar-spacer"></div>
+      <div class="np-toolbar-item">
+        <select class="np-form-control">
+          <option>Select</option>
+        </select>
+      </div>
+      <div class="np-toolbar-item">
+        <button class="np-btn-icon"><i class="fa fa-calendar"></i></button>
+      </div>
+    </div>
+    <pre><code [innerText]="toolbarCode"></code></pre>
+    <p>
+      Use <b>.np-toolbar-spacer</b> class to separate items left and right. All
+      the items after this class will be shown on right side.
+    </p>
+    <p>Use <b>.np-toolbar-separator</b> class to seprate items.</p>
+  </np-card-body>
 </np-card>

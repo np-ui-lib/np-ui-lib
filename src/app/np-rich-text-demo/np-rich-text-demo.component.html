@@ -34,8 +34,8 @@
           </tr>
           <tr>
             <td>config</td>
-            <td>Show/hide commands in editor.
-              By default below all are visible.
+            <td>
+              Show/hide commands in editor. By default below all are visible.
               <pre><code>{{configText}}</code></pre>
               Add only commands name which needs to display
             </td>
@@ -44,8 +44,8 @@
           </tr>
           <tr>
             <td>fonts</td>
-            <td>Add fonts name in editor.
-              By default below all are available.
+            <td>
+              Add fonts name in editor. By default below all are available.
               <pre><code>{{fontText}}</code></pre>
             </td>
             <td>string[]</td>
@@ -163,49 +163,50 @@
   <np-tab [title]="'Examples'">
     <fieldset>
       <legend>Basic</legend>
-      <np-rich-text [(ngModel)]="rtf1"
-                    [disabled]="isDisabled"
-                    [readOnly]="isReadonly"
-                    [required]="required"
-                    [height]="height"></np-rich-text>
+      <np-rich-text
+        [(ngModel)]="rtf1"
+        [disabled]="isDisabled"
+        [readOnly]="isReadonly"
+        [required]="required"
+        [height]="height"
+      ></np-rich-text>
       <div class="np-btn-group">
-        <button class="np-btn"
-                (click)="setValue()">Set value</button>
-        <button class="np-btn"
-                (click)="isDisabled = !isDisabled">
+        <button class="np-btn" (click)="setValue()">Set value</button>
+        <button class="np-btn" (click)="isDisabled = !isDisabled">
           Toggle Disabled
         </button>
-        <button class="np-btn"
-                (click)="isReadonly = !isReadonly">
+        <button class="np-btn" (click)="isReadonly = !isReadonly">
           Toggle Readonly
         </button>
-        <button class="np-btn"
-                (click)="required = !required">
+        <button class="np-btn" (click)="required = !required">
           Toggle Required
         </button>
-        <button class="np-btn"
-                (click)="height = 200">Set height 200px</button>
+        <button class="np-btn" (click)="height = 200">Set height 200px</button>
       </div>
       <div>Value: {{ rtf1 }}</div>
     </fieldset>
     <fieldset>
-      <legend>
-        config ,fonts, minLength, maxLength
-      </legend>
-      <np-rich-text [(ngModel)]="rtf2"
-                    #rtf2Input="ngModel"
-                    [height]="200"
-                    [config]="config"
-                    [minLength]="10"
-                    [maxLength]="200"
-                    [fonts]="fonts">
+      <legend>config ,fonts, minLength, maxLength</legend>
+      <np-rich-text
+        [(ngModel)]="rtf2"
+        #rtf2Input="ngModel"
+        [height]="200"
+        [config]="config"
+        [minLength]="10"
+        [maxLength]="200"
+        [fonts]="fonts"
+      >
       </np-rich-text>
-      <div class="np-text-danger"
-           *ngIf="rtf2Input.errors && rtf2Input.errors.minLength">
+      <div
+        class="np-text-danger"
+        *ngIf="rtf2Input.errors && rtf2Input.errors.minLength"
+      >
         Min length 10 characters.
       </div>
-      <div class="np-text-danger"
-           *ngIf="rtf2Input.errors && rtf2Input.errors.maxLength">
+      <div
+        class="np-text-danger"
+        *ngIf="rtf2Input.errors && rtf2Input.errors.maxLength"
+      >
         Max length 200 characters.
       </div>
     </fieldset>

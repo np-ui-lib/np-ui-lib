@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-date-picker-demo',
-  templateUrl: './np-date-picker-demo.component.html'
+  selector: "app-np-date-picker-demo",
+  templateUrl: "./np-date-picker-demo.component.html",
 })
 export class NpDatePickerDemoComponent implements OnInit {
-
   date1: Date = new Date();
   date2: Date = new Date();
   date3: Date;
@@ -31,7 +30,7 @@ export class NpDatePickerDemoComponent implements OnInit {
   htmlText = `<np-date-picker [(ngModel)]="value"></np-date-picker>`;
   dateClassText = 'function(date: Date) { return "red-background";}';
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     const today = new Date();
@@ -41,11 +40,11 @@ export class NpDatePickerDemoComponent implements OnInit {
     this.disableDates7.push(tomorrow);
     this.dateLabels12.push({
       date: today,
-      label: 'Today'
+      label: "Today",
     });
     this.dateLabels12.push({
       date: tomorrow,
-      label: 'Tomorrow'
+      label: "Tomorrow",
     });
   }
 
@@ -67,9 +66,8 @@ export class NpDatePickerDemoComponent implements OnInit {
 
   getClassForDate(date: Date) {
     if (date.getDate() == 1 || date.getDate() == 28) {
-      return 'red-background';
+      return "red-background";
     }
-    return 'green-background';
+    return "green-background";
   }
-
 }

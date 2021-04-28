@@ -1,16 +1,22 @@
 import {
-  Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation,
-  ChangeDetectionStrategy, OnChanges, SimpleChanges
-} from '@angular/core';
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnInit,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  OnChanges,
+  SimpleChanges,
+} from "@angular/core";
 
 @Component({
-  selector: 'np-paginator',
-  templateUrl: './np-paginator.component.html',
+  selector: "np-paginator",
+  templateUrl: "./np-paginator.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpPaginatorComponent implements OnInit, OnChanges {
-
   private static controlCount = 1;
 
   @Input() pageSize: number;
@@ -61,7 +67,10 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
   }
 
   refresh() {
-    this.onPageChange.emit({ currentPage: this.currentPage, pageSize: this.pageSize });
+    this.onPageChange.emit({
+      currentPage: this.currentPage,
+      pageSize: this.pageSize,
+    });
   }
 
   _onCurrentPageChange(event) {
@@ -89,13 +98,17 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
       if (this.currentPage > this.totalPages) {
         this.currentPage = this.totalPages;
       }
-      this.onPageChange.emit({ currentPage: this.currentPage, pageSize: this.pageSize });
+      this.onPageChange.emit({
+        currentPage: this.currentPage,
+        pageSize: this.pageSize,
+      });
       this._setStartEndIndex();
     }
   }
 
   private _calculateTotalPages(): number {
-    const result = this.pageSize < 1 ? 1 : Math.ceil(this.totalItems / this.pageSize);
+    const result =
+      this.pageSize < 1 ? 1 : Math.ceil(this.totalItems / this.pageSize);
     return Math.max(result || 0, 1);
   }
 
@@ -106,6 +119,9 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
       return;
     }
     this.startIndex = (this.currentPage - 1) * this.pageSize;
-    this.endIndex = Math.min(this.startIndex + this.pageSize - 1, this.totalItems - 1);
+    this.endIndex = Math.min(
+      this.startIndex + this.pageSize - 1,
+      this.totalItems - 1
+    );
   }
 }

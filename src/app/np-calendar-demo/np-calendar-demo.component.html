@@ -1,260 +1,243 @@
 <h2 class="page-header">Calendar</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>disableWeekDays</td>
-                        <td>Set week day as disabled, Set like [disableWeekDays]="['Saturday','Sunday']"</td>
-                        <td>string[] </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>disableDates</td>
-                        <td>Set dates disabled, list of object type Date</td>
-                        <td>Date[]</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>dateClass</td>
-                        <td>
-                            Add CSS class on each date based on conditions, pass function which returns string CSS
-                            class.
-                        </td>
-                        <td [innerText]="dateClassText"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>isStartMonthWithMonday</td>
-                        <td>Start month with monday. By default it starts with sunday</td>
-                        <td>boolean</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>resetEventsOnLoad</td>
-                        <td>Reset events on load new month, useful for lazy loading.
-                            <br>If fetching events on loading each month then set this property true
-                        </td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>eventTemplate</td>
-                        <td>Event template, here event variable is type of NpCalendarEvent
-                            <br>
-                            <pre><code [innerText]="eventTemplateStr"></code></pre>
-                        </td>
-                        <td>TemplateRef&lt;any&gt;</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onLoadMonth(&#10100;month: number, year: number&#10101;)
-                        </td>
-                        <td>
-                            Callback event on loading new month.
-                        </td>
-                        <td>&#10100;month: number, year: number&#10101;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onClickDate(date: Date)
-                        </td>
-                        <td>
-                            Callback event on click date. Here time will be 0:0:0.
-                        </td>
-                        <td>date: Date</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onClickEvent(event: NpCalendarEvent)
-                        </td>
-                        <td>
-                            Callback event on click event dom.
-                        </td>
-                        <td>event: NpCalendarEvent</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            refresh()
-                        </td>
-                        <td>
-                            Refresh current month, on Refresh it will callback <b>onLoadMonth</b> method.
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            addEvents(events: NpCalendarEvent[])
-                        </td>
-                        <td>
-                            Add events to current month.
-                            <br>
-                            On Each new month load, events will be cleared.
-                            <br>
-                            For lazy loading fill event in <b>onLoadMonth</b> method of calendar component.
-                        </td>
-                        <td>events: NpCalendarEvent[]</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            removeEvents(events: NpCalendarEvent[])
-                        </td>
-                        <td>
-                            Remove events from current month.
-                            <br>
-                            Events will be filtered based on startDate, endDate and title.
-                        </td>
-                        <td>events: NpCalendarEvent[]</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>NpCalendarEvent</b>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>startDate</td>
-                        <td>Start date with time</td>
-                        <td>Date</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>endDate</td>
-                        <td>End date with time</td>
-                        <td>Date</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>title</td>
-                        <td>Title of event</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>data</td>
-                        <td>Pass other data to event</td>
-                        <td>any</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>backgroundColor</td>
-                        <td>Event background color</td>
-                        <td>string</td>
-                        <td>#007bff</td>
-                    </tr>
-                    <tr>
-                        <td>fontColor</td>
-                        <td>Event font color</td>
-                        <td>any</td>
-                        <td>#ffffff</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Basic example">
-        <np-calendar #myCalendar
-                     [disableDates]="disabledDates"
-                     (onClickDate)="onClickDate($event)"
-                     (onClickEvent)="onClickEvent($event)"
-                     (onLoadMonth)="onLoadMonth($event)"></np-calendar>
-    </np-tab>
-    <np-tab title="Example with event template">
-        <np-calendar #myCalendar2
-                     [disableWeekDays]="disableWeekDays"
-                     [isStartMonthWithMonday]="true"
-                     [resetEventsOnLoad]="true"
-                     [eventTemplate]="eventTemplate"
-                     [dateClass]="getClassForDate"
-                     (onClickDate)="onClickDate2($event)"
-                     (onClickEvent)="onClickEvent2($event)"
-                     (onLoadMonth)="onLoadMonth2($event)"></np-calendar>
-        <ng-template #eventTemplate
-                     let-event="event">
-            <div npPopover
-                 [body]="eventPopBody"
-                 [context]="{event: event}">
-                <b>{{event.startDate.toTimeString().substring(0,5)}}</b>
-                <div>{{event.title}}</div>
-            </div>
-        </ng-template>
-        <ng-template #eventPopBody
-                     let-event="event">
-            <div>
-                <b>Start: </b> {{event.startDate}}
-            </div>
-            <div>
-                <b>End: </b> -
-            </div>
-            <div>
-                <b>Title: </b> {{event.title}}
-            </div>
-        </ng-template>
-    </np-tab>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>disableWeekDays</td>
+            <td>
+              Set week day as disabled, Set like
+              [disableWeekDays]="['Saturday','Sunday']"
+            </td>
+            <td>string[]</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>disableDates</td>
+            <td>Set dates disabled, list of object type Date</td>
+            <td>Date[]</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>dateClass</td>
+            <td>
+              Add CSS class on each date based on conditions, pass function
+              which returns string CSS class.
+            </td>
+            <td [innerText]="dateClassText"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>isStartMonthWithMonday</td>
+            <td>Start month with monday. By default it starts with sunday</td>
+            <td>boolean</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>resetEventsOnLoad</td>
+            <td>
+              Reset events on load new month, useful for lazy loading. <br />If
+              fetching events on loading each month then set this property true
+            </td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>eventTemplate</td>
+            <td>
+              Event template, here event variable is type of NpCalendarEvent
+              <br />
+              <pre><code [innerText]="eventTemplateStr"></code></pre>
+            </td>
+            <td>TemplateRef&lt;any&gt;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onLoadMonth(&#10100;month: number, year: number&#10101;)</td>
+            <td>Callback event on loading new month.</td>
+            <td>&#10100;month: number, year: number&#10101;</td>
+          </tr>
+          <tr>
+            <td>onClickDate(date: Date)</td>
+            <td>Callback event on click date. Here time will be 0:0:0.</td>
+            <td>date: Date</td>
+          </tr>
+          <tr>
+            <td>onClickEvent(event: NpCalendarEvent)</td>
+            <td>Callback event on click event dom.</td>
+            <td>event: NpCalendarEvent</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>refresh()</td>
+            <td>
+              Refresh current month, on Refresh it will callback
+              <b>onLoadMonth</b> method.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>addEvents(events: NpCalendarEvent[])</td>
+            <td>
+              Add events to current month.
+              <br />
+              On Each new month load, events will be cleared.
+              <br />
+              For lazy loading fill event in <b>onLoadMonth</b> method of
+              calendar component.
+            </td>
+            <td>events: NpCalendarEvent[]</td>
+          </tr>
+          <tr>
+            <td>removeEvents(events: NpCalendarEvent[])</td>
+            <td>
+              Remove events from current month.
+              <br />
+              Events will be filtered based on startDate, endDate and title.
+            </td>
+            <td>events: NpCalendarEvent[]</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>NpCalendarEvent</b>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>startDate</td>
+            <td>Start date with time</td>
+            <td>Date</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>endDate</td>
+            <td>End date with time</td>
+            <td>Date</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>title</td>
+            <td>Title of event</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>data</td>
+            <td>Pass other data to event</td>
+            <td>any</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>backgroundColor</td>
+            <td>Event background color</td>
+            <td>string</td>
+            <td>#007bff</td>
+          </tr>
+          <tr>
+            <td>fontColor</td>
+            <td>Event font color</td>
+            <td>any</td>
+            <td>#ffffff</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Basic example">
+    <np-calendar
+      #myCalendar
+      [disableDates]="disabledDates"
+      (onClickDate)="onClickDate($event)"
+      (onClickEvent)="onClickEvent($event)"
+      (onLoadMonth)="onLoadMonth($event)"
+    ></np-calendar>
+  </np-tab>
+  <np-tab title="Example with event template">
+    <np-calendar
+      #myCalendar2
+      [disableWeekDays]="disableWeekDays"
+      [isStartMonthWithMonday]="true"
+      [resetEventsOnLoad]="true"
+      [eventTemplate]="eventTemplate"
+      [dateClass]="getClassForDate"
+      (onClickDate)="onClickDate2($event)"
+      (onClickEvent)="onClickEvent2($event)"
+      (onLoadMonth)="onLoadMonth2($event)"
+    ></np-calendar>
+    <ng-template #eventTemplate let-event="event">
+      <div npPopover [body]="eventPopBody" [context]="{ event: event }">
+        <b>{{ event.startDate.toTimeString().substring(0, 5) }}</b>
+        <div>{{ event.title }}</div>
+      </div>
+    </ng-template>
+    <ng-template #eventPopBody let-event="event">
+      <div><b>Start: </b> {{ event.startDate }}</div>
+      <div><b>End: </b> -</div>
+      <div><b>Title: </b> {{ event.title }}</div>
+    </ng-template>
+  </np-tab>
 </np-tabs>

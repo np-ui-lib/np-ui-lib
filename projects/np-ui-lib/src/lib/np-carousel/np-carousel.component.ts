@@ -1,16 +1,24 @@
 import {
-  Component, Input, OnDestroy, TemplateRef, HostListener, AfterContentInit, ViewEncapsulation,
-  ChangeDetectionStrategy, OnChanges, SimpleChanges
-} from '@angular/core';
+  Component,
+  Input,
+  OnDestroy,
+  TemplateRef,
+  HostListener,
+  AfterContentInit,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  OnChanges,
+  SimpleChanges,
+} from "@angular/core";
 
 @Component({
-  selector: 'np-carousel',
-  templateUrl: './np-carousel.component.html',
+  selector: "np-carousel",
+  templateUrl: "./np-carousel.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
-export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChanges {
-
+export class NpCarouselComponent
+  implements AfterContentInit, OnDestroy, OnChanges {
   private static controlCount = 1;
 
   @Input() items: any[] = [];
@@ -31,14 +39,14 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChang
   endIdx: number;
   isPolite = false;
 
-  @HostListener('mouseenter')
+  @HostListener("mouseenter")
   _onMouseEnter() {
     if (this.pauseOnHover) {
       this.pause();
     }
   }
 
-  @HostListener('mouseleave')
+  @HostListener("mouseleave")
   _onMouseLeave() {
     if (this.pauseOnHover) {
       this.start();
@@ -86,7 +94,9 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChang
     if (this.items === undefined || this.items === null) {
       return 0;
     }
-    return Math.ceil((this.items.length - this.visibleNum + this.scrollNum) / this.scrollNum);
+    return Math.ceil(
+      (this.items.length - this.visibleNum + this.scrollNum) / this.scrollNum
+    );
   }
 
   _getSlidesFromPage() {
@@ -102,7 +112,7 @@ export class NpCarouselComponent implements AfterContentInit, OnDestroy, OnChang
 
   _minusSlides() {
     const idx = this.currentPage - 1;
-    this.currentPage = idx < 0 ? (this._totalPages() - 1) : idx;
+    this.currentPage = idx < 0 ? this._totalPages() - 1 : idx;
     this._getSlidesFromPage();
   }
 

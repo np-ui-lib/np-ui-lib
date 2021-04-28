@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpTextareaDemoComponent } from './np-textarea-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpTextareaDemoComponent } from "./np-textarea-demo.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NpTextareaDemoComponent
-  }
+    path: "",
+    component: NpTextareaDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpTextareaDemoRoutingModule { }
+export class NpTextareaDemoRoutingModule {}

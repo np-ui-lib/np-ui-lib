@@ -1,12 +1,18 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, TemplateRef, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  TemplateRef,
+  OnInit,
+} from "@angular/core";
 
 @Component({
-  templateUrl: './np-tooltip.component.html',
+  templateUrl: "./np-tooltip.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpTooltipComponent implements OnInit {
-
   private static controlCount = 1;
 
   @Input() tooltip: string | TemplateRef<any>;

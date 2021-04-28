@@ -1,13 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpFormDemoRoutingModule } from './np-form-demo-routing.module';
-import { NpFormDemoComponent } from './np-form-demo.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NpFormDemoRoutingModule } from "./np-form-demo-routing.module";
+import { NpFormDemoComponent } from "./np-form-demo.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {
-  NpCardModule, NpDatePickerModule, NpFileUploadModule, NpInputTextModule,
-  NpSwitchModule, NpTextareaModule, NpTimePickerModule, NpAutofocusModule
-} from 'np-ui-lib';
+  NpCardModule,
+  NpDatePickerModule,
+  NpFileUploadModule,
+  NpInputTextModule,
+  NpSwitchModule,
+  NpTextareaModule,
+  NpTimePickerModule,
+  NpAutofocusModule,
+} from "np-ui-lib";
 
 @NgModule({
   declarations: [NpFormDemoComponent],
@@ -23,7 +29,7 @@ import {
     NpFileUploadModule,
     NpTextareaModule,
     NpCardModule,
-    NpAutofocusModule
-  ]
+    NpAutofocusModule,
+  ],
 })
-export class NpFormDemoModule { }
+export class NpFormDemoModule {}

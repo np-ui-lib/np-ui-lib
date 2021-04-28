@@ -1,13 +1,17 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
 @Component({
-  selector: 'np-progress',
-  templateUrl: './np-progress.component.html',
+  selector: "np-progress",
+  templateUrl: "./np-progress.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpProgressComponent {
-
   private static controlCount = 1;
 
   @Input() value: number;
@@ -22,5 +26,4 @@ export class NpProgressComponent {
   getTextValue() {
     return `${this.value}%`;
   }
-
 }

@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-badge-demo',
-  templateUrl: './np-badge-demo.component.html'
+  selector: "app-np-badge-demo",
+  templateUrl: "./np-badge-demo.component.html",
 })
 export class NpBadgeDemoComponent implements OnInit {
-
   badgeText = `<span class="np-badge">Basic</span>
 <span class="np-badge np-badge-primary">Priamry</span>
 <span class="np-badge np-badge-success">Success</span>
@@ -13,9 +12,7 @@ export class NpBadgeDemoComponent implements OnInit {
 <span class="np-badge np-badge-warning">Warning</span>
 <span class="np-badge np-badge-info">Info</span>`;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

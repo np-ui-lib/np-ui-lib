@@ -1,138 +1,135 @@
 <h2 class="page-header">Notifications</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-                <np-alert type="info">
-                    Add above line in your main application module's template file app.component.html
-                    only once.
-                </np-alert>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>Import service and class from np-ui-lib in any component</b>
-                <div>
-                    <pre><code [innerHTML]="importServiceAndClass"></code></pre>
-                </div>
-                <div>
-                    <pre><code [innerHTML]="createServiceObject"></code></pre>
-                </div>
-                <br>
-                <b>How to show notification from any component?</b>
-                <div>
-                    <pre><code [innerHTML]="methodText"></code></pre>
-                </div>
-                <p>Where <b>type</b> can be 'success' | 'danger' | 'info' | 'warning'</p>
-                <p>Also set <b>autoCloseTimeout</b> property for closing notification automatically. Default time is
-                    10000
-                    ms</p>
-                <p>Set <b>header</b> to show header in notification, which is type of string</p>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Parameter</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            styleClass
-                        </td>
-                        <td>
-                            Set extra class on component
-                        </td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            inputId
-                        </td>
-                        <td>
-                            Set id attribute
-                        </td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            closeAll()
-                        </td>
-                        <td>
-                            Close all notifications
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <fieldset>
-            <legend>Basic notifications</legend>
-            <div class="np-btn-group">
-                <button class="np-btn np-btn-success"
-                        (click)="success()">Success</button>
-                <button class="np-btn np-btn-danger"
-                        (click)="error()">Error</button>
-                <button class="np-btn np-btn-warning"
-                        (click)="warning()">Warning</button>
-                <button class="np-btn np-btn-info"
-                        (click)="info()">Info</button>
-            </div>
-        </fieldset>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+        <np-alert type="info">
+          Add above line in your main application module's template file
+          app.component.html only once.
+        </np-alert>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>Import service and class from np-ui-lib in any component</b>
+        <div>
+          <pre><code [innerHTML]="importServiceAndClass"></code></pre>
+        </div>
+        <div>
+          <pre><code [innerHTML]="createServiceObject"></code></pre>
+        </div>
+        <br />
+        <b>How to show notification from any component?</b>
+        <div>
+          <pre><code [innerHTML]="methodText"></code></pre>
+        </div>
+        <p>
+          Where <b>type</b> can be 'success' | 'danger' | 'info' | 'warning'
+        </p>
+        <p>
+          Also set <b>autoCloseTimeout</b> property for closing notification
+          automatically. Default time is 10000 ms
+        </p>
+        <p>
+          Set <b>header</b> to show header in notification, which is type of
+          string
+        </p>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>closeAll()</td>
+            <td>Close all notifications</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <fieldset>
+      <legend>Basic notifications</legend>
+      <div class="np-btn-group">
+        <button class="np-btn np-btn-success" (click)="success()">
+          Success
+        </button>
+        <button class="np-btn np-btn-danger" (click)="error()">Error</button>
+        <button class="np-btn np-btn-warning" (click)="warning()">
+          Warning
+        </button>
+        <button class="np-btn np-btn-info" (click)="info()">Info</button>
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>Notification with header</legend>
-            <div class="np-btn-group">
-                <button class="np-btn np-btn-success"
-                        (click)="successWithHeader()">Notification With Header</button>
-            </div>
-        </fieldset>
+    <fieldset>
+      <legend>Notification with header</legend>
+      <div class="np-btn-group">
+        <button class="np-btn np-btn-success" (click)="successWithHeader()">
+          Notification With Header
+        </button>
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>Notification with HTML text</legend>
-            <div class="np-btn-group">
-                <button class="np-btn np-btn-danger"
-                        (click)="errorWithHTML()">Notification With HTML text</button>
-            </div>
-        </fieldset>
+    <fieldset>
+      <legend>Notification with HTML text</legend>
+      <div class="np-btn-group">
+        <button class="np-btn np-btn-danger" (click)="errorWithHTML()">
+          Notification With HTML text
+        </button>
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>Remove all</legend>
-            <div class="np-btn-group">
-                <button class="np-btn np-btn-danger"
-                        (click)="closeAll()">Remove All</button>
-            </div>
-        </fieldset>
-    </np-tab>
+    <fieldset>
+      <legend>Remove all</legend>
+      <div class="np-btn-group">
+        <button class="np-btn np-btn-danger" (click)="closeAll()">
+          Remove All
+        </button>
+      </div>
+    </fieldset>
+  </np-tab>
 </np-tabs>

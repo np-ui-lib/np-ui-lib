@@ -1,18 +1,21 @@
 import {
-  Component, Input, Output, EventEmitter, ChangeDetectionStrategy,
-  ViewEncapsulation
-} from '@angular/core';
-import { NpBreadcrumbItem } from './np-breadcrumb.model';
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+} from "@angular/core";
+import { NpBreadcrumbItem } from "./np-breadcrumb.model";
 
 @Component({
-  selector: 'np-breadcrumb',
-  templateUrl: './np-breadcrumb.component.html',
-  styleUrls: ['./np-breadcrumb.component.scss'],
+  selector: "np-breadcrumb",
+  templateUrl: "./np-breadcrumb.component.html",
+  styleUrls: ["./np-breadcrumb.component.scss"],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpBreadcrumbComponent {
-
   private static controlCount = 1;
 
   @Input() items: NpBreadcrumbItem[];
@@ -28,5 +31,4 @@ export class NpBreadcrumbComponent {
       this.onClick.emit(item);
     }
   }
-
 }

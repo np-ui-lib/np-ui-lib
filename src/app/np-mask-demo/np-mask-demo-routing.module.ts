@@ -1,14 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpMaskDemoComponent } from './np-mask-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpMaskDemoComponent } from "./np-mask-demo.component";
 
-const routes: Routes = [{
-  component: NpMaskDemoComponent,
-  path: ''
-}];
+const routes: Routes = [
+  {
+    component: NpMaskDemoComponent,
+    path: "",
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpMaskDemoRoutingModule { }
+export class NpMaskDemoRoutingModule {}

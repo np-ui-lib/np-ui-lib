@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpBreadcrumbDemoComponent } from './np-breadcrumb-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpBreadcrumbDemoComponent } from "./np-breadcrumb-demo.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NpBreadcrumbDemoComponent
-  }
+    path: "",
+    component: NpBreadcrumbDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpBreadcrumbDemoRoutingModule { }
+export class NpBreadcrumbDemoRoutingModule {}

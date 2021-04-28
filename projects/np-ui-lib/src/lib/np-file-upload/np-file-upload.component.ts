@@ -1,26 +1,41 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Output, EventEmitter, Input, ViewChild, ElementRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl, NG_VALIDATORS, Validator } from '@angular/forms';
+import {
+  Component,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  forwardRef,
+  Output,
+  EventEmitter,
+  Input,
+  ViewChild,
+  ElementRef,
+} from "@angular/core";
+import {
+  NG_VALUE_ACCESSOR,
+  ControlValueAccessor,
+  FormControl,
+  NG_VALIDATORS,
+  Validator,
+} from "@angular/forms";
 
 @Component({
-  selector: 'np-file-upload',
-  templateUrl: './np-file-upload.component.html',
+  selector: "np-file-upload",
+  templateUrl: "./np-file-upload.component.html",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NpFileUploadComponent),
-      multi: true
+      multi: true,
     },
     {
       provide: NG_VALIDATORS,
       useExisting: forwardRef(() => NpFileUploadComponent),
       multi: true,
-    }
-  ]
+    },
+  ],
 })
 export class NpFileUploadComponent implements ControlValueAccessor, Validator {
-
   private static controlCount = 1;
 
   @Input() multiple: boolean;
@@ -41,14 +56,14 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
   @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('fileUploadInput') fileUploadInput: ElementRef;
-  @ViewChild('control') inputViewChild: ElementRef;
+  @ViewChild("fileUploadInput") fileUploadInput: ElementRef;
+  @ViewChild("control") inputViewChild: ElementRef;
 
   innerValue: File[];
   isDisabled = false;
   focused = false;
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
+  private onChangeCallback: (_: any) => void = () => {};
+  private onTouchedCallback: () => void = () => {};
 
   get value(): File[] {
     return this.innerValue ? this.innerValue : null;
@@ -84,9 +99,9 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     const value = control.value || [];
     if (this.extensions) {
       let isInValidExtension = false;
-      const exts = this.extensions.split(',');
-      value.forEach(element => {
-        if (exts.indexOf(element.name.split('.')[1]) === -1) {
+      const exts = this.extensions.split(",");
+      value.forEach((element) => {
+        if (exts.indexOf(element.name.split(".")[1]) === -1) {
           isInValidExtension = true;
         }
       });
@@ -96,7 +111,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     }
     if (this.size) {
       let isInValidSize = false;
-      value.forEach(element => {
+      value.forEach((element) => {
         if (element.size > this.size) {
           isInValidSize = true;
         }
@@ -107,7 +122,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     }
     if (this.multiple && this.totalSize) {
       let totalSize = 0;
-      value.forEach(element => {
+      value.forEach((element) => {
         totalSize = totalSize + element.size;
       });
       if (totalSize > this.totalSize) {
@@ -148,19 +163,19 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     } else {
       this.value = Array.from<File>($event.target.files);
     }
-    this.fileUploadInput.nativeElement.value = '';
+    this.fileUploadInput.nativeElement.value = "";
   }
 
   _formatBytes(file: File, decimals = 2) {
     const bytes = file.size;
     if (bytes === 0) {
-      return '0 Bytes';
+      return "0 Bytes";
     }
     const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const sizes = ["Bytes", "KB", "MB", "GB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
   }
 
   _remove(idx: number) {
@@ -179,11 +194,14 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   }
 
   _getLabel() {
-    return this.uploadButtonLabel ? this.uploadButtonLabel : (this.multiple ? "Choose_Files" : "Choose_File");
+    return this.uploadButtonLabel
+      ? this.uploadButtonLabel
+      : this.multiple
+      ? "Choose_Files"
+      : "Choose_File";
   }
 
   _getInputId() {
     return this.inputId + "_input";
   }
 }
-

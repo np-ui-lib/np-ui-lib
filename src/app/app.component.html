@@ -1,72 +1,76 @@
 <header>
-    <div class="np-toolbar no-border">
-        <div class="np-toolbar-item">
-            <div class="header-menu-btn"
-                 (click)="toggleMenu()">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-        <div class="np-toolbar-item">
-            <div class="header-link">
-                np-ui-lib
-            </div>
-        </div>
-        <div class="np-toolbar-spacer"></div>
-        <div class="np-toolbar-item">
-            <select class="np-form-control"
-                    (change)="onChangeTheme($event)">
-                <option value="blue-theme"
-                        selected>Blue</option>
-                <option value="green-theme">Green</option>
-                <option value="orange-theme">Orange</option>
-                <option value="purple-theme">Purple</option>
-            </select>
-        </div>
-        <div class="np-toolbar-item">
-            <select class="np-form-control"
-                    (change)="onChangeLang($event)">
-                <option value="EN"
-                        selected>EN</option>
-                <option value="हिंदी">हिंदी</option>
-            </select>
-        </div>
-        <div class="np-toolbar-item np-hidden-sm">
-            <a class="logo-link"
-               href="https://github.com/NilavPatel/np-ui-package"
-               title="Go to github repository"
-               target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-        <div class="np-toolbar-item np-hidden-sm">
-            <a class="logo-link"
-               href="http://npmjs.com/np-ui-lib"
-               title="Go to npm"
-               target="_blank">
-                <i class="fab fa-npm"></i>
-            </a>
-        </div>
+  <div class="np-toolbar no-border">
+    <div class="np-toolbar-item">
+      <div class="header-menu-btn" (click)="toggleMenu()">
+        <i class="fa fa-bars"></i>
+      </div>
     </div>
+    <div class="np-toolbar-item">
+      <div class="header-link">np-ui-lib</div>
+    </div>
+    <div class="np-toolbar-spacer"></div>
+    <div class="np-toolbar-item">
+      <select class="np-form-control" (change)="onChangeTheme($event)">
+        <option value="blue-theme" selected>Blue</option>
+        <option value="green-theme">Green</option>
+        <option value="orange-theme">Orange</option>
+        <option value="purple-theme">Purple</option>
+      </select>
+    </div>
+    <div class="np-toolbar-item">
+      <select class="np-form-control" (change)="onChangeLang($event)">
+        <option value="EN" selected>EN</option>
+        <option value="हिंदी">हिंदी</option>
+      </select>
+    </div>
+    <div class="np-toolbar-item np-hidden-sm">
+      <a
+        class="logo-link"
+        href="https://github.com/NilavPatel/np-ui-package"
+        title="Go to github repository"
+        target="_blank"
+      >
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="np-toolbar-item np-hidden-sm">
+      <a
+        class="logo-link"
+        href="http://npmjs.com/np-ui-lib"
+        title="Go to npm"
+        target="_blank"
+      >
+        <i class="fab fa-npm"></i>
+      </a>
+    </div>
+  </div>
 </header>
 <section>
-    <nav *ngIf="showMenu"
-         [ngClass]="{'mobile-nav': isMobileView}">
-        <np-menubar [items]="menuItems"
-                    [isPanelMenu]="true"
-                    (onClickMenuItem)="onClickMenuItem($event)"
-                    styleClass="my-nav">
-        </np-menubar>
-    </nav>
-    <article class="main-container"
-             [ngClass]="{'full-container': isMobileView || !showMenu}">
-        <div class="content-container">
-            <router-outlet></router-outlet>
-        </div>
-        <footer>
-            <div>{{year}} &#169; <a href="https://github.com/NTech-Software-Solutions"
-                   target="_blank">NTech Software
-                    Solutions</a> - Made with <span class="color-red">&#10084;</span>.</div>
-        </footer>
-    </article>
+  <nav *ngIf="showMenu" [ngClass]="{ 'mobile-nav': isMobileView }">
+    <np-menubar
+      [items]="menuItems"
+      [isPanelMenu]="true"
+      (onClickMenuItem)="onClickMenuItem($event)"
+      styleClass="my-nav"
+    >
+    </np-menubar>
+  </nav>
+  <article
+    class="main-container"
+    [ngClass]="{ 'full-container': isMobileView || !showMenu }"
+  >
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+    <footer>
+      <div>
+        {{ year }} &#169;
+        <a href="https://github.com/NTech-Software-Solutions" target="_blank"
+          >NTech Software Solutions</a
+        >
+        - Made with <span class="color-red">&#10084;</span>.
+      </div>
+    </footer>
+  </article>
 </section>
 <np-notifications></np-notifications>

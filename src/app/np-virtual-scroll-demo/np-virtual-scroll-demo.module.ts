@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpVirtualScrollDemoRoutingModule } from './np-virtual-scroll-demo-routing.module';
-import { NpVirtualScrollDemoComponent } from './np-virtual-scroll-demo.component';
-import { NpVirtualScrollModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
+import { NpVirtualScrollDemoRoutingModule } from "./np-virtual-scroll-demo-routing.module";
+import { NpVirtualScrollDemoComponent } from "./np-virtual-scroll-demo.component";
+import { NpVirtualScrollModule, NpTabsModule, NpCardModule } from "np-ui-lib";
 
 @NgModule({
   declarations: [NpVirtualScrollDemoComponent],
@@ -12,7 +12,7 @@ import { NpVirtualScrollModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
     NpVirtualScrollDemoRoutingModule,
     NpVirtualScrollModule,
     NpTabsModule,
-    NpCardModule
-  ]
+    NpCardModule,
+  ],
 })
-export class NpVirtualScrollDemoModule { }
+export class NpVirtualScrollDemoModule {}

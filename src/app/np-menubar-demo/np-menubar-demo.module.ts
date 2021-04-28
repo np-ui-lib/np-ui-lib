@@ -1,10 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpMenubarDemoRoutingModule } from './np-menubar-demo-routing.module';
-import { NpMenubarDemoComponent } from './np-menubar-demo.component';
-import { NpMenubarModule, NpCardModule, NpTabsModule, NpAlertModule } from 'np-ui-lib';
-
+import { NpMenubarDemoRoutingModule } from "./np-menubar-demo-routing.module";
+import { NpMenubarDemoComponent } from "./np-menubar-demo.component";
+import {
+  NpMenubarModule,
+  NpCardModule,
+  NpTabsModule,
+  NpAlertModule,
+} from "np-ui-lib";
 
 @NgModule({
   declarations: [NpMenubarDemoComponent],
@@ -14,7 +18,7 @@ import { NpMenubarModule, NpCardModule, NpTabsModule, NpAlertModule } from 'np-u
     NpMenubarModule,
     NpCardModule,
     NpTabsModule,
-    NpAlertModule
-  ]
+    NpAlertModule,
+  ],
 })
-export class NpMenubarDemoModule { }
+export class NpMenubarDemoModule {}

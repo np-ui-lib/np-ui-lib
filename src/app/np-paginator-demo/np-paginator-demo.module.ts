@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpPaginatorDemoRoutingModule } from './np-paginator-demo-routing.module';
-import { NpPaginatorDemoComponent } from './np-paginator-demo.component';
-import { NpPaginatorModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
-
+import { NpPaginatorDemoRoutingModule } from "./np-paginator-demo-routing.module";
+import { NpPaginatorDemoComponent } from "./np-paginator-demo.component";
+import { NpPaginatorModule, NpTabsModule, NpCardModule } from "np-ui-lib";
 
 @NgModule({
   declarations: [NpPaginatorDemoComponent],
@@ -13,7 +12,7 @@ import { NpPaginatorModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
     NpPaginatorDemoRoutingModule,
     NpPaginatorModule,
     NpTabsModule,
-    NpCardModule
-  ]
+    NpCardModule,
+  ],
 })
-export class NpPaginatorDemoModule { }
+export class NpPaginatorDemoModule {}

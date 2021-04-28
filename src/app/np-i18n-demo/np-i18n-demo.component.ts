@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-i18n-demo',
-  templateUrl: './np-i18n-demo.component.html'
+  selector: "app-np-i18n-demo",
+  templateUrl: "./np-i18n-demo.component.html",
 })
 export class NpI18nDemoComponent implements OnInit {
-
-  importText = 'import { NpTranslationsModule } from \'np-ui-lib\';';
+  importText = "import { NpTranslationsModule } from 'np-ui-lib';";
   serviceInjectText = `constructor(private translateService: NpTranslationsService) { }`;
   addTanslationText = `this.translateService.setTranslations({
     'Su': 'Su',
@@ -75,9 +74,7 @@ export class NpI18nDemoComponent implements OnInit {
   });`;
   defaultTransSetText = `this.translateService.setTranslations(null);`;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

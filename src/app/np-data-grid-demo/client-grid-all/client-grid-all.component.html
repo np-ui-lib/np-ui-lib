@@ -1,72 +1,74 @@
 <h2 class="page-header">Client side grid full example</h2>
 
-<np-data-grid [columns]="gridColumns"
-              [dataSource]="gridDataSource"
-              [multiColumnSortEnable]=true
-              [masterDetailTemplate]="masterChildTemplate"
-              [height]="600"
-              [width]="1000"
-              [enableStateStoring]="true"
-              [multiRowSelectEnable]="true"
-              [showColumnChooser]="true"
-              [showToolBar]="true"
-              [showFilters]="false"
-              [allowExport]="true"
-              [title]="'Client side data grid'"
-              [noDataMessage]="'No data available.'"
-              [showSummary]="true"
-              [summaryTemplate]="summaryTemplate"
-              [allowColumnReorder]="true"
-              [allowColumnResize]="true"
-              [styleClass]="'myClass'">
+<np-data-grid
+  [columns]="gridColumns"
+  [dataSource]="gridDataSource"
+  [multiColumnSortEnable]="true"
+  [masterDetailTemplate]="masterChildTemplate"
+  [height]="600"
+  [width]="1000"
+  [enableStateStoring]="true"
+  [multiRowSelectEnable]="true"
+  [showColumnChooser]="true"
+  [showToolBar]="true"
+  [showFilters]="false"
+  [allowExport]="true"
+  [title]="'Client side data grid'"
+  [noDataMessage]="'No data available.'"
+  [showSummary]="true"
+  [summaryTemplate]="summaryTemplate"
+  [allowColumnReorder]="true"
+  [allowColumnResize]="true"
+  [styleClass]="'myClass'"
+>
 </np-data-grid>
 
 <!-- Template for action buttons column -->
-<ng-template #actionButtonsTemplate
-             let-row="row">
-    <div class="np-btn-group">
-        <button class="np-btn-icon np-btn-primary"
-                (click)="onActionClick(row,'Edit', $event)"><i class="fa fa-edit"></i></button>
-        <button class="np-btn-icon np-btn-danger"
-                (click)="onActionClick(row,'Delete', $event)"><i class="fa fa-trash"></i></button>
-    </div>
+<ng-template #actionButtonsTemplate let-row="row">
+  <div class="np-btn-group">
+    <button
+      class="np-btn-icon np-btn-primary"
+      (click)="onActionClick(row, 'Edit', $event)"
+    >
+      <i class="fa fa-edit"></i>
+    </button>
+    <button
+      class="np-btn-icon np-btn-danger"
+      (click)="onActionClick(row, 'Delete', $event)"
+    >
+      <i class="fa fa-trash"></i>
+    </button>
+  </div>
 </ng-template>
 
 <!-- Template for birthdate column -->
-<ng-template #birthDateColumnTemplate
-             let-row="row">
-    {{row.BirthDate | date:'dd/MM/yyyy'}}
+<ng-template #birthDateColumnTemplate let-row="row">
+  {{ row.BirthDate | date: "dd/MM/yyyy" }}
 </ng-template>
 
 <!-- Template for child section -->
-<ng-template #masterChildTemplate
-             let-row="row">
-    <span><b>Name: </b>{{row.FirstName}} {{row.LastName}}</span>
-    <br>
-    <span><b>Age: </b>{{row.Age}} years</span>
-    <br>
-    <span><b>Birth Date: </b>{{row.BirthDate | date:'dd/MM/yyyy'}}</span>
+<ng-template #masterChildTemplate let-row="row">
+  <span><b>Name: </b>{{ row.FirstName }} {{ row.LastName }}</span>
+  <br />
+  <span><b>Age: </b>{{ row.Age }} years</span>
+  <br />
+  <span><b>Birth Date: </b>{{ row.BirthDate | date: "dd/MM/yyyy" }}</span>
 </ng-template>
 
 <!-- Template for summary section -->
-<ng-template #summaryTemplate
-             let-summary="summary">
-    <span>Total:{{summary ? summary.totalCount : 0}}</span>
+<ng-template #summaryTemplate let-summary="summary">
+  <span>Total:{{ summary ? summary.totalCount : 0 }}</span>
 </ng-template>
 
-<np-sidepanel #sidePanelRight
-              [position]="'right'"
-              [height]="'100%'"
-              [width]="'50%'">
-    <ng-template npSidepanelContent>
-        <div>
-            Id: {{sidepanelData.Id}}
-        </div>
-        <div>
-            First Name: {{sidepanelData.FirstName}}
-        </div>
-        <div>
-            Last Name: {{sidepanelData.LastName}}
-        </div>
-    </ng-template>
+<np-sidepanel
+  #sidePanelRight
+  [position]="'right'"
+  [height]="'100%'"
+  [width]="'50%'"
+>
+  <ng-template npSidepanelContent>
+    <div>Id: {{ sidepanelData.Id }}</div>
+    <div>First Name: {{ sidepanelData.FirstName }}</div>
+    <div>Last Name: {{ sidepanelData.LastName }}</div>
+  </ng-template>
 </np-sidepanel>

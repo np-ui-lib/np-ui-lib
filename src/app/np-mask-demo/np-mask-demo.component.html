@@ -1,86 +1,97 @@
 <h2 class="page-header">Masking</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table np-table-striped">
-                    <tr>
-                        <th>Format</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>Allow only 0-9</td>
-                    </tr>
-                    <tr>
-                        <td>a</td>
-                        <td>Allow only a-z</td>
-                    </tr>
-                    <tr>
-                        <td>A</td>
-                        <td>Allow only A-Z</td>
-                    </tr>
-                    <tr>
-                        <td>B</td>
-                        <td>Allow only aA-zZ</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <fieldset>
-            <div class="np-form-group">
-                <label class="np-form-label">000-aaa-AAA-BBB</label>
-                <input type="text"
-                       class="np-form-control"
-                       [(ngModel)]="maskedValue1"
-                       placeholder="000-aaa-AAA-BBB"
-                       [npMask]="'000-aaa-AAA-BBB'"> Value:{{maskedValue1}}
-            </div>
-        </fieldset>
-        <fieldset>
-            <div class="np-form-group">
-                <label class="np-form-label">Select credit card type:</label>
-                <np-dropdown [items]="creditCards"
-                             [(ngModel)]="selectedCard"
-                             [displayKey]="'card'"></np-dropdown>
-            </div>
-            <div class="np-form-group">
-                <label class="np-form-label">Credit Card Number:</label>
-                <input type="text"
-                       class="np-form-control"
-                       [(ngModel)]="maskedValue2"
-                       [placeholder]="selectedCard ? selectedCard.placeholder: ''"
-                       [npMask]="selectedCard ? selectedCard.mask:''"> Value:{{maskedValue2}}
-            </div>
-        </fieldset>
-        <fieldset>
-            <div class="np-form-group">
-                <label class="np-form-label">Phone Number:</label>
-                <input type="text"
-                       class="np-form-control"
-                       [(ngModel)]="maskedValue3"
-                       placeholder="+(000) 000-0000"
-                       [npMask]="'+(000) 000-0000'"> Value:{{maskedValue3}}
-            </div>
-        </fieldset>
-    </np-tab>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table np-table-striped">
+          <tr>
+            <th>Format</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>Allow only 0-9</td>
+          </tr>
+          <tr>
+            <td>a</td>
+            <td>Allow only a-z</td>
+          </tr>
+          <tr>
+            <td>A</td>
+            <td>Allow only A-Z</td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>Allow only aA-zZ</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <fieldset>
+      <div class="np-form-group">
+        <label class="np-form-label">000-aaa-AAA-BBB</label>
+        <input
+          type="text"
+          class="np-form-control"
+          [(ngModel)]="maskedValue1"
+          placeholder="000-aaa-AAA-BBB"
+          [npMask]="'000-aaa-AAA-BBB'"
+        />
+        Value:{{ maskedValue1 }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="np-form-group">
+        <label class="np-form-label">Select credit card type:</label>
+        <np-dropdown
+          [items]="creditCards"
+          [(ngModel)]="selectedCard"
+          [displayKey]="'card'"
+        ></np-dropdown>
+      </div>
+      <div class="np-form-group">
+        <label class="np-form-label">Credit Card Number:</label>
+        <input
+          type="text"
+          class="np-form-control"
+          [(ngModel)]="maskedValue2"
+          [placeholder]="selectedCard ? selectedCard.placeholder : ''"
+          [npMask]="selectedCard ? selectedCard.mask : ''"
+        />
+        Value:{{ maskedValue2 }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="np-form-group">
+        <label class="np-form-label">Phone Number:</label>
+        <input
+          type="text"
+          class="np-form-control"
+          [(ngModel)]="maskedValue3"
+          placeholder="+(000) 000-0000"
+          [npMask]="'+(000) 000-0000'"
+        />
+        Value:{{ maskedValue3 }}
+      </div>
+    </fieldset>
+  </np-tab>
 </np-tabs>

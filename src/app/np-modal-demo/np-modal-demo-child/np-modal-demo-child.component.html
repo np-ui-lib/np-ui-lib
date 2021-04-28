@@ -1,72 +1,74 @@
 <form [formGroup]="myForm">
-    <div class="np-container">
-        <div class="np-row">
-            <div class="np-col-6">
-                <div class="np-form-group">
-                    <div class="np-form-label np-required">First name:</div>
-                    <input type="text"
-                           class="np-form-control"
-                           formControlName="firstName"
-                           name="txtFirstName"
-                           [npAutofocus]="true">
-                </div>
-            </div>
-            <div class="np-col-6">
-                <div class="np-form-group">
-                    <div class="np-form-label np-required">Last name:</div>
-                    <input type="text"
-                           class="np-form-control"
-                           formControlName="lastName"
-                           name="txtLastName">
-                </div>
-            </div>
+  <div class="np-container">
+    <div class="np-row">
+      <div class="np-col-6">
+        <div class="np-form-group">
+          <div class="np-form-label np-required">First name:</div>
+          <input
+            type="text"
+            class="np-form-control"
+            formControlName="firstName"
+            name="txtFirstName"
+            [npAutofocus]="true"
+          />
         </div>
-        <div class="np-row">
-            <div class="np-col-6">
-                <div class="np-form-group">
-                    <div class="np-form-label np-required">Birth date:</div>
-                    <np-date-picker formControlName="birthDate"
-                                    name="txtBirthDate">
-                    </np-date-picker>
-                </div>
-            </div>
-            <div class="np-col-6">
-                <div class="np-form-group">
-                    <div class="np-form-label np-required">Birth time:</div>
-                    <np-time-picker formControlName="birthTime"
-                                    name="txtBirthTime">
-                    </np-time-picker>
-                </div>
-            </div>
+      </div>
+      <div class="np-col-6">
+        <div class="np-form-group">
+          <div class="np-form-label np-required">Last name:</div>
+          <input
+            type="text"
+            class="np-form-control"
+            formControlName="lastName"
+            name="txtLastName"
+          />
         </div>
-        <div class="np-row">
-            <div class="np-col-12">
-                <div class="np-form-group">
-                    <div class="np-form-label np-required">Is Active:</div>
-                    <np-switch formControlName="isActive"
-                               name="swIsActive">
-                    </np-switch>
-                </div>
-            </div>
-        </div>
-        <div class="np-row">
-            <div class="np-col-12">
-                <div class="np-form-group">
-                    <div class="np-form-label np-required">Description:</div>
-                    <textarea class="np-form-control"
-                              rows="3"
-                              formControlName="description"
-                              name="txtDescription"></textarea>
-                </div>
-            </div>
-        </div>
-        <div class="np-btn-group np-float-right">
-            <button type="submit"
-                    class="np-btn np-btn-primary"
-                    (click)="submit()">Save</button>
-            <button type="button"
-                    class="np-btn np-btn-danger"
-                    (click)="close()">Close</button>
-        </div>
+      </div>
     </div>
+    <div class="np-row">
+      <div class="np-col-6">
+        <div class="np-form-group">
+          <div class="np-form-label np-required">Birth date:</div>
+          <np-date-picker formControlName="birthDate" name="txtBirthDate">
+          </np-date-picker>
+        </div>
+      </div>
+      <div class="np-col-6">
+        <div class="np-form-group">
+          <div class="np-form-label np-required">Birth time:</div>
+          <np-time-picker formControlName="birthTime" name="txtBirthTime">
+          </np-time-picker>
+        </div>
+      </div>
+    </div>
+    <div class="np-row">
+      <div class="np-col-12">
+        <div class="np-form-group">
+          <div class="np-form-label np-required">Is Active:</div>
+          <np-switch formControlName="isActive" name="swIsActive"> </np-switch>
+        </div>
+      </div>
+    </div>
+    <div class="np-row">
+      <div class="np-col-12">
+        <div class="np-form-group">
+          <div class="np-form-label np-required">Description:</div>
+          <textarea
+            class="np-form-control"
+            rows="3"
+            formControlName="description"
+            name="txtDescription"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="np-btn-group np-float-right">
+      <button type="submit" class="np-btn np-btn-primary" (click)="submit()">
+        Save
+      </button>
+      <button type="button" class="np-btn np-btn-danger" (click)="close()">
+        Close
+      </button>
+    </div>
+  </div>
 </form>

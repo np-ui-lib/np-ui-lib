@@ -1,24 +1,21 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: "root",
 })
 export class DataService {
+  constructor(private httpClient: HttpClient) {}
 
-    constructor(private httpClient: HttpClient) {
+  getAll() {
+    return this.httpClient.get("/getAllUsers");
+  }
 
-    }
+  getDataUsingLoadOptions(loadOptions) {
+    return this.httpClient.post("/getAllUsers", loadOptions);
+  }
 
-    getAll() {
-        return this.httpClient.get('/getAllUsers');
-    }
-
-    getDataUsingLoadOptions(loadOptions) {
-        return this.httpClient.post('/getAllUsers', loadOptions);
-    }
-
-    updateFirstName(keys) {
-        return this.httpClient.post('/updateUsers', keys);
-    }
+  updateFirstName(keys) {
+    return this.httpClient.post("/updateUsers", keys);
+  }
 }

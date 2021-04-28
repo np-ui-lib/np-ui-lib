@@ -1,223 +1,227 @@
 <h2 class="page-header">Carousel</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>items</td>
-                        <td>Array of data</td>
-                        <td>any[]</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>autoPlay</td>
-                        <td>Allow autoplay</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>autoPlayInterval</td>
-                        <td>Autoplay interval in ms</td>
-                        <td>number</td>
-                        <td>5000</td>
-                    </tr>
-                    <tr>
-                        <td>itemTemplate</td>
-                        <td>Template for displaying data</td>
-                        <td>TemplateRef&lt;any&gt;</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>visibleNum</td>
-                        <td>Set how many items display on view</td>
-                        <td>number</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>scrollNum</td>
-                        <td>Set how many items scrolled while next/prev button click</td>
-                        <td>number</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>currentPage</td>
-                        <td>Set current display number on load time</td>
-                        <td>number</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>pauseOnHover</td>
-                        <td>Pause autoplay on hover</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>showNavigationArrows</td>
-                        <td>Display navigation arrows</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>showNavigationIndicators</td>
-                        <td>Show navigation indicators at bottoms</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            start()
-                        </td>
-                        <td>
-                            Start auto scroll
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            pause()
-                        </td>
-                        <td>
-                            Pause auto scroll
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            select(page: number)
-                        </td>
-                        <td>
-                            Scroll to page
-                        </td>
-                        <td>page: number</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <fieldset>
-            <np-carousel [items]="items"
-                         [itemTemplate]="itemTemplate"
-                         [autoPlay]="true"
-                         [pauseOnHover]="true">
-            </np-carousel>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>items</td>
+            <td>Array of data</td>
+            <td>any[]</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>autoPlay</td>
+            <td>Allow autoplay</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>autoPlayInterval</td>
+            <td>Autoplay interval in ms</td>
+            <td>number</td>
+            <td>5000</td>
+          </tr>
+          <tr>
+            <td>itemTemplate</td>
+            <td>Template for displaying data</td>
+            <td>TemplateRef&lt;any&gt;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>visibleNum</td>
+            <td>Set how many items display on view</td>
+            <td>number</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>scrollNum</td>
+            <td>Set how many items scrolled while next/prev button click</td>
+            <td>number</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>currentPage</td>
+            <td>Set current display number on load time</td>
+            <td>number</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>pauseOnHover</td>
+            <td>Pause autoplay on hover</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>showNavigationArrows</td>
+            <td>Display navigation arrows</td>
+            <td>boolean</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>showNavigationIndicators</td>
+            <td>Show navigation indicators at bottoms</td>
+            <td>boolean</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>start()</td>
+            <td>Start auto scroll</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>pause()</td>
+            <td>Pause auto scroll</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>select(page: number)</td>
+            <td>Scroll to page</td>
+            <td>page: number</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <fieldset>
+      <np-carousel
+        [items]="items"
+        [itemTemplate]="itemTemplate"
+        [autoPlay]="true"
+        [pauseOnHover]="true"
+      >
+      </np-carousel>
 
-            <ng-template #itemTemplate
-                         let-item="item">
-                <img [src]="item.imageUrl"
-                     class="np-responsive-img">
-            </ng-template>
-        </fieldset>
+      <ng-template #itemTemplate let-item="item">
+        <img [src]="item.imageUrl" class="np-responsive-img" />
+      </ng-template>
+    </fieldset>
 
-        <fieldset>
-            <np-carousel #slider
-                         [items]="items2"
-                         [itemTemplate]="itemTemplate2"
-                         [visibleNum]="visibleNum"
-                         [currentPage]="1"
-                         [scrollNum]="scrollNum">
-            </np-carousel>
+    <fieldset>
+      <np-carousel
+        #slider
+        [items]="items2"
+        [itemTemplate]="itemTemplate2"
+        [visibleNum]="visibleNum"
+        [currentPage]="1"
+        [scrollNum]="scrollNum"
+      >
+      </np-carousel>
 
-            <ng-template #itemTemplate2
-                         let-item="item">
-                <np-card [width]="250"
-                         styleClass="pricing-table">
-                    <np-card-body>
-                        <div class="np-text-center"
-                             style="background-color: black;color: white; padding: 25px;font-size: 26px;">
-                            {{item.name}}</div>
-                        <div class="price-label np-text-center"
-                             style="padding: 10px 20px;font-size: 24px;">
-                            ${{item.id * 100}}/mo
-                        </div>
-                        <div class="np-list">
-                            <div class="np-list-item np-text-center">{{item.id * 10}}GB
-                                Storage</div>
-                            <div class="np-list-item np-text-center">{{item.id * 10}} Emails
-                            </div>
-                            <div class="np-list-item np-text-center">{{item.id * 1}}
-                                Domains</div>
-                            <div class="np-list-item np-text-center">{{item.id * 100}}GB
-                                Bandwidth</div>
-                        </div>
-                        <div class="price-actions np-text-center">
-                            <button class="np-btn np-btn-primary">SELECT</button>
-                        </div>
-                    </np-card-body>
-                </np-card>
-            </ng-template>
-
-            <div>
-                Slides To Show:
-                <input type="number"
-                       class="np-form-control"
-                       [(ngModel)]="visibleNum"
-                       [min]="1"
-                       [max]="5">
+      <ng-template #itemTemplate2 let-item="item">
+        <np-card [width]="250" styleClass="pricing-table">
+          <np-card-body>
+            <div
+              class="np-text-center"
+              style="
+                background-color: black;
+                color: white;
+                padding: 25px;
+                font-size: 26px;
+              "
+            >
+              {{ item.name }}
             </div>
-
-            <div>
-                Slides To Scroll:
-                <input type="number"
-                       class="np-form-control"
-                       [(ngModel)]="scrollNum"
-                       [min]="1"
-                       [max]="5">
+            <div
+              class="price-label np-text-center"
+              style="padding: 10px 20px; font-size: 24px"
+            >
+              ${{ item.id * 100 }}/mo
             </div>
-
-            <div class="np-btn-group">
-                <button class="np-btn"
-                        (click)="selectPage2()">Go to page 2</button>
-                <button class="np-btn"
-                        (click)="addNewItem2()">Add new item</button>
+            <div class="np-list">
+              <div class="np-list-item np-text-center">
+                {{ item.id * 10 }}GB Storage
+              </div>
+              <div class="np-list-item np-text-center">
+                {{ item.id * 10 }} Emails
+              </div>
+              <div class="np-list-item np-text-center">
+                {{ item.id * 1 }} Domains
+              </div>
+              <div class="np-list-item np-text-center">
+                {{ item.id * 100 }}GB Bandwidth
+              </div>
             </div>
-        </fieldset>
-    </np-tab>
+            <div class="price-actions np-text-center">
+              <button class="np-btn np-btn-primary">SELECT</button>
+            </div>
+          </np-card-body>
+        </np-card>
+      </ng-template>
+
+      <div>
+        Slides To Show:
+        <input
+          type="number"
+          class="np-form-control"
+          [(ngModel)]="visibleNum"
+          [min]="1"
+          [max]="5"
+        />
+      </div>
+
+      <div>
+        Slides To Scroll:
+        <input
+          type="number"
+          class="np-form-control"
+          [(ngModel)]="scrollNum"
+          [min]="1"
+          [max]="5"
+        />
+      </div>
+
+      <div class="np-btn-group">
+        <button class="np-btn" (click)="selectPage2()">Go to page 2</button>
+        <button class="np-btn" (click)="addNewItem2()">Add new item</button>
+      </div>
+    </fieldset>
+  </np-tab>
 </np-tabs>

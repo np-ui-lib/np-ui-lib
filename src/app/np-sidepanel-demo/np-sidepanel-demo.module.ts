@@ -1,13 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpSidepanelDemoRoutingModule } from './np-sidepanel-demo-routing.module';
-import { NpSidepanelDemoComponent } from './np-sidepanel-demo.component';
+import { NpSidepanelDemoRoutingModule } from "./np-sidepanel-demo-routing.module";
+import { NpSidepanelDemoComponent } from "./np-sidepanel-demo.component";
 import {
-  NpDatePickerModule, NpTimePickerModule, NpSwitchModule, NpSidepanelModule,
-  NpCardModule, NpTabsModule, NpAlertModule, NpTextareaModule, NpInputTextModule
-} from 'np-ui-lib';
-import { ReactiveFormsModule } from '@angular/forms';
+  NpDatePickerModule,
+  NpTimePickerModule,
+  NpSwitchModule,
+  NpSidepanelModule,
+  NpCardModule,
+  NpTabsModule,
+  NpAlertModule,
+  NpTextareaModule,
+  NpInputTextModule,
+} from "np-ui-lib";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [NpSidepanelDemoComponent],
@@ -23,7 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NpTabsModule,
     NpAlertModule,
     NpTextareaModule,
-    NpInputTextModule
-  ]
+    NpInputTextModule,
+  ],
 })
-export class NpSidepanelDemoModule { }
+export class NpSidepanelDemoModule {}

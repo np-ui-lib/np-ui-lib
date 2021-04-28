@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpDropdownDemoRoutingModule } from './np-dropdown-demo-routing.module';
-import { NpDropdownDemoComponent } from './np-dropdown-demo.component';
-import { NpDropdownModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
-import { FormsModule } from '@angular/forms';
+import { NpDropdownDemoRoutingModule } from "./np-dropdown-demo-routing.module";
+import { NpDropdownDemoComponent } from "./np-dropdown-demo.component";
+import { NpDropdownModule, NpCardModule, NpTabsModule } from "np-ui-lib";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [NpDropdownDemoComponent],
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     NpDropdownDemoRoutingModule,
     NpDropdownModule,
     NpCardModule,
-    NpTabsModule
-  ]
+    NpTabsModule,
+  ],
 })
-export class NpDropdownDemoModule { }
+export class NpDropdownDemoModule {}

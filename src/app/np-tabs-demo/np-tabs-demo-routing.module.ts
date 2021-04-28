@@ -1,17 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpTabsDemoComponent } from './np-tabs-demo.component';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpTabsDemoComponent } from "./np-tabs-demo.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NpTabsDemoComponent
-  }
+    path: "",
+    component: NpTabsDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpTabsDemoRoutingModule { }
+export class NpTabsDemoRoutingModule {}

@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpCheckboxDemoComponent } from './np-checkbox-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpCheckboxDemoComponent } from "./np-checkbox-demo.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NpCheckboxDemoComponent
-  }
+    path: "",
+    component: NpCheckboxDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpCheckboxDemoRoutingModule { }
+export class NpCheckboxDemoRoutingModule {}

@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpAlertDemoComponent } from './np-alert-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpAlertDemoComponent } from "./np-alert-demo.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NpAlertDemoComponent
-  }
+    path: "",
+    component: NpAlertDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpAlertDemoRoutingModule { }
+export class NpAlertDemoRoutingModule {}

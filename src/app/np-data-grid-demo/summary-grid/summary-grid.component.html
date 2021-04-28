@@ -1,16 +1,19 @@
 <h2 class="page-header">Summary example</h2>
 
-<p>Set <b>showSummary</b> and <b>summaryTemplate</b> in data grid defination.</p>
+<p>
+  Set <b>showSummary</b> and <b>summaryTemplate</b> in data grid defination.
+</p>
 <p>Pass <b>DataSource.summary</b> property in data source.</p>
 
-<np-data-grid [columns]="gridColumns"
-              [dataSource]="gridDataSource"
-              [showSummary]="true"
-              [summaryTemplate]="summaryTemplate">
+<np-data-grid
+  [columns]="gridColumns"
+  [dataSource]="gridDataSource"
+  [showSummary]="true"
+  [summaryTemplate]="summaryTemplate"
+>
 </np-data-grid>
 
 <!-- Template for summary section -->
-<ng-template #summaryTemplate
-             let-summary="summary">
-    <span>Total:{{summary ? summary.totalCount : 0}}</span>
+<ng-template #summaryTemplate let-summary="summary">
+  <span>Total:{{ summary ? summary.totalCount : 0 }}</span>
 </ng-template>

@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-card-demo',
-  templateUrl: './np-card-demo.component.html'
+  selector: "app-np-card-demo",
+  templateUrl: "./np-card-demo.component.html",
 })
 export class NpCardDemoComponent implements OnInit {
-
   importText = `import { NpCardModule } from \'np-ui-lib\';`;
   htmlText = `<np-card>
   <np-card-header>
@@ -22,9 +21,7 @@ export class NpCardDemoComponent implements OnInit {
   </np-card-footer>
 </np-card>`;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

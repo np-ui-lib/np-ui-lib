@@ -1,129 +1,136 @@
 <h2 class="page-header">Tooltip</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>npTooltip</td>
-                        <td>Text or ng-template reference</td>
-                        <td>string | TemplateRef&lt;any&gt;</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>width</td>
-                        <td>Set width. Values should be like '100%', '100px', 200. If pass as number then it
-                            will considered as px.</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>context</td>
-                        <td>Pass data to template
-                            <pre><code>{{contextText}}</code></pre>
-                        </td>
-                        <td>any</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>placement</td>
-                        <td>Set tooltip position from 'left' | 'right' | 'top' | 'bottom'</td>
-                        <td>string</td>
-                        <td>bottom</td>
-                    </tr>
-                    <tr>
-                        <td>tooltipOnFocus</td>
-                        <td>Show tooltip on focus of input control</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>npTooltip</td>
+            <td>Text or ng-template reference</td>
+            <td>string | TemplateRef&lt;any&gt;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>width</td>
+            <td>
+              Set width. Values should be like '100%', '100px', 200. If pass as
+              number then it will considered as px.
+            </td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>context</td>
+            <td>
+              Pass data to template
+              <pre><code>{{contextText}}</code></pre>
+            </td>
+            <td>any</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>placement</td>
+            <td>
+              Set tooltip position from 'left' | 'right' | 'top' | 'bottom'
+            </td>
+            <td>string</td>
+            <td>bottom</td>
+          </tr>
+          <tr>
+            <td>tooltipOnFocus</td>
+            <td>Show tooltip on focus of input control</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
 
-    <np-tab title="Examples">
-        <p>
-            <span [npTooltip]="'This is left tooltip.'"
-                  [placement]="'left'">
-                Hover me for left tooltip
-            </span>
-        </p>
+  <np-tab title="Examples">
+    <p>
+      <span [npTooltip]="'This is left tooltip.'" [placement]="'left'">
+        Hover me for left tooltip
+      </span>
+    </p>
 
-        <p>
-            <span [npTooltip]="'This is right tooltip.'"
-                  [placement]="'right'"
-                  [styleClass]="'myClass'">
-                Hover me for right tooltip, with [styleClass] attribute.
-            </span>
-        </p>
+    <p>
+      <span
+        [npTooltip]="'This is right tooltip.'"
+        [placement]="'right'"
+        [styleClass]="'myClass'"
+      >
+        Hover me for right tooltip, with [styleClass] attribute.
+      </span>
+    </p>
 
-        <p>
-            <span [npTooltip]="tooltipTop"
-                  [placement]="'top'"
-                  [context]="{count: 5}"
-                  [width]="100">
-                Hover me for top tooltip, with ng-template.
-                <ng-template #tooltipTop
-                             let-count="count">
-                    <u>This is top tooltip. Count pass in context is {{count}}</u>
-                </ng-template>
-            </span>
-        </p>
+    <p>
+      <span
+        [npTooltip]="tooltipTop"
+        [placement]="'top'"
+        [context]="{ count: 5 }"
+        [width]="100"
+      >
+        Hover me for top tooltip, with ng-template.
+        <ng-template #tooltipTop let-count="count">
+          <u>This is top tooltip. Count pass in context is {{ count }}</u>
+        </ng-template>
+      </span>
+    </p>
 
-        <p>
-            <span [npTooltip]="tooltipBottom"
-                  [placement]="'bottom'">
-                Hover me for bottom tooltip, with ng-template.
-                <ng-template #tooltipBottom>
-                    <i>This is bottom tooltip</i>
-                </ng-template>
-            </span>
-        </p>
+    <p>
+      <span [npTooltip]="tooltipBottom" [placement]="'bottom'">
+        Hover me for bottom tooltip, with ng-template.
+        <ng-template #tooltipBottom>
+          <i>This is bottom tooltip</i>
+        </ng-template>
+      </span>
+    </p>
 
-
-        <p>
-            <input type="text"
-                   style="width: 200px;"
-                   placeholder="Tooltip on focus"
-                   class="np-form-control"
-                   [npTooltip]="'Enter your name.'"
-                   [tooltipOnFocus]="true">
-        </p>
-    </np-tab>
+    <p>
+      <input
+        type="text"
+        style="width: 200px"
+        placeholder="Tooltip on focus"
+        class="np-form-control"
+        [npTooltip]="'Enter your name.'"
+        [tooltipOnFocus]="true"
+      />
+    </p>
+  </np-tab>
 </np-tabs>

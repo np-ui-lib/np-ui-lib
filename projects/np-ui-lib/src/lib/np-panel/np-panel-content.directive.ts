@@ -1,7 +1,6 @@
-import { Directive } from '@angular/core';
+import { Directive } from "@angular/core";
 
 @Directive({
-    selector: '[npPanelContent]',
+  selector: "[npPanelContent]",
 })
-export class NpPanelContent {
-}
+export class NpPanelContent {}

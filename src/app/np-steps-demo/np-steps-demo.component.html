@@ -1,276 +1,291 @@
 <h2 class="page-header">Steps</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>&lt;np-steps&gt;</b>
-                <p>
-                    <b>&lt;np-steps&gt;</b> extends <b>&lt;cdk-stepper&gt;</b>
-                    <br>
-                    Find documentation for <b>&lt;cdk-stepper&gt;</b> at <a
-                       href="https://material.angular.io/cdk/stepper/api#CdkStepper">here</a>.
-                </p>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>verticalSteps</td>
-                        <td>Set vertical steps</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>stretchLabels</td>
-                        <td>Set stretched header label</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>&lt;np-step&gt;</b>
-                <p>
-                    <b>&lt;np-step&gt;</b> extends <b>&lt;cdk-step&gt;</b>
-                    <br>
-                    Find documentation for <b>&lt;cdk-step&gt;</b> at <a
-                       href="https://material.angular.io/cdk/stepper/api#CdkStep">here</a>.
-                </p>
-                <np-alert type="info">
-                    <b>Note:</b>&nbsp;Instead of&nbsp;<b>stepLabel</b>&nbsp;use&nbsp;<b>labelTemplate</b>&nbsp;property.
-                </np-alert>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>labelTemplate</td>
-                        <td>Template for step label</td>
-                        <td>Template&lt;any&gt;</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>iconCss</td>
-                        <td>
-                            Set CSS for icon like 'fa fa-home' <br>
-                            If icon is set then step number will not show.
-                        </td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>npStepNext</b>
-                <br>
-                Show next button into step.
-                <div>
-                    <pre><code [innerText]="nextBtnText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>npStepPrevious</b>
-                <br>
-                Show previous button into step.
-                <div>
-                    <pre><code [innerText]="previousBtnText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <fieldset>
-            <legend>Horizontal Steps</legend>
-            <np-steps #stepper
-                      [stretchLabels]="stretchLabels">
-                <form>
-                    <np-step label="Add Personal Info"
-                             #personalStep
-                             [stepControl]="personal">
-                        <div [formGroup]="personal">
-                            <h3>Personal Info</h3>
-                            <br>
-                            <label>
-                                First Name:
-                                <input type="text"
-                                       class="np-form-control"
-                                       formControlName="firstName">
-                            </label>
-                            <br>
-                            <label>
-                                Last Name:
-                                <input type="text"
-                                       class="np-form-control"
-                                       formControlName="lastName">
-                            </label>
-                            <div class="np-btn-group">
-                                <button type="button"
-                                        class="np-btn"
-                                        npStepNext>Next</button>
-                            </div>
-                        </div>
-                    </np-step>
-                    <np-step label="Add Address"
-                             #addressStep
-                             [stepControl]="address">
-                        <div [formGroup]="address">
-                            <h3>Address</h3>
-                            <br>
-                            <label>
-                                Street:
-                                <input type="text"
-                                       class="np-form-control"
-                                       formControlName="street">
-                            </label>
-                            <br>
-                            <label>
-                                City:
-                                <input type="text"
-                                       class="np-form-control"
-                                       formControlName="city">
-                            </label>
-                            <br>
-                            <label>
-                                State:
-                                <input type="text"
-                                       class="np-form-control"
-                                       formControlName="state">
-                            </label>
-                            <br>
-                            <label>
-                                Zip Code:
-                                <input type="text"
-                                       class="np-form-control"
-                                       formControlName="zip">
-                            </label>
-                            <div class="np-btn-group">
-                                <button type="button"
-                                        class="np-btn"
-                                        npStepPrevious>Previous</button>
-                                <button type="button"
-                                        class="np-btn"
-                                        npStepNext>Next</button>
-                            </div>
-                        </div>
-                    </np-step>
-                    <np-step label="Upload Images"
-                             #photosStep
-                             [stepControl]="photos"
-                             [iconCss]="'fa fa-image'">
-                        <div [formGroup]="photos">
-                            <h3>Upload Images</h3>
-                            <br>
-                            <label>
-                                Upload Images:
-                                <input type="file"
-                                       class="np-form-control"
-                                       formControlName="images">
-                            </label>
-                            <div class="np-btn-group">
-                                <button type="button"
-                                        class="np-btn"
-                                        npStepPrevious>Previous</button>
-                                <button type="button"
-                                        class="np-btn np-btn-primary">Save</button>
-                                <button type="button"
-                                        class="np-btn np-btn-danger"
-                                        (click)="stepper.reset()">Reset</button>
-                            </div>
-                        </div>
-                    </np-step>
-                </form>
-            </np-steps>
-            <br>
-            Stretch labels : <np-switch [(ngModel)]="stretchLabels"></np-switch>
-        </fieldset>
-        <fieldset>
-            <legend>Vertical Steps</legend>
-            <np-steps [verticalSteps]="true">
-                <np-step label="Fill your personal details">
-                    <p>Step 1</p>
-                    <p>Step 1</p>
-                    <p>Step 1</p>
-                    <p>Step 1</p>
-                    <div class="np-btn-group">
-                        <button type="button"
-                                class="np-btn"
-                                npStepNext>Next</button>
-                    </div>
-                </np-step>
-                <np-step label="Fill your address">
-                    <p>Step 2</p>
-                    <p>Step 2</p>
-                    <p>Step 2</p>
-                    <p>Step 2</p>
-                    <div class="np-btn-group">
-                        <button type="button"
-                                class="np-btn"
-                                npStepPrevious>Previous</button>
-                        <button type="button"
-                                class="np-btn"
-                                npStepNext>Next</button>
-                    </div>
-                </np-step>
-                <np-step label="Upload your photo"
-                         [iconCss]="'fa fa-image'">
-                    <p>Step 3</p>
-                    <p>Step 3</p>
-                    <p>Step 3</p>
-                    <p>Step 3</p>
-                    <div class="np-btn-group">
-                        <button type="button"
-                                class="np-btn"
-                                npStepPrevious>Previous</button>
-                    </div>
-                </np-step>
-            </np-steps>
-        </fieldset>
-    </np-tab>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>&lt;np-steps&gt;</b>
+        <p>
+          <b>&lt;np-steps&gt;</b> extends <b>&lt;cdk-stepper&gt;</b>
+          <br />
+          Find documentation for <b>&lt;cdk-stepper&gt;</b> at
+          <a href="https://material.angular.io/cdk/stepper/api#CdkStepper"
+            >here</a
+          >.
+        </p>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>verticalSteps</td>
+            <td>Set vertical steps</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>stretchLabels</td>
+            <td>Set stretched header label</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>&lt;np-step&gt;</b>
+        <p>
+          <b>&lt;np-step&gt;</b> extends <b>&lt;cdk-step&gt;</b>
+          <br />
+          Find documentation for <b>&lt;cdk-step&gt;</b> at
+          <a href="https://material.angular.io/cdk/stepper/api#CdkStep">here</a
+          >.
+        </p>
+        <np-alert type="info">
+          <b>Note:</b>&nbsp;Instead
+          of&nbsp;<b>stepLabel</b>&nbsp;use&nbsp;<b>labelTemplate</b>&nbsp;property.
+        </np-alert>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>labelTemplate</td>
+            <td>Template for step label</td>
+            <td>Template&lt;any&gt;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>iconCss</td>
+            <td>
+              Set CSS for icon like 'fa fa-home' <br />
+              If icon is set then step number will not show.
+            </td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>npStepNext</b>
+        <br />
+        Show next button into step.
+        <div>
+          <pre><code [innerText]="nextBtnText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>npStepPrevious</b>
+        <br />
+        Show previous button into step.
+        <div>
+          <pre><code [innerText]="previousBtnText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <fieldset>
+      <legend>Horizontal Steps</legend>
+      <np-steps #stepper [stretchLabels]="stretchLabels">
+        <form>
+          <np-step
+            label="Add Personal Info"
+            #personalStep
+            [stepControl]="personal"
+          >
+            <div [formGroup]="personal">
+              <h3>Personal Info</h3>
+              <br />
+              <label>
+                First Name:
+                <input
+                  type="text"
+                  class="np-form-control"
+                  formControlName="firstName"
+                />
+              </label>
+              <br />
+              <label>
+                Last Name:
+                <input
+                  type="text"
+                  class="np-form-control"
+                  formControlName="lastName"
+                />
+              </label>
+              <div class="np-btn-group">
+                <button type="button" class="np-btn" npStepNext>Next</button>
+              </div>
+            </div>
+          </np-step>
+          <np-step label="Add Address" #addressStep [stepControl]="address">
+            <div [formGroup]="address">
+              <h3>Address</h3>
+              <br />
+              <label>
+                Street:
+                <input
+                  type="text"
+                  class="np-form-control"
+                  formControlName="street"
+                />
+              </label>
+              <br />
+              <label>
+                City:
+                <input
+                  type="text"
+                  class="np-form-control"
+                  formControlName="city"
+                />
+              </label>
+              <br />
+              <label>
+                State:
+                <input
+                  type="text"
+                  class="np-form-control"
+                  formControlName="state"
+                />
+              </label>
+              <br />
+              <label>
+                Zip Code:
+                <input
+                  type="text"
+                  class="np-form-control"
+                  formControlName="zip"
+                />
+              </label>
+              <div class="np-btn-group">
+                <button type="button" class="np-btn" npStepPrevious>
+                  Previous
+                </button>
+                <button type="button" class="np-btn" npStepNext>Next</button>
+              </div>
+            </div>
+          </np-step>
+          <np-step
+            label="Upload Images"
+            #photosStep
+            [stepControl]="photos"
+            [iconCss]="'fa fa-image'"
+          >
+            <div [formGroup]="photos">
+              <h3>Upload Images</h3>
+              <br />
+              <label>
+                Upload Images:
+                <input
+                  type="file"
+                  class="np-form-control"
+                  formControlName="images"
+                />
+              </label>
+              <div class="np-btn-group">
+                <button type="button" class="np-btn" npStepPrevious>
+                  Previous
+                </button>
+                <button type="button" class="np-btn np-btn-primary">
+                  Save
+                </button>
+                <button
+                  type="button"
+                  class="np-btn np-btn-danger"
+                  (click)="stepper.reset()"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          </np-step>
+        </form>
+      </np-steps>
+      <br />
+      Stretch labels : <np-switch [(ngModel)]="stretchLabels"></np-switch>
+    </fieldset>
+    <fieldset>
+      <legend>Vertical Steps</legend>
+      <np-steps [verticalSteps]="true">
+        <np-step label="Fill your personal details">
+          <p>Step 1</p>
+          <p>Step 1</p>
+          <p>Step 1</p>
+          <p>Step 1</p>
+          <div class="np-btn-group">
+            <button type="button" class="np-btn" npStepNext>Next</button>
+          </div>
+        </np-step>
+        <np-step label="Fill your address">
+          <p>Step 2</p>
+          <p>Step 2</p>
+          <p>Step 2</p>
+          <p>Step 2</p>
+          <div class="np-btn-group">
+            <button type="button" class="np-btn" npStepPrevious>
+              Previous
+            </button>
+            <button type="button" class="np-btn" npStepNext>Next</button>
+          </div>
+        </np-step>
+        <np-step label="Upload your photo" [iconCss]="'fa fa-image'">
+          <p>Step 3</p>
+          <p>Step 3</p>
+          <p>Step 3</p>
+          <p>Step 3</p>
+          <div class="np-btn-group">
+            <button type="button" class="np-btn" npStepPrevious>
+              Previous
+            </button>
+          </div>
+        </np-step>
+      </np-steps>
+    </fieldset>
+  </np-tab>
 </np-tabs>

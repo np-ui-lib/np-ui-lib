@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpTextareaDemoRoutingModule } from './np-textarea-demo-routing.module';
-import { NpTextareaDemoComponent } from './np-textarea-demo.component';
-import { NpCardModule, NpTabsModule, NpTextareaModule } from 'np-ui-lib';
-import { FormsModule } from '@angular/forms';
+import { NpTextareaDemoRoutingModule } from "./np-textarea-demo-routing.module";
+import { NpTextareaDemoComponent } from "./np-textarea-demo.component";
+import { NpCardModule, NpTabsModule, NpTextareaModule } from "np-ui-lib";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [NpTextareaDemoComponent],
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     NpTextareaDemoRoutingModule,
     NpTextareaModule,
     NpCardModule,
-    NpTabsModule
-  ]
+    NpTabsModule,
+  ],
 })
-export class NpTextareaDemoModule { }
+export class NpTextareaDemoModule {}

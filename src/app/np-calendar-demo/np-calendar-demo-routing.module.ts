@@ -1,14 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpCalendarDemoComponent } from './np-calendar-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpCalendarDemoComponent } from "./np-calendar-demo.component";
 
-const routes: Routes = [{
-  path: '',
-  component: NpCalendarDemoComponent
-}];
+const routes: Routes = [
+  {
+    path: "",
+    component: NpCalendarDemoComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpCalendarDemoRoutingModule { }
+export class NpCalendarDemoRoutingModule {}

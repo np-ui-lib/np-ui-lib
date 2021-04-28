@@ -1,15 +1,19 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { NpModalRef } from '../np-modal/np-modal-ref';
-import { NpTranslationsService } from '../np-translations/np-translations.service';
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { NpModalRef } from "../np-modal/np-modal-ref";
+import { NpTranslationsService } from "../np-translations/np-translations.service";
 
 @Component({
-  selector: 'np-dialog',
-  templateUrl: './np-dialog.component.html',
+  selector: "np-dialog",
+  templateUrl: "./np-dialog.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpDialogComponent implements OnInit {
-
   private static controlCount = 1;
 
   title: string;
@@ -19,12 +23,21 @@ export class NpDialogComponent implements OnInit {
   styleClass: string;
   inputId = `np-dialog_${NpDialogComponent.controlCount++}`;
 
-  constructor(public modalRef: NpModalRef, private translationService: NpTranslationsService) { }
+  constructor(
+    public modalRef: NpModalRef,
+    private translationService: NpTranslationsService
+  ) {}
 
   ngOnInit(): void {
-    this.type = this.modalRef.data ? this.modalRef.data.type : 'alert';
-    this.title = this.translationService.translate(this.type === 'alert' ? 'Alert' : this.type === 'confirm' ? 'Confirm' : 'Prompt');
-    this.message = this.modalRef.data ? this.modalRef.data.message : '';
+    this.type = this.modalRef.data ? this.modalRef.data.type : "alert";
+    this.title = this.translationService.translate(
+      this.type === "alert"
+        ? "Alert"
+        : this.type === "confirm"
+        ? "Confirm"
+        : "Prompt"
+    );
+    this.message = this.modalRef.data ? this.modalRef.data.message : "";
     if (this.modalRef.config.inputId) {
       this.inputId = this.modalRef.config.inputId;
     }
@@ -34,9 +47,9 @@ export class NpDialogComponent implements OnInit {
   }
 
   onOk() {
-    if (this.type === 'prompt') {
+    if (this.type === "prompt") {
       this.modalRef.close(this.value ? this.value : "");
-    } else if (this.type === 'confirm') {
+    } else if (this.type === "confirm") {
       this.modalRef.close(true);
     } else {
       this.modalRef.close(undefined);
@@ -44,9 +57,9 @@ export class NpDialogComponent implements OnInit {
   }
 
   onCancel() {
-    if (this.type === 'prompt') {
+    if (this.type === "prompt") {
       this.modalRef.close(null);
-    } else if (this.type === 'confirm') {
+    } else if (this.type === "confirm") {
       this.modalRef.close(false);
     } else {
       this.modalRef.close(undefined);

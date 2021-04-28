@@ -1,189 +1,183 @@
 <h2 class="page-header">Paginator</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>pageSize</td>
-                        <td>Page size</td>
-                        <td>number</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>totalItems</td>
-                        <td>Total items count</td>
-                        <td>number</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>currentPage</td>
-                        <td>Set current page to load</td>
-                        <td>number</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>showPageSize</td>
-                        <td>Show page size dropdown</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>showTotal</td>
-                        <td>Show total items counts</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onPageChange(options: any)
-                        </td>
-                        <td>
-                            Callback event on page change.
-                        </td>
-                        <td>&#123;"currentPage":1,"pageSize":10&#125;</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            loadPage(page: number)
-                        </td>
-                        <td>
-                            Load page, this will raise page change event
-                        </td>
-                        <td>page number</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            refresh()
-                        </td>
-                        <td>
-                            Refresh current page
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <ng-template npTabContent>
-            <fieldset>
-                <legend>Basic</legend>
-                <np-paginator [pageSize]="pageSize"
-                              [totalItems]="total"
-                              [currentPage]="currentPage"
-                              (onPageChange)="onPageChange($event)">
-                </np-paginator>
-                <div class="np-btn-group">
-                    <button type="button"
-                            class="np-btn"
-                            (click)="changePageSize()">Set pagesize to 10</button>
-                    <button type="button"
-                            class="np-btn"
-                            (click)="changePageNumber()">Set currentpage to 3</button>
-                    <button type="button"
-                            class="np-btn"
-                            (click)="changeTotal()">Set total to 100</button>
-                    <button type="button"
-                            class="np-btn"
-                            (click)="SetTotalToZero()">Set total to 0</button>
-                </div>
-            </fieldset>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>pageSize</td>
+            <td>Page size</td>
+            <td>number</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>totalItems</td>
+            <td>Total items count</td>
+            <td>number</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>currentPage</td>
+            <td>Set current page to load</td>
+            <td>number</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>showPageSize</td>
+            <td>Show page size dropdown</td>
+            <td>boolean</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>showTotal</td>
+            <td>Show total items counts</td>
+            <td>boolean</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onPageChange(options: any)</td>
+            <td>Callback event on page change.</td>
+            <td>&#123;"currentPage":1,"pageSize":10&#125;</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>loadPage(page: number)</td>
+            <td>Load page, this will raise page change event</td>
+            <td>page number</td>
+          </tr>
+          <tr>
+            <td>refresh()</td>
+            <td>Refresh current page</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <ng-template npTabContent>
+      <fieldset>
+        <legend>Basic</legend>
+        <np-paginator
+          [pageSize]="pageSize"
+          [totalItems]="total"
+          [currentPage]="currentPage"
+          (onPageChange)="onPageChange($event)"
+        >
+        </np-paginator>
+        <div class="np-btn-group">
+          <button type="button" class="np-btn" (click)="changePageSize()">
+            Set pagesize to 10
+          </button>
+          <button type="button" class="np-btn" (click)="changePageNumber()">
+            Set currentpage to 3
+          </button>
+          <button type="button" class="np-btn" (click)="changeTotal()">
+            Set total to 100
+          </button>
+          <button type="button" class="np-btn" (click)="SetTotalToZero()">
+            Set total to 0
+          </button>
+        </div>
+      </fieldset>
 
-            <fieldset>
-                <legend>Set showPageSize and showTotal to false</legend>
-                <np-paginator [pageSize]="10"
-                              [totalItems]="1000"
-                              [currentPage]="1"
-                              [showPageSize]="false"
-                              [showTotal]="false"
-                              (onPageChange)="onPageChange($event)">
-                </np-paginator>
-            </fieldset>
+      <fieldset>
+        <legend>Set showPageSize and showTotal to false</legend>
+        <np-paginator
+          [pageSize]="10"
+          [totalItems]="1000"
+          [currentPage]="1"
+          [showPageSize]="false"
+          [showTotal]="false"
+          (onPageChange)="onPageChange($event)"
+        >
+        </np-paginator>
+      </fieldset>
 
-            <fieldset>
-                <legend>With Data</legend>
-                <table class="np-table">
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Unit Price</th>
-                        <th>Units In Stock</th>
-                    </tr>
-                    <tr *ngFor="let item of data2">
-                        <td>
-                            {{item.ProductName}}
-                        </td>
-                        <td>
-                            {{item.UnitPrice}}
-                        </td>
-                        <td>
-                            {{item.UnitsInStock}}
-                        </td>
-                    </tr>
-                </table>
-                <np-paginator [pageSize]="10"
-                              [totalItems]="total2"
-                              [styleClass]="'myClass'"
-                              (onPageChange)="onLoadData($event)">
-                </np-paginator>
-            </fieldset>
-        </ng-template>
-    </np-tab>
+      <fieldset>
+        <legend>With Data</legend>
+        <table class="np-table">
+          <tr>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Units In Stock</th>
+          </tr>
+          <tr *ngFor="let item of data2">
+            <td>
+              {{ item.ProductName }}
+            </td>
+            <td>
+              {{ item.UnitPrice }}
+            </td>
+            <td>
+              {{ item.UnitsInStock }}
+            </td>
+          </tr>
+        </table>
+        <np-paginator
+          [pageSize]="10"
+          [totalItems]="total2"
+          [styleClass]="'myClass'"
+          (onPageChange)="onLoadData($event)"
+        >
+        </np-paginator>
+      </fieldset>
+    </ng-template>
+  </np-tab>
 </np-tabs>

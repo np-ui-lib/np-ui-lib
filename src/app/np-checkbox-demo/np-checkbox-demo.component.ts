@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-checkbox-demo',
-  templateUrl: './np-checkbox-demo.component.html'
+  selector: "app-np-checkbox-demo",
+  templateUrl: "./np-checkbox-demo.component.html",
 })
 export class NpCheckboxDemoComponent implements OnInit {
-
-  importText = 'import { NpCheckboxModule } from \'np-ui-lib\';';
+  importText = "import { NpCheckboxModule } from 'np-ui-lib';";
   htmlText = '<np-checkbox [(ngModel)]="check1"></np-checkbox>';
   groupHtmlText = `<np-checkbox-group orientation="vertical">
   <np-checkbox label="Apple"></np-checkbox>
@@ -22,10 +21,9 @@ export class NpCheckboxDemoComponent implements OnInit {
   fruit2: boolean;
   fruit3: boolean;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   _onChange($event) {
     alert($event);
@@ -42,5 +40,4 @@ export class NpCheckboxDemoComponent implements OnInit {
       this.fruit3 = false;
     }
   }
-
 }

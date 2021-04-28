@@ -1,29 +1,50 @@
 <h2 class="page-header">Server side Basic data grid example</h2>
-<p>To add server side oprations in data grid, set <b>isServerOperations</b> to "true" in grid defination</p>
-<p>And also add method <b>onLoadData(options:LoadOptions)</b>. This method will be invoked every time to fetch data.
+<p>
+  To add server side oprations in data grid, set <b>isServerOperations</b> to
+  "true" in grid defination
+</p>
+<p>
+  And also add method <b>onLoadData(options:LoadOptions)</b>. This method will
+  be invoked every time to fetch data.
 </p>
 <div class="np-jumbotron">
-    <pre><code>{{htmlText}}</code></pre>
+  <pre><code>{{htmlText}}</code></pre>
 </div>
 <div class="np-jumbotron">
-    <pre><code>{{gridDataSourceText}}</code></pre>
+  <pre><code>{{gridDataSourceText}}</code></pre>
 </div>
 <p><b>LoadOptions</b> has below properties:</p>
 <ul>
-    <li><b>pageNumber</b></li>
-    <li><b>pageSize</b></li>
-    <li><b>sortColumns</b> (This will contains array of all sort columns as <q>{{ '{' }} column : string, sortDirection:
-            string {{'}'}}</q>)</li>
-    <li><b>filterColumns</b> (This will contains array of all filter columns as <q>{{ '{' }} column : string,
-            filterOperator: string, filterValue: string, dataType: string {{'}'}}</q>)</li>
-    <li><b>odataQuery</b> (If <b>isODataOperations</b> is set to "true", then oDataQuery will be passed here.)</li>
-    <li><b>isAllPages</b> (This will be used for server side export to CSV functionality, default value is "false")</li>
+  <li><b>pageNumber</b></li>
+  <li><b>pageSize</b></li>
+  <li>
+    <b>sortColumns</b> (This will contains array of all sort columns as
+    <q>{{ "{" }} column : string, sortDirection: string {{ "}" }}</q
+    >)
+  </li>
+  <li>
+    <b>filterColumns</b> (This will contains array of all filter columns as
+    <q
+      >{{ "{" }} column : string, filterOperator: string, filterValue: string,
+      dataType: string {{ "}" }}</q
+    >)
+  </li>
+  <li>
+    <b>odataQuery</b> (If <b>isODataOperations</b> is set to "true", then
+    oDataQuery will be passed here.)
+  </li>
+  <li>
+    <b>isAllPages</b> (This will be used for server side export to CSV
+    functionality, default value is "false")
+  </li>
 </ul>
 <np-alert type="info">
-    Options:<code>{{currentLoadOptions | json}}</code>
+  Options:<code>{{ currentLoadOptions | json }}</code>
 </np-alert>
-<np-data-grid [columns]="gridColumns"
-              [dataSource]="gridDataSource"
-              [isServerOperations]="true"
-              (onLoadData)="onLoadData($event)">
+<np-data-grid
+  [columns]="gridColumns"
+  [dataSource]="gridDataSource"
+  [isServerOperations]="true"
+  (onLoadData)="onLoadData($event)"
+>
 </np-data-grid>

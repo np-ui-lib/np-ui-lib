@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-toolbar-demo',
-  templateUrl: './np-toolbar-demo.component.html'
+  selector: "app-np-toolbar-demo",
+  templateUrl: "./np-toolbar-demo.component.html",
 })
 export class NpToolbarDemoComponent implements OnInit {
-
   toolbarCode = `<div class="np-toolbar">
   <div class="np-toolbar-item">...</div>
   <div class="np-toolbar-item">...</div>
@@ -14,11 +13,9 @@ export class NpToolbarDemoComponent implements OnInit {
   <div class="np-toolbar-spacer"></div>
   <div class="np-toolbar-item">...</div>
   <div class="np-toolbar-item">...</div>
-</div>`
+</div>`;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

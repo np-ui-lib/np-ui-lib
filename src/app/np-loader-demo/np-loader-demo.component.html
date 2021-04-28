@@ -1,136 +1,128 @@
 <h2 class="page-header">Loader</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>npLoader</td>
-                        <td>Show loader</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>diameter</td>
-                        <td>Set diameter of loader in px</td>
-                        <td>number</td>
-                        <td>32</td>
-                    </tr>
-                    <tr>
-                        <td>strokeWidth</td>
-                        <td>Set stroke width of loader in px</td>
-                        <td>number</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>loadingText</td>
-                        <td>Set text to show on loader</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>npLoader</td>
+            <td>Show loader</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>diameter</td>
+            <td>Set diameter of loader in px</td>
+            <td>number</td>
+            <td>32</td>
+          </tr>
+          <tr>
+            <td>strokeWidth</td>
+            <td>Set stroke width of loader in px</td>
+            <td>number</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>loadingText</td>
+            <td>Set text to show on loader</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
 
-    <np-tab title="Examples">
-        <fieldset>
-            <legend>Loader on div</legend>
-            <div style="height: 200px;width: 200px;background-color: lightblue;"
-                 [npLoader]="loader1"></div>
-            <div class="np-btn-group">
-                <button class="np-btn"
-                        (click)="loader1 = true">Show Loader</button>
-                <button class="np-btn"
-                        (click)="loader1 = false">Hide Loader</button>
-            </div>
-        </fieldset>
+  <np-tab title="Examples">
+    <fieldset>
+      <legend>Loader on div</legend>
+      <div
+        style="height: 200px; width: 200px; background-color: lightblue"
+        [npLoader]="loader1"
+      ></div>
+      <div class="np-btn-group">
+        <button class="np-btn" (click)="loader1 = true">Show Loader</button>
+        <button class="np-btn" (click)="loader1 = false">Hide Loader</button>
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>Loader on Button</legend>
-            <div class="np-btn-group">
-                <button class="np-btn"
-                        (click)="loader2 = true"
-                        [npLoader]="loader2">Show Loader</button>
-                <button class="np-btn"
-                        (click)="loader2 = false">Hide Loader</button>
-            </div>
-        </fieldset>
+    <fieldset>
+      <legend>Loader on Button</legend>
+      <div class="np-btn-group">
+        <button class="np-btn" (click)="loader2 = true" [npLoader]="loader2">
+          Show Loader
+        </button>
+        <button class="np-btn" (click)="loader2 = false">Hide Loader</button>
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>Loader with text</legend>
-            <div style="height: 200px;background-color: lightblue;"
-                 [npLoader]="loader3"
-                 [loadingText]="'Loading...'">
-            </div>
-            <div class="np-btn-group">
-                <button class="np-btn"
-                        (click)="loader3 = true">Show Loader</button>
-                <button class="np-btn"
-                        (click)="loader3 = false">Hide Loader</button>
-            </div>
-        </fieldset>
+    <fieldset>
+      <legend>Loader with text</legend>
+      <div
+        style="height: 200px; background-color: lightblue"
+        [npLoader]="loader3"
+        [loadingText]="'Loading...'"
+      ></div>
+      <div class="np-btn-group">
+        <button class="np-btn" (click)="loader3 = true">Show Loader</button>
+        <button class="np-btn" (click)="loader3 = false">Hide Loader</button>
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>On other component</legend>
+    <fieldset>
+      <legend>On other component</legend>
 
-            <div [npLoader]="loader4"
-                 [diameter]="64"
-                 [strokeWidth]="10">
-                <np-tabs>
-                    <np-tab [title]="'Tab 1'">
-                        <h1>
-                            Tab 1
-                        </h1>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                    </np-tab>
-                    <np-tab [title]="'Tab2'">
-                        <h1>
-                            Tab 2
-                        </h1>
-                        <p>
-                            A paragraph is a series of related sentences developing a central idea, called the topic.
-                            Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a
-                            group of sentences that supports one central, unified idea. Paragraphs add
-                            one idea at a time to your broader argument.
-                        </p>
-                    </np-tab>
-                </np-tabs>
-            </div>
-            <div class="np-btn-group">
-                <button class="np-btn"
-                        (click)="loader4 = true">Show Loader</button>
-                <button class="np-btn"
-                        (click)="loader4 = false">Hide Loader</button>
-            </div>
-        </fieldset>
-    </np-tab>
+      <div [npLoader]="loader4" [diameter]="64" [strokeWidth]="10">
+        <np-tabs>
+          <np-tab [title]="'Tab 1'">
+            <h1>Tab 1</h1>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+          </np-tab>
+          <np-tab [title]="'Tab2'">
+            <h1>Tab 2</h1>
+            <p>
+              A paragraph is a series of related sentences developing a central
+              idea, called the topic. Try to think about paragraphs in terms of
+              thematic unity: a paragraph is a sentence or a group of sentences
+              that supports one central, unified idea. Paragraphs add one idea
+              at a time to your broader argument.
+            </p>
+          </np-tab>
+        </np-tabs>
+      </div>
+      <div class="np-btn-group">
+        <button class="np-btn" (click)="loader4 = true">Show Loader</button>
+        <button class="np-btn" (click)="loader4 = false">Hide Loader</button>
+      </div>
+    </fieldset>
+  </np-tab>
 </np-tabs>

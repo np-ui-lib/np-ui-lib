@@ -1,257 +1,254 @@
 <h2 class="page-header">Input Text</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>ngModel</td>
-                        <td>Value</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>minLength</td>
-                        <td>Set minimum length validation</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>maxLength</td>
-                        <td>Set maximum length validation</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>pattern</td>
-                        <td>Set regex pattern validation</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>prefixLabel</td>
-                        <td>Set prefix string | html</td>
-                        <td>string | html</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>suffixLabel</td>
-                        <td>Set suffix string | html</td>
-                        <td>string | html</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>placeholder</td>
-                        <td>Set placeholder</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>Set disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>required</td>
-                        <td>Set required</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>readOnly</td>
-                        <td>Set readonly</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>autoFocus</td>
-                        <td>Set autofocus</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>tabIndex</td>
-                        <td>Set tabindex attribute</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onChange(v: any)
-                        </td>
-                        <td>
-                            Callback event on value change.
-                        </td>
-                        <td>Value</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onFocus(event)
-                        </td>
-                        <td>
-                            Callback event on input focus.
-                        </td>
-                        <td>Browser event</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onBlur(event)
-                        </td>
-                        <td>
-                            Callback event on input blur.
-                        </td>
-                        <td>Browser event</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            focus()
-                        </td>
-                        <td>
-                            Set focus on control. If not setting focus properly then use timeout of 500ms.
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <ng-template npTabContent>
-            <fieldset>
-                <legend>Basic</legend>
-                <np-input-text [(ngModel)]="input1"
-                               [autoFocus]="true"></np-input-text>
-                <div>Value: {{input1}}</div>
-            </fieldset>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>ngModel</td>
+            <td>Value</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>minLength</td>
+            <td>Set minimum length validation</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>maxLength</td>
+            <td>Set maximum length validation</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>pattern</td>
+            <td>Set regex pattern validation</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>prefixLabel</td>
+            <td>Set prefix string | html</td>
+            <td>string | html</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>suffixLabel</td>
+            <td>Set suffix string | html</td>
+            <td>string | html</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>placeholder</td>
+            <td>Set placeholder</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>Set disabled</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>required</td>
+            <td>Set required</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>readOnly</td>
+            <td>Set readonly</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>autoFocus</td>
+            <td>Set autofocus</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>tabIndex</td>
+            <td>Set tabindex attribute</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onChange(v: any)</td>
+            <td>Callback event on value change.</td>
+            <td>Value</td>
+          </tr>
+          <tr>
+            <td>onFocus(event)</td>
+            <td>Callback event on input focus.</td>
+            <td>Browser event</td>
+          </tr>
+          <tr>
+            <td>onBlur(event)</td>
+            <td>Callback event on input blur.</td>
+            <td>Browser event</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>focus()</td>
+            <td>
+              Set focus on control. If not setting focus properly then use
+              timeout of 500ms.
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <ng-template npTabContent>
+      <fieldset>
+        <legend>Basic</legend>
+        <np-input-text [(ngModel)]="input1" [autoFocus]="true"></np-input-text>
+        <div>Value: {{ input1 }}</div>
+      </fieldset>
 
-            <fieldset>
-                <legend>disabled</legend>
-                <np-input-text [(ngModel)]="input2"
-                               [disabled]="true"></np-input-text>
-            </fieldset>
+      <fieldset>
+        <legend>disabled</legend>
+        <np-input-text [(ngModel)]="input2" [disabled]="true"></np-input-text>
+      </fieldset>
 
-            <fieldset>
-                <legend>readOnly</legend>
-                <np-input-text [(ngModel)]="input2"
-                               [readOnly]="true"></np-input-text>
-            </fieldset>
+      <fieldset>
+        <legend>readOnly</legend>
+        <np-input-text [(ngModel)]="input2" [readOnly]="true"></np-input-text>
+      </fieldset>
 
-            <fieldset>
-                <legend>required</legend>
-                <np-input-text [(ngModel)]="input3"
-                               [required]="true"></np-input-text>
-            </fieldset>
+      <fieldset>
+        <legend>required</legend>
+        <np-input-text [(ngModel)]="input3" [required]="true"></np-input-text>
+      </fieldset>
 
-            <fieldset>
-                <legend>minLength and maxLength</legend>
-                <np-input-text [minLength]="10"
-                               [maxLength]="20"
-                               [(ngModel)]="input4"
-                               #inputText4="ngModel">
-                </np-input-text>
-                <div class="np-text-danger"
-                     *ngIf="inputText4.errors && inputText4.errors.minLength">
-                    Min length 10 characters.
-                </div>
-                <div class="np-text-danger"
-                     *ngIf="inputText4.errors && inputText4.errors.maxLength">
-                    Max length 20 characters.
-                </div>
-            </fieldset>
+      <fieldset>
+        <legend>minLength and maxLength</legend>
+        <np-input-text
+          [minLength]="10"
+          [maxLength]="20"
+          [(ngModel)]="input4"
+          #inputText4="ngModel"
+        >
+        </np-input-text>
+        <div
+          class="np-text-danger"
+          *ngIf="inputText4.errors && inputText4.errors.minLength"
+        >
+          Min length 10 characters.
+        </div>
+        <div
+          class="np-text-danger"
+          *ngIf="inputText4.errors && inputText4.errors.maxLength"
+        >
+          Max length 20 characters.
+        </div>
+      </fieldset>
 
-            <fieldset>
-                <legend>pattern</legend>
-                <np-input-text pattern="^\d*$"
-                               [(ngModel)]="input5"
-                               #inputText5="ngModel"></np-input-text>
-                <div class="np-text-danger"
-                     *ngIf="inputText5.errors && inputText5.errors.pattern">
-                    Only digits
-                </div>
-            </fieldset>
+      <fieldset>
+        <legend>pattern</legend>
+        <np-input-text
+          pattern="^\d*$"
+          [(ngModel)]="input5"
+          #inputText5="ngModel"
+        ></np-input-text>
+        <div
+          class="np-text-danger"
+          *ngIf="inputText5.errors && inputText5.errors.pattern"
+        >
+          Only digits
+        </div>
+      </fieldset>
 
-            <fieldset>
-                <legend>placeholder</legend>
-                <np-input-text [placeholder]="'Enter your name'"></np-input-text>
-            </fieldset>
+      <fieldset>
+        <legend>placeholder</legend>
+        <np-input-text [placeholder]="'Enter your name'"></np-input-text>
+      </fieldset>
 
-            <fieldset>
-                <legend>styleClass</legend>
-                <np-input-text [styleClass]="'myClass'"></np-input-text>
-            </fieldset>
+      <fieldset>
+        <legend>styleClass</legend>
+        <np-input-text [styleClass]="'myClass'"></np-input-text>
+      </fieldset>
 
-            <fieldset>
-                <legend>prefixLabel</legend>
-                <np-input-text [prefixLabel]="'<i class=\'fa fa-user\'></i>'"></np-input-text>
-            </fieldset>
+      <fieldset>
+        <legend>prefixLabel</legend>
+        <np-input-text
+          [prefixLabel]="'<i class=\'fa fa-user\'></i>'"
+        ></np-input-text>
+      </fieldset>
 
-            <fieldset>
-                <legend>suffixLabel</legend>
-                <np-input-text [suffixLabel]="'<i class=\'fa fa-lock\'></i>'"></np-input-text>
-            </fieldset>
+      <fieldset>
+        <legend>suffixLabel</legend>
+        <np-input-text
+          [suffixLabel]="'<i class=\'fa fa-lock\'></i>'"
+        ></np-input-text>
+      </fieldset>
 
-            <fieldset>
-                <legend>onChange</legend>
-                <np-input-text (onChange)="onChange($event)"></np-input-text>
-            </fieldset>
-        </ng-template>
-    </np-tab>
+      <fieldset>
+        <legend>onChange</legend>
+        <np-input-text (onChange)="onChange($event)"></np-input-text>
+      </fieldset>
+    </ng-template>
+  </np-tab>
 </np-tabs>

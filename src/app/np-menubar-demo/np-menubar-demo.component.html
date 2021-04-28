@@ -1,243 +1,251 @@
 <h2 class="page-header">Menubar</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-                <np-alert type="info">
-                    Set parent element's width attribute to set width of menu for vertical and panel menubar.
-                </np-alert>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>&lt;np-menubar&gt;</b>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>items</td>
-                        <td>Array of menu items in hierarchical structure</td>
-                        <td>NpMenuItem[]</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>orientation</td>
-                        <td>Orientation of menu, 'vertical' or 'horizontal'</td>
-                        <td>string</td>
-                        <td>vertical</td>
-                    </tr>
-                    <tr>
-                        <td>isPanelMenu</td>
-                        <td>Set as panel menu</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Add extra class to component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onClickMenuItem(item: NpMenuItem)
-                        </td>
-                        <td>
-                            Callback event on click any menu item
-                        </td>
-                        <td>item: NpMenuItem</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>NpMenuItem</b>
-                <pre><code>{{sampleMenuItems}}</code></pre>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>id</td>
-                        <td>Set id attribute on menu link</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>label</td>
-                        <td>Set label to display</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>url</td>
-                        <td>URL to redirect</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>target</td>
-                        <td>Target attr for link</td>
-                        <td>string</td>
-                        <td>_self</td>
-                    </tr>
-                    <tr>
-                        <td>routerLink</td>
-                        <td>Set router link</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>queryParams</td>
-                        <td>Set query parameters</td>
-                        <td>any</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>fragment</td>
-                        <td>Set fragment</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>queryParamsHandling</td>
-                        <td>Set queryParamsHandling</td>
-                        <td>QueryParamsHandling</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>iconCss</td>
-                        <td>Set icon class like 'fa fa-home'</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>visible</td>
-                        <td>Set menu visible or not</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>items</td>
-                        <td>Child items</td>
-                        <td>NpMenuItem[]</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>isHeader</td>
-                        <td>Set menu as header, if it is set as true then only set label, iconCss, id property.</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>How to set popup menu?</b>
-                <div> Use <b>npPopupMenubar</b> directive to set popup menu. </div>
-                <div>
-                    <pre><code [innerText]="htmlPanelMenuText"></code></pre>
-                </div>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>items</td>
-                        <td>Array of menu items in hierarchical structure</td>
-                        <td>NpMenuItem[]</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Add extra class to component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <fieldset style="width: 250px;">
-            <legend>Vertical</legend>
-            <np-menubar [items]="items"
-                        (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
-        </fieldset>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+        <np-alert type="info">
+          Set parent element's width attribute to set width of menu for vertical
+          and panel menubar.
+        </np-alert>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>&lt;np-menubar&gt;</b>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>items</td>
+            <td>Array of menu items in hierarchical structure</td>
+            <td>NpMenuItem[]</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>orientation</td>
+            <td>Orientation of menu, 'vertical' or 'horizontal'</td>
+            <td>string</td>
+            <td>vertical</td>
+          </tr>
+          <tr>
+            <td>isPanelMenu</td>
+            <td>Set as panel menu</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Add extra class to component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onClickMenuItem(item: NpMenuItem)</td>
+            <td>Callback event on click any menu item</td>
+            <td>item: NpMenuItem</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>NpMenuItem</b>
+        <pre><code>{{sampleMenuItems}}</code></pre>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>id</td>
+            <td>Set id attribute on menu link</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>label</td>
+            <td>Set label to display</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>url</td>
+            <td>URL to redirect</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>target</td>
+            <td>Target attr for link</td>
+            <td>string</td>
+            <td>_self</td>
+          </tr>
+          <tr>
+            <td>routerLink</td>
+            <td>Set router link</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>queryParams</td>
+            <td>Set query parameters</td>
+            <td>any</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>fragment</td>
+            <td>Set fragment</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>queryParamsHandling</td>
+            <td>Set queryParamsHandling</td>
+            <td>QueryParamsHandling</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>iconCss</td>
+            <td>Set icon class like 'fa fa-home'</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>visible</td>
+            <td>Set menu visible or not</td>
+            <td>boolean</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>items</td>
+            <td>Child items</td>
+            <td>NpMenuItem[]</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>isHeader</td>
+            <td>
+              Set menu as header, if it is set as true then only set label,
+              iconCss, id property.
+            </td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>How to set popup menu?</b>
+        <div>Use <b>npPopupMenubar</b> directive to set popup menu.</div>
+        <div>
+          <pre><code [innerText]="htmlPanelMenuText"></code></pre>
+        </div>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>items</td>
+            <td>Array of menu items in hierarchical structure</td>
+            <td>NpMenuItem[]</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Add extra class to component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <fieldset style="width: 250px">
+      <legend>Vertical</legend>
+      <np-menubar
+        [items]="items"
+        (onClickMenuItem)="onClickMenuItem($event)"
+      ></np-menubar>
+    </fieldset>
 
-        <fieldset>
-            <legend>Horizontal</legend>
-            <np-menubar [items]="itemsHorizontal"
-                        [orientation]="'horizontal'"
-                        [styleClass]="'myClass'"
-                        (onClickMenuItem)="onClickMenuItem($event)"></np-menubar>
-        </fieldset>
+    <fieldset>
+      <legend>Horizontal</legend>
+      <np-menubar
+        [items]="itemsHorizontal"
+        [orientation]="'horizontal'"
+        [styleClass]="'myClass'"
+        (onClickMenuItem)="onClickMenuItem($event)"
+      ></np-menubar>
+    </fieldset>
 
-        <fieldset style="width: 250px;">
-            <legend>Panel menu</legend>
-            <np-menubar [items]="itemsPanelMenu"
-                        [isPanelMenu]="true"
-                        (onClickMenuItem)="onClickMenuItem($event)">
-            </np-menubar>
-        </fieldset>
+    <fieldset style="width: 250px">
+      <legend>Panel menu</legend>
+      <np-menubar
+        [items]="itemsPanelMenu"
+        [isPanelMenu]="true"
+        (onClickMenuItem)="onClickMenuItem($event)"
+      >
+      </np-menubar>
+    </fieldset>
 
-        <fieldset>
-            <legend>Popup menu</legend>
-            <button class="np-btn-icon"
-                    type="button"
-                    npPopupMenubar
-                    [items]="itemsPopupMenubar"
-                    (onClickMenuItem)="onClickMenuItem($event)">
-                <i class="fa fa-bars"></i>
-            </button>
-        </fieldset>
-    </np-tab>
+    <fieldset>
+      <legend>Popup menu</legend>
+      <button
+        class="np-btn-icon"
+        type="button"
+        npPopupMenubar
+        [items]="itemsPopupMenubar"
+        (onClickMenuItem)="onClickMenuItem($event)"
+      >
+        <i class="fa fa-bars"></i>
+      </button>
+    </fieldset>
+  </np-tab>
 </np-tabs>

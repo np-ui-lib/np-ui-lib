@@ -1,26 +1,46 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Input, Output, EventEmitter, TemplateRef, ViewChild, ViewContainerRef, ElementRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { OverlayRef, Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
-import { TopBottomOverlayPositions } from '../np-utility/np-constants';
-import { NpUtilityService } from '../np-utility/np-utility.service';
+import {
+  Component,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  forwardRef,
+  AfterViewInit,
+  OnChanges,
+  SimpleChanges,
+} from "@angular/core";
+import {
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+  ElementRef,
+} from "@angular/core";
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
+import { TemplatePortal } from "@angular/cdk/portal";
+import {
+  OverlayRef,
+  Overlay,
+  OverlayPositionBuilder,
+} from "@angular/cdk/overlay";
+import { TopBottomOverlayPositions } from "../np-utility/np-constants";
+import { NpUtilityService } from "../np-utility/np-utility.service";
 
 @Component({
-  selector: 'np-dropdown',
-  templateUrl: './np-dropdown.component.html',
+  selector: "np-dropdown",
+  templateUrl: "./np-dropdown.component.html",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NpDropdownComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
-export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit, OnChanges {
-
+export class NpDropdownComponent
+  implements ControlValueAccessor, AfterViewInit, OnChanges {
   private static controlCount = 1;
 
   @Input() items: any[];
@@ -29,7 +49,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   @Input() itemTemplate: TemplateRef<any>;
   @Input() orderBy: string;
   @Input() orderDir: string;
-  @Input() placeholder = '';
+  @Input() placeholder = "";
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -40,8 +60,8 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
   @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
-  @ViewChild('control') inputViewChild: ElementRef;
+  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  @ViewChild("control") inputViewChild: ElementRef;
 
   selected: any;
   innerValue: any;
@@ -51,8 +71,8 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
+  private onChangeCallback: (_: any) => void = () => {};
+  private onTouchedCallback: () => void = () => {};
 
   constructor(
     public overlay: Overlay,
@@ -60,7 +80,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef,
     private utility: NpUtilityService
-  ) { }
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.items) {
@@ -75,9 +95,9 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: 'np-dropdown-backdrop',
+      backdropClass: "np-dropdown-backdrop",
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
-      panelClass: this.styleClass
+      panelClass: this.styleClass,
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,
@@ -130,8 +150,7 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
           break;
         }
       }
-    }
-    else {
+    } else {
       for (const item of this.items) {
         if (item === this.value) {
           selected = item;
@@ -183,10 +202,10 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   _onKeydown(event: KeyboardEvent) {
-    if (event.key === 'Tab' || event.key === 'Escape') {
+    if (event.key === "Tab" || event.key === "Escape") {
       this._close();
     }
-    if (event.key === 'ArrowDown') {
+    if (event.key === "ArrowDown") {
       this._open();
       event.preventDefault();
     }
@@ -197,7 +216,11 @@ export class NpDropdownComponent implements ControlValueAccessor, AfterViewInit,
   }
 
   _getDisplayValue() {
-    return (this.displayKey && this.selected ? this.selected[this.displayKey] : this.selected) || '';
+    return (
+      (this.displayKey && this.selected
+        ? this.selected[this.displayKey]
+        : this.selected) || ""
+    );
   }
 
   _onBlur($event) {

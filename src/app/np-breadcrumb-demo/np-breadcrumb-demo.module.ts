@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpBreadcrumbDemoRoutingModule } from './np-breadcrumb-demo-routing.module';
-import { NpBreadcrumbDemoComponent } from './np-breadcrumb-demo.component';
-import { NpBreadcrumbModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
+import { NpBreadcrumbDemoRoutingModule } from "./np-breadcrumb-demo-routing.module";
+import { NpBreadcrumbDemoComponent } from "./np-breadcrumb-demo.component";
+import { NpBreadcrumbModule, NpCardModule, NpTabsModule } from "np-ui-lib";
 
 @NgModule({
   declarations: [NpBreadcrumbDemoComponent],
@@ -12,7 +12,7 @@ import { NpBreadcrumbModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
     NpBreadcrumbDemoRoutingModule,
     NpBreadcrumbModule,
     NpCardModule,
-    NpTabsModule
-  ]
+    NpTabsModule,
+  ],
 })
-export class NpBreadcrumbDemoModule { }
+export class NpBreadcrumbDemoModule {}

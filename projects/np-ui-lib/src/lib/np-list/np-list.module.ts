@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { NpListComponent } from './np-list.component';
-import { NpPaginatorModule } from '../np-paginator/np-paginator.module';
-import { NpCheckboxModule } from '../np-checkbox/np-checkbox.module';
-import { FormsModule } from '@angular/forms';
-import { NpOrderByModule } from '../np-utility/np-orderby.module';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { NpListComponent } from "./np-list.component";
+import { NpPaginatorModule } from "../np-paginator/np-paginator.module";
+import { NpCheckboxModule } from "../np-checkbox/np-checkbox.module";
+import { FormsModule } from "@angular/forms";
+import { NpOrderByModule } from "../np-utility/np-orderby.module";
 
 @NgModule({
   declarations: [NpListComponent],
@@ -13,8 +13,8 @@ import { NpOrderByModule } from '../np-utility/np-orderby.module';
     FormsModule,
     NpPaginatorModule,
     NpCheckboxModule,
-    NpOrderByModule
+    NpOrderByModule,
   ],
-  exports: [NpListComponent]
+  exports: [NpListComponent],
 })
-export class NpListModule { }
+export class NpListModule {}

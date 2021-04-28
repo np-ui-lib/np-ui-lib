@@ -1,23 +1,29 @@
-<ul role="menubar"
-    [ngClass]="{
+<ul
+  role="menubar"
+  [ngClass]="{
     'np-menubar': true,
     'np-menubar-horizontal': orientation === 'horizontal',
     'np-menubar-vertical': orientation === 'vertical',
     'np-menubar-panel': isPanelMenu
   }"
-    [class]="styleClass"
-    [attr.id]="inputId">
+  [class]="styleClass"
+  [attr.id]="inputId"
+>
   <ng-container *ngIf="!isPanelMenu">
-    <np-menu-item *ngFor="let item of items"
-                  [item]="item"
-                  [orientation]="orientation"
-                  (onClickItem)="_onClickMenuItem($event)">
+    <np-menu-item
+      *ngFor="let item of items"
+      [item]="item"
+      [orientation]="orientation"
+      (onClickItem)="_onClickMenuItem($event)"
+    >
     </np-menu-item>
   </ng-container>
   <ng-container *ngIf="isPanelMenu">
-    <np-panel-menu-item *ngFor="let item of items"
-                        [item]="item"
-                        (onClickItem)="_onClickMenuItem($event)">
+    <np-panel-menu-item
+      *ngFor="let item of items"
+      [item]="item"
+      (onClickItem)="_onClickMenuItem($event)"
+    >
     </np-panel-menu-item>
   </ng-container>
 </ul>

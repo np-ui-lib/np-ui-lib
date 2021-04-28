@@ -177,20 +177,16 @@
     </fieldset>
     <fieldset>
       <legend>disabled</legend>
-      <np-checkbox [(ngModel)]="check2"
-                   [disabled]="true"></np-checkbox>
+      <np-checkbox [(ngModel)]="check2" [disabled]="true"></np-checkbox>
     </fieldset>
     <fieldset>
       <legend>readOnly</legend>
-      <np-checkbox [(ngModel)]="check3"
-                   [readOnly]="true"></np-checkbox>
+      <np-checkbox [(ngModel)]="check3" [readOnly]="true"></np-checkbox>
     </fieldset>
     <fieldset>
       <legend>required</legend>
-      <np-checkbox [(ngModel)]="check4"
-                   required></np-checkbox>
-      <button class="np-btn"
-              (click)="check4 = null">Set null</button>
+      <np-checkbox [(ngModel)]="check4" required></np-checkbox>
+      <button class="np-btn" (click)="check4 = null">Set null</button>
     </fieldset>
     <fieldset>
       <legend>label</legend>
@@ -198,20 +194,19 @@
     </fieldset>
     <fieldset>
       <legend>indeterminate</legend>
-      <np-checkbox [indeterminate]="
+      <np-checkbox
+        [indeterminate]="
           (fruit1 || fruit2 || fruit3) && !(fruit1 && fruit2 && fruit3)
         "
-                   [(ngModel)]="fruit1 && fruit2 && fruit3"
-                   [label]="'All'"
-                   (onChange)="onChangeFruit($event)">
+        [(ngModel)]="fruit1 && fruit2 && fruit3"
+        [label]="'All'"
+        (onChange)="onChangeFruit($event)"
+      >
       </np-checkbox>
       <np-checkbox-group>
-        <np-checkbox [(ngModel)]="fruit1"
-                     label="Apple"></np-checkbox>
-        <np-checkbox [(ngModel)]="fruit2"
-                     label="Mango"></np-checkbox>
-        <np-checkbox [(ngModel)]="fruit3"
-                     label="Banana"></np-checkbox>
+        <np-checkbox [(ngModel)]="fruit1" label="Apple"></np-checkbox>
+        <np-checkbox [(ngModel)]="fruit2" label="Mango"></np-checkbox>
+        <np-checkbox [(ngModel)]="fruit3" label="Banana"></np-checkbox>
       </np-checkbox-group>
     </fieldset>
     <fieldset>

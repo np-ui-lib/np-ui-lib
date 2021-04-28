@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpCheckboxDemoRoutingModule } from './np-checkbox-demo-routing.module';
-import { NpCheckboxDemoComponent } from './np-checkbox-demo.component';
-import { NpCardModule, NpCheckboxModule, NpTabsModule } from 'np-ui-lib';
-import { FormsModule } from '@angular/forms';
+import { NpCheckboxDemoRoutingModule } from "./np-checkbox-demo-routing.module";
+import { NpCheckboxDemoComponent } from "./np-checkbox-demo.component";
+import { NpCardModule, NpCheckboxModule, NpTabsModule } from "np-ui-lib";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [NpCheckboxDemoComponent],
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     NpCheckboxModule,
     NpCardModule,
     NpTabsModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
-export class NpCheckboxDemoModule { }
+export class NpCheckboxDemoModule {}

@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpSwitchDemoRoutingModule } from './np-switch-demo-routing.module';
-import { NpSwitchDemoComponent } from './np-switch-demo.component';
-import { NpSwitchModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
-import { FormsModule } from '@angular/forms';
+import { NpSwitchDemoRoutingModule } from "./np-switch-demo-routing.module";
+import { NpSwitchDemoComponent } from "./np-switch-demo.component";
+import { NpSwitchModule, NpCardModule, NpTabsModule } from "np-ui-lib";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [NpSwitchDemoComponent],
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     NpSwitchDemoRoutingModule,
     NpSwitchModule,
     NpCardModule,
-    NpTabsModule
-  ]
+    NpTabsModule,
+  ],
 })
-export class NpSwitchDemoModule { }
+export class NpSwitchDemoModule {}

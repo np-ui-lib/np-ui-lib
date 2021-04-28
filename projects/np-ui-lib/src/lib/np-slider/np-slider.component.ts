@@ -1,24 +1,30 @@
 import {
-  Component, Input, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, Output,
-  EventEmitter, ElementRef, ViewChild
-} from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+  Component,
+  Input,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  forwardRef,
+  Output,
+  EventEmitter,
+  ElementRef,
+  ViewChild,
+} from "@angular/core";
+import { NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component({
-  selector: 'np-slider',
-  templateUrl: './np-slider.component.html',
+  selector: "np-slider",
+  templateUrl: "./np-slider.component.html",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NpSliderComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class NpSliderComponent {
-
   private static controlCount = 1;
 
   @Input() min = 0;
@@ -34,15 +40,15 @@ export class NpSliderComponent {
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
   @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('control') inputViewChild: ElementRef;
+  @ViewChild("control") inputViewChild: ElementRef;
 
   lable: number;
   innerValue: number;
   isDisabled = false;
   focused = false;
   style: any;
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
+  private onChangeCallback: (_: any) => void = () => {};
+  private onTouchedCallback: () => void = () => {};
 
   get value(): number {
     return this.innerValue;

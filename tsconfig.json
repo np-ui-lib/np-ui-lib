@@ -12,15 +12,9 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "paths": {
-      "np-ui-lib": [
-        "dist/np-ui-lib/np-ui-lib",
-        "dist/np-ui-lib"
-      ]
+      "np-ui-lib": ["dist/np-ui-lib/np-ui-lib", "dist/np-ui-lib"]
     }
   },
   "angularCompilerOptions": {

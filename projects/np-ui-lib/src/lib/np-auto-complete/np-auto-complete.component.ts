@@ -1,29 +1,46 @@
 import {
-  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation,
-  forwardRef, ViewChild, OnDestroy,
-} from '@angular/core';
-import { TemplateRef, ViewContainerRef, ElementRef, AfterViewInit, AfterContentInit } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { Overlay, OverlayRef, OverlayPositionBuilder } from '@angular/cdk/overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { BehaviorSubject, Subscription } from 'rxjs';
-import { TopBottomOverlayPositions } from '../np-utility/np-constants';
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+  forwardRef,
+  ViewChild,
+  OnDestroy,
+} from "@angular/core";
+import {
+  TemplateRef,
+  ViewContainerRef,
+  ElementRef,
+  AfterViewInit,
+  AfterContentInit,
+} from "@angular/core";
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
+import {
+  Overlay,
+  OverlayRef,
+  OverlayPositionBuilder,
+} from "@angular/cdk/overlay";
+import { TemplatePortal } from "@angular/cdk/portal";
+import { BehaviorSubject, Subscription } from "rxjs";
+import { TopBottomOverlayPositions } from "../np-utility/np-constants";
 
 @Component({
-  selector: 'np-auto-complete',
-  templateUrl: './np-auto-complete.component.html',
+  selector: "np-auto-complete",
+  templateUrl: "./np-auto-complete.component.html",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NpAutoCompleteComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
-export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit, OnDestroy {
-
+export class NpAutoCompleteComponent
+  implements ControlValueAccessor, AfterViewInit, AfterContentInit, OnDestroy {
   private static controlCount = 1;
 
   @Input() searchResult: BehaviorSubject<any[]>;
@@ -35,20 +52,21 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   @Input() minSearchCharLimit: number;
   @Input() orderBy: string;
   @Input() orderDir: string;
-  @Input() placeholder = '';
+  @Input() placeholder = "";
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-auto-complete_${NpAutoCompleteComponent.controlCount++}`;
+  @Input()
+  inputId = `np-auto-complete_${NpAutoCompleteComponent.controlCount++}`;
 
   @Output() onSearch: EventEmitter<any> = new EventEmitter();
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
   @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
-  @ViewChild('control') inputViewChild: ElementRef;
+  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  @ViewChild("control") inputViewChild: ElementRef;
 
   searchKeyword: string;
   innerValue: any;
@@ -62,22 +80,27 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
+  private onChangeCallback: (_: any) => void = () => {};
+  private onTouchedCallback: () => void = () => {};
 
   constructor(
     public overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef
-  ) { }
+  ) {}
 
   ngAfterContentInit(): void {
     this.subscription = this.searchResult.subscribe((data) => {
       if (data) {
         this.overlayRef.detach();
       }
-      if (this.maxResultLimit && this.maxResultLimit > 0 && data && data.length > this.maxResultLimit) {
+      if (
+        this.maxResultLimit &&
+        this.maxResultLimit > 0 &&
+        data &&
+        data.length > this.maxResultLimit
+      ) {
         this.options = data.splice(0, this.maxResultLimit);
       } else {
         this.options = data;
@@ -99,9 +122,9 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: 'np-auto-complete-backdrop',
+      backdropClass: "np-auto-complete-backdrop",
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
-      panelClass: this.styleClass
+      panelClass: this.styleClass,
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,
@@ -151,7 +174,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   }
 
   _getDisplayValue() {
-    return this.innerValue || '';
+    return this.innerValue || "";
   }
 
   _close() {
@@ -166,7 +189,11 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
     }
     const value = $event.target.value.trim();
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
-      if (value === undefined || value === null || value.length < this.minSearchCharLimit) {
+      if (
+        value === undefined ||
+        value === null ||
+        value.length < this.minSearchCharLimit
+      ) {
         return;
       }
     }
@@ -204,7 +231,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
       }
       if (!valid) {
         this.value = null;
-        this.inputViewChild.nativeElement.value = '';
+        this.inputViewChild.nativeElement.value = "";
       } else {
         this.value = value;
       }
@@ -217,7 +244,7 @@ export class NpAutoCompleteComponent implements ControlValueAccessor, AfterViewI
   }
 
   _onKeydown(event: KeyboardEvent) {
-    if (event.key === 'Tab' || event.key === 'Escape') {
+    if (event.key === "Tab" || event.key === "Escape") {
       this._close();
     }
   }

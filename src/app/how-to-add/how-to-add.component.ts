@@ -1,13 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-how-to-add',
-  templateUrl: './how-to-add.component.html'
+  selector: "app-how-to-add",
+  templateUrl: "./how-to-add.component.html",
 })
 export class HowToAddComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

@@ -1,10 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpCalendarDemoRoutingModule } from './np-calendar-demo-routing.module';
-import { NpCalendarDemoComponent } from './np-calendar-demo.component';
-import { NpCalendarModule, NpCardModule, NpDialogModule, NpPopoverModule, NpTabsModule } from 'np-ui-lib';
-
+import { NpCalendarDemoRoutingModule } from "./np-calendar-demo-routing.module";
+import { NpCalendarDemoComponent } from "./np-calendar-demo.component";
+import {
+  NpCalendarModule,
+  NpCardModule,
+  NpDialogModule,
+  NpPopoverModule,
+  NpTabsModule,
+} from "np-ui-lib";
 
 @NgModule({
   declarations: [NpCalendarDemoComponent],
@@ -15,7 +20,7 @@ import { NpCalendarModule, NpCardModule, NpDialogModule, NpPopoverModule, NpTabs
     NpDialogModule,
     NpTabsModule,
     NpCardModule,
-    NpPopoverModule
-  ]
+    NpPopoverModule,
+  ],
 })
-export class NpCalendarDemoModule { }
+export class NpCalendarDemoModule {}

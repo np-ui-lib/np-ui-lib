@@ -1,13 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpTabsComponent } from 'np-ui-lib';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { NpTabsComponent } from "np-ui-lib";
 
 @Component({
-  selector: 'app-np-tabs-demo',
-  templateUrl: './np-tabs-demo.component.html'
+  selector: "app-np-tabs-demo",
+  templateUrl: "./np-tabs-demo.component.html",
 })
 export class NpTabsDemoComponent implements OnInit {
-
-  importText = 'import { NpTabsModule } from \'np-ui-lib\';';
+  importText = "import { NpTabsModule } from 'np-ui-lib';";
   htmlText = `<np-tabs>
   <np-tab title="Home">
   </np-tab>
@@ -21,20 +20,21 @@ export class NpTabsDemoComponent implements OnInit {
   </ng-template
 </np-tab>`;
 
-  @ViewChild('tabs', { static: true }) tabs: NpTabsComponent;
-  @ViewChild('tabs2', { static: true }) tabs2: NpTabsComponent;
+  @ViewChild("tabs", { static: true }) tabs: NpTabsComponent;
+  @ViewChild("tabs2", { static: true }) tabs2: NpTabsComponent;
 
   count = 5;
   isTab4Available = true;
   toggleTab3Disabled = true;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onTabChange(tab) {
-    console.log(`tab changed to ${tab.title}, is load first time : ${tab.isLoadFirstTime}`);
+    console.log(
+      `tab changed to ${tab.title}, is load first time : ${tab.isLoadFirstTime}`
+    );
   }
 
   changeCount() {
@@ -48,5 +48,4 @@ export class NpTabsDemoComponent implements OnInit {
   ToggleTab3Disabled() {
     this.toggleTab3Disabled = !this.toggleTab3Disabled;
   }
-
 }

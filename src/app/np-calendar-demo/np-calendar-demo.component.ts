@@ -1,20 +1,24 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NpCalendarComponent, NpCalendarEvent, NpDialogComponent, NpModalService } from 'np-ui-lib';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import {
+  NpCalendarComponent,
+  NpCalendarEvent,
+  NpDialogComponent,
+  NpModalService,
+} from "np-ui-lib";
 
 @Component({
-  selector: 'app-np-calendar-demo',
-  templateUrl: './np-calendar-demo.component.html'
+  selector: "app-np-calendar-demo",
+  templateUrl: "./np-calendar-demo.component.html",
 })
 export class NpCalendarDemoComponent implements OnInit {
-
   importText = `import { NpCalendarModule } from \'np-ui-lib\';`;
   htmlText = `<np-calendar></np-calendar>`;
 
-  @ViewChild('myCalendar', { static: true }) myCalendar: NpCalendarComponent;
-  @ViewChild('myCalendar2', { static: true }) myCalendar2: NpCalendarComponent;
+  @ViewChild("myCalendar", { static: true }) myCalendar: NpCalendarComponent;
+  @ViewChild("myCalendar2", { static: true }) myCalendar2: NpCalendarComponent;
 
   disabledDates = [];
-  disableWeekDays = ['Sunday', 'Saturday'];
+  disableWeekDays = ["Sunday", "Saturday"];
   eventTemplateStr = `<ng-template #eventTemplate let-event="event">
   <div [npTooltip]="event.title">
       {{event.startDate.toTimeString().substring(0,5)}} {{event.title}}
@@ -22,7 +26,7 @@ export class NpCalendarDemoComponent implements OnInit {
 </ng-template>`;
   dateClassText = 'function(date: Date) { return "red-background";}';
 
-  constructor(private modalService: NpModalService) { }
+  constructor(private modalService: NpModalService) {}
 
   ngOnInit(): void {
     const date4 = new Date();
@@ -38,29 +42,44 @@ export class NpCalendarDemoComponent implements OnInit {
     const date3 = new Date();
     date3.setHours(24);
     const events = [
-      new NpCalendarEvent({ startDate: date1, description: 'Meeting with client' }),
       new NpCalendarEvent({
-        startDate: date2, description: 'Retrospective Meeting with scrum team of np-ui-lib project',
-        backgroundColor: '#1e7e34', fontColor: 'black'
+        startDate: date1,
+        description: "Meeting with client",
       }),
-      new NpCalendarEvent({ startDate: date3, description: 'Weekly sync up meeting on skype' })
+      new NpCalendarEvent({
+        startDate: date2,
+        description:
+          "Retrospective Meeting with scrum team of np-ui-lib project",
+        backgroundColor: "#1e7e34",
+        fontColor: "black",
+      }),
+      new NpCalendarEvent({
+        startDate: date3,
+        description: "Weekly sync up meeting on skype",
+      }),
     ];
     this.myCalendar.addEvents(events);
   }
 
   onClickDate(date: Date) {
-    const prompt = this.modalService.open(NpDialogComponent,
-      null, { type: 'prompt', message: 'Add Event Title' });
+    const prompt = this.modalService.open(NpDialogComponent, null, {
+      type: "prompt",
+      message: "Add Event Title",
+    });
     prompt.onClose.subscribe((data) => {
       if (data != undefined && data != null && data.length > 0) {
-        this.myCalendar.addEvents([new NpCalendarEvent({ startDate: date, description: data })]);
+        this.myCalendar.addEvents([
+          new NpCalendarEvent({ startDate: date, description: data }),
+        ]);
       }
     });
   }
 
   onClickEvent(event: NpCalendarEvent) {
-    const confirm = this.modalService.open(NpDialogComponent,
-      null, { type: 'confirm', message: 'Are you sure to delete event?' });
+    const confirm = this.modalService.open(NpDialogComponent, null, {
+      type: "confirm",
+      message: "Are you sure to delete event?",
+    });
     confirm.onClose.subscribe((data) => {
       if (data) {
         this.myCalendar.removeEvents([event]);
@@ -73,18 +92,24 @@ export class NpCalendarDemoComponent implements OnInit {
   }
 
   onClickDate2(date: Date) {
-    const prompt = this.modalService.open(NpDialogComponent,
-      null, { type: 'prompt', message: 'Add Event Title' });
+    const prompt = this.modalService.open(NpDialogComponent, null, {
+      type: "prompt",
+      message: "Add Event Title",
+    });
     prompt.onClose.subscribe((data) => {
       if (data != undefined && data != null && data.length > 0) {
-        this.myCalendar2.addEvents([new NpCalendarEvent({ startDate: date, description: data })]);
+        this.myCalendar2.addEvents([
+          new NpCalendarEvent({ startDate: date, description: data }),
+        ]);
       }
     });
   }
 
   onClickEvent2(event: NpCalendarEvent) {
-    const confirm = this.modalService.open(NpDialogComponent,
-      null, { type: 'confirm', message: 'Are you sure to delete event?' });
+    const confirm = this.modalService.open(NpDialogComponent, null, {
+      type: "confirm",
+      message: "Are you sure to delete event?",
+    });
     confirm.onClose.subscribe((data) => {
       if (data) {
         this.myCalendar2.removeEvents([event]);
@@ -101,22 +126,30 @@ export class NpCalendarDemoComponent implements OnInit {
     const date3 = new Date();
     date3.setHours(24);
     const events = [
-      new NpCalendarEvent({ startDate: date1, description: 'Meeting with client' }),
-      new NpCalendarEvent({ startDate: date1, description: 'Team lunch' }),
       new NpCalendarEvent({
-        startDate: date2, description: 'Retrospective Meeting with scrum team of np-ui-lib project',
-        backgroundColor: '#1e7e34', fontColor: 'black'
+        startDate: date1,
+        description: "Meeting with client",
       }),
-      new NpCalendarEvent({ startDate: date3, description: 'Weekly sync up meeting on skype' })
+      new NpCalendarEvent({ startDate: date1, description: "Team lunch" }),
+      new NpCalendarEvent({
+        startDate: date2,
+        description:
+          "Retrospective Meeting with scrum team of np-ui-lib project",
+        backgroundColor: "#1e7e34",
+        fontColor: "black",
+      }),
+      new NpCalendarEvent({
+        startDate: date3,
+        description: "Weekly sync up meeting on skype",
+      }),
     ];
     this.myCalendar2.addEvents(events);
   }
 
   getClassForDate(date: Date) {
     if (date.getDate() == 1 || date.getDate() == 28) {
-      return 'red-background';
+      return "red-background";
     }
-    return 'green-background';
+    return "green-background";
   }
-
 }

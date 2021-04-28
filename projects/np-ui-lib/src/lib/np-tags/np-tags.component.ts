@@ -1,33 +1,47 @@
 import {
-  Component, Input, Output, EventEmitter, ChangeDetectionStrategy,
-  ViewEncapsulation, forwardRef, OnDestroy
-} from '@angular/core';
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+  forwardRef,
+  OnDestroy,
+} from "@angular/core";
 import {
-  ViewChild, TemplateRef, ViewContainerRef, ElementRef,
-  AfterViewInit, AfterContentInit
-} from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { Overlay, OverlayRef, OverlayPositionBuilder } from '@angular/cdk/overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { BehaviorSubject, Subscription } from 'rxjs';
-import { NpUtilityService } from '../np-utility/np-utility.service';
-import { TopBottomOverlayPositions } from '../np-utility/np-constants';
+  ViewChild,
+  TemplateRef,
+  ViewContainerRef,
+  ElementRef,
+  AfterViewInit,
+  AfterContentInit,
+} from "@angular/core";
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
+import {
+  Overlay,
+  OverlayRef,
+  OverlayPositionBuilder,
+} from "@angular/cdk/overlay";
+import { TemplatePortal } from "@angular/cdk/portal";
+import { BehaviorSubject, Subscription } from "rxjs";
+import { NpUtilityService } from "../np-utility/np-utility.service";
+import { TopBottomOverlayPositions } from "../np-utility/np-constants";
 
 @Component({
-  selector: 'np-tags',
-  templateUrl: './np-tags.component.html',
+  selector: "np-tags",
+  templateUrl: "./np-tags.component.html",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NpTagsComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
-export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, AfterContentInit, OnDestroy {
-
+export class NpTagsComponent
+  implements ControlValueAccessor, AfterViewInit, AfterContentInit, OnDestroy {
   private static controlCount = 1;
 
   @Input() displayKey: string;
@@ -42,7 +56,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Input() maxSelectLimit: number;
   @Input() orderBy: string;
   @Input() orderDir: string;
-  @Input() placeholder = '';
+  @Input() placeholder = "";
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -55,8 +69,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
   @Output() onBlur: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
-  @ViewChild('control') inputViewChild: ElementRef;
+  @ViewChild("templatePortalContent") templatePortalContent: TemplateRef<any>;
+  @ViewChild("control") inputViewChild: ElementRef;
 
   selected: any[];
   subscription: Subscription;
@@ -70,8 +84,8 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
-  private onChangeCallback: (_: any) => void = () => { };
-  private onTouchedCallback: () => void = () => { };
+  private onChangeCallback: (_: any) => void = () => {};
+  private onTouchedCallback: () => void = () => {};
 
   constructor(
     public overlay: Overlay,
@@ -79,11 +93,16 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef,
     private utility: NpUtilityService
-  ) { }
+  ) {}
 
   ngAfterContentInit(): void {
     this.subscription = this.searchResult.subscribe((data) => {
-      if (this.maxResultLimit && this.maxResultLimit > 0 && data && data.length > this.maxResultLimit) {
+      if (
+        this.maxResultLimit &&
+        this.maxResultLimit > 0 &&
+        data &&
+        data.length > this.maxResultLimit
+      ) {
         this.options = data.splice(0, this.maxResultLimit);
       } else {
         this.options = data;
@@ -106,9 +125,9 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
     this.overlayRef = this.overlay.create({
       positionStrategy,
       hasBackdrop: true,
-      backdropClass: 'np-tags-backdrop',
+      backdropClass: "np-tags-backdrop",
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
-      panelClass: this.styleClass
+      panelClass: this.styleClass,
     });
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,
@@ -173,7 +192,11 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       return;
     }
     if (this.minSearchCharLimit && this.minSearchCharLimit > 0) {
-      if (this.displayValue === undefined || this.displayValue === null || this.displayValue.length < this.minSearchCharLimit) {
+      if (
+        this.displayValue === undefined ||
+        this.displayValue === null ||
+        this.displayValue.length < this.minSearchCharLimit
+      ) {
         return;
       }
     }
@@ -192,7 +215,11 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
       this._removeTag(val);
       return;
     }
-    if (this.maxSelectLimit > 0 && this.value && this.value.length === this.maxSelectLimit) {
+    if (
+      this.maxSelectLimit > 0 &&
+      this.value &&
+      this.value.length === this.maxSelectLimit
+    ) {
       return;
     }
     const currentVal = this.valueKey ? val[this.valueKey] : val;
@@ -217,7 +244,11 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _createNewTag() {
-    if (this.maxSelectLimit > 0 && this.value && this.value.length === this.maxSelectLimit) {
+    if (
+      this.maxSelectLimit > 0 &&
+      this.value &&
+      this.value.length === this.maxSelectLimit
+    ) {
       return;
     }
     if (this.options === undefined || this.options === null) {
@@ -278,15 +309,21 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _onKeydown(event: KeyboardEvent) {
-    if (event.key === 'Tab' || event.key === 'Escape') {
+    if (event.key === "Tab" || event.key === "Escape") {
       this._close();
     }
-    if (event.key === 'ArrowDown') {
+    if (event.key === "ArrowDown") {
       this._open();
       event.preventDefault();
     }
-    if (event.key === 'Backspace' && this.value && this.value.length > 0
-      && (this.displayValue === undefined || this.displayValue === null || this.displayValue.length === 0)) {
+    if (
+      event.key === "Backspace" &&
+      this.value &&
+      this.value.length > 0 &&
+      (this.displayValue === undefined ||
+        this.displayValue === null ||
+        this.displayValue.length === 0)
+    ) {
       if (this.value.length > 1) {
         this.value.pop();
         this.selected.pop();
@@ -297,7 +334,12 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
         this.selected = null;
       }
     }
-    if (event.key === 'Enter' && !this.forceToSelect && this.displayValue && this.displayValue.length > 0) {
+    if (
+      event.key === "Enter" &&
+      !this.forceToSelect &&
+      this.displayValue &&
+      this.displayValue.length > 0
+    ) {
       this._createNewTag();
     }
   }
@@ -307,7 +349,7 @@ export class NpTagsComponent implements ControlValueAccessor, AfterViewInit, Aft
   }
 
   _getDisplayValue() {
-    return this.displayValue || '';
+    return this.displayValue || "";
   }
 
   _onBlur($event) {

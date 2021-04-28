@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-button-demo',
-  templateUrl: './np-button-demo.component.html'
+  selector: "app-np-button-demo",
+  templateUrl: "./np-button-demo.component.html",
 })
 export class NpButtonDemoComponent implements OnInit {
-
   basicButton = `<div class="np-btn-group">
   <button class="np-btn">Normal</button>
   <button class="np-btn np-btn-primary">Primary</button>
@@ -35,9 +34,7 @@ export class NpButtonDemoComponent implements OnInit {
   <button class="np-btn np-btn-success">Success<i class="fa fa-save np-btn-icon-right"></i></button>
   <button class="np-btn np-btn-danger"><i class="fa fa-trash np-btn-icon-left"></i>Error</button>
 </div>`;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

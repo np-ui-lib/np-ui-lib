@@ -1,13 +1,19 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, Input, TemplateRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  Input,
+  TemplateRef,
+} from "@angular/core";
 
 @Component({
-  selector: 'np-popover',
-  templateUrl: './np-popover.component.html',
+  selector: "np-popover",
+  templateUrl: "./np-popover.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpPopoverComponent implements OnInit {
-
   private static controlCount = 1;
 
   @Input() header: string | TemplateRef<any>;

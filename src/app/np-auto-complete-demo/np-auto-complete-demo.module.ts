@@ -1,10 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpAutoCompleteDemoRoutingModule } from './np-auto-complete-demo-routing.module';
-import { NpAutoCompleteDemoComponent } from './np-auto-complete-demo.component';
-import { FormsModule } from '@angular/forms';
-import { NpAutoCompleteModule, NpHightlightModule, NpTabsModule, NpCardModule } from 'np-ui-lib';
+import { NpAutoCompleteDemoRoutingModule } from "./np-auto-complete-demo-routing.module";
+import { NpAutoCompleteDemoComponent } from "./np-auto-complete-demo.component";
+import { FormsModule } from "@angular/forms";
+import {
+  NpAutoCompleteModule,
+  NpHightlightModule,
+  NpTabsModule,
+  NpCardModule,
+} from "np-ui-lib";
 
 @NgModule({
   declarations: [NpAutoCompleteDemoComponent],
@@ -15,7 +20,7 @@ import { NpAutoCompleteModule, NpHightlightModule, NpTabsModule, NpCardModule } 
     NpAutoCompleteModule,
     NpHightlightModule,
     NpTabsModule,
-    NpCardModule
-  ]
+    NpCardModule,
+  ],
 })
-export class NpAutoCompleteDemoModule { }
+export class NpAutoCompleteDemoModule {}

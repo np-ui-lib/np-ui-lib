@@ -1,239 +1,239 @@
 @mixin app-style {
-    header {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        z-index: 804;
-        height: 50px;
-        box-shadow: 0 1px 6px 0 rgba(#000000, 0.5);
-    }
+  header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 804;
+    height: 50px;
+    box-shadow: 0 1px 6px 0 rgba(#000000, 0.5);
+  }
 
-    header .np-toolbar {
-        background-color: $primary-color;
-        border-radius: 0px;
-    }
+  header .np-toolbar {
+    background-color: $primary-color;
+    border-radius: 0px;
+  }
 
-    .header-menu-btn {
-        cursor: pointer;
-        color: #ffffff;
-        font-size: 1.5rem;
-    }
+  .header-menu-btn {
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1.5rem;
+  }
 
-    .header-menu-btn:hover {
-        background-color: darken($primary-color, 5%);
-    }
+  .header-menu-btn:hover {
+    background-color: darken($primary-color, 5%);
+  }
 
-    .header-menu-btn i {
-        margin: 8px;
-    }
+  .header-menu-btn i {
+    margin: 8px;
+  }
 
-    .header-link {
-        color: white;
-        font-size: 25px;
-        padding-left: 5px;
-    }
+  .header-link {
+    color: white;
+    font-size: 25px;
+    padding-left: 5px;
+  }
 
-    .logo-link {
-        padding: 0px 10px;
-        color: white;
-        cursor: pointer;
-    }
+  .logo-link {
+    padding: 0px 10px;
+    color: white;
+    cursor: pointer;
+  }
 
-    .logo-link i {
-        font-size: 30px !important;
-    }
+  .logo-link i {
+    font-size: 30px !important;
+  }
 
-    .logo-background {
-        fill: $primary-color;
-    }
+  .logo-background {
+    fill: $primary-color;
+  }
 
-    .logo-text {
-        fill: #ffffff;
-    }
+  .logo-text {
+    fill: #ffffff;
+  }
 
-    .page-header {
-        margin: -5px -10px 10px -10px;
-        padding: 10px;
-        background: $primary-color;
-        color: white;
-        font-size: 25px;
-    }
+  .page-header {
+    margin: -5px -10px 10px -10px;
+    padding: 10px;
+    background: $primary-color;
+    color: white;
+    font-size: 25px;
+  }
 
-    section {
-        margin-top: 50px;
-        height: calc(100vh - 50px);
-    }
+  section {
+    margin-top: 50px;
+    height: calc(100vh - 50px);
+  }
 
-    nav {
-        height: calc(100vh - 50px);
-        overflow: auto;
-        width: 250px;
-        position: fixed;
-        top: 50px;
-        z-index: 803;
-    }
+  nav {
+    height: calc(100vh - 50px);
+    overflow: auto;
+    width: 250px;
+    position: fixed;
+    top: 50px;
+    z-index: 803;
+  }
 
-    article {
-        margin-left: 250px;
-        width: calc(100% - 250px);
-        display: flex;
-        flex-direction: column;
-        height: calc(100vh - 50px);
-    }
+  article {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 50px);
+  }
 
-    .full-container {
-        margin-left: 0px;
-        width: 100%;
-    }
+  .full-container {
+    margin-left: 0px;
+    width: 100%;
+  }
 
-    .mobile-nav {
-        border-right: 1px solid $border-color;
-        z-index: 803;
-    }
+  .mobile-nav {
+    border-right: 1px solid $border-color;
+    z-index: 803;
+  }
 
-    .my-nav {
-        border: none !important;
-        padding: 10px 0px !important;
-    }
+  .my-nav {
+    border: none !important;
+    padding: 10px 0px !important;
+  }
 
-    .color-red {
-        color: red;
-    }
+  .color-red {
+    color: red;
+  }
 
-    .content-container {
-        padding: 5px 10px;
-        flex: 1 1 0%;
-    }
+  .content-container {
+    padding: 5px 10px;
+    flex: 1 1 0%;
+  }
 
-    footer {
-        text-align: center;
-        background-color: rgba($primary-color, 0.5);
-        padding: 5px;
-        width: 100%;
-    }
+  footer {
+    text-align: center;
+    background-color: rgba($primary-color, 0.5);
+    padding: 5px;
+    width: 100%;
+  }
 
-    pre {
-        line-height: 20px;
-        background-color: black;
-        color: white;
-        padding: 10px;
-        overflow: auto;
-        border-radius: $border-radius;
-        border-left: 3px solid $primary-color;
-    }
+  pre {
+    line-height: 20px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    overflow: auto;
+    border-radius: $border-radius;
+    border-left: 3px solid $primary-color;
+  }
 
-    .np-input-group-append .fa,
-    .dashboard-card .fa {
-        font-size: 20px;
-    }
+  .np-input-group-append .fa,
+  .dashboard-card .fa {
+    font-size: 20px;
+  }
 
-    fieldset {
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
+  fieldset {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
 
-    .overview-card {
-        color: white;
-        border: none !important;
-    }
+  .overview-card {
+    color: white;
+    border: none !important;
+  }
 
-    .overview-card .np-card-body {
-        padding: 20px;
-    }
+  .overview-card .np-card-body {
+    padding: 20px;
+  }
 
-    .overview-1 {
-        background-color: #1e7e34 !important;
-    }
+  .overview-1 {
+    background-color: #1e7e34 !important;
+  }
 
-    .overview-2 {
-        background-color: #d9534f !important;
-    }
+  .overview-2 {
+    background-color: #d9534f !important;
+  }
 
-    .overview-3 {
-        background-color: #117a8b !important;
-    }
+  .overview-3 {
+    background-color: #117a8b !important;
+  }
 
-    .overview-4 {
-        background-color: #d39e00 !important;
-    }
+  .overview-4 {
+    background-color: #d39e00 !important;
+  }
 
-    .overview-icon {
-        font-size: 1.5rem;
-        padding-bottom: 10px;
-        text-align: center;
-    }
+  .overview-icon {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    text-align: center;
+  }
 
-    .overview-header {
-        font-size: 1.5rem;
-        padding-bottom: 10px;
-        text-align: center;
-    }
+  .overview-header {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    text-align: center;
+  }
 
-    .overview-number {
-        font-size: 1.5rem;
-        text-align: center;
-    }
+  .overview-number {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 
-    .pricing-table,
-    .pricing-table .np-card-body {
-        padding: 0px;
-    }
+  .pricing-table,
+  .pricing-table .np-card-body {
+    padding: 0px;
+  }
 
-    .pricing-table .np-list {
-        border-left: 0px;
-        border-right: 0px;
-    }
+  .pricing-table .np-list {
+    border-left: 0px;
+    border-right: 0px;
+  }
 
-    .pricing-table .np-list-item:hover {
-        background-color: #ffffff;
-    }
+  .pricing-table .np-list-item:hover {
+    background-color: #ffffff;
+  }
 
-    .price-label {
-        background-color: $selected-color;
-    }
+  .price-label {
+    background-color: $selected-color;
+  }
 
-    .price-actions {
-        margin: 10px;
-    }
+  .price-actions {
+    margin: 10px;
+  }
 
-    .myClass {
-        border: 1px solid $primary-color !important;
-    }
+  .myClass {
+    border: 1px solid $primary-color !important;
+  }
 
-    .myBackDrop {
-        background-color: $primary-color;
-        opacity: 0.3 !important;
-    }
+  .myBackDrop {
+    background-color: $primary-color;
+    opacity: 0.3 !important;
+  }
 
-    .np-demo-container .np-col {
-        background-color: $selected-color;
-        outline: 2px solid #ffffff;
-        padding: 10px;
-        text-align: center;
-    }
+  .np-demo-container .np-col {
+    background-color: $selected-color;
+    outline: 2px solid #ffffff;
+    padding: 10px;
+    text-align: center;
+  }
 
-    .popover-no-border .np-popover-body {
-        padding: 0px;
-    }
+  .popover-no-border .np-popover-body {
+    padding: 0px;
+  }
 
-    .no-border {
-        border: none !important;
-    }
+  .no-border {
+    border: none !important;
+  }
 
-    .list {
-        margin: 0px;
-    }
+  .list {
+    margin: 0px;
+  }
 
-    .green-background,
-    .green-background:hover {
-        background-color: green;
-    }
+  .green-background,
+  .green-background:hover {
+    background-color: green;
+  }
 
-    .red-background,
-    .red-background:hover {
-        background-color: red;
-    }
+  .red-background,
+  .red-background:hover {
+    background-color: red;
+  }
 }

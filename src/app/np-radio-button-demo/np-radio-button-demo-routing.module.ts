@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpRadioButtonDemoComponent } from './np-radio-button-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpRadioButtonDemoComponent } from "./np-radio-button-demo.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NpRadioButtonDemoComponent
-  }
+    path: "",
+    component: NpRadioButtonDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpRadioButtonDemoRoutingModule { }
+export class NpRadioButtonDemoRoutingModule {}

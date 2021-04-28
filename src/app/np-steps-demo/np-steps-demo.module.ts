@@ -1,10 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpStepsDemoRoutingModule } from './np-steps-demo-routing.module';
-import { NpStepsDemoComponent } from './np-steps-demo.component';
-import { NpStepsModule, NpCardModule, NpTabsModule, NpAlertModule, NpSwitchModule } from 'np-ui-lib';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NpStepsDemoRoutingModule } from "./np-steps-demo-routing.module";
+import { NpStepsDemoComponent } from "./np-steps-demo.component";
+import {
+  NpStepsModule,
+  NpCardModule,
+  NpTabsModule,
+  NpAlertModule,
+  NpSwitchModule,
+} from "np-ui-lib";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [NpStepsDemoComponent],
@@ -17,7 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NpCardModule,
     NpTabsModule,
     NpAlertModule,
-    NpSwitchModule
-  ]
+    NpSwitchModule,
+  ],
 })
-export class NpStepsDemoModule { }
+export class NpStepsDemoModule {}

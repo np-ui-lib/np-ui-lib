@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpCarouselDemoRoutingModule } from './np-carousel-demo-routing.module';
-import { NpCarouselDemoComponent } from './np-carousel-demo.component';
-import { NpCarouselModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
-import { FormsModule } from '@angular/forms';
-
+import { NpCarouselDemoRoutingModule } from "./np-carousel-demo-routing.module";
+import { NpCarouselDemoComponent } from "./np-carousel-demo.component";
+import { NpCarouselModule, NpCardModule, NpTabsModule } from "np-ui-lib";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [NpCarouselDemoComponent],
@@ -15,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     NpCarouselDemoRoutingModule,
     NpCarouselModule,
     NpCardModule,
-    NpTabsModule
-  ]
+    NpTabsModule,
+  ],
 })
-export class NpCarouselDemoModule { }
+export class NpCarouselDemoModule {}

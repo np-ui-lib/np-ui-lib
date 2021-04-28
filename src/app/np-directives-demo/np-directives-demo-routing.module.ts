@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpDirectivesDemoComponent } from './np-directives-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpDirectivesDemoComponent } from "./np-directives-demo.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: NpDirectivesDemoComponent
-  }
+    path: "",
+    component: NpDirectivesDemoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpDirectivesDemoRoutingModule { }
+export class NpDirectivesDemoRoutingModule {}

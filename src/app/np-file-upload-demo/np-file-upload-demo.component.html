@@ -1,298 +1,314 @@
 <h2 class="page-header">File Upload</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>HTML</b>
-                <div>
-                    <pre><code [innerText]="htmlText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                    </tr>
-                    <tr>
-                        <td>ngModel</td>
-                        <td>Value</td>
-                        <td>File[]</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>multiple</td>
-                        <td>Allow to upload multiple files</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>extensions</td>
-                        <td>Set extensions to allow to upload
-                            <br>Multiple extension with comma seprated like 'png,jpg,jpeg'
-                        </td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>accept</td>
-                        <td>Accept verbs for file selector like 'image/*'</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>size</td>
-                        <td>Set individual file size validation in bytes</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>totalSize</td>
-                        <td>Set total file size validation in bytes. Only for multiple file uploads</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>maxFiles</td>
-                        <td>Set maximum number of file to upload validation</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>uploadButtonLabel</td>
-                        <td>Set upload button text</td>
-                        <td>string</td>
-                        <td>Choose file/Choose files</td>
-                    </tr>
-                    <tr>
-                        <td>showFileSize</td>
-                        <td>Show selected file size</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>Set disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>required</td>
-                        <td>Set required</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>readOnly</td>
-                        <td>Set readonly</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>autoFocus</td>
-                        <td>Set autofocus</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>tabIndex</td>
-                        <td>Set tabindex attribute</td>
-                        <td>number</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>Set extra class on component</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>Set id attribute</td>
-                        <td>string</td>
-                        <td></td>
-                    </tr>
-                </table>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>HTML</b>
+        <div>
+          <pre><code [innerText]="htmlText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>ngModel</td>
+            <td>Value</td>
+            <td>File[]</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>multiple</td>
+            <td>Allow to upload multiple files</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>extensions</td>
+            <td>
+              Set extensions to allow to upload <br />Multiple extension with
+              comma seprated like 'png,jpg,jpeg'
+            </td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>accept</td>
+            <td>Accept verbs for file selector like 'image/*'</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>size</td>
+            <td>Set individual file size validation in bytes</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>totalSize</td>
+            <td>
+              Set total file size validation in bytes. Only for multiple file
+              uploads
+            </td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>maxFiles</td>
+            <td>Set maximum number of file to upload validation</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>uploadButtonLabel</td>
+            <td>Set upload button text</td>
+            <td>string</td>
+            <td>Choose file/Choose files</td>
+          </tr>
+          <tr>
+            <td>showFileSize</td>
+            <td>Show selected file size</td>
+            <td>boolean</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>Set disabled</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>required</td>
+            <td>Set required</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>readOnly</td>
+            <td>Set readonly</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>autoFocus</td>
+            <td>Set autofocus</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>tabIndex</td>
+            <td>Set tabindex attribute</td>
+            <td>number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>styleClass</td>
+            <td>Set extra class on component</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inputId</td>
+            <td>Set id attribute</td>
+            <td>string</td>
+            <td></td>
+          </tr>
+        </table>
 
-                <np-alert type="info">
-                    There are four control validations for extensions, size, totalSize, maxFiles.
-                </np-alert>
-            </np-card-body>
-        </np-card>
+        <np-alert type="info">
+          There are four control validations for extensions, size, totalSize,
+          maxFiles.
+        </np-alert>
+      </np-card-body>
+    </np-card>
 
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            onChange(v: File[])
-                        </td>
-                        <td>
-                            Callback event on value change.
-                        </td>
-                        <td>Value</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onFocus(event)
-                        </td>
-                        <td>
-                            Callback event on input focus.
-                        </td>
-                        <td>Browser event</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            onBlur(event)
-                        </td>
-                        <td>
-                            Callback event on input blur.
-                        </td>
-                        <td>Browser event</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <table class="np-table">
-                    <tr>
-                        <th>Api</th>
-                        <th>Description</th>
-                        <th>Parameters</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            focus()
-                        </td>
-                        <td>
-                            Set focus on control. If not setting focus properly then use timeout of 500ms.
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <fieldset>
-            <legend>Single file upload</legend>
-            <np-file-upload [(ngModel)]="fileUpload1"
-                            [showFileSize]="false"></np-file-upload>
-            <div class="np-btn-group">
-                <button class="np-btn"
-                        (click)="SetNullValue()">Set null</button>
-            </div>
-        </fieldset>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>onChange(v: File[])</td>
+            <td>Callback event on value change.</td>
+            <td>Value</td>
+          </tr>
+          <tr>
+            <td>onFocus(event)</td>
+            <td>Callback event on input focus.</td>
+            <td>Browser event</td>
+          </tr>
+          <tr>
+            <td>onBlur(event)</td>
+            <td>Callback event on input blur.</td>
+            <td>Browser event</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <table class="np-table">
+          <tr>
+            <th>Api</th>
+            <th>Description</th>
+            <th>Parameters</th>
+          </tr>
+          <tr>
+            <td>focus()</td>
+            <td>
+              Set focus on control. If not setting focus properly then use
+              timeout of 500ms.
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <fieldset>
+      <legend>Single file upload</legend>
+      <np-file-upload
+        [(ngModel)]="fileUpload1"
+        [showFileSize]="false"
+      ></np-file-upload>
+      <div class="np-btn-group">
+        <button class="np-btn" (click)="SetNullValue()">Set null</button>
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>Multiple file upload</legend>
-            <np-file-upload [(ngModel)]="fileUpload2"
-                            [multiple]="true"></np-file-upload>
-        </fieldset>
+    <fieldset>
+      <legend>Multiple file upload</legend>
+      <np-file-upload
+        [(ngModel)]="fileUpload2"
+        [multiple]="true"
+      ></np-file-upload>
+    </fieldset>
 
-        <fieldset>
-            <legend>required</legend>
-            <np-file-upload [(ngModel)]="fileUpload3"
-                            required></np-file-upload>
-        </fieldset>
+    <fieldset>
+      <legend>required</legend>
+      <np-file-upload [(ngModel)]="fileUpload3" required></np-file-upload>
+    </fieldset>
 
-        <fieldset>
-            <legend>disabled and readOnly</legend>
-            <np-file-upload [(ngModel)]="fileUpload4"
-                            disabled></np-file-upload>
-            <br>
-            <np-file-upload [(ngModel)]="fileUpload4"
-                            [readOnly]="true"></np-file-upload>
-        </fieldset>
+    <fieldset>
+      <legend>disabled and readOnly</legend>
+      <np-file-upload [(ngModel)]="fileUpload4" disabled></np-file-upload>
+      <br />
+      <np-file-upload
+        [(ngModel)]="fileUpload4"
+        [readOnly]="true"
+      ></np-file-upload>
+    </fieldset>
 
-        <fieldset>
-            <legend>File extensions validation for png, jpg, jpeg</legend>
-            <np-file-upload [(ngModel)]="fileUpload5"
-                            [extensions]="'png,jpg,jpeg'"
-                            #fileUpload5Control="ngModel">
-            </np-file-upload>
-            <div class="np-text-danger"
-                 *ngIf="fileUpload5Control.errors && fileUpload5Control.errors.extensions">
-                Invalid extension.
-            </div>
-        </fieldset>
+    <fieldset>
+      <legend>File extensions validation for png, jpg, jpeg</legend>
+      <np-file-upload
+        [(ngModel)]="fileUpload5"
+        [extensions]="'png,jpg,jpeg'"
+        #fileUpload5Control="ngModel"
+      >
+      </np-file-upload>
+      <div
+        class="np-text-danger"
+        *ngIf="
+          fileUpload5Control.errors && fileUpload5Control.errors.extensions
+        "
+      >
+        Invalid extension.
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>File size for 1000 bytes</legend>
-            <np-file-upload [(ngModel)]="fileUpload6"
-                            [size]="1000"
-                            #fileUpload6Control="ngModel"></np-file-upload>
-            <div class="np-text-danger"
-                 *ngIf="fileUpload6Control.errors && fileUpload6Control.errors.size">
-                File size exceeds.
-            </div>
-        </fieldset>
+    <fieldset>
+      <legend>File size for 1000 bytes</legend>
+      <np-file-upload
+        [(ngModel)]="fileUpload6"
+        [size]="1000"
+        #fileUpload6Control="ngModel"
+      ></np-file-upload>
+      <div
+        class="np-text-danger"
+        *ngIf="fileUpload6Control.errors && fileUpload6Control.errors.size"
+      >
+        File size exceeds.
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>Total file size 1000 bytes for multiple uploads</legend>
-            <np-file-upload [(ngModel)]="fileUpload7"
-                            [multiple]="true"
-                            [totalSize]="1000"
-                            #fileUpload7Control="ngModel">
-            </np-file-upload>
-            <div class="np-text-danger"
-                 *ngIf="fileUpload7Control.errors && fileUpload7Control.errors.totalSize">
-                Total File size exceeds.
-            </div>
-        </fieldset>
+    <fieldset>
+      <legend>Total file size 1000 bytes for multiple uploads</legend>
+      <np-file-upload
+        [(ngModel)]="fileUpload7"
+        [multiple]="true"
+        [totalSize]="1000"
+        #fileUpload7Control="ngModel"
+      >
+      </np-file-upload>
+      <div
+        class="np-text-danger"
+        *ngIf="fileUpload7Control.errors && fileUpload7Control.errors.totalSize"
+      >
+        Total File size exceeds.
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>Max 2 files allowed to select</legend>
-            <np-file-upload [(ngModel)]="fileUpload8"
-                            [multiple]="true"
-                            [maxFiles]="2"
-                            #fileUpload8Control="ngModel">
-            </np-file-upload>
-            <div class="np-text-danger"
-                 *ngIf="fileUpload8Control.errors && fileUpload8Control.errors.maxFiles">
-                Max 2 files allowed to select.
-            </div>
-        </fieldset>
+    <fieldset>
+      <legend>Max 2 files allowed to select</legend>
+      <np-file-upload
+        [(ngModel)]="fileUpload8"
+        [multiple]="true"
+        [maxFiles]="2"
+        #fileUpload8Control="ngModel"
+      >
+      </np-file-upload>
+      <div
+        class="np-text-danger"
+        *ngIf="fileUpload8Control.errors && fileUpload8Control.errors.maxFiles"
+      >
+        Max 2 files allowed to select.
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>Upload button label</legend>
-            <np-file-upload [(ngModel)]="fileUpload9"
-                            [uploadButtonLabel]="'Upload your photo'">
-            </np-file-upload>
-        </fieldset>
+    <fieldset>
+      <legend>Upload button label</legend>
+      <np-file-upload
+        [(ngModel)]="fileUpload9"
+        [uploadButtonLabel]="'Upload your photo'"
+      >
+      </np-file-upload>
+    </fieldset>
 
-        <fieldset>
-            <legend>Accept only images</legend>
-            <np-file-upload [(ngModel)]="fileUpload10"
-                            [accept]="'image/*'"
-                            [uploadButtonLabel]="'Upload your photo'">
-            </np-file-upload>
-        </fieldset>
+    <fieldset>
+      <legend>Accept only images</legend>
+      <np-file-upload
+        [(ngModel)]="fileUpload10"
+        [accept]="'image/*'"
+        [uploadButtonLabel]="'Upload your photo'"
+      >
+      </np-file-upload>
+    </fieldset>
 
-        <fieldset>
-            <legend>onChange event</legend>
-            <np-file-upload [(ngModel)]="fileUpload11"
-                            (onChange)="onChange($event)">
-            </np-file-upload>
-        </fieldset>
-    </np-tab>
+    <fieldset>
+      <legend>onChange event</legend>
+      <np-file-upload [(ngModel)]="fileUpload11" (onChange)="onChange($event)">
+      </np-file-upload>
+    </fieldset>
+  </np-tab>
 </np-tabs>

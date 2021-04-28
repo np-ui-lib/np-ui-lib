@@ -1,9 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpDirectivesDemoRoutingModule } from './np-directives-demo-routing.module';
-import { NpDirectivesDemoComponent } from './np-directives-demo.component';
-import { NpCardModule, NpAutofocusModule, NpHightlightModule, NpOrderByModule, NpDeferModule } from 'np-ui-lib';
+import { NpDirectivesDemoRoutingModule } from "./np-directives-demo-routing.module";
+import { NpDirectivesDemoComponent } from "./np-directives-demo.component";
+import {
+  NpCardModule,
+  NpAutofocusModule,
+  NpHightlightModule,
+  NpOrderByModule,
+  NpDeferModule,
+} from "np-ui-lib";
 
 @NgModule({
   declarations: [NpDirectivesDemoComponent],
@@ -14,7 +20,7 @@ import { NpCardModule, NpAutofocusModule, NpHightlightModule, NpOrderByModule, N
     NpAutofocusModule,
     NpHightlightModule,
     NpOrderByModule,
-    NpDeferModule
-  ]
+    NpDeferModule,
+  ],
 })
-export class NpDirectivesDemoModule { }
+export class NpDirectivesDemoModule {}

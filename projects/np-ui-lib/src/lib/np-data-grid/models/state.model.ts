@@ -1,11 +1,11 @@
-import { Column } from './column.model';
+import { Column } from "./column.model";
 
 export class State {
-    constructor(name: string, columns: any[]) {
-        this.name = name;
-        this.columns = columns;
-    }
+  constructor(name: string, columns: any[]) {
+    this.name = name;
+    this.columns = columns;
+  }
 
-    public name: string;
-    public columns: Column[];
+  public name: string;
+  public columns: Column[];
 }

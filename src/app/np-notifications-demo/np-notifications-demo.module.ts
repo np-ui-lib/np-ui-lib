@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpNotificationsDemoRoutingModule } from './np-notifications-demo-routing.module';
-import { NpNotificationsDemoComponent } from './np-notifications-demo.component';
-import { NpTabsModule, NpCardModule, NpAlertModule } from 'np-ui-lib';
-
+import { NpNotificationsDemoRoutingModule } from "./np-notifications-demo-routing.module";
+import { NpNotificationsDemoComponent } from "./np-notifications-demo.component";
+import { NpTabsModule, NpCardModule, NpAlertModule } from "np-ui-lib";
 
 @NgModule({
   declarations: [NpNotificationsDemoComponent],
@@ -13,7 +12,7 @@ import { NpTabsModule, NpCardModule, NpAlertModule } from 'np-ui-lib';
     NpNotificationsDemoRoutingModule,
     NpTabsModule,
     NpCardModule,
-    NpAlertModule
-  ]
+    NpAlertModule,
+  ],
 })
-export class NpNotificationsDemoModule { }
+export class NpNotificationsDemoModule {}

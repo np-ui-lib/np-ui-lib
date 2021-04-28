@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpInputTextDemoRoutingModule } from './np-input-text-demo-routing.module';
-import { NpInputTextDemoComponent } from './np-input-text-demo.component';
-import { FormsModule } from '@angular/forms';
-import { NpInputTextModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
-
+import { NpInputTextDemoRoutingModule } from "./np-input-text-demo-routing.module";
+import { NpInputTextDemoComponent } from "./np-input-text-demo.component";
+import { FormsModule } from "@angular/forms";
+import { NpInputTextModule, NpCardModule, NpTabsModule } from "np-ui-lib";
 
 @NgModule({
   declarations: [NpInputTextDemoComponent],
@@ -15,7 +14,7 @@ import { NpInputTextModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
     FormsModule,
     NpInputTextModule,
     NpCardModule,
-    NpTabsModule
-  ]
+    NpTabsModule,
+  ],
 })
-export class NpInputTextDemoModule { }
+export class NpInputTextDemoModule {}

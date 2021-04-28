@@ -1,200 +1,226 @@
 <h2 class="page-header">Modal</h2>
 
 <np-tabs>
-    <np-tab title="Documentation">
-        <np-card>
-            <np-card-body>
-                <b>Module to import</b>
-                <div>
-                    <pre><code [innerText]="importText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>NpModalService</b>
-                <p>Inject NpModalService into constructor of component</p>
-                <div>
-                    <pre><code [innerText]="serviceInjectText"></code></pre>
-                </div>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>How to open modal?</b>
-                <div>
-                    <pre><code [innerText]="modalOpenText"></code></pre>
-                </div>
-                <b>open(content: string | TemplateRef&lt;any&gt; | Type&lt;any&gt;, config: NpModalConfig, data: any):
-                    NpModalRef;</b>
-                <p>Here open method has 3 parameters, and this method return the overlay reference object of class
-                    <b>NpModalRef</b>
-                </p>
-                <table class="np-table">
-                    <tr>
-                        <th>Parameter</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                    </tr>
-                    <tr>
-                        <td>content</td>
-                        <td>Pass content of modal
-                            <pre><code [innerText]="stringModalText"></code></pre>
-                            <pre><code [innerText]="templateModalText"></code></pre>
-                            <pre><code [innerHTML]="componentModalText"></code></pre>
-                        </td>
-                        <td>string | TemplateRef&lt;any&gt; | Type&lt;any&gt;</td>
-                    </tr>
-                    <tr>
-                        <td>config</td>
-                        <td>Pass modal config with below properties.
-                            <table class="np-table">
-                                <tr>
-                                    <th>Property</th>
-                                    <th>Description</th>
-                                    <th>Type</th>
-                                    <th>Default</th>
-                                </tr>
-                                <tr>
-                                    <td>header</td>
-                                    <td>Header text</td>
-                                    <td>string</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>height</td>
-                                    <td>Set height. Values should be like '100%', '100px', 200. If pass as number then
-                                        it will considered as px.</td>
-                                    <td>number | string</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>width</td>
-                                    <td>Set width. Values should be like '100%', '100px', 200. If pass as number then it
-                                        will considered as px.</td>
-                                    <td>number | string</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>hasBackDrop</td>
-                                    <td>Has backdrop or not</td>
-                                    <td>boolean</td>
-                                    <td>true</td>
-                                </tr>
-                                <tr>
-                                    <td>backDropClass</td>
-                                    <td>Backdrop class name</td>
-                                    <td>string</td>
-                                    <td>np-modal-backdrop<br>
-                                        or np-dialog-backdrop
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>showCloseButton</td>
-                                    <td>Show close button or not</td>
-                                    <td>boolean</td>
-                                    <td>true</td>
-                                </tr>
-                                <tr>
-                                    <td>closeOnClickOutside</td>
-                                    <td>Close modal on outside click or not</td>
-                                    <td>boolean</td>
-                                    <td>true</td>
-                                </tr>
-                                <tr>
-                                    <td>styleClass</td>
-                                    <td>Set extra class on component</td>
-                                    <td>string</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>inputId</td>
-                                    <td>Set id attribute</td>
-                                    <td>string</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <pre><code [innerHTML]="configText"></code></pre>
-                        </td>
-                        <td>NpModalConfig</td>
-                    </tr>
-                    <tr>
-                        <td>data</td>
-                        <td>Pass data to modal</td>
-                        <td>any</td>
-                    </tr>
-                </table>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>How to subscribe onClose method of modal?</b>
-                <p><b>open</b> method returns overlay reference object, which has property <b>onClose:
-                        Subject&lt;any&gt;</b></p>
-                <pre><code [innerHTML]="subscribeText"></code></pre>
-            </np-card-body>
-        </np-card>
-        <np-card>
-            <np-card-body>
-                <b>How to access data and NpModalRef object in another component?</b>
-                <p>In another component, overlay reference is injected using injector.</p>
-                <pre><code [innerHTML]="overlayRefText"></code></pre>
-                <p>Here <b>ref</b> object contains <b>data: any</b> and <b>close(data: any)</b> method. Which will close
-                    overlay.</p>
-                <p>Pass response data in close(data: any) method's parameter, which will be accessible where
-                    <b>onClose</b> is subscribed.
-                </p>
-                <p>Use overlay reference's <b>close()</b> method to close modal from another component.</p>
-                <pre><code [innerHTML]="closeText"></code></pre>
-            </np-card-body>
-        </np-card>
-    </np-tab>
-    <np-tab title="Examples">
-        <fieldset>
-            <legend>Text</legend>
-            <div class="np-btn-group">
-                <button class="np-btn"
-                        (click)="openModal1()">Open Modal</button>
-            </div>
-        </fieldset>
+  <np-tab title="Documentation">
+    <np-card>
+      <np-card-body>
+        <b>Module to import</b>
+        <div>
+          <pre><code [innerText]="importText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>NpModalService</b>
+        <p>Inject NpModalService into constructor of component</p>
+        <div>
+          <pre><code [innerText]="serviceInjectText"></code></pre>
+        </div>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>How to open modal?</b>
+        <div>
+          <pre><code [innerText]="modalOpenText"></code></pre>
+        </div>
+        <b
+          >open(content: string | TemplateRef&lt;any&gt; | Type&lt;any&gt;,
+          config: NpModalConfig, data: any): NpModalRef;</b
+        >
+        <p>
+          Here open method has 3 parameters, and this method return the overlay
+          reference object of class
+          <b>NpModalRef</b>
+        </p>
+        <table class="np-table">
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+            <th>Type</th>
+          </tr>
+          <tr>
+            <td>content</td>
+            <td>
+              Pass content of modal
+              <pre><code [innerText]="stringModalText"></code></pre>
+              <pre><code [innerText]="templateModalText"></code></pre>
+              <pre><code [innerHTML]="componentModalText"></code></pre>
+            </td>
+            <td>string | TemplateRef&lt;any&gt; | Type&lt;any&gt;</td>
+          </tr>
+          <tr>
+            <td>config</td>
+            <td>
+              Pass modal config with below properties.
+              <table class="np-table">
+                <tr>
+                  <th>Property</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                </tr>
+                <tr>
+                  <td>header</td>
+                  <td>Header text</td>
+                  <td>string</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>height</td>
+                  <td>
+                    Set height. Values should be like '100%', '100px', 200. If
+                    pass as number then it will considered as px.
+                  </td>
+                  <td>number | string</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>width</td>
+                  <td>
+                    Set width. Values should be like '100%', '100px', 200. If
+                    pass as number then it will considered as px.
+                  </td>
+                  <td>number | string</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>hasBackDrop</td>
+                  <td>Has backdrop or not</td>
+                  <td>boolean</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>backDropClass</td>
+                  <td>Backdrop class name</td>
+                  <td>string</td>
+                  <td>
+                    np-modal-backdrop<br />
+                    or np-dialog-backdrop
+                  </td>
+                </tr>
+                <tr>
+                  <td>showCloseButton</td>
+                  <td>Show close button or not</td>
+                  <td>boolean</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>closeOnClickOutside</td>
+                  <td>Close modal on outside click or not</td>
+                  <td>boolean</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>styleClass</td>
+                  <td>Set extra class on component</td>
+                  <td>string</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>inputId</td>
+                  <td>Set id attribute</td>
+                  <td>string</td>
+                  <td></td>
+                </tr>
+              </table>
+              <pre><code [innerHTML]="configText"></code></pre>
+            </td>
+            <td>NpModalConfig</td>
+          </tr>
+          <tr>
+            <td>data</td>
+            <td>Pass data to modal</td>
+            <td>any</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>How to subscribe onClose method of modal?</b>
+        <p>
+          <b>open</b> method returns overlay reference object, which has
+          property <b>onClose: Subject&lt;any&gt;</b>
+        </p>
+        <pre><code [innerHTML]="subscribeText"></code></pre>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>How to access data and NpModalRef object in another component?</b>
+        <p>
+          In another component, overlay reference is injected using injector.
+        </p>
+        <pre><code [innerHTML]="overlayRefText"></code></pre>
+        <p>
+          Here <b>ref</b> object contains <b>data: any</b> and
+          <b>close(data: any)</b> method. Which will close overlay.
+        </p>
+        <p>
+          Pass response data in close(data: any) method's parameter, which will
+          be accessible where <b>onClose</b> is subscribed.
+        </p>
+        <p>
+          Use overlay reference's <b>close()</b> method to close modal from
+          another component.
+        </p>
+        <pre><code [innerHTML]="closeText"></code></pre>
+      </np-card-body>
+    </np-card>
+  </np-tab>
+  <np-tab title="Examples">
+    <fieldset>
+      <legend>Text</legend>
+      <div class="np-btn-group">
+        <button class="np-btn" (click)="openModal1()">Open Modal</button>
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>TemplateRef&lt;any&gt;</legend>
-            <ng-template #modal2>
-                <p>A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.
-                    A paragraph
-                    consists of one or more sentences. Though not required by the syntax of any language, paragraphs are
-                    usually an
-                    expected part of formal writing, used to organize longer prose.</p>
-                <p>A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.
-                    A paragraph
-                    consists of one or more sentences. Though not required by the syntax of any language, paragraphs are
-                    usually an
-                    expected part of formal writing, used to organize longer prose.</p>
-                <p>A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.
-                    A paragraph
-                    consists of one or more sentences. Though not required by the syntax of any language, paragraphs are
-                    usually an
-                    expected part of formal writing, used to organize longer prose.</p>
-                <p>A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.
-                    A paragraph
-                    consists of one or more sentences. Though not required by the syntax of any language, paragraphs are
-                    usually an
-                    expected part of formal writing, used to organize longer prose.</p>
-            </ng-template>
+    <fieldset>
+      <legend>TemplateRef&lt;any&gt;</legend>
+      <ng-template #modal2>
+        <p>
+          A paragraph is a self-contained unit of discourse in writing dealing
+          with a particular point or idea. A paragraph consists of one or more
+          sentences. Though not required by the syntax of any language,
+          paragraphs are usually an expected part of formal writing, used to
+          organize longer prose.
+        </p>
+        <p>
+          A paragraph is a self-contained unit of discourse in writing dealing
+          with a particular point or idea. A paragraph consists of one or more
+          sentences. Though not required by the syntax of any language,
+          paragraphs are usually an expected part of formal writing, used to
+          organize longer prose.
+        </p>
+        <p>
+          A paragraph is a self-contained unit of discourse in writing dealing
+          with a particular point or idea. A paragraph consists of one or more
+          sentences. Though not required by the syntax of any language,
+          paragraphs are usually an expected part of formal writing, used to
+          organize longer prose.
+        </p>
+        <p>
+          A paragraph is a self-contained unit of discourse in writing dealing
+          with a particular point or idea. A paragraph consists of one or more
+          sentences. Though not required by the syntax of any language,
+          paragraphs are usually an expected part of formal writing, used to
+          organize longer prose.
+        </p>
+      </ng-template>
 
-            <div class="np-btn-group">
-                <button class="np-btn"
-                        (click)="openModal2()">Open Modal</button>
-            </div>
-        </fieldset>
+      <div class="np-btn-group">
+        <button class="np-btn" (click)="openModal2()">Open Modal</button>
+      </div>
+    </fieldset>
 
-        <fieldset>
-            <legend>Type&lt;any&gt;</legend>
-            <div class="np-btn-group">
-                <button class="np-btn"
-                        (click)="openModal3()">Open Modal</button>
-            </div>
-        </fieldset>
-    </np-tab>
+    <fieldset>
+      <legend>Type&lt;any&gt;</legend>
+      <div class="np-btn-group">
+        <button class="np-btn" (click)="openModal3()">Open Modal</button>
+      </div>
+    </fieldset>
+  </np-tab>
 </np-tabs>

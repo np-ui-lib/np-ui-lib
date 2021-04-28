@@ -1,19 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-np-blockui-demo',
-  templateUrl: './np-blockui-demo.component.html'
+  selector: "app-np-blockui-demo",
+  templateUrl: "./np-blockui-demo.component.html",
 })
 export class NpBlockuiDemoComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   blockUi1 = false;
 
-  importText = 'import { NpBlockUiModule } from \'np-ui-lib\';';
+  importText = "import { NpBlockUiModule } from 'np-ui-lib';";
   htmlText = '<span [npBlockUi]="true"></span>';
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

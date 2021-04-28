@@ -1,27 +1,25 @@
-<div [ngClass]="'np-breadcrumb'"
-     [class]="styleClass"
-     [attr.id]="inputId">
+<div [ngClass]="'np-breadcrumb'" [class]="styleClass" [attr.id]="inputId">
   <ul class="np-breadcrumb-items">
     <ng-container *ngIf="showIcon">
       <li class="np-breadcrumb-item">
-        <i *ngIf="iconCss"
-           [class]="iconCss"></i>
-        <svg class="np-icon"
-             *ngIf="!iconCss"
-             viewBox="0 0 24 24">
+        <i *ngIf="iconCss" [class]="iconCss"></i>
+        <svg class="np-icon" *ngIf="!iconCss" viewBox="0 0 24 24">
           <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
-          <path d="M0 0h24v24H0z"
-                fill="none"></path>
+          <path d="M0 0h24v24H0z" fill="none"></path>
         </svg>
       </li>
     </ng-container>
     <ng-container *ngFor="let item of items; let i = index">
-      <li class="np-breadcrumb-item"
-          [attr.tabindex]="item.disabled ? '-1' : '0'">
-        <a [ngClass]="{ 'np-disabled': item.disabled }"
-           [attr.id]="item.id"
-           [innerHTML]="item.label"
-           (click)="_onClick(item)"></a>
+      <li
+        class="np-breadcrumb-item"
+        [attr.tabindex]="item.disabled ? '-1' : '0'"
+      >
+        <a
+          [ngClass]="{ 'np-disabled': item.disabled }"
+          [attr.id]="item.id"
+          [innerHTML]="item.label"
+          (click)="_onClick(item)"
+        ></a>
       </li>
     </ng-container>
   </ul>

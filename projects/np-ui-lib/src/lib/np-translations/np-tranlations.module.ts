@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { NpTranslatePipe } from './np-translate.pipe';
+import { NgModule } from "@angular/core";
+import { NpTranslatePipe } from "./np-translate.pipe";
 
 @NgModule({
-    declarations: [NpTranslatePipe],
-    exports: [NpTranslatePipe]
+  declarations: [NpTranslatePipe],
+  exports: [NpTranslatePipe],
 })
-export class NpTranslationsModule { }
+export class NpTranslationsModule {}

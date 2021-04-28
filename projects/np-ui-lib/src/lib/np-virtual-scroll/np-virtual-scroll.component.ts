@@ -1,17 +1,22 @@
 import {
-  Component, Input, Output, EventEmitter, TemplateRef, ViewEncapsulation,
-  ChangeDetectionStrategy, ViewChild
-} from '@angular/core';
-import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  ViewChild,
+} from "@angular/core";
+import { CdkVirtualScrollViewport } from "@angular/cdk/scrolling";
 
 @Component({
-  selector: 'np-virtual-scroll',
-  templateUrl: './np-virtual-scroll.component.html',
+  selector: "np-virtual-scroll",
+  templateUrl: "./np-virtual-scroll.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpVirtualScrollComponent {
-
   private static controlCount = 1;
 
   @Input() header: string;
@@ -20,7 +25,8 @@ export class NpVirtualScrollComponent {
   @Input() itemHeight: number;
   @Input() template: TemplateRef<any>;
   @Input() styleClass: string;
-  @Input() inputId = `np-virtualscroll_${NpVirtualScrollComponent.controlCount++}`;
+  @Input()
+  inputId = `np-virtualscroll_${NpVirtualScrollComponent.controlCount++}`;
 
   @Output() loadData: EventEmitter<any> = new EventEmitter();
 
@@ -38,7 +44,7 @@ export class NpVirtualScrollComponent {
 
   _onScrollIndexChange(index: number) {
     const pageRange = this._createPageRange(Math.floor(index / this.pageSize));
-    pageRange.forEach(page => this._loadPage(page));
+    pageRange.forEach((page) => this._loadPage(page));
   }
 
   _loadPage(page: number) {
@@ -55,7 +61,7 @@ export class NpVirtualScrollComponent {
       range.push(page - 1);
     }
     range.push(page);
-    if (page !== (Math.ceil(this.items.length / this.pageSize) - 1)) {
+    if (page !== Math.ceil(this.items.length / this.pageSize) - 1) {
       range.push(page + 1);
     }
 

@@ -1,14 +1,13 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { NpModalService, NpModalConfig } from 'np-ui-lib';
-import { NpModalDemoChildComponent } from './np-modal-demo-child/np-modal-demo-child.component';
+import { Component, OnInit, ViewChild, TemplateRef } from "@angular/core";
+import { NpModalService, NpModalConfig } from "np-ui-lib";
+import { NpModalDemoChildComponent } from "./np-modal-demo-child/np-modal-demo-child.component";
 
 @Component({
-  selector: 'app-np-modal-demo',
-  templateUrl: './np-modal-demo.component.html'
+  selector: "app-np-modal-demo",
+  templateUrl: "./np-modal-demo.component.html",
 })
 export class NpModalDemoComponent implements OnInit {
-
-  importText = 'import { NpModalModule } from \'np-ui-lib\';';
+  importText = "import { NpModalModule } from 'np-ui-lib';";
   serviceInjectText = `constructor(private modalService: NpModalService) { }`;
   modalOpenText = `this.modalService.open('Modal text', config, null);`;
   configText = `const config = new NpModalConfig({ height: 400, width: 400, hasBackDrop: false });`;
@@ -23,37 +22,43 @@ reference.onClose.subscribe((data) => { <span class="np-text-success">... // do 
 reference.close(data) <span class="np-text-success">// use this method to close modal<span>`;
   closeText = `this.ref.close(data) <span class="np-text-success">// use this method to close modal</span>`;
 
-  @ViewChild('modal2', { static: true }) modal2: TemplateRef<any>;
+  @ViewChild("modal2", { static: true }) modal2: TemplateRef<any>;
 
-  constructor(private modalService: NpModalService) { }
+  constructor(private modalService: NpModalService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openModal1() {
-    this.modalService.open(`A paragraph is a series of sentences that are organized and coherent,
-     and are all related to a single topic.`, new NpModalConfig({ header: '<h4>Modal Header</h4>' }), null);
+    this.modalService.open(
+      `A paragraph is a series of sentences that are organized and coherent,
+     and are all related to a single topic.`,
+      new NpModalConfig({ header: "<h4>Modal Header</h4>" }),
+      null
+    );
   }
 
   openModal2() {
     const config = new NpModalConfig({
-      height: '50%',
+      height: "50%",
       width: 400,
       hasBackDrop: false,
-      header: '<h4>What is paragraph?</h4>',
-      inputId: 'templateModal',
-      styleClass: 'myClass'
+      header: "<h4>What is paragraph?</h4>",
+      inputId: "templateModal",
+      styleClass: "myClass",
     });
     this.modalService.open(this.modal2, config, null);
   }
 
   openModal3() {
-    const modalRef = this.modalService.open(NpModalDemoChildComponent, new NpModalConfig({ header: '<h4>Personal Details</h4>' }), null);
+    const modalRef = this.modalService.open(
+      NpModalDemoChildComponent,
+      new NpModalConfig({ header: "<h4>Personal Details</h4>" }),
+      null
+    );
     modalRef.onClose.subscribe(this.onCloseModal3);
   }
 
   onCloseModal3() {
-    alert('Modal closed');
+    alert("Modal closed");
   }
-
 }

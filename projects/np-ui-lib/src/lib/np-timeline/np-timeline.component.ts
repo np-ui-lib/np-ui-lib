@@ -1,13 +1,19 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  TemplateRef,
+  ViewEncapsulation,
+} from "@angular/core";
 
 @Component({
-  selector: 'np-timeline',
-  templateUrl: './np-timeline.component.html',
+  selector: "np-timeline",
+  templateUrl: "./np-timeline.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpTimelineComponent implements OnInit {
-
   private static controlCount = 1;
 
   @Input() items: any[];
@@ -16,13 +22,11 @@ export class NpTimelineComponent implements OnInit {
   @Input() styleClass: string;
   @Input() inputId = `np-timeline_${NpTimelineComponent.controlCount++}`;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   _trackBy(index: number): number {
     return index;
   }
-
 }

@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { NpPanelDemoRoutingModule } from './np-panel-demo-routing.module';
-import { NpPanelDemoComponent } from './np-panel-demo.component';
-import { NpPanelModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
-
+import { NpPanelDemoRoutingModule } from "./np-panel-demo-routing.module";
+import { NpPanelDemoComponent } from "./np-panel-demo.component";
+import { NpPanelModule, NpCardModule, NpTabsModule } from "np-ui-lib";
 
 @NgModule({
   declarations: [NpPanelDemoComponent],
@@ -13,7 +12,7 @@ import { NpPanelModule, NpCardModule, NpTabsModule } from 'np-ui-lib';
     NpPanelDemoRoutingModule,
     NpPanelModule,
     NpCardModule,
-    NpTabsModule
-  ]
+    NpTabsModule,
+  ],
 })
-export class NpPanelDemoModule { }
+export class NpPanelDemoModule {}

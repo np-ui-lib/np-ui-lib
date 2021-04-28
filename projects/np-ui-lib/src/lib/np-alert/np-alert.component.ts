@@ -1,16 +1,19 @@
 import {
-  Component, OnInit, Input, ElementRef,
-  ViewEncapsulation, ChangeDetectionStrategy
-} from '@angular/core';
+  Component,
+  OnInit,
+  Input,
+  ElementRef,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
 @Component({
-  selector: 'np-alert',
-  templateUrl: './np-alert.component.html',
+  selector: "np-alert",
+  templateUrl: "./np-alert.component.html",
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NpAlertComponent implements OnInit {
-
   private static controlCount = 1;
 
   /* type should be 'success' | 'danger' | 'info' | 'warning' */
@@ -21,13 +24,16 @@ export class NpAlertComponent implements OnInit {
   @Input() autoCloseTimeout: number;
   @Input() inputId = `np-alert_${NpAlertComponent.controlCount++}`;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {}
 
   ngOnInit(): void {
     if (this.autoClose) {
-      setTimeout(() => {
-        this.close();
-      }, this.autoCloseTimeout ? this.autoCloseTimeout : 10000);
+      setTimeout(
+        () => {
+          this.close();
+        },
+        this.autoCloseTimeout ? this.autoCloseTimeout : 10000
+      );
     }
   }
 

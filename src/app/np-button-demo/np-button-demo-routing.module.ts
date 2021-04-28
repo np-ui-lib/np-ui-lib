@@ -1,14 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NpButtonDemoComponent } from './np-button-demo.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NpButtonDemoComponent } from "./np-button-demo.component";
 
-const routes: Routes = [{
-  path: '',
-  component: NpButtonDemoComponent
-}];
+const routes: Routes = [
+  {
+    path: "",
+    component: NpButtonDemoComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NpButtonDemoRoutingModule { }
+export class NpButtonDemoRoutingModule {}
