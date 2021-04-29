@@ -84,7 +84,7 @@ npm i np-ui-lib
 "rxjs": "^6.6.3"
 ```
 
-### Import css to your application:
+### Import css to your application
 
 ```css
 @import "~@angular/cdk/overlay-prebuilt.css";
