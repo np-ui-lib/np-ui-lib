@@ -4,6 +4,10 @@
 
 ## Change log and decision tracker
 
+## 11.2.1
+
+- Add new dialogservice, dialogref class
+
 ## 11.2.0
 
 - Format all files with prettier

@@ -4,13 +4,13 @@ import {
   OverlayPositionBuilder,
 } from "@angular/cdk/overlay";
 import { ComponentPortal } from "@angular/cdk/portal";
-import { Injectable, Injector, TemplateRef, Type } from "@angular/core";
-import { NpModalRef } from "./np-modal-ref";
-import { NpModalContainerComponent } from "./np-modal-container.component";
-import { NpModalConfig } from "./np-modal.config";
+import { Injectable, Injector, TemplateRef } from "@angular/core";
+import { NpDialogComponent } from "../np-dialog/np-dialog.component";
+import { NpDialogRef } from "./np-dialog-ref";
+import { NpDialogConfig } from "./np-dialog.config";
 
 @Injectable()
-export class NpModalService {
+export class NpDialogService {
   constructor(
     private overlay: Overlay,
     private injector: Injector,
@@ -18,37 +18,33 @@ export class NpModalService {
   ) {}
 
   open(
-    content: string | TemplateRef<any> | Type<any>,
-    config: NpModalConfig,
+    content: string | TemplateRef<any>,
+    config: NpDialogConfig,
     data: any
-  ): NpModalRef {
+  ): NpDialogRef {
     const positionStrategy = this.overlayPositionBuilder
       .global()
       .centerHorizontally()
       .centerVertically();
-
     if (!config) {
-      config = new NpModalConfig({});
+      config = new NpDialogConfig({});
     }
-
     const overlayConfig = new OverlayConfig({
       positionStrategy,
       hasBackdrop: config.hasBackDrop,
-      backdropClass: config.backDropClass || "np-modal-backdrop",
-      height: config.height,
-      width: config.width,
+      backdropClass: config.backDropClass || "np-dialog-backdrop",
       scrollStrategy: this.overlay.scrollStrategies.block(),
-      panelClass: "np-modal-overlay",
+      panelClass: "np-dialog-overlay",
     });
     const overlayRef = this.overlay.create(overlayConfig);
-    const myOverlayRef = new NpModalRef(overlayRef, content, config, data);
+    const myOverlayRef = new NpDialogRef(overlayRef, content, config, data);
     const injector = Injector.create({
       parent: this.injector,
-      providers: [{ provide: NpModalRef, useValue: myOverlayRef }],
+      providers: [{ provide: NpDialogRef, useValue: myOverlayRef }],
     });
-    overlayRef.attach(
-      new ComponentPortal(NpModalContainerComponent, null, injector)
-    );
+
+    overlayRef.attach(new ComponentPortal(NpDialogComponent, null, injector));
+
     return myOverlayRef;
   }
 }

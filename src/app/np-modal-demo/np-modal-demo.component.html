@@ -46,6 +46,9 @@
               Pass content of modal
               <pre><code [innerText]="stringModalText"></code></pre>
               <pre><code [innerText]="templateModalText"></code></pre>
+              Here for modalTemplate, let-data and let-close are available,
+              where data is value passed in open method, and close is a method
+              to close modal.
               <pre><code [innerHTML]="componentModalText"></code></pre>
             </td>
             <td>string | TemplateRef&lt;any&gt; | Type&lt;any&gt;</td>
@@ -95,10 +98,7 @@
                   <td>backDropClass</td>
                   <td>Backdrop class name</td>
                   <td>string</td>
-                  <td>
-                    np-modal-backdrop<br />
-                    or np-dialog-backdrop
-                  </td>
+                  <td>np-modal-backdrop</td>
                 </tr>
                 <tr>
                   <td>showCloseButton</td>
@@ -131,7 +131,10 @@
           </tr>
           <tr>
             <td>data</td>
-            <td>Pass data to modal</td>
+            <td>
+              Pass data to dialog, for template this data is availabel as
+              context.
+            </td>
             <td>any</td>
           </tr>
         </table>
@@ -180,7 +183,9 @@
 
     <fieldset>
       <legend>TemplateRef&lt;any&gt;</legend>
-      <ng-template #modal2>
+      <ng-template #modal2 let-data="data" let-close="close">
+        {{ data.name }}
+        <button class="np-btn" (click)="close()">Close</button>
         <p>
           A paragraph is a self-contained unit of discourse in writing dealing
           with a particular point or idea. A paragraph consists of one or more

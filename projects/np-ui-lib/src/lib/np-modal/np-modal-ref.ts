@@ -19,13 +19,13 @@ export class NpModalRef {
     });
   }
 
-  close(data?: any) {
-    this._close(data);
+  close(result?: any) {
+    this._close(result);
   }
 
-  private _close(data: any) {
+  private _close(result: any) {
     this.overlay.dispose();
-    this.onClose.next(data);
+    this.onClose.next(result);
     this.onClose.complete();
   }
 }

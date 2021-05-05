@@ -46,7 +46,9 @@ reference.close(data) <span class="np-text-success">// use this method to close 
       inputId: "templateModal",
       styleClass: "myClass",
     });
-    this.modalService.open(this.modal2, config, null);
+    this.modalService.open(this.modal2, config, {
+      name: "This name is passed as context np-ui-lib",
+    });
   }
 
   openModal3() {

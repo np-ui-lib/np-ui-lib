@@ -154,6 +154,9 @@ export * from "./lib/np-virtual-scroll/np-virtual-scroll.component";
 /*Dialog */
 export * from "./lib/np-dialog/np-dialog.module";
 export * from "./lib/np-dialog/np-dialog.component";
+export * from "./lib/np-dialog/np-dialog.config";
+export * from "./lib/np-dialog/np-dialog.service";
+export * from "./lib/np-dialog/np-dialog-ref";
 
 /*Steps */
 export * from "./lib/np-steps/np-steps.module";

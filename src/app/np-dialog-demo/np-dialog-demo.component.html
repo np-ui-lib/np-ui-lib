@@ -12,29 +12,110 @@
     </np-card>
     <np-card>
       <np-card-body>
-        <b>Inject NpModalService in component</b>
+        <b>NpDialogService</b>
+        <p>Inject NpDialogService into constructor of component</p>
         <div>
-          <pre><code [innerText]="serviceText"></code></pre>
-        </div>
-        <div class="np-text-info">
-          <div>Dialogs are using <b>NpModalService</b> to show overlays.</div>
-          <div>
-            <b>NpDialogComponent</b> contains <b>type</b> and
-            <b>message</b> properties which needs to pass in service.
-          </div>
-          <div>
-            Where type can ne 'alert' | 'prompt' | 'confirm', and message is
-            string text.
-          </div>
+          <pre><code [innerText]="serviceInjectText"></code></pre>
         </div>
       </np-card-body>
     </np-card>
     <np-card>
       <np-card-body>
-        <b>How to open dialogs?</b>
+        <b>How to open dialog?</b>
         <div>
-          <pre><code [innerHTML]="componentText"></code></pre>
+          <pre><code [innerText]="dialogOpenText"></code></pre>
         </div>
+        <b
+          >open(content: string | TemplateRef&lt;any&gt;, config:
+          NpDialogConfig): NpDialogRef;</b
+        >
+        <p>
+          Here open method has 3 parameters, and this method return the overlay
+          reference object of class
+          <b>NpDialogRef</b>
+        </p>
+        <table class="np-table">
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+            <th>Type</th>
+          </tr>
+          <tr>
+            <td>content</td>
+            <td>
+              Pass content of dialog
+              <pre><code [innerText]="stringDialogText"></code></pre>
+              <pre><code [innerText]="templateDialogText"></code></pre>
+              Here for dialogTemplate, let-data is available, where data is value
+              passed in open method.
+            </td>
+            <td>string | TemplateRef&lt;any&gt;</td>
+          </tr>
+          <tr>
+            <td>config</td>
+            <td>
+              Pass dialog config with below properties.
+              <table class="np-table">
+                <tr>
+                  <th>Property</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                </tr>
+                <tr>
+                  <td>type</td>
+                  <td>Pass any of "alert" | "confirm" | "prompt"</td>
+                  <td>string</td>
+                  <td>"alert"</td>
+                </tr>
+                <tr>
+                  <td>hasBackDrop</td>
+                  <td>Has backdrop or not</td>
+                  <td>boolean</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>backDropClass</td>
+                  <td>Backdrop class name</td>
+                  <td>string</td>
+                  <td>np-dialog-backdrop</td>
+                </tr>
+                <tr>
+                  <td>styleClass</td>
+                  <td>Set extra class on component</td>
+                  <td>string</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>inputId</td>
+                  <td>Set id attribute</td>
+                  <td>string</td>
+                  <td></td>
+                </tr>
+              </table>
+              <pre><code [innerHTML]="configText"></code></pre>
+            </td>
+            <td>NpDialogConfig</td>
+          </tr>
+          <tr>
+            <td>data</td>
+            <td>
+              Pass data to dialog, for template this data is availabel as
+              context.
+            </td>
+            <td>any</td>
+          </tr>
+        </table>
+      </np-card-body>
+    </np-card>
+    <np-card>
+      <np-card-body>
+        <b>How to subscribe onClose method of dialog?</b>
+        <p>
+          <b>open</b> method returns overlay reference object, which has
+          property <b>onClose: Subject&lt;any&gt;</b>
+        </p>
+        <pre><code [innerHTML]="componentText"></code></pre>
       </np-card-body>
     </np-card>
   </np-tab>
@@ -42,7 +123,13 @@
     <div class="np-btn-group">
       <button class="np-btn" (click)="openAlert()">Open Alert</button>
       <button class="np-btn" (click)="openPrompt()">Open Prompt</button>
-      <button class="np-btn" (click)="openConfirm()">Open Confirm</button>
+      <button class="np-btn" (click)="openConfirm(confirmMessage)">
+        Open Confirm
+      </button>
     </div>
   </np-tab>
 </np-tabs>
+
+<ng-template #confirmMessage>
+  Are you sure to delete? This message is from template
+</ng-template>

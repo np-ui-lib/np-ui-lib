@@ -35,6 +35,7 @@ export class NpModalContainerComponent implements OnInit {
       this.contentType = "template";
       this.context = {
         close: this.modalRef.close.bind(this.modalRef),
+        data: this.modalRef.data,
       };
     } else {
       this.contentType = "component";

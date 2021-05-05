@@ -3,9 +3,10 @@ import {
   OnInit,
   ViewEncapsulation,
   ChangeDetectionStrategy,
+  TemplateRef,
 } from "@angular/core";
-import { NpModalRef } from "../np-modal/np-modal-ref";
 import { NpTranslationsService } from "../np-translations/np-translations.service";
+import { NpDialogRef } from "./np-dialog-ref";
 
 @Component({
   selector: "np-dialog",
@@ -19,17 +20,21 @@ export class NpDialogComponent implements OnInit {
   title: string;
   value: string;
   type: string;
-  message: string;
+  message: string | TemplateRef<any>;
+  contentType: "template" | "string";
+  context: any;
   styleClass: string;
   inputId = `np-dialog_${NpDialogComponent.controlCount++}`;
 
   constructor(
-    public modalRef: NpModalRef,
+    public dialogRef: NpDialogRef,
     private translationService: NpTranslationsService
   ) {}
 
   ngOnInit(): void {
-    this.type = this.modalRef.data ? this.modalRef.data.type : "alert";
+    this.type = this.dialogRef.config.type
+      ? this.dialogRef.config.type
+      : "alert";
     this.title = this.translationService.translate(
       this.type === "alert"
         ? "Alert"
@@ -37,32 +42,40 @@ export class NpDialogComponent implements OnInit {
         ? "Confirm"
         : "Prompt"
     );
-    this.message = this.modalRef.data ? this.modalRef.data.message : "";
-    if (this.modalRef.config.inputId) {
-      this.inputId = this.modalRef.config.inputId;
+    this.message = this.dialogRef.content;
+    if (typeof this.message === "string") {
+      this.contentType = "string";
+    } else {
+      this.contentType = "template";
+      this.context = {
+        data: this.dialogRef.data,
+      };
     }
-    if (this.modalRef.config.styleClass) {
-      this.styleClass = this.modalRef.config.styleClass;
+    if (this.dialogRef.config.inputId) {
+      this.inputId = this.dialogRef.config.inputId;
+    }
+    if (this.dialogRef.config.styleClass) {
+      this.styleClass = this.dialogRef.config.styleClass;
     }
   }
 
   onOk() {
     if (this.type === "prompt") {
-      this.modalRef.close(this.value ? this.value : "");
+      this.dialogRef.close(this.value ? this.value : "");
     } else if (this.type === "confirm") {
-      this.modalRef.close(true);
+      this.dialogRef.close(true);
     } else {
-      this.modalRef.close(undefined);
+      this.dialogRef.close(undefined);
     }
   }
 
   onCancel() {
     if (this.type === "prompt") {
-      this.modalRef.close(null);
+      this.dialogRef.close(null);
     } else if (this.type === "confirm") {
-      this.modalRef.close(false);
+      this.dialogRef.close(false);
     } else {
-      this.modalRef.close(undefined);
+      this.dialogRef.close(undefined);
     }
   }
 }
