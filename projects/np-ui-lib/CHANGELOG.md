@@ -7,6 +7,7 @@
 ## 11.2.1
 
 - Add new dialogservice, dialogref class
+- Add cascadeSelection in treeview
 
 ## 11.2.0
 

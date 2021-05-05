@@ -24,6 +24,8 @@ export class NpTreeViewComponent implements OnChanges {
   @Input() itemTemplate: TemplateRef<any>;
   /* Selection mode can be single or multiple */
   @Input() selectionMode: string;
+  @Input() cascadeSelection: boolean = false;
+
   @Input() selection: any[];
   @Output() selectionChange: EventEmitter<any> = new EventEmitter();
   @Input() styleClass: string;
@@ -38,8 +40,15 @@ export class NpTreeViewComponent implements OnChanges {
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.selection) {
+    if (changes.selection && this.cascadeSelection) {
       this._syncSelectionForAll();
+    }
+    if (changes.cascadeSelection && !changes.cascadeSelection.firstChange) {
+      if (changes.cascadeSelection.currentValue) {
+        this._syncSelectionForAll();
+      } else {
+        this._removePartialSelectionAll();
+      }
     }
   }
 
@@ -65,7 +74,6 @@ export class NpTreeViewComponent implements OnChanges {
     this.items.forEach((element) => {
       this._selectAll(element);
     });
-    this._syncSelectionForAll();
     this.selectionChange.emit(this.selection);
   }
 
@@ -74,7 +82,6 @@ export class NpTreeViewComponent implements OnChanges {
       return;
     }
     this.selection = [];
-    this._syncSelectionForAll();
     this.selectionChange.emit(this.selection);
   }
 
@@ -119,7 +126,9 @@ export class NpTreeViewComponent implements OnChanges {
     } else {
       this._deselectNode(item);
     }
-    this._syncSelectionForAll();
+    if (this.cascadeSelection) {
+      this._syncSelectionForAll();
+    }
     if (checked) {
       this.onSelect.emit(item);
     } else {
@@ -135,7 +144,9 @@ export class NpTreeViewComponent implements OnChanges {
         this.selection = [];
       }
       this.selection.push(item);
-      this._selectChildNodes(item);
+      if (this.cascadeSelection) {
+        this._selectChildNodes(item);
+      }
     }
     this.selectionChange.emit(this.selection);
   }
@@ -165,7 +176,9 @@ export class NpTreeViewComponent implements OnChanges {
       if (idx > -1) {
         this.selection.splice(idx, 1);
       }
-      this._deselectChildNodes(item);
+      if (this.cascadeSelection) {
+        this._deselectChildNodes(item);
+      }
     }
     this.selectionChange.emit(this.selection);
   }
@@ -272,5 +285,20 @@ export class NpTreeViewComponent implements OnChanges {
 
   _trackBy(index: number): number {
     return index;
+  }
+
+  _removePartialSelectionAll() {
+    this.items.forEach((element) => {
+      this._removePartialSelection(element);
+    });
+  }
+
+  _removePartialSelection(element) {
+    element.partiallySelected = false;
+    if (element.childItems) {
+      element.childItems.forEach((item) => {
+        this._removePartialSelection(item);
+      });
+    }
   }
 }

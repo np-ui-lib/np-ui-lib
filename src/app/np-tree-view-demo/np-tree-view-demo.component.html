@@ -55,6 +55,15 @@
             <td></td>
           </tr>
           <tr>
+            <td>cascadeSelection</td>
+            <td>
+              If set true then, select/deselect descendant nodes when users
+              select items
+            </td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
             <td>styleClass</td>
             <td>Set extra class on component</td>
             <td>string</td>
@@ -245,12 +254,17 @@
         [itemTemplate]="itemTemplate"
         [(selection)]="selection3"
         [selectionMode]="'multiple'"
+        [cascadeSelection]="isCascadeSelection"
       >
       </np-tree-view>
       <div>Selected value : {{ selection3 | json }}</div>
       <div class="np-btn-group">
         <button class="np-btn" (click)="selectAll()">Select All</button>
         <button class="np-btn" (click)="deselectAll()">Deselect All</button>
+      </div>
+      <div>
+        cascadeSelection:
+        <np-switch [(ngModel)]="isCascadeSelection"></np-switch>
       </div>
       <ng-template #itemTemplate let-item="item">
         ({{ item.data.index }}) {{ item.label }}

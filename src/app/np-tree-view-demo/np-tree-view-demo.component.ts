@@ -304,6 +304,7 @@ export class NpTreeViewDemoComponent implements OnInit {
     { label: "Item 4", id: "Item 4", data: { index: "4" } },
     { label: "Item 1.1.1", id: "Item 1.1.1", data: { index: "1.1.1" } },
   ];
+  isCascadeSelection = false;
 
   constructor() {}
 
