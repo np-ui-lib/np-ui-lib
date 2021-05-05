@@ -2,14 +2,13 @@
   [ngClass]="{
     'np-rich-text': true,
     'np-disabled': isDisabled,
-    'np-readonly': readOnly,
     'np-focused': focused
   }"
   [class]="styleClass"
   [attr.id]="inputId"
 >
   <div class="np-rich-text-container">
-    <div class="np-toolbar">
+    <div [ngClass]="{ 'np-toolbar': true, 'np-readonly': readOnly }">
       <div class="np-toolbar-item" *ngIf="_isAllowed('bold')">
         <button
           class="np-btn-icon np-btn-bold"

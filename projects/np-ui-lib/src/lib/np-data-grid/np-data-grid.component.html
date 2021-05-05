@@ -120,8 +120,8 @@
     <div class="np-grid-thead">
       <table role="grid">
         <colgroup>
-          <col *ngIf="enableMasterDetail" style="width: 2.5rem" />
-          <col *ngIf="_allowRowSelection()" style="width: 2.5rem" />
+          <col *ngIf="enableMasterDetail" style="width: 2rem" />
+          <col *ngIf="_allowRowSelection()" style="width: 2rem" />
           <col
             *ngFor="let column of visibleColumns; trackBy: _trackBy"
             [style.width.px]="column.width"
@@ -130,7 +130,7 @@
         <thead>
           <tr class="np-row-header">
             <th *ngIf="enableMasterDetail"></th>
-            <th *ngIf="_allowRowSelection()">
+            <th *ngIf="_allowRowSelection()" class="no-padding">
               <np-checkbox
                 *ngIf="multiRowSelectEnable"
                 [(ngModel)]="isAllSelected"
@@ -296,8 +296,8 @@
     <div class="np-grid-tbody">
       <table role="grid">
         <colgroup>
-          <col *ngIf="enableMasterDetail" style="width: 2.5rem" />
-          <col *ngIf="_allowRowSelection()" style="width: 2.5rem" />
+          <col *ngIf="enableMasterDetail" style="width: 2rem" />
+          <col *ngIf="_allowRowSelection()" style="width: 2rem" />
           <col
             *ngFor="let column of visibleColumns"
             [style.width.px]="column.width"
@@ -319,7 +319,7 @@
               }"
               (click)="_rowClick($event, data)"
             >
-              <td *ngIf="enableMasterDetail">
+              <td *ngIf="enableMasterDetail" class="no-padding">
                 <button
                   *ngIf="!_isOpenDetailRow(data); else collapseRowButton"
                   class="np-detail-row-expand"
@@ -344,7 +344,7 @@
                   </button>
                 </ng-template>
               </td>
-              <td *ngIf="_allowRowSelection()">
+              <td *ngIf="_allowRowSelection()" class="no-padding">
                 <np-checkbox
                   [ngModel]="_isSelected(data)"
                   (onChange)="_onClickSelectRow($event, data)"

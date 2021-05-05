@@ -8,6 +8,8 @@
 
 - Add new dialogservice, dialogref class
 - Add cascadeSelection in treeview
+- Data grid CSS improvements
+- Rich text component readonly issue resolved
 
 ## 11.2.0
 

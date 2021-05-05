@@ -25,3 +25,8 @@
   (onLoadData)="onLoadData($event)"
 >
 </np-data-grid>
+
+<!-- Template for summary section -->
+<ng-template #summaryTemplate let-summary="summary">
+  <span>Total:{{ summary ? summary.totalCount : 0 }}</span>
+</ng-template>

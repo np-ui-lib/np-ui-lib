@@ -75,7 +75,7 @@ export class ClientGridAllComponent implements OnInit {
       new Column({
         dataField: "Active",
         visible: true,
-        width: 80,
+        width: 100,
         caption: "Is Active?",
         dataType: DataTypes.Boolean,
         filterEnable: true,

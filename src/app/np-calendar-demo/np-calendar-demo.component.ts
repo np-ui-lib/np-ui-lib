@@ -3,7 +3,8 @@ import {
   NpCalendarComponent,
   NpCalendarEvent,
   NpDialogComponent,
-  NpModalService,
+  NpDialogConfig,
+  NpDialogService,
 } from "np-ui-lib";
 
 @Component({
@@ -26,7 +27,7 @@ export class NpCalendarDemoComponent implements OnInit {
 </ng-template>`;
   dateClassText = 'function(date: Date) { return "red-background";}';
 
-  constructor(private modalService: NpModalService) {}
+  constructor(private dialogService: NpDialogService) {}
 
   ngOnInit(): void {
     const date4 = new Date();
@@ -62,10 +63,11 @@ export class NpCalendarDemoComponent implements OnInit {
   }
 
   onClickDate(date: Date) {
-    const prompt = this.modalService.open(NpDialogComponent, null, {
-      type: "prompt",
-      message: "Add Event Title",
-    });
+    const prompt = this.dialogService.open(
+      "Add Event Title",
+      new NpDialogConfig({ type: "prompt" }),
+      null
+    );
     prompt.onClose.subscribe((data) => {
       if (data != undefined && data != null && data.length > 0) {
         this.myCalendar.addEvents([
@@ -76,10 +78,11 @@ export class NpCalendarDemoComponent implements OnInit {
   }
 
   onClickEvent(event: NpCalendarEvent) {
-    const confirm = this.modalService.open(NpDialogComponent, null, {
-      type: "confirm",
-      message: "Are you sure to delete event?",
-    });
+    const confirm = this.dialogService.open(
+      "Are you sure to delete event?",
+      new NpDialogConfig({ type: "confirm" }),
+      null
+    );
     confirm.onClose.subscribe((data) => {
       if (data) {
         this.myCalendar.removeEvents([event]);
@@ -92,10 +95,11 @@ export class NpCalendarDemoComponent implements OnInit {
   }
 
   onClickDate2(date: Date) {
-    const prompt = this.modalService.open(NpDialogComponent, null, {
-      type: "prompt",
-      message: "Add Event Title",
-    });
+    const prompt = this.dialogService.open(
+      "Add Event Title",
+      new NpDialogConfig({ type: "prompt" }),
+      null
+    );
     prompt.onClose.subscribe((data) => {
       if (data != undefined && data != null && data.length > 0) {
         this.myCalendar2.addEvents([
@@ -106,10 +110,11 @@ export class NpCalendarDemoComponent implements OnInit {
   }
 
   onClickEvent2(event: NpCalendarEvent) {
-    const confirm = this.modalService.open(NpDialogComponent, null, {
-      type: "confirm",
-      message: "Are you sure to delete event?",
-    });
+    const confirm = this.dialogService.open(
+      "Are you sure to delete event?",
+      new NpDialogConfig({ type: "confirm" }),
+      null
+    );
     confirm.onClose.subscribe((data) => {
       if (data) {
         this.myCalendar2.removeEvents([event]);

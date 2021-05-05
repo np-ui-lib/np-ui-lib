@@ -95,11 +95,12 @@
     border-bottom: 1px solid $border-color;
     font-weight: bold;
     background-color: $background-color;
-    height: 2rem;
+    text-align: left;
+    padding: 5px 10px;
   }
 
   .np-row-filter th {
-    padding: 5px;
+    padding: 5px 10px;
   }
 
   .np-grid-filter-type {
@@ -107,12 +108,10 @@
   }
 
   .np-grid-tbody td {
-    padding: 5px;
-    margin: 0px;
-    border-right: 1px solid $border-color;
     border-bottom: 1px solid $border-color;
     background-color: #ffffff;
     overflow: hidden;
+    padding: 5px 10px;
   }
 
   .np-grid-thead th:last-child {
