@@ -41,8 +41,9 @@ import { NpGridUtilityService } from "./services/np-grid-utility.service";
 import { NpDialogComponent } from "../np-dialog/np-dialog.component";
 import { TopBottomOverlayPositions } from "../np-utility/np-constants";
 import { NpPaginatorComponent } from "../np-paginator/np-paginator.component";
-import { NpModalService } from "../np-modal/np-modal.service";
 import { NpTranslationsService } from "../np-translations/np-translations.service";
+import { NpDialogService } from "../np-dialog/np-dialog.service";
+import { NpDialogConfig } from "../np-dialog/np-dialog.config";
 
 @Component({
   selector: "np-data-grid",
@@ -134,7 +135,7 @@ export class NpDataGridComponent
     public overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
-    private modalService: NpModalService,
+    private dialogService: NpDialogService,
     private translationsService: NpTranslationsService,
     private elementRef: ElementRef
   ) {
@@ -831,10 +832,11 @@ export class NpDataGridComponent
       if (element.name === currentStateName) {
         element.columns = columns;
         editedState = element;
-        this.modalService.open(NpDialogComponent, null, {
-          type: "alert",
-          message: this.translationsService.translate("Saved_Successfully"),
-        });
+        this.dialogService.open(
+          this.translationsService.translate("Saved_Successfully"),
+          new NpDialogConfig({ type: "alert" }),
+          null
+        );
       }
     }
     if (this.onStatesUpdate) {
@@ -843,10 +845,11 @@ export class NpDataGridComponent
   }
 
   _openDialogAddNewState() {
-    const promptAddNewState = this.modalService.open(NpDialogComponent, null, {
-      type: "prompt",
-      message: this.translationsService.translate("Add_New_State"),
-    });
+    const promptAddNewState = this.dialogService.open(
+      this.translationsService.translate("Add_New_State"),
+      new NpDialogConfig({ type: "prompt" }),
+      null
+    );
     promptAddNewState.onClose.subscribe((data) => {
       if (data != undefined && data != null && data.trim().length > 0) {
         this._addState(data);
@@ -862,12 +865,11 @@ export class NpDataGridComponent
       }
     });
     if (state && state.length > 0) {
-      this.modalService.open(NpDialogComponent, null, {
-        type: "alert",
-        message: this.translationsService.translate(
-          "State_Name_Already_Exists"
-        ),
-      });
+      this.dialogService.open(
+        this.translationsService.translate("State_Name_Already_Exists"),
+        new NpDialogConfig({ type: "alert" }),
+        null
+      );
       return;
     }
     const columns = this._cloneColumns(this.gridColumns);
@@ -901,10 +903,11 @@ export class NpDataGridComponent
     if (this.onStatesUpdate) {
       this.onStatesUpdate.emit({ action: "delete", state: deletedState });
     }
-    this.modalService.open(NpDialogComponent, null, {
-      type: "alert",
-      message: this.translationsService.translate("Deleted_Successfully"),
-    });
+    this.dialogService.open(
+      this.translationsService.translate("Deleted_Successfully"),
+      new NpDialogConfig({ type: "alert" }),
+      null
+    );
   }
 
   _loadState() {
