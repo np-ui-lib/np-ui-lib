@@ -149,7 +149,7 @@
               <span
                 [innerHTML]="column.caption"
                 (click)="_onSort(column)"
-                [ngClass]="{ 'np-cursor-pointer': column.sortEnable }"
+                [ngClass]="{ 'np-grid-sorting-header': column.sortEnable }"
               >
               </span>
               <ng-container *ngIf="column.sortEnable">

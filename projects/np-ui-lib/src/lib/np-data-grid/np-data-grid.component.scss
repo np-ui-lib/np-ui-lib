@@ -99,6 +99,11 @@
     padding: 5px 10px;
   }
 
+  .np-grid-sorting-header {
+    padding-right: 5px;
+    cursor: pointer;
+  }
+
   .np-row-filter th {
     padding: 5px 10px;
   }
@@ -171,7 +176,18 @@
 
   .np-sort-ascending,
   .np-sort-descending,
-  .np-sort-toggle,
+  .np-sort-toggle {
+    border: none;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    height: 1.5rem;
+    width: 1.5rem;
+    vertical-align: middle;
+    cursor: pointer;
+    color: inherit;
+  }
+
   .np-detail-row-collapse,
   .np-detail-row-expand {
     border: none;
