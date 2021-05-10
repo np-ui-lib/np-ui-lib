@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import {
   NpCalendarComponent,
   NpCalendarEvent,
-  NpDialogComponent,
   NpDialogConfig,
   NpDialogService,
 } from "np-ui-lib";

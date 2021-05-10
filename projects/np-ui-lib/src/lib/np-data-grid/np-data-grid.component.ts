@@ -38,7 +38,6 @@ import { NpFileService } from "./services/np-file.service";
 import { NpFilterService } from "./services/np-filter.service";
 import { NpODataService } from "./services/np-odata.service";
 import { NpGridUtilityService } from "./services/np-grid-utility.service";
-import { NpDialogComponent } from "../np-dialog/np-dialog.component";
 import { TopBottomOverlayPositions } from "../np-utility/np-constants";
 import { NpPaginatorComponent } from "../np-paginator/np-paginator.component";
 import { NpTranslationsService } from "../np-translations/np-translations.service";

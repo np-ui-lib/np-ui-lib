@@ -4,6 +4,9 @@
 
 ## Change log and decision tracker
 
+## 11.2.2
+- Resolved Ivy issues
+
 ## 11.2.1
 
 - Add new dialogservice, dialogref class

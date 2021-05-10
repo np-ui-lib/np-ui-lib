@@ -9,8 +9,8 @@ import { NpDialogService } from "./np-dialog.service";
 @NgModule({
   declarations: [NpDialogComponent],
   imports: [CommonModule, FormsModule, NpTranslationsModule, NpAutofocusModule],
-  entryComponents: [NpDialogComponent],
   exports: [NpDialogComponent],
+  entryComponents: [NpDialogComponent],
   providers: [NpDialogService],
 })
 export class NpDialogModule {}
