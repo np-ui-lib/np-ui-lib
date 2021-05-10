@@ -10,11 +10,11 @@ import { NpDialogRef } from "./np-dialog-ref";
 
 @Component({
   selector: "np-dialog",
-  templateUrl: "./np-dialog.component.html",
+  templateUrl: "./np-dialog-container.component.html",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class NpDialogComponent implements OnInit {
+export class NpDialogContainerComponent implements OnInit {
   private static controlCount = 1;
 
   title: string;
@@ -24,7 +24,7 @@ export class NpDialogComponent implements OnInit {
   contentType: "template" | "string";
   context: any;
   styleClass: string;
-  inputId = `np-dialog_${NpDialogComponent.controlCount++}`;
+  inputId = `np-dialog_${NpDialogContainerComponent.controlCount++}`;
 
   constructor(
     public dialogRef: NpDialogRef,

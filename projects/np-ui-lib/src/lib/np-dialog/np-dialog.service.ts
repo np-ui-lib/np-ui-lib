@@ -5,8 +5,8 @@ import {
 } from "@angular/cdk/overlay";
 import { ComponentPortal } from "@angular/cdk/portal";
 import { Injectable, Injector, TemplateRef } from "@angular/core";
-import { NpDialogComponent } from "../np-dialog/np-dialog.component";
 import { NpDialogRef } from "./np-dialog-ref";
+import { NpDialogContainerComponent } from "./np-dialog-container.component";
 import { NpDialogConfig } from "./np-dialog.config";
 
 @Injectable()
@@ -43,7 +43,7 @@ export class NpDialogService {
       providers: [{ provide: NpDialogRef, useValue: myOverlayRef }],
     });
 
-    overlayRef.attach(new ComponentPortal(NpDialogComponent, null, injector));
+    overlayRef.attach(new ComponentPortal(NpDialogContainerComponent, null, injector));
 
     return myOverlayRef;
   }
