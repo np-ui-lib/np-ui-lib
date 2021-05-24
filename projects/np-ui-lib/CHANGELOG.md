@@ -4,6 +4,9 @@
 
 ## Change log and decision tracker
 
+## 12.0.0
+- upgrade to angular 12
+
 ## 11.2.3
 - Resolved Ivy issues
 

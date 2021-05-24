@@ -76,12 +76,12 @@ npm i np-ui-lib
 ### Modules to be pre-installed
 
 ```javascript
-"@angular/common": "^11.0.6",
-"@angular/core": "^11.0.6",
-"@angular/cdk": "^11.0.3",
-"@angular/forms": "^11.0.6",
-"@angular/router": "^11.0.6",
-"rxjs": "^6.6.3"
+"@angular/common": "^12.0.0",
+"@angular/core": "^12.0.0",
+"@angular/cdk": "^12.0.0",
+"@angular/forms": "^12.0.0",
+"@angular/router": "^12.0.0",
+"rxjs": "^6.6.0"
 ```
 
 ### Import css to your application
