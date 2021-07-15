@@ -153,7 +153,7 @@
   "defaultProject": "np-ui-package",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "style": "scss"
     }
   }
 }
