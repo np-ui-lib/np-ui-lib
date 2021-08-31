@@ -10,8 +10,9 @@
   .np-panel-header {
     background-color: $background-color;
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
-    flex-wrap: wrap;
     justify-content: space-between;
     min-height: 2rem;
     padding-left: 10px;
@@ -28,6 +29,7 @@
     margin: 0;
     padding: 0;
     color: inherit;
+    text-align: left;
 
     i {
       font-size: large;

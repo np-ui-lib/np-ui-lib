@@ -4,6 +4,9 @@
 
 ## Change log and decision tracker
 
+## 12.0.1
+- CSS updates
+
 ## 12.0.0
 - upgrade to angular 12
 

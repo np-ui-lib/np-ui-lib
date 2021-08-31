@@ -10,9 +10,10 @@
   .np-accordion-header {
     background-color: $background-color;
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     min-height: 2rem;
     padding-left: 10px;
   }
@@ -28,6 +29,7 @@
     margin: 0;
     padding: 0;
     color: inherit;
+    text-align: left;
   }
 
   .np-accordion-icons .np-btn-icon {
