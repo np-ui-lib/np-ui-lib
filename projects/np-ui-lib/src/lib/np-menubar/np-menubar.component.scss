@@ -15,7 +15,6 @@
 
   .np-menu-header {
     font-weight: bold;
-    background-color: $selected-color;
     color: inherit;
     display: inline-flex;
     align-items: center;
@@ -61,18 +60,13 @@
     white-space: normal;
   }
 
-  .np-menu-active {
-    color: #ffffff;
-    background-color: $primary-color;
-
-    &:hover {
-      color: #ffffff;
-      background-color: $primary-color;
-    }
-  }
-
   .np-menu-active-parent {
     color: $primary-color;
+  }
+
+  .np-menu-active {
+    background-color: $primary-color;
+    color: #ffffff !important;
   }
 
   .np-menubar-horizontal .np-submenu,
@@ -102,7 +96,6 @@
   }
 
   .np-menubar-panel .np-submenu {
-    background-color: $selected-color;
     padding-left: 10px;
   }
 }

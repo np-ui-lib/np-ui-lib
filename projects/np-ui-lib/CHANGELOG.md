@@ -6,6 +6,7 @@
 
 ## 12.0.1
 - CSS updates
+- Update SCSS variables for themeing
 
 ## 12.0.0
 - upgrade to angular 12

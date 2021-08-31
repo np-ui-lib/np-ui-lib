@@ -192,7 +192,7 @@
   }
 
   .price-label {
-    background-color: $selected-color;
+    background-color: $selected-background-color;
   }
 
   .price-actions {
@@ -209,7 +209,7 @@
   }
 
   .np-demo-container .np-col {
-    background-color: $selected-color;
+    background-color: $selected-background-color;
     outline: 2px solid #ffffff;
     padding: 10px;
     text-align: center;

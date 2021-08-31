@@ -41,10 +41,10 @@
     color: inherit;
 
     &:hover {
-      background-color: $selected-color;
+      background-color: $selected-background-color;
 
       i {
-        background-color: $selected-color;
+        background-color: $selected-background-color;
       }
     }
 

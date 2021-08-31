@@ -1248,7 +1248,7 @@
 
   .np-btn:hover,
   .np-btn-icon:hover {
-    background-color: $selected-color;
+    background-color: $selected-background-color;
   }
 
   .np-btn-primary:hover {
@@ -1372,7 +1372,7 @@
     border: 1px solid $border-color;
     border-radius: $border-radius;
     border-left: 5px solid $border-color;
-    background-color: $selected-color;
+    background-color: $selected-background-color;
     display: flex;
     align-items: center;
     min-height: 3rem;
@@ -1705,7 +1705,7 @@
   }
 
   .np-list .np-list-item:hover {
-    background-color: $selected-color;
+    background-color: $selected-background-color;
   }
 
   .np-list-header {

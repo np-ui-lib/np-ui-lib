@@ -16,6 +16,10 @@
     align-items: center;
     min-height: 2rem;
     padding-left: 10px;
+
+    &:hover, &:hover .np-btn-icon {
+      background-color: $selected-background-color;
+    }
   }
 
   .np-accordion-title {

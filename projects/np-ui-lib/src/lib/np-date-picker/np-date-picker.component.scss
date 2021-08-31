@@ -32,7 +32,7 @@
   }
 
   .np-date-picker-weekdays {
-    background-color: $selected-color;
+    background-color: $selected-background-color;
     padding: 0px 5px;
   }
 
@@ -66,14 +66,13 @@
 
   .np-date-picker-selected {
     color: #ffffff;
-    background-color: $primary-color;
+    background-color: $primary-color !important;
     cursor: pointer;
   }
 
   .np-date-picker-day {
     &:hover {
-      color: #ffffff;
-      background-color: $primary-color;
+      background-color: $selected-background-color;
       cursor: pointer;
     }
 
