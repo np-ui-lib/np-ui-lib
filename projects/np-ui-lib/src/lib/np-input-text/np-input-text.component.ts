@@ -37,6 +37,7 @@ import {
 export class NpInputTextComponent implements ControlValueAccessor, Validator {
   private static controlCount = 1;
 
+  @Input() type: string = "text";
   @Input() minLength: number;
   @Input() maxLength: number;
   @Input() pattern: string;
@@ -60,8 +61,8 @@ export class NpInputTextComponent implements ControlValueAccessor, Validator {
   isDisabled = false;
   focused = false;
 
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   get value(): string {
     return this.innerValue ? this.innerValue : null;

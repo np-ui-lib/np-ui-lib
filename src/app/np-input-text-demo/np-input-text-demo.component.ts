@@ -13,10 +13,11 @@ export class NpInputTextDemoComponent implements OnInit {
   input3: string;
   input4: string;
   input5: string;
+  input6: string;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onChange($event) {
     alert($event);

@@ -29,7 +29,11 @@
           </tr>
           <tr>
             <td>items</td>
-            <td>Array of items</td>
+            <td>Array of items<br>
+              Pass iconCss to add icon for specific item.
+              Pass styleClass to add CSS class on specific item.
+              <pre><code [innerText]="itemSmaple"></code></pre>
+            </td>
             <td>any[]</td>
             <td>false</td>
           </tr>
@@ -72,13 +76,8 @@
     </fieldset>
     <fieldset>
       <legend>height + styleClass + inputId</legend>
-      <np-timeline
-        [items]="orderItems"
-        [itemTemplate]="orderTemp"
-        [height]="200"
-        [styleClass]="'myClass'"
-        [inputId]="'orderTimeline'"
-      ></np-timeline>
+      <np-timeline [items]="orderItems" [itemTemplate]="orderTemp" [height]="200" [styleClass]="'myClass'"
+        [inputId]="'orderTimeline'"></np-timeline>
       <ng-template #orderTemp let-item="item">
         <p [innerText]="item"></p>
       </ng-template>

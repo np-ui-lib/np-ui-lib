@@ -34,6 +34,12 @@
             <td></td>
           </tr>
           <tr>
+            <td>type</td>
+            <td>Input type</td>
+            <td>string</td>
+            <td>text</td>
+          </tr>
+          <tr>
             <td>minLength</td>
             <td>Set minimum length validation</td>
             <td>number</td>
@@ -169,6 +175,12 @@
       </fieldset>
 
       <fieldset>
+        <legend>type</legend>
+        <np-input-text [(ngModel)]="input6" [type]="'password'"></np-input-text>
+        <div>Value: {{input6}}</div>
+      </fieldset>
+
+      <fieldset>
         <legend>disabled</legend>
         <np-input-text [(ngModel)]="input2" [disabled]="true"></np-input-text>
       </fieldset>
@@ -185,38 +197,20 @@
 
       <fieldset>
         <legend>minLength and maxLength</legend>
-        <np-input-text
-          [minLength]="10"
-          [maxLength]="20"
-          [(ngModel)]="input4"
-          #inputText4="ngModel"
-        >
+        <np-input-text [minLength]="10" [maxLength]="20" [(ngModel)]="input4" #inputText4="ngModel">
         </np-input-text>
-        <div
-          class="np-text-danger"
-          *ngIf="inputText4.errors && inputText4.errors.minLength"
-        >
+        <div class="np-text-danger" *ngIf="inputText4.errors && inputText4.errors.minLength">
           Min length 10 characters.
         </div>
-        <div
-          class="np-text-danger"
-          *ngIf="inputText4.errors && inputText4.errors.maxLength"
-        >
+        <div class="np-text-danger" *ngIf="inputText4.errors && inputText4.errors.maxLength">
           Max length 20 characters.
         </div>
       </fieldset>
 
       <fieldset>
         <legend>pattern</legend>
-        <np-input-text
-          pattern="^\d*$"
-          [(ngModel)]="input5"
-          #inputText5="ngModel"
-        ></np-input-text>
-        <div
-          class="np-text-danger"
-          *ngIf="inputText5.errors && inputText5.errors.pattern"
-        >
+        <np-input-text pattern="^\d*$" [(ngModel)]="input5" #inputText5="ngModel"></np-input-text>
+        <div class="np-text-danger" *ngIf="inputText5.errors && inputText5.errors.pattern">
           Only digits
         </div>
       </fieldset>
@@ -233,16 +227,12 @@
 
       <fieldset>
         <legend>prefixLabel</legend>
-        <np-input-text
-          [prefixLabel]="'<i class=\'fa fa-user\'></i>'"
-        ></np-input-text>
+        <np-input-text [prefixLabel]="'<i class=\'fa fa-user\'></i>'"></np-input-text>
       </fieldset>
 
       <fieldset>
         <legend>suffixLabel</legend>
-        <np-input-text
-          [suffixLabel]="'<i class=\'fa fa-lock\'></i>'"
-        ></np-input-text>
+        <np-input-text [suffixLabel]="'<i class=\'fa fa-lock\'></i>'" [type]="'password'"></np-input-text>
       </fieldset>
 
       <fieldset>

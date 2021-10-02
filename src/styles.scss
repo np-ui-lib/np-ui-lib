@@ -12,6 +12,7 @@
   header .np-toolbar {
     background-color: $primary-color;
     border-radius: 0px;
+    height: 50px;
   }
 
   .header-menu-btn {
@@ -234,6 +235,14 @@
 
   .red-background,
   .red-background:hover {
+    background-color: red;
+  }
+
+  .success .np-timeline-marker {
+    background-color: green;
+  }
+
+  .in-progress .np-timeline-marker {
     background-color: red;
   }
 }

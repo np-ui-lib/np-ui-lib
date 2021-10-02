@@ -11,19 +11,29 @@ export class NpTimelineDemoComponent implements OnInit {
   <h3>{{item.year}}</h3>
   <p [innerText]="item.desc"></p>
 </ng-template>`;
+  itemSmaple = `items = [{
+    iconCss: 'fa fa-check',
+    styleClass: 'success',
+    ...  
+  }, ...];`;
 
   items = [
     {
+      iconCss: 'fa fa-check',
       year: 2015,
       desc:
         "A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add one idea at a time to your broader argument.",
     },
     {
+      iconCss: 'fa fa-check',
+      styleClass: 'success',
       year: 2016,
       desc:
         "A paragraph is a series of related sentences developing a central idea, called the topic.",
     },
     {
+      iconCss: 'fa fa-times',
+      styleClass: 'in-progress',
       year: 2017,
       desc:
         "A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea.",
@@ -37,7 +47,7 @@ export class NpTimelineDemoComponent implements OnInit {
     "Order delivered",
   ];
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

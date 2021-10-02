@@ -4,6 +4,11 @@
 
 ## Change log and decision tracker
 
+## 12.0.2
+- Ui updates for some components
+- Add type in np-input component
+- Add iconCss and styleClass in np-timeline component
+
 ## 12.0.1
 - CSS updates
 - Update SCSS variables for themeing
