@@ -663,10 +663,10 @@ export class NpDataGridComponent
   }
 
   _onClickExpandRow(data: any) {
-    const keyValue = data[this.keyColumnName];
     if (this.expandRowOnClick === true) {
       return;
     }
+    const keyValue = data[this.keyColumnName];
     this._expandRow(keyValue);
   }
 
@@ -679,10 +679,10 @@ export class NpDataGridComponent
   }
 
   _onClickCollapseRow(data: any) {
-    const keyValue = data[this.keyColumnName];
     if (this.expandRowOnClick === true) {
       return;
     }
+    const keyValue = data[this.keyColumnName];
     this._collapseRow(keyValue);
   }
 
@@ -733,10 +733,10 @@ export class NpDataGridComponent
   }
 
   _onClickSelectRow(checked: boolean, data: any) {
-    const keyValue = data[this.keyColumnName];
     if (this.selectRowOnClick === true) {
       return;
     }
+    const keyValue = data[this.keyColumnName];
     this._selectRow(keyValue, checked);
   }
 
@@ -772,10 +772,10 @@ export class NpDataGridComponent
   }
 
   _isOpenDetailRow(data: any) {
-    const keyValue = data[this.keyColumnName];
     if (!this.enableMasterDetail) {
       return false;
     }
+    const keyValue = data[this.keyColumnName];
     return this.openRowKeys.indexOf(keyValue) > -1;
   }
 
