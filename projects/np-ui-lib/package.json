@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NilavPatel/np-ui-package.git"
+    "url": "git+https://github.com/np-ui-lib/np-ui-lib.git"
   },
   "license": "MIT",
   "peerDependencies": {

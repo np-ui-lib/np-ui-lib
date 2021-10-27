@@ -3,15 +3,15 @@
 Native Angular UI Components and Design Framework
 
 <p align="center">
-  <img width="200px" height="200px" src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/logo.png">
+  <img width="200px" height="200px" src="https://raw.githubusercontent.com/np-ui-lib/np-ui-lib/master/src/assets/images/logo.png">
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/angular.svg">
-  <img src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/typescript.svg">
-  <img src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/npm.svg">
-  <img src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/license.svg">
-  <img src="https://raw.githubusercontent.com/NilavPatel/np-ui-package/master/src/assets/images/contributions.svg">
+  <img src="https://raw.githubusercontent.com/np-ui-lib/np-ui-lib/master/src/assets/images/angular.svg">
+  <img src="https://raw.githubusercontent.com/np-ui-lib/np-ui-lib/master/src/assets/images/typescript.svg">
+  <img src="https://raw.githubusercontent.com/np-ui-lib/np-ui-lib/master/src/assets/images/npm.svg">
+  <img src="https://raw.githubusercontent.com/np-ui-lib/np-ui-lib/master/src/assets/images/license.svg">
+  <img src="https://raw.githubusercontent.com/np-ui-lib/np-ui-lib/master/src/assets/images/contributions.svg">
 </p>
 
 ### [NPM package manager](https://www.npmjs.com/package/np-ui-lib)
@@ -93,9 +93,9 @@ npm i np-ui-lib
 
 ### [Click here for full documentation](https://stackblitz.com/edit/np-ui-lib)
 
-### [Click here for source code](https://github.com/NilavPatel/np-ui-package)
+### [Click here for source code](https://github.com/np-ui-lib/np-ui-lib)
 
-### [Release Notes](https://github.com/NilavPatel/np-ui-package/tree/master/projects/np-ui-lib/CHANGELOG.md)
+### [Release Notes](https://github.com/np-ui-lib/np-ui-lib/tree/master/projects/np-ui-lib/CHANGELOG.md)
 
 ## License
 

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "np-ui-package": {
+    "np-ui-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/np-ui-package",
+            "outputPath": "dist/np-ui-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -60,18 +60,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "np-ui-package:build"
+            "browserTarget": "np-ui-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "np-ui-package:build:production"
+              "browserTarget": "np-ui-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "np-ui-package:build"
+            "browserTarget": "np-ui-app:build"
           }
         },
         "test": {
@@ -101,11 +101,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "np-ui-package:serve"
+            "devServerTarget": "np-ui-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "np-ui-package:serve:production"
+              "devServerTarget": "np-ui-app:serve:production"
             }
           }
         }
@@ -150,7 +150,7 @@
       }
     }
   },
-  "defaultProject": "np-ui-package",
+  "defaultProject": "np-ui-app",
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss"

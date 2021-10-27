@@ -7,7 +7,7 @@ import { Router, NavigationEnd, NavigationStart } from "@angular/router";
   templateUrl: "./app.component.html",
 })
 export class AppComponent implements OnInit {
-  title = "np-ui-package";
+  title = "np-ui-app";
   year = new Date().getFullYear();
   langList = ["En", "Fr"];
 
