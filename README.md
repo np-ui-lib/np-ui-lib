@@ -3,7 +3,7 @@
 Native Angular UI Components and Design Framework
 
 <p align="center">
-  <img width="200px" height="200px" src="https://raw.githubusercontent.com/np-ui-lib/np-ui-lib/master/src/assets/images/logo.png">
+  <img width="200px" height="200px" src="https://raw.githubusercontent.com/np-ui-lib/np-ui-lib/master/src/assets/images/logo-img.png">
 </p>
 
 <p align="center">
@@ -91,7 +91,7 @@ npm i np-ui-lib
 @import "np-ui-lib/styles/default-theme.scss";
 ```
 
-### [Click here for full documentation](https://stackblitz.com/edit/np-ui-lib)
+### [Click here for full documentation](https://np-ui-lib.github.io)
 
 ### [Click here for source code](https://github.com/np-ui-lib/np-ui-lib)
 
@@ -109,9 +109,3 @@ $ ng serve
 ## License
 
 This project is licensed under the MIT License.
-
-## Contributors
-
-<p>
-  <img width="200px" height="50px" src="https://raw.githubusercontent.com/NilavPatel/nilavpatel.github.io/master/images/logo-large.png">
-</p>
