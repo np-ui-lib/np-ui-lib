@@ -5,7 +5,7 @@
 ## Change log and decision tracker
 
 ## 12.0.3
-- Repository and content transfer
+- Repository and content transfer in github, so some URL's updated in readme files. No Code changes in library.
 
 ## 12.0.2
 - Ui updates for some components
