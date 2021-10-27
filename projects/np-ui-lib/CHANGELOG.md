@@ -4,6 +4,9 @@
 
 ## Change log and decision tracker
 
+## 12.0.3
+- Repository and content transfer
+
 ## 12.0.2
 - Ui updates for some components
 - Add type in np-input component
@@ -11,7 +14,7 @@
 
 ## 12.0.1
 - CSS updates
-- Update SCSS variables for themeing
+- Update SCSS variables for theming
 
 ## 12.0.0
 - upgrade to angular 12
@@ -46,7 +49,7 @@
 
 - Add stretchLabels property to tabs
 - Add stretchLabels property to steps
-- Add $outline-color to themeing for outline in components
+- Add $outline-color to theming for outline in components
 
 ## 11.1.6
 
@@ -144,7 +147,7 @@
 
 ## 10.8.1
 
-- Minor improvments
+- Minor improvements
 
 ## 10.8.0
 
@@ -157,7 +160,7 @@
 
 ## 10.7.2
 
-- Resolved SCSS copilation issue
+- Resolved SCSS compilation issue
 
 ## 10.7.1
 
@@ -198,7 +201,7 @@
 - Recreate auto complete component, check documentation for details
 - Resolved time issue when seconds are hidden and padStart 0 for all numbers in time picker component
 - Recreate tags component, check documentation for details
-- Add valueKey proerpty in list component
+- Add valueKey property in list component
 - Add new checkbox component
 - Change onSelect and onDeselect parameters in datagrid
 - Add new radio button component
@@ -239,7 +242,7 @@
 - Add accessibility attributes
 - Add header in list and virtual scroll
 - Resolved virtual scroll height issue
-- Rename virtual scroll data proerpty to items
+- Rename virtual scroll data property to items
 - Add showFileSize in file upload
 - Add remove file button in file upload
 - Change ngModel type to File[] in file upload
@@ -289,7 +292,7 @@
 - Add tabindex="-1" for internal buttons and other controls to make proper tab flow in forms
 - Add autoFocus property to all input controls
 - Add tooltip in slider component while hover
-- Resolved issue for parent menu active in menubar, text wrap in horizonal menu item
+- Resolved issue for parent menu active in menubar, text wrap in horizontal menu item
 - Some CSS improvements and performance enhancements
 
 ## 10.3.0
