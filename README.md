@@ -3,7 +3,7 @@
 Native Angular UI Components and Design Framework
 
 <p align="center">
-  <img width="200px" height="200px" src="https://raw.githubusercontent.com/np-ui-lib/np-ui-lib/master/src/assets/images/logo-img.png">
+  <img width="250px" height="250px" src="https://raw.githubusercontent.com/np-ui-lib/np-ui-lib/master/src/assets/images/logo-img.png">
 </p>
 
 <p align="center">
