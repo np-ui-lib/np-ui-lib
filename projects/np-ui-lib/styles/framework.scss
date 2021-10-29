@@ -1,0 +1,68 @@
+@mixin framework-style {
+  .widget-overview-box {
+    color: #fff;
+    border: none !important;
+    padding: 1rem;
+  }
+
+  .widget-overview-icon,
+  .widget-overview-text {
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+
+  .widget-overview-status {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .widget-overview-bg-1 {
+    background-color: #1e7e34 !important;
+  }
+
+  .widget-overview-bg-2 {
+    background-color: #d9534f !important;
+  }
+
+  .widget-overview-bg-3 {
+    background-color: #117a8b !important;
+  }
+
+  .widget-overview-bg-4 {
+    background-color: #d39e00 !important;
+  }
+
+  .price-table {
+    .np-card-body {
+      padding: 0px;
+    }
+  }
+
+  .price {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .price .header {
+    background-color: $primary-color;
+    color: white;
+    font-size: 25px;
+  }
+
+  .price li {
+    border-bottom: 1px solid $border-color;
+    padding: 20px;
+    text-align: center;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .price .grey {
+    background-color: $selected-background-color;
+    font-size: 20px;
+  }
+}

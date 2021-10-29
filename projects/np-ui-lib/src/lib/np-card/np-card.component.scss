@@ -2,47 +2,44 @@
   .np-card {
     background-color: #ffffff;
     overflow: hidden;
-    padding: 0px 10px;
-    margin-bottom: 5px;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    margin-bottom: 0.5rem;
   }
 
   .np-card-header {
-    padding: 10px 0px;
     overflow: auto;
+    padding: 0.5rem;
+  }
+
+  .np-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+  }
+
+  .np-card-subtitle {
+    font-weight: lighter;
+  }
+
+  .np-card-avatar {
+    float: left;
+    padding-right: 0.5rem;
   }
 
   .np-card-image img {
-    width: calc(100% + 20px);
+    width: 100%;
     height: auto;
-    margin: 0px -10px;
     vertical-align: middle;
   }
 
   .np-card-body {
     overflow: auto;
-    padding: 10px 0px;
+    padding: 0.5rem;
   }
 
   .np-card-footer {
-    padding: 10px 0px;
-  }
-
-  .np-card-title {
-    font-size: x-large;
-    font-weight: bold;
-    padding-bottom: 5px;
-  }
-
-  .np-card-subtitle {
-    font-weight: bold;
-    padding-bottom: 5px;
-  }
-
-  .np-card-avatar {
-    float: left;
-    padding-right: 10px;
+    padding: 0.5rem;
   }
 }

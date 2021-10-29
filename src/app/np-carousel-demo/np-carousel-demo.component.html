@@ -131,12 +131,7 @@
   </np-tab>
   <np-tab title="Examples">
     <fieldset>
-      <np-carousel
-        [items]="items"
-        [itemTemplate]="itemTemplate"
-        [autoPlay]="true"
-        [pauseOnHover]="true"
-      >
+      <np-carousel [items]="items" [itemTemplate]="itemTemplate" [autoPlay]="true" [pauseOnHover]="true">
       </np-carousel>
 
       <ng-template #itemTemplate let-item="item">
@@ -145,77 +140,35 @@
     </fieldset>
 
     <fieldset>
-      <np-carousel
-        #slider
-        [items]="items2"
-        [itemTemplate]="itemTemplate2"
-        [visibleNum]="visibleNum"
-        [currentPage]="1"
-        [scrollNum]="scrollNum"
-      >
+      <np-carousel #slider [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="visibleNum" [currentPage]="1"
+        [scrollNum]="scrollNum">
       </np-carousel>
 
       <ng-template #itemTemplate2 let-item="item">
-        <np-card [width]="250" styleClass="pricing-table">
+        <np-card [width]="250" styleClass="price-table">
           <np-card-body>
-            <div
-              class="np-text-center"
-              style="
-                background-color: black;
-                color: white;
-                padding: 25px;
-                font-size: 26px;
-              "
-            >
-              {{ item.name }}
-            </div>
-            <div
-              class="price-label np-text-center"
-              style="padding: 10px 20px; font-size: 24px"
-            >
-              ${{ item.id * 100 }}/mo
-            </div>
-            <div class="np-list">
-              <div class="np-list-item np-text-center">
-                {{ item.id * 10 }}GB Storage
-              </div>
-              <div class="np-list-item np-text-center">
-                {{ item.id * 10 }} Emails
-              </div>
-              <div class="np-list-item np-text-center">
-                {{ item.id * 1 }} Domains
-              </div>
-              <div class="np-list-item np-text-center">
-                {{ item.id * 100 }}GB Bandwidth
-              </div>
-            </div>
-            <div class="price-actions np-text-center">
-              <button class="np-btn np-btn-primary">SELECT</button>
-            </div>
+            <ul class="price">
+              <li class="header">{{ item.name }}</li>
+              <li class="grey">${{ item.id * 100 }}/mo</li>
+              <li>{{ item.id * 10 }}GB Storage</li>
+              <li>{{ item.id * 10 }} Emails</li>
+              <li>{{ item.id }} Domains</li>
+              <li>{{ item.id }}GB Bandwidth</li>
+              <li class="grey"> <button class="np-btn np-btn-primary">SELECT</button>
+              </li>
+            </ul>
           </np-card-body>
         </np-card>
       </ng-template>
 
       <div>
         Slides To Show:
-        <input
-          type="number"
-          class="np-form-control"
-          [(ngModel)]="visibleNum"
-          [min]="1"
-          [max]="5"
-        />
+        <input type="number" class="np-form-control" [(ngModel)]="visibleNum" [min]="1" [max]="5" />
       </div>
 
       <div>
         Slides To Scroll:
-        <input
-          type="number"
-          class="np-form-control"
-          [(ngModel)]="scrollNum"
-          [min]="1"
-          [max]="5"
-        />
+        <input type="number" class="np-form-control" [(ngModel)]="scrollNum" [min]="1" [max]="5" />
       </div>
 
       <div class="np-btn-group">

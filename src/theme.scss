@@ -16,6 +16,7 @@ body {
 
 .blue-theme {
   @import "dist/np-ui-lib/styles/theme.scss";
+  @import "dist/np-ui-lib/styles/framework.scss";
   @import "styles.scss";
   $primary-color: #0b7ad1;
   $background-color: #f5f5f5;
@@ -25,10 +26,12 @@ body {
   $outline-color: #a6d5fa;
   @include theme;
   @include app-style;
+  @include framework-style;
 }
 
 .green-theme {
   @import "dist/np-ui-lib/styles/theme.scss";
+  @import "dist/np-ui-lib/styles/framework.scss";
   @import "styles.scss";
   $primary-color: #4caf50;
   $background-color: #f5f5f5;
@@ -38,10 +41,12 @@ body {
   $outline-color: #b7e0b8;
   @include theme;
   @include app-style;
+  @include framework-style;
 }
 
 .orange-theme {
   @import "dist/np-ui-lib/styles/theme.scss";
+  @import "dist/np-ui-lib/styles/framework.scss";
   @import "styles.scss";
   $primary-color: #ffa500;
   $background-color: #f5f5f5;
@@ -51,10 +56,12 @@ body {
   $outline-color: #ffe69c;
   @include theme;
   @include app-style;
+  @include framework-style;
 }
 
 .purple-theme {
   @import "dist/np-ui-lib/styles/theme.scss";
+  @import "dist/np-ui-lib/styles/framework.scss";
   @import "styles.scss";
   $primary-color: #9c27b0;
   $background-color: #f5f5f5;
@@ -64,4 +71,5 @@ body {
   $outline-color: #df9eea;
   @include theme;
   @include app-style;
+  @include framework-style;
 }

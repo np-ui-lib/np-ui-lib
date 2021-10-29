@@ -17,13 +17,10 @@
           <pre><code [innerText]="htmlText"></code></pre>
         </div>
         <np-alert type="info">
-          <b>np-card-header, np-card-image, np-card-body, np-card-footer</b
-          >&nbsp;components can be used in any order.
+          <b>np-card-header, np-card-image, np-card-body, np-card-footer</b>&nbsp;components can be used in any order.
         </np-alert>
         <np-alert type="info">
-          Use CSS classes like&nbsp;<b
-            >.np-card-title, .np-card-subtitle, .np-card-avatar</b
-          >&nbsp;in header.
+          Use CSS classes like&nbsp;<b>.np-card-title, .np-card-subtitle, .np-card-avatar</b>&nbsp;in header.
         </np-alert>
       </np-card-body>
     </np-card>
@@ -62,38 +59,38 @@
     <div class="np-container card-list">
       <div class="np-row">
         <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
-          <np-card [styleClass]="'overview-card overview-1'">
+          <np-card [styleClass]="'widget-overview-box widget-overview-bg-1'">
             <np-card-body>
-              <div class="overview-icon"><i class="fa fa-user"></i></div>
-              <div class="overview-header">Active</div>
-              <div class="overview-number">78%</div>
+              <div class="widget-overview-icon"><i class="fa fa-user"></i></div>
+              <div class="widget-overview-text">Active</div>
+              <div class="widget-overview-status">78%</div>
             </np-card-body>
           </np-card>
         </div>
         <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
-          <np-card [styleClass]="'overview-card overview-2'">
+          <np-card [styleClass]="'widget-overview-box widget-overview-bg-2'">
             <np-card-body>
-              <div class="overview-icon"><i class="fa fa-user"></i></div>
-              <div class="overview-header">In Active</div>
-              <div class="overview-number">10%</div>
+              <div class="widget-overview-icon"><i class="fa fa-user"></i></div>
+              <div class="widget-overview-text">In Active</div>
+              <div class="widget-overview-status">10%</div>
             </np-card-body>
           </np-card>
         </div>
         <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
-          <np-card [styleClass]="'overview-card overview-3'">
+          <np-card [styleClass]="'widget-overview-box widget-overview-bg-3'">
             <np-card-body>
-              <div class="overview-icon"><i class="fa fa-user"></i></div>
-              <div class="overview-header">Pending</div>
-              <div class="overview-number">5%</div>
+              <div class="widget-overview-icon"><i class="fa fa-user"></i></div>
+              <div class="widget-overview-text">Pending</div>
+              <div class="widget-overview-status">5%</div>
             </np-card-body>
           </np-card>
         </div>
         <div class="np-col np-col-sm-12 np-col-md-6 np-col-lg-3 np-col-xl-3">
-          <np-card [styleClass]="'overview-card overview-4'">
+          <np-card [styleClass]="'widget-overview-box widget-overview-bg-4'">
             <np-card-body>
-              <div class="overview-icon"><i class="fa fa-user"></i></div>
-              <div class="overview-header">Approved</div>
-              <div class="overview-number">95%</div>
+              <div class="widget-overview-icon"><i class="fa fa-user"></i></div>
+              <div class="widget-overview-text">Approved</div>
+              <div class="widget-overview-status">95%</div>
             </np-card-body>
           </np-card>
         </div>
@@ -104,10 +101,7 @@
           <np-card>
             <np-card-header>
               <div class="np-card-avatar">
-                <img
-                  class="np-avatar"
-                  src="../../assets/images/img_avatar.png"
-                />
+                <img class="np-avatar" src="../../assets/images/img_avatar.png" />
               </div>
               <div class="np-card-title">Card Title</div>
               <div class="np-card-subtitle">Card Subtitle</div>
@@ -116,7 +110,7 @@
               <img src="../../assets/images/test1.jpg" />
             </np-card-image>
             <np-card-body>
-              <h2>What is Lorem Ipsum?</h2>
+              <h2 style="margin-bottom: 10px;">What is Lorem Ipsum?</h2>
               <div>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -136,7 +130,7 @@
                   <i class="fa fa-check np-btn-icon-left"></i>Ok
                 </button>
                 <button class="np-btn np-btn-danger">
-                  <i class="fa fa-close np-btn-icon-left"></i>Cancel
+                  <i class="fa fa-times np-btn-icon-left"></i>Cancel
                 </button>
               </div>
             </np-card-footer>
@@ -145,15 +139,17 @@
         <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6 np-col-xl-6">
           <np-card [styleClass]="'myClass'" [width]="300">
             <np-card-image>
-              <img
-                class="np-responsive-img"
-                src="../../assets/images/img_avatar.png"
-              />
+              <img class="np-responsive-img" src="../../assets/images/img_avatar.png" />
             </np-card-image>
-            <np-card-body>
+            <np-card-header>
               <div class="np-card-title">John Doe</div>
               <div class="np-card-subtitle">Software Engineer</div>
-            </np-card-body>
+              <div class="np-btn-group">
+                <button type="button" class="np-btn-icon np-btn-primary"><i class="fab fa-twitter"></i></button>
+                <button type="button" class="np-btn-icon np-btn-primary"><i class="fab fa-facebook"></i></button>
+                <button type="button" class="np-btn-icon np-btn-primary"><i class="fab fa-google-plus-g"></i></button>
+              </div>
+            </np-card-header>
           </np-card>
         </div>
       </div>
@@ -161,23 +157,21 @@
         <div class="np-col np-col-sm-12 np-col-md-12 np-col-lg-6 np-col-xl-6">
           <np-card [width]="300">
             <np-card-image>
-              <img
-                class="np-responsive-img"
-                style="background-color: $background-color"
-                src="../../assets/images/lenovo-laptop.png"
-              />
+              <img class="np-responsive-img" src="../../assets/images/lenovo-laptop.png" />
             </np-card-image>
-            <np-card-body>
+            <np-card-header>
               <div class="np-card-title">Lenovo Laptop</div>
               <div class="np-card-subtitle">
                 Lenovo Ideapad 10th Gen Intel Core i7
               </div>
+            </np-card-header>
+            <np-card-body>
               <ul>
                 <li>Reliable entry-level 35.56cms (14) laptop</li>
                 <li>Cutting-edge Intel Core processors</li>
                 <li>Great for everyday use</li>
               </ul>
-              <div class="np-card-title np-text-center">$1500</div>
+              <h2 class="np-text-center">$1500</h2>
             </np-card-body>
             <np-card-footer>
               <button class="np-btn np-btn-block np-btn-primary">
