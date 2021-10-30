@@ -13,8 +13,10 @@ $border-color: #9e9e9e;// set border color</span>
 $border-radius: 2px;// set border radius</span>
 $outline-color: #a6d5fa;// set outline color</span>
 @include theme;`;
+  frameworkSCSS = `@import "dist/np-ui-lib/styles/theme.scss";
+@include framework-style;`;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
