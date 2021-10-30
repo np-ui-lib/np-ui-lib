@@ -6,7 +6,7 @@
 </p>
 <p>
   Now set that template reference in <b>cellTemplate</b> property in column
-  definations
+  definitions
 </p>
 
 <b>In HTML file:</b>
@@ -19,7 +19,7 @@
   <pre><code>{{templateText}}</code></pre>
 </div>
 
-<b>In Column defination:</b>
+<b>In Column definition:</b>
 <div class="np-jumbotron">
   <pre><code>{{columnText}}</code></pre>
 </div>
@@ -44,7 +44,7 @@
   </div>
 </ng-template>
 
-<!-- Template for birthdate column -->
+<!-- Template for birth date column -->
 <ng-template #birthDateColumnTemplate let-row="row">
   {{ row.BirthDate | date: "dd/MM/yyyy" }}
 </ng-template>

@@ -11,7 +11,7 @@ export class NpTimelineDemoComponent implements OnInit {
   <h3>{{item.year}}</h3>
   <p [innerText]="item.desc"></p>
 </ng-template>`;
-  itemSmaple = `items = [{
+  itemSample = `items = [{
     iconCss: 'fa fa-check',
     styleClass: 'success',
     ...  

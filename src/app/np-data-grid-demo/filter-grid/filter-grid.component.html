@@ -1,14 +1,14 @@
 <h2 class="page-header">Filters example</h2>
 <p>
   To add filters in data grid set <b>filterEnable</b> to "true" in column
-  definations.
+  definitions.
 </p>
 <p>
   Show filters:
   <np-switch [(ngModel)]="showFilters"></np-switch>
 </p>
 
-<h3>Client Side Filering</h3>
+<h3>Client Side Filtering</h3>
 <np-data-grid
   [columns]="gridColumns"
   [dataSource]="gridDataSource"
@@ -16,7 +16,7 @@
 >
 </np-data-grid>
 
-<h3>Server Side Filering</h3>
+<h3>Server Side Filtering</h3>
 <np-alert type="info">
   Options:<code>{{ currentLoadOptions | json }}</code>
 </np-alert>

@@ -21,7 +21,7 @@ export class DataGridDocComponent implements OnInit {
   <span>Total:{{summary ? summary.totalCount : 0}}</span>
 </ng-template>`;
   importColumnText = `import { Column } from \'np-ui-lib\';`;
-  celltemplateText = `<ng-template #activeColumnTemplate let-row="row">
+  cellTemplateText = `<ng-template #activeColumnTemplate let-row="row">
   <np-switch [(ngModel)]="row.Active" trueLabelText="Yes" falseLabelText="No"
   [readOnly]="true"></np-switch>
 </ng-template>`;

@@ -7,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
 export class NpI18nDemoComponent implements OnInit {
   importText = "import { NpTranslationsModule } from 'np-ui-lib';";
   serviceInjectText = `constructor(private translateService: NpTranslationsService) { }`;
-  addTanslationText = `this.translateService.setTranslations({
+  addTranslationText = `this.translateService.setTranslations({
     'Su': 'Su',
     'Mo': 'Mo',
     'Tu': 'Tu',
