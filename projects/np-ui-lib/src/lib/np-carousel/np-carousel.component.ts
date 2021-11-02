@@ -22,6 +22,7 @@ export class NpCarouselComponent
   private static controlCount = 1;
 
   @Input() items: any[] = [];
+  @Input() lazyLoaded: boolean;
   @Input() autoPlay: boolean;
   @Input() autoPlayInterval = 5000;
   @Input() itemTemplate: TemplateRef<any>;
@@ -133,10 +134,24 @@ export class NpCarouselComponent
   }
 
   _isActive(idx: number) {
-    if (idx >= this.startIdx && idx <= this.endIdx) {
+    if (this.lazyLoaded || (idx >= this.startIdx && idx <= this.endIdx)) {
       return true;
     }
     return false;
+  }
+
+  _getActiveItems() {
+    if (!this.items || !this.lazyLoaded) {
+      return this.items;
+    }
+    return this.items.slice(this.startIdx, this.endIdx + 1);
+  }
+
+  _getIdxOfItem(i: number) {
+    if (!this.lazyLoaded) {
+      return i + 1 + ' of ' + this.items.length;
+    }
+    return this.startIdx + i + 1 + ' of ' + this.items.length;
   }
 
   _trackBy(index: number): number {

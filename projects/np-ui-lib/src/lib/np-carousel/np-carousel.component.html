@@ -1,46 +1,22 @@
 <div [ngClass]="'np-carousel'" [class]="styleClass" [attr.id]="inputId">
   <div class="np-carousel-container">
-    <button
-      class="np-btn-icon np-carousel-prev"
-      type="button"
-      *ngIf="showNavigationArrows"
-      tabindex="0"
-      (click)="_minusSlides()"
-    >
+    <button class="np-btn-icon np-carousel-prev" type="button" *ngIf="showNavigationArrows" tabindex="0"
+      (click)="_minusSlides()">
       <svg class="np-icon" viewBox="0 0 24 24">
-        <path
-          d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
-        ></path>
+        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"></path>
         <path fill="none" d="M0 0h24v24H0V0z"></path>
       </svg>
     </button>
-    <div
-      class="np-carousel-items"
-      [attr.aria-live]="isPolite ? 'polite' : 'off'"
-    >
-      <div
-        class="np-carousel-item"
-        role="group"
-        aria-roledescription="slide"
-        *ngFor="let item of items; let i = index; trackBy: _trackBy"
-        [attr.aria-label]="i + 1 + ' of ' + items.length"
-        [ngClass]="{ 'np-carousel-active': _isActive(i) }"
-      >
-        <ng-template
-          #customTemplate
-          [ngTemplateOutlet]="itemTemplate"
-          [ngTemplateOutletContext]="{ item: item }"
-        >
-        </ng-template>
+    <div class="np-carousel-items" [attr.aria-live]="isPolite ? 'polite' : 'off'">
+      <div class="np-carousel-item" role="group" aria-roledescription="slide"
+        *ngFor="let item of _getActiveItems(); let i = index; trackBy: _trackBy" [attr.aria-label]="_getIdxOfItem(i)"
+        [ngClass]="{ 'np-carousel-active': _isActive(i) }">
+        <ng-container [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{ item: item }">
+        </ng-container>
       </div>
     </div>
-    <button
-      class="np-btn-icon np-carousel-next"
-      type="button"
-      *ngIf="showNavigationArrows"
-      tabindex="0"
-      (click)="_plusSlides()"
-    >
+    <button class="np-btn-icon np-carousel-next" type="button" *ngIf="showNavigationArrows" tabindex="0"
+      (click)="_plusSlides()">
       <svg class="np-icon" viewBox="0 0 24 24">
         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"></path>
         <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -48,14 +24,9 @@
     </button>
   </div>
   <div class="np-carousel-nav" *ngIf="showNavigationIndicators">
-    <ng-container
-      *ngFor="let img of _getEmptyArray(_totalPages()); let i = index"
-    >
-      <span
-        class="np-carousel-dot"
-        [ngClass]="{ 'np-carousel-dot-active': currentPage === i }"
-        (click)="_goToPage(i)"
-      ></span>
+    <ng-container *ngFor="let img of _getEmptyArray(_totalPages()); let i = index">
+      <span class="np-carousel-dot" [ngClass]="{ 'np-carousel-dot-active': currentPage === i }"
+        (click)="_goToPage(i)"></span>
     </ng-container>
   </div>
 </div>

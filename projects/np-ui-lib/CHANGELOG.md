@@ -7,6 +7,7 @@
 ## 12.1.0
 - UI and CSS updates.
 - Add new framework.scss file for ready made CSS components like price table, overview box.
+- Add lazyLoaded property to carousel component
 
 ## 12.0.4 
 - Performance improvements

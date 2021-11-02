@@ -34,6 +34,13 @@
             <td></td>
           </tr>
           <tr>
+            <td>lazyLoaded</td>
+            <td>If set to true then only active items get loaded, else all items get loaded but active items are
+              displayed</td>
+            <td>boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
             <td>autoPlay</td>
             <td>Allow autoplay</td>
             <td>boolean</td>
@@ -141,7 +148,7 @@
 
     <fieldset>
       <np-carousel #slider [items]="items2" [itemTemplate]="itemTemplate2" [visibleNum]="visibleNum" [currentPage]="1"
-        [scrollNum]="scrollNum">
+        [scrollNum]="scrollNum" [lazyLoaded]="true">
       </np-carousel>
 
       <ng-template #itemTemplate2 let-item="item">
