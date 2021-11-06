@@ -8,6 +8,7 @@
 - UI and CSS updates.
 - Add new framework.scss file for ready made CSS components like price table, overview box.
 - Add lazyLoaded property to carousel component
+- Add header property to sidepanel component
 
 ## 12.0.4 
 - Performance improvements

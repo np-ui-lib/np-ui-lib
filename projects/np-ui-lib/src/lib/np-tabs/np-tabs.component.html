@@ -1,20 +1,22 @@
 <div role="tablist" [ngClass]="{ 'np-tabs': true, 'np-tabs-vertical': verticalTabs }" [style.max-height.px]="height"
   [class]="styleClass" [attr.id]="inputId">
-  <div class="np-tabs-header">
+  <ul class="np-tabs-header hidden-scrollbar">
     <ng-container *ngFor="let tab of tabs">
-      <button class="np-tab-title" role="tab" [attr.id]="_getTitleId(tab)" [ngClass]="{
+      <li class="np-tab-title" role="tab" [attr.id]="_getTitleId(tab)" [ngClass]="{
           'np-tab-active': tab.active,
           'np-disabled': tab.disabled,
           'np-tab-stretch-label': stretchLabels
         }" [attr.tabindex]="tab.disabled ? '-1' : '0'" [attr.aria-selected]="tab.active"
         [attr.aria-controls]="_getBodyId(tab)" (click)="_selectTab(tab)">
-        <i *ngIf="tab.iconCss" [class]="tab.iconCss"></i>
-        <span *ngIf="!tab.titleIsTemplate" [innerHTML]="tab.title"></span>
-        <ng-container *ngIf="tab.titleIsTemplate" [ngTemplateOutlet]="tab.title">
-        </ng-container>
-      </button>
+        <a class="np-tab-title-link">
+          <i *ngIf="tab.iconCss" [class]="tab.iconCss"></i>
+          <span *ngIf="!tab.titleIsTemplate" [innerHTML]="tab.title"></span>
+          <ng-container *ngIf="tab.titleIsTemplate" [ngTemplateOutlet]="tab.title">
+          </ng-container>
+        </a>
+      </li>
     </ng-container>
-  </div>
+  </ul>
   <div class="np-tab-body" role="tabpanel" [attr.id]="_getBodyId(selected)"
     [attr.aria-labelledby]="_getTitleId(selected)">
     <ng-template [cdkPortalOutlet]="selected.content"></ng-template>

@@ -12,6 +12,7 @@ $selected-background-color: #eeeeee;// set background color for selected items a
 $border-color: #9e9e9e;// set border color</span>
 $border-radius: 2px;// set border radius</span>
 $outline-color: #a6d5fa;// set outline color</span>
+$spacer: 0.5rem;// set spacing
 @include theme;`;
   frameworkSCSS = `@import "dist/np-ui-lib/styles/theme.scss";
 @include framework-style;`;

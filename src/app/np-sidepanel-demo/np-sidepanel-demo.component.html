@@ -32,6 +32,12 @@
             <th>Default</th>
           </tr>
           <tr>
+            <td>header</td>
+            <td>Set header, it is optional</td>
+            <td>string | html</td>
+            <td></td>
+          </tr>
+          <tr>
             <td>position</td>
             <td>Set position 'left' | 'right' | 'top' | 'bottom'</td>
             <td>string</td>
@@ -169,34 +175,22 @@
       </button>
     </div>
 
-    <np-sidepanel
-      #sidePanelLeft
-      [position]="'left'"
-      [height]="'100%'"
-      [inputId]="'leftSidepanel'"
-      (onClose)="onCloseLeft($event)"
-    >
+    <np-sidepanel #sidePanelLeft [position]="'left'" [height]="'100%'" [inputId]="'leftSidepanel'"
+      (onClose)="onCloseLeft($event)" [header]="'Add User Details:'">
       <ng-template npSidepanelContent>
-        <form [formGroup]="myForm">
-          <div class="np-container">
+        <div class="np-container">
+          <form [formGroup]="myForm">
             <div class="np-row">
               <div class="np-col-6">
                 <div class="np-form-group">
                   <div class="np-form-label np-required">First name:</div>
-                  <np-input-text
-                    name="txtFirstName"
-                    formControlName="firstName"
-                    [autoFocus]="true"
-                  ></np-input-text>
+                  <np-input-text name="txtFirstName" formControlName="firstName" [autoFocus]="true"></np-input-text>
                 </div>
               </div>
               <div class="np-col-6">
                 <div class="np-form-group">
                   <div class="np-form-label np-required">Last name:</div>
-                  <np-input-text
-                    name="txtLastName"
-                    formControlName="lastName"
-                  ></np-input-text>
+                  <np-input-text name="txtLastName" formControlName="lastName"></np-input-text>
                 </div>
               </div>
             </div>
@@ -204,20 +198,14 @@
               <div class="np-col-6">
                 <div class="np-form-group">
                   <div class="np-form-label np-required">Birth date:</div>
-                  <np-date-picker
-                    name="txtBirthDate"
-                    formControlName="birthDate"
-                  >
+                  <np-date-picker name="txtBirthDate" formControlName="birthDate">
                   </np-date-picker>
                 </div>
               </div>
               <div class="np-col-6">
                 <div class="np-form-group">
                   <div class="np-form-label np-required">Birth time:</div>
-                  <np-time-picker
-                    name="txtBirthTime"
-                    formControlName="birthTime"
-                  >
+                  <np-time-picker name="txtBirthTime" formControlName="birthTime">
                   </np-time-picker>
                 </div>
               </div>
@@ -226,10 +214,7 @@
               <div class="np-col-12">
                 <div class="np-form-group">
                   <div class="np-form-label np-required">Is Active:</div>
-                  <np-switch
-                    name="swIsActive"
-                    formControlName="isActive"
-                  ></np-switch>
+                  <np-switch name="swIsActive" formControlName="isActive"></np-switch>
                 </div>
               </div>
             </div>
@@ -237,57 +222,34 @@
               <div class="np-col-12">
                 <div class="np-form-group">
                   <div class="np-form-label np-required">Description:</div>
-                  <np-textarea
-                    name="txtDescription"
-                    rows="3"
-                    formControlName="description"
-                  ></np-textarea>
+                  <np-textarea name="txtDescription" rows="3" formControlName="description"></np-textarea>
                 </div>
               </div>
             </div>
             <div class="np-btn-group">
-              <button
-                class="np-btn np-btn-primary"
-                type="button"
-                (click)="onSubmit()"
-              >
+              <button class="np-btn np-btn-primary" type="button" (click)="onSubmit()">
                 Save
               </button>
               <button class="np-btn" type="button" (click)="closeLeft()">
                 Close
               </button>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </ng-template>
     </np-sidepanel>
 
-    <np-sidepanel
-      #sidePanelRight
-      [position]="'right'"
-      [height]="'100%'"
-      [width]="'200px'"
-      [styleClass]="'myClass'"
-      [backDropClass]="'myBackDrop'"
-      [closeOnClickOutside]="false"
-    >
+    <np-sidepanel #sidePanelRight [position]="'right'" [height]="'100%'" [width]="'200px'" [styleClass]="'myClass'"
+      [backDropClass]="'myBackDrop'" [closeOnClickOutside]="false">
       <h4>Right sidepanel example</h4>
       <div class="np-btn-group">
-        <button
-          class="np-btn np-btn-danger"
-          (click)="sidePanelRight.close(null)"
-        >
+        <button class="np-btn np-btn-danger" (click)="sidePanelRight.close(null)">
           Close
         </button>
       </div>
     </np-sidepanel>
 
-    <np-sidepanel
-      #sidePanelTop
-      [position]="'top'"
-      [width]="'100%'"
-      [height]="'200px'"
-    >
+    <np-sidepanel #sidePanelTop [position]="'top'" [width]="'100%'" [height]="'200px'">
       <h4>Top sidepanel header</h4>
       <p>
         A paragraph is a self-contained unit of discourse in writing dealing
@@ -319,19 +281,10 @@
       </p>
     </np-sidepanel>
 
-    <np-sidepanel
-      #sidePanelBottom
-      [position]="'bottom'"
-      [width]="'100%'"
-      [height]="'200px'"
-      [hasBackDrop]="false"
-    >
+    <np-sidepanel #sidePanelBottom [position]="'bottom'" [width]="'100%'" [height]="'200px'" [hasBackDrop]="false">
       <h1>Bottom sidepanel example</h1>
       <div class="np-btn-group">
-        <button
-          class="np-btn np-btn-danger"
-          (click)="sidePanelBottom.close(null)"
-        >
+        <button class="np-btn np-btn-danger" (click)="sidePanelBottom.close(null)">
           Close
         </button>
       </div>

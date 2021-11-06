@@ -6,8 +6,8 @@
   [attr.id]="inputId"
 >
   <div class="np-grid-title" *ngIf="title" [innerHTML]="title"></div>
-  <div class="np-grid-toolbar" *ngIf="showToolBar">
-    <div class="np-grid-toolbar-item" *ngIf="showColumnChooser">
+  <div class="np-toolbar np-grid-toolbar" *ngIf="showToolBar">
+    <div class="np-toolbar-item" *ngIf="showColumnChooser">
       <button
         class="np-btn-icon np-column-chooser-btn"
         id="btn-column-chooser"
@@ -21,7 +21,7 @@
         </svg>
       </button>
     </div>
-    <div class="np-grid-toolbar-item" *ngIf="isFilterAvailable">
+    <div class="np-toolbar-item" *ngIf="isFilterAvailable">
       <button
         class="np-btn-icon np-toggle-filter-btn"
         type="button"
@@ -39,7 +39,7 @@
         </svg>
       </button>
     </div>
-    <div class="np-grid-toolbar-item" *ngIf="allowExport">
+    <div class="np-toolbar-item" *ngIf="allowExport">
       <button
         class="np-btn-icon np-grid-export-btn"
         type="button"
@@ -52,9 +52,9 @@
         </svg>
       </button>
     </div>
-    <div class="np-grid-toolbar-spacer"></div>
+    <div class="np-toolbar-spacer"></div>
     <ng-container *ngIf="enableStateStoring">
-      <div class="np-grid-toolbar-item">
+      <div class="np-toolbar-item">
         <select
           class="np-form-control np-grid-states"
           [(ngModel)]="currentStateName"
@@ -69,7 +69,7 @@
         </select>
       </div>
       <div
-        class="np-grid-toolbar-item"
+        class="np-toolbar-item"
         *ngIf="currentStateName.length > 0 && !isReadOnlyStates"
       >
         <button
@@ -85,7 +85,7 @@
         </button>
       </div>
       <div
-        class="np-grid-toolbar-item"
+        class="np-toolbar-item"
         *ngIf="currentStateName.length > 0 && !isReadOnlyStates"
       >
         <button
@@ -100,7 +100,7 @@
           </svg>
         </button>
       </div>
-      <div class="np-grid-toolbar-item">
+      <div class="np-toolbar-item">
         <button
           class="np-btn-icon np-grid-state-add"
           type="button"

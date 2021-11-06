@@ -216,27 +216,14 @@
   }
 
   .np-grid-toolbar {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 3px;
-    border-bottom: 1px solid $border-color;
     background-color: $background-color;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    .np-form-control {
+      max-width: 200px;
+    }
   }
-
-  .np-grid-toolbar-spacer {
-    flex: 1 1 auto;
-  }
-
-  .np-grid-toolbar-item {
-    padding: 2px;
-  }
-
-  .np-grid-toolbar .np-form-control {
-    max-width: 200px;
-  }
-
   .np-grid-pagination {
     border: none !important;
   }

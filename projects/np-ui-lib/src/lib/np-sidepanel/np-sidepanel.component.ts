@@ -35,6 +35,7 @@ export class NpSidepanelComponent implements OnInit, OnDestroy {
   @Input() position = "left";
   @Input() height: number | string;
   @Input() width: number | string;
+  @Input() header: string;
   @Input() closeOnClickOutside = true;
   @Input() backDropClass = "np-sidepanel-backdrop";
   @Input() hasBackDrop = true;
@@ -61,7 +62,7 @@ export class NpSidepanelComponent implements OnInit, OnDestroy {
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private sidepanelService: NpSidepanelService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.sidepanelRef = this.sidepanelService._add(this.inputId);
