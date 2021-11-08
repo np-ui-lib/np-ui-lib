@@ -3,7 +3,7 @@
     border: 1px solid $border-color;
     border-radius: $border-radius;
     background-color: #ffffff;
-    padding: 5px 10px;
+    padding: $spacer;
   }
 
   .np-breadcrumb-items {
@@ -23,13 +23,13 @@
     + .np-breadcrumb-item::before {
       display: inline-block;
       content: "/";
-      padding: 0px 10px;
+      padding: 0 $spacer;
       font-weight: bold;
     }
 
     i {
       font-size: large;
-      padding-right: 10px;
+      padding-right: 1rem;
     }
   }
 }

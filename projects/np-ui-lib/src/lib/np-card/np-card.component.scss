@@ -5,18 +5,18 @@
     border: 1px solid $border-color;
     border-radius: $border-radius;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-    margin-bottom: 0.5rem;
+    margin-bottom: $spacer;
   }
 
   .np-card-header {
     overflow: auto;
-    padding: 0.5rem;
+    padding: $spacer;
   }
 
   .np-card-title {
     font-size: 1.5rem;
     font-weight: bold;
-    padding-bottom: 0.5rem;
+    padding-bottom: $spacer;
   }
 
   .np-card-subtitle {
@@ -25,7 +25,7 @@
 
   .np-card-avatar {
     float: left;
-    padding-right: 0.5rem;
+    padding-right: $spacer;
   }
 
   .np-card-image img {
@@ -36,10 +36,10 @@
 
   .np-card-body {
     overflow: auto;
-    padding: 0.5rem;
+    padding: $spacer;
   }
 
   .np-card-footer {
-    padding: 0.5rem;
+    padding: $spacer;
   }
 }

@@ -29,16 +29,15 @@
   .np-step-title {
     display: flex;
     align-items: center;
-    margin: 0px 20px;
-    padding: 0px 10px;
-    min-height: 3rem;
-    min-width: 70px;
+    margin: 0px $spacer * 2;
+    padding: $spacer;
     cursor: pointer;
     z-index: 1;
     font-weight: bold;
     border: none;
     background-color: $background-color;
     color: inherit;
+    border-bottom: 2px solid transparent;
 
     &:hover {
       background-color: $selected-background-color;
@@ -50,14 +49,14 @@
 
     i {
       font-size: large;
-      padding-right: 10px;
+      padding-right: 1rem;
       z-index: 1;
       background-color: #f5f5f5;
     }
   }
 
   .np-step-body {
-    padding: 10px;
+    padding: $spacer;
     overflow: auto;
     background-color: #ffffff;
   }
@@ -65,19 +64,16 @@
   .np-step-done {
     border-bottom: 2px solid #449d44;
     color: #449d44;
-    padding-top: 2px;
   }
 
   .np-step-error {
     border-bottom: 2px solid #c9302c;
     color: #c9302c;
-    padding-top: 2px;
   }
 
   .np-step-active {
     border-bottom: 2px solid $primary-color;
     color: $primary-color;
-    padding-top: 2px;
   }
 
   .np-step-number {
@@ -85,10 +81,12 @@
     width: 1.5rem;
     background-color: $border-color;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 1rem;
     border: none;
     color: #ffffff;
-    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1;
   }
 
@@ -116,23 +114,25 @@
 
     .np-step-title {
       margin: 0px;
+      border-bottom: none !important;
+      position: relative;
 
       &::after {
-        left: 22px;
+        left: (1.5rem/2) + $spacer;
         position: absolute;
         content: " ";
         width: 1px;
-        height: 3rem;
+        height: 100%;
         background-color: $border-color;
       }
     }
 
     .np-step-body {
-      padding-left: 45px;
+      padding-left: 2.5rem + $spacer;
 
       &::after {
         top: 0px;
-        left: 22px;
+        left: (1.5rem/2) + $spacer;
         position: absolute;
         content: " ";
         width: 1px;
@@ -143,23 +143,14 @@
 
     .np-step-done {
       border-right: 2px solid #449d44;
-      border-bottom: none;
-      padding-right: 8px;
-      padding-top: 0px;
     }
 
     .np-step-error {
       border-right: 2px solid #c9302c;
-      border-bottom: none;
-      padding-right: 8px;
-      padding-top: 0px;
     }
 
     .np-step-active {
       border-right: 2px solid $primary-color;
-      border-bottom: none;
-      padding-right: 8px;
-      padding-top: 0px;
     }
   }
 }

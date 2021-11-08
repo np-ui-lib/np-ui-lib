@@ -8,7 +8,7 @@
 
   .np-timeline-container {
     position: relative;
-    padding: 10px;
+    padding: $spacer;
   }
 
   .np-timeline-item {
@@ -21,8 +21,8 @@
   }
 
   .np-timeline-item-content {
-    padding: 10px;
-    margin: 0px 10px 20px 10px;
+    padding: $spacer;
+    margin: 0 $spacer $spacer * 2 $spacer;
     background-color: $background-color;
     position: relative;
     border-radius: $border-radius;

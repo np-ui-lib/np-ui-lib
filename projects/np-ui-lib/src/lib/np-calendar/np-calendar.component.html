@@ -1,6 +1,6 @@
 <div [ngClass]="'np-calendar'" [class]="styleClass" [attr.id]="inputId">
-  <div class="np-calendar-header">
-    <div class="np-calendar-header-item">
+  <div class="np-toolbar np-calendar-toolbar">
+    <div class="np-toolbar-item">
       <button
         class="np-btn-icon np-calendar-refresh-btn"
         type="button"
@@ -15,7 +15,7 @@
         </svg>
       </button>
     </div>
-    <div class="np-calendar-header-item">
+    <div class="np-toolbar-item">
       <button
         class="np-btn np-calendar-today-btn"
         type="button"
@@ -25,8 +25,8 @@
         {{ "Today" | npTranslate }}
       </button>
     </div>
-    <div class="np-calendar-header-spacer"></div>
-    <div class="np-calendar-header-item">
+    <div class="np-toolbar-spacer"></div>
+    <div class="np-toolbar-item">
       <button
         class="np-btn-icon np-calendar-prev-btn"
         type="button"
@@ -41,7 +41,7 @@
         </svg>
       </button>
     </div>
-    <div class="np-calendar-header-item">
+    <div class="np-toolbar-item">
       <input
         class="np-form-control np-calendar-years-input"
         type="number"
@@ -51,7 +51,7 @@
         required
       />
     </div>
-    <div class="np-calendar-header-item">
+    <div class="np-toolbar-item">
       <select
         class="np-form-control np-calendar-months-select"
         tabindex="-1"
@@ -65,7 +65,7 @@
         ></option>
       </select>
     </div>
-    <div class="np-calendar-header-item">
+    <div class="np-toolbar-item">
       <button
         class="np-btn-icon np-calendar-next-btn"
         type="button"

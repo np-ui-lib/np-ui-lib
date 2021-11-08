@@ -12,7 +12,7 @@
       <ng-container *ngIf="isTitleTemplate" [ngTemplateOutlet]="title">
       </ng-container>
     </button>
-    <div class="np-panel-icons">
+    <div class="np-panel-btns">
       <button class="np-btn-icon" type="button" [attr.tabindex]="disabled ? '-1' : '0'"
         *ngIf="allowToMinimize && !isZoom" [ngClass]="{ 'np-panel-expand': !isOpen, 'np-panel-collapse': isOpen }"
         (click)="_toggle()">

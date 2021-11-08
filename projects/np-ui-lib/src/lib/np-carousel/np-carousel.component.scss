@@ -1,11 +1,11 @@
 @mixin np-carousel-style {
   .np-carousel {
     height: 100%;
+    padding: $spacer;
   }
 
   .np-carousel-container {
     width: 100%;
-    padding: 0px 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,7 +20,7 @@
 
   .np-carousel-item {
     display: none;
-    padding: 5px;
+    padding: $spacer;
   }
 
   .np-carousel-active {

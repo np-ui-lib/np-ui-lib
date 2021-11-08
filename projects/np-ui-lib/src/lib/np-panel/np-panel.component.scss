@@ -2,7 +2,7 @@
   .np-panel {
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    margin-bottom: 5px;
+    margin-bottom: $spacer;
     display: flex;
     flex-direction: column;
   }
@@ -14,10 +14,10 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    min-height: 2rem;
-    padding-left: 10px;
+    padding: $spacer;
 
-    &:hover, &:hover .np-btn-icon {
+    &:hover,
+    &:hover .np-btn-icon {
       background-color: $selected-background-color;
     }
   }
@@ -27,7 +27,7 @@
     align-items: center;
     font-weight: bold;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: bold;
     border: none;
     background: none;
     margin: 0;
@@ -37,20 +37,23 @@
 
     i {
       font-size: large;
-      padding-right: 10px;
+      padding-right: 1rem;
     }
   }
 
-  .np-panel-icons {
+  .np-panel-btns {
     display: flex;
 
     .np-btn-icon {
       border: none;
+      height: 100%;
+      width: 100%;
+      margin-left: $spacer;
     }
   }
 
   .np-panel-body {
-    padding: 10px;
+    padding: $spacer;
     overflow: auto;
     border-top: 1px solid $border-color;
     background-color: #ffffff;

@@ -39,7 +39,7 @@ body {
   $border-color: #9e9e9e;
   $border-radius: 2px;
   $outline-color: #b7e0b8;
-  $spacer: 0.5rem;
+  $spacer: 0.75rem;
   @include theme;
   @include app-style;
   @include framework-style;
@@ -55,7 +55,7 @@ body {
   $border-color: #9e9e9e;
   $border-radius: 0px;
   $outline-color: #ffe69c;
-  $spacer: 0.5rem;
+  $spacer: 1rem;
   @include theme;
   @include app-style;
   @include framework-style;

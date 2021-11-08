@@ -14,10 +14,10 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    min-height: 2rem;
-    padding-left: 10px;
+    padding: $spacer;
 
-    &:hover, &:hover .np-btn-icon {
+    &:hover,
+    &:hover .np-btn-icon {
       background-color: $selected-background-color;
     }
   }
@@ -27,7 +27,7 @@
     align-items: center;
     font-weight: bold;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: bold;
     border: none;
     background: none;
     margin: 0;
@@ -36,13 +36,14 @@
     text-align: left;
   }
 
-  .np-accordion-icons .np-btn-icon {
-    display: inline-block;
+  .np-accordion-btn .np-btn-icon {
     border: none;
+    height: 100%;
+    width: 100%;
   }
 
   .np-accordion-body {
-    padding: 10px;
+    padding: $spacer;
     overflow: auto;
     border-top: 1px solid $border-color;
     background-color: #ffffff;
@@ -50,6 +51,6 @@
 
   .np-accordion-title i {
     font-size: large;
-    padding-right: 10px;
+    padding-right: 1rem;
   }
 }

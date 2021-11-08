@@ -1846,14 +1846,6 @@
     font-size: 1rem;
   }
 
-  .no-padding {
-    padding: 0 !important;
-  }
-
-  .no-margin {
-    margin: 0 !important;
-  }
-
   .np-color-hex-input:focus,
   .np-color-r-input:focus,
   .np-color-g-input:focus,
@@ -1917,42 +1909,51 @@
     padding-right: 5px;
   }
 
-  .m-5 {
-    margin: 5px;
-  }
-  .mt-5 {
-    margin-top: 5px;
-  }
-  .mb-5 {
-    margin-bottom: 5px;
-  }
-  .ml-5 {
-    margin-left: 5px;
-  }
-  .mr-5 {
-    margin-right: 5px;
-  }
-
-  .p-5 {
-    padding: 5px;
-  }
-  .pt-5 {
-    padding-top: 5px;
-  }
-  .pb-5 {
-    padding-bottom: 5px;
-  }
-  .pl-5 {
-    padding-left: 5px;
-  }
-  .pr-5 {
-    padding-right: 5px;
-  }
-
   .np-bg-primary {
     background: $primary-color;
   }
   .np-text-primary {
     color: $primary-color;
+  }
+
+  @for $i from 1 through 5 {
+    .m-#{$i} {
+      margin: $spacer * $i;
+    }
+    .mt-#{$i} {
+      margin-top: $spacer * $i;
+    }
+    .mr-#{$i} {
+      margin-right: $spacer * $i;
+    }
+    .mb-#{$i} {
+      margin-bottom: $spacer * $i;
+    }
+    .ml-#{$i} {
+      margin-left: $spacer * $i;
+    }
+    .p-#{$i} {
+      padding: $spacer * $i;
+    }
+    .pt-#{$i} {
+      padding-top: $spacer * $i;
+    }
+    .pr-#{$i} {
+      padding-right: $spacer * $i;
+    }
+    .pb-#{$i} {
+      padding-bottom: $spacer * $i;
+    }
+    .pl-#{$i} {
+      padding-left: $spacer * $i;
+    }
+  }
+
+  .no-padding {
+    padding: 0 !important;
+  }
+
+  .no-margin {
+    margin: 0 !important;
   }
 }

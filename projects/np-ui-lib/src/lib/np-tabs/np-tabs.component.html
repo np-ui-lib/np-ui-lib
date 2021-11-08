@@ -1,6 +1,6 @@
 <div role="tablist" [ngClass]="{ 'np-tabs': true, 'np-tabs-vertical': verticalTabs }" [style.max-height.px]="height"
   [class]="styleClass" [attr.id]="inputId">
-  <ul class="np-tabs-header hidden-scrollbar">
+  <ul class="np-tabs-header">
     <ng-container *ngFor="let tab of tabs">
       <li class="np-tab-title" role="tab" [attr.id]="_getTitleId(tab)" [ngClass]="{
           'np-tab-active': tab.active,

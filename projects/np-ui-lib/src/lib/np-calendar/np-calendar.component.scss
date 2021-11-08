@@ -6,24 +6,13 @@
     overflow: auto;
   }
 
-  .np-calendar-header {
-    display: flex;
-    padding: 10px;
-    background-color: $background-color;
-    flex-wrap: wrap;
-    padding: 3px;
-  }
-
-  .np-calendar-header-item {
-    padding: 2px;
-  }
-
-  .np-calendar-header-spacer {
-    flex: 1 1 auto;
+  .np-calendar-toolbar{
+    background: $background-color;
+    border: none;
   }
 
   .np-calendar-years-input {
-    width: 100px;
+    width: 70px;
   }
 
   .np-calendar-today-btn {
@@ -35,17 +24,18 @@
     height: 100%;
     border-spacing: 0px;
     table-layout: fixed;
+    border-top: 1px solid $border-color;
 
     th {
       background-color: $selected-background-color;
-      padding: 5px;
-      margin: 0px;
+      padding: $spacer;
+      margin: 0;
       overflow: hidden;
     }
 
     td {
-      padding: 0px;
-      margin: 0px;
+      padding: 0;
+      margin: 0;
       border-right: 1px solid $border-color;
       border-top: 1px solid $border-color;
 
@@ -63,7 +53,7 @@
   }
 
   .np-calendar-day-label {
-    padding: 5px;
+    padding: $spacer;
     direction: rtl;
   }
 

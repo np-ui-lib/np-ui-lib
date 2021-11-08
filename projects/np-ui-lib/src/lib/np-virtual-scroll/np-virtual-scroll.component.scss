@@ -8,7 +8,7 @@
   }
 
   .np-virtual-scroll-item {
-    padding: 10px;
+    padding: $spacer;
     border-bottom: 1px solid $border-color;
     background-color: #ffffff;
     position: relative;
@@ -24,7 +24,7 @@
 
   .np-virtual-scroll-header {
     background-color: $background-color;
-    padding: 10px;
+    padding: $spacer;
     border-bottom: 1px solid $border-color;
     font-weight: bold;
   }

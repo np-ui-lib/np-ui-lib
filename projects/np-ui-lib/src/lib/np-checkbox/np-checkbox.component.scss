@@ -2,7 +2,7 @@
   .np-checkbox {
     position: relative;
     display: inline-block;
-    margin: 0.5rem;
+    margin: $spacer;
   }
 
   .np-checkbox-input {
@@ -37,7 +37,7 @@
   }
 
   .np-checkbox-text {
-    padding-left: 10px;
+    padding-left: $spacer;
   }
 
   .np-checkbox-group {
