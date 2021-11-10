@@ -3,7 +3,7 @@ import { NpColorPickerComponent } from "./np-color-picker.component";
 import { CommonModule } from "@angular/common";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { PortalModule } from "@angular/cdk/portal";
-import { NpTranslationsModule } from "../np-translations/np-tranlations.module";
+import { NpTranslationsModule } from "../np-translations/np-translations.module";
 import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
 
 @NgModule({

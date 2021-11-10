@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { NpDialogContainerComponent } from "./np-dialog-container.component";
 import { FormsModule } from "@angular/forms";
-import { NpTranslationsModule } from "../np-translations/np-tranlations.module";
+import { NpTranslationsModule } from "../np-translations/np-translations.module";
 import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
 import { NpDialogService } from "./np-dialog.service";
 import { PortalModule } from "@angular/cdk/portal";

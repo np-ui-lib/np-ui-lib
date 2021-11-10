@@ -23,13 +23,13 @@
     + .np-breadcrumb-item::before {
       display: inline-block;
       content: "/";
-      padding: 0 $spacer;
+      padding: 0 $spacer/2;
       font-weight: bold;
     }
 
     i {
-      font-size: large;
-      padding-right: 1rem;
+      font-size: 1rem;
+      padding-right: 0.5rem;
     }
   }
 }

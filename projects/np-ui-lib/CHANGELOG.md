@@ -9,6 +9,8 @@
 - Add new framework.scss file for ready made CSS components like price table, overview box.
 - Add lazyLoaded property to carousel component
 - Add header property to sidepanel component
+- Add onPageSizeChange, onRefresh in paginator
+- Clear selection on page size change and refresh data in np-list component
 
 ## 12.0.4 
 - Performance improvements

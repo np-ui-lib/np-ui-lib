@@ -14,7 +14,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    padding: $spacer;
+    padding: $spacer/2 $spacer;
 
     &:hover,
     &:hover .np-btn-icon {
@@ -34,6 +34,7 @@
     padding: 0;
     color: inherit;
     text-align: left;
+    font-size: initial;
   }
 
   .np-accordion-btn .np-btn-icon {
@@ -50,7 +51,7 @@
   }
 
   .np-accordion-title i {
-    font-size: large;
-    padding-right: 1rem;
+    font-size: 1rem;
+    padding-right: 0.5rem;
   }
 }

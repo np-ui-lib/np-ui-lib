@@ -9,14 +9,8 @@
   }
 
   .np-treeview-node {
-    padding-left: 2rem;
+    padding-left: $spacer*2;
     position: relative;
-  }
-
-  .np-treeview-label {
-    min-height: 2rem;
-    display: flex;
-    align-items: center;
   }
 
   .np-treeview-expand,
@@ -28,13 +22,17 @@
   }
 
   .np-treeview-label {
+    padding: $spacer/2;
+    display: flex;
+    align-items: center;
+
     &:hover {
       background-color: $background-color;
     }
 
     i {
       font-size: inherit;
-      padding: $spacer;
+      padding-right: $spacer;
     }
   }
 
@@ -45,7 +43,7 @@
   }
 
   .np-treeview-selection {
-    padding-left: 2rem;
+    padding-left: $spacer + 1rem;
     position: relative;
   }
 

@@ -1,6 +1,6 @@
 @mixin np-modal-style {
   .np-modal-overlay {
-    margin: 5px;
+    margin: $spacer/2;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
   }
 
@@ -18,7 +18,7 @@
   .np-modal-header {
     background-color: $background-color;
     border-bottom: 1px solid $border-color;
-    padding: 10px;
+    padding: $spacer;
     min-height: 3rem;
     font-weight: bold;
     display: flex;
@@ -31,7 +31,7 @@
   }
 
   .np-modal-body {
-    padding: 10px;
+    padding: $spacer;
     overflow: auto;
     background-color: #ffffff;
   }
@@ -39,7 +39,7 @@
   .np-modal-footer {
     background-color: $background-color;
     border-top: 1px solid $border-color;
-    padding: 10px;
+    padding: $spacer;
     min-height: 3rem;
   }
 }

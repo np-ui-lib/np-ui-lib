@@ -41,24 +41,25 @@
   }
 
   .np-color-picker-header {
-    padding: 5px;
+    padding: $spacer/2;
     background-color: $background-color;
   }
 
   .np-current-color-block,
   .np-selected-color-block {
-    width: 2rem;
-    margin-left: 5px;
+    width: 3rem;
+    margin-left: $spacer/2;
   }
 
   .np-color-canvases {
-    height: 180px;
-    padding: 5px;
-    width: 210px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: $spacer/2;
   }
 
   .np-color-picker-block {
-    margin-right: 5px;
+    margin-right: $spacer/2;
   }
 
   .np-color-picker-strip:hover,
@@ -67,20 +68,20 @@
   }
 
   .np-color-blocks {
-    padding-left: 5px;
-    width: 210px;
+    padding-left: $spacer/2;
+    width: 18rem;
   }
 
   .np-color-block {
-    height: 1.2rem;
-    width: 1.2rem;
-    margin-right: 5px;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: $spacer/2;
     display: inline-block;
     cursor: pointer;
   }
 
   .np-color-picker-footer {
-    padding: 5px;
+    padding: $spacer/2;
     background-color: $background-color;
     display: flex;
     justify-content: space-around;
@@ -97,12 +98,16 @@
   .np-hex-inputs {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 5px;
+    padding-bottom: $spacer/2;
 
     input {
-      width: 80px;
+      width: 5rem;
       border: 1px solid $border-color;
       border-radius: $border-radius;
+    }
+
+    label {
+      padding: 0 0.5rem;
     }
   }
 
@@ -111,9 +116,13 @@
     justify-content: space-between;
 
     input {
-      width: 50px;
+      width: 4rem;
       border: 1px solid $border-color;
       border-radius: $border-radius;
+    }
+
+    label {
+      padding: 0 0.5rem;
     }
   }
 }

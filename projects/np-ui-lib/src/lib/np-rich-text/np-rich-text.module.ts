@@ -4,7 +4,7 @@ import { NpRichTextComponent } from "./np-rich-text.component";
 import { FormsModule } from "@angular/forms";
 import { NpColorPickerModule } from "../np-color-picker/np-color-picker.module";
 import { NpPopoverModule } from "../np-popover/np-popover.module";
-import { NpTranslationsModule } from "../np-translations/np-tranlations.module";
+import { NpTranslationsModule } from "../np-translations/np-translations.module";
 import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
 
 @NgModule({

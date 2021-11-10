@@ -10,9 +10,8 @@
   .np-file-btn {
     cursor: pointer;
     display: inline-flex;
-    height: 2rem;
     align-items: center;
-    padding: 5px;
+    padding: $spacer/2;
     background-color: $background-color;
     border-right: 1px solid $border-color;
 
@@ -32,7 +31,7 @@
     border-bottom: 1px solid $border-color;
 
     .np-list-item {
-      padding: 5px;
+      padding: $spacer/2;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -43,7 +42,7 @@
   .np-file-remove-btn {
     display: flex;
     padding: 0px;
-    margin-left: 5px;
+    margin-left: $spacer/2;
     height: 1.5rem;
     width: 1.5rem;
     background-color: transparent;

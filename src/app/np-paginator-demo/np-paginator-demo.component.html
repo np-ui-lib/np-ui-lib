@@ -85,6 +85,16 @@
             <td>Callback event on page change.</td>
             <td>&#123;"currentPage":1,"pageSize":10&#125;</td>
           </tr>
+          <tr>
+            <td>onPageSizeChange(pageSize: number)</td>
+            <td>Callback event on page size change.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>onRefresh()</td>
+            <td>Callback event on refresh button click.</td>
+            <td></td>
+          </tr>
         </table>
       </np-card-body>
     </np-card>
@@ -114,12 +124,8 @@
     <ng-template npTabContent>
       <fieldset>
         <legend>Basic</legend>
-        <np-paginator
-          [pageSize]="pageSize"
-          [totalItems]="total"
-          [currentPage]="currentPage"
-          (onPageChange)="onPageChange($event)"
-        >
+        <np-paginator [pageSize]="pageSize" [totalItems]="total" [currentPage]="currentPage"
+          (onPageChange)="onPageChange($event)">
         </np-paginator>
         <div class="np-btn-group">
           <button type="button" class="np-btn" (click)="changePageSize()">
@@ -139,14 +145,8 @@
 
       <fieldset>
         <legend>Set showPageSize and showTotal to false</legend>
-        <np-paginator
-          [pageSize]="10"
-          [totalItems]="1000"
-          [currentPage]="1"
-          [showPageSize]="false"
-          [showTotal]="false"
-          (onPageChange)="onPageChange($event)"
-        >
+        <np-paginator [pageSize]="10" [totalItems]="1000" [currentPage]="1" [showPageSize]="false" [showTotal]="false"
+          (onPageChange)="onPageChange($event)">
         </np-paginator>
       </fieldset>
 
@@ -170,12 +170,8 @@
             </td>
           </tr>
         </table>
-        <np-paginator
-          [pageSize]="10"
-          [totalItems]="total2"
-          [styleClass]="'myClass'"
-          (onPageChange)="onLoadData($event)"
-        >
+        <np-paginator [pageSize]="10" [totalItems]="total2" [styleClass]="'myClass'"
+          (onPageChange)="onLoadData($event)">
         </np-paginator>
       </fieldset>
     </ng-template>

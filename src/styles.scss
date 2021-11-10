@@ -5,14 +5,14 @@
     left: 0px;
     width: 100%;
     z-index: 804;
-    height: 50px;
+    height: 3.5rem;
     box-shadow: 0 1px 6px 0 rgba(#000000, 0.5);
   }
 
   header .np-toolbar {
     background-color: $primary-color;
     border-radius: 0px;
-    height: 50px;
+    height: 3.5rem;
   }
 
   .header-menu-btn {
@@ -36,7 +36,7 @@
   }
 
   .logo-link {
-    padding: 0px 10px;
+    padding: 0px $spacer;
     color: white;
     cursor: pointer;
   }
@@ -54,24 +54,23 @@
   }
 
   .page-header {
-    margin: -5px -10px 10px -10px;
-    padding: 10px;
+    margin: (-$spacer/2) (-$spacer) $spacer (-$spacer);
+    padding: $spacer;
     background: $primary-color;
     color: white;
     font-size: 25px;
   }
 
   section {
-    margin-top: 50px;
-    height: calc(100vh - 50px);
+    margin-top: 3.5rem;
+    height: calc(100vh - 3.5rem);
   }
 
   nav {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 3.5rem);
     overflow: auto;
     width: 250px;
     position: fixed;
-    top: 50px;
     z-index: 803;
   }
 
@@ -102,22 +101,22 @@
   }
 
   .content-container {
-    padding: 5px 10px;
+    padding: $spacer/2 $spacer;
     flex: 1 1 auto;
   }
 
   footer {
     text-align: center;
     background-color: rgba($primary-color, 0.5);
-    padding: 5px;
+    padding: $spacer/2;
     width: 100%;
   }
 
   pre {
-    line-height: 20px;
+    line-height: 1.5rem;
     background-color: black;
     color: white;
-    padding: 10px;
+    padding: $spacer/2;
     overflow: auto;
     border-radius: $border-radius;
     border-left: 3px solid $primary-color;
@@ -131,8 +130,8 @@
   fieldset {
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: $spacer;
+    margin-bottom: $spacer;
   }
 
   .myClass {
@@ -147,7 +146,7 @@
   .np-demo-container .np-col {
     background-color: $selected-background-color;
     outline: 2px solid #ffffff;
-    padding: 10px;
+    padding: $spacer;
     text-align: center;
   }
 

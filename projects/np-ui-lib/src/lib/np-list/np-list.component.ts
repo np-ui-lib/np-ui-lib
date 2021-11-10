@@ -6,8 +6,7 @@ import {
   TemplateRef,
   Output,
   EventEmitter,
-  ViewChild,
-  SimpleChanges,
+  ViewChild
 } from "@angular/core";
 import { NpPaginatorComponent } from "../np-paginator/np-paginator.component";
 import { NpUtilityService } from "../np-utility/np-utility.service";
@@ -47,7 +46,7 @@ export class NpListComponent {
 
   @ViewChild("listPaginator") listPaginator: NpPaginatorComponent;
 
-  constructor(private utility: NpUtilityService) {}
+  constructor(private utility: NpUtilityService) { }
 
   selectAll() {
     if (this._isSingleSelectionMode()) {
@@ -137,5 +136,9 @@ export class NpListComponent {
 
   _isSingleSelectionMode() {
     return this.selectionMode && this.selectionMode === "single";
+  }
+
+  _clearSelection() {
+    this.deselectAll();
   }
 }

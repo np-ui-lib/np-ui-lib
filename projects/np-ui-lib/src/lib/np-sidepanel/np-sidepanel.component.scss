@@ -13,15 +13,14 @@
   .np-sidepanel-header {
     background-color: $background-color;
     border-bottom: 1px solid $border-color;
-    padding: 10px;
-    min-height: 3rem;
+    padding: $spacer;
     font-weight: bold;
     display: flex;
     align-items: center;
   }
 
   .np-sidepanel-content {
-    padding: 10px;
+    padding: $spacer;
     overflow: auto;
     height: 100%;
   }

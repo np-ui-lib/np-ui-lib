@@ -1,12 +1,11 @@
 @mixin np-switch-style {
   .np-switch {
-    width: 100px;
     user-select: none;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     background-color: $background-color;
-
-    &:hover{
+    display: inline-block;
+    &:hover {
       background-color: $selected-background-color;
     }
   }
@@ -21,11 +20,9 @@
 
   .np-switch-label {
     cursor: pointer;
-    line-height: 2rem;
     margin: 0;
-    padding: 0 5px;
+    padding: $spacer/2;
     text-align: center;
-    width: 49px;
     display: inline-block;
     color: inherit;
   }

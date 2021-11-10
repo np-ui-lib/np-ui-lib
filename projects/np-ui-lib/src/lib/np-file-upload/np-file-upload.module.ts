@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { NpFileUploadComponent } from "./np-file-upload.component";
-import { NpTranslationsModule } from "../np-translations/np-tranlations.module";
+import { NpTranslationsModule } from "../np-translations/np-translations.module";
 import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
 
 @NgModule({

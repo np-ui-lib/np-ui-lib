@@ -3,7 +3,6 @@
 html {
   font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial,
     Lucida Grande, sans-serif;
-  font-size: 14px;
 }
 
 body {
@@ -23,10 +22,11 @@ body {
   $border-color: #9e9e9e;
   $border-radius: 2px;
   $outline-color: #a6d5fa;
-  $spacer: 0.5rem;
+  $spacer: 1rem;
   @include theme;
   @include app-style;
   @include framework-style;
+  font-size: 16px;
 }
 
 .green-theme {
@@ -43,6 +43,7 @@ body {
   @include theme;
   @include app-style;
   @include framework-style;
+  font-size: 14px;
 }
 
 .orange-theme {
@@ -59,6 +60,7 @@ body {
   @include theme;
   @include app-style;
   @include framework-style;
+  font-size: 16px;
 }
 
 .purple-theme {
@@ -75,4 +77,5 @@ body {
   @include theme;
   @include app-style;
   @include framework-style;
+  font-size: 16px;
 }

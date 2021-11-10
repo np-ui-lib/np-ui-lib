@@ -2,7 +2,7 @@
   .np-radio-button {
     position: relative;
     display: inline-block;
-    margin: 0.5rem;
+    margin: $spacer/2;
   }
 
   .np-radio-button-input {
@@ -20,7 +20,7 @@
   }
 
   .np-radio-button-text {
-    padding-left: 10px;
+    padding-left: 0.5rem;
   }
 
   .np-radio-group {

@@ -10,16 +10,20 @@
   }
 
   .np-list-selectable {
-    padding-left: 2rem;
+    padding-left: $spacer + 1rem;
   }
 
   .np-tiles {
     overflow: auto;
   }
 
+  .np-tiles .np-row {
+    margin-bottom: $spacer;
+  }
+
   .np-tiles-item {
-    margin: 0.5rem;
-    padding: 0.5rem;
+    margin: $spacer $spacer 0 $spacer;
+    padding: $spacer;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     overflow: hidden;
@@ -27,13 +31,13 @@
   }
 
   .np-tiles-selectable {
-    padding-left: 2rem;
+    padding-left: $spacer + 1rem;
   }
 
   .np-tiles-checkbox {
     position: absolute !important;
-    top: 0.5rem;
-    left: 0.5rem;
+    top: $spacer;
+    left: $spacer;
   }
 
   .np-list-pagination {
@@ -44,8 +48,8 @@
 
   @media (max-width: 991px) {
     .np-tiles-selectable {
-      padding-top: 2rem;
-      padding-left: 0.5rem;
+      padding-top: ($spacer * 2) + 1rem;
+      padding-left: $spacer;
     }
   }
 }

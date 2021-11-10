@@ -66,17 +66,17 @@
   }
 
   .np-calendar-events {
-    margin: 1px;
     max-height: 75px;
     overflow-y: auto;
   }
 
   .np-calendar-event {
-    margin: 1px;
-    padding: 0px 2px;
+    margin: 0.2rem;
+    padding: 0px 0.2rem;
     background-color: $primary-color;
     color: #ffffff;
     white-space: nowrap;
     overflow: hidden;
+    font-size: 0.9rem;
   }
 }

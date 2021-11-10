@@ -16,7 +16,7 @@ import { NpDatePickerModule } from "../np-date-picker/np-date-picker.module";
 import { NpDialogModule } from "../np-dialog/np-dialog.module";
 import { NpPaginatorModule } from "../np-paginator/np-paginator.module";
 import { NpCheckboxModule } from "../np-checkbox/np-checkbox.module";
-import { NpTranslationsModule } from "../np-translations/np-tranlations.module";
+import { NpTranslationsModule } from "../np-translations/np-translations.module";
 
 @NgModule({
   declarations: [NpDataGridComponent, NpFilterTypesPipe, NpSearchColumnsPipe],

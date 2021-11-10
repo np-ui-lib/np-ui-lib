@@ -48,12 +48,12 @@
   .price .header {
     background-color: $primary-color;
     color: white;
-    font-size: 25px;
+    font-size: 2rem;
   }
 
   .price li {
     border-bottom: 1px solid $border-color;
-    padding: 20px;
+    padding: $spacer * 2;
     text-align: center;
 
     &:last-child {
@@ -63,6 +63,6 @@
 
   .price .grey {
     background-color: $selected-background-color;
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 }

@@ -5,13 +5,13 @@
     right: 0px;
     max-width: 350px;
     z-index: 1001;
-    margin: 5px;
+    margin: $spacer/2;
   }
 
   .np-alert-close-all {
     position: absolute;
     left: -35px;
-    bottom: 5px;
+    bottom: $spacer/2;
     border: none;
     background-color: transparent;
   }

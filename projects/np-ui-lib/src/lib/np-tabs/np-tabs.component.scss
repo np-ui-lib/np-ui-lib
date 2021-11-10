@@ -27,9 +27,10 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
+    font-size: initial;
 
     i {
-      padding-right: 1rem;
+      padding-right: 0.5rem;
     }
 
     &:hover {
@@ -40,7 +41,7 @@
 
   .np-tab-title-link {
     border-bottom: 2px solid transparent;
-    padding: $spacer;
+    padding: $spacer/2 $spacer;
     font-weight: bold;
     width: 100%;
     height: 100%;

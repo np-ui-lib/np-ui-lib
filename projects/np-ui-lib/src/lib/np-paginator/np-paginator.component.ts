@@ -28,6 +28,8 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
   @Input() inputId = `np-paginator-box_${NpPaginatorComponent.controlCount++}`;
 
   @Output() onPageChange: EventEmitter<any> = new EventEmitter();
+  @Output() onPageSizeChange: EventEmitter<any> = new EventEmitter();
+  @Output() onRefresh: EventEmitter<any> = new EventEmitter();
 
   totalPages: number;
   startIndex: number;
@@ -67,6 +69,7 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
   }
 
   refresh() {
+    this.onRefresh.emit();
     this.onPageChange.emit({
       currentPage: this.currentPage,
       pageSize: this.pageSize,
@@ -78,6 +81,7 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
   }
 
   _onItemPerPageChange(event) {
+    this.onPageSizeChange.emit(event.target.value);
     this.pageSize = Number(event.target.value);
     this._loadPage(1);
   }

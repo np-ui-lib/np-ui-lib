@@ -4,7 +4,6 @@
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    width: fit-content;
   }
 
   .np-overlay-open {
@@ -12,7 +11,7 @@
   }
 
   .np-date-picker-header {
-    padding: 5px;
+    padding: $spacer/2;
     background-color: $background-color;
     display: flex;
     align-items: center;
@@ -20,11 +19,11 @@
   }
 
   .np-date-picker-years {
-    width: 60px;
+    width: 5rem;
   }
 
   .np-date-picker-months {
-    width: 100px;
+    width: 8rem;
   }
 
   .np-date-picker-header .np-btn-icon {
@@ -33,25 +32,25 @@
 
   .np-date-picker-weekdays {
     background-color: $selected-background-color;
-    padding: 0px 5px;
+    padding: 0px $spacer/2;
   }
 
   .np-date-picker-weekday {
     font-weight: bold;
-    line-height: 2rem;
-    width: 2rem;
+    line-height: 2.5rem;
+    width: 2.5rem;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
   }
 
   .np-date-picker-days {
-    padding: 5px;
+    padding: $spacer/2;
   }
 
   .np-date-picker-day {
-    line-height: 2rem;
-    width: 2rem;
+    line-height: 2.5rem;
+    width: 2.5rem;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -87,14 +86,12 @@
       right: 2px;
     }
   }
-
-  .np-date-picker-selected .np-tooltip-target:before,
-  .np-date-picker-day:hover .np-tooltip-target:before {
+  .np-date-picker-selected .np-tooltip-target:before {
     border-bottom-color: #ffffff;
   }
 
   .np-date-picker-footer {
-    padding: 5px;
+    padding: $spacer/2;
     background-color: $background-color;
     display: flex;
     align-items: center;
