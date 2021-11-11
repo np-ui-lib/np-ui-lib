@@ -351,6 +351,20 @@ const routes: Routes = [
       ),
   },
   {
+    path: "np-padding-margin-demo",
+    loadChildren: () =>
+      import("./np-padding-margin-demo/np-padding-margin-demo.module").then(
+        (m) => m.NpPaddingMarginDemoModule
+      ),
+  },
+  {
+    path: "np-framework-css-demo",
+    loadChildren: () =>
+      import("./np-framework-css-demo/np-framework-css-demo.module").then(
+        (m) => m.NpFrameworkCssDemoModule
+      ),
+  },
+  {
     path: "**",
     redirectTo: "how-to-add",
     pathMatch: "full",

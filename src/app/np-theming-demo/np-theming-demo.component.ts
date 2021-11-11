@@ -14,8 +14,6 @@ $border-radius: 2px;// set border radius</span>
 $outline-color: #a6d5fa;// set outline color</span>
 $spacer: 1rem;// set spacing
 @include theme;`;
-  frameworkSCSS = `@import "dist/np-ui-lib/styles/theme.scss";
-@include framework-style;`;
 
   constructor() { }
 

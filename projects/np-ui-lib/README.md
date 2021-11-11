@@ -67,8 +67,8 @@ npm i np-ui-lib
 1.  Masking
 1.  Defer
 1.  i18N
-1.  Themes
-1.  Grid Layout
+1.  Themes and Framework CSS
+1.  Grid Layout, Padding and Margin
 1.  Button and Button Group
 1.  Badges
 1.  Form

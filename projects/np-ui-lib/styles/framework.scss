@@ -51,9 +51,14 @@
     font-size: 2rem;
   }
 
+  .price .sub-header {
+    background-color: $selected-background-color;
+    font-size: 1.5rem;
+  }
+
   .price li {
     border-bottom: 1px solid $border-color;
-    padding: $spacer * 2;
+    padding: $spacer;
     text-align: center;
 
     &:last-child {
@@ -61,8 +66,100 @@
     }
   }
 
-  .price .grey {
+  .price .footer {
     background-color: $selected-background-color;
-    font-size: 1.5rem;
+  }
+
+  .list-group {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+
+  .list-group-striped {
+    .list-group-item:nth-child(odd) {
+      background-color: $background-color;
+    }
+  }
+
+  .list-group-item {
+    position: relative;
+    display: block;
+    padding: $spacer/2 $spacer;
+    text-decoration: none;
+    background-color: #fff;
+    border-bottom: 1px solid $border-color;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .list-group-item-active {
+    background-color: $primary-color;
+    color: #ffffff;
+  }
+
+  .list-group-item-action:hover {
+    background-color: $selected-background-color !important;
+    cursor: pointer;
+  }
+
+  .avatar {
+    vertical-align: middle;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+  }
+
+  .avatar-small {
+    vertical-align: middle;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+  }
+
+  .np-table {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    border-spacing: 0px;
+    margin-bottom: $spacer/2;
+
+    td,
+    th {
+      padding: $spacer/2 $spacer;
+      vertical-align: top;
+      border-right: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
+      text-align: left;
+    }
+
+    tr {
+      td:last-child,
+      th:last-child {
+        border-right: none;
+      }
+
+      &:last-child td {
+        border-bottom: none;
+      }
+    }
+
+    th {
+      background-color: $background-color;
+    }
+
+    td {
+      background-color: #ffffff;
+    }
+  }
+
+  .np-table-striped tr:nth-child(odd) td {
+    background-color: $background-color;
   }
 }

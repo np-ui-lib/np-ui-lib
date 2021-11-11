@@ -31,8 +31,8 @@
 
   .header-link {
     color: white;
-    font-size: 25px;
-    padding-left: 5px;
+    font-size: 1.5rem;
+    padding-left: $spacer/2;
   }
 
   .logo-link {
@@ -42,7 +42,7 @@
   }
 
   .logo-link i {
-    font-size: 30px !important;
+    font-size: 2rem !important;
   }
 
   .logo-background {
@@ -58,7 +58,7 @@
     padding: $spacer;
     background: $primary-color;
     color: white;
-    font-size: 25px;
+    font-size: 1.5rem;
   }
 
   section {
@@ -77,6 +77,7 @@
   article {
     margin-left: 250px;
     width: calc(100% - 250px);
+    height: 100%;
     display: flex;
     flex-direction: column;
   }

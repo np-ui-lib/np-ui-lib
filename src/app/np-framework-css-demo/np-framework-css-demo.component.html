@@ -1,0 +1,167 @@
+<h2 class="page-header">Framework CSS</h2>
+
+<np-card>
+    <np-card-body>
+        <h3>How to add framework style sheet to application?</h3>
+        <p>Framework CSS is optional. Add below code after importing default-theme.scss/theme.scss</p>
+        <pre><code [innerHTML]="frameworkSCSS"></code></pre>
+        <b>Below are the examples of CSS components:</b>
+        <p>1. Overview boxes</p>
+        <div class="np-container">
+            <div class="np-row">
+                <div class="np-col-md-3 np-col-sm-6 mb-2">
+                    <div class="widget-overview-box widget-overview-bg-1">
+                        <div class="widget-overview-icon"><i class="fa fa-user"></i></div>
+                        <div class="widget-overview-text">Active</div>
+                        <div class="widget-overview-status">78%</div>
+                    </div>
+                </div>
+                <div class="np-col-md-3 np-col-sm-6 mb-2">
+                    <div class="widget-overview-box widget-overview-bg-2">
+                        <div class="widget-overview-icon"><i class="fa fa-user"></i></div>
+                        <div class="widget-overview-text">Active</div>
+                        <div class="widget-overview-status">78%</div>
+                    </div>
+                </div>
+                <div class="np-col-md-3 np-col-sm-6 mb-2">
+                    <div class="widget-overview-box widget-overview-bg-3">
+                        <div class="widget-overview-icon"><i class="fa fa-user"></i></div>
+                        <div class="widget-overview-text">Active</div>
+                        <div class="widget-overview-status">78%</div>
+                    </div>
+                </div>
+                <div class="np-col-md-3 np-col-sm-6 mb-2">
+                    <div class="widget-overview-box widget-overview-bg-4">
+                        <div class="widget-overview-icon"><i class="fa fa-user"></i></div>
+                        <div class="widget-overview-text">Active</div>
+                        <div class="widget-overview-status">78%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>2. Price table</p>
+        <div class="np-container">
+            <div class="np-row">
+                <div class="np-col-md-4 np-col-sm-12">
+                    <ul class="price">
+                        <li class="header">Plan 4</li>
+                        <li class="sub-header">$400/mo</li>
+                        <li>40GB Storage</li>
+                        <li>40 Emails</li>
+                        <li>4 Domains</li>
+                        <li>4GB Bandwidth</li>
+                        <li class="footer"><button class="np-btn np-btn-primary">SELECT</button></li>
+                    </ul>
+                </div>
+                <div class="np-col-md-4 np-col-sm-12">
+                    <ul class="price">
+                        <li class="header">Plan 4</li>
+                        <li class="sub-header">$400/mo</li>
+                        <li>40GB Storage</li>
+                        <li>40 Emails</li>
+                        <li>4 Domains</li>
+                        <li>4GB Bandwidth</li>
+                        <li class="footer"><button class="np-btn np-btn-primary">SELECT</button></li>
+                    </ul>
+                </div>
+                <div class="np-col-md-4 np-col-sm-12">
+                    <ul class="price">
+                        <li class="header">Plan 4</li>
+                        <li class="sub-header">$400/mo</li>
+                        <li>40GB Storage</li>
+                        <li>40 Emails</li>
+                        <li>4 Domains</li>
+                        <li>4GB Bandwidth</li>
+                        <li class="footer"><button class="np-btn np-btn-primary">SELECT</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p>3. List</p>
+        <div class="np-container">
+            <div class="np-row">
+                <div class="np-col-md-6 np-col-sm-12">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-active">Apple</li>
+                        <li class="list-group-item">Ball</li>
+                        <li class="list-group-item">Cat</li>
+                        <li class="list-group-item">Doll</li>
+                        <li class="list-group-item">Elephant</li>
+                    </ul>
+                </div>
+                <div class="np-col-md-6 np-col-sm-12">
+                    <ul class="list-group list-group-striped">
+                        <li class="list-group-item list-group-item-action">Apple</li>
+                        <li class="list-group-item list-group-item-action">Ball</li>
+                        <li class="list-group-item list-group-item-action">Cat</li>
+                        <li class="list-group-item list-group-item-action">Doll</li>
+                        <li class="list-group-item list-group-item-action">Elephant</li>
+                    </ul>
+                </div>
+            </div>
+            <p>4. Avatar</p>
+            <div class="d-flex">
+                <img src="../../assets/images/img_avatar.png" class="avatar">
+                <img src="../../assets/images/img_avatar.png" class="avatar-small">
+            </div>
+        </div>
+        <p>5. Table</p>
+        <div class="np-container">
+            <table class="np-table">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                    <th>Units In Stock</th>
+                </tr>
+                <tr>
+                    <td> Chai </td>
+                    <td> 18 </td>
+                    <td> 39 </td>
+                </tr>
+                <tr>
+                    <td> Chang </td>
+                    <td> 19 </td>
+                    <td> 17 </td>
+                </tr>
+                <tr>
+                    <td> Aniseed Syrup </td>
+                    <td> 10 </td>
+                    <td> 13 </td>
+                </tr>
+                <tr>
+                    <td> Chef Anton's Cajun Seasoning </td>
+                    <td> 22 </td>
+                    <td> 53 </td>
+                </tr>
+            </table>
+            <br>
+            <table class="np-table np-table-striped">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                    <th>Units In Stock</th>
+                </tr>
+                <tr>
+                    <td> Chai </td>
+                    <td> 18 </td>
+                    <td> 39 </td>
+                </tr>
+                <tr>
+                    <td> Chang </td>
+                    <td> 19 </td>
+                    <td> 17 </td>
+                </tr>
+                <tr>
+                    <td> Aniseed Syrup </td>
+                    <td> 10 </td>
+                    <td> 13 </td>
+                </tr>
+                <tr>
+                    <td> Chef Anton's Cajun Seasoning </td>
+                    <td> 22 </td>
+                    <td> 53 </td>
+                </tr>
+            </table>
+        </div>
+    </np-card-body>
+</np-card>

@@ -38,7 +38,7 @@
     background-color: $background-color;
     color: inherit;
     border-bottom: 2px solid transparent;
-    font-size: initial;
+    font-size: inherit;
 
     &:hover {
       background-color: $selected-background-color;

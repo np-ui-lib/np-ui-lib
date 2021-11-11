@@ -44,7 +44,7 @@ export class CelltemplateGridComponent implements OnInit {
         visible: true,
         caption: "Photo",
         cellTemplate: this.avatarColumnTemplate,
-        width: 35,
+        width: 50,
       }),
       new Column({
         dataField: "FirstName",

@@ -179,17 +179,19 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ isHeader: true, label: "Misc", iconCss: "fa fa-star" }),
     new NpMenuItem({ routerLink: "/np-progress-demo", label: "Progress" }),
     new NpMenuItem({ routerLink: "/np-mask-demo", label: "Masking" }),
+    new NpMenuItem({ routerLink: "/np-form-demo", label: "Form" }),
+    new NpMenuItem({
+      routerLink: "/np-directives-demo",
+      label: "Directives & Pipes",
+    }),
     new NpMenuItem({ routerLink: "/np-button-demo", label: "Button" }),
     new NpMenuItem({ routerLink: "/np-badge-demo", label: "Badge" }),
     new NpMenuItem({
       routerLink: "/np-grid-layout-demo",
       label: "Grid Layout",
     }),
-    new NpMenuItem({ routerLink: "/np-form-demo", label: "Form" }),
-    new NpMenuItem({
-      routerLink: "/np-directives-demo",
-      label: "Directives & Pipes",
-    }),
+    new NpMenuItem({ routerLink: "/np-padding-margin-demo", label: "Padding and Margin" }),
+    new NpMenuItem({ routerLink: "/np-framework-css-demo", label: "Framework CSS" })
   ];
 
   showMenu: boolean;

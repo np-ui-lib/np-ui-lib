@@ -1205,6 +1205,7 @@
 
   .np-btn-sm {
     padding: $spacer/4 $spacer/2;
+    font-size: small;
   }
 
   .np-btn-block {
@@ -1511,14 +1512,14 @@
 
   .np-container {
     width: 100%;
-    padding-right: 12px;
-    padding-left: 12px;
+    padding-right: $spacer;
+    padding-left: $spacer;
     margin-right: auto;
     margin-left: auto;
   }
 
   .np-form-group {
-    margin-bottom: 12px;
+    margin-bottom: $spacer;
   }
 
   .np-form-label {
@@ -1624,47 +1625,6 @@
     vertical-align: middle;
   }
 
-  .np-table {
-    width: 100%;
-    max-width: 100%;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
-    border-spacing: 0px;
-    margin-bottom: $spacer/2;
-
-    td,
-    th {
-      padding: $spacer/2 $spacer;
-      vertical-align: top;
-      border-right: 1px solid $border-color;
-      border-bottom: 1px solid $border-color;
-      text-align: left;
-    }
-
-    tr {
-      td:last-child,
-      th:last-child {
-        border-right: none;
-      }
-
-      &:last-child td {
-        border-bottom: none;
-      }
-    }
-
-    th {
-      background-color: $background-color;
-    }
-
-    td {
-      background-color: #ffffff;
-    }
-  }
-
-  .np-table-striped tr:nth-child(odd) td {
-    background-color: $background-color;
-  }
-
   .np-jumbotron {
     background-color: $background-color;
     padding: $spacer;
@@ -1718,20 +1678,6 @@
     padding: $spacer;
     border-bottom: 1px solid $border-color;
     font-weight: bold;
-  }
-
-  .np-avatar {
-    vertical-align: middle;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-
-  .np-avatar-small {
-    vertical-align: middle;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
   }
 
   .np-toolbar {
@@ -1945,11 +1891,39 @@
     }
   }
 
+  .m-auto {
+    margin: auto;
+  }
+  .mt-auto {
+    margin-top: auto;
+  }
+  .mr-auto {
+    margin-top: auto;
+  }
+  .mb-auto {
+    margin-bottom: auto;
+  }
+  .ml-auto {
+    margin-left: auto;
+  }
+
   .no-padding {
     padding: 0 !important;
   }
 
   .no-margin {
     margin: 0 !important;
+  }
+
+  .d-flex {
+    display: flex;
+  }
+
+  .d-flex-row {
+    flex-direction: row;
+  }
+
+  .d-flex-column {
+    flex-direction: row;
   }
 }

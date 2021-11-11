@@ -27,7 +27,7 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    font-size: initial;
+    font-size: inherit;
 
     i {
       padding-right: 0.5rem;
@@ -40,7 +40,6 @@
   }
 
   .np-tab-title-link {
-    border-bottom: 2px solid transparent;
     padding: $spacer/2 $spacer;
     font-weight: bold;
     width: 100%;
@@ -72,7 +71,6 @@
 
     .np-tab-title-link {
       border-bottom: none;
-      border-right: 2px solid transparent;
       text-align: left;
       margin: 0 -2px 0 0;
     }
