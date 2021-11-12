@@ -1,76 +1,72 @@
 @mixin framework-style {
-  .widget-overview-box {
+  .np-widget-overview-box {
     color: #fff;
-    border: none !important;
     padding: 1rem;
+    border: 1px solid $border-color;
   }
 
-  .widget-overview-icon,
-  .widget-overview-text {
+  .np-widget-overview-icon,
+  .np-widget-overview-text {
     font-size: 1.5rem;
     padding-bottom: 1rem;
     text-align: center;
   }
 
-  .widget-overview-status {
+  .np-widget-overview-status {
     font-size: 1.5rem;
     text-align: center;
   }
 
-  .widget-overview-bg-1 {
+  .np-widget-overview-bg-1 {
     background-color: #1e7e34 !important;
   }
 
-  .widget-overview-bg-2 {
+  .np-widget-overview-bg-2 {
     background-color: #d9534f !important;
   }
 
-  .widget-overview-bg-3 {
+  .np-widget-overview-bg-3 {
     background-color: #117a8b !important;
   }
 
-  .widget-overview-bg-4 {
+  .np-widget-overview-bg-4 {
     background-color: #d39e00 !important;
   }
 
-  .price-table {
-    .np-card-body {
-      padding: 0px;
-    }
-  }
-
-  .price {
+  .np-price-table {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    min-width: 250px;
+    border: 1px solid $border-color;
+
+    li {
+      border-bottom: 1px solid $border-color;
+      padding: $spacer;
+      text-align: center;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
   }
 
-  .price .header {
+  .np-price-table-header {
     background-color: $primary-color;
     color: white;
     font-size: 2rem;
   }
 
-  .price .sub-header {
+  .np-price-table-sub-header {
     background-color: $selected-background-color;
     font-size: 1.5rem;
   }
 
-  .price li {
-    border-bottom: 1px solid $border-color;
-    padding: $spacer;
-    text-align: center;
-
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-
-  .price .footer {
+  .np-price-table-footer {
     background-color: $selected-background-color;
   }
 
-  .list-group {
+  .np-list-group {
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -79,13 +75,13 @@
     border-radius: $border-radius;
   }
 
-  .list-group-striped {
-    .list-group-item:nth-child(odd) {
+  .np-list-group-striped {
+    .np-list-group-item:nth-child(odd) {
       background-color: $background-color;
     }
   }
 
-  .list-group-item {
+  .np-list-group-item {
     position: relative;
     display: block;
     padding: $spacer/2 $spacer;
@@ -98,24 +94,24 @@
     }
   }
 
-  .list-group-item-active {
+  .np-list-group-item-active {
     background-color: $primary-color;
     color: #ffffff;
   }
 
-  .list-group-item-action:hover {
+  .np-list-group-item-action:hover {
     background-color: $selected-background-color !important;
     cursor: pointer;
   }
 
-  .avatar {
+  .np-avatar {
     vertical-align: middle;
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
   }
 
-  .avatar-small {
+  .np-avatar-small {
     vertical-align: middle;
     width: 2rem;
     height: 2rem;

@@ -431,11 +431,11 @@
             <th>Parameters</th>
           </tr>
           <tr>
-            <td>onLoadData(options : loadOptions)</td>
+            <td>onLoadData(options : LoadOptions)</td>
             <td>
-              Callback to data load, import loadOptions from 'np-ui-lib' package
+              Callback to data load, import LoadOptions from 'np-ui-lib' package
               <br />
-              loadOptions has properties like 'pageNumber', 'pageSize',
+              LoadOptions has properties like 'pageNumber', 'pageSize',
               'sortColumns', 'filterColumns'
               <br />
               'odataQuery', and 'isAllPages'
@@ -446,9 +446,9 @@
               <pre><code>{{filterColText}}</code></pre>
               <b>odataQuery :</b> If <b>isODataOperations</b> is set to true,
               then OData query will be pass to <br />
-              loadOptions.
+              LoadOptions.
             </td>
-            <td>options : loadOptions</td>
+            <td>options : LoadOptions</td>
           </tr>
           <tr>
             <td>onInit()</td>
@@ -490,18 +490,24 @@
           <tr>
             <td>onStatesUpdate(&#10100;action, state&#10101;)</td>
             <td>
-              Callback event when add/edit/delete any state in state management
+              Callback event when add/edit/delete any state in state management.
+              <br>
+              Where <b>State</b> class have two properties:
+              <br>
+              public name: string;
+              <br>
+              public columns: Column[];
             </td>
             <td>&#10100;action:'add|edit|delete', state: State&#10101;</td>
           </tr>
           <tr>
-            <td>onServerExport(options : loadOptions)</td>
+            <td>onServerExport(options : LoadOptions)</td>
             <td>
               Callback event on export data on server side,
               <br />
-              here <b>isAllPages</b> flag will be true in loadOptions
+              here <b>isAllPages</b> flag will be true in LoadOptions
             </td>
-            <td>options : loadOptions</td>
+            <td>options : LoadOptions</td>
           </tr>
         </table>
       </np-tab>

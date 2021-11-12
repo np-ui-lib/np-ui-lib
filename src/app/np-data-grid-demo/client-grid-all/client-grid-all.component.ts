@@ -83,7 +83,7 @@ export class ClientGridAllComponent implements OnInit {
       new Column({
         caption: "Actions",
         visible: true,
-        width: 100,
+        width: 200,
         cellTemplate: this.actionButtonsTemplate,
       }),
     ];

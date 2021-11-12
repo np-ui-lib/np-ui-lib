@@ -39,10 +39,10 @@
       <div class="np-row">
         <div class="np-col np-col-6">
           <b>Ascending:</b>
-          <ul class="list-group">
+          <ul class="np-list-group">
             <li
               *ngFor="let item of items | npOrderBy: null:'asc'"
-              class="list-group-item"
+              class="np-list-group-item"
             >
               {{ item }}
             </li>
@@ -50,10 +50,10 @@
         </div>
         <div class="np-col np-col-6">
           <b>Descending:</b>
-          <ul class="list-group">
+          <ul class="np-list-group">
             <li
               *ngFor="let item of items | npOrderBy: null:'desc'"
-              class="list-group-item"
+              class="np-list-group-item"
             >
               {{ item }}
             </li>

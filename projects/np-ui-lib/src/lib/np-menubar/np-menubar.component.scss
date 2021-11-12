@@ -31,7 +31,7 @@
     min-width: 100px;
     width: 100%;
     padding: $spacer/2 $spacer;
-    height: $spacer * 2.5;
+    min-height: $spacer * 2.5;
   }
 
   .np-submenu {

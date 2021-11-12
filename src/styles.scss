@@ -155,10 +155,6 @@
     padding: 0px;
   }
 
-  .no-border {
-    border: none !important;
-  }
-
   .list {
     margin: 0px;
   }
@@ -179,5 +175,14 @@
 
   .in-progress .np-timeline-marker {
     background-color: red;
+  }
+
+  .np-jumbotron {
+    background-color: $background-color;
+    padding: $spacer;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+    margin-bottom: $spacer/2;
+    overflow: auto;
   }
 }

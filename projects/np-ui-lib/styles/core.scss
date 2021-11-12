@@ -1302,12 +1302,10 @@
 
   .np-btn-icon-right {
     padding-left: 0.5rem;
-    vertical-align: middle;
   }
 
   .np-btn-icon-left {
     padding-right: 0.5rem;
-    vertical-align: middle;
   }
 
   .np-border-0 {
@@ -1625,15 +1623,6 @@
     vertical-align: middle;
   }
 
-  .np-jumbotron {
-    background-color: $background-color;
-    padding: $spacer;
-    border: 1px solid transparent;
-    border-radius: $border-radius;
-    margin-bottom: $spacer/2;
-    overflow: auto;
-  }
-
   .np-list-wrapper {
     display: flex;
     flex-direction: column;
@@ -1642,12 +1631,18 @@
     border-radius: $border-radius;
   }
 
+  .np-list-header {
+    background-color: $background-color;
+    padding: $spacer;
+    border-bottom: 1px solid $border-color;
+    font-weight: bold;
+  }
+
   .np-list {
     display: flex;
     flex-direction: column;
     padding-left: 0;
     margin-bottom: 0;
-    border-radius: $border-radius;
     overflow: auto;
     list-style: none;
     margin: 0px;
@@ -1663,21 +1658,14 @@
     &:last-child {
       border-bottom: none;
     }
+
+    &:hover {
+      background-color: $selected-background-color;
+    }
   }
 
   .np-list-striped .np-list-item:nth-child(even) {
     background-color: $background-color;
-  }
-
-  .np-list .np-list-item:hover {
-    background-color: $selected-background-color;
-  }
-
-  .np-list-header {
-    background-color: $background-color;
-    padding: $spacer;
-    border-bottom: 1px solid $border-color;
-    font-weight: bold;
   }
 
   .np-toolbar {
@@ -1913,6 +1901,10 @@
 
   .no-margin {
     margin: 0 !important;
+  }
+
+  .no-border {
+    border: none !important;
   }
 
   .d-flex {

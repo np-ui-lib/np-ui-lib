@@ -89,7 +89,7 @@ export class AppComponent implements OnInit {
     new NpMenuItem({
       isHeader: true,
       label: "Input",
-      iconCss: "fab fa-wpforms",
+      iconCss: "fas fa-keyboard",
     }),
     new NpMenuItem({ routerLink: "/np-input-text-demo", label: "Input Text" }),
     new NpMenuItem({ routerLink: "/np-textarea-demo", label: "Textarea" }),
@@ -179,10 +179,14 @@ export class AppComponent implements OnInit {
     new NpMenuItem({ isHeader: true, label: "Misc", iconCss: "fa fa-star" }),
     new NpMenuItem({ routerLink: "/np-progress-demo", label: "Progress" }),
     new NpMenuItem({ routerLink: "/np-mask-demo", label: "Masking" }),
-    new NpMenuItem({ routerLink: "/np-form-demo", label: "Form" }),
     new NpMenuItem({
       routerLink: "/np-directives-demo",
       label: "Directives & Pipes",
+    }),
+    new NpMenuItem({
+      isHeader: true,
+      label: "CSS",
+      iconCss: "fas fa-paint-brush",
     }),
     new NpMenuItem({ routerLink: "/np-button-demo", label: "Button" }),
     new NpMenuItem({ routerLink: "/np-badge-demo", label: "Badge" }),
@@ -191,6 +195,7 @@ export class AppComponent implements OnInit {
       label: "Grid Layout",
     }),
     new NpMenuItem({ routerLink: "/np-padding-margin-demo", label: "Padding and Margin" }),
+    new NpMenuItem({ routerLink: "/np-form-demo", label: "Form" }),
     new NpMenuItem({ routerLink: "/np-framework-css-demo", label: "Framework CSS" })
   ];
 

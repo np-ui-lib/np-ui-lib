@@ -152,20 +152,16 @@
       </np-carousel>
 
       <ng-template #itemTemplate2 let-item="item">
-        <np-card [width]="250" styleClass="price-table">
-          <np-card-body>
-            <ul class="price">
-              <li class="header">{{ item.name }}</li>
-              <li class="sub-header">${{ item.id * 100 }}/mo</li>
-              <li>{{ item.id * 10 }}GB Storage</li>
-              <li>{{ item.id * 10 }} Emails</li>
-              <li>{{ item.id }} Domains</li>
-              <li>{{ item.id }}GB Bandwidth</li>
-              <li class="footer"> <button class="np-btn np-btn-primary">SELECT</button>
-              </li>
-            </ul>
-          </np-card-body>
-        </np-card>
+        <ul class="np-price-table">
+          <li class="np-price-table-header">{{ item.name }}</li>
+          <li class="np-price-table-sub-header">${{ item.id * 100 }}/mo</li>
+          <li>{{ item.id * 10 }}GB Storage</li>
+          <li>{{ item.id * 10 }} Emails</li>
+          <li>{{ item.id }} Domains</li>
+          <li>{{ item.id }}GB Bandwidth</li>
+          <li class="np-price-table-footer"> <button class="np-btn np-btn-primary">SELECT</button>
+          </li>
+        </ul>
       </ng-template>
 
       <div>
