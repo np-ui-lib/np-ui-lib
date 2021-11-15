@@ -4,6 +4,10 @@
 
 ## Change log and decision tracker
 
+## 13.0.0
+- Remove reverse order of notifications from list
+- Minor updates in CSS and UI
+
 ## 12.1.0
 - UI and CSS updates.
 - Add new framework.scss file for ready made CSS components like price table, overview box.

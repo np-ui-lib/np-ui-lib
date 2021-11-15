@@ -8,7 +8,7 @@
   .np-widget-overview-icon,
   .np-widget-overview-text {
     font-size: 1.5rem;
-    padding-bottom: 1rem;
+    padding-bottom: $spacer;
     text-align: center;
   }
 
@@ -94,14 +94,8 @@
     }
   }
 
-  .np-list-group-item-active {
-    background-color: $primary-color;
-    color: #ffffff;
-  }
-
-  .np-list-group-item-action:hover {
+  .np-list-group-hoverable .np-list-group-item:hover {
     background-color: $selected-background-color !important;
-    cursor: pointer;
   }
 
   .np-avatar {
@@ -157,5 +151,9 @@
 
   .np-table-striped tr:nth-child(odd) td {
     background-color: $background-color;
+  }
+
+  .np-table-hoverable tr:hover td {
+    background-color: $selected-background-color !important;
   }
 }
