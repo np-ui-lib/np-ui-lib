@@ -12,11 +12,11 @@ export class NpAutofocusDirective {
       }, 100);
     }
   }
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) { }
 }
 
 @NgModule({
   declarations: [NpAutofocusDirective],
   exports: [NpAutofocusDirective],
 })
-export class NpAutofocusModule {}
+export class NpAutofocusModule { }

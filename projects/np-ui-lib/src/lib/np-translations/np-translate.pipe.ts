@@ -15,12 +15,12 @@ import { NpTranslationsService } from "./np-translations.service";
 })
 export class NpTranslatePipe implements PipeTransform, OnDestroy {
   subscription: Subscription;
-  value = "";
+  value: string = "";
 
   constructor(
     private translationService: NpTranslationsService,
     private _ref: ChangeDetectorRef
-  ) {}
+  ) { }
 
   transform(key: string): any {
     this.subscription = this.translationService.onTranslationsChange.subscribe(

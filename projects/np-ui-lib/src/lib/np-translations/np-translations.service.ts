@@ -13,7 +13,7 @@ export class NpTranslationsService {
     this.onTranslationsChange = new BehaviorSubject(null);
   }
 
-  setTranslations = function (translations: any) {
+  setTranslations(translations: any): void {
     if (!translations) {
       this._setDefaultTranslations();
     } else {
@@ -22,11 +22,11 @@ export class NpTranslationsService {
     this.onTranslationsChange.next(null);
   };
 
-  translate(key: string) {
+  translate(key: string): any {
     return this._translations[key] || key;
   }
 
-  private _setDefaultTranslations() {
+  private _setDefaultTranslations(): void {
     this._translations = {
       'Su': 'Su',
       'Mo': 'Mo',

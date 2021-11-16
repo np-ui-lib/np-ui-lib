@@ -5,4 +5,4 @@ import { NpTranslatePipe } from "./np-translate.pipe";
   declarations: [NpTranslatePipe],
   exports: [NpTranslatePipe],
 })
-export class NpTranslationsModule {}
+export class NpTranslationsModule { }

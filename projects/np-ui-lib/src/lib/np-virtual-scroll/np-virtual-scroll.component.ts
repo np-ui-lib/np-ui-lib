@@ -34,27 +34,27 @@ export class NpVirtualScrollComponent {
 
   loadedPages: number[] = [];
 
-  scrollToIndex(idx: number) {
+  scrollToIndex(idx: number): void {
     this.viewPort.scrollToIndex(idx);
   }
 
-  scrollToOffset(offset: number) {
+  scrollToOffset(offset: number): void {
     this.viewPort.scrollToOffset(offset);
   }
 
-  _onScrollIndexChange(index: number) {
+  _onScrollIndexChange(index: number): void {
     const pageRange = this._createPageRange(Math.floor(index / this.pageSize));
     pageRange.forEach((page: number) => this._loadPage(page));
   }
 
-  _loadPage(page: number) {
+  _loadPage(page: number): void {
     if (this.loadedPages.indexOf(page) === -1) {
       this.loadData.emit({ first: this.pageSize * page, rows: this.pageSize });
       this.loadedPages.push(page);
     }
   }
 
-  private _createPageRange(page: number) {
+  private _createPageRange(page: number): number[] {
     const range: number[] = [];
 
     if (page !== 0) {

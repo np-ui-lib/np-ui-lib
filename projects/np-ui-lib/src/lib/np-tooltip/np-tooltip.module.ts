@@ -10,4 +10,4 @@ import { NpTooltipDirective } from "./np-tooltip.directive";
   exports: [NpTooltipDirective],
   entryComponents: [NpTooltipComponent],
 })
-export class NpTooltipModule {}
+export class NpTooltipModule { }

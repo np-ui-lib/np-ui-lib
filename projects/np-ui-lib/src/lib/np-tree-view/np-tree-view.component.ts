@@ -52,21 +52,21 @@ export class NpTreeViewComponent implements OnChanges {
     }
   }
 
-  expandAll() {
+  expandAll(): void {
     this.items.forEach((element: NpTreeViewItem) => {
       this._expandAllInNode(element);
     });
     this.onExpandAll.emit();
   }
 
-  collapseAll() {
+  collapseAll(): void {
     this.items.forEach((element: NpTreeViewItem) => {
       this._collapseAllInNode(element);
     });
     this.onCollapseAll.emit();
   }
 
-  selectAll() {
+  selectAll(): void {
     if (this._isSingleSelectionMode()) {
       return;
     }
@@ -77,7 +77,7 @@ export class NpTreeViewComponent implements OnChanges {
     this.selectionChange.emit(this.selection);
   }
 
-  deselectAll() {
+  deselectAll(): void {
     if (this._isSingleSelectionMode()) {
       return;
     }
@@ -85,7 +85,7 @@ export class NpTreeViewComponent implements OnChanges {
     this.selectionChange.emit(this.selection);
   }
 
-  _toggle(item: NpTreeViewItem) {
+  _toggle(item: NpTreeViewItem): void {
     if (item.isExpanded) {
       item.isExpanded = false;
       this.onCollapse.emit(item);
@@ -95,7 +95,7 @@ export class NpTreeViewComponent implements OnChanges {
     this.onExpand.emit(item);
   }
 
-  _expandAllInNode(item: NpTreeViewItem) {
+  _expandAllInNode(item: NpTreeViewItem): void {
     item.isExpanded = true;
     if (item.childItems) {
       item.childItems.forEach((element: NpTreeViewItem) => {
@@ -104,7 +104,7 @@ export class NpTreeViewComponent implements OnChanges {
     }
   }
 
-  _collapseAllInNode(item: NpTreeViewItem) {
+  _collapseAllInNode(item: NpTreeViewItem): void {
     item.isExpanded = false;
     if (item.childItems) {
       item.childItems.forEach((element: NpTreeViewItem) => {
@@ -113,11 +113,11 @@ export class NpTreeViewComponent implements OnChanges {
     }
   }
 
-  _onClick(item: NpTreeViewItem) {
+  _onClick(item: NpTreeViewItem): void {
     this.onClick.emit(item);
   }
 
-  _changeSelection(checked: any, item: NpTreeViewItem) {
+  _changeSelection(checked: any, item: NpTreeViewItem): void {
     if (!item.id) {
       throw new Error("NpTreeViewItem.id must be defined for selection");
     }
@@ -136,7 +136,7 @@ export class NpTreeViewComponent implements OnChanges {
     }
   }
 
-  _selectNode(item: NpTreeViewItem) {
+  _selectNode(item: NpTreeViewItem): void {
     if (this._isSingleSelectionMode()) {
       this.selection = [item];
     } else {
@@ -151,7 +151,7 @@ export class NpTreeViewComponent implements OnChanges {
     this.selectionChange.emit(this.selection);
   }
 
-  _selectChildNodes(item: NpTreeViewItem) {
+  _selectChildNodes(item: NpTreeViewItem): void {
     if (item.childItems) {
       item.childItems.forEach((element: NpTreeViewItem) => {
         if (element.childItems) {
@@ -168,7 +168,7 @@ export class NpTreeViewComponent implements OnChanges {
     }
   }
 
-  _deselectNode(item: NpTreeViewItem) {
+  _deselectNode(item: NpTreeViewItem): void {
     if (this._isSingleSelectionMode()) {
       this.selection = [];
     } else {
@@ -183,7 +183,7 @@ export class NpTreeViewComponent implements OnChanges {
     this.selectionChange.emit(this.selection);
   }
 
-  _deselectChildNodes(item: NpTreeViewItem) {
+  _deselectChildNodes(item: NpTreeViewItem): void {
     if (item.childItems) {
       item.childItems.forEach((element: NpTreeViewItem) => {
         if (element.childItems) {
@@ -197,11 +197,11 @@ export class NpTreeViewComponent implements OnChanges {
     }
   }
 
-  _isSelected(item: NpTreeViewItem) {
+  _isSelected(item: NpTreeViewItem): boolean {
     return this._findIndexInSelection(item) > -1;
   }
 
-  _findIndexInSelection(item: NpTreeViewItem) {
+  _findIndexInSelection(item: NpTreeViewItem): number {
     let index = -1;
     if (this.selectionMode && this.selection) {
       for (let i = 0; i < this.selection.length; i++) {
@@ -215,17 +215,17 @@ export class NpTreeViewComponent implements OnChanges {
     return index;
   }
 
-  _isSingleSelectionMode() {
+  _isSingleSelectionMode(): boolean {
     return this.selectionMode && this.selectionMode === "single";
   }
 
-  _syncSelectionForAll() {
+  _syncSelectionForAll(): void {
     this.items.forEach((element: NpTreeViewItem) => {
       this._syncSelection(element);
     });
   }
 
-  _syncSelection(item: NpTreeViewItem) {
+  _syncSelection(item: NpTreeViewItem): void {
     if (!item.id) {
       throw new Error("NpTreeViewItem.id must be defined for selection");
     }
@@ -271,7 +271,7 @@ export class NpTreeViewComponent implements OnChanges {
     }
   }
 
-  _selectAll(item: NpTreeViewItem) {
+  _selectAll(item: NpTreeViewItem): void {
     if (!item.id) {
       throw new Error("NpTreeViewItem.id must be defined for selection");
     }
@@ -287,13 +287,13 @@ export class NpTreeViewComponent implements OnChanges {
     return index;
   }
 
-  _removePartialSelectionAll() {
+  _removePartialSelectionAll(): void {
     this.items.forEach((element: NpTreeViewItem) => {
       this._removePartialSelection(element);
     });
   }
 
-  _removePartialSelection(element) {
+  _removePartialSelection(element: any): void {
     element.partiallySelected = false;
     if (element.childItems) {
       element.childItems.forEach((item: NpTreeViewItem) => {

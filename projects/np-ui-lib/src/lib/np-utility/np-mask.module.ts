@@ -9,11 +9,11 @@ export class NpMaskDirective implements OnInit {
   @Input("npMask") mask: string;
 
   private control: NgControl;
-  private lastMaskedValue = "";
+  private lastMaskedValue: string = "";
 
-  constructor(private injector: Injector, private maskService: NpMaskService) {}
+  constructor(private injector: Injector, private maskService: NpMaskService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     setTimeout(() => {
       this.control = this.injector.get(NgControl);
 
@@ -68,7 +68,7 @@ export class NpMaskDirective implements OnInit {
     return maskedVal ? unmaskedVal : "";
   }
 
-  private _setVal(val: string) {
+  private _setVal(val: string): void {
     if (this.control.control) {
       this.control.control.setValue(val, { emitEvent: false });
     }
@@ -80,4 +80,4 @@ export class NpMaskDirective implements OnInit {
   exports: [NpMaskDirective],
   providers: [NpMaskService],
 })
-export class NpMaskModule {}
+export class NpMaskModule { }

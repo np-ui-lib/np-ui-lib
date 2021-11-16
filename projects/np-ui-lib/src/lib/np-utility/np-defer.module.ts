@@ -30,9 +30,9 @@ export class NpDeferDirective implements AfterViewInit, OnDestroy {
     public el: ElementRef,
     public renderer: Renderer2,
     public viewContainer: ViewContainerRef
-  ) {}
+  ) { }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (this.shouldLoad()) {
       this.load();
     }
@@ -67,7 +67,7 @@ export class NpDeferDirective implements AfterViewInit, OnDestroy {
     this.onLoad.emit();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.isLoaded = false;
   }
 }
@@ -77,4 +77,4 @@ export class NpDeferDirective implements AfterViewInit, OnDestroy {
   exports: [NpDeferDirective],
   declarations: [NpDeferDirective],
 })
-export class NpDeferModule {}
+export class NpDeferModule { }

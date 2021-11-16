@@ -9,4 +9,4 @@ import { FormsModule } from "@angular/forms";
   imports: [CommonModule, FormsModule, NpCheckboxModule],
   exports: [NpTreeViewComponent],
 })
-export class NpTreeViewModule {}
+export class NpTreeViewModule { }

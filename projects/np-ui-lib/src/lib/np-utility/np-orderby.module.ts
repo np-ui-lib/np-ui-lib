@@ -35,4 +35,4 @@ export class NpOrderByPipe implements PipeTransform {
   declarations: [NpOrderByPipe],
   exports: [NpOrderByPipe],
 })
-export class NpOrderByModule {}
+export class NpOrderByModule { }

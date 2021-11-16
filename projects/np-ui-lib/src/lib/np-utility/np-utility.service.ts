@@ -5,7 +5,7 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class NpUtilityService {
-  isEqual(x: any, y: any) {
+  isEqual(x: any, y: any): boolean {
     if (x === y) {
       return true;
     }
@@ -101,7 +101,7 @@ export class NpUtilityService {
     }
     return result;
   }
-  private getMonth(month) {
+  private getMonth(month: string): number {
     let result = 0;
     switch (month) {
       case "january":

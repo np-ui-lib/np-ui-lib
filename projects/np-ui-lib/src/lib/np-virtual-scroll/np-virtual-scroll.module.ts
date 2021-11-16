@@ -8,4 +8,4 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
   imports: [CommonModule, ScrollingModule],
   exports: [NpVirtualScrollComponent],
 })
-export class NpVirtualScrollModule {}
+export class NpVirtualScrollModule { }

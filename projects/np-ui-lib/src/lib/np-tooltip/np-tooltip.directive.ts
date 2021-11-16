@@ -30,17 +30,17 @@ export class NpTooltipDirective implements AfterViewInit, OnDestroy {
 
   private overlayRef: OverlayRef;
 
-  mouseEnterListener: () => void = () => {};
-  mouseLeaveListener: () => void = () => {};
-  focusListener: () => void = () => {};
-  blurListener: () => void = () => {};
+  mouseEnterListener: () => void = () => { };
+  mouseLeaveListener: () => void = () => { };
+  focusListener: () => void = () => { };
+  blurListener: () => void = () => { };
 
   constructor(
     private overlay: Overlay,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef,
     private utility: NpUtilityService
-  ) {}
+  ) { }
 
   ngAfterViewInit(): void {
     this.elementRef.nativeElement.className = `${this.elementRef.nativeElement.className} np-tooltip-target`.trim();
@@ -77,13 +77,13 @@ export class NpTooltipDirective implements AfterViewInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.overlayRef.hasAttached()) {
       this.overlayRef.detach();
     }
   }
 
-  _show() {
+  _show(): void {
     const tooltipPortal = new ComponentPortal(NpTooltipComponent);
     const tooltipRef: ComponentRef<NpTooltipComponent> = this.overlayRef.attach(
       tooltipPortal
@@ -94,7 +94,7 @@ export class NpTooltipDirective implements AfterViewInit, OnDestroy {
     tooltipRef.instance.styleClass = this.styleClass;
   }
 
-  _hide() {
+  _hide(): void {
     if (this.overlayRef.hasAttached()) {
       this.overlayRef.detach();
     }

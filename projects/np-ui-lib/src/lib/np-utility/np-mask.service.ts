@@ -83,7 +83,7 @@ export class NpMaskService {
     return unmaskedMathes ? unmaskedMathes.join("") : "";
   }
 
-  private getAllFormatRegexp(flags?: string) {
+  private getAllFormatRegexp(flags?: string): RegExp {
     return new RegExp(this.allFormatsStr, flags);
   }
 
