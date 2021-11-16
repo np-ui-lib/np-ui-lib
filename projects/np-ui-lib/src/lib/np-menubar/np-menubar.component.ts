@@ -21,7 +21,7 @@ export class NpMenubarComponent implements AfterContentInit, OnDestroy {
   private static controlCount = 1;
 
   @Input() items: NpMenuItem[];
-  @Input() orientation;
+  @Input() orientation: string;
   @Input() isPanelMenu: boolean;
   @Input() styleClass: string;
   @Input() inputId = `np-menubar_${NpMenubarComponent.controlCount++}`;
@@ -33,7 +33,7 @@ export class NpMenubarComponent implements AfterContentInit, OnDestroy {
   ngAfterContentInit(): void {
     if (!this.isPanelMenu) {
       this.subscription = this.onClickMenuItem.subscribe(() => {
-        this.items.forEach((element) => {
+        this.items.forEach((element: NpMenuItem) => {
           if (element.items) {
             this._collapseMenu(element);
           }
@@ -52,7 +52,7 @@ export class NpMenubarComponent implements AfterContentInit, OnDestroy {
   }
 
   _collapseMenu(item: NpMenuItem) {
-    item.items.forEach((element) => {
+    item.items.forEach((element: NpMenuItem) => {
       if (element.items) {
         this._collapseMenu(element);
       }

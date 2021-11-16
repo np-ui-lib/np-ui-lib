@@ -43,7 +43,7 @@ export class NpTabsComponent implements AfterContentInit {
       // if there is no default active tab, then take the first tab which is not disabled and make it active.
       const tabs = this.tabs.filter((tab) => tab.disabled !== true);
       if (tabs) {
-        this.tabs.toArray().forEach((tab) => (tab.active = false));
+        this.tabs.toArray().forEach((tab: NpTabComponent) => (tab.active = false));
         tabs[0].active = true;
         this.selected = tabs[0];
         this.onTabChange.emit(tabs[0]);
@@ -57,11 +57,7 @@ export class NpTabsComponent implements AfterContentInit {
   }
 
   selectTabById(id: string) {
-    const tab = this.tabs.find((item) => {
-      if (item.inputId === id) {
-        return true;
-      }
-    });
+    const tab = this.tabs.find((item) => item.inputId === id);
     if (tab && tab.disabled !== true) {
       this._selectTab(tab);
     }
@@ -75,13 +71,7 @@ export class NpTabsComponent implements AfterContentInit {
   }
 
   getSelectedTabIndex() {
-    let selectedIndex = -1;
-    this.tabs.toArray().findIndex((element, idx) => {
-      if (element.active) {
-        selectedIndex = idx;
-      }
-    });
-    return selectedIndex;
+    return this.tabs.toArray().findIndex((element) => element.active);
   }
 
   getSelectedTab() {
@@ -100,7 +90,7 @@ export class NpTabsComponent implements AfterContentInit {
     if (tab.disabled === true || tab.active === true) {
       return;
     }
-    this.tabs.toArray().forEach((element) => {
+    this.tabs.toArray().forEach((element: NpTabComponent) => {
       if (element.inputId !== tab.inputId) {
         element.active = false;
       }

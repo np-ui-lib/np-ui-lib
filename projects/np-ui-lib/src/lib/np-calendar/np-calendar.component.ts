@@ -104,14 +104,14 @@ export class NpCalendarComponent implements AfterContentInit {
   }
 
   addEvents(eve: NpCalendarEvent[]) {
-    eve.forEach((element) => {
+    eve.forEach((element: NpCalendarEvent) => {
       this.events.push(element);
     });
     this._calculateDays();
   }
 
   removeEvents(eve: NpCalendarEvent[]) {
-    eve.forEach((element) => {
+    eve.forEach((element: NpCalendarEvent) => {
       const idx = this._findIndexOfEvent(element);
       if (idx > -1) {
         this.events.splice(idx, 1);
@@ -150,7 +150,7 @@ export class NpCalendarComponent implements AfterContentInit {
     }
     let j = 0;
     // push all dates in month
-    daysInMonth.forEach((element) => {
+    daysInMonth.forEach((element: any) => {
       if (weeks[j].length === 7) {
         j++;
         weeks[j] = [];
@@ -228,11 +228,7 @@ export class NpCalendarComponent implements AfterContentInit {
     if (this._checkIsWeekDayDisabled(date.getDay())) {
       return true;
     }
-    return (
-      this.disableDates.findIndex((item) => {
-        return this._compareDate(item, date);
-      }) > -1
-    );
+    return (this.disableDates.findIndex((item) => this._compareDate(item, date))) > -1;
   }
 
   _checkIsWeekDayDisabled(index: number) {

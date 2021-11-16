@@ -30,9 +30,9 @@ export class NpModalDemoChildComponent implements OnInit {
     description: new FormControl("", Validators.required),
   });
 
-  constructor(private ref: NpModalRef) {}
+  constructor(private ref: NpModalRef) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   submit() {
     if (this.myForm.invalid) {
@@ -43,7 +43,7 @@ export class NpModalDemoChildComponent implements OnInit {
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
-    (Object as any).values(formGroup.controls).forEach((control) => {
+    (Object as any).values(formGroup.controls).forEach((control: any) => {
       control.markAsTouched();
       if (control.controls) {
         this.markFormGroupTouched(control);

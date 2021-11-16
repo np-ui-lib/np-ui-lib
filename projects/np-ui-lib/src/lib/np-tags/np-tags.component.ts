@@ -84,8 +84,8 @@ export class NpTagsComponent
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   constructor(
     public overlay: Overlay,
@@ -93,7 +93,7 @@ export class NpTagsComponent
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef,
     private utility: NpUtilityService
-  ) {}
+  ) { }
 
   ngAfterContentInit(): void {
     this.subscription = this.searchResult.subscribe((data) => {
@@ -275,11 +275,7 @@ export class NpTagsComponent
   }
 
   _removeTag(tag: any) {
-    const idx = this.selected.findIndex((element) => {
-      if (this.utility.isEqual(element, tag)) {
-        return tag;
-      }
-    });
+    const idx = this.selected.findIndex((element) => this.utility.isEqual(element, tag));
     if (idx > -1) {
       if (this.value.length === 1) {
         this.value = null;
@@ -294,18 +290,7 @@ export class NpTagsComponent
   }
 
   _isSelected(tag: any) {
-    if (!this.selected) {
-      return false;
-    }
-    const idx = this.selected.findIndex((element) => {
-      if (this.utility.isEqual(element, tag)) {
-        return tag;
-      }
-    });
-    if (idx > -1) {
-      return true;
-    }
-    return false;
+    return this.selected && (this.selected.findIndex((element) => this.utility.isEqual(element, tag))) > -1;
   }
 
   _onKeydown(event: KeyboardEvent) {

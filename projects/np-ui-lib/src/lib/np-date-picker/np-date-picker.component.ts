@@ -82,8 +82,8 @@ export class NpDatePickerComponent
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   constructor(
     public overlay: Overlay,
@@ -232,7 +232,7 @@ export class NpDatePickerComponent
     }
     let j = 0;
     // push all dates in month
-    daysInMonth.forEach((element) => {
+    daysInMonth.forEach((element: any) => {
       if (weeks[j].length === 7) {
         j++;
         weeks[j] = [];
@@ -376,9 +376,7 @@ export class NpDatePickerComponent
 
   _getTooltip(currentDate: Date) {
     if (currentDate && this.dateLabels && this.dateLabels.length > 0) {
-      const dateLabel: any = this.dateLabels.find((item) => {
-        return this._compareDate(item.date, currentDate);
-      });
+      const dateLabel: any = this.dateLabels.find((item) => this._compareDate(item.date, currentDate));
       return dateLabel ? dateLabel.label : null;
     }
     return null;
@@ -402,11 +400,7 @@ export class NpDatePickerComponent
     if (this._checkIsWeekDayDisabled(date.getDay())) {
       return true;
     }
-    return (
-      this.disableDates.findIndex((item) => {
-        return this._compareDate(item, date);
-      }) > -1
-    );
+    return (this.disableDates.findIndex((item) => this._compareDate(item, date))) > -1;
   }
 
   _setSelectedDate(date: Date) {

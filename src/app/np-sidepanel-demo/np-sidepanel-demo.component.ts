@@ -57,9 +57,9 @@ reference.subscribe((data) => {
   @ViewChild("sidePanelBottom", { static: true })
   sidePanelBottom: NpSidepanelComponent;
 
-  constructor(private sidepanelService: NpSidepanelService) {}
+  constructor(private sidepanelService: NpSidepanelService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   openLeft() {
     this.sidePanelLeft.open(null);
@@ -83,7 +83,7 @@ reference.subscribe((data) => {
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
-    (Object as any).values(formGroup.controls).forEach((control) => {
+    (Object as any).values(formGroup.controls).forEach((control: any) => {
       control.markAsTouched();
       if (control.controls) {
         this.markFormGroupTouched(control);

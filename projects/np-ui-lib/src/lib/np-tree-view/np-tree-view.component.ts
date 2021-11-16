@@ -53,14 +53,14 @@ export class NpTreeViewComponent implements OnChanges {
   }
 
   expandAll() {
-    this.items.forEach((element) => {
+    this.items.forEach((element: NpTreeViewItem) => {
       this._expandAllInNode(element);
     });
     this.onExpandAll.emit();
   }
 
   collapseAll() {
-    this.items.forEach((element) => {
+    this.items.forEach((element: NpTreeViewItem) => {
       this._collapseAllInNode(element);
     });
     this.onCollapseAll.emit();
@@ -71,7 +71,7 @@ export class NpTreeViewComponent implements OnChanges {
       return;
     }
     this.selection = [];
-    this.items.forEach((element) => {
+    this.items.forEach((element: NpTreeViewItem) => {
       this._selectAll(element);
     });
     this.selectionChange.emit(this.selection);
@@ -98,7 +98,7 @@ export class NpTreeViewComponent implements OnChanges {
   _expandAllInNode(item: NpTreeViewItem) {
     item.isExpanded = true;
     if (item.childItems) {
-      item.childItems.forEach((element) => {
+      item.childItems.forEach((element: NpTreeViewItem) => {
         this._expandAllInNode(element);
       });
     }
@@ -107,7 +107,7 @@ export class NpTreeViewComponent implements OnChanges {
   _collapseAllInNode(item: NpTreeViewItem) {
     item.isExpanded = false;
     if (item.childItems) {
-      item.childItems.forEach((element) => {
+      item.childItems.forEach((element: NpTreeViewItem) => {
         this._collapseAllInNode(element);
       });
     }
@@ -153,7 +153,7 @@ export class NpTreeViewComponent implements OnChanges {
 
   _selectChildNodes(item: NpTreeViewItem) {
     if (item.childItems) {
-      item.childItems.forEach((element) => {
+      item.childItems.forEach((element: NpTreeViewItem) => {
         if (element.childItems) {
           this._selectChildNodes(element);
         }
@@ -185,7 +185,7 @@ export class NpTreeViewComponent implements OnChanges {
 
   _deselectChildNodes(item: NpTreeViewItem) {
     if (item.childItems) {
-      item.childItems.forEach((element) => {
+      item.childItems.forEach((element: NpTreeViewItem) => {
         if (element.childItems) {
           this._deselectChildNodes(element);
         }
@@ -220,7 +220,7 @@ export class NpTreeViewComponent implements OnChanges {
   }
 
   _syncSelectionForAll() {
-    this.items.forEach((element) => {
+    this.items.forEach((element: NpTreeViewItem) => {
       this._syncSelection(element);
     });
   }
@@ -277,7 +277,7 @@ export class NpTreeViewComponent implements OnChanges {
     }
     this.selection.push(item);
     if (item.childItems) {
-      item.childItems.forEach((element) => {
+      item.childItems.forEach((element: NpTreeViewItem) => {
         this._selectAll(element);
       });
     }
@@ -288,7 +288,7 @@ export class NpTreeViewComponent implements OnChanges {
   }
 
   _removePartialSelectionAll() {
-    this.items.forEach((element) => {
+    this.items.forEach((element: NpTreeViewItem) => {
       this._removePartialSelection(element);
     });
   }
@@ -296,7 +296,7 @@ export class NpTreeViewComponent implements OnChanges {
   _removePartialSelection(element) {
     element.partiallySelected = false;
     if (element.childItems) {
-      element.childItems.forEach((item) => {
+      element.childItems.forEach((item: NpTreeViewItem) => {
         this._removePartialSelection(item);
       });
     }

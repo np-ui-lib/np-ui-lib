@@ -994,7 +994,7 @@ export class NpDataGridComponent
   }
 
   _showAllColumns() {
-    this.gridColumns.forEach((element) => {
+    this.gridColumns.forEach((element: Column) => {
       element.visible = true;
     });
     this._setVisibleColumns();

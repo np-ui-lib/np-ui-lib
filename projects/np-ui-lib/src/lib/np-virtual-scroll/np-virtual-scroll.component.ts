@@ -44,7 +44,7 @@ export class NpVirtualScrollComponent {
 
   _onScrollIndexChange(index: number) {
     const pageRange = this._createPageRange(Math.floor(index / this.pageSize));
-    pageRange.forEach((page) => this._loadPage(page));
+    pageRange.forEach((page: number) => this._loadPage(page));
   }
 
   _loadPage(page: number) {

@@ -53,7 +53,7 @@ export class NpListComponent {
       return;
     }
     const items = [];
-    this.items.forEach((element) => {
+    this.items.forEach((element: any) => {
       if (this.valueKey) {
         items.push(element[this.valueKey]);
       } else {
@@ -109,17 +109,9 @@ export class NpListComponent {
   _getSelectedIndexOfItem(item: any) {
     const that = this;
     if (this.valueKey) {
-      return this.selection.findIndex((element) => {
-        if (element === item[this.valueKey]) {
-          return item;
-        }
-      });
+      return this.selection.findIndex((element) => element === item[this.valueKey]);
     }
-    return this.selection.findIndex((element) => {
-      if (that.utility.isEqual(element, item)) {
-        return item;
-      }
-    });
+    return this.selection.findIndex((element) => that.utility.isEqual(element, item));
   }
 
   _trackBy(index: number): number {

@@ -52,10 +52,10 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
   innerValue: any;
   isDisabled = false;
 
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) { }
 
   get value(): any {
     return this.innerValue ? this.innerValue : null;
@@ -97,7 +97,7 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
           radio.querySelector(".np-radio-button-input").focus();
         }
       }
-      this.radioButtons.forEach((item) => {
+      this.radioButtons.forEach((item: any) => {
         if (item.value === this.value) {
           const radio = this.el.nativeElement.querySelector("#" + item.inputId);
           if (radio) {

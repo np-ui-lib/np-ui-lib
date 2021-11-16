@@ -39,14 +39,14 @@ export class NpAccordionComponent implements AfterContentInit, OnDestroy {
     if (this.defaultOpenIndex >= 0) {
       this.expandByIndex(this.defaultOpenIndex);
     }
-    this.items.toArray().forEach((element) => {
+    this.items.toArray().forEach((element: NpAccordionItemComponent) => {
       this.subscriptions.push(
-        element._onExpand.subscribe((item) => {
+        element._onExpand.subscribe((item: any) => {
           this._onExpand(item);
         })
       );
       this.subscriptions.push(
-        element._onCollapse.subscribe((item) => {
+        element._onCollapse.subscribe((item: any) => {
           this._onCollapse(item);
         })
       );
@@ -54,7 +54,7 @@ export class NpAccordionComponent implements AfterContentInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.forEach((element) => {
+    this.subscriptions.forEach((element: Subscription) => {
       element.unsubscribe();
     });
   }
@@ -66,11 +66,7 @@ export class NpAccordionComponent implements AfterContentInit, OnDestroy {
   expandById(id: string) {
     this.items
       .toArray()
-      .find((item) => {
-        if (item.inputId === id) {
-          return true;
-        }
-      })
+      .find((item) => item.inputId === id)
       ._expand();
   }
 
@@ -81,17 +77,13 @@ export class NpAccordionComponent implements AfterContentInit, OnDestroy {
   collapseById(id: string) {
     this.items
       .toArray()
-      .find((item) => {
-        if (item.inputId === id) {
-          return true;
-        }
-      })
+      .find((item) => item.inputId === id)
       ._collapse();
   }
 
   _onExpand(item: NpAccordionItemComponent) {
     if (!this.allowMultipleOpen) {
-      this.items.toArray().forEach((element) => {
+      this.items.toArray().find((element: NpAccordionItemComponent) => {
         if (item.inputId !== element.inputId && element.isOpen) {
           element._collapse();
         }

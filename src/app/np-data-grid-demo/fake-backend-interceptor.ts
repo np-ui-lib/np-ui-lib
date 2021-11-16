@@ -506,7 +506,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
       });
       if (records) {
-        records.forEach((element) => {
+        records.forEach((element: any) => {
           element.FirstName = element.FirstName + " updated";
         });
       }
