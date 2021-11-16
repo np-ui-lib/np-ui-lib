@@ -14,4 +14,4 @@ import { NpAccordionContent } from "./np-accordion-item/np-accordion-content.dir
   imports: [CommonModule, PortalModule],
   exports: [NpAccordionComponent, NpAccordionItemComponent, NpAccordionContent],
 })
-export class NpAccordionModule {}
+export class NpAccordionModule { }

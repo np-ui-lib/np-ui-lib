@@ -3,7 +3,7 @@ import { NgModule, Pipe, PipeTransform } from "@angular/core";
 @Pipe({
   name: "npHighlight",
 })
-export class NpHightlightPipe implements PipeTransform {
+export class NpHighlightPipe implements PipeTransform {
   transform(text: string, search: string): string {
     if (search && text) {
       let pattern = search.replace(
@@ -19,7 +19,7 @@ export class NpHightlightPipe implements PipeTransform {
       const regex = new RegExp(pattern, "gi");
       return text.replace(
         regex,
-        (match) => `<span class="np-hightlight">${match}</span>`
+        (match) => `<span class="np-highlight">${match}</span>`
       );
     } else {
       return text;
@@ -28,7 +28,7 @@ export class NpHightlightPipe implements PipeTransform {
 }
 
 @NgModule({
-  declarations: [NpHightlightPipe],
-  exports: [NpHightlightPipe],
+  declarations: [NpHighlightPipe],
+  exports: [NpHighlightPipe],
 })
-export class NpHightlightModule {}
+export class NpHighlightModule { }

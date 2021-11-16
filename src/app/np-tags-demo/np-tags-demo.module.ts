@@ -8,7 +8,7 @@ import {
   NpTabsModule,
   NpCardModule,
   NpAlertModule,
-  NpHightlightModule,
+  NpHighlightModule,
 } from "np-ui-lib";
 import { FormsModule } from "@angular/forms";
 
@@ -22,7 +22,7 @@ import { FormsModule } from "@angular/forms";
     NpTabsModule,
     NpCardModule,
     NpAlertModule,
-    NpHightlightModule,
+    NpHighlightModule,
   ],
 })
 export class NpTagsDemoModule {}

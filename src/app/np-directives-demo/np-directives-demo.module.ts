@@ -6,7 +6,7 @@ import { NpDirectivesDemoComponent } from "./np-directives-demo.component";
 import {
   NpCardModule,
   NpAutofocusModule,
-  NpHightlightModule,
+  NpHighlightModule,
   NpOrderByModule,
   NpDeferModule,
 } from "np-ui-lib";
@@ -18,7 +18,7 @@ import {
     NpDirectivesDemoRoutingModule,
     NpCardModule,
     NpAutofocusModule,
-    NpHightlightModule,
+    NpHighlightModule,
     NpOrderByModule,
     NpDeferModule,
   ],

@@ -59,29 +59,29 @@ export class NpAccordionComponent implements AfterContentInit, OnDestroy {
     });
   }
 
-  expandByIndex(idx: number) {
+  expandByIndex(idx: number): void {
     this.items.toArray()[idx]._expand();
   }
 
-  expandById(id: string) {
+  expandById(id: string): void {
     this.items
       .toArray()
       .find((item) => item.inputId === id)
       ._expand();
   }
 
-  collapseByIndex(idx: number) {
+  collapseByIndex(idx: number): void {
     this.items.toArray()[idx]._collapse();
   }
 
-  collapseById(id: string) {
+  collapseById(id: string): void {
     this.items
       .toArray()
       .find((item) => item.inputId === id)
       ._collapse();
   }
 
-  _onExpand(item: NpAccordionItemComponent) {
+  _onExpand(item: NpAccordionItemComponent): void {
     if (!this.allowMultipleOpen) {
       this.items.toArray().find((element: NpAccordionItemComponent) => {
         if (item.inputId !== element.inputId && element.isOpen) {
@@ -92,7 +92,7 @@ export class NpAccordionComponent implements AfterContentInit, OnDestroy {
     this.onExpand.emit(item);
   }
 
-  _onCollapse(item: NpAccordionItemComponent) {
+  _onCollapse(item: NpAccordionItemComponent): void {
     this.onCollapse.emit(item);
   }
 }

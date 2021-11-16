@@ -80,15 +80,15 @@ export class NpAutoCompleteComponent
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   constructor(
     public overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef
-  ) {}
+  ) { }
 
   ngAfterContentInit(): void {
     this.subscription = this.searchResult.subscribe((data) => {
@@ -169,21 +169,21 @@ export class NpAutoCompleteComponent
     this.isDisabled = isDisabled;
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _getDisplayValue() {
+  _getDisplayValue(): void {
     return this.innerValue || "";
   }
 
-  _close() {
+  _close(): void {
     this.overlayRef.detach();
     this.inputViewChild.nativeElement.focus();
     this.isOpen = false;
   }
 
-  _onInput($event: any) {
+  _onInput($event: any): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
@@ -207,7 +207,7 @@ export class NpAutoCompleteComponent
     }, this.searchDelay);
   }
 
-  _onInputChange($event) {
+  _onInputChange($event: any): void {
     const value = $event.target.value.trim();
     if (!this.forceToSelect) {
       this.value = value;
@@ -238,12 +238,12 @@ export class NpAutoCompleteComponent
     }
   }
 
-  _selectValue(val: any) {
+  _selectValue(val: any): void {
     this.value = this.valueKey ? val[this.valueKey] : val;
     this._close();
   }
 
-  _onKeydown(event: KeyboardEvent) {
+  _onKeydown(event: KeyboardEvent): void {
     if (event.key === "Tab" || event.key === "Escape") {
       this._close();
     }
@@ -253,13 +253,13 @@ export class NpAutoCompleteComponent
     return index;
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }

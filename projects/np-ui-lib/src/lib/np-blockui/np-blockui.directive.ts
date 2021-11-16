@@ -35,7 +35,7 @@ export class NpBlockUiDirective implements OnChanges {
     }
   }
 
-  _show() {
+  _show(): void {
     if (this.isActive) {
       return;
     }
@@ -44,7 +44,7 @@ export class NpBlockUiDirective implements OnChanges {
     this.renderer.appendChild(this.elRef.nativeElement, this.element);
   }
 
-  _hide() {
+  _hide(): void {
     if (!this.isActive) {
       return;
     }

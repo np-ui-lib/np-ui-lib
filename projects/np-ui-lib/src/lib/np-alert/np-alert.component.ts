@@ -24,7 +24,7 @@ export class NpAlertComponent implements OnInit {
   @Input() autoCloseTimeout: number;
   @Input() inputId = `np-alert_${NpAlertComponent.controlCount++}`;
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) { }
 
   ngOnInit(): void {
     if (this.autoClose) {
@@ -37,7 +37,7 @@ export class NpAlertComponent implements OnInit {
     }
   }
 
-  close() {
+  close(): void {
     this.el.nativeElement.remove();
   }
 }

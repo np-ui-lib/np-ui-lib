@@ -7,4 +7,4 @@ import { NpAlertComponent } from "./np-alert.component";
   imports: [CommonModule],
   exports: [NpAlertComponent],
 })
-export class NpAlertModule {}
+export class NpAlertModule { }

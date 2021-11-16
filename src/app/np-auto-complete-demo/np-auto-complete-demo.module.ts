@@ -6,7 +6,7 @@ import { NpAutoCompleteDemoComponent } from "./np-auto-complete-demo.component";
 import { FormsModule } from "@angular/forms";
 import {
   NpAutoCompleteModule,
-  NpHightlightModule,
+  NpHighlightModule,
   NpTabsModule,
   NpCardModule,
 } from "np-ui-lib";
@@ -18,7 +18,7 @@ import {
     FormsModule,
     NpAutoCompleteDemoRoutingModule,
     NpAutoCompleteModule,
-    NpHightlightModule,
+    NpHighlightModule,
     NpTabsModule,
     NpCardModule,
   ],

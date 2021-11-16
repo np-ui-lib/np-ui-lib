@@ -44,7 +44,7 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
     return this._contentPortal;
   }
 
-  constructor(private _viewContainerRef: ViewContainerRef) {}
+  constructor(private _viewContainerRef: ViewContainerRef) { }
 
   ngOnInit(): void {
     if (this.title instanceof TemplateRef) {
@@ -66,15 +66,15 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
     }
   }
 
-  _getTitleId() {
+  _getTitleId(): string {
     return this.inputId + "_title";
   }
 
-  _getBodyId() {
+  _getBodyId(): string {
     return this.inputId + "_body";
   }
 
-  _expand() {
+  _expand(): void {
     if (this.disabled) {
       return;
     }
@@ -88,7 +88,7 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
     this._onExpand.emit(this);
   }
 
-  _collapse() {
+  _collapse(): void {
     if (this.disabled) {
       return;
     }
@@ -96,7 +96,7 @@ export class NpAccordionItemComponent implements OnInit, OnDestroy {
     this._onCollapse.emit(this);
   }
 
-  _toggle() {
+  _toggle(): void {
     if (this.disabled) {
       return;
     }

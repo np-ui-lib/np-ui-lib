@@ -7,4 +7,4 @@ import { NpBlockUiDirective } from "./np-blockui.directive";
   imports: [CommonModule],
   exports: [NpBlockUiDirective],
 })
-export class NpBlockUiModule {}
+export class NpBlockUiModule { }

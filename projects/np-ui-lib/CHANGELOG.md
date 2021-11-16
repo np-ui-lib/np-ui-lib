@@ -5,10 +5,13 @@
 ## Change log and decision tracker
 
 ## 13.0.0
+
 - Remove reverse order of notifications from list
 - Minor updates in CSS and UI
+- Fix typo in NpHightlightModule, NpHightlightPipe and change it to NpHighlightModule, NpHighlightPipe
 
 ## 12.1.0
+
 - UI and CSS updates.
 - Add new framework.scss file for ready made CSS components like price table, overview box.
 - Add lazyLoaded property to carousel component
@@ -16,28 +19,35 @@
 - Add onPageSizeChange, onRefresh in paginator
 - Clear selection on page size change and refresh data in np-list component
 
-## 12.0.4 
+## 12.0.4
+
 - Performance improvements
 
 ## 12.0.3
+
 - Repository and content transfer in github, so some URL's updated in readme files. No Code changes in library.
 
 ## 12.0.2
+
 - Ui updates for some components
 - Add type in np-input component
 - Add iconCss and styleClass in np-timeline component
 
 ## 12.0.1
+
 - CSS updates
 - Update SCSS variables for theming
 
 ## 12.0.0
+
 - upgrade to angular 12
 
 ## 11.2.3
+
 - Resolved Ivy issues
 
 ## 11.2.2
+
 - Resolved Ivy issues
 
 ## 11.2.1
