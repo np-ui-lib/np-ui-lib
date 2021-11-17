@@ -16,5 +16,5 @@ export class NpCardComponent {
 
   @Input() width: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-card_${NpCardComponent.controlCount++}`;
+  @Input() inputId: string = `np-card_${NpCardComponent.controlCount++}`;
 }

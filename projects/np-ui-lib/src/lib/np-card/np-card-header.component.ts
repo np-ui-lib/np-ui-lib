@@ -10,4 +10,4 @@ import {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class NpCardHeaderComponent {}
+export class NpCardHeaderComponent { }

@@ -17,7 +17,7 @@ export class NpRadioButtonComponent implements AfterViewInit {
 
   @Input() label: string;
   @Input() value: any;
-  @Input() inputId = `np-radio-button_${NpRadioButtonComponent.controlCount++}`;
+  @Input() inputId: string = `np-radio-button_${NpRadioButtonComponent.controlCount++}`;
 
   focused = false;
 

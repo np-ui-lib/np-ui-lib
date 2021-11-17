@@ -34,7 +34,7 @@ export class NpSliderComponent {
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-slider_${NpSliderComponent.controlCount++}`;
+  @Input() inputId: string = `np-slider_${NpSliderComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();

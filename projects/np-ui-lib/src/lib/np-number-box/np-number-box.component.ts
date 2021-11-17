@@ -49,7 +49,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
+  @Input() inputId: string = `np-number-box_${NpNumberBoxComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();

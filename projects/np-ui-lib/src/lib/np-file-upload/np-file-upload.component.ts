@@ -50,7 +50,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
+  @Input() inputId: string = `np-file-upload_${NpFileUploadComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<File[]> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();

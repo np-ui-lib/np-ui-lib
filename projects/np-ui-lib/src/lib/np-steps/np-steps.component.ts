@@ -21,7 +21,7 @@ export class NpStepsComponent extends CdkStepper {
   @Input() stretchLabels: boolean;
   @Input() verticalSteps: boolean;
   @Input() styleClass: string;
-  @Input() inputId = `np-steps_${NpStepsComponent.controlCount++}`;
+  @Input() inputId: string = `np-steps_${NpStepsComponent.controlCount++}`;
 
   _onClick(index: number): void {
     this.selectedIndex = index;

@@ -35,7 +35,7 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
   @Input() readOnly: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-radio-group_${NpRadioGroupComponent.controlCount++}`;
+  @Input() inputId: string = `np-radio-group_${NpRadioGroupComponent.controlCount++}`;
   @Input() set autoFocus(value: boolean) {
     if (value) {
       this.focus();

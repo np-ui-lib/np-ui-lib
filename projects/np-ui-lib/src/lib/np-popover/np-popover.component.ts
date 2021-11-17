@@ -21,7 +21,7 @@ export class NpPopoverComponent implements OnInit {
   @Input() width: number;
   @Input() styleClass: string;
   @Input() context: any;
-  @Input() inputId = `np-popover_${NpPopoverComponent.controlCount++}`;
+  @Input() inputId: string = `np-popover_${NpPopoverComponent.controlCount++}`;
 
   isHeaderTemplate: boolean;
   isBodyTemplate: boolean;

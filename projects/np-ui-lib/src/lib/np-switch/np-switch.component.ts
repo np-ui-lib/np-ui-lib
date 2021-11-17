@@ -33,7 +33,7 @@ export class NpSwitchComponent implements ControlValueAccessor {
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-switch_${NpSwitchComponent.controlCount++}`;
+  @Input() inputId: string = `np-switch_${NpSwitchComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();

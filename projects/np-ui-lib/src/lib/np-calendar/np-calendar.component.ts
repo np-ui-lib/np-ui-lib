@@ -22,11 +22,11 @@ export class NpCalendarComponent implements AfterContentInit {
   @Input() disableWeekDays: string[] = [];
   @Input() disableDates: Date[] = [];
   @Input() dateClass: any;
-  @Input() isStartMonthWithMonday = false;
+  @Input() isStartMonthWithMonday: boolean = false;
   @Input() eventTemplate: TemplateRef<any>;
   @Input() styleClass: string;
-  @Input() resetEventsOnLoad = false;
-  @Input() inputId = `np-calendar_${NpCalendarComponent.controlCount++}`;
+  @Input() resetEventsOnLoad: boolean = false;
+  @Input() inputId: string = `np-calendar_${NpCalendarComponent.controlCount++}`;
 
   @Output() onLoadMonth: EventEmitter<any> = new EventEmitter();
   @Output() onClickDate: EventEmitter<any> = new EventEmitter();
@@ -72,7 +72,7 @@ export class NpCalendarComponent implements AfterContentInit {
     this.currentYear = this.today.getFullYear();
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     if (this.isStartMonthWithMonday) {
       this.weekDays = [
         "Monday",
@@ -98,19 +98,19 @@ export class NpCalendarComponent implements AfterContentInit {
     this._onLoad();
   }
 
-  refresh() {
+  refresh(): void {
     this._calculateDays();
     this._onLoad();
   }
 
-  addEvents(eve: NpCalendarEvent[]) {
+  addEvents(eve: NpCalendarEvent[]): void {
     eve.forEach((element: NpCalendarEvent) => {
       this.events.push(element);
     });
     this._calculateDays();
   }
 
-  removeEvents(eve: NpCalendarEvent[]) {
+  removeEvents(eve: NpCalendarEvent[]): void {
     eve.forEach((element: NpCalendarEvent) => {
       const idx = this._findIndexOfEvent(element);
       if (idx > -1) {
@@ -120,7 +120,7 @@ export class NpCalendarComponent implements AfterContentInit {
     this._calculateDays();
   }
 
-  _calculateDays() {
+  _calculateDays(): void {
     const weeks = [];
     weeks[0] = [];
     const daysInMonth = this._getCurrentMonthData();
@@ -165,7 +165,7 @@ export class NpCalendarComponent implements AfterContentInit {
     this.currentMonthWeeks = weeks;
   }
 
-  _getCurrentMonthData() {
+  _getCurrentMonthData(): any[] {
     const data = [];
     const totalDaysInMonth = this._daysInCurrentMonth();
     for (let i = 1; i <= totalDaysInMonth; i++) {
@@ -181,7 +181,7 @@ export class NpCalendarComponent implements AfterContentInit {
     return data;
   }
 
-  _getEventsForDate(date: Date) {
+  _getEventsForDate(date: Date): NpCalendarEvent[] {
     if (this.events === undefined || this.events === null) {
       return null;
     }
@@ -196,7 +196,7 @@ export class NpCalendarComponent implements AfterContentInit {
       );
   }
 
-  _daysInCurrentMonth() {
+  _daysInCurrentMonth(): number {
     let days = 0;
     switch (this.currentMonth) {
       case 0: // Jan
@@ -221,7 +221,7 @@ export class NpCalendarComponent implements AfterContentInit {
     return days;
   }
 
-  _checkIsFullDateDisabled(date: Date) {
+  _checkIsFullDateDisabled(date: Date): boolean {
     if (date === undefined || date === null) {
       return false;
     }
@@ -231,12 +231,12 @@ export class NpCalendarComponent implements AfterContentInit {
     return (this.disableDates.findIndex((item) => this._compareDate(item, date))) > -1;
   }
 
-  _checkIsWeekDayDisabled(index: number) {
+  _checkIsWeekDayDisabled(index: number): boolean {
     const day = this.originalWeekDays[index];
     return this.disableWeekDays.indexOf(day) > -1;
   }
 
-  _prevMonth() {
+  _prevMonth(): void {
     if (this.currentMonth === 0) {
       this.currentMonth = 11;
       this.currentYear = this.currentYear - 1;
@@ -247,7 +247,7 @@ export class NpCalendarComponent implements AfterContentInit {
     this._onLoad();
   }
 
-  _nextMonth() {
+  _nextMonth(): void {
     if (this.currentMonth === 11) {
       this.currentMonth = 0;
       this.currentYear = this.currentYear + 1;
@@ -258,26 +258,26 @@ export class NpCalendarComponent implements AfterContentInit {
     this._onLoad();
   }
 
-  _changeYear($event) {
+  _changeYear($event: any): void {
     this.currentYear = Number($event.target.value.trim());
     this._calculateDays();
     this._onLoad();
   }
 
-  _selectMonth($event) {
+  _selectMonth($event: any): void {
     this.currentMonth = Number($event.target.value);
     this._calculateDays();
     this._onLoad();
   }
 
-  _loadCurrentMonth() {
+  _loadCurrentMonth(): void {
     this.currentMonth = this.today.getMonth();
     this.currentYear = this.today.getFullYear();
     this._calculateDays();
     this._onLoad();
   }
 
-  _compareDate(dateA: Date, dateB: Date) {
+  _compareDate(dateA: Date, dateB: Date): boolean {
     if (!dateA || !dateB) {
       return false;
     }
@@ -291,7 +291,7 @@ export class NpCalendarComponent implements AfterContentInit {
     return false;
   }
 
-  _onClickDate(date: Date) {
+  _onClickDate(date: Date): void {
     if (this._checkIsFullDateDisabled(date)) {
       return;
     }
@@ -300,7 +300,7 @@ export class NpCalendarComponent implements AfterContentInit {
     }
   }
 
-  _onClickEvent($domEvent: any, event: NpCalendarEvent) {
+  _onClickEvent($domEvent: any, event: NpCalendarEvent): void {
     $domEvent.stopPropagation();
     if (this._checkIsFullDateDisabled(event.startDate)) {
       return;
@@ -310,7 +310,7 @@ export class NpCalendarComponent implements AfterContentInit {
     }
   }
 
-  _findIndexOfEvent(event: NpCalendarEvent) {
+  _findIndexOfEvent(event: NpCalendarEvent): number {
     let index = -1;
     if (this.events) {
       for (let i = 0; i < this.events.length; i++) {
@@ -328,7 +328,7 @@ export class NpCalendarComponent implements AfterContentInit {
     return index;
   }
 
-  _onLoad() {
+  _onLoad(): void {
     if (this.resetEventsOnLoad) {
       this.events = [];
     }
@@ -340,7 +340,7 @@ export class NpCalendarComponent implements AfterContentInit {
     }
   }
 
-  _getDateClass(item: any) {
+  _getDateClass(item: any): string {
     if (this.dateClass) {
       return (
         `np-calendar-day np-day-${item.day} ` + this.dateClass(item.date)

@@ -10,16 +10,9 @@
       </li>
     </ng-container>
     <ng-container *ngFor="let item of items; let i = index">
-      <li
-        class="np-breadcrumb-item"
-        [attr.tabindex]="item.disabled ? '-1' : '0'"
-      >
-        <a
-          [ngClass]="{ 'np-disabled': item.disabled }"
-          [attr.id]="item.id"
-          [innerHTML]="item.label"
-          (click)="_onClick(item)"
-        ></a>
+      <li class="np-breadcrumb-item" [attr.tabindex]="item.disabled ? '-1' : '0'">
+        <a [ngClass]="{ 'np-disabled': item.disabled }" [attr.id]="item.id" [innerHTML]="item.label"
+          (click)="_onClick(item)"></a>
       </li>
     </ng-container>
   </ul>

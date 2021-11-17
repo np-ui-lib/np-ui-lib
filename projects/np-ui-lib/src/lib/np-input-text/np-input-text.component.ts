@@ -49,7 +49,7 @@ export class NpInputTextComponent implements ControlValueAccessor, Validator {
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-input-text_${NpInputTextComponent.controlCount++}`;
+  @Input() inputId: string = `np-input-text_${NpInputTextComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();

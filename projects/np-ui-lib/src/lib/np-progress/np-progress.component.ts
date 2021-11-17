@@ -21,7 +21,7 @@ export class NpProgressComponent {
   @Input() animated: boolean;
   @Input() showLabel = true;
   @Input() height: number;
-  @Input() inputId = `np-progress_${NpProgressComponent.controlCount++}`;
+  @Input() inputId: string = `np-progress_${NpProgressComponent.controlCount++}`;
 
   getTextValue() {
     return `${this.value}%`;

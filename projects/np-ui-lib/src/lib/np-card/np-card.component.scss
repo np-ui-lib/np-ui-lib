@@ -26,6 +26,13 @@
   .np-card-avatar {
     float: left;
     padding-right: $spacer;
+
+    img{
+      height: $spacer * 3;
+      width:  $spacer * 3;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
   }
 
   .np-card-image img {

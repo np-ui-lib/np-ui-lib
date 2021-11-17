@@ -25,7 +25,7 @@ export class NpAccordionComponent implements AfterContentInit, OnDestroy {
   @Input() defaultOpenIndex: number;
   @Input() allowMultipleOpen = true;
   @Input() styleClass: string;
-  @Input() inputId = `np-accordion_${NpAccordionComponent.controlCount++}`;
+  @Input() inputId: string = `np-accordion_${NpAccordionComponent.controlCount++}`;
 
   @Output() onExpand: EventEmitter<any> = new EventEmitter();
   @Output() onCollapse: EventEmitter<any> = new EventEmitter();

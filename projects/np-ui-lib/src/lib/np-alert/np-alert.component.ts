@@ -22,7 +22,7 @@ export class NpAlertComponent implements OnInit {
   @Input() showCloseButton: boolean;
   @Input() autoClose: boolean;
   @Input() autoCloseTimeout: number;
-  @Input() inputId = `np-alert_${NpAlertComponent.controlCount++}`;
+  @Input() inputId: string = `np-alert_${NpAlertComponent.controlCount++}`;
 
   constructor(private el: ElementRef) { }
 

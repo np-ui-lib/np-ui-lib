@@ -10,4 +10,4 @@ import {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class NpCardBodyComponent {}
+export class NpCardBodyComponent { }

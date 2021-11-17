@@ -54,7 +54,7 @@ export class NpDropdownComponent
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-dropdown_${NpDropdownComponent.controlCount++}`;
+  @Input() inputId: string = `np-dropdown_${NpDropdownComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();

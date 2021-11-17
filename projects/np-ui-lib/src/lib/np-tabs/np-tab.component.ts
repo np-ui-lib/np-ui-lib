@@ -26,7 +26,7 @@ export class NpTabComponent implements OnInit, OnDestroy {
   @Input() iconCss: string;
   @Input() active = false;
   @Input() disabled = false;
-  @Input() inputId = `np-tab_${NpTabComponent.controlCount++}`;
+  @Input() inputId: string = `np-tab_${NpTabComponent.controlCount++}`;
 
   isLoadFirstTime = true;
   titleIsTemplate: boolean;

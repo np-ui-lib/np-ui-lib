@@ -57,7 +57,7 @@ export class NpDatePickerComponent
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-date-picker_${NpDatePickerComponent.controlCount++}`;
+  @Input() inputId: string = `np-date-picker_${NpDatePickerComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();

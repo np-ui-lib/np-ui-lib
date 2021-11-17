@@ -47,7 +47,7 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-textarea_${NpTextareaComponent.controlCount++}`;
+  @Input() inputId: string = `np-textarea_${NpTextareaComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();

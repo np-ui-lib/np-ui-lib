@@ -47,7 +47,7 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-rich-text_${NpRichTextComponent.controlCount++}`;
+  @Input() inputId: string = `np-rich-text_${NpRichTextComponent.controlCount++}`;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
   @Output() onBlur: EventEmitter<any> = new EventEmitter();

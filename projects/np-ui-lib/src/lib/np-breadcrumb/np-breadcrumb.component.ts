@@ -19,14 +19,14 @@ export class NpBreadcrumbComponent {
   private static controlCount = 1;
 
   @Input() items: NpBreadcrumbItem[];
-  @Input() showIcon = true;
+  @Input() showIcon: boolean = true;
   @Input() iconCss: string;
   @Input() styleClass: string;
-  @Input() inputId = `np-breadcrumb_${NpBreadcrumbComponent.controlCount++}`;
+  @Input() inputId: string = `np-breadcrumb_${NpBreadcrumbComponent.controlCount++}`;
 
   @Output() onClick: EventEmitter<any> = new EventEmitter();
 
-  _onClick(item: NpBreadcrumbItem) {
+  _onClick(item: NpBreadcrumbItem): void {
     if (this.onClick && !item.disabled) {
       this.onClick.emit(item);
     }

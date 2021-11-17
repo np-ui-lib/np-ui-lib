@@ -33,7 +33,7 @@ export class NpPanelComponent implements OnInit, OnDestroy {
   @Input() disabled: boolean;
   @Input() iconCss: string;
   @Input() styleClass: string;
-  @Input() inputId = `np-panel_${NpPanelComponent.controlCount++}`;
+  @Input() inputId: string = `np-panel_${NpPanelComponent.controlCount++}`;
 
   @Output() onExpand: EventEmitter<any> = new EventEmitter();
   @Output() onCollapse: EventEmitter<any> = new EventEmitter();

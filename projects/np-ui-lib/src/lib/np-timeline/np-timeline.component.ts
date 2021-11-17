@@ -20,7 +20,7 @@ export class NpTimelineComponent implements OnInit {
   @Input() itemTemplate: TemplateRef<any>;
   @Input() height: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-timeline_${NpTimelineComponent.controlCount++}`;
+  @Input() inputId: string = `np-timeline_${NpTimelineComponent.controlCount++}`;
 
   constructor() {}
 

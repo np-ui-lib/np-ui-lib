@@ -26,7 +26,7 @@ export class NpTabsComponent implements AfterContentInit {
   @Input() height: number;
   @Input() stretchLabels: boolean;
   @Input() styleClass: string;
-  @Input() inputId = `np-tabs_${NpTabsComponent.controlCount++}`;
+  @Input() inputId: string = `np-tabs_${NpTabsComponent.controlCount++}`;
 
   @Output() onTabChange: EventEmitter<any> = new EventEmitter();
 

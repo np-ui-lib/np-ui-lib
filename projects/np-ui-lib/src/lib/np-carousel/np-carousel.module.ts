@@ -7,4 +7,4 @@ import { NpCarouselComponent } from "./np-carousel.component";
   imports: [CommonModule],
   exports: [NpCarouselComponent],
 })
-export class NpCarouselModule {}
+export class NpCarouselModule { }

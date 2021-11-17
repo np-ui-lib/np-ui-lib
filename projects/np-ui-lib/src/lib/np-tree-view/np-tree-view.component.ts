@@ -29,7 +29,7 @@ export class NpTreeViewComponent implements OnChanges {
   @Input() selection: any[];
   @Output() selectionChange: EventEmitter<any> = new EventEmitter();
   @Input() styleClass: string;
-  @Input() inputId = `np-treeview_${NpTreeViewComponent.controlCount++}`;
+  @Input() inputId: string = `np-treeview_${NpTreeViewComponent.controlCount++}`;
 
   @Output() onClick: EventEmitter<any> = new EventEmitter();
   @Output() onExpand: EventEmitter<any> = new EventEmitter();

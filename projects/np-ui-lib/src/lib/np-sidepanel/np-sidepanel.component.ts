@@ -40,7 +40,7 @@ export class NpSidepanelComponent implements OnInit, OnDestroy {
   @Input() backDropClass = "np-sidepanel-backdrop";
   @Input() hasBackDrop = true;
   @Input() styleClass: string;
-  @Input() inputId = `np-sidepanel_${NpSidepanelComponent.controlCount++}`;
+  @Input() inputId: string = `np-sidepanel_${NpSidepanelComponent.controlCount++}`;
 
   @Output() onOpen: EventEmitter<any> = new EventEmitter();
   @Output() onClose: EventEmitter<any> = new EventEmitter();

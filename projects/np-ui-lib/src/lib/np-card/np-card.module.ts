@@ -23,4 +23,4 @@ import { NpCardBodyComponent } from "./np-card-body.component";
     NpCardFooterComponent,
   ],
 })
-export class NpCardModule {}
+export class NpCardModule { }

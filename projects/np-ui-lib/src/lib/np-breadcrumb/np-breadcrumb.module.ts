@@ -7,4 +7,4 @@ import { NpBreadcrumbComponent } from "./np-breadcrumb.component";
   imports: [CommonModule],
   exports: [NpBreadcrumbComponent],
 })
-export class NpBreadcrumbModule {}
+export class NpBreadcrumbModule { }

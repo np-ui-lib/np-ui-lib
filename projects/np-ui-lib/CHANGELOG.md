@@ -9,6 +9,7 @@
 - Remove reverse order of notifications from list
 - Minor updates in CSS and UI
 - Fix typo in NpHightlightModule, NpHightlightPipe and change it to NpHighlightModule, NpHighlightPipe
+- Add getTotalPages api for carousel component
 
 ## 12.1.0
 

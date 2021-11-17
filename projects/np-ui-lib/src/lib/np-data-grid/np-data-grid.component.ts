@@ -54,7 +54,7 @@ export class NpDataGridComponent
   implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
   private static controlCount = 1;
 
-  @Input() inputId = `np-data-grid_${NpDataGridComponent.controlCount++}`;
+  @Input() inputId: string = `np-data-grid_${NpDataGridComponent.controlCount++}`;
   @Input() columns: Column[];
   @Input() dataSource: BehaviorSubject<DataSource>;
   @Input() height: number;

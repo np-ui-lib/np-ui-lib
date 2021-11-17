@@ -19,7 +19,7 @@ export class NpTooltipComponent implements OnInit {
   @Input() context: any;
   @Input() width: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-tooltip_${NpTooltipComponent.controlCount++}`;
+  @Input() inputId: string = `np-tooltip_${NpTooltipComponent.controlCount++}`;
 
   isTemplate: boolean;
 

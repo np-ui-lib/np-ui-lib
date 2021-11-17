@@ -61,7 +61,7 @@ export class NpTagsComponent
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-tags_${NpTagsComponent.controlCount++}`;
+  @Input() inputId: string = `np-tags_${NpTagsComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onSearch: EventEmitter<any> = new EventEmitter();

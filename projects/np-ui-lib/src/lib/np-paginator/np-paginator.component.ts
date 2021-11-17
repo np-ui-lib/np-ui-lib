@@ -25,7 +25,7 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
   @Input() showPageSize = true;
   @Input() showTotal = true;
   @Input() styleClass: string;
-  @Input() inputId = `np-paginator-box_${NpPaginatorComponent.controlCount++}`;
+  @Input() inputId: string = `np-paginator-box_${NpPaginatorComponent.controlCount++}`;
 
   @Output() onPageChange: EventEmitter<any> = new EventEmitter();
   @Output() onPageSizeChange: EventEmitter<any> = new EventEmitter();

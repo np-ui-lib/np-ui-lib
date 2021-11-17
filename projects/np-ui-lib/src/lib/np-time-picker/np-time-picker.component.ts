@@ -41,16 +41,16 @@ export class NpTimePickerComponent
   implements ControlValueAccessor, AfterViewInit, AfterContentInit {
   private static controlCount = 1;
 
-  @Input() defaultOpen = false;
-  @Input() is24Hours = false;
-  @Input() showNowButton = false;
-  @Input() hideSeconds = false;
-  @Input() placeholder = "";
+  @Input() defaultOpen: boolean = false;
+  @Input() is24Hours: boolean = false;
+  @Input() showNowButton: boolean = false;
+  @Input() hideSeconds: boolean = false;
+  @Input() placeholder: string = "";
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
-  @Input() inputId = `np-time-picker_${NpTimePickerComponent.controlCount++}`;
+  @Input() inputId: string = `np-time-picker_${NpTimePickerComponent.controlCount++}`;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
@@ -62,26 +62,26 @@ export class NpTimePickerComponent
   hours: number[] = [];
   minutes: number[] = [];
   seconds: number[] = [];
-  isOpen = false;
+  isOpen: boolean = false;
   selectedHour: number;
   selectedMinute: number;
   selectedSecond: number;
-  selectedAMPM = "AM";
+  selectedAMPM: string = "AM";
   pattern: any;
   innerValue: string;
-  isDisabled = false;
-  focused = false;
+  isDisabled: boolean = false;
+  focused: boolean = false;
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   constructor(
     public overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef
-  ) {}
+  ) { }
 
   ngAfterViewInit(): void {
     const positionStrategy = this.overlayPositionBuilder
@@ -132,7 +132,7 @@ export class NpTimePickerComponent
     this.isDisabled = isDisabled;
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     this.hours = [];
     const hoursList = [];
     this.pattern = new RegExp(this._getRegEx());
@@ -154,25 +154,25 @@ export class NpTimePickerComponent
     this.seconds = minuteAndSeconds;
   }
 
-  get24hrsTimeFormat() {
+  get24hrsTimeFormat(): string {
     if (this.is24Hours) {
       return this.value;
     }
     return this.timeConvert12to24(this.value);
   }
 
-  get12hrsTimeFormat() {
+  get12hrsTimeFormat(): string {
     if (this.is24Hours) {
       return this.timeConvert24to12(this.value);
     }
     return this.value;
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _minusHour() {
+  _minusHour(): void {
     this.selectedHour =
       this.selectedHour === null || this.selectedHour === 0
         ? this.is24Hours
@@ -182,7 +182,7 @@ export class NpTimePickerComponent
     this._setValue();
   }
 
-  _minusMinute() {
+  _minusMinute(): void {
     this.selectedMinute =
       this.selectedMinute === null || this.selectedMinute === 0
         ? 59
@@ -198,7 +198,7 @@ export class NpTimePickerComponent
     this._setValue();
   }
 
-  _minusSecond() {
+  _minusSecond(): void {
     this.selectedSecond =
       this.selectedSecond === null || this.selectedSecond === 0
         ? 59
@@ -220,19 +220,19 @@ export class NpTimePickerComponent
     this._setValue();
   }
 
-  _addHour() {
+  _addHour(): void {
     if (this.selectedHour > (this.is24Hours ? 23 : 11)) {
       this.selectedHour = this.is24Hours ? 23 : 11;
     }
     this.selectedHour =
       this.selectedHour === null ||
-      this.selectedHour === (this.is24Hours ? 23 : 11)
+        this.selectedHour === (this.is24Hours ? 23 : 11)
         ? 0
         : this.selectedHour + 1;
     this._setValue();
   }
 
-  _addMinute() {
+  _addMinute(): void {
     if (this.selectedMinute > 59) {
       this.selectedMinute = 59;
     }
@@ -243,14 +243,14 @@ export class NpTimePickerComponent
     if (this.selectedMinute === 0) {
       this.selectedHour =
         this.selectedHour === null ||
-        this.selectedHour === (this.is24Hours ? 23 : 11)
+          this.selectedHour === (this.is24Hours ? 23 : 11)
           ? 0
           : this.selectedHour + 1;
     }
     this._setValue();
   }
 
-  _addSecond() {
+  _addSecond(): void {
     if (this.selectedSecond > 59) {
       this.selectedSecond = 59;
     }
@@ -266,7 +266,7 @@ export class NpTimePickerComponent
       if (this.selectedMinute === 0) {
         this.selectedHour =
           this.selectedHour === null ||
-          this.selectedHour === (this.is24Hours ? 23 : 11)
+            this.selectedHour === (this.is24Hours ? 23 : 11)
             ? 0
             : this.selectedHour + 1;
       }
@@ -274,7 +274,7 @@ export class NpTimePickerComponent
     this._setValue();
   }
 
-  _changeTime($event: any, arg: string) {
+  _changeTime($event: any, arg: string): void {
     if (arg === "hour") {
       this.selectedHour = Number($event.target.value);
     } else if (arg === "minute") {
@@ -287,38 +287,37 @@ export class NpTimePickerComponent
     this._setValue();
   }
 
-  _setValue() {
+  _setValue(): void {
     if (this.is24Hours) {
       this.value = `${this._getHours()}:${this._getMinutes()}${this._getSeconds()}`;
     } else {
-      this.value = `${this._getHours()}:${this._getMinutes()}${this._getSeconds()} ${
-        this.selectedAMPM
-      }`;
+      this.value = `${this._getHours()}:${this._getMinutes()}${this._getSeconds()} ${this.selectedAMPM
+        }`;
     }
   }
 
-  _getHours() {
+  _getHours(): string {
     return this.selectedHour
       ? this.selectedHour.toString().padStart(2, "0")
       : "00";
   }
 
-  _getMinutes() {
+  _getMinutes(): string {
     return this.selectedMinute
       ? this.selectedMinute.toString().padStart(2, "0")
       : "00";
   }
 
-  _getSeconds() {
+  _getSeconds(): string {
     return this.hideSeconds
       ? ""
       : ":" +
-          (this.selectedSecond
-            ? this.selectedSecond.toString().padStart(2, "0")
-            : "00");
+      (this.selectedSecond
+        ? this.selectedSecond.toString().padStart(2, "0")
+        : "00");
   }
 
-  private timeConvert12to24(time: string) {
+  private timeConvert12to24(time: string): string {
     const PM: boolean = time.match("PM") ? true : false;
     const timeArray: string[] = time.split(":");
     const min: string = timeArray[1];
@@ -334,7 +333,7 @@ export class NpTimePickerComponent
     return `${hour}:${min}:${sec}`;
   }
 
-  private timeConvert24to12(time: string) {
+  private timeConvert24to12(time: string): string {
     const values = time.split(":");
     const hour24 = Number(values[0]);
     const hour12 = hour24 % 12 || 12;
@@ -342,11 +341,11 @@ export class NpTimePickerComponent
     return `${hour12
       .toString()
       .padStart(2, "0")}:${values[1]
-      .toString()
-      .padStart(2, "0")}:${values[2].toString().padStart(2, "0")} ${ampm}`;
+        .toString()
+        .padStart(2, "0")}:${values[2].toString().padStart(2, "0")} ${ampm}`;
   }
 
-  _toggleTimePicker() {
+  _toggleTimePicker(): void {
     if (this.isOpen) {
       this._close();
     } else {
@@ -354,7 +353,7 @@ export class NpTimePickerComponent
     }
   }
 
-  _open() {
+  _open(): void {
     if (this.defaultOpen === true || this.isDisabled || this.readOnly) {
       return;
     }
@@ -364,7 +363,7 @@ export class NpTimePickerComponent
     }
   }
 
-  _close() {
+  _close(): void {
     if (this.defaultOpen) {
       return;
     }
@@ -373,7 +372,7 @@ export class NpTimePickerComponent
     this.inputViewChild.nativeElement.focus();
   }
 
-  _extractValues() {
+  _extractValues(): void {
     if (
       this.value === undefined ||
       this.value === null ||
@@ -419,16 +418,15 @@ export class NpTimePickerComponent
     }
   }
 
-  _selectNowTime() {
+  _selectNowTime(): void {
     const today = new Date();
     let nowTime = `${today
       .getHours()
       .toString()
-      .padStart(2, "0")}:${today.getMinutes().toString().padStart(2, "0")}${
-      this.hideSeconds
+      .padStart(2, "0")}:${today.getMinutes().toString().padStart(2, "0")}${this.hideSeconds
         ? ""
         : ":" + today.getSeconds().toString().padStart(2, "0")
-    }`;
+      }`;
     if (!this.is24Hours) {
       nowTime = this.timeConvert24to12(nowTime);
     }
@@ -437,7 +435,7 @@ export class NpTimePickerComponent
     this._close();
   }
 
-  _clear() {
+  _clear(): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
@@ -446,18 +444,18 @@ export class NpTimePickerComponent
     this._close();
   }
 
-  _clearSelectedValue() {
+  _clearSelectedValue(): void {
     this.selectedHour = null;
     this.selectedMinute = null;
     this.selectedSecond = null;
   }
 
-  _changeAMPM() {
+  _changeAMPM(): void {
     this.selectedAMPM = this.selectedAMPM === "AM" ? "PM" : "AM";
     this._setValue();
   }
 
-  _onKeydown(event: KeyboardEvent) {
+  _onKeydown(event: KeyboardEvent): void {
     if (event.key === "Tab" || event.key === "Escape") {
       this._close();
     }
@@ -467,7 +465,7 @@ export class NpTimePickerComponent
     }
   }
 
-  _onInputChange($event) {
+  _onInputChange($event: any): void {
     let time = $event.target.value.trim();
     time = time.toUpperCase();
     const isValid = this.pattern.test(time);
@@ -478,18 +476,18 @@ export class NpTimePickerComponent
     this._extractValues();
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }
 
-  _getRegEx() {
+  _getRegEx(): string {
     if (this.is24Hours) {
       if (this.hideSeconds) {
         return "^(0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9])$";

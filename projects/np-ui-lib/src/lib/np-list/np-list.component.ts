@@ -35,7 +35,7 @@ export class NpListComponent {
   @Input() pageSize = 10;
   @Input() totalItems = 0;
   @Input() styleClass: string;
-  @Input() inputId = `np-list_${NpListComponent.controlCount++}`;
+  @Input() inputId: string = `np-list_${NpListComponent.controlCount++}`;
   @Input() selection: any[];
   @Output() selectionChange: EventEmitter<any> = new EventEmitter();
 

@@ -24,7 +24,7 @@ export class NpMenubarComponent implements AfterContentInit, OnDestroy {
   @Input() orientation: string;
   @Input() isPanelMenu: boolean;
   @Input() styleClass: string;
-  @Input() inputId = `np-menubar_${NpMenubarComponent.controlCount++}`;
+  @Input() inputId: string = `np-menubar_${NpMenubarComponent.controlCount++}`;
 
   @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 
