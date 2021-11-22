@@ -9,4 +9,4 @@ import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
   imports: [CommonModule, NpAutofocusModule, NpTranslationsModule],
   exports: [NpSwitchComponent],
 })
-export class NpSwitchModule {}
+export class NpSwitchModule { }

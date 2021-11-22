@@ -34,7 +34,7 @@ export class NpTabsComponent implements AfterContentInit {
 
   selected: NpTabComponent;
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     // if default active and not disabled tab is present then select it.
     const activeTabs = this.tabs.filter(
       (tab) => tab.active && tab.disabled !== true
@@ -56,37 +56,37 @@ export class NpTabsComponent implements AfterContentInit {
     }
   }
 
-  selectTabById(id: string) {
+  selectTabById(id: string): void {
     const tab = this.tabs.find((item) => item.inputId === id);
     if (tab && tab.disabled !== true) {
       this._selectTab(tab);
     }
   }
 
-  selectTabByIndex(idx: number) {
+  selectTabByIndex(idx: number): void {
     const tab = this.tabs.toArray()[idx];
     if (tab && tab.disabled !== true) {
       this._selectTab(tab);
     }
   }
 
-  getSelectedTabIndex() {
+  getSelectedTabIndex(): any {
     return this.tabs.toArray().findIndex((element) => element.active);
   }
 
-  getSelectedTab() {
+  getSelectedTab(): any {
     return this.selected;
   }
 
-  _getTitleId(tab: NpTabComponent) {
+  _getTitleId(tab: NpTabComponent): string {
     return tab.inputId + "_title";
   }
 
-  _getBodyId(tab: NpTabComponent) {
+  _getBodyId(tab: NpTabComponent): string {
     return tab.inputId + "_body";
   }
 
-  _selectTab(tab: NpTabComponent) {
+  _selectTab(tab: NpTabComponent): void {
     if (tab.disabled === true || tab.active === true) {
       return;
     }

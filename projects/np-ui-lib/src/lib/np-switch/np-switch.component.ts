@@ -42,10 +42,10 @@ export class NpSwitchComponent implements ControlValueAccessor {
   @ViewChild("control") inputViewChild: ElementRef;
 
   innerValue: boolean;
-  isDisabled = false;
-  focused = false;
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  isDisabled: boolean = false;
+  focused: boolean = false;
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   get value(): boolean {
     return this.innerValue;
@@ -77,29 +77,29 @@ export class NpSwitchComponent implements ControlValueAccessor {
     this.isDisabled = isDisabled;
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _onClickSwitch($event) {
+  _onClickSwitch($event: any): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = $event.target.checked;
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }
 
-  _getInputId() {
+  _getInputId(): string {
     return this.inputId + "_input";
   }
 }

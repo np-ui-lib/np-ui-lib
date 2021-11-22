@@ -21,4 +21,4 @@ import { NpHighlightModule } from "../np-utility/np-highlight.module";
   ],
   exports: [NpTagsComponent],
 })
-export class NpTagsModule {}
+export class NpTagsModule { }

@@ -42,11 +42,11 @@ export class NpCheckboxComponent implements ControlValueAccessor {
   @ViewChild("control") inputViewChild: ElementRef;
 
   innerValue: boolean;
-  isDisabled = false;
-  focused = false;
+  isDisabled: boolean = false;
+  focused: boolean = false;
 
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   get value(): boolean {
     return this.innerValue ? this.innerValue : null;
@@ -79,32 +79,32 @@ export class NpCheckboxComponent implements ControlValueAccessor {
     this.isDisabled = isDisabled;
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _onBlur($event) {
+  _onBlur($event): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event): void {
     this.focused = true;
     this.onFocus.emit($event);
   }
 
-  _onChange(event: any) {
+  _onChange(event: any): void {
     this.value = event.target.checked;
   }
 
-  _onKeyDown(event: KeyboardEvent) {
+  _onKeyDown(event: KeyboardEvent): void {
     if (event.key === "Space" && (this.readOnly || this.isDisabled)) {
       event.preventDefault();
     }
   }
 
-  _getInputId() {
+  _getInputId(): string {
     return this.inputId + "_input";
   }
 }

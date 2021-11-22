@@ -44,15 +44,15 @@ export class NpDatePickerComponent
 
   @Input() minDate: Date;
   @Input() maxDate: Date;
-  @Input() format = "dd/MM/yyyy";
-  @Input() defaultOpen = false;
-  @Input() showTodayButton = false;
+  @Input() format: string = "dd/MM/yyyy";
+  @Input() defaultOpen: boolean = false;
+  @Input() showTodayButton: boolean = false;
   @Input() disableWeekDays: string[] = [];
   @Input() disableDates: Date[] = [];
   @Input() dateLabels: any[] = [];
   @Input() dateClass: any;
   @Input() isStartMonthWithMonday = false;
-  @Input() placeholder = "";
+  @Input() placeholder: string = "";
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -74,11 +74,11 @@ export class NpDatePickerComponent
   currentMonth: number;
   currentYear: number;
   today: Date;
-  isOpen = false;
+  isOpen: boolean = false;
   innerValue: Date;
-  isDisabled = false;
-  originalWeekDays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
-  focused = false;
+  isDisabled: boolean = false;
+  originalWeekDays: string[] = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+  focused: boolean = false;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -110,7 +110,7 @@ export class NpDatePickerComponent
     this.today.setHours(0, 0, 0, 0);
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     if (this.isStartMonthWithMonday) {
       this.weekDays = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
     } else {
@@ -172,11 +172,11 @@ export class NpDatePickerComponent
     this.isDisabled = isDisabled;
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _resetVariables() {
+  _resetVariables(): void {
     if (this.value) {
       if (this.minDate && this.minDate > this.value) {
         this.value = null;
@@ -202,7 +202,7 @@ export class NpDatePickerComponent
     this._calculateDays();
   }
 
-  _calculateDays() {
+  _calculateDays(): void {
     const weeks = [];
     weeks[0] = [];
     const daysInMonth = this._getCurrentMonthData();
@@ -242,7 +242,7 @@ export class NpDatePickerComponent
     this.currentMonthWeeks = weeks;
   }
 
-  _getCurrentMonthData() {
+  _getCurrentMonthData(): any[] {
     const data = [];
     const totalDaysInMonth = this._daysInCurrentMonth();
     for (let i = 1; i <= totalDaysInMonth; i++) {
@@ -252,14 +252,14 @@ export class NpDatePickerComponent
         day: i,
         disabled: this._checkIsFullDateDisabled(date),
         today: this._compareDate(this.today, date),
-        seleced: this._compareDate(this.value, date),
+        selected: this._compareDate(this.value, date),
         toolTip: this._getTooltip(date),
       });
     }
     return data;
   }
 
-  _daysInCurrentMonth() {
+  _daysInCurrentMonth(): number {
     let days = 0;
     switch (this.currentMonth) {
       case 0: // Jan
@@ -284,7 +284,7 @@ export class NpDatePickerComponent
     return days;
   }
 
-  _prevMonth() {
+  _prevMonth(): void {
     if (this.currentMonth === 0) {
       this.currentMonth = 11;
       this.currentYear = this.currentYear - 1;
@@ -294,7 +294,7 @@ export class NpDatePickerComponent
     this._calculateDays();
   }
 
-  _nextMonth() {
+  _nextMonth(): void {
     if (this.currentMonth === 11) {
       this.currentMonth = 0;
       this.currentYear = this.currentYear + 1;
@@ -304,7 +304,7 @@ export class NpDatePickerComponent
     this._calculateDays();
   }
 
-  _selectDate(date: Date) {
+  _selectDate(date: Date): void {
     if (
       date === null ||
       this._checkIsFullDateDisabled(date) ||
@@ -317,17 +317,17 @@ export class NpDatePickerComponent
     this._close();
   }
 
-  _selectMonth($event) {
+  _selectMonth($event: any): void {
     this.currentMonth = Number($event.target.value);
     this._calculateDays();
   }
 
-  _changeYear($event) {
+  _changeYear($event: any): void {
     this.currentYear = Number($event.target.value.trim());
     this._calculateDays();
   }
 
-  _toggleDatePicker() {
+  _toggleDatePicker(): void {
     if (this.isOpen) {
       this._close();
     } else {
@@ -335,7 +335,7 @@ export class NpDatePickerComponent
     }
   }
 
-  _open() {
+  _open(): void {
     if (this.defaultOpen === true || this.isDisabled || this.readOnly) {
       return;
     }
@@ -347,7 +347,7 @@ export class NpDatePickerComponent
     }
   }
 
-  _close() {
+  _close(): void {
     if (this.defaultOpen) {
       return;
     }
@@ -356,7 +356,7 @@ export class NpDatePickerComponent
     this.inputViewChild.nativeElement.focus();
   }
 
-  _setToday() {
+  _setToday(): void {
     if (this._checkIsFullDateDisabled(this.today)) {
       return;
     }
@@ -365,7 +365,7 @@ export class NpDatePickerComponent
     this._close();
   }
 
-  _clear() {
+  _clear(): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
@@ -374,7 +374,7 @@ export class NpDatePickerComponent
     this._close();
   }
 
-  _getTooltip(currentDate: Date) {
+  _getTooltip(currentDate: Date): void {
     if (currentDate && this.dateLabels && this.dateLabels.length > 0) {
       const dateLabel: any = this.dateLabels.find((item) => this._compareDate(item.date, currentDate));
       return dateLabel ? dateLabel.label : null;
@@ -382,12 +382,12 @@ export class NpDatePickerComponent
     return null;
   }
 
-  _checkIsWeekDayDisabled(index: number) {
+  _checkIsWeekDayDisabled(index: number): boolean {
     const day = this.originalWeekDays[index];
     return this.disableWeekDays.indexOf(day) > -1;
   }
 
-  _checkIsFullDateDisabled(date: Date) {
+  _checkIsFullDateDisabled(date: Date): boolean {
     if (date === undefined || date === null) {
       return false;
     }
@@ -403,7 +403,7 @@ export class NpDatePickerComponent
     return (this.disableDates.findIndex((item) => this._compareDate(item, date))) > -1;
   }
 
-  _setSelectedDate(date: Date) {
+  _setSelectedDate(date: Date): void {
     if (date) {
       date.setHours(0, 0, 0, 0);
     }
@@ -414,7 +414,7 @@ export class NpDatePickerComponent
     this._resetVariables();
   }
 
-  _onKeydown(event: KeyboardEvent) {
+  _onKeydown(event: KeyboardEvent): void {
     if (event.key === "Tab" || event.key === "Escape") {
       this._close();
     }
@@ -424,7 +424,7 @@ export class NpDatePickerComponent
     }
   }
 
-  _onInputChange($event) {
+  _onInputChange($event: any): void {
     const date = this.utility.ReverseFormatDate(
       $event.target.value.trim(),
       this.format
@@ -442,7 +442,7 @@ export class NpDatePickerComponent
     this._resetVariables();
   }
 
-  _compareDate(dateA: Date, dateB: Date) {
+  _compareDate(dateA: Date, dateB: Date): boolean {
     if (!dateA || !dateB) {
       return false;
     }
@@ -456,13 +456,13 @@ export class NpDatePickerComponent
     return false;
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }

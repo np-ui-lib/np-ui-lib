@@ -6,10 +6,12 @@
 
 ## 13.0.0
 
+- Upgrade angular version to 13 and rxjs version to 7
 - Remove reverse order of notifications from list
 - Minor updates in CSS and UI
 - Fix typo in NpHightlightModule, NpHightlightPipe and change it to NpHighlightModule, NpHighlightPipe
 - Add getTotalPages api for carousel component
+- Add data type for each variable and return type for all methods
 
 ## 12.1.0
 

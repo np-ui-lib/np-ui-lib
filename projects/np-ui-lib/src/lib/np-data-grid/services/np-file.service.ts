@@ -5,14 +5,14 @@ import { DataTypes } from "../models/constants";
 
 @Injectable()
 export class NpFileService {
-  constructor(private datePipe: DatePipe) {}
+  constructor(private datePipe: DatePipe) { }
 
   downloadCSVFile(
     data: any[],
     columns: any[],
     dateFormat: string,
     fileName?: string
-  ) {
+  ): void {
     const CSVData = this.createCSVData(data, columns, dateFormat);
     return this.downloadFile(CSVData, this.normalizeFileName(fileName, "csv"));
   }
@@ -32,7 +32,7 @@ export class NpFileService {
     return "data:text/csv;charset=utf-8,\uFEFF" + encodeURIComponent(content);
   }
 
-  private createCSVData(data: any[], columnList: Column[], dateFormat: string) {
+  private createCSVData(data: any[], columnList: Column[], dateFormat: string): any {
     const headersLabels = [];
     for (const element of columnList) {
       if (element.dataField === undefined) {
@@ -67,7 +67,7 @@ export class NpFileService {
     return head + rows.join("\r\n");
   }
 
-  private normalizeFileName(fileName: string, extension: string) {
+  private normalizeFileName(fileName: string, extension: string): string {
     if (fileName === undefined || fileName === null || fileName.length === 0) {
       fileName = "download";
     }

@@ -39,10 +39,10 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
 
   @Input() rows: number;
   @Input() cols: number;
-  @Input() resize = true;
+  @Input() resize: boolean = true;
   @Input() minLength: number;
   @Input() maxLength: number;
-  @Input() placeholder = "";
+  @Input() placeholder: string = "";
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -56,11 +56,11 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
   @ViewChild("control") inputViewChild: ElementRef;
 
   innerValue: string;
-  isDisabled = false;
-  focused = false;
+  isDisabled: boolean = false;
+  focused: boolean = false;
 
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   get value(): string {
     return this.innerValue ? this.innerValue : null;
@@ -92,7 +92,7 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
     this.isDisabled = isDisabled;
   }
 
-  validate() {
+  validate(): any {
     if (
       this.minLength !== undefined &&
       this.value &&
@@ -117,21 +117,21 @@ export class NpTextareaComponent implements ControlValueAccessor, Validator {
     }
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _onInputChange(event) {
+  _onInputChange(event: any): void {
     this.value = event.target.value;
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }

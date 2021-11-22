@@ -8,4 +8,4 @@ import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
   imports: [CommonModule, NpAutofocusModule],
   exports: [NpTextareaComponent],
 })
-export class NpTextareaModule {}
+export class NpTextareaModule { }

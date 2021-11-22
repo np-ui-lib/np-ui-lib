@@ -15,7 +15,7 @@ export class NpCheckboxGroupComponent {
   private static controlCount = 1;
 
   // Orientation can be 'horizontal' or 'vertical'
-  @Input() orientation = "horizontal";
+  @Input() orientation: string = "horizontal";
   @Input()
-  inputId = `np-checkbox-group_${NpCheckboxGroupComponent.controlCount++}`;
+  inputId: string = `np-checkbox-group_${NpCheckboxGroupComponent.controlCount++}`;
 }

@@ -103,7 +103,8 @@
           </tr>
           <tr>
             <td>isServerOperations</td>
-            <td>Set true if fetching data from server</td>
+            <td>Set true if fetching data from server, and paginator will shown only when it's server side operations.
+            </td>
             <td>boolean</td>
             <td>false</td>
           </tr>
@@ -209,15 +210,8 @@
   <np-tab title="Examples">
     <fieldset>
       <legend>Basic list with height</legend>
-      <np-list
-        [items]="items"
-        [itemTemplate]="list1Template"
-        [height]="200"
-        [orderBy]="'name'"
-        [orderDir]="'asc'"
-        [header]="'Employee List'"
-        (onClick)="onClick($event)"
-      >
+      <np-list [items]="items" [itemTemplate]="list1Template" [height]="200" [orderBy]="'name'" [orderDir]="'asc'"
+        [header]="'Employee List'" (onClick)="onClick($event)">
       </np-list>
 
       <ng-template let-item="item" #list1Template>
@@ -229,20 +223,12 @@
     <fieldset>
       <legend>List with selection</legend>
 
-      <np-list
-        [items]="items"
-        [itemTemplate]="list2Template"
-        [selectionMode]="'multiple'"
-        [height]="200"
-        [(selection)]="selection1"
-        [styleClass]="'myClass'"
-        #list2
-      >
+      <np-list [items]="items" [itemTemplate]="list2Template" [selectionMode]="'multiple'" [height]="200"
+        [(selection)]="selection1" [styleClass]="'myClass'" #list2>
       </np-list>
 
       <ng-template let-item="item" #list2Template>
-        Name: <b>{{ item.name }}</b
-        >,<br />
+        Name: <b>{{ item.name }}</b>,<br />
         Age: <b>{{ item.age }}</b>
       </ng-template>
 
@@ -264,14 +250,8 @@
 
     <fieldset>
       <legend>Tiles view</legend>
-      <np-list
-        [items]="items"
-        [showTiles]="true"
-        [itemTemplate]="TileTemplate"
-        [height]="300"
-        [header]="'Employee List'"
-        (onClick)="onClick($event)"
-      >
+      <np-list [items]="items" [showTiles]="true" [itemTemplate]="TileTemplate" [height]="300"
+        [header]="'Employee List'" (onClick)="onClick($event)">
       </np-list>
 
       <ng-template let-item="item" #TileTemplate>
@@ -283,21 +263,10 @@
 
     <fieldset>
       <legend>Tiles view with server side data with valueKey</legend>
-      <np-list
-        [items]="tilesView2"
-        [showTiles]="true"
-        [columnSize]="6"
-        [itemTemplate]="TileTemplate2"
-        [selectionMode]="'single'"
-        [(selection)]="selection2"
-        [height]="300"
-        [header]="'Product List'"
-        [isServerOperations]="true"
-        [totalItems]="tilesViewTotal2"
-        [pageSize]="10"
-        [valueKey]="'ProductID'"
-        (onPageChange)="onLoadData($event)"
-      >
+      <np-list [items]="tilesView2" [showTiles]="true" [columnSize]="6" [itemTemplate]="TileTemplate2"
+        [selectionMode]="'single'" [(selection)]="selection2" [height]="300" [header]="'Product List'"
+        [isServerOperations]="true" [totalItems]="tilesViewTotal2" [pageSize]="10" [valueKey]="'ProductID'"
+        (onPageChange)="onLoadData($event)">
       </np-list>
       <p>Selected: {{ selection2 | json }}</p>
       <ng-template let-item="item" #TileTemplate2>

@@ -42,7 +42,7 @@ export class NpColorPickerComponent
   private static controlCount = 1;
 
   /* forma can be 'hex' or 'rgb' */
-  @Input() format = "hex";
+  @Input() format: string = "hex";
   @Input() colors: string[];
   @Input() defaultOpen: boolean;
   @Input() readOnly: boolean;
@@ -63,27 +63,27 @@ export class NpColorPickerComponent
     private viewContainerRef: ViewContainerRef,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef
-  ) {}
+  ) { }
 
-  isOpen = false;
+  isOpen: boolean = false;
   stripColor: string;
   currentCursorColor: string;
   xColorCursor: string;
   yColorCursor: string;
   innerValue: string;
-  isDisabled = false;
-  currentHex = "";
+  isDisabled: boolean = false;
+  currentHex: string = "";
   currentR: number;
   currentG: number;
   currentB: number;
-  focused = false;
+  focused: boolean = false;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     if (!this.colors) {
       if (this.format === "hex") {
         this.colors = [
@@ -159,7 +159,7 @@ export class NpColorPickerComponent
     }
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     const positionStrategy = this.overlayPositionBuilder
       .flexibleConnectedTo(this.elementRef)
       .withPositions(TopBottomOverlayPositions);
@@ -218,11 +218,11 @@ export class NpColorPickerComponent
     this.isDisabled = isDisabled;
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _toggleColorPicker() {
+  _toggleColorPicker(): void {
     if (this.isOpen) {
       this._close();
     } else {
@@ -230,7 +230,7 @@ export class NpColorPickerComponent
     }
   }
 
-  _open() {
+  _open(): void {
     if (this.defaultOpen === true || this.isDisabled || this.readOnly) {
       return;
     }
@@ -245,7 +245,7 @@ export class NpColorPickerComponent
     }, 10);
   }
 
-  _close() {
+  _close(): void {
     if (this.defaultOpen) {
       return;
     }
@@ -254,7 +254,7 @@ export class NpColorPickerComponent
     this.inputViewChild.nativeElement.focus();
   }
 
-  _updateStripCanvas() {
+  _updateStripCanvas(): void {
     let strip: HTMLCanvasElement;
     if (this.defaultOpen) {
       strip = this.elementRef.nativeElement.querySelector(
@@ -279,7 +279,7 @@ export class NpColorPickerComponent
     ctx2.fill();
   }
 
-  _updateBlockCanvas() {
+  _updateBlockCanvas(): void {
     let block: HTMLCanvasElement;
     if (this.defaultOpen) {
       block = this.elementRef.nativeElement.querySelector(
@@ -295,8 +295,8 @@ export class NpColorPickerComponent
     ctx1.fillStyle = this.stripColor
       ? this.stripColor
       : this.value
-      ? this.value
-      : "rgb(255,0,0)";
+        ? this.value
+        : "rgb(255,0,0)";
     ctx1.fillRect(0, 0, 170, 170);
 
     const grdWhite = ctx1.createLinearGradient(0, 0, 170, 0);
@@ -312,7 +312,7 @@ export class NpColorPickerComponent
     ctx1.fillRect(0, 0, 170, 170);
   }
 
-  _clickStripeColor(e: any) {
+  _clickStripeColor(e: any): void {
     const imageData = this._getColorFromClickevent(e, ".np-color-picker-strip");
     this.stripColor =
       this.format === "rgb"
@@ -321,7 +321,7 @@ export class NpColorPickerComponent
     this._updateBlockCanvas();
   }
 
-  _clickBlockColor(e: any) {
+  _clickBlockColor(e: any): void {
     const imageData = this._getColorFromClickevent(e, ".np-color-picker-block");
     this.value =
       this.format === "rgb"
@@ -329,14 +329,14 @@ export class NpColorPickerComponent
         : this._rgbToHex(imageData[0], imageData[1], imageData[2]);
   }
 
-  _rgbToHex(r: any, g: any, b: any) {
+  _rgbToHex(r: any, g: any, b: any): string {
     const red = this._convertNumberToHex(r);
     const green = this._convertNumberToHex(g);
     const blue = this._convertNumberToHex(b);
     return `#${red}${green}${blue}`;
   }
 
-  _convertNumberToHex(num: any) {
+  _convertNumberToHex(num: any): string {
     let hex = Number(num).toString(16);
     if (hex.length < 2) {
       hex = `0${hex}`;
@@ -344,7 +344,7 @@ export class NpColorPickerComponent
     return hex;
   }
 
-  _hexToRgb(hex: string) {
+  _hexToRgb(hex: string): any {
     if (!hex) {
       return null;
     }
@@ -354,13 +354,13 @@ export class NpColorPickerComponent
     return { r, g, b };
   }
 
-  _onClickColorBlock(color: string) {
+  _onClickColorBlock(color: string): void {
     this.value = color;
     this.stripColor = this.value;
     this._updateBlockCanvas();
   }
 
-  _clear() {
+  _clear(): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
@@ -368,7 +368,7 @@ export class NpColorPickerComponent
     this._close();
   }
 
-  _getColorFromClickevent(e: any, clickedElement: string) {
+  _getColorFromClickevent(e: any, clickedElement: string): any {
     let strip: HTMLCanvasElement;
     if (this.defaultOpen) {
       strip = this.elementRef.nativeElement.querySelector(
@@ -385,7 +385,7 @@ export class NpColorPickerComponent
     return ctx2.getImageData(x, y, 1, 1).data;
   }
 
-  _onKeydown(event: KeyboardEvent) {
+  _onKeydown(event: KeyboardEvent): void {
     if (event.key === "Tab" || event.key === "Escape") {
       this._close();
     }
@@ -395,7 +395,7 @@ export class NpColorPickerComponent
     }
   }
 
-  _onChangeHex(event) {
+  _onChangeHex(event: any): void {
     let val = event.target.value;
     if (val && val.charAt(0) !== "#") {
       val = `#${event.target.value}`;
@@ -409,7 +409,7 @@ export class NpColorPickerComponent
     this._updateBlockCanvas();
   }
 
-  _onChangeR(event) {
+  _onChangeR(event: any): void {
     if (this.format === "hex") {
       this.value = this._rgbToHex(
         event.target.value,
@@ -422,7 +422,7 @@ export class NpColorPickerComponent
     this._updateBlockCanvas();
   }
 
-  _onChangeG(event) {
+  _onChangeG(event: any): void {
     if (this.format === "hex") {
       this.value = this._rgbToHex(
         this.currentR,
@@ -435,7 +435,7 @@ export class NpColorPickerComponent
     this._updateBlockCanvas();
   }
 
-  _onChangeB(event) {
+  _onChangeB(event: any): void {
     if (this.format === "hex") {
       this.value = this._rgbToHex(
         this.currentR,
@@ -448,7 +448,7 @@ export class NpColorPickerComponent
     this._updateBlockCanvas();
   }
 
-  _setCurrentValues(val: string) {
+  _setCurrentValues(val: string): void {
     if (!val) {
       this.currentHex = "";
       this.currentR = null;
@@ -482,26 +482,26 @@ export class NpColorPickerComponent
     }
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }
 
-  _onMouseLeaveStrip() {
+  _onMouseLeaveStrip(): void {
     this.currentCursorColor = undefined;
   }
 
-  _onMouseLeaveBlock() {
+  _onMouseLeaveBlock(): void {
     this.currentCursorColor = undefined;
   }
 
-  _onMouseOverStrip(e: any) {
+  _onMouseOverStrip(e: any): void {
     this.xColorCursor = `${e.pageX}px`;
     this.yColorCursor = `${e.pageY}px`;
     const imageData = this._getColorFromClickevent(e, ".np-color-picker-strip");
@@ -511,7 +511,7 @@ export class NpColorPickerComponent
         : this._rgbToHex(imageData[0], imageData[1], imageData[2]);
   }
 
-  _onMouseOverBlock(e: any) {
+  _onMouseOverBlock(e: any): void {
     this.xColorCursor = `${e.pageX}px`;
     this.yColorCursor = `${e.pageY}px`;
     const imageData = this._getColorFromClickevent(e, ".np-color-picker-block");

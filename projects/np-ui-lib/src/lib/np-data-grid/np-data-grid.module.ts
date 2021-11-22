@@ -40,4 +40,4 @@ import { NpTranslationsModule } from "../np-translations/np-translations.module"
     NpFileService,
   ],
 })
-export class NpDataGridModule {}
+export class NpDataGridModule { }

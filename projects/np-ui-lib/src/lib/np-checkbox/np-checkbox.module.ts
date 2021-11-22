@@ -9,4 +9,4 @@ import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
   imports: [CommonModule, NpAutofocusModule],
   exports: [NpCheckboxComponent, NpCheckboxGroupComponent],
 })
-export class NpCheckboxModule {}
+export class NpCheckboxModule { }

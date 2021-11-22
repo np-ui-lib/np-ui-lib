@@ -17,4 +17,4 @@ import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
   ],
   exports: [NpColorPickerComponent],
 })
-export class NpColorPickerModule {}
+export class NpColorPickerModule { }

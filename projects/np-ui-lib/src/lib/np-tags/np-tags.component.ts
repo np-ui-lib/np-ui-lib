@@ -77,10 +77,10 @@ export class NpTagsComponent
   options: any[];
   displayValue: string;
   searchTimeout: any;
-  isLoading = false;
+  isLoading: boolean = false;
   innerValue: any[];
-  isDisabled = false;
-  focused = false;
+  isDisabled: boolean = false;
+  focused: boolean = false;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
@@ -173,17 +173,17 @@ export class NpTagsComponent
     this.isDisabled = isDisabled;
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _close() {
+  _close(): void {
     this.displayValue = null;
     this.overlayRef.detach();
     this.inputViewChild.nativeElement.focus();
   }
 
-  _onInput($event: any) {
+  _onInput($event: any): void {
     if (!$event.target.value) {
       return;
     }
@@ -210,7 +210,7 @@ export class NpTagsComponent
     }, this.searchDelay);
   }
 
-  _selectValue(val: any) {
+  _selectValue(val: any): void {
     if (this._isSelected(val)) {
       this._removeTag(val);
       return;
@@ -234,7 +234,7 @@ export class NpTagsComponent
     }
   }
 
-  _open() {
+  _open(): void {
     if (this.isServerSide || this.isDisabled || this.readOnly) {
       return;
     }
@@ -243,7 +243,7 @@ export class NpTagsComponent
     }
   }
 
-  _createNewTag() {
+  _createNewTag(): void {
     if (
       this.maxSelectLimit > 0 &&
       this.value &&
@@ -270,11 +270,11 @@ export class NpTagsComponent
     this.displayValue = null;
   }
 
-  _getValueFromTag(val: any) {
+  _getValueFromTag(val: any): void {
     return this.displayKey ? val[this.displayKey] : val;
   }
 
-  _removeTag(tag: any) {
+  _removeTag(tag: any): void {
     const idx = this.selected.findIndex((element) => this.utility.isEqual(element, tag));
     if (idx > -1) {
       if (this.value.length === 1) {
@@ -289,11 +289,11 @@ export class NpTagsComponent
     }
   }
 
-  _isSelected(tag: any) {
+  _isSelected(tag: any): boolean {
     return this.selected && (this.selected.findIndex((element) => this.utility.isEqual(element, tag))) > -1;
   }
 
-  _onKeydown(event: KeyboardEvent) {
+  _onKeydown(event: KeyboardEvent): void {
     if (event.key === "Tab" || event.key === "Escape") {
       this._close();
     }
@@ -333,17 +333,17 @@ export class NpTagsComponent
     return index;
   }
 
-  _getDisplayValue() {
+  _getDisplayValue(): string {
     return this.displayValue || "";
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }

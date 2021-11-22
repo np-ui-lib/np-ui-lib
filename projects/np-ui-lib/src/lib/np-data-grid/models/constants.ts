@@ -23,7 +23,7 @@ export enum SortDirections {
   Descending = "desc",
 }
 
-export const Filters = [
+export const Filters: any[] = [
   {
     name: FilterTypes.Equals,
     text: "abc",

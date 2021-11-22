@@ -3,7 +3,7 @@ import { SortDirections } from "../models/constants";
 
 @Injectable()
 export class NpGridUtilityService {
-  custFilter(arr: any[], fun: any) {
+  custFilter(arr: any[], fun: any): any {
     return arr.filter(fun);
   }
 
@@ -11,7 +11,7 @@ export class NpGridUtilityService {
     return arr.find(fun);
   }
 
-  custSort(arr: any[], ele: string, order: string) {
+  custSort(arr: any[], ele: string, order: string): any {
     if (order === SortDirections.Ascending) {
       return arr
         .concat()

@@ -24,11 +24,11 @@ export class NpTabComponent implements OnInit, OnDestroy {
 
   @Input() title: string | TemplateRef<any>;
   @Input() iconCss: string;
-  @Input() active = false;
-  @Input() disabled = false;
+  @Input() active: boolean = false;
+  @Input() disabled: boolean = false;
   @Input() inputId: string = `np-tab_${NpTabComponent.controlCount++}`;
 
-  isLoadFirstTime = true;
+  isLoadFirstTime: boolean = true;
   titleIsTemplate: boolean;
 
   @ContentChild(NpTabContent, { read: TemplateRef, static: true })
@@ -39,7 +39,7 @@ export class NpTabComponent implements OnInit, OnDestroy {
     return this._contentPortal;
   }
 
-  constructor(private _viewContainerRef: ViewContainerRef) {}
+  constructor(private _viewContainerRef: ViewContainerRef) { }
 
   ngOnInit(): void {
     if (this.title instanceof TemplateRef) {
@@ -57,7 +57,7 @@ export class NpTabComponent implements OnInit, OnDestroy {
     }
   }
 
-  _isActive() {
+  _isActive(): boolean {
     return this.active;
   }
 }
