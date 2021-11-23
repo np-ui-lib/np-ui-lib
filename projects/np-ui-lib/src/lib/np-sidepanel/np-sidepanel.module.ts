@@ -9,4 +9,4 @@ import { NpSidepanelContent } from "./np-sidepanel-content.directive";
   imports: [CommonModule, PortalModule],
   exports: [NpSidepanelComponent, NpSidepanelContent],
 })
-export class NpSidepanelModule {}
+export class NpSidepanelModule { }

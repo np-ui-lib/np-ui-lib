@@ -7,4 +7,4 @@ import { NpLoaderDirective } from "./np-loader.directive";
   imports: [CommonModule],
   exports: [NpLoaderDirective],
 })
-export class NpLoaderModule {}
+export class NpLoaderModule { }

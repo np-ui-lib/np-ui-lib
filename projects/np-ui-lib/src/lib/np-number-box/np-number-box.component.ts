@@ -37,14 +37,14 @@ import {
 export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   private static controlCount = 1;
 
-  @Input() steps = 1;
+  @Input() steps: number = 1;
   @Input() min: number;
   @Input() max: number;
   @Input() pattern: string;
   @Input() prefixLabel: string;
   @Input() suffixLabel: string;
-  @Input() showControls = true;
-  @Input() placeholder = "";
+  @Input() showControls: boolean = true;
+  @Input() placeholder: string = "";
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -58,11 +58,11 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
   @ViewChild("control") inputViewChild: ElementRef;
 
   innerValue: number;
-  isDisabled = false;
-  focused = false;
+  isDisabled: boolean = false;
+  focused: boolean = false;
   private timeout: any;
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   get value(): number {
     return this.innerValue !== undefined ? this.innerValue : null;
@@ -94,7 +94,7 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     this.isDisabled = isDisabled;
   }
 
-  validate() {
+  validate(): any {
     if (this.min !== undefined && this.value < this.min) {
       return {
         min: {
@@ -121,25 +121,25 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     }
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _add() {
+  _add(): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = this.value + this.steps;
   }
 
-  _minus() {
+  _minus(): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = this.value - this.steps;
   }
 
-  _onMouseDownPlus() {
+  _onMouseDownPlus(): void {
     const that = this;
     this._clearTimeout();
     this.timeout = setTimeout(() => {
@@ -148,12 +148,12 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     that._add();
   }
 
-  _onMouseUpPlus() {
+  _onMouseUpPlus(): void {
     this._clearTimeout();
     this.inputViewChild.nativeElement.focus();
   }
 
-  _onMouseDownMinus() {
+  _onMouseDownMinus(): void {
     const that = this;
     this._clearTimeout();
     this.timeout = setTimeout(() => {
@@ -162,18 +162,18 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     that._minus();
   }
 
-  _onMouseUpMinus() {
+  _onMouseUpMinus(): void {
     this._clearTimeout();
     this.inputViewChild.nativeElement.focus();
   }
 
-  _clearTimeout() {
+  _clearTimeout(): void {
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
   }
 
-  _onInputChange(event) {
+  _onInputChange(event: any): void {
     if (isNaN(parseFloat(event.target.value))) {
       this.value = null;
     } else {
@@ -181,13 +181,13 @@ export class NpNumberBoxComponent implements ControlValueAccessor, Validator {
     }
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }

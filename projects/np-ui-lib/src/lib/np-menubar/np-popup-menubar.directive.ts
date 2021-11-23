@@ -29,7 +29,7 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
   @Input() items: NpMenuItem[];
   @Input() styleClass: string;
   @Input()
-  inputId = `np-popup-menubar_${NpPopupMenubarDirective.controlCount++}`;
+  inputId: string = `np-popup-menubar_${NpPopupMenubarDirective.controlCount++}`;
 
   @Output() onClickMenuItem: EventEmitter<any> = new EventEmitter();
 
@@ -41,7 +41,7 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
     private overlay: Overlay,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef
-  ) {}
+  ) { }
 
   ngAfterViewInit(): void {
     this.elementRef.nativeElement.className = `${this.elementRef.nativeElement.className} np-menubar-target`.trim();
@@ -63,7 +63,7 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.overlayRef.hasAttached()) {
       this._close();
     }
@@ -73,7 +73,7 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
   }
 
   @HostListener("click")
-  show() {
+  show(): void {
     if (this.overlayRef.hasAttached()) {
       this._close();
       return;
@@ -88,7 +88,7 @@ export class NpPopupMenubarDirective implements AfterViewInit, OnDestroy {
     menubarRef.instance.onClickMenuItem = this.onClickMenuItem;
   }
 
-  _close() {
+  _close(): void {
     this.overlayRef.detach();
   }
 }

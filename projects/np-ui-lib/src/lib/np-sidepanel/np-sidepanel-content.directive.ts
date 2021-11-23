@@ -3,4 +3,4 @@ import { Directive } from "@angular/core";
 @Directive({
   selector: "[npSidepanelContent]",
 })
-export class NpSidepanelContent {}
+export class NpSidepanelContent { }

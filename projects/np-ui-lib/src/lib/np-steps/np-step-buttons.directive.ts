@@ -8,7 +8,7 @@ import { Directive } from "@angular/core";
   },
   inputs: ["type"],
 })
-export class NpStepNext extends CdkStepperNext {}
+export class NpStepNext extends CdkStepperNext { }
 
 @Directive({
   selector: "button[npStepPrevious]",
@@ -17,4 +17,4 @@ export class NpStepNext extends CdkStepperNext {}
   },
   inputs: ["type"],
 })
-export class NpStepPrevious extends CdkStepperPrevious {}
+export class NpStepPrevious extends CdkStepperPrevious { }

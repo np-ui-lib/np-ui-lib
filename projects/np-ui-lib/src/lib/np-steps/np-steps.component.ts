@@ -27,15 +27,15 @@ export class NpStepsComponent extends CdkStepper {
     this.selectedIndex = index;
   }
 
-  _isTemplate(step: NpStepComponent) {
+  _isTemplate(step: NpStepComponent): boolean {
     return step.labelTemplate instanceof TemplateRef;
   }
 
-  _getTitleId(step: any) {
+  _getTitleId(step: any): string {
     return step.inputId + "_title";
   }
 
-  _getBodyId(step: any) {
+  _getBodyId(step: any): string {
     return step.inputId + "_body";
   }
 }

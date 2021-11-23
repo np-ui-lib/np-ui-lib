@@ -9,14 +9,8 @@
   </ng-container>
   <ng-container *ngIf="item.items && !item.isHeader">
     <li class="np-menu-item" role="none">
-      <a
-        class="np-menu-link"
-        role="menuitem"
-        tabindex="0"
-        [ngClass]="{ 'np-menu-active-parent': _isActive(item) }"
-        [attr.id]="item.id"
-        (click)="_onClickPanelMenu(item)"
-      >
+      <a class="np-menu-link" role="menuitem" tabindex="0" [ngClass]="{ 'np-menu-active-parent': _isActive(item) }"
+        [attr.id]="item.id" (click)="_onClickPanelMenu(item)">
         <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
         <span class="np-menu-text" [innerHTML]="item.label"></span>
         <span class="np-menu-icon">
@@ -31,17 +25,9 @@
         </span>
       </a>
       <ng-container *ngIf="item.isChildVisible">
-        <ul
-          class="np-submenu"
-          role="menu"
-          [style.top.px]="item.y"
-          [style.left.px]="item.x"
-        >
+        <ul class="np-submenu" role="menu" [style.top.px]="item.y" [style.left.px]="item.x">
           <ng-container *ngFor="let child of item.items">
-            <np-panel-menu-item
-              [item]="child"
-              (onClickItem)="_onClickMenuItem($event)"
-            >
+            <np-panel-menu-item [item]="child" (onClickItem)="_onClickMenuItem($event)">
             </np-panel-menu-item>
           </ng-container>
         </ul>
@@ -50,53 +36,25 @@
   </ng-container>
   <ng-container *ngIf="!item.items && !item.isHeader">
     <li class="np-menu-item" role="none">
-      <a
-        class="np-menu-link"
-        role="menuitem"
-        tabindex="0"
-        *ngIf="item.routerLink"
-        [attr.id]="item.id"
-        [routerLink]="item.routerLink"
-        [queryParams]="item.queryParams"
-        [fragment]="item.fragment"
-        [queryParamsHandling]="item.queryParamsHandling"
-        [routerLinkActive]="'np-menu-active'"
-        (click)="_onClickMenuItem(item)"
-      >
+      <a class="np-menu-link" role="menuitem" tabindex="0" *ngIf="item.routerLink" [attr.id]="item.id"
+        [routerLink]="item.routerLink" [queryParams]="item.queryParams" [fragment]="item.fragment"
+        [queryParamsHandling]="item.queryParamsHandling" [routerLinkActive]="'np-menu-active'"
+        (click)="_onClickMenuItem(item)">
         <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
         <span class="np-menu-text" [innerHTML]="item.label"></span>
       </a>
-      <a
-        class="np-menu-link"
-        role="menuitem"
-        tabindex="0"
-        *ngIf="item.url"
-        [attr.id]="item.id"
-        [href]="item.url"
-        [target]="item.target"
-        (click)="_onClickMenuItem(item)"
-      >
+      <a class="np-menu-link" role="menuitem" tabindex="0" *ngIf="item.url" [attr.id]="item.id" [href]="item.url"
+        [target]="item.target" (click)="_onClickMenuItem(item)">
         <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
         <span class="np-menu-text" [innerHTML]="item.label"></span>
-        <svg
-          class="np-icon ml-1"
-          *ngIf="item.target === '_blank'"
-          viewBox="0 0 24 24"
-        >
+        <svg class="np-icon ml-1" *ngIf="item.target === '_blank'" viewBox="0 0 24 24">
           <path d="M0 0h24v24H0z" fill="none" />
           <path
-            d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-          />
+            d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
         </svg>
       </a>
-      <a
-        class="np-menu-link"
-        role="menuitem"
-        tabindex="0"
-        *ngIf="!item.routerLink && !item.url"
-        [attr.id]="item.id"
-        (click)="_onClickMenuItem(item)"
-      >
+      <a class="np-menu-link" role="menuitem" tabindex="0" *ngIf="!item.routerLink && !item.url" [attr.id]="item.id"
+        (click)="_onClickMenuItem(item)">
         <i *ngIf="item.iconCss" [class]="item.iconCss"></i>
         <span class="np-menu-text" [innerHTML]="item.label"></span>
       </a>

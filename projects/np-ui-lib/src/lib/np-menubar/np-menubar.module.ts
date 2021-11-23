@@ -18,4 +18,4 @@ import { NpPanelMenuItemComponent } from "./np-panel-menu-item/np-panel-menu-ite
   entryComponents: [NpMenubarComponent],
   exports: [NpMenubarComponent, NpPopupMenubarDirective],
 })
-export class NpMenubarModule {}
+export class NpMenubarModule { }

@@ -20,20 +20,20 @@ export class NpPanelMenuItemComponent {
 
   @Output() onClickItem: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  _onClickMenuItem(menuItem: NpMenuItem) {
+  _onClickMenuItem(menuItem: NpMenuItem): void {
     this.onClickItem.emit(menuItem);
   }
 
-  _isActive(menuItem: NpMenuItem) {
+  _isActive(menuItem: NpMenuItem): boolean {
     if (!menuItem.routerLink) {
       return false;
     }
-    return this.router.isActive(menuItem.routerLink, false);
+    return this.router.isActive(menuItem.routerLink, { matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored' });
   }
 
-  _onClickPanelMenu(menuItem: NpMenuItem) {
+  _onClickPanelMenu(menuItem: NpMenuItem): void {
     menuItem.isChildVisible = !menuItem.isChildVisible;
   }
 }

@@ -7,7 +7,7 @@ import { NpNotification } from "./np-notification.model";
 export class NpNotificationsService {
   messages: NpNotification[] = [];
 
-  show(msg: NpNotification) {
+  show(msg: NpNotification): void {
     this.messages.push(msg);
     setTimeout(
       () => {
@@ -17,14 +17,14 @@ export class NpNotificationsService {
     );
   }
 
-  close(msg: NpNotification) {
+  close(msg: NpNotification): void {
     const idx = this.messages.indexOf(msg);
     if (idx > -1) {
       this.messages.splice(idx, 1);
     }
   }
 
-  closeAll() {
+  closeAll(): void {
     this.messages = [];
   }
 }

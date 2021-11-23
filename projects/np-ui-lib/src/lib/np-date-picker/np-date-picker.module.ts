@@ -19,4 +19,4 @@ import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
   ],
   exports: [NpDatePickerComponent],
 })
-export class NpDatePickerModule {}
+export class NpDatePickerModule { }

@@ -31,9 +31,9 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
   @Input() context: any;
   @Input() openOnClick: boolean;
   @Input() width: number;
-  @Input() closeOnClickOutside = true;
-  @Input() backDropClass = "np-popover-backdrop";
-  @Input() hasBackDrop = true;
+  @Input() closeOnClickOutside: boolean = true;
+  @Input() backDropClass: string = "np-popover-backdrop";
+  @Input() hasBackDrop: boolean = true;
   @Input() styleClass: string;
 
   @Output() onOpen: EventEmitter<any> = new EventEmitter();
@@ -46,7 +46,7 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef,
     private utility: NpUtilityService
-  ) {}
+  ) { }
 
   ngAfterViewInit(): void {
     this.elementRef.nativeElement.className = `${this.elementRef.nativeElement.className} np-popover-target`.trim();
@@ -74,22 +74,22 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.overlayRef.hasAttached()) {
       this.overlayRef.detach();
     }
   }
 
-  open() {
+  open(): void {
     this._open();
   }
 
-  close() {
+  close(): void {
     this._close();
   }
 
   @HostListener("mouseover")
-  _showOnMouseEnter() {
+  _showOnMouseEnter(): void {
     if (this.openOnClick) {
       return;
     }
@@ -97,7 +97,7 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
   }
 
   @HostListener("click")
-  _openOnClick() {
+  _openOnClick(): void {
     if (!this.openOnClick) {
       return;
     }
@@ -109,7 +109,7 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
     }
   }
 
-  _open() {
+  _open(): void {
     const popoverPortal = new ComponentPortal(NpPopoverComponent);
     const popoverRef: ComponentRef<NpPopoverComponent> = this.overlayRef.attach(
       popoverPortal
@@ -123,14 +123,14 @@ export class NpPopoverDirective implements AfterViewInit, OnDestroy {
   }
 
   @HostListener("mouseout")
-  _hideOnMouseLeave() {
+  _hideOnMouseLeave(): void {
     if (this.openOnClick) {
       return;
     }
     this._close();
   }
 
-  _close() {
+  _close(): void {
     if (this.overlayRef.hasAttached()) {
       this.overlayRef.detach();
       this.onClose.emit();

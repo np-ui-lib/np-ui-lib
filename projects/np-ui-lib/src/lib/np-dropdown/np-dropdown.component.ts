@@ -49,7 +49,7 @@ export class NpDropdownComponent
   @Input() itemTemplate: TemplateRef<any>;
   @Input() orderBy: string;
   @Input() orderDir: string;
-  @Input() placeholder = "";
+  @Input() placeholder: string = "";
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -65,14 +65,14 @@ export class NpDropdownComponent
 
   selected: any;
   innerValue: any;
-  isDisabled = false;
-  focused = false;
-  isOpen = false;
+  isDisabled: boolean = false;
+  focused: boolean = false;
+  isOpen: boolean = false;
 
   private templatePortal: TemplatePortal<any>;
   private overlayRef: OverlayRef;
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   constructor(
     public overlay: Overlay,
@@ -80,7 +80,7 @@ export class NpDropdownComponent
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef,
     private utility: NpUtilityService
-  ) {}
+  ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.items) {
@@ -137,11 +137,11 @@ export class NpDropdownComponent
     this.isDisabled = isDisabled;
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _setSelectedOption() {
+  _setSelectedOption(): void {
     let selected: any;
     if (this.valueKey) {
       for (const item of this.items) {
@@ -161,13 +161,13 @@ export class NpDropdownComponent
     this.selected = selected;
   }
 
-  _close() {
+  _close(): void {
     this.overlayRef.detach();
     this.inputViewChild.nativeElement.focus();
     this.isOpen = false;
   }
 
-  _clear() {
+  _clear(): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
@@ -175,7 +175,7 @@ export class NpDropdownComponent
     this.selected = null;
   }
 
-  _selectValue(val: any) {
+  _selectValue(val: any): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
@@ -184,7 +184,7 @@ export class NpDropdownComponent
     this._close();
   }
 
-  _open() {
+  _open(): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
@@ -194,14 +194,14 @@ export class NpDropdownComponent
     }
   }
 
-  _isSelected(item: any) {
+  _isSelected(item: any): boolean {
     if (this.displayKey || this.valueKey) {
       return this.utility.isEqual(this.selected, item);
     }
     return this.selected === item;
   }
 
-  _onKeydown(event: KeyboardEvent) {
+  _onKeydown(event: KeyboardEvent): void {
     if (event.key === "Tab" || event.key === "Escape") {
       this._close();
     }
@@ -215,7 +215,7 @@ export class NpDropdownComponent
     return index;
   }
 
-  _getDisplayValue() {
+  _getDisplayValue(): void {
     return (
       (this.displayKey && this.selected
         ? this.selected[this.displayKey]
@@ -223,13 +223,13 @@ export class NpDropdownComponent
     );
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }

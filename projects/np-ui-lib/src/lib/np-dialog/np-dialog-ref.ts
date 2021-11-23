@@ -11,7 +11,7 @@ export class NpDialogRef {
     public content: string | TemplateRef<any>,
     public config: NpDialogConfig,
     public data: any
-  ) {}
+  ) { }
 
   close(data?: any) {
     this._close(data);

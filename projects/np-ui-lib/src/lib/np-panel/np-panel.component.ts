@@ -28,7 +28,7 @@ export class NpPanelComponent implements OnInit, OnDestroy {
   @Input() allowToMinimize: boolean;
   @Input() allowToZoom: boolean;
   @Input() allowToClose: boolean;
-  @Input() isOpen = true;
+  @Input() isOpen: boolean = true;
   @Input() height: number;
   @Input() disabled: boolean;
   @Input() iconCss: string;
@@ -39,7 +39,7 @@ export class NpPanelComponent implements OnInit, OnDestroy {
   @Output() onCollapse: EventEmitter<any> = new EventEmitter();
 
   isTitleTemplate: boolean;
-  isZoom = false;
+  isZoom: boolean = false;
 
   @ContentChild(NpPanelContent, { read: TemplateRef, static: true })
   _explicitContent: TemplateRef<any>;
@@ -51,7 +51,7 @@ export class NpPanelComponent implements OnInit, OnDestroy {
   constructor(
     private _viewContainerRef: ViewContainerRef,
     private el: ElementRef
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     if (this.title instanceof TemplateRef) {
@@ -73,7 +73,7 @@ export class NpPanelComponent implements OnInit, OnDestroy {
     }
   }
 
-  _toggle() {
+  _toggle(): void {
     if (this.disabled || !this.allowToMinimize || this.isZoom) {
       return;
     }
@@ -92,7 +92,7 @@ export class NpPanelComponent implements OnInit, OnDestroy {
     this.onExpand.emit(this);
   }
 
-  _toggleZoom() {
+  _toggleZoom(): void {
     if (this.disabled) {
       return;
     }
@@ -106,18 +106,18 @@ export class NpPanelComponent implements OnInit, OnDestroy {
     this.isZoom = true;
   }
 
-  _close() {
+  _close(): void {
     if (this.disabled) {
       return;
     }
     this.el.nativeElement.remove();
   }
 
-  _getTitleId() {
+  _getTitleId(): string {
     return this.inputId + "_title";
   }
 
-  _getBodyId() {
+  _getBodyId(): string {
     return this.inputId + "_body";
   }
 }

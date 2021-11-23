@@ -467,7 +467,7 @@ export class NpDatePickerComponent
     this.onFocus.emit($event);
   }
 
-  _getDateClass(item: any) {
+  _getDateClass(item: any): string {
     if (this.dateClass) {
       return (
         `np-date-picker-day np-day-${item.day} ` + this.dateClass(item.date)

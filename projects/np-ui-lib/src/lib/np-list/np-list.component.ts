@@ -29,11 +29,11 @@ export class NpListComponent {
   @Input() height: number;
   @Input() orderBy: string;
   @Input() orderDir: string;
-  @Input() showTiles = false;
-  @Input() columnSize = 4;
-  @Input() isServerOperations = false;
-  @Input() pageSize = 10;
-  @Input() totalItems = 0;
+  @Input() showTiles: boolean = false;
+  @Input() columnSize: number = 4;
+  @Input() isServerOperations: boolean = false;
+  @Input() pageSize: number = 10;
+  @Input() totalItems: number = 0;
   @Input() styleClass: string;
   @Input() inputId: string = `np-list_${NpListComponent.controlCount++}`;
   @Input() selection: any[];
@@ -48,7 +48,7 @@ export class NpListComponent {
 
   constructor(private utility: NpUtilityService) { }
 
-  selectAll() {
+  selectAll(): void {
     if (this._isSingleSelectionMode()) {
       return;
     }
@@ -64,20 +64,20 @@ export class NpListComponent {
     this.selectionChange.emit(this.selection);
   }
 
-  deselectAll() {
+  deselectAll(): void {
     this.selection = [];
     this.selectionChange.emit(this.selection);
   }
 
-  refresh() {
+  refresh(): void {
     this.listPaginator.refresh();
   }
 
-  loadPage(page: number) {
+  loadPage(page: number): void {
     this.listPaginator.loadPage(page);
   }
 
-  _onSelectItem(checked: any, item: any) {
+  _onSelectItem(checked: any, item: any): void {
     if (checked) {
       if (this.valueKey) {
         if (this._isSingleSelectionMode()) {
@@ -102,11 +102,11 @@ export class NpListComponent {
     this.selectionChange.emit(this.selection);
   }
 
-  _isSelected(item) {
+  _isSelected(item: any): boolean {
     return this.selectionMode && this._getSelectedIndexOfItem(item) > -1;
   }
 
-  _getSelectedIndexOfItem(item: any) {
+  _getSelectedIndexOfItem(item: any): any {
     const that = this;
     if (this.valueKey) {
       return this.selection.findIndex((element) => element === item[this.valueKey]);
@@ -118,19 +118,19 @@ export class NpListComponent {
     return index;
   }
 
-  _onClick(item: any) {
+  _onClick(item: any): void {
     this.onClick.emit(item);
   }
 
-  _onPageChange(options: any) {
+  _onPageChange(options: any): void {
     this.onPageChange.emit(options);
   }
 
-  _isSingleSelectionMode() {
+  _isSingleSelectionMode(): boolean {
     return this.selectionMode && this.selectionMode === "single";
   }
 
-  _clearSelection() {
+  _clearSelection(): void {
     this.deselectAll();
   }
 }

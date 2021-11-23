@@ -8,4 +8,4 @@ import { NpRadioGroupComponent } from "./np-radio-group.component";
   imports: [CommonModule],
   exports: [NpRadioButtonComponent, NpRadioGroupComponent],
 })
-export class NpRadioButtonModule {}
+export class NpRadioButtonModule { }

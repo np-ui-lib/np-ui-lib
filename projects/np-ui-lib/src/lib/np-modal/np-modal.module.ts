@@ -12,4 +12,4 @@ import { NpModalService } from "./np-modal.service";
   entryComponents: [NpModalContainerComponent],
   providers: [NpModalService],
 })
-export class NpModalModule {}
+export class NpModalModule { }

@@ -1,45 +1,24 @@
-<div
-  role="alertdialog"
-  [ngClass]="'np-dialog'"
-  [class]="styleClass"
-  [attr.id]="inputId"
-  [attr.aria-modal]="dialogRef.config.hasBackDrop ? 'true' : null"
-  [attr.aria-labelledby]="inputId + '_title'"
->
-  <div
-    class="np-dialog-header"
-    [innerHTML]="title"
-    [id]="inputId + '_title'"
-  ></div>
+<div role="alertdialog" [ngClass]="'np-dialog'" [class]="styleClass" [attr.id]="inputId"
+  [attr.aria-modal]="dialogRef.config.hasBackDrop ? 'true' : null" [attr.aria-labelledby]="inputId + '_title'">
+  <div class="np-dialog-header" [innerHTML]="title" [id]="inputId + '_title'"></div>
   <div class="np-dialog-body">
     <ng-container [ngSwitch]="contentType">
       <ng-container *ngSwitchCase="'string'">
         <div [innerHTML]="message"></div>
       </ng-container>
       <ng-container *ngSwitchCase="'template'">
-        <ng-container
-          *ngTemplateOutlet="message; context: context"
-        ></ng-container>
+        <ng-container *ngTemplateOutlet="message; context: context"></ng-container>
       </ng-container>
     </ng-container>
-    <input
-      class="np-form-control np-dialog-input"
-      type="text"
-      *ngIf="type === 'prompt'"
-      [(ngModel)]="value"
-      [npAutofocus]="true"
-    />
+    <input class="np-form-control np-dialog-input" type="text" *ngIf="type === 'prompt'" [(ngModel)]="value"
+      [npAutofocus]="true" />
   </div>
   <div class="np-dialog-footer">
     <div class="np-btn-group">
       <button class="np-btn np-btn-primary np-dialog-ok" (click)="onOk()">
         {{ "Ok" | npTranslate }}
       </button>
-      <button
-        class="np-btn np-btn-danger np-dialog-cancel"
-        *ngIf="type !== 'alert'"
-        (click)="onCancel()"
-      >
+      <button class="np-btn np-btn-danger np-dialog-cancel" *ngIf="type !== 'alert'" (click)="onCancel()">
         {{ "Cancel" | npTranslate }}
       </button>
     </div>

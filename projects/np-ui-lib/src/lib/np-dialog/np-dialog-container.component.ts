@@ -24,12 +24,12 @@ export class NpDialogContainerComponent implements OnInit {
   contentType: "template" | "string";
   context: any;
   styleClass: string;
-  inputId = `np-dialog_${NpDialogContainerComponent.controlCount++}`;
+  inputId: string = `np-dialog_${NpDialogContainerComponent.controlCount++}`;
 
   constructor(
     public dialogRef: NpDialogRef,
     private translationService: NpTranslationsService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.type = this.dialogRef.config.type
@@ -39,8 +39,8 @@ export class NpDialogContainerComponent implements OnInit {
       this.type === "alert"
         ? "Alert"
         : this.type === "confirm"
-        ? "Confirm"
-        : "Prompt"
+          ? "Confirm"
+          : "Prompt"
     );
     this.message = this.dialogRef.content;
     if (typeof this.message === "string") {
@@ -59,7 +59,7 @@ export class NpDialogContainerComponent implements OnInit {
     }
   }
 
-  onOk() {
+  onOk(): void {
     if (this.type === "prompt") {
       this.dialogRef.close(this.value ? this.value : "");
     } else if (this.type === "confirm") {
@@ -69,7 +69,7 @@ export class NpDialogContainerComponent implements OnInit {
     }
   }
 
-  onCancel() {
+  onCancel(): void {
     if (this.type === "prompt") {
       this.dialogRef.close(null);
     } else if (this.type === "confirm") {

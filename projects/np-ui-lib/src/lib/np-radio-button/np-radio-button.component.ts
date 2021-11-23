@@ -19,9 +19,9 @@ export class NpRadioButtonComponent implements AfterViewInit {
   @Input() value: any;
   @Input() inputId: string = `np-radio-button_${NpRadioButtonComponent.controlCount++}`;
 
-  focused = false;
+  focused: boolean = false;
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (!this.value) {
       throw new EvalError("The [value] property is required!");
     }

@@ -9,4 +9,4 @@ import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
   imports: [CommonModule, NpAutofocusModule, NpTranslationsModule],
   exports: [NpFileUploadComponent],
 })
-export class NpFileUploadModule {}
+export class NpFileUploadModule { }

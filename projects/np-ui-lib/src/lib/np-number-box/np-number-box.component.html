@@ -1,63 +1,25 @@
-<div
-  [ngClass]="{
+<div [ngClass]="{
     'np-number-box': true,
     'np-disabled': isDisabled,
     'np-readonly': readOnly
-  }"
-  [class]="styleClass"
-  [attr.id]="inputId"
->
+  }" [class]="styleClass" [attr.id]="inputId">
   <div class="np-input-group" [ngClass]="{ 'np-focused': focused }">
-    <label
-      class="np-prefix-label"
-      *ngIf="prefixLabel"
-      [innerHTML]="prefixLabel"
-    ></label>
-    <input
-      class="np-form-control"
-      type="number"
-      #control
-      autocomplete="off"
-      [npAutofocus]="autoFocus"
-      [attr.tabindex]="tabIndex"
-      [readonly]="readOnly"
-      [value]="innerValue"
-      [placeholder]="placeholder"
-      [attr.aria-valumin]="min"
-      [attr.aria-valuemax]="max"
-      [attr.aria-valuenow]="innerValue"
-      [disabled]="isDisabled"
-      (change)="_onInputChange($event)"
-      (blur)="_onBlur($event)"
-      (focus)="_onFocus($event)"
-    />
-    <label
-      class="np-suffix-label"
-      *ngIf="suffixLabel"
-      [innerHTML]="suffixLabel"
-    ></label>
+    <label class="np-prefix-label" *ngIf="prefixLabel" [innerHTML]="prefixLabel"></label>
+    <input class="np-form-control" type="number" #control autocomplete="off" [npAutofocus]="autoFocus"
+      [attr.tabindex]="tabIndex" [readonly]="readOnly" [value]="innerValue" [placeholder]="placeholder"
+      [attr.aria-valumin]="min" [attr.aria-valuemax]="max" [attr.aria-valuenow]="innerValue" [disabled]="isDisabled"
+      (change)="_onInputChange($event)" (blur)="_onBlur($event)" (focus)="_onFocus($event)" />
+    <label class="np-suffix-label" *ngIf="suffixLabel" [innerHTML]="suffixLabel"></label>
     <div class="np-input-group-append" *ngIf="showControls">
-      <button
-        class="np-btn-icon np-number-minus"
-        type="button"
-        tabindex="-1"
-        (mousedown)="_onMouseDownMinus()"
-        (mouseup)="_onMouseUpMinus()"
-        (mouseleave)="_onMouseUpMinus()"
-      >
+      <button class="np-btn-icon np-number-minus" type="button" tabindex="-1" (mousedown)="_onMouseDownMinus()"
+        (mouseup)="_onMouseUpMinus()" (mouseleave)="_onMouseUpMinus()">
         <svg class="np-icon" viewBox="0 0 24 24">
           <path d="M19 13H5v-2h14v2z"></path>
           <path d="M0 0h24v24H0z" fill="none"></path>
         </svg>
       </button>
-      <button
-        class="np-btn-icon np-number-plus"
-        type="button"
-        tabindex="-1"
-        (mousedown)="_onMouseDownPlus()"
-        (mouseup)="_onMouseUpPlus()"
-        (mouseleave)="_onMouseUpPlus()"
-      >
+      <button class="np-btn-icon np-number-plus" type="button" tabindex="-1" (mousedown)="_onMouseDownPlus()"
+        (mouseup)="_onMouseUpPlus()" (mouseleave)="_onMouseUpPlus()">
         <svg class="np-icon" viewBox="0 0 24 24">
           <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
           <path d="M0 0h24v24H0z" fill="none"></path>

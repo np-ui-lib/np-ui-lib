@@ -8,4 +8,4 @@ import { NpTranslationsModule } from "../np-translations/np-translations.module"
   imports: [CommonModule, NpTranslationsModule],
   exports: [NpPaginatorComponent],
 })
-export class NpPaginatorModule {}
+export class NpPaginatorModule { }

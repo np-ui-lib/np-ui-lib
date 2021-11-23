@@ -10,4 +10,4 @@ import { NpStepNext, NpStepPrevious } from "./np-step-buttons.directive";
   imports: [CommonModule, CdkStepperModule],
   exports: [NpStepsComponent, NpStepComponent, NpStepNext, NpStepPrevious],
 })
-export class NpStepsModule {}
+export class NpStepsModule { }

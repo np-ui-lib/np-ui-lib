@@ -1,43 +1,22 @@
-<div
-  [ngClass]="{
+<div [ngClass]="{
     'np-file-upload': true,
     'np-disabled': isDisabled,
     'np-readonly': readOnly
-  }"
-  [class]="styleClass"
-  [attr.id]="inputId"
->
+  }" [class]="styleClass" [attr.id]="inputId">
   <div class="np-input-group" [ngClass]="{ 'np-focused': focused }">
     <label class="np-file-label" tabindex="auto" [attr.for]="_getInputId()">
-      <input
-        class="np-file-input"
-        type="file"
-        #control
-        [attr.id]="_getInputId()"
-        [attr.accept]="accept"
-        [npAutofocus]="autoFocus"
-        [attr.tabindex]="tabIndex"
-        [readonly]="readOnly"
-        [disabled]="isDisabled"
-        [multiple]="multiple"
-        #fileUploadInput
-        (change)="_onFileSelected($event)"
-        (blur)="_onBlur($event)"
-        (focus)="_onFocus($event)"
-      />
+      <input class="np-file-input" type="file" #control [attr.id]="_getInputId()" [attr.accept]="accept"
+        [npAutofocus]="autoFocus" [attr.tabindex]="tabIndex" [readonly]="readOnly" [disabled]="isDisabled"
+        [multiple]="multiple" #fileUploadInput (change)="_onFileSelected($event)" (blur)="_onBlur($event)"
+        (focus)="_onFocus($event)" />
       <span class="np-file-btn">{{ _getLabel() | npTranslate }}</span>
     </label>
     <div class="np-input-group-append" *ngIf="value && value.length > 1">
-      <button
-        class="np-btn-icon np-btn-clear"
-        type="button"
-        tabindex="-1"
-        (click)="_clear()"
-      >
+      <button class="np-btn-icon np-btn-clear" type="button" tabindex="-1" (click)="_clear()">
         <svg class="np-icon" viewBox="0 0 24 24">
           <path
-            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-          ></path>
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+          </path>
           <path d="M0 0h24v24H0z" fill="none"></path>
         </svg>
       </button>
@@ -49,23 +28,16 @@
     <span class="np-file-name">
       <svg class="np-icon mr-1" viewBox="0 0 24 24">
         <path d="M0 0h24v24H0V0z" fill="none"></path>
-        <path
-          d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"
-        ></path>
+        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z">
+        </path>
       </svg>
       <a [innerHTML]="file.name"></a>
     </span>
     <span *ngIf="showFileSize" [innerHTML]="_formatBytes(file)"></span>
-    <button
-      class="np-file-remove-btn"
-      type="button"
-      tabindex="-1"
-      (click)="_remove(i)"
-    >
+    <button class="np-file-remove-btn" type="button" tabindex="-1" (click)="_remove(i)">
       <svg class="np-icon" viewBox="0 0 24 24">
-        <path
-          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-        ></path>
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+        </path>
         <path d="M0 0h24v24H0z" fill="none"></path>
       </svg>
     </button>

@@ -7,4 +7,4 @@ import { NpNotificationsComponent } from "./np-notifications.component";
   imports: [CommonModule],
   exports: [NpNotificationsComponent],
 })
-export class NpNotificationsModule {}
+export class NpNotificationsModule { }

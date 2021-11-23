@@ -22,4 +22,4 @@ import { OverlayModule } from "@angular/cdk/overlay";
   entryComponents: [NpDialogContainerComponent],
   providers: [NpDialogService],
 })
-export class NpDialogModule {}
+export class NpDialogModule { }

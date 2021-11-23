@@ -23,11 +23,11 @@ export class NpModalContainerComponent implements OnInit {
   showCloseButton: boolean;
   header: string;
   styleClass: string;
-  inputId = `np-modal_${NpModalContainerComponent.controlCount++}`;
+  inputId: string = `np-modal_${NpModalContainerComponent.controlCount++}`;
 
-  constructor(public modalRef: NpModalRef) {}
+  constructor(public modalRef: NpModalRef) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.content = this.modalRef.content;
     if (typeof this.content === "string") {
       this.contentType = "string";
@@ -50,7 +50,7 @@ export class NpModalContainerComponent implements OnInit {
     }
   }
 
-  close() {
+  close(): void {
     this.modalRef.close(null);
   }
 }

@@ -27,9 +27,9 @@ import { NG_VALUE_ACCESSOR } from "@angular/forms";
 export class NpSliderComponent {
   private static controlCount = 1;
 
-  @Input() min = 0;
-  @Input() max = 100;
-  @Input() step = 1;
+  @Input() min: number = 0;
+  @Input() max: number = 100;
+  @Input() step: number = 1;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -42,13 +42,13 @@ export class NpSliderComponent {
 
   @ViewChild("control") inputViewChild: ElementRef;
 
-  lable: number;
+  labelText: number;
   innerValue: number;
-  isDisabled = false;
-  focused = false;
+  isDisabled: boolean = false;
+  focused: boolean = false;
   style: any;
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   get value(): number {
     return this.innerValue;
@@ -57,7 +57,7 @@ export class NpSliderComponent {
   set value(v: number) {
     if (v !== this.innerValue) {
       this.innerValue = v;
-      this.lable = v;
+      this.labelText = v;
       this.onChangeCallback(v);
       this.onChange.emit(v);
     }
@@ -66,7 +66,7 @@ export class NpSliderComponent {
   writeValue(v: number): void {
     if (v !== this.innerValue) {
       this.innerValue = v;
-      this.lable = v;
+      this.labelText = v;
       this._setLeftPosition(v);
     }
   }
@@ -83,11 +83,11 @@ export class NpSliderComponent {
     this.isDisabled = isDisabled;
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _onChange($event) {
+  _onChange($event: any): void {
     if (this.isDisabled || this.readOnly) {
       $event.preventDefault();
       return;
@@ -95,34 +95,34 @@ export class NpSliderComponent {
     this.value = $event.target.value;
   }
 
-  _onInput($event) {
+  _onInput($event: any): void {
     if (this.isDisabled || this.readOnly) {
       $event.preventDefault();
       return;
     }
-    this.lable = $event.target.value;
-    this._setLeftPosition(this.lable);
+    this.labelText = $event.target.value;
+    this._setLeftPosition(this.labelText);
   }
 
-  _onKeyDown($event) {
+  _onKeyDown($event: any): void {
     if (this.readOnly) {
       $event.preventDefault();
       return;
     }
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }
 
-  _setLeftPosition(value: number) {
+  _setLeftPosition(value: number): void {
     const val = ((value - this.min) * 100) / (this.max - this.min);
     this.style = val < 50 ? { left: `${val}%` } : { right: `${100 - val}%` };
   }

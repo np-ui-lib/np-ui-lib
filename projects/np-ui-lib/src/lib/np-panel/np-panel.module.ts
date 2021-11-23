@@ -9,4 +9,4 @@ import { PortalModule } from "@angular/cdk/portal";
   imports: [CommonModule, PortalModule],
   exports: [NpPanelComponent, NpPanelContent],
 })
-export class NpPanelModule {}
+export class NpPanelModule { }

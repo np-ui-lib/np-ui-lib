@@ -19,11 +19,11 @@ export class NpProgressComponent {
   @Input() indeterminate: boolean;
   @Input() striped: boolean;
   @Input() animated: boolean;
-  @Input() showLabel = true;
+  @Input() showLabel: boolean = true;
   @Input() height: number;
   @Input() inputId: string = `np-progress_${NpProgressComponent.controlCount++}`;
 
-  getTextValue() {
+  getTextValue(): string {
     return `${this.value}%`;
   }
 }

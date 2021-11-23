@@ -1,47 +1,20 @@
-<div
-  class="np-radio-group"
-  role="radiogroup"
-  [ngClass]="{ 'np-radio-group-vertical': orientation === 'vertical' }"
-  [attr.id]="inputId"
->
+<div class="np-radio-group" role="radiogroup" [ngClass]="{ 'np-radio-group-vertical': orientation === 'vertical' }"
+  [attr.id]="inputId">
   <ng-container *ngFor="let item of radioButtons; let i = index">
-    <div
-      [ngClass]="{
+    <div [ngClass]="{
         'np-radio-button': true,
         'np-disabled': isDisabled,
         'np-readonly': readOnly
-      }"
-      role="radio"
-      [attr.aria-checked]="_isSelected(item)"
-      [class]="styleClass"
-      [attr.id]="item.inputId"
-    >
-      <label
-        class="np-radio-button-label"
-        [attr.for]="_getInputId(item.inputId)"
-      >
-        <input
-          class="np-radio-button-input"
-          type="radio"
-          [value]="value"
-          [checked]="_isSelected(item)"
-          [attr.id]="_getInputId(item.inputId)"
-          [attr.name]="name"
-          [disabled]="isDisabled"
-          [readonly]="readOnly"
-          [attr.tabindex]="_getTabIndex(item, i)"
-          (change)="_onChange(item)"
-          (keydown)="_onKeyDown($event)"
-          (blur)="_onBlur($event, item)"
-          (focus)="_onFocus($event, item)"
-        />
-        <span
-          class="np-radio-container"
-          [ngClass]="{
+      }" role="radio" [attr.aria-checked]="_isSelected(item)" [class]="styleClass" [attr.id]="item.inputId">
+      <label class="np-radio-button-label" [attr.for]="_getInputId(item.inputId)">
+        <input class="np-radio-button-input" type="radio" [value]="value" [checked]="_isSelected(item)"
+          [attr.id]="_getInputId(item.inputId)" [attr.name]="name" [disabled]="isDisabled" [readonly]="readOnly"
+          [attr.tabindex]="_getTabIndex(item, i)" (change)="_onChange(item)" (keydown)="_onKeyDown($event)"
+          (blur)="_onBlur($event, item)" (focus)="_onFocus($event, item)" />
+        <span class="np-radio-container" [ngClass]="{
             'np-radio-selected': _isSelected(item),
             'np-focused-rounded': item.focused
-          }"
-        >
+          }">
           <span class="np-radio-outer-circle"></span>
           <span class="np-radio-inner-circle"></span>
         </span>

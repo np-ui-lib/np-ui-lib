@@ -7,4 +7,4 @@ import { NpProgressComponent } from "./np-progress.component";
   imports: [CommonModule],
   exports: [NpProgressComponent],
 })
-export class NpProgressModule {}
+export class NpProgressModule { }

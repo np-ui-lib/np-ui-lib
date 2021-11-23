@@ -19,4 +19,4 @@ import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
   ],
   exports: [NpRichTextComponent],
 })
-export class NpRichTextModule {}
+export class NpRichTextModule { }

@@ -44,7 +44,7 @@ export class NpInputTextComponent implements ControlValueAccessor, Validator {
   @Input() prefixLabel: string;
   @Input() suffixLabel: string;
   @Input() mask: string;
-  @Input() placeholder = "";
+  @Input() placeholder: string = "";
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -94,7 +94,7 @@ export class NpInputTextComponent implements ControlValueAccessor, Validator {
     this.isDisabled = isDisabled;
   }
 
-  validate() {
+  validate(): any {
     if (
       this.minLength !== undefined &&
       this.value &&
@@ -129,21 +129,21 @@ export class NpInputTextComponent implements ControlValueAccessor, Validator {
     }
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _onInputChange(event) {
+  _onInputChange(event: any): void {
     this.value = event.target.value;
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }

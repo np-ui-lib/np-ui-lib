@@ -17,13 +17,13 @@ import { Router } from "@angular/router";
 })
 export class NpMenuItemComponent {
   @Input() item: NpMenuItem;
-  @Input() orientation = "vertical";
+  @Input() orientation: "vertical" | "horizontal" = "vertical";
 
   @Output() onClickItem: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  _onMouseEnter($event, item: NpMenuItem) {
+  _onMouseEnter($event: any, item: NpMenuItem): void {
     if (this.orientation === "vertical") {
       item.x = $event.target.offsetWidth;
       item.y = 0;
@@ -34,15 +34,15 @@ export class NpMenuItemComponent {
     item.isChildVisible = true;
   }
 
-  _onMouseLeave(item: NpMenuItem) {
+  _onMouseLeave(item: NpMenuItem): void {
     item.isChildVisible = false;
   }
 
-  _onClickMenuItem(item: NpMenuItem) {
+  _onClickMenuItem(item: NpMenuItem): void {
     this.onClickItem.emit(item);
   }
 
-  _isActive(item: NpMenuItem) {
-    return this.router.isActive(item.routerLink, false);
+  _isActive(item: NpMenuItem): boolean {
+    return this.router.isActive(item.routerLink, { matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored' });
   }
 }

@@ -15,7 +15,7 @@ export class NpModalService {
     private overlay: Overlay,
     private injector: Injector,
     private overlayPositionBuilder: OverlayPositionBuilder
-  ) {}
+  ) { }
 
   open(
     content: string | TemplateRef<any> | Type<any>,

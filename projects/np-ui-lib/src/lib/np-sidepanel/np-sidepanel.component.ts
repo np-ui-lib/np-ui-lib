@@ -32,13 +32,13 @@ export class NpSidepanelComponent implements OnInit, OnDestroy {
   private static controlCount = 1;
 
   // left | right | top | bottom
-  @Input() position = "left";
+  @Input() position: 'left' | 'right' | 'top' | 'bottom' = "left";
   @Input() height: number | string;
   @Input() width: number | string;
   @Input() header: string;
-  @Input() closeOnClickOutside = true;
-  @Input() backDropClass = "np-sidepanel-backdrop";
-  @Input() hasBackDrop = true;
+  @Input() closeOnClickOutside: boolean = true;
+  @Input() backDropClass: string = "np-sidepanel-backdrop";
+  @Input() hasBackDrop: boolean = true;
   @Input() styleClass: string;
   @Input() inputId: string = `np-sidepanel_${NpSidepanelComponent.controlCount++}`;
 
@@ -123,7 +123,7 @@ export class NpSidepanelComponent implements OnInit, OnDestroy {
     return null;
   }
 
-  close(data: any) {
+  close(data: any): void {
     if (this.overlayRef && this.overlayRef.hasAttached()) {
       if (this._contentPortal && this._contentPortal.isAttached) {
         this._contentPortal.detach();

@@ -22,8 +22,8 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
   @Input() pageSize: number;
   @Input() totalItems: number;
   @Input() currentPage: number;
-  @Input() showPageSize = true;
-  @Input() showTotal = true;
+  @Input() showPageSize: boolean = true;
+  @Input() showTotal: boolean = true;
   @Input() styleClass: string;
   @Input() inputId: string = `np-paginator-box_${NpPaginatorComponent.controlCount++}`;
 
@@ -34,7 +34,7 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
   totalPages: number;
   startIndex: number;
   endIndex: number;
-  inited = false;
+  initialized: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes && changes.totalItems) {
@@ -60,15 +60,15 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
     if (!this.currentPage) {
       this.currentPage = 1;
     }
-    this.inited = true;
+    this.initialized = true;
     this._applyChanges();
   }
 
-  loadPage(page: number) {
+  loadPage(page: number): void {
     this._loadPage(page);
   }
 
-  refresh() {
+  refresh(): void {
     this.onRefresh.emit();
     this.onPageChange.emit({
       currentPage: this.currentPage,
@@ -76,23 +76,23 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
     });
   }
 
-  _onCurrentPageChange(event) {
+  _onCurrentPageChange(event: any): void {
     this._loadPage(Number(event.target.value));
   }
 
-  _onItemPerPageChange(event) {
+  _onItemPerPageChange(event: any): void {
     this.onPageSizeChange.emit(event.target.value);
     this.pageSize = Number(event.target.value);
     this._loadPage(1);
   }
 
-  _loadPage(page: number) {
+  _loadPage(page: number): void {
     this.currentPage = page;
     this._applyChanges();
   }
 
-  _applyChanges() {
-    if (this.inited) {
+  _applyChanges(): void {
+    if (this.initialized) {
       this.totalPages = this._calculateTotalPages();
     }
     if (this.currentPage > 0 && this.pageSize > 0 && this.totalPages > 0) {
@@ -116,7 +116,7 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
     return Math.max(result || 0, 1);
   }
 
-  private _setStartEndIndex() {
+  private _setStartEndIndex(): void {
     if (this.totalItems === 0) {
       this.startIndex = -1;
       this.endIndex = -1;

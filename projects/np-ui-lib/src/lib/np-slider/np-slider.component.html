@@ -1,38 +1,13 @@
-<div
-  [ngClass]="{
+<div [ngClass]="{
     'np-slider': true,
     'np-disabled': isDisabled,
     'np-readonly': readOnly
-  }"
-  [class]="styleClass"
-  [attr.id]="inputId"
->
-  <input
-    class="np-slider-input"
-    type="range"
-    #control
-    [ngClass]="{ 'np-focused': focused }"
-    [min]="min"
-    [max]="max"
-    [step]="step"
-    [value]="innerValue"
-    [disabled]="isDisabled"
-    [npAutofocus]="autoFocus"
-    [attr.tabindex]="tabIndex"
-    [readonly]="readOnly"
-    [attr.aria-valuenow]="value"
-    [attr.aria-valuemin]="min"
-    [attr.aria-valuemax]="max"
-    (change)="_onChange($event)"
-    (keydown)="_onKeyDown($event)"
-    (input)="_onInput($event)"
-    (blur)="_onBlur($event)"
-    (focus)="_onFocus($event)"
-  />
-  <label
-    *ngIf="lable != undefined && lable != null"
-    class="np-slider-label"
-    [ngStyle]="style"
-    [innerHTML]="lable"
-  ></label>
+  }" [class]="styleClass" [attr.id]="inputId">
+  <input class="np-slider-input" type="range" #control [ngClass]="{ 'np-focused': focused }" [min]="min" [max]="max"
+    [step]="step" [value]="innerValue" [disabled]="isDisabled" [npAutofocus]="autoFocus" [attr.tabindex]="tabIndex"
+    [readonly]="readOnly" [attr.aria-valuenow]="value" [attr.aria-valuemin]="min" [attr.aria-valuemax]="max"
+    (change)="_onChange($event)" (keydown)="_onKeyDown($event)" (input)="_onInput($event)" (blur)="_onBlur($event)"
+    (focus)="_onFocus($event)" />
+  <label *ngIf="labelText != undefined && labelText != null" class="np-slider-label" [ngStyle]="style"
+    [innerHTML]="labelText"></label>
 </div>

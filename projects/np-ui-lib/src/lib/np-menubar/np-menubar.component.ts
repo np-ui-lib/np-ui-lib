@@ -51,7 +51,7 @@ export class NpMenubarComponent implements AfterContentInit, OnDestroy {
     }
   }
 
-  _collapseMenu(item: NpMenuItem) {
+  _collapseMenu(item: NpMenuItem): void {
     item.items.forEach((element: NpMenuItem) => {
       if (element.items) {
         this._collapseMenu(element);
@@ -60,7 +60,7 @@ export class NpMenubarComponent implements AfterContentInit, OnDestroy {
     item.isChildVisible = false;
   }
 
-  _onClickMenuItem(item: NpMenuItem) {
+  _onClickMenuItem(item: NpMenuItem): void {
     this.onClickMenuItem.emit(item);
   }
 }

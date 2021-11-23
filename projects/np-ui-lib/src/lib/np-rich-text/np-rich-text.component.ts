@@ -58,23 +58,23 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
   @ViewChild("backColorPopover") backColorPopover: NpPopoverDirective;
 
   innerValue: string;
-  isDisabled = false;
-  focused = false;
-  isBold = false;
-  isItalic = false;
-  isUnderline = false;
-  isBlockquote = false;
-  isStrikethrough = false;
-  currentFormat = "no value";
-  currentFont = "no value";
-  currentfontsize = "no value";
+  isDisabled: boolean = false;
+  focused: boolean = false;
+  isBold: boolean = false;
+  isItalic: boolean = false;
+  isUnderline: boolean = false;
+  isBlockquote: boolean = false;
+  isStrikethrough: boolean = false;
+  currentFormat: string = "no value";
+  currentFont: string = "no value";
+  currentfontsize: string = "no value";
   linkUrl: string;
   currentSelectionRange: Range;
   foreColor: string;
   backColor: string;
 
-  private onChangeCallback: (_: any) => void = () => {};
-  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => { };
+  private onTouchedCallback: () => void = () => { };
 
   constructor(private el: ElementRef) {
     this.config = [
@@ -138,7 +138,7 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     this.isDisabled = isDisabled;
   }
 
-  validate() {
+  validate(): any {
     var text = this.el.nativeElement.querySelector(".np-rich-text-input")
       .textContent;
     if (this.minLength !== undefined && text && text.length < this.minLength) {
@@ -157,31 +157,31 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     }
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _onInputChange(event) {
+  _onInputChange(event: any): void {
     this.value = event.target.innerHTML;
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }
 
-  _formatDoc(sCmd: string, sValue: any) {
+  _formatDoc(sCmd: string, sValue: any): void {
     document.execCommand(sCmd, false, sValue);
     this.focus();
   }
 
-  _formatBlock(sCmd: string, sValue: any) {
+  _formatBlock(sCmd: string, sValue: any): void {
     if (sValue === "no value") {
       return;
     }
@@ -193,7 +193,7 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     }, 100);
   }
 
-  _showForeColorOverlay() {
+  _showForeColorOverlay(): void {
     if (!this.focused) {
       this.focus();
     }
@@ -210,7 +210,7 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     this.foreColor = colour;
   }
 
-  _changeForeColor(color: any) {
+  _changeForeColor(color: any): void {
     if (this.currentSelectionRange) {
       document.getSelection().removeAllRanges();
       document.getSelection().addRange(this.currentSelectionRange);
@@ -225,7 +225,7 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     this.foreColorPopover.close();
   }
 
-  _showBackColorOverlay() {
+  _showBackColorOverlay(): void {
     if (!this.focused) {
       this.focus();
     }
@@ -242,7 +242,7 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     this.backColor = colour;
   }
 
-  _changeBackColor(color: any) {
+  _changeBackColor(color: any): void {
     if (this.currentSelectionRange) {
       document.getSelection().removeAllRanges();
       document.getSelection().addRange(this.currentSelectionRange);
@@ -257,7 +257,7 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     this.backColorPopover.close();
   }
 
-  _onCloseOverlays() {
+  _onCloseOverlays(): void {
     if (this.currentSelectionRange) {
       document.getSelection().removeAllRanges();
       document.getSelection().addRange(this.currentSelectionRange);
@@ -266,7 +266,7 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     this.focus();
   }
 
-  _showCreateLink() {
+  _showCreateLink(): void {
     if (!this.focused) {
       this.focus();
     }
@@ -276,7 +276,7 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     this.linkUrl = "https://";
   }
 
-  _createLink() {
+  _createLink(): void {
     if (this.currentSelectionRange) {
       document.getSelection().removeAllRanges();
       document.getSelection().addRange(this.currentSelectionRange);
@@ -288,11 +288,11 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     this.createLinkPopover.close();
   }
 
-  _closeCreateLinkOverlay() {
+  _closeCreateLinkOverlay(): void {
     this.createLinkPopover.close();
   }
 
-  _changeRGBToHex(val) {
+  _changeRGBToHex(val: any): string {
     const rgb = val
       .replace("rgb", "")
       .replace("rgba", "")
@@ -307,14 +307,14 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     );
   }
 
-  _rgbToHex(r: any, g: any, b: any) {
+  _rgbToHex(r: any, g: any, b: any): string {
     const red = this._convertNumberToHex(r);
     const green = this._convertNumberToHex(g);
     const blue = this._convertNumberToHex(b);
     return `#${red}${green}${blue}`;
   }
 
-  _convertNumberToHex(num: any) {
+  _convertNumberToHex(num: any): string {
     let hex = Number(num).toString(16);
     if (hex.length < 2) {
       hex = `0${hex}`;
@@ -322,7 +322,7 @@ export class NpRichTextComponent implements ControlValueAccessor, Validator {
     return hex;
   }
 
-  _isAllowed(permission: string) {
+  _isAllowed(permission: string): boolean {
     return this.config.indexOf(permission) > -1;
   }
 }

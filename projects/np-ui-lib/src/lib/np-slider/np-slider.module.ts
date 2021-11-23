@@ -8,4 +8,4 @@ import { NpAutofocusModule } from "../np-utility/np-autofocus.module";
   imports: [CommonModule, NpAutofocusModule],
   exports: [NpSliderComponent],
 })
-export class NpSliderModule {}
+export class NpSliderModule { }

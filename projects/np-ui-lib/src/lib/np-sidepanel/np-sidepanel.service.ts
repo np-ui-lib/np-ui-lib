@@ -20,7 +20,7 @@ export class NpSidepanelService {
     delete this._observables[id];
   }
 
-  closeSidepanel(id: string, data: any) {
+  closeSidepanel(id: string, data: any): void {
     this._observables[id].next(data);
   }
 }

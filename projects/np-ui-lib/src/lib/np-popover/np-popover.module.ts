@@ -10,4 +10,4 @@ import { NpPopoverDirective } from "./np-popover.directive";
   exports: [NpPopoverDirective],
   entryComponents: [NpPopoverComponent],
 })
-export class NpPopoverModule {}
+export class NpPopoverModule { }

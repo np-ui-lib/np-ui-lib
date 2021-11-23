@@ -31,7 +31,7 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
 
   @Input() name: string;
   // Orientation can be 'horizontal' or 'vertical'
-  @Input() orientation = "horizontal";
+  @Input() orientation: 'horizontal' | 'vertical' = 'horizontal';
   @Input() readOnly: boolean;
   @Input() tabIndex: number;
   @Input() styleClass: string;
@@ -50,7 +50,7 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
   radioButtons: QueryList<NpRadioButtonComponent>;
 
   innerValue: any;
-  isDisabled = false;
+  isDisabled: boolean = false;
 
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
@@ -87,7 +87,7 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
     this.isDisabled = isDisabled;
   }
 
-  focus() {
+  focus(): void {
     setTimeout(() => {
       if (!this.value) {
         const radio = this.el.nativeElement.querySelector(
@@ -108,7 +108,7 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
     }, 100);
   }
 
-  _onKeyDown(event: KeyboardEvent) {
+  _onKeyDown(event: KeyboardEvent): void {
     if (
       (event.key === "ArrowRight" ||
         event.key === "ArrowLeft" ||
@@ -120,15 +120,15 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
     }
   }
 
-  _onChange(item: NpRadioButtonComponent) {
+  _onChange(item: NpRadioButtonComponent): void {
     this.value = item.value;
   }
 
-  _isSelected(item: NpRadioButtonComponent) {
+  _isSelected(item: NpRadioButtonComponent): boolean {
     return this.value === item.value;
   }
 
-  _getTabIndex(item: NpRadioButtonComponent, i: number) {
+  _getTabIndex(item: NpRadioButtonComponent, i: number): number {
     if (!this.value) {
       if (i === 0) {
         return this.tabIndex || 0;
@@ -138,18 +138,18 @@ export class NpRadioGroupComponent implements ControlValueAccessor {
     return this._isSelected(item) ? this.tabIndex || 0 : -1;
   }
 
-  _onBlur($event, item: NpRadioButtonComponent) {
+  _onBlur($event: any, item: NpRadioButtonComponent): void {
     item.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event, item: NpRadioButtonComponent) {
+  _onFocus($event: any, item: NpRadioButtonComponent): void {
     item.focused = true;
     this.onFocus.emit($event);
   }
 
-  _getInputId(id: string) {
+  _getInputId(id: string): string {
     return id + "_input";
   }
 }

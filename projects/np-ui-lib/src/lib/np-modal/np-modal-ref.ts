@@ -19,11 +19,11 @@ export class NpModalRef {
     });
   }
 
-  close(result?: any) {
+  close(result?: any): void {
     this._close(result);
   }
 
-  private _close(result: any) {
+  private _close(result: any): void {
     this.overlay.dispose();
     this.onClose.next(result);
     this.onClose.complete();

@@ -17,4 +17,4 @@ import { NpOrderByModule } from "../np-utility/np-orderby.module";
   ],
   exports: [NpDropdownComponent],
 })
-export class NpDropdownModule {}
+export class NpDropdownModule { }

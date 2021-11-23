@@ -13,7 +13,7 @@ export class NpNotification {
   public autoCloseTimeout: number;
   private id: number;
 
-  _getId() {
+  _getId(): number {
     return this.id;
   }
 }

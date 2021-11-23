@@ -11,15 +11,15 @@ import {
 @Directive({ selector: "[npLoader]" })
 export class NpLoaderDirective implements OnChanges, OnInit {
   @Input("npLoader") show: boolean;
-  @Input() diameter = 32;
-  @Input() strokeWidth = 4;
+  @Input() diameter: number = 32;
+  @Input() strokeWidth: number = 4;
   @Input() loadingText: string;
 
   loaderEle: any;
-  isactive = false;
-  initialized = false;
+  isActive: boolean = false;
+  initialized: boolean = false;
 
-  constructor(private elRef: ElementRef, private renderer: Renderer2) {}
+  constructor(private elRef: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit(): void {
     const loader = this.renderer.createElement("div");
@@ -54,21 +54,21 @@ export class NpLoaderDirective implements OnChanges, OnInit {
     }, 10);
   }
 
-  _showLoader() {
-    if (!this.initialized || this.isactive) {
+  _showLoader(): void {
+    if (!this.initialized || this.isActive) {
       return;
     }
     this.renderer.addClass(this.elRef.nativeElement, "np-loader-target");
     this.renderer.appendChild(this.elRef.nativeElement, this.loaderEle);
-    this.isactive = true;
+    this.isActive = true;
   }
 
-  _hideLoader() {
-    if (!this.initialized || !this.isactive) {
+  _hideLoader(): void {
+    if (!this.initialized || !this.isActive) {
       return;
     }
     this.renderer.removeClass(this.elRef.nativeElement, "np-loader-target");
     this.renderer.removeChild(this.elRef.nativeElement, this.loaderEle);
-    this.isactive = false;
+    this.isActive = false;
   }
 }

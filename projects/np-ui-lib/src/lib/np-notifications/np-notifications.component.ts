@@ -18,19 +18,19 @@ export class NpNotificationsComponent {
 
   @Input() styleClass: string;
   @Input()
-  inputId = `np-notifications_${NpNotificationsComponent.controlCount++}`;
+  inputId: string = `np-notifications_${NpNotificationsComponent.controlCount++}`;
 
-  constructor(private npNotificationsService: NpNotificationsService) {}
+  constructor(private npNotificationsService: NpNotificationsService) { }
 
   get messageService(): NpNotificationsService {
     return this.npNotificationsService;
   }
 
-  _close(msg: NpNotification) {
+  _close(msg: NpNotification): void {
     this.npNotificationsService.close(msg);
   }
 
-  _closeAll() {
+  _closeAll(): void {
     this.npNotificationsService.closeAll();
   }
 }

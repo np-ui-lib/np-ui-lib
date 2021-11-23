@@ -17,4 +17,4 @@ import { NpOrderByModule } from "../np-utility/np-orderby.module";
   ],
   exports: [NpListComponent],
 })
-export class NpListModule {}
+export class NpListModule { }

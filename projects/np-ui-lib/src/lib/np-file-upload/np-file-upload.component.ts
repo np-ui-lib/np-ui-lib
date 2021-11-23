@@ -45,7 +45,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @Input() totalSize: number;
   @Input() maxFiles: number;
   @Input() uploadButtonLabel: string;
-  @Input() showFileSize = true;
+  @Input() showFileSize: boolean = true;
   @Input() readOnly: boolean;
   @Input() autoFocus: boolean;
   @Input() tabIndex: number;
@@ -60,8 +60,8 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
   @ViewChild("control") inputViewChild: ElementRef;
 
   innerValue: File[];
-  isDisabled = false;
-  focused = false;
+  isDisabled: boolean = false;
+  focused: boolean = false;
   private onChangeCallback: (_: any) => void = () => { };
   private onTouchedCallback: () => void = () => { };
 
@@ -95,7 +95,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     this.isDisabled = isDisabled;
   }
 
-  validate(control: FormControl) {
+  validate(control: FormControl): any {
     const value = control.value || [];
     if (this.extensions) {
       let isInValidExtension = false;
@@ -136,18 +136,18 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     }
   }
 
-  focus() {
+  focus(): void {
     this.inputViewChild.nativeElement.focus();
   }
 
-  _clear() {
+  _clear(): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
     this.value = null;
   }
 
-  _onFileSelected($event) {
+  _onFileSelected($event: any): void {
     if (this.isDisabled || this.readOnly) {
       return;
     }
@@ -166,7 +166,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     this.fileUploadInput.nativeElement.value = "";
   }
 
-  _formatBytes(file: File, decimals = 2) {
+  _formatBytes(file: File, decimals = 2): string {
     const bytes = file.size;
     if (bytes === 0) {
       return "0 Bytes";
@@ -178,22 +178,22 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
   }
 
-  _remove(idx: number) {
+  _remove(idx: number): void {
     this.value = this.value.filter((element, index) => index !== idx);
   }
 
-  _onBlur($event) {
+  _onBlur($event: any): void {
     this.focused = false;
     this.onTouchedCallback();
     this.onBlur.emit($event);
   }
 
-  _onFocus($event) {
+  _onFocus($event: any): void {
     this.focused = true;
     this.onFocus.emit($event);
   }
 
-  _getLabel() {
+  _getLabel(): string {
     return this.uploadButtonLabel
       ? this.uploadButtonLabel
       : this.multiple
@@ -201,7 +201,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
         : "Choose_File";
   }
 
-  _getInputId() {
+  _getInputId(): string {
     return this.inputId + "_input";
   }
 }
