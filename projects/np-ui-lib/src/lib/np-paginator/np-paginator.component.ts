@@ -37,7 +37,7 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
   initialized: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes && changes.totalItems) {
+    if (changes && changes["totalItems"]) {
       this.totalPages = this._calculateTotalPages();
       this._setStartEndIndex();
       if (this.currentPage > this.totalPages) {
@@ -45,7 +45,7 @@ export class NpPaginatorComponent implements OnInit, OnChanges {
       }
       return;
     }
-    if (changes && (changes.currentPage || changes.pageSize)) {
+    if (changes && (changes["currentPage"] || changes["pageSize"])) {
       this._applyChanges();
     }
   }

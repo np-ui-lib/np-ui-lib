@@ -40,11 +40,11 @@ export class NpTreeViewComponent implements OnChanges {
   @Output() onDeselect: EventEmitter<any> = new EventEmitter();
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.selection && this.cascadeSelection) {
+    if (changes["selection"] && this.cascadeSelection) {
       this._syncSelectionForAll();
     }
-    if (changes.cascadeSelection && !changes.cascadeSelection.firstChange) {
-      if (changes.cascadeSelection.currentValue) {
+    if (changes["cascadeSelection"] && !changes["cascadeSelection"].firstChange) {
+      if (changes["cascadeSelection"].currentValue) {
         this._syncSelectionForAll();
       } else {
         this._removePartialSelectionAll();

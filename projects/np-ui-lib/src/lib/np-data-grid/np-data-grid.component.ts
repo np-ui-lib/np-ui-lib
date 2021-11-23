@@ -361,16 +361,12 @@ export class NpDataGridComponent
   }
 
   loadStateByName(stateName: string): void {
-    const state = this.stateList.filter((element: State) => {
-      if (element.name === stateName) {
-        return element;
-      }
-    });
+    const state = this.stateList.filter((element: State) => element.name === stateName);
     if (state && state.length > 0) {
       this.currentStateName = stateName;
       this.setColumns(state[0].columns);
     } else {
-      throw new Error("Datagrid state not found");
+      throw new Error("Data grid State not found");
     }
   }
 
@@ -489,18 +485,10 @@ export class NpDataGridComponent
   _setVisibleColumns(): void {
     this.visibleColumns = this.utilityService.custFilter(
       this.gridColumns,
-      (element: Column) => {
-        if (element.visible === true) {
-          return element;
-        }
-      }
+      (element: Column) => element.visible === true
     );
     this.isFilterAvailable =
-      this.utilityService.custFilter(this.visibleColumns, (element: Column) => {
-        if (element.filterEnable === true) {
-          return element;
-        }
-      }).length > 0;
+      this.utilityService.custFilter(this.visibleColumns, (element: Column) => element.filterEnable === true).length > 0;
     this._colSpanForDetailRow =
       this.visibleColumns.length + (this._allowRowSelection() ? 1 : 0) + 1;
   }
@@ -858,11 +846,7 @@ export class NpDataGridComponent
 
   _addState(stateName: string): void {
     const name = stateName.trim();
-    const state = this.stateList.filter((element: State) => {
-      if (element.name === name) {
-        return element;
-      }
-    });
+    const state = this.stateList.filter((element: State) => element.name === name);
     if (state && state.length > 0) {
       this.dialogService.open(
         this.translationsService.translate("State_Name_Already_Exists"),

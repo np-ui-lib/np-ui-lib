@@ -28,7 +28,7 @@ export class NpBlockUiDirective implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.visible.currentValue === true) {
+    if (changes["visible"].currentValue === true) {
       this._show();
     } else {
       this._hide();

@@ -249,7 +249,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  ): Observable<any> {
     const { url, method, body } = request;
 
     if (
@@ -267,7 +267,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     return next.handle(request);
 
-    function handleRoute() {
+    function handleRoute(): any {
       switch (true) {
         case url.endsWith("/getAllUsers") && method === "GET":
           return getAllUsers();

@@ -40,7 +40,7 @@ export class NpMaskDirective implements OnInit {
 
   private _maskValue(val: string): string {
     if (val === null || val === undefined) {
-      return;
+      return '';
     }
 
     if (!this.mask || val === this.lastMaskedValue) {

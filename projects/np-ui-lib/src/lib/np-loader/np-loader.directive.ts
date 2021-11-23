@@ -45,7 +45,7 @@ export class NpLoaderDirective implements OnChanges, OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     setTimeout(() => {
       if (this.initialized) {
-        if (changes.show.currentValue === true) {
+        if (changes["show"] && changes["show"].currentValue === true) {
           this._showLoader();
         } else {
           this._hideLoader();

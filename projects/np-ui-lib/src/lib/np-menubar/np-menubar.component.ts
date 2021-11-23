@@ -21,7 +21,7 @@ export class NpMenubarComponent implements AfterContentInit, OnDestroy {
   private static controlCount = 1;
 
   @Input() items: NpMenuItem[];
-  @Input() orientation: string;
+  @Input() orientation: 'horizontal' | 'vertical';
   @Input() isPanelMenu: boolean;
   @Input() styleClass: string;
   @Input() inputId: string = `np-menubar_${NpMenubarComponent.controlCount++}`;

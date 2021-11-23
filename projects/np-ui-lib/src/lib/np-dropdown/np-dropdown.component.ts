@@ -83,7 +83,7 @@ export class NpDropdownComponent
   ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.items) {
+    if (changes["items"]) {
       this._setSelectedOption();
     }
   }

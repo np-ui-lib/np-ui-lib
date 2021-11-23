@@ -186,11 +186,7 @@ export class NpCalendarComponent implements AfterContentInit {
       return null;
     }
     return this.events
-      .filter((element) => {
-        if (this._compareDate(element.startDate, date)) {
-          return element;
-        }
-      })
+      .filter((element) => this._compareDate(element.startDate, date))
       .sort((a: NpCalendarEvent, b: NpCalendarEvent) =>
         a.startDate > b.startDate ? 1 : b.startDate > a.startDate ? -1 : 0
       );

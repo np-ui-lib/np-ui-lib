@@ -86,7 +86,7 @@ export class NpCarouselComponent
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.scrollNum || changes.visibleNum) {
+    if (changes["scrollNum"] || changes["visibleNum"]) {
       this._getSlidesFromPage();
     }
   }

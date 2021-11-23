@@ -82,22 +82,14 @@ export class NpTagsDemoComponent implements OnInit {
 
   onSearch1(keyword: string) {
     setTimeout(() => {
-      const searchData = this.data.filter((element) => {
-        if (element.toLowerCase().indexOf(keyword.toLowerCase()) > -1) {
-          return element;
-        }
-      });
+      const searchData = this.data.filter((element) => element.toLowerCase().indexOf(keyword.toLowerCase()) > -1);
       this.searchResult1.next(searchData);
     }, 1000);
   }
 
   onSearch3(keyword: string) {
     setTimeout(() => {
-      const searchData = this.data.filter((element) => {
-        if (element.toLowerCase().indexOf(keyword.toLowerCase()) > -1) {
-          return element;
-        }
-      });
+      const searchData = this.data.filter((element) => element.toLowerCase().indexOf(keyword.toLowerCase()) > -1);
       this.searchResult3.next(searchData);
     }, 1000);
   }
@@ -113,9 +105,9 @@ export class NpTagsDemoComponent implements OnInit {
     }, 1000);
   }
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onChange9($event) {
     alert(JSON.stringify($event));

@@ -21,7 +21,7 @@ export class NpAutoCompleteDemoComponent implements OnInit {
 
   @ViewChild("input1", { static: true }) input1: NpAutoCompleteComponent;
 
-  constructor() {}
+  constructor() { }
 
   data: string[] = [
     "Maria",
@@ -176,45 +176,29 @@ export class NpAutoCompleteDemoComponent implements OnInit {
   auto12: any;
   searchResult12: BehaviorSubject<any[]> = new BehaviorSubject(null);
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   onSearch1(keyword: string) {
     setTimeout(() => {
       console.log("Call for Search1");
-      const searchData = this.data.filter((element) => {
-        if (element.indexOf(keyword) > -1) {
-          return element;
-        }
-      });
+      const searchData = this.data.filter((element) => element.indexOf(keyword) > -1);
       this.searchResult1.next(searchData);
     }, 1000);
   }
   onSearch2(keyword: string) {
     setTimeout(() => {
-      const searchData = this.data.filter((element) => {
-        if (element.indexOf(keyword) > -1) {
-          return element;
-        }
-      });
+      const searchData = this.data.filter((element) => element.indexOf(keyword) > -1);
       this.searchResult2.next(searchData);
     }, 1000);
   }
   onSearch3(keyword: string) {
     setTimeout(() => {
-      const searchData = this.data.filter((element) => {
-        if (element.indexOf(keyword) > -1) {
-          return element;
-        }
-      });
+      const searchData = this.data.filter((element) => element.indexOf(keyword) > -1);
       this.searchResult3.next(searchData);
     }, 1000);
   }
   onSearch4(keyword: string) {
     setTimeout(() => {
-      const searchData = this.data.filter((element) => {
-        if (element.indexOf(keyword) > -1) {
-          return element;
-        }
-      });
+      const searchData = this.data.filter((element) => element.indexOf(keyword) > -1);
       this.searchResult4.next(searchData);
     }, 1000);
   }
@@ -223,21 +207,13 @@ export class NpAutoCompleteDemoComponent implements OnInit {
   }
   onSearch5(keyword: string) {
     setTimeout(() => {
-      const searchData = this.data.filter((element) => {
-        if (element.indexOf(keyword) > -1) {
-          return element;
-        }
-      });
+      const searchData = this.data.filter((element) => element.indexOf(keyword) > -1);
       this.searchResult5.next(searchData);
     }, 1000);
   }
   onSearch6(keyword: string) {
     setTimeout(() => {
-      const searchData = this.data.filter((element) => {
-        if (element.indexOf(keyword) > -1) {
-          return element;
-        }
-      });
+      const searchData = this.data.filter((element) => element.indexOf(keyword) > -1);
       this.searchResult6.next(searchData);
     }, 1000);
   }
