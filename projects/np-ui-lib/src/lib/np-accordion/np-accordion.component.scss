@@ -11,7 +11,7 @@
     background-color: $background-color;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: $spacer/2 $spacer;
@@ -37,10 +37,12 @@
     font-size: inherit;
   }
 
-  .np-accordion-btn .np-btn-icon {
-    border: none;
-    height: 100%;
-    width: 100%;
+  .np-accordion-btn {
+    .np-btn-icon {
+      border: none;
+      min-height: auto;
+      padding: 0 $spacer/4;
+    }
   }
 
   .np-accordion-body {

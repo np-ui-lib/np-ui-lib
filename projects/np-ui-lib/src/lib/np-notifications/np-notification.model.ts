@@ -3,11 +3,11 @@ export class NpNotification {
     this.type = value.type;
     this.header = value.header;
     this.message = value.message;
-    this.autoCloseTimeout = value.autoCloseTimeout;
+    this.autoCloseTimeout = value.autoCloseTimeout || 10000;
     this.id = Math.floor(Math.random() * 100) + 1;
   }
 
-  public type: string;
+  public type: 'success' | 'danger' | 'info' | 'warning';
   public header: string;
   public message: string;
   public autoCloseTimeout: number;

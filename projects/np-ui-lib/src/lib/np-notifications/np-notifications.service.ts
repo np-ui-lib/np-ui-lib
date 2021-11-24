@@ -13,7 +13,7 @@ export class NpNotificationsService {
       () => {
         this.close(msg);
       },
-      msg.autoCloseTimeout ? msg.autoCloseTimeout : 10000
+      msg.autoCloseTimeout
     );
   }
 

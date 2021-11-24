@@ -17,11 +17,11 @@ export class NpAlertComponent implements OnInit {
   private static controlCount = 1;
 
   /* type should be 'success' | 'danger' | 'info' | 'warning' */
-  @Input() type: string;
+  @Input() type: 'success' | 'danger' | 'info' | 'warning';
   @Input() styleClass: string;
-  @Input() showCloseButton: boolean;
-  @Input() autoClose: boolean;
-  @Input() autoCloseTimeout: number;
+  @Input() showCloseButton: boolean = false;
+  @Input() autoClose: boolean = false;
+  @Input() autoCloseTimeout: number = 10000;
   @Input() inputId: string = `np-alert_${NpAlertComponent.controlCount++}`;
 
   constructor(private el: ElementRef) { }
@@ -32,7 +32,7 @@ export class NpAlertComponent implements OnInit {
         () => {
           this.close();
         },
-        this.autoCloseTimeout ? this.autoCloseTimeout : 10000
+        this.autoCloseTimeout
       );
     }
   }

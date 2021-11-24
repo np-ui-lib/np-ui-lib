@@ -27,7 +27,7 @@ this.notificationsService.show(msg);`;
 
   error() {
     const msg = new NpNotification({
-      type: "error",
+      type: "danger",
       message: "This is error message content.",
     });
     this.notificationsService.show(msg);
@@ -65,7 +65,7 @@ this.notificationsService.show(msg);`;
 
   errorWithHTML() {
     const msg = new NpNotification({
-      type: "error",
+      type: "danger",
       header: "<i>Error</i>",
       message: "<i>Error in saving data.<i>",
     });

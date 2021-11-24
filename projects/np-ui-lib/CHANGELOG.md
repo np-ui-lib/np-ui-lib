@@ -12,6 +12,7 @@
 - Fix typo in NpHightlightModule, NpHightlightPipe and change it to NpHighlightModule, NpHighlightPipe
 - Add getTotalPages api for carousel component
 - Add data type for each variable and return type for all methods
+- Change 'error' to 'danger' in alert and notification
 
 ## 12.1.0
 
