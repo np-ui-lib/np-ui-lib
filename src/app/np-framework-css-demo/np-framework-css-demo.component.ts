@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NpFrameworkCssDemoComponent implements OnInit {
 
-  frameworkSCSS = `@import "dist/np-ui-lib/styles/theme.scss";
+  frameworkSCSS = `@import "np-ui-lib/styles/theme.scss";
 @include framework-style;`;
 
   constructor() { }
