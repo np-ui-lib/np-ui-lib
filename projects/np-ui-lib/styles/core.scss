@@ -1286,11 +1286,12 @@
   .np-btn-group {
     display: flex;
     flex-wrap: wrap;
+    margin: $spacer/4 0;
 
     .np-btn,
     .np-btn-sm,
     .np-btn-icon {
-      margin: $spacer/2 $spacer/2 $spacer/2 0px;
+      margin: $spacer/4 $spacer/2 $spacer/4 0px;
     }
 
     .np-btn:last-child,

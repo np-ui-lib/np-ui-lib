@@ -1,188 +1,189 @@
 @mixin app-style {
-  header {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    z-index: 804;
-    height: 3.5rem;
-    box-shadow: 0 1px 6px 0 rgba(#000000, 0.5);
+    header {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      z-index: 804;
+      height: 3.5rem;
+      box-shadow: 0 1px 6px 0 rgba(#000000, 0.5);
+    }
+  
+    header .np-toolbar {
+      background-color: $primary-color;
+      border-radius: 0px;
+      height: $spacer*2 + 1.5rem;
+    }
+  
+    .header-menu-btn {
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 1.5rem;
+    }
+  
+    .header-menu-btn:hover {
+      background-color: darken($primary-color, 5%);
+    }
+  
+    .header-menu-btn i {
+      margin: 8px;
+    }
+  
+    .header-link {
+      color: white;
+      font-size: 1.5rem;
+      padding-left: $spacer/2;
+    }
+  
+    .logo-link {
+      padding: 0px $spacer;
+      color: white;
+      cursor: pointer;
+    }
+  
+    .logo-link i {
+      font-size: 2rem !important;
+    }
+  
+    .logo-background {
+      fill: $primary-color;
+    }
+  
+    .logo-text {
+      fill: #ffffff;
+    }
+  
+    .page-header {
+      margin: (-$spacer/2) (-$spacer) $spacer (-$spacer);
+      padding: $spacer;
+      background: $primary-color;
+      color: white;
+      font-size: 1.5rem;
+    }
+  
+    section {
+      margin-top: 3.5rem;
+      height: calc(100vh - 3.5rem);
+    }
+  
+    nav {
+      height: calc(100vh - 3.5rem);
+      overflow: auto;
+      width: 250px;
+      position: fixed;
+      z-index: 803;
+    }
+  
+    article {
+      margin-left: 250px;
+      width: calc(100% - 250px);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .full-container {
+      margin-left: 0px;
+      width: 100%;
+    }
+  
+    .mobile-nav {
+      border-right: 1px solid $border-color;
+      z-index: 803;
+    }
+  
+    .my-nav {
+      border: none !important;
+      padding: 10px 0px !important;
+    }
+  
+    .color-red {
+      color: red;
+    }
+  
+    .content-container {
+      padding: $spacer/2 $spacer;
+      flex: 1 1 auto;
+    }
+  
+    footer {
+      text-align: center;
+      background-color: rgba($primary-color, 0.5);
+      padding: $spacer/2;
+      width: 100%;
+    }
+  
+    pre {
+      line-height: 1.5rem;
+      background-color: black;
+      color: white;
+      padding: $spacer/2;
+      overflow: auto;
+      border-radius: $border-radius;
+      border-left: 3px solid $primary-color;
+    }
+  
+    .np-input-group-append .fa,
+    .dashboard-card .fa {
+      font-size: 20px;
+    }
+  
+    fieldset {
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      padding: $spacer;
+      margin-bottom: $spacer;
+    }
+  
+    .myClass {
+      border: 1px solid $primary-color !important;
+    }
+  
+    .myBackDrop {
+      background-color: $primary-color;
+      opacity: 0.3 !important;
+    }
+  
+    .np-demo-container .np-col {
+      background-color: $selected-background-color;
+      outline: 2px solid #ffffff;
+      padding: $spacer;
+      text-align: center;
+    }
+  
+    .popover-no-border .np-popover-body {
+      padding: 0px;
+    }
+  
+    .list {
+      margin: 0px;
+    }
+  
+    .green-background,
+    .green-background:hover {
+      background-color: green;
+    }
+  
+    .red-background,
+    .red-background:hover {
+      background-color: red;
+    }
+  
+    .success .np-timeline-marker {
+      background-color: green;
+    }
+  
+    .in-progress .np-timeline-marker {
+      background-color: red;
+    }
+  
+    .np-jumbotron {
+      background-color: $background-color;
+      padding: $spacer;
+      border: 1px solid transparent;
+      border-radius: $border-radius;
+      margin-bottom: $spacer/2;
+      overflow: auto;
+    }
   }
-
-  header .np-toolbar {
-    background-color: $primary-color;
-    border-radius: 0px;
-    height: 3.5rem;
-  }
-
-  .header-menu-btn {
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 1.5rem;
-  }
-
-  .header-menu-btn:hover {
-    background-color: darken($primary-color, 5%);
-  }
-
-  .header-menu-btn i {
-    margin: 8px;
-  }
-
-  .header-link {
-    color: white;
-    font-size: 1.5rem;
-    padding-left: $spacer/2;
-  }
-
-  .logo-link {
-    padding: 0px $spacer;
-    color: white;
-    cursor: pointer;
-  }
-
-  .logo-link i {
-    font-size: 2rem !important;
-  }
-
-  .logo-background {
-    fill: $primary-color;
-  }
-
-  .logo-text {
-    fill: #ffffff;
-  }
-
-  .page-header {
-    margin: (-$spacer/2) (-$spacer) $spacer (-$spacer);
-    padding: $spacer;
-    background: $primary-color;
-    color: white;
-    font-size: 1.5rem;
-  }
-
-  section {
-    margin-top: 3.5rem;
-    height: calc(100vh - 3.5rem);
-  }
-
-  nav {
-    height: calc(100vh - 3.5rem);
-    overflow: auto;
-    width: 250px;
-    position: fixed;
-    z-index: 803;
-  }
-
-  article {
-    margin-left: 250px;
-    width: calc(100% - 250px);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .full-container {
-    margin-left: 0px;
-    width: 100%;
-  }
-
-  .mobile-nav {
-    border-right: 1px solid $border-color;
-    z-index: 803;
-  }
-
-  .my-nav {
-    border: none !important;
-    padding: 10px 0px !important;
-  }
-
-  .color-red {
-    color: red;
-  }
-
-  .content-container {
-    padding: $spacer/2 $spacer;
-    flex: 1 1 auto;
-  }
-
-  footer {
-    text-align: center;
-    background-color: rgba($primary-color, 0.5);
-    padding: $spacer/2;
-    width: 100%;
-  }
-
-  pre {
-    line-height: 1.5rem;
-    background-color: black;
-    color: white;
-    padding: $spacer/2;
-    overflow: auto;
-    border-radius: $border-radius;
-    border-left: 3px solid $primary-color;
-  }
-
-  .np-input-group-append .fa,
-  .dashboard-card .fa {
-    font-size: 20px;
-  }
-
-  fieldset {
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
-    padding: $spacer;
-    margin-bottom: $spacer;
-  }
-
-  .myClass {
-    border: 1px solid $primary-color !important;
-  }
-
-  .myBackDrop {
-    background-color: $primary-color;
-    opacity: 0.3 !important;
-  }
-
-  .np-demo-container .np-col {
-    background-color: $selected-background-color;
-    outline: 2px solid #ffffff;
-    padding: $spacer;
-    text-align: center;
-  }
-
-  .popover-no-border .np-popover-body {
-    padding: 0px;
-  }
-
-  .list {
-    margin: 0px;
-  }
-
-  .green-background,
-  .green-background:hover {
-    background-color: green;
-  }
-
-  .red-background,
-  .red-background:hover {
-    background-color: red;
-  }
-
-  .success .np-timeline-marker {
-    background-color: green;
-  }
-
-  .in-progress .np-timeline-marker {
-    background-color: red;
-  }
-
-  .np-jumbotron {
-    background-color: $background-color;
-    padding: $spacer;
-    border: 1px solid transparent;
-    border-radius: $border-radius;
-    margin-bottom: $spacer/2;
-    overflow: auto;
-  }
-}
+  

@@ -4,6 +4,11 @@
 
 ## Change log and decision tracker
 
+## 13.0.1
+
+- Update dependencies
+- Minor CSS updates
+
 ## 13.0.0
 
 - Upgrade angular version to 13 and rxjs version to 7
