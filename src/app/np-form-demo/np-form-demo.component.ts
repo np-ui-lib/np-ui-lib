@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-np-form-demo",
@@ -28,14 +28,14 @@ export class NpFormDemoComponent implements OnInit {
   description: string;
   photo: any;
 
-  myForm = new FormGroup({
-    firstName: new FormControl("", Validators.required),
-    lastName: new FormControl("", Validators.required),
-    birthDate: new FormControl(null, Validators.required),
-    birthTime: new FormControl("", Validators.required),
-    isActive: new FormControl(false, Validators.required),
-    description: new FormControl("", Validators.required),
-    photo: new FormControl("", Validators.required),
+  myForm = new UntypedFormGroup({
+    firstName: new UntypedFormControl("", Validators.required),
+    lastName: new UntypedFormControl("", Validators.required),
+    birthDate: new UntypedFormControl(null, Validators.required),
+    birthTime: new UntypedFormControl("", Validators.required),
+    isActive: new UntypedFormControl(false, Validators.required),
+    description: new UntypedFormControl("", Validators.required),
+    photo: new UntypedFormControl("", Validators.required),
   });
 
   constructor() {}

@@ -9,17 +9,16 @@ import { PortalModule } from "@angular/cdk/portal";
 import { OverlayModule } from "@angular/cdk/overlay";
 
 @NgModule({
-  declarations: [NpDialogContainerComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    OverlayModule,
-    PortalModule,
-    NpTranslationsModule,
-    NpAutofocusModule,
-  ],
-  exports: [NpDialogContainerComponent],
-  entryComponents: [NpDialogContainerComponent],
-  providers: [NpDialogService],
+    declarations: [NpDialogContainerComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        OverlayModule,
+        PortalModule,
+        NpTranslationsModule,
+        NpAutofocusModule,
+    ],
+    exports: [NpDialogContainerComponent],
+    providers: [NpDialogService]
 })
 export class NpDialogModule { }

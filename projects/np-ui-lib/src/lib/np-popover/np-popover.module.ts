@@ -5,9 +5,8 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { NpPopoverDirective } from "./np-popover.directive";
 
 @NgModule({
-  declarations: [NpPopoverComponent, NpPopoverDirective],
-  imports: [CommonModule, OverlayModule],
-  exports: [NpPopoverDirective],
-  entryComponents: [NpPopoverComponent],
+    declarations: [NpPopoverComponent, NpPopoverDirective],
+    imports: [CommonModule, OverlayModule],
+    exports: [NpPopoverDirective]
 })
 export class NpPopoverModule { }

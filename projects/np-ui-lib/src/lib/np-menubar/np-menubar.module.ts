@@ -8,14 +8,13 @@ import { NpMenuItemComponent } from "./np-menu-item/np-menu-item.component";
 import { NpPanelMenuItemComponent } from "./np-panel-menu-item/np-panel-menu-item.component";
 
 @NgModule({
-  declarations: [
-    NpMenubarComponent,
-    NpPopupMenubarDirective,
-    NpMenuItemComponent,
-    NpPanelMenuItemComponent,
-  ],
-  imports: [CommonModule, RouterModule, OverlayModule],
-  entryComponents: [NpMenubarComponent],
-  exports: [NpMenubarComponent, NpPopupMenubarDirective],
+    declarations: [
+        NpMenubarComponent,
+        NpPopupMenubarDirective,
+        NpMenuItemComponent,
+        NpPanelMenuItemComponent,
+    ],
+    imports: [CommonModule, RouterModule, OverlayModule],
+    exports: [NpMenubarComponent, NpPopupMenubarDirective]
 })
 export class NpMenubarModule { }

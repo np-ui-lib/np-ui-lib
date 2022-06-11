@@ -6,10 +6,9 @@ import { NpModalContainerComponent } from "./np-modal-container.component";
 import { NpModalService } from "./np-modal.service";
 
 @NgModule({
-  declarations: [NpModalContainerComponent],
-  imports: [CommonModule, OverlayModule, PortalModule],
-  exports: [NpModalContainerComponent],
-  entryComponents: [NpModalContainerComponent],
-  providers: [NpModalService],
+    declarations: [NpModalContainerComponent],
+    imports: [CommonModule, OverlayModule, PortalModule],
+    exports: [NpModalContainerComponent],
+    providers: [NpModalService]
 })
 export class NpModalModule { }

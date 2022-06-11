@@ -5,9 +5,8 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { NpTooltipDirective } from "./np-tooltip.directive";
 
 @NgModule({
-  declarations: [NpTooltipComponent, NpTooltipDirective],
-  imports: [CommonModule, OverlayModule],
-  exports: [NpTooltipDirective],
-  entryComponents: [NpTooltipComponent],
+    declarations: [NpTooltipComponent, NpTooltipDirective],
+    imports: [CommonModule, OverlayModule],
+    exports: [NpTooltipDirective]
 })
 export class NpTooltipModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormControl, Validators } from "@angular/forms";
 import { NpSidepanelComponent, NpSidepanelService } from "np-ui-lib";
 
 @Component({
@@ -39,13 +39,13 @@ reference.subscribe((data) => {
   isActive = true;
   description: string;
 
-  myForm = new FormGroup({
-    firstName: new FormControl("", Validators.required),
-    lastName: new FormControl("", Validators.required),
-    birthDate: new FormControl(null, Validators.required),
-    birthTime: new FormControl("", Validators.required),
-    isActive: new FormControl(false, Validators.required),
-    description: new FormControl("", Validators.required),
+  myForm = new UntypedFormGroup({
+    firstName: new UntypedFormControl("", Validators.required),
+    lastName: new UntypedFormControl("", Validators.required),
+    birthDate: new UntypedFormControl(null, Validators.required),
+    birthTime: new UntypedFormControl("", Validators.required),
+    isActive: new UntypedFormControl(false, Validators.required),
+    description: new UntypedFormControl("", Validators.required),
   });
 
   @ViewChild("sidePanelLeft", { static: true })
@@ -82,7 +82,7 @@ reference.subscribe((data) => {
     }
   }
 
-  private markFormGroupTouched(formGroup: FormGroup) {
+  private markFormGroupTouched(formGroup: UntypedFormGroup) {
     (Object as any).values(formGroup.controls).forEach((control: any) => {
       control.markAsTouched();
       if (control.controls) {

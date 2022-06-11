@@ -16,19 +16,18 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { NpModalDemoChildComponent } from "./np-modal-demo-child/np-modal-demo-child.component";
 
 @NgModule({
-  declarations: [NpModalDemoComponent, NpModalDemoChildComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    NpModalDemoRoutingModule,
-    NpModalModule,
-    NpDatePickerModule,
-    NpTimePickerModule,
-    NpSwitchModule,
-    NpTabsModule,
-    NpCardModule,
-    NpAutofocusModule,
-  ],
-  entryComponents: [NpModalDemoChildComponent],
+    declarations: [NpModalDemoComponent, NpModalDemoChildComponent],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        NpModalDemoRoutingModule,
+        NpModalModule,
+        NpDatePickerModule,
+        NpTimePickerModule,
+        NpSwitchModule,
+        NpTabsModule,
+        NpCardModule,
+        NpAutofocusModule,
+    ]
 })
 export class NpModalDemoModule {}

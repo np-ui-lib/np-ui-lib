@@ -12,7 +12,7 @@ import {
 import {
   NG_VALUE_ACCESSOR,
   ControlValueAccessor,
-  FormControl,
+  UntypedFormControl,
   NG_VALIDATORS,
   Validator,
 } from "@angular/forms";
@@ -95,7 +95,7 @@ export class NpFileUploadComponent implements ControlValueAccessor, Validator {
     this.isDisabled = isDisabled;
   }
 
-  validate(control: FormControl): any {
+  validate(control: UntypedFormControl): any {
     const value = control.value || [];
     if (this.extensions) {
       let isInValidExtension = false;

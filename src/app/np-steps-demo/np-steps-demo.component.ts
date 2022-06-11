@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-np-steps-demo",
@@ -17,18 +17,18 @@ export class NpStepsDemoComponent implements OnInit {
   nextBtnText = `<button type="button" class="np-btn" npStepNext>Next</button>`;
   stretchLabels = false;
 
-  personal = new FormGroup({
-    firstName: new FormControl("", Validators.required),
-    lastName: new FormControl("", Validators.required),
+  personal = new UntypedFormGroup({
+    firstName: new UntypedFormControl("", Validators.required),
+    lastName: new UntypedFormControl("", Validators.required),
   });
-  address = new FormGroup({
-    street: new FormControl("", Validators.required),
-    city: new FormControl("", Validators.required),
-    state: new FormControl("", Validators.required),
-    zip: new FormControl("", Validators.required),
+  address = new UntypedFormGroup({
+    street: new UntypedFormControl("", Validators.required),
+    city: new UntypedFormControl("", Validators.required),
+    state: new UntypedFormControl("", Validators.required),
+    zip: new UntypedFormControl("", Validators.required),
   });
-  photos = new FormGroup({
-    images: new FormControl("", Validators.required),
+  photos = new UntypedFormGroup({
+    images: new UntypedFormControl("", Validators.required),
   });
 
   constructor() {}
