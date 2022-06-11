@@ -4,10 +4,11 @@
 
 ## Change log and decision tracker
 
-## 13.0.1
+## 14.0.0
 
 - Update dependencies
 - Minor CSS updates
+- Update Angular version
 
 ## 13.0.0
 

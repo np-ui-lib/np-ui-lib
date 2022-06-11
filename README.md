@@ -23,9 +23,19 @@ npm i np-ui-lib --save
 ```
 
 ### List of components:
-````
-Input Text, Textarea, Date Picker, Time Picker, Color Picker, Switch, Dropdown, Auto Complete, Tags, Number Box, File Upload, Slider, Checkbox, Radio Button, Rich Text, Menubar, Panel Menubar, Breadcrumb, Toolbar, Data Grid, Paginator, Calendar, Timeline, Alert, Notification, Tooltip, Popover, Panel, Accordion, Tabs, Steps, Card, Progress, Loader, BlockUi, Carousel, Modal, Dialog, Tree View, List, Virtual Scroll, Sidepanel, Masking, Defer, i18N, Themes and Framework CSS, Grid Layout, Padding and Margin, Button and Button Group, Badges, Form
-````
+|                         |               |             |                           |                 |                     |
+|-------------------------|---------------|-------------|---------------------------|-----------------|---------------------|
+| Input Text              | Textarea      | Date Picker | Time Picker               | Color Picker    | Switch              |
+| Dropdown                | Auto Complete | Tags        | Number Box                | File Upload     | Slider              |
+| Checkbox                | Radio Button  | Rich Text   | Menubar                   | Panel Menubar   | Breadcrumb          |
+| Toolbar                 | Data Grid     | Paginator   | Calendar                  | Timeline        | Alert               |
+| Notification            | Tooltip       | Popover     | Panel                     | Accordion       | Tabs                |
+| Steps                   | Card          | Progress    | Loader                    | BlockUi         | Carousel            |
+| Modal                   | Dialog        | Tree View   | List                      | Virtual Scroll  | Sidepanel           |
+| Masking                 | Defer         | i18N        | Themes and Framework CSS  | Grid Layout     | Padding and Margin  |
+| Button and Button Group | Badges        | Form        |                           |                 |                     |
+
+
 
 ### Modules to be pre-installed
 ```javascript
