@@ -11,7 +11,7 @@
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    padding: $spacer/2;
+    padding: math.div($spacer,2);
     background-color: $background-color;
     border-right: 1px solid $border-color;
 
@@ -31,7 +31,7 @@
     border-bottom: 1px solid $border-color;
 
     .np-list-item {
-      padding: $spacer/2;
+      padding: math.div($spacer,2);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -42,7 +42,7 @@
   .np-file-remove-btn {
     display: flex;
     padding: 0px;
-    margin-left: $spacer/2;
+    margin-left: math.div($spacer,2);
     height: 1.5rem;
     width: 1.5rem;
     background-color: transparent;

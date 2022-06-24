@@ -7,7 +7,7 @@
     align-items: center;
     height: 100%;
     border-radius: $border-radius;
-    padding: 2px $spacer/2 2px $spacer;
+    padding: 2px math.div($spacer,2) 2px $spacer;
   }
 
   .np-tag-loader {

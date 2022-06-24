@@ -41,7 +41,7 @@
     background-color: #000000;
     border-radius: $border-radius;
     color: #ffffff;
-    padding: $spacer/2;
+    padding: math.div($spacer,2);
     display: none;
     position: absolute;
     top: 2rem;

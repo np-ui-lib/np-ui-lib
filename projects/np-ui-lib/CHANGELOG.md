@@ -4,6 +4,9 @@
 
 ## Change log and decision tracker
 
+## 14.0.1
+- Remove warning for sass
+
 ## 14.0.0
 
 - Update dependencies

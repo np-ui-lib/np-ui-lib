@@ -1,6 +1,6 @@
 @mixin np-modal-style {
   .np-modal-overlay {
-    margin: $spacer/2;
+    margin: math.div($spacer,2);
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
   }
 

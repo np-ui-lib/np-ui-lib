@@ -23,7 +23,7 @@
     + .np-breadcrumb-item::before {
       display: inline-block;
       content: "/";
-      padding: 0 $spacer/2;
+      padding: 0 math.div($spacer,2);
       font-weight: bold;
     }
 

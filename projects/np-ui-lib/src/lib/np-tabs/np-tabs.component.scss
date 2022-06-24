@@ -40,7 +40,7 @@
   }
 
   .np-tab-title-link {
-    padding: $spacer/2 $spacer;
+    padding: math.div($spacer,2) $spacer;
     font-weight: bold;
     width: 100%;
     height: 100%;

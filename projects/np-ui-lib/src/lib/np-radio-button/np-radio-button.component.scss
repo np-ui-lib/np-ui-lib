@@ -2,7 +2,7 @@
   .np-radio-button {
     position: relative;
     display: inline-block;
-    margin: $spacer/2;
+    margin: math.div($spacer,2);
   }
 
   .np-radio-button-input {

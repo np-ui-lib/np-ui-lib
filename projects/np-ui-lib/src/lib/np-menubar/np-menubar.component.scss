@@ -19,7 +19,7 @@
     display: inline-flex;
     align-items: center;
     width: 100%;
-    padding: $spacer/2 $spacer;
+    padding: math.div($spacer,2) $spacer;
   }
 
   .np-menu-link {
@@ -30,7 +30,7 @@
     align-items: center;
     min-width: 100px;
     width: 100%;
-    padding: $spacer/2 $spacer;
+    padding: math.div($spacer,2) $spacer;
     min-height: $spacer * 2.5;
   }
 

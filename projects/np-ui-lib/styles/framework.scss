@@ -84,7 +84,7 @@
   .np-list-group-item {
     position: relative;
     display: block;
-    padding: $spacer/2 $spacer;
+    padding: math.div($spacer,2) $spacer;
     text-decoration: none;
     background-color: #fff;
     border-bottom: 1px solid $border-color;
@@ -118,11 +118,11 @@
     border: 1px solid $border-color;
     border-radius: $border-radius;
     border-spacing: 0px;
-    margin-bottom: $spacer/2;
+    margin-bottom: math.div($spacer,2);
 
     td,
     th {
-      padding: $spacer/2 $spacer;
+      padding: math.div($spacer,2) $spacer;
       vertical-align: top;
       border-right: 1px solid $border-color;
       border-bottom: 1px solid $border-color;

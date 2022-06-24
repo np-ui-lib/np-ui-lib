@@ -14,7 +14,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: $spacer/2 $spacer;
+    padding: math.div($spacer,2) $spacer;
 
     &:hover,
     &:hover .np-btn-icon {
@@ -44,12 +44,12 @@
 
   .np-panel-btns {
     display: flex;
-    margin-left: $spacer/2;
+    margin-left: math.div($spacer,2);
 
     .np-btn-icon {
       border: none;
       min-height: auto;
-      padding: 0 $spacer/4;      
+      padding: 0 math.div($spacer,4);      
     }
   }
 

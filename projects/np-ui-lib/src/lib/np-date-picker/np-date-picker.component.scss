@@ -12,7 +12,7 @@
   }
 
   .np-date-picker-header {
-    padding: $spacer/2;
+    padding: math.div($spacer,2);
     background-color: $background-color;
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@
 
   .np-date-picker-weekdays {
     background-color: $selected-background-color;
-    padding: 0px $spacer/2;
+    padding: 0px math.div($spacer,2);
   }
 
   .np-date-picker-weekday {
@@ -46,7 +46,7 @@
   }
 
   .np-date-picker-days {
-    padding: $spacer/2;
+    padding: math.div($spacer,2);
   }
 
   .np-date-picker-day {
@@ -92,7 +92,7 @@
   }
 
   .np-date-picker-footer {
-    padding: $spacer/2;
+    padding: math.div($spacer,2);
     background-color: $background-color;
     display: flex;
     align-items: center;

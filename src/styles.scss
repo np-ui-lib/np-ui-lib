@@ -32,7 +32,7 @@
     .header-link {
       color: white;
       font-size: 1.5rem;
-      padding-left: $spacer/2;
+      padding-left: math.div($spacer,2);
     }
   
     .logo-link {
@@ -54,7 +54,7 @@
     }
   
     .page-header {
-      margin: (-$spacer/2) (-$spacer) $spacer (-$spacer);
+      margin: (-math.div($spacer,2)) (-$spacer) $spacer (-$spacer);
       padding: $spacer;
       background: $primary-color;
       color: white;
@@ -102,14 +102,14 @@
     }
   
     .content-container {
-      padding: $spacer/2 $spacer;
+      padding: math.div($spacer,2) $spacer;
       flex: 1 1 auto;
     }
   
     footer {
       text-align: center;
       background-color: rgba($primary-color, 0.5);
-      padding: $spacer/2;
+      padding: math.div($spacer,2);
       width: 100%;
     }
   
@@ -117,7 +117,7 @@
       line-height: 1.5rem;
       background-color: black;
       color: white;
-      padding: $spacer/2;
+      padding: math.div($spacer,2);
       overflow: auto;
       border-radius: $border-radius;
       border-left: 3px solid $primary-color;
@@ -182,7 +182,7 @@
       padding: $spacer;
       border: 1px solid transparent;
       border-radius: $border-radius;
-      margin-bottom: $spacer/2;
+      margin-bottom: math.div($spacer,2);
       overflow: auto;
     }
   }

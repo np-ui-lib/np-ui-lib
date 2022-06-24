@@ -10,14 +10,14 @@
   }
 
   .np-popover-header {
-    padding: $spacer/2;
+    padding: math.div($spacer,2);
     background-color: $background-color;
     border-bottom: 1px solid $border-color;
     font-weight: bold;
   }
 
   .np-popover-body {
-    padding: $spacer/2;
+    padding: math.div($spacer,2);
     overflow: auto;
     background-color: #ffffff;
   }

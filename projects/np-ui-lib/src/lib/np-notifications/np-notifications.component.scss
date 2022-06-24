@@ -5,13 +5,13 @@
     right: 0px;
     max-width: 350px;
     z-index: 1001;
-    margin: $spacer/2;
+    margin: math.div($spacer,2);
   }
 
   .np-alert-close-all {
     position: absolute;
     left: -35px;
-    bottom: $spacer/2;
+    bottom: math.div($spacer,2);
     border: none;
     background-color: transparent;
   }
