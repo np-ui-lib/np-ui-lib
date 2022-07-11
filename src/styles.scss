@@ -1,3 +1,4 @@
+@use "sass:math";
 @mixin app-style {
     header {
       position: fixed;
@@ -5,7 +6,6 @@
       left: 0px;
       width: 100%;
       z-index: 804;
-      height: 3.5rem;
       box-shadow: 0 1px 6px 0 rgba(#000000, 0.5);
     }
   
@@ -54,7 +54,7 @@
     }
   
     .page-header {
-      margin: (-math.div($spacer,2)) (-$spacer) $spacer (-$spacer);
+      margin: (-(math.div($spacer,2))) (-$spacer) $spacer (-$spacer);
       padding: $spacer;
       background: $primary-color;
       color: white;
