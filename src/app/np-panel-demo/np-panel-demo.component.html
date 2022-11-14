@@ -103,14 +103,24 @@
             <th>Parameters</th>
           </tr>
           <tr>
-            <td>onExpand()</td>
+            <td>onExpand($event)</td>
             <td>Callback on expanding panel.</td>
-            <td></td>
+            <td>$event</td>
           </tr>
           <tr>
-            <td>onCollapse()</td>
+            <td>onCollapse($event)</td>
             <td>Callback on collapsing panel.</td>
-            <td></td>
+            <td>$event</td>
+          </tr>
+          <tr>
+            <td>onClose($event)</td>
+            <td>Callback on closing panel.</td>
+            <td>$event</td>
+          </tr>
+          <tr>
+            <td>onZoom($event)</td>
+            <td>Callback on zoom in/out panel.</td>
+            <td>$event</td>
           </tr>
         </table>
       </np-card-body>
@@ -131,15 +141,10 @@
           </np-panel>
         </div>
         <div class="np-col np-col-sm-12 np-col-md-6">
-          <np-panel
-            [title]="title"
-            [allowToMinimize]="true"
-            [allowToZoom]="true"
-            [allowToClose]="true"
-            [iconCss]="'fa fa-home'"
-            [styleClass]="'np-pn-success'"
-            [disabled]="pnl2Disabled"
-          >
+          <np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true"
+            [iconCss]="'fa fa-home'" [styleClass]="'np-pn-success'" [disabled]="pnl2Disabled"
+            (onClose)="onClose($event)" (onExpand)="onExpand($event)" (onCollapse)="onCollapse($event)"
+            (onZoom)="onZoom($event)">
             <ng-template npPanelContent>
               <p>
                 A paragraph is a series of related sentences developing a
@@ -152,14 +157,8 @@
           </np-panel>
         </div>
         <div class="np-col np-col-12">
-          <np-panel
-            [title]="title"
-            [allowToMinimize]="true"
-            [allowToZoom]="true"
-            [allowToClose]="true"
-            [styleClass]="'np-pn-danger'"
-            [height]="200"
-          >
+          <np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true"
+            [styleClass]="'np-pn-danger'" [height]="200">
             <p>
               A first paragraph is a series of related sentences developing a
               central idea, called the topic. Try to think about paragraphs in

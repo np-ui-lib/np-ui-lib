@@ -37,6 +37,8 @@ export class NpPanelComponent implements OnInit, OnDestroy {
 
   @Output() onExpand: EventEmitter<any> = new EventEmitter();
   @Output() onCollapse: EventEmitter<any> = new EventEmitter();
+  @Output() onClose: EventEmitter<any> = new EventEmitter();
+  @Output() onZoom: EventEmitter<any> = new EventEmitter();
 
   isTitleTemplate: boolean;
   isZoom: boolean = false;
@@ -98,12 +100,14 @@ export class NpPanelComponent implements OnInit, OnDestroy {
     }
     if (this.isZoom) {
       this.isZoom = false;
+      this.onZoom.emit(this);
       return;
     }
     if (!this.isOpen) {
       this._toggle();
     }
     this.isZoom = true;
+    this.onZoom.emit(this);
   }
 
   _close(): void {
@@ -111,6 +115,7 @@ export class NpPanelComponent implements OnInit, OnDestroy {
       return;
     }
     this.el.nativeElement.remove();
+    this.onClose.emit(this);
   }
 
   _getTitleId(): string {

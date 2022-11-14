@@ -57,11 +57,11 @@ body {
   $border-color: #9e9e9e;
   $border-radius: 0px;
   $outline-color: #ffe69c;
-  $spacer: 1.5rem;
+  $spacer: 1rem;
   @include theme;
   @include app-style;
   @include framework-style;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .purple-theme {
@@ -78,5 +78,5 @@ body {
   @include theme;
   @include app-style;
   @include framework-style;
-  font-size: 20px;
+  font-size: 18px;
 }

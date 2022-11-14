@@ -6,6 +6,7 @@
 
 ## 14.0.1
 - Remove warning for sass
+- Add onClose, onZoom callback method in panel
 
 ## 14.0.0
 

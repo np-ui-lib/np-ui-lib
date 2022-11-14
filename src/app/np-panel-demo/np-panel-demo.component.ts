@@ -5,7 +5,7 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./np-panel-demo.component.html",
 })
 export class NpPanelDemoComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   importText = "import { NpPanelModule } from 'np-ui-lib';";
   htmlText = `<np-panel [title]="title" [allowToMinimize]="true" [allowToZoom]="true" [allowToClose]="true" 
@@ -21,9 +21,25 @@ export class NpPanelDemoComponent implements OnInit {
   title = "What is paragraph?";
   pnl2Disabled = false;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   togglePanel2Disabled() {
     this.pnl2Disabled = !this.pnl2Disabled;
+  }
+
+  onClose($event) {
+    alert("Panel closed");
+  }
+
+  onExpand($event) {
+    alert("Panel expanded");
+  }
+
+  onCollapse($event) {
+    alert("Panel collapsed");
+  }
+
+  onZoom($event) {
+    alert("Panel zoom " + ($event.isZoom ? "in" : "out"));
   }
 }
