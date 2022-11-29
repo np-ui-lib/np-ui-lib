@@ -23,7 +23,7 @@ npm i np-ui-lib --save
 ```
 
 ### List of components:
-|                         |               |             |                           |                 |                     |
+|            1            |       2       |      3      |               4           |        5        |           6         |
 |-------------------------|---------------|-------------|---------------------------|-----------------|---------------------|
 | Input Text              | Textarea      | Date Picker | Time Picker               | Color Picker    | Switch              |
 | Dropdown                | Auto Complete | Tags        | Number Box                | File Upload     | Slider              |
@@ -35,16 +35,14 @@ npm i np-ui-lib --save
 | Masking                 | Defer         | i18N        | Themes and Framework CSS  | Grid Layout     | Padding and Margin  |
 | Button and Button Group | Badges        | Form        |                           |                 |                     |
 
-
-
 ### Modules to be pre-installed
 ```javascript
-"@angular/common": "^14.0.0",
-"@angular/core": "^14.0.0",
-"@angular/cdk": "^14.0.0",
-"@angular/forms": "^14.0.0",
-"@angular/router": "^14.0.0",
-"rxjs": "^7.5.0"
+"@angular/common": "^15.0.0",
+"@angular/core": "^15.0.0",
+"@angular/cdk": "^15.0.0",
+"@angular/forms": "^15.0.0",
+"@angular/router": "^15.0.0",
+"rxjs": "~7.5.0",
 ```
 
 ### Import below css to your application

@@ -4,7 +4,8 @@
 
 ## Change log and decision tracker
 
-## 14.0.1
+## 15.0.0
+- Upgrade to angular 15
 - Remove warning for sass
 - Add onClose, onZoom callback method in panel
 

@@ -4,8 +4,12 @@ import {
   ChangeDetectionStrategy,
   TemplateRef,
   Input,
+  Inject,
+  Optional,
+  forwardRef,
 } from "@angular/core";
-import { CdkStep } from "@angular/cdk/stepper";
+import { CdkStep, StepperOptions, STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
+import { NpStepsComponent } from "./np-steps.component";
 
 @Component({
   selector: "np-step",
@@ -17,6 +21,11 @@ import { CdkStep } from "@angular/cdk/stepper";
 })
 export class NpStepComponent extends CdkStep {
   private static controlCount = 1;
+
+  constructor(@Inject(forwardRef(() => NpStepsComponent)) stepper: NpStepsComponent,
+    @Optional() @Inject(STEPPER_GLOBAL_OPTIONS) stepperOptions?: StepperOptions) {
+    super(stepper, stepperOptions);
+  }
 
   @Input() labelTemplate: TemplateRef<any>;
   @Input() iconCss: string;
