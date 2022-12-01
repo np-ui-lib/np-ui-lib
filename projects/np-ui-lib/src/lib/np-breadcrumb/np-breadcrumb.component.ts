@@ -11,7 +11,6 @@ import { NpBreadcrumbItem } from "./np-breadcrumb.model";
 @Component({
   selector: "np-breadcrumb",
   templateUrl: "./np-breadcrumb.component.html",
-  styleUrls: ["./np-breadcrumb.component.scss"],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
 })

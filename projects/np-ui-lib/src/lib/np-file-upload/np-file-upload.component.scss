@@ -43,7 +43,7 @@
     display: flex;
     padding: 0px;
     margin-left: math.div($spacer,2);
-    height: 1.5rem;
+    min-height: 1.5rem;
     width: 1.5rem;
     background-color: transparent;
     border: none;

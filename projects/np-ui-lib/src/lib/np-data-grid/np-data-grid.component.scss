@@ -192,10 +192,6 @@
     border: none;
     background-color: transparent;
     margin: 0px;
-    padding: 0px;
-    height: 2rem;
-    width: 2rem;
-    vertical-align: middle;
     cursor: pointer;
     color: inherit;
   }
@@ -232,6 +228,6 @@
   }
 
   .np-grid-col-width {
-    width: $spacer + 1rem;
+    width: $spacer * 2;
   }
 }

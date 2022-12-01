@@ -28,6 +28,7 @@
     flex-wrap: nowrap;
     justify-content: center;
     font-size: inherit;
+    border-bottom: 2px solid transparent;
 
     i {
       padding-right: 0.5rem;
@@ -40,7 +41,7 @@
   }
 
   .np-tab-title-link {
-    padding: math.div($spacer,2) $spacer;
+    padding: math.div($spacer, 2) $spacer;
     font-weight: bold;
     width: 100%;
     height: 100%;
@@ -50,7 +51,7 @@
 
   .np-tab-active {
     color: $primary-color;
-    border-bottom: 2px solid $primary-color;
+    border-color: $primary-color !important;
   }
 
   .np-tab-body {
@@ -72,9 +73,9 @@
       text-align: left;
     }
 
-    .np-tab-active {
-      border-bottom: none !important;
-      border-right: 2px solid $primary-color;
+    .np-tab-title {
+      border-bottom: none;
+      border-right: 2px solid transparent;
     }
   }
 }

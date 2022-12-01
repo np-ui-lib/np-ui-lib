@@ -21,8 +21,8 @@
 
   .np-checkbox-checkmark {
     display: inline-block;
-    height: 1rem;
-    width: 1rem;
+    height: $spacer;
+    width: $spacer;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     pointer-events: none;
@@ -50,8 +50,8 @@
   }
 
   .np-checkbox-icon {
-    height: 1rem;
-    width: 1rem;
+    height: $spacer;
+    width: $spacer;
     color: #ffffff;
   }
 }

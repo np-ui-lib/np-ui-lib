@@ -1,13 +1,19 @@
 @mixin np-tags-style {
+  .np-tags {
+    .np-input-group {
+      padding-bottom: 2px;
+    }
+  }
+
   .np-tag {
     margin: 2px 0px 0px 2px;
     color: #ffffff;
     background-color: $primary-color;
     display: flex;
     align-items: center;
-    height: 100%;
+    height: $spacer * 2;
     border-radius: $border-radius;
-    padding: 2px math.div($spacer,2) 2px $spacer;
+    padding: 2px math.div($spacer, 2) 2px $spacer;
   }
 
   .np-tag-loader {
@@ -18,7 +24,6 @@
     display: flex;
     padding: 0px;
     margin-left: $spacer;
-    height: 1.5rem;
     width: 1.5rem;
     background-color: transparent;
     border: none;

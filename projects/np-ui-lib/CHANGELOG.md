@@ -4,6 +4,9 @@
 
 ## Change log and decision tracker
 
+## 15.0.1
+- Minor CSS improvements
+
 ## 15.0.0
 - Upgrade to angular 15
 - Remove warning for sass

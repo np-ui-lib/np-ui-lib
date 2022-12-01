@@ -1,4 +1,5 @@
 @mixin np-core-style {
+
   button,
   input,
   optgroup,
@@ -121,6 +122,7 @@
   }
 
   @media (max-width: 767px) {
+
     .np-col,
     .np-col-1,
     .np-col-10,
@@ -192,6 +194,7 @@
   }
 
   @media (min-width: 768px) and (max-width: 991px) {
+
     .np-col,
     .np-col-1,
     .np-col-10,
@@ -263,6 +266,7 @@
   }
 
   @media (min-width: 992px) and (max-width: 1199px) {
+
     .np-col,
     .np-col-1,
     .np-col-10,
@@ -334,6 +338,7 @@
   }
 
   @media (min-width: 1200px) {
+
     .np-col,
     .np-col-1,
     .np-col-10,
@@ -474,6 +479,7 @@
     margin-left: 0;
 
     > {
+
       .np-col,
       [class*="np-col-"] {
         padding-right: 0;
@@ -1100,13 +1106,13 @@
 
   .np-form-control {
     display: block;
-    padding: math.div($spacer,4) math.div($spacer,2);
+    padding: math.div($spacer, 4) math.div($spacer, 2);
     margin: 0px;
     background-color: #ffffff;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     width: 100%;
-    height: $spacer + 1rem;
+    min-height: $spacer * 2;
     font-size: inherit;
   }
 
@@ -1116,7 +1122,7 @@
 
   .np-textarea-control {
     display: block;
-    padding: math.div($spacer,2);
+    padding: math.div($spacer, 2);
     margin: 0px;
     background-color: #ffffff;
     border: 1px solid $border-color;
@@ -1167,7 +1173,7 @@
     text-align: center;
   }
 
-  .np-input-group > .np-form-control {
+  .np-input-group>.np-form-control {
     position: relative;
     flex: 1 1 auto;
     border: none;
@@ -1176,7 +1182,7 @@
 
   .np-btn {
     min-width: 50px;
-    padding: math.div($spacer,2) $spacer;
+    padding: math.div($spacer, 2) $spacer;
     margin: 0px;
     text-align: center;
     background-color: $background-color;
@@ -1189,9 +1195,9 @@
   }
 
   .np-btn-icon {
-    padding: math.div($spacer,4);
-    min-height: $spacer + 1rem;
-    min-width: $spacer + 1rem;
+    padding: math.div($spacer, 4);
+    min-height: $spacer * 2;
+    min-width: $spacer * 2;
     margin: 0px;
     text-align: center;
     background-color: $background-color;
@@ -1204,7 +1210,7 @@
   }
 
   .np-btn-sm {
-    padding: math.div($spacer,4) math.div($spacer,2);
+    padding: math.div($spacer, 4) math.div($spacer, 2);
     font-size: small;
   }
 
@@ -1243,6 +1249,7 @@
   }
 
   .np-input-group {
+
     .np-btn,
     .np-btn-icon {
       border: none;
@@ -1286,12 +1293,12 @@
   .np-btn-group {
     display: flex;
     flex-wrap: wrap;
-    margin: math.div($spacer,4) 0;
+    margin: math.div($spacer, 4) 0;
 
     .np-btn,
     .np-btn-sm,
     .np-btn-icon {
-      margin: math.div($spacer,4) math.div($spacer,2) math.div($spacer,4) 0px;
+      margin: math.div($spacer, 4) math.div($spacer, 2) math.div($spacer, 4) 0px;
     }
 
     .np-btn:last-child,
@@ -1371,8 +1378,8 @@
 
   .np-alert {
     position: relative;
-    padding: math.div($spacer,2);
-    margin-bottom: math.div($spacer,2);
+    padding: math.div($spacer, 2);
+    margin-bottom: math.div($spacer, 2);
     border: 1px solid $border-color;
     border-radius: $border-radius;
     border-left: 5px solid $border-color;
@@ -1384,7 +1391,7 @@
 
   .np-alert-detail {
     flex: 1 1 auto;
-    padding: math.div($spacer,2);
+    padding: math.div($spacer, 2);
   }
 
   .np-alert-header {
@@ -1463,10 +1470,10 @@
   .np-badge {
     background-color: $background-color;
     text-align: center;
-    padding: math.div($spacer,4) math.div($spacer,2);
+    padding: math.div($spacer, 4) math.div($spacer, 2);
     border-radius: $border-radius;
     position: relative;
-    margin: 0px math.div($spacer,2);
+    margin: 0px math.div($spacer, 2);
     color: #080707;
     white-space: nowrap;
   }
@@ -1497,16 +1504,16 @@
   }
 
   .np-badge-left {
-    margin: 0px math.div($spacer,2) 0px 0px;
+    margin: 0px math.div($spacer, 2) 0px 0px;
   }
 
   .np-badge-right {
-    margin: 0px 0px 0px math.div($spacer,2);
+    margin: 0px 0px 0px math.div($spacer, 2);
   }
 
   .np-badge-pill {
     border-radius: 2rem;
-    padding: math.div($spacer,4) $spacer;
+    padding: math.div($spacer, 4) $spacer;
   }
 
   .np-container {
@@ -1522,11 +1529,11 @@
   }
 
   .np-form-label {
-    margin-bottom: math.div($spacer,2);
+    margin-bottom: math.div($spacer, 2);
   }
 
   .np-form-text {
-    margin-top: math.div($spacer,4);
+    margin-top: math.div($spacer, 4);
   }
 
   .np-text-success {
@@ -1651,7 +1658,7 @@
   }
 
   .np-list-item {
-    padding: math.div($spacer,2);
+    padding: math.div($spacer, 2);
     border-bottom: 1px solid $border-color;
     background-color: #ffffff;
     position: relative;
@@ -1674,7 +1681,7 @@
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    padding: math.div($spacer,4);
+    padding: math.div($spacer, 4);
     border: 1px solid $border-color;
     border-radius: $border-radius;
     background-color: #ffffff;
@@ -1682,7 +1689,7 @@
 
   .np-toolbar-separator {
     border-right: 1px solid $border-color;
-    margin: math.div($spacer,4) math.div($spacer,2);
+    margin: math.div($spacer, 4) math.div($spacer, 2);
     height: 2rem;
   }
 
@@ -1691,7 +1698,7 @@
   }
 
   .np-toolbar-item {
-    padding: math.div($spacer,4);
+    padding: math.div($spacer, 4);
   }
 
   .np-form-control.ng-touched.ng-invalid {
@@ -1699,6 +1706,7 @@
   }
 
   .ng-touched.ng-invalid:not(form) {
+
     .np-switch,
     .np-overlay-open,
     .np-slider-input,
@@ -1717,6 +1725,7 @@
   }
 
   .ng-dirty.ng-invalid:not(form) {
+
     .np-switch,
     .np-overlay-open,
     .np-slider-input,
@@ -1824,25 +1833,35 @@
   }
 
   .np-input-group {
+
     .np-btn-icon:focus,
     .np-form-control:focus {
       box-shadow: none !important;
     }
   }
 
-  .np-prefix-label,
+  .np-prefix-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: math.div($spacer, 4) 0 math.div($spacer, 4) math.div($spacer, 4);
+    min-height: $spacer * 2;
+    min-width: $spacer * 2;
+  }
+
   .np-suffix-label {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: math.div($spacer,4);
-    min-height: $spacer + 1rem;
-    min-width: $spacer + 1rem;
+    padding: math.div($spacer, 4) math.div($spacer, 4) math.div($spacer, 4) 0;
+    min-height: $spacer * 2;
+    min-width: $spacer * 2;
   }
 
   .np-bg-primary {
     background: $primary-color;
   }
+
   .np-text-primary {
     color: $primary-color;
   }
@@ -1851,30 +1870,39 @@
     .m-#{$i} {
       margin: ($spacer * $i)/2;
     }
+
     .mt-#{$i} {
       margin-top: ($spacer * $i)/2;
     }
+
     .mr-#{$i} {
       margin-right: ($spacer * $i)/2;
     }
+
     .mb-#{$i} {
       margin-bottom: ($spacer * $i)/2;
     }
+
     .ml-#{$i} {
       margin-left: ($spacer * $i)/2;
     }
+
     .p-#{$i} {
       padding: ($spacer * $i)/2;
     }
+
     .pt-#{$i} {
       padding-top: ($spacer * $i)/2;
     }
+
     .pr-#{$i} {
       padding-right: ($spacer * $i)/2;
     }
+
     .pb-#{$i} {
       padding-bottom: ($spacer * $i)/2;
     }
+
     .pl-#{$i} {
       padding-left: ($spacer * $i)/2;
     }
@@ -1883,15 +1911,19 @@
   .m-auto {
     margin: auto;
   }
+
   .mt-auto {
     margin-top: auto;
   }
+
   .mr-auto {
     margin-top: auto;
   }
+
   .mb-auto {
     margin-bottom: auto;
   }
+
   .ml-auto {
     margin-left: auto;
   }

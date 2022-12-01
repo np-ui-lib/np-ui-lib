@@ -10,7 +10,7 @@
 
   .np-alert-close-all {
     position: absolute;
-    left: -35px;
+    left: -$spacer * 2;
     bottom: math.div($spacer,2);
     border: none;
     background-color: transparent;

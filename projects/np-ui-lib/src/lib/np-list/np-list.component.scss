@@ -10,7 +10,7 @@
   }
 
   .np-list-selectable {
-    padding-left: $spacer + 1rem;
+    padding-left: $spacer * 2;
   }
 
   .np-tiles {
@@ -31,7 +31,7 @@
   }
 
   .np-tiles-selectable {
-    padding-left: $spacer + 1rem;
+    padding-left: $spacer * 2;
   }
 
   .np-tiles-checkbox {

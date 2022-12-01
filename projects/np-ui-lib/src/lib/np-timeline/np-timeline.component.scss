@@ -55,8 +55,8 @@
 
   .np-timeline-default-marker {
     background-color: $primary-color;
-    height: 1rem;
-    width: 1rem;
+    height: $spacer;
+    width: $spacer;
     border-radius: 50%;
   }
 }
