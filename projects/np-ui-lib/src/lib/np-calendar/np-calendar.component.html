@@ -57,15 +57,17 @@
               'np-calendar-today': item.today,
               'np-disabled': item.disabled
             }" (click)="_onClickDate(item.date)">
-            <span class="np-calendar-day-label" [innerHTML]="item.day"></span>
+            <div class="np-calendar-day-label" [innerHTML]="item.day"></div>
             <div class="np-calendar-events">
               <ng-container *ngFor="let eve of item.events">
                 <div class="np-calendar-event" [style.background-color]="eve.backgroundColor"
                   [style.color]="eve.fontColor" (click)="_onClickEvent($event, eve)">
-                  <div *ngIf="!eventTemplate; else customTemplate" [innerHTML]="eve.title" [title]="eve.title"></div>
-                  <ng-template #customTemplate [ngTemplateOutlet]="eventTemplate"
-                    [ngTemplateOutletContext]="{ event: eve }">
-                  </ng-template>
+                  <div class="np-calendar-event-details">
+                    <div *ngIf="!eventTemplate; else customTemplate" [innerHTML]="eve.title" [title]="eve.title"></div>
+                    <ng-template #customTemplate [ngTemplateOutlet]="eventTemplate"
+                      [ngTemplateOutletContext]="{ event: eve }">
+                    </ng-template>
+                  </div>
                 </div>
               </ng-container>
             </div>

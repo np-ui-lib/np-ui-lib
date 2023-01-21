@@ -4,26 +4,13 @@
   To set OData operations in data grid, set <b>[isODataOperations]</b> to "true"
   in grid definition
 </p>
-<p>Only support OData v4.</p>
 
 <np-alert type="info"> <b>OData Query :</b> {{ odataQuery }} </np-alert>
 
-<np-data-grid
-  #serverSideGrid
-  [columns]="gridColumns"
-  [dataSource]="gridDataSource"
-  [multiColumnSortEnable]="true"
-  [title]="'OData backend V4'"
-  [showColumnChooser]="true"
-  [showToolBar]="true"
-  [allowExport]="true"
-  [enableStateStoring]="true"
-  [showSummary]="true"
-  [summaryTemplate]="summaryTemplate"
-  [isServerOperations]="true"
-  [isODataOperations]="true"
-  (onLoadData)="onLoadData($event)"
->
+<np-data-grid #serverSideGrid [columns]="gridColumns" [dataSource]="gridDataSource" [multiColumnSortEnable]="true"
+  [title]="'Fetch data from ODATA api'" [showColumnChooser]="true" [showToolBar]="true" [allowExport]="true"
+  [enableStateStoring]="true" [showSummary]="true" [summaryTemplate]="summaryTemplate" [isServerOperations]="true"
+  [isODataOperations]="true" (onLoadData)="onLoadData($event)">
 </np-data-grid>
 
 <!-- Template for summary section -->

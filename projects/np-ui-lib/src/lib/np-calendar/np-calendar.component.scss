@@ -24,7 +24,7 @@
 
     th {
       background-color: $selected-background-color;
-      padding: math.div($spacer,2) $spacer;
+      padding: math.div($spacer, 2) $spacer;
       margin: 0;
       overflow: hidden;
     }
@@ -49,8 +49,7 @@
   }
 
   .np-calendar-day-label {
-    padding: $spacer;
-    direction: rtl;
+    padding: math.div($spacer, 4);
   }
 
   .np-calendar-today {
@@ -74,5 +73,13 @@
     white-space: nowrap;
     overflow: hidden;
     font-size: 0.9rem;
+
+    &:first-child {
+      margin-top: 0px !important;
+    }
+  }
+
+  .np-calendar-event-details {
+    white-space: pre-wrap;
   }
 }

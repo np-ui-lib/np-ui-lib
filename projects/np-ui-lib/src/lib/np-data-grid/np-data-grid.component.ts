@@ -80,6 +80,7 @@ export class NpDataGridComponent
   @Input() allowColumnReorder: boolean = false;
   @Input() isServerOperations: boolean = false;
   @Input() isODataOperations: boolean = false;
+  @Input() odataVersion: 1 | 2 | 3 | 4 = 4;
   @Input() allowExport: boolean = false;
   @Input() isServerExport: boolean = false;
   @Input() showToolBar: boolean = false;
@@ -444,10 +445,12 @@ export class NpDataGridComponent
         const top = options.pageSize;
         const skip = (options.currentPage - 1) * options.pageSize;
         loadOpt.odataQuery = this.oDataService.buildQuery(
+          this.filterColumnList,
+          this.sortColumnList,
           top,
           skip,
-          this.sortColumnList,
-          this.filterColumnList
+          true,
+          this.odataVersion
         );
         loadOpt.pageNumber = 0;
         loadOpt.pageSize = 0;
@@ -933,11 +936,12 @@ export class NpDataGridComponent
     if (this.isServerExport) {
       if (this.isODataOperations) {
         loadOpt.odataQuery = this.oDataService.buildQuery(
-          0,
-          0,
-          this.sortColumnList,
           this.filterColumnList,
-          "allpages"
+          this.sortColumnList,
+          0,
+          0,
+          false,
+          this.odataVersion
         );
         loadOpt.isAllPages = true;
       } else {
@@ -953,11 +957,12 @@ export class NpDataGridComponent
     if (this.isServerOperations) {
       if (this.isODataOperations) {
         loadOpt.odataQuery = this.oDataService.buildQuery(
-          0,
-          0,
-          this.sortColumnList,
           this.filterColumnList,
-          "allpages"
+          this.sortColumnList,
+          0,
+          0,
+          true,
+          this.odataVersion
         );
         loadOpt.isAllPages = true;
       } else {

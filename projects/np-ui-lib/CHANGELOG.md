@@ -6,6 +6,7 @@
 
 ## 15.0.1
 - Minor CSS improvements
+- DataGrid : Add new property for odata version to generate right odata query
 
 ## 15.0.0
 - Upgrade to angular 15

@@ -4,14 +4,16 @@ import { DataTypes, FilterTypes } from "../models/constants";
 @Injectable()
 export class NpODataService {
   buildQuery(
+    filterColumns: any[],
+    sortColumns: any[],
     top: number,
     skip: number,
-    sortColumns: any[],
-    filterColumns: any[],
-    inlineCount?: string
+    getTotalRecords: boolean = true,
+    odataVersion: 1 | 2 | 3 | 4 = 4
   ): string {
     const queryTmpArray = [];
 
+    // filter
     if (filterColumns) {
       if (filterColumns && filterColumns.length === 1) {
         if (filterColumns[0].dataType === DataTypes.String) {
@@ -55,6 +57,7 @@ export class NpODataService {
       }
     }
 
+    // sorting
     if (sortColumns) {
       const sortQueue = [];
       for (const element of sortColumns) {
@@ -65,14 +68,29 @@ export class NpODataService {
       }
     }
 
-    if (inlineCount && inlineCount.length > 0) {
-      queryTmpArray.push(`$count=true`);
-    } else {
+    // top
+    if (top > 0) {
       queryTmpArray.push(`$top=${top}`);
-      if (skip > 0) {
-        queryTmpArray.push(`$skip=${skip}`);
+    }
+
+    // skip
+    if (skip > 0) {
+      queryTmpArray.push(`$skip=${skip}`);
+    }
+
+    // inlinecount
+    if (getTotalRecords) {
+      if (odataVersion == 4) {
+        queryTmpArray.push(`$count=true`);
+      } else {
+        queryTmpArray.push(`$inlinecount=allpages`);
       }
-      queryTmpArray.push("$count=true");
+    } else {
+      if (odataVersion == 4) {
+        queryTmpArray.push(`$count=false`);
+      } else {
+        queryTmpArray.push(`$inlinecount=none`);
+      }
     }
 
     return queryTmpArray.join("&");

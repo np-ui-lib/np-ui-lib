@@ -25,6 +25,11 @@
 
   .np-dialog-body {
     height: 100%;
+    padding-bottom: $spacer;
+
+    div {
+      padding-bottom: math.div($spacer,2);
+    }
   }
 
   .np-dialog-message {

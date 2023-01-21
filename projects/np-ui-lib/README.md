@@ -45,7 +45,7 @@ npm i np-ui-lib --save
 "rxjs": "~7.5.0",
 ```
 
-### Import below css to your application
+### Import below css to your application, or add in styles section in angular.json
 ```css
 @import "~@angular/cdk/overlay-prebuilt.css";
 @import "np-ui-lib/styles/default-theme.scss";
